@@ -41,4 +41,14 @@ namespace Ndapi
 			}
 		}
 	}
+
+	void NdapiContext::ConnectToDatabase(String^ connectionString)
+	{
+		d2fctxcn_Connect(Context, StringToText(connectionString), nullptr);
+	}
+
+	void NdapiContext::DisconnectFromDatabase() 
+	{
+		d2fctxdc_Disconnect(Context);
+	}
 }

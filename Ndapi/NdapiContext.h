@@ -18,12 +18,12 @@ namespace Ndapi
 		static property long ProductVersion { long get(); }
 
 		static void Destroy();
+		static void ConnectToDatabase(String^ connectionString);
+		static void DisconnectFromDatabase();
 
 	// Missing methods:
 	//d2fctxsa_SetAttributes
 	//d2fctxga_GetAttributes
-	//d2fctxcn_Connect
-	//d2fctxdc_Disconnect
 	//d2fctxcf_ConvertFile
 	//d2fctxbi_BuiltIns
 	};
