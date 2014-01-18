@@ -25,6 +25,20 @@ namespace Ndapi
 	{
 		number version;
 		auto status = d2fctxbv_BuilderVersion(Context, &version);
+		if (status != D2FS_SUCCESS) {
+			throw gcnew NdapiException("Error while getting product version", status);
+		}
 		return version;
+	}
+
+	void NdapiContext::Destroy()
+	{
+		if (_context != nullptr) 
+		{
+			auto status = d2fctxde_Destroy(_context);
+			if (status != D2FS_SUCCESS) {
+				throw gcnew NdapiException("Error while destroying the context", status);
+			}
+		}
 	}
 }

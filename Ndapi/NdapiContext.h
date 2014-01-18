@@ -17,8 +17,9 @@ namespace Ndapi
 		// Wrapper for d2fctxbv_BuilderVersion
 		static property long ProductVersion { long get(); }
 
+		static void Destroy();
+
 	// Missing methods:
-	//d2fctxde_Destroy
 	//d2fctxsa_SetAttributes
 	//d2fctxga_GetAttributes
 	//d2fctxcn_Connect
