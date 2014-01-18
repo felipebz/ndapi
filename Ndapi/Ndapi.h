@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ORATYPES.H>
+
 using namespace System;
 
 namespace Ndapi
@@ -18,4 +20,6 @@ namespace Ndapi
 			Status = status;
 		}
 	};
+
+	text* StringToText(String^ value);
 }
