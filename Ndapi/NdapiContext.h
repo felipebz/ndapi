@@ -10,11 +10,9 @@ namespace Ndapi
 		static d2fctx* _context;
 
 	public protected:
-		// wrapper for d2fctxcr_Create
 		static property d2fctx* Context { d2fctx* get(); }
 
 	public:
-		// Wrapper for d2fctxbv_BuilderVersion
 		static property long ProductVersion { long get(); }
 
 		static void Destroy();
