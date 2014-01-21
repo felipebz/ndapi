@@ -15,7 +15,7 @@ namespace Ndapi
 		auto status = d2fobgt_GetTextProp(NdapiContext::Context, internal_object, property_id, &property_value);
 		if (status != D2FS_SUCCESS)
 		{
-			throw gcnew NdapiException(String::Format("Error while getting a string property. Property id: {0}", property_id), status);
+			throw gcnew NdapiException(String::Format("Error getting a string property. Property id: {0}", property_id), status);
 		}
 		return gcnew String((char*)property_value);
 	}
@@ -27,7 +27,7 @@ namespace Ndapi
 		auto status = d2fobst_SetTextProp(NdapiContext::Context, internal_object, property_id, internal_value);
 		if (status != D2FS_SUCCESS)
 		{
-			throw gcnew NdapiException(String::Format("Error while setting a string property. Property id: {0}", property_id), status);
+			throw gcnew NdapiException(String::Format("Error setting a string property. Property id: {0}", property_id), status);
 		}
 
 	}
@@ -39,7 +39,7 @@ namespace Ndapi
 		auto status = d2fobgn_GetNumProp(NdapiContext::Context, internal_object, property_id, &property_value);
 		if (status != D2FS_SUCCESS)
 		{
-			throw gcnew NdapiException(String::Format("Error while getting a number property. Property id: {0}", property_id), status);
+			throw gcnew NdapiException(String::Format("Error getting a number property. Property id: {0}", property_id), status);
 		}
 
 		return (long)property_value;
@@ -52,7 +52,7 @@ namespace Ndapi
 		auto status = d2fobgn_GetNumProp(NdapiContext::Context, internal_object, property_id, &property_value);
 		if (status != D2FS_SUCCESS)
 		{
-			throw gcnew NdapiException(String::Format("Error while setting a number property. Property id: {0}", property_id), status);
+			throw gcnew NdapiException(String::Format("Error setting a number property. Property id: {0}", property_id), status);
 		}
 	}
 }

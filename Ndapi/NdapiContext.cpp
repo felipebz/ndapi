@@ -13,7 +13,7 @@ namespace Ndapi
 			context_attributes.mask_d2fctxa = 0;
 			auto status = d2fctxcr_Create(&context, &context_attributes);
 			if (status != D2FS_SUCCESS) {
-				throw gcnew NdapiException("Error while creating a Oracle Forms context", status);
+				throw gcnew NdapiException("Error creating a Oracle Forms context", status);
 			}
 
 			_context = context;
@@ -26,7 +26,7 @@ namespace Ndapi
 		number version;
 		auto status = d2fctxbv_BuilderVersion(Context, &version);
 		if (status != D2FS_SUCCESS) {
-			throw gcnew NdapiException("Error while getting product version", status);
+			throw gcnew NdapiException("Error getting product version", status);
 		}
 		return version;
 	}
@@ -37,7 +37,7 @@ namespace Ndapi
 		{
 			auto status = d2fctxde_Destroy(_context);
 			if (status != D2FS_SUCCESS) {
-				throw gcnew NdapiException("Error while destroying the context", status);
+				throw gcnew NdapiException("Error destroying the context", status);
 			}
 		}
 	}
