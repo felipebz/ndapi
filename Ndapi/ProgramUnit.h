@@ -1,7 +1,6 @@
 #pragma once
 
 #include "NdapiObject.h"
-#include <D2FPGU.H>
 
 namespace Ndapi
 {
@@ -9,5 +8,9 @@ namespace Ndapi
 	{
 	public protected:
 		ProgramUnit(d2fob* program_unit);
+
+	public:
+		property String^ Comment { String^ get(); void set(String^ value); }
+		property String^ Text { String^ get(); void set(String^ value); }
 	};
 }
