@@ -8,7 +8,7 @@ using namespace System;
 
 namespace Ndapi
 {
-	ref class NdapiObject
+	public ref class NdapiObject
 	{
 	private:
 		d2fob* internal_object;
