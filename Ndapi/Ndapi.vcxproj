@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FormModule.h" />
     <ClInclude Include="Ndapi.h" />
     <ClInclude Include="NdapiContext.h" />
     <ClInclude Include="NdapiEnumerator.h" />
@@ -90,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="FormModule.cpp" />
     <ClCompile Include="Ndapi.cpp" />
     <ClCompile Include="NdapiContext.cpp" />
     <ClCompile Include="NdapiEnumerator.cpp" />
