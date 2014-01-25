@@ -1,8 +1,9 @@
 #pragma once
 
+#include <D2FOB.H>
+
 #include "Ndapi.h"
 #include "NdapiContext.h"
-#include <D2FOB.H>
 
 using namespace System;
 
@@ -10,10 +11,9 @@ namespace Ndapi
 {
 	public ref class NdapiObject
 	{
-	private:
+	public protected:
 		d2fob* internal_object;
 
-	public protected:
 		NdapiObject();
 		NdapiObject(d2fob* object);
 		void FillWithObject(void* object);
