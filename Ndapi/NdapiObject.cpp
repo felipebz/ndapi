@@ -31,7 +31,7 @@ namespace Ndapi
 
 	void NdapiObject::SetStringProperty(int property_id, String^ value)
 	{
-		auto internal_value = StringToText(value);
+		NativeString<text> internal_value(value);
 
 		auto status = d2fobst_SetTextProp(NdapiContext::Context, internal_object, property_id, internal_value);
 		if (status != D2FS_SUCCESS)

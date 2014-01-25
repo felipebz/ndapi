@@ -15,7 +15,7 @@ namespace Ndapi
 			throw gcnew FileNotFoundException("Module file not found", file);
 		}
 
-		auto filename = StringToText(file);
+		NativeString<text> filename(file);
 
 		d2ffmd* form_module;
 		auto status = d2ffmdld_Load(NdapiContext::Context, &form_module, filename, FALSE);

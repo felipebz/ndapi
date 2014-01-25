@@ -44,7 +44,8 @@ namespace Ndapi
 
 	void NdapiContext::ConnectToDatabase(String^ connectionString)
 	{
-		d2fctxcn_Connect(Context, StringToText(connectionString), nullptr);
+		NativeString<text> conn(connectionString);
+		d2fctxcn_Connect(Context, conn, nullptr);
 	}
 
 	void NdapiContext::DisconnectFromDatabase() 

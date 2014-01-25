@@ -3,6 +3,7 @@
 #include <ORATYPES.H>
 
 using namespace System;
+using namespace System::Runtime::InteropServices;
 
 namespace Ndapi
 {
@@ -21,5 +22,19 @@ namespace Ndapi
 		}
 	};
 
-	text* StringToText(String^ value);
+	template<class Char_>
+	class NativeString
+	{
+	public:
+		NativeString(String^ s);
+		~NativeString() { Marshal::FreeHGlobal(IntPtr(p_)); }
+		operator Char_* () { return p_; }
+
+	private:
+		NativeString(const NativeString&);
+		NativeString& operator = (const NativeString&);
+
+	private:
+		Char_* p_;
+	};
 }
