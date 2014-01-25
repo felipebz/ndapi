@@ -7,6 +7,7 @@ namespace Ndapi
 	public ref class ProgramUnit : NdapiObject
 	{
 	public protected:
+		ProgramUnit();
 		ProgramUnit(d2fob* program_unit);
 
 	public:

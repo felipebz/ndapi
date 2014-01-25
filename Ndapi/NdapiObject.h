@@ -14,7 +14,9 @@ namespace Ndapi
 		d2fob* internal_object;
 
 	public protected:
+		NdapiObject();
 		NdapiObject(d2fob* object);
+		void FillWithObject(void* object);
 
 	public:
 		String^ GetStringProperty(int property_id);

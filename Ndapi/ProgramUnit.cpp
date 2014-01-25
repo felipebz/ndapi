@@ -3,6 +3,10 @@
 
 namespace Ndapi
 {
+	ProgramUnit::ProgramUnit() : NdapiObject()
+	{
+	}
+
 	ProgramUnit::ProgramUnit(d2fob* program_unit) : NdapiObject(program_unit)
 	{
 	}

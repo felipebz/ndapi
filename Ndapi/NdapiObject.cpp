@@ -3,7 +3,16 @@
 
 namespace Ndapi
 {
+	NdapiObject::NdapiObject()
+	{
+	}
+
 	NdapiObject::NdapiObject(d2fob* object)
+	{
+		internal_object = object;
+	}
+
+	void NdapiObject::FillWithObject(void* object)
 	{
 		internal_object = object;
 	}
