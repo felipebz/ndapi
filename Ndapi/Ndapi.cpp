@@ -7,5 +7,5 @@ using namespace System::Runtime::InteropServices;
 template<>
 Ndapi::NativeString<text>::NativeString(String^ s)
 {
-	p_ = (text*)(void*)Marshal::StringToHGlobalAnsi(s);
+	value = (text*)(void*)Marshal::StringToHGlobalAnsi(s);
 }

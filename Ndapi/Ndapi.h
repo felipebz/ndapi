@@ -22,19 +22,17 @@ namespace Ndapi
 		}
 	};
 
-	template<class Char_>
+	template<class T>
 	class NativeString
 	{
-	public:
-		NativeString(String^ s);
-		~NativeString() { Marshal::FreeHGlobal(IntPtr(p_)); }
-		operator Char_* () { return p_; }
-
 	private:
+		T* value;
 		NativeString(const NativeString&);
 		NativeString& operator = (const NativeString&);
 
-	private:
-		Char_* p_;
+	public:
+		NativeString(String^ s);
+		~NativeString() { Marshal::FreeHGlobal(IntPtr(value)); }
+		operator T* () { return value; }
 	};
 }
