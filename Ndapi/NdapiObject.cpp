@@ -64,4 +64,84 @@ namespace Ndapi
 			throw gcnew NdapiException(String::Format("Error setting a number property. Property id: {0}", property_id), status);
 		}
 	}
+
+	String^ NdapiObject::Name::get()
+	{
+		return GetStringProperty(D2FP_NAME);
+	}
+
+	void NdapiObject::Name::set(String^ value)
+	{
+		SetStringProperty(D2FP_NAME, value);
+	}
+
+	String^ NdapiObject::ParentFileName::get()
+	{
+		return GetStringProperty(D2FP_PAR_FLNAM);
+	}
+
+	void NdapiObject::ParentFileName::set(String^ value)
+	{
+		SetStringProperty(D2FP_PAR_FLNAM, value);
+	}
+
+	String^ NdapiObject::ParentFileNamePath::get()
+	{
+		return GetStringProperty(D2FP_PAR_FLPATH);
+	}
+
+	void NdapiObject::ParentFileNamePath::set(String^ value)
+	{
+		SetStringProperty(D2FP_PAR_FLPATH, value);
+	}
+
+	ModuleStorageType NdapiObject::ParentModuleStorage::get()
+	{
+		return safe_cast<ModuleStorageType>(GetNumberProperty(D2FP_PAR_MODSTR));
+	}
+
+	void NdapiObject::ParentModuleStorage::set(ModuleStorageType value)
+	{
+		SetNumberProperty(D2FP_PAR_MODSTR, safe_cast<long>(value));
+	}
+
+	long NdapiObject::ParentModuleType::get()
+	{
+		return GetNumberProperty(D2FP_PAR_MODTYP);
+	}
+
+	void NdapiObject::ParentModuleType::set(long value)
+	{
+		SetNumberProperty(D2FP_PAR_MODTYP, value);
+	}
+
+	String^ NdapiObject::ParentModule::get()
+	{
+		return GetStringProperty(D2FP_PAR_MODULE);
+	}
+
+	void NdapiObject::ParentModule::set(String^ value)
+	{
+		SetStringProperty(D2FP_PAR_MODULE, value);
+	}
+
+	String^ NdapiObject::ParentName::get()
+	{
+		return GetStringProperty(D2FP_PAR_NAM);
+	}
+
+	void NdapiObject::ParentName::set(String^ value)
+	{
+		SetStringProperty(D2FP_PAR_NAM, value);
+	}
+
+	long NdapiObject::ParentType::get()
+	{
+		return GetNumberProperty(D2FP_PAR_TYP);
+	}
+
+	void NdapiObject::ParentType::set(long value)
+	{
+		SetNumberProperty(D2FP_PAR_TYP, value);
+	}
 }

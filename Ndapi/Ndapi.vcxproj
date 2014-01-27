@@ -85,6 +85,7 @@
     <ClInclude Include="Ndapi.h" />
     <ClInclude Include="NdapiContext.h" />
     <ClInclude Include="NdapiEnumerator.h" />
+    <ClInclude Include="NdapiEnums.h" />
     <ClInclude Include="NdapiObject.h" />
     <ClInclude Include="ProgramUnit.h" />
     <ClInclude Include="Stdafx.h" />
@@ -95,6 +96,7 @@
     <ClCompile Include="Ndapi.cpp" />
     <ClCompile Include="NdapiContext.cpp" />
     <ClCompile Include="NdapiEnumerator.cpp" />
+    <ClCompile Include="NdapiEnums.cpp" />
     <ClCompile Include="NdapiObject.cpp" />
     <ClCompile Include="ProgramUnit.cpp" />
     <ClCompile Include="Stdafx.cpp">
