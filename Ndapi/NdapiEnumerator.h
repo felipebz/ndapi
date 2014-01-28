@@ -50,7 +50,7 @@ namespace Ndapi
 			}
 			_result = result;
 
-			return _result != NULL;
+			return _result != nullptr;
 		}
 
 		property T Current
