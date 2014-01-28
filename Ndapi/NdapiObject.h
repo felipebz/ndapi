@@ -1,6 +1,7 @@
 #pragma once
 
 #include <D2FOB.H>
+#include <D2FDEF.H>
 
 #include "Ndapi.h"
 #include "NdapiContext.h"
@@ -18,6 +19,7 @@ namespace Ndapi
 		NdapiObject();
 		NdapiObject(d2fob* object);
 		void FillWithObject(void* object);
+		void Create(String^ name, d2fotyp object_type);;
 
 	public:
 		String^ GetStringProperty(int property_id);
