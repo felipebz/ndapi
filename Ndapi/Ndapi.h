@@ -11,14 +11,24 @@ namespace Ndapi
 	public ref class NdapiException : public Exception
 	{
 	private:
-		property long Status;
+		long _status;
+
+	public:
+		property long Status 
+		{ 
+			long get() 
+			{
+				return _status;
+			}
+		};
+
 	public protected:
 		NdapiException() : Exception() {}
 		NdapiException(String^ message) : Exception(message) {}
 		NdapiException(String^ message, Exception^ inner) : Exception(message, inner) {}
 		NdapiException(String^ message, long status) : Exception(message)
 		{
-			Status = status;
+			_status = status;
 		}
 	};
 
