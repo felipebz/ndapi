@@ -9,6 +9,10 @@ namespace Ndapi
 	{
 	}
 
+	FormModule::FormModule(String^ name) {
+		Create(name, D2FFO_FORM_MODULE);
+	}
+
 	FormModule^ FormModule::Open(String^ file)
 	{
 		if (!File::Exists(file)) {

@@ -16,6 +16,7 @@ namespace Ndapi
 		FormModule(d2fob* form_module);
 
 	public:
+		FormModule(String^ name);
 		static FormModule^ Open(String^ file);
 
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
