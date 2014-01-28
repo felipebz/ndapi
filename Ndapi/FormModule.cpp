@@ -29,10 +29,10 @@ namespace Ndapi
 
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
-		return gcnew NdapiEnumerator<ProgramUnit^>(internal_object, D2FP_PROG_UNIT);
+		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
 	}
 
 	FormModule::~FormModule() {
-		d2ffmdde_Destroy(NdapiContext::Context, (d2ffmd*)internal_object);
+		d2ffmdde_Destroy(NdapiContext::Context, (d2ffmd*)_handler);
 	}
 }

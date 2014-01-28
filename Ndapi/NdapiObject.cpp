@@ -9,19 +9,19 @@ namespace Ndapi
 
 	NdapiObject::NdapiObject(d2fob* object)
 	{
-		internal_object = object;
+		_handler = object;
 	}
 
 	void NdapiObject::FillWithObject(void* object)
 	{
-		internal_object = object;
+		_handler = object;
 	}
 
 	String^ NdapiObject::GetStringProperty(int property_id)
 	{
 		text* property_value;
 
-		auto status = d2fobgt_GetTextProp(NdapiContext::Context, internal_object, property_id, &property_value);
+		auto status = d2fobgt_GetTextProp(NdapiContext::Context, _handler, property_id, &property_value);
 		if (status != D2FS_SUCCESS)
 		{
 			throw gcnew NdapiException(String::Format("Error getting a string property. Property id: {0}", property_id), status);
@@ -33,7 +33,7 @@ namespace Ndapi
 	{
 		NativeString<text> internal_value(value);
 
-		auto status = d2fobst_SetTextProp(NdapiContext::Context, internal_object, property_id, internal_value);
+		auto status = d2fobst_SetTextProp(NdapiContext::Context, _handler, property_id, internal_value);
 		if (status != D2FS_SUCCESS)
 		{
 			throw gcnew NdapiException(String::Format("Error setting a string property. Property id: {0}", property_id), status);
@@ -45,7 +45,7 @@ namespace Ndapi
 	{
 		number property_value;
 
-		auto status = d2fobgn_GetNumProp(NdapiContext::Context, internal_object, property_id, &property_value);
+		auto status = d2fobgn_GetNumProp(NdapiContext::Context, _handler, property_id, &property_value);
 		if (status != D2FS_SUCCESS)
 		{
 			throw gcnew NdapiException(String::Format("Error getting a number property. Property id: {0}", property_id), status);
@@ -58,7 +58,7 @@ namespace Ndapi
 	{
 		number property_value = (number)value;
 
-		auto status = d2fobgn_GetNumProp(NdapiContext::Context, internal_object, property_id, &property_value);
+		auto status = d2fobgn_GetNumProp(NdapiContext::Context, _handler, property_id, &property_value);
 		if (status != D2FS_SUCCESS)
 		{
 			throw gcnew NdapiException(String::Format("Error setting a number property. Property id: {0}", property_id), status);

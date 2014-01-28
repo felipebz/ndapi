@@ -13,7 +13,7 @@ namespace Ndapi
 	public ref class NdapiObject
 	{
 	public protected:
-		d2fob* internal_object;
+		d2fob* _handler;
 
 		NdapiObject();
 		NdapiObject(d2fob* object);
