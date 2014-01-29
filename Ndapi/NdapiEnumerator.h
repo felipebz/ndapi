@@ -12,8 +12,8 @@ using namespace System::Runtime::InteropServices;
 
 namespace Ndapi
 {
-	generic <class T> where T : NdapiObject, gcnew()
-		public ref struct NdapiEnumerator : IEnumerable<T>, IEnumerator<T>
+	generic <class T>
+	public ref struct NdapiEnumerator : IEnumerable<T>, IEnumerator<T>
 	{
 	private:
 		d2fob* _handler;
@@ -62,11 +62,11 @@ namespace Ndapi
 				MoveNext();
 			}
 
-			auto instance = gcnew T();
+			NdapiObject^ instance = safe_cast<NdapiObject^>(Activator::CreateInstance<T>());
 
 			instance->FillWithObject(_result);
 
-			return instance;
+			return safe_cast<T>(instance);
 		}
 		};
 
