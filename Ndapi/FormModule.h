@@ -10,6 +10,8 @@ using namespace System;
 
 namespace Ndapi
 {
+	ref class ProgramUnit;
+
 	public ref class FormModule : NdapiObject
 	{
 	private:

@@ -11,6 +11,11 @@ namespace Ndapi
 	{
 	}
 
+	ProgramUnit::ProgramUnit(FormModule^ form, String^ name)
+	{
+		Create(name, form, D2FFO_PROG_UNIT);
+	}
+
 	String^ ProgramUnit::Comment::get()
 	{
 		return GetStringProperty(D2FP_COMMENT);
