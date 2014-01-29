@@ -31,6 +31,20 @@ namespace Ndapi
 		_handler = object;
 	}
 
+	void NdapiObject::Create(String^ name, NdapiObject^ parent, d2fotyp object_type)
+	{
+		auto object = _handler;
+		NativeString<text> internal_name(name);
+
+		auto status = d2fobcr_Create(NdapiContext::Context, parent->_handler, &object, internal_name, object_type);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error creating a object. Type: {0}", object_type), status);
+		}
+
+		_handler = object;
+	}
+
 	String^ NdapiObject::GetStringProperty(int property_id)
 	{
 		text* property_value;
