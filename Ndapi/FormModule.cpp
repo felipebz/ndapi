@@ -44,7 +44,11 @@ namespace Ndapi
 	void FormModule::Save(String^ path, bool saveInDatabase)
 	{
 		NativeString<text> module_path(path);
-		d2ffmdsv_Save(NdapiContext::Context, _handler, module_path, saveInDatabase);
+		auto status = d2ffmdsv_Save(NdapiContext::Context, _handler, module_path, saveInDatabase);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error saving the form module. Path: {0}", path), status);
+		}
 	}
 
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
