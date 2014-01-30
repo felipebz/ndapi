@@ -31,6 +31,22 @@ namespace Ndapi
 		return gcnew FormModule(form_module);
 	}
 
+	void FormModule::Save()
+	{
+		Save(nullptr);
+	}
+
+	void FormModule::Save(String^ path)
+	{
+		Save(path, false);
+	}
+
+	void FormModule::Save(String^ path, bool saveInDatabase)
+	{
+		NativeString<text> module_path(path);
+		d2ffmdsv_Save(NdapiContext::Context, _handler, module_path, saveInDatabase);
+	}
+
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);

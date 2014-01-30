@@ -20,6 +20,9 @@ namespace Ndapi
 	public:
 		FormModule(String^ name);
 		static FormModule^ Open(String^ file);
+		void Save();
+		void Save(String^ path);
+		void Save(String^ path, bool saveInDatabase);
 
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 
