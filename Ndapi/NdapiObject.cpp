@@ -86,7 +86,7 @@ namespace Ndapi
 	{
 		number property_value = (number)value;
 
-		auto status = d2fobgn_GetNumProp(NdapiContext::Context, _handler, property_id, &property_value);
+		auto status = d2fobsn_SetNumProp(NdapiContext::Context, _handler, property_id, property_value);
 		if (status != D2FS_SUCCESS)
 		{
 			throw gcnew NdapiException(String::Format("Error setting a number property. Property id: {0}", property_id), status);
