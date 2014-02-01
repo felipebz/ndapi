@@ -93,6 +93,30 @@ namespace Ndapi
 		}
 	}
 
+	generic <class T>
+	T NdapiObject::GetObjectProperty(int property_id)
+	{
+		d2fob* object;
+
+		auto status = d2fobgo_GetObjProp(NdapiContext::Context, _handler, property_id, &object);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error getting a object property. Property id: {0}", property_id), status);
+		}
+
+		return safe_cast<T>(gcnew NdapiObject(object));
+	}
+
+	generic <class T>
+	void NdapiObject::SetObjectProperty(int property_id, T value)
+	{
+		auto status = d2fobso_SetObjProp(NdapiContext::Context, _handler, property_id, value->_handler);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error setting a object property. Property id: {0}", property_id), status);
+		}
+	}
+
 	String^ NdapiObject::Name::get()
 	{
 		return GetStringProperty(D2FP_NAME);

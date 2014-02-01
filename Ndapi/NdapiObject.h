@@ -28,6 +28,12 @@ namespace Ndapi
 		long GetNumberProperty(int property_id);
 		void SetNumberProperty(int property_id, long value);
 
+		generic <class T> where T : NdapiObject
+		T GetObjectProperty(int property_id);
+		
+		generic <class T> where T : NdapiObject
+		void SetObjectProperty(int property_id, T value);
+
 		property String^ Name { String^ get(); void set(String^ value); }
 		property String^ ParentFileName { String^ get(); void set(String^ value); }
 		property String^ ParentFileNamePath { String^ get(); void set(String^ value); }
