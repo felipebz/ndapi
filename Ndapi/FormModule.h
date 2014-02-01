@@ -23,9 +23,8 @@ namespace Ndapi
 		void Save();
 		void Save(String^ path);
 		void Save(String^ path, bool saveInDatabase);
-		void Compile();
+		void CompileFile();
 		void CompileObjects();
-		void CompileAll();
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 
 		~FormModule();

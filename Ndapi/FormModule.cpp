@@ -51,7 +51,7 @@ namespace Ndapi
 		}
 	}
 
-	void FormModule::Compile()
+	void FormModule::CompileFile()
 	{
 		auto status = d2ffmdcf_CompileFile(NdapiContext::Context, _handler);
 		if (status != D2FS_SUCCESS)
@@ -67,12 +67,6 @@ namespace Ndapi
 		{
 			throw gcnew NdapiException(String::Format("Error compiling the PL/SQL objects."), status);
 		}
-	}
-
-	void FormModule::CompileAll()
-	{
-		CompileObjects();
-		Compile();
 	}
 
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
