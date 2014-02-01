@@ -93,6 +93,28 @@ namespace Ndapi
 		}
 	}
 
+	bool NdapiObject::GetBooleanProperty(int property_id)
+	{
+		boolean value;
+
+		auto status = d2fobgb_GetBoolProp(NdapiContext::Context, _handler, property_id, &value);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error getting a boolean property. Property id: {0}", property_id), status);
+		}
+
+		return value == TRUE;
+	}
+
+	void NdapiObject::SetBooleanProperty(int property_id, bool value)
+	{
+		auto status = d2fobsb_SetBoolProp(NdapiContext::Context, _handler, property_id, value);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error setting a boolean property. Property id: {0}", property_id), status);
+		}
+	}
+
 	generic <class T>
 	T NdapiObject::GetObjectProperty(int property_id)
 	{

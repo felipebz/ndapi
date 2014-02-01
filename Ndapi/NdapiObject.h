@@ -27,6 +27,8 @@ namespace Ndapi
 		void SetStringProperty(int property_id, String^ value);
 		long GetNumberProperty(int property_id);
 		void SetNumberProperty(int property_id, long value);
+		bool GetBooleanProperty(int property_id);
+		void SetBooleanProperty(int property_id, bool value);
 
 		generic <class T> where T : NdapiObject
 		T GetObjectProperty(int property_id);
