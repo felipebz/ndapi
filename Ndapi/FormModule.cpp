@@ -69,6 +69,236 @@ namespace Ndapi
 		}
 	}
 
+	String^ FormModule::Comment::get()
+	{
+		return GetStringProperty(D2FP_COMMENT);
+	}
+
+	void FormModule::Comment::set(String^ value)
+	{
+		SetStringProperty(D2FP_COMMENT, value);
+	}
+
+	String^ FormModule::ConsoleWindow::get()
+	{
+		return GetStringProperty(D2FP_CONSOLE_WIN);
+	}
+
+	void FormModule::ConsoleWindow::set(String^ value)
+	{
+		SetStringProperty(D2FP_CONSOLE_WIN, value);
+	}
+
+	bool FormModule::DeferRequiredEnforcement::get()
+	{
+		return GetBooleanProperty(D2FP_DEFER_REQ_ENF);
+	}
+
+	void FormModule::DeferRequiredEnforcement::set(bool value)
+	{
+		SetBooleanProperty(D2FP_DEFER_REQ_ENF, value);
+	}
+
+	NdapiObject^ FormModule::FirstNavigationBlock::get()
+	{
+		return GetObjectProperty<NdapiObject^>(D2FP_FRST_NAVIGATION_BLK_OBJ);
+	}
+
+	void FormModule::FirstNavigationBlock::set(NdapiObject^ value)
+	{
+		SetObjectProperty(D2FP_FRST_NAVIGATION_BLK_OBJ, value);
+	}
+
+	String^ FormModule::HelpBookTitle::get()
+	{
+		return GetStringProperty(D2FP_HELP_BOOK_TITLE);
+	}
+
+	void FormModule::HelpBookTitle::set(String^ value)
+	{
+		SetStringProperty(D2FP_HELP_BOOK_TITLE, value);
+	}
+
+	String^ FormModule::HorizontalToolbarCanvas::get()
+	{
+		return GetStringProperty(D2FP_HORZ_TLBR_CNV);
+	}
+
+	void FormModule::HorizontalToolbarCanvas::set(String^ value)
+	{
+		SetStringProperty(D2FP_HORZ_TLBR_CNV, value);
+	}
+
+	String^ FormModule::InitialMenu::get()
+	{
+		return GetStringProperty(D2FP_INIT_MNU);
+	}
+
+	void FormModule::InitialMenu::set(String^ value)
+	{
+		SetStringProperty(D2FP_INIT_MNU, value);
+	}
+
+	long FormModule::InteractionMode::get()
+	{
+		return GetNumberProperty(D2FP_INTERACTION_MODE);
+	}
+
+	void FormModule::InteractionMode::set(long value)
+	{
+		SetNumberProperty(D2FP_INTERACTION_MODE, value);
+	}
+
+	long FormModule::IsolationMode::get()
+	{
+		return GetNumberProperty(D2FP_ISOLATION_MODE);
+	}
+
+	void FormModule::IsolationMode::set(long value)
+	{
+		SetNumberProperty(D2FP_ISOLATION_MODE, value);
+	}
+
+	long FormModule::LanguageDirection::get()
+	{
+		return GetNumberProperty(D2FP_LANG_DIR);
+	}
+
+	void FormModule::LanguageDirection::set(long value)
+	{
+		SetNumberProperty(D2FP_LANG_DIR, value);
+	}
+
+	long FormModule::MaximumQueryTime::get()
+	{
+		return GetNumberProperty(D2FP_MAX_QRY_TIME);
+	}
+
+	void FormModule::MaximumQueryTime::set(long value)
+	{
+		SetNumberProperty(D2FP_MAX_QRY_TIME, value);
+	}
+
+	long FormModule::MaxRecordsFetched::get()
+	{
+		return GetNumberProperty(D2FP_MAX_RECS_FETCHED);
+	}
+
+	void FormModule::MaxRecordsFetched::set(long value)
+	{
+		SetNumberProperty(D2FP_MAX_RECS_FETCHED, value);
+	}
+
+	String^ FormModule::MenuModule::get()
+	{
+		return GetStringProperty(D2FP_MNU_MOD);
+	}
+
+	void FormModule::MenuModule::set(String^ value)
+	{
+		SetStringProperty(D2FP_MNU_MOD, value);
+	}
+
+	String^ FormModule::MenuRole::get()
+	{
+		return GetStringProperty(D2FP_MNU_ROLE);
+	}
+
+	void FormModule::MenuRole::set(String^ value)
+	{
+		SetStringProperty(D2FP_MNU_ROLE, value);
+	}
+
+	long FormModule::MenuSource::get()
+	{
+		return GetNumberProperty(D2FP_MNU_SRC);
+	}
+
+	void FormModule::MenuSource::set(long value)
+	{
+		SetNumberProperty(D2FP_MNU_SRC, value);
+	}
+
+	long FormModule::MenuStyle::get()
+	{
+		return GetNumberProperty(D2FP_MNU_STY);
+	}
+
+	void FormModule::MenuStyle::set(long value)
+	{
+		SetNumberProperty(D2FP_MNU_STY, value);
+	}
+
+	long FormModule::MouseNavigationLimit::get()
+	{
+		return GetNumberProperty(D2FP_MOUSE_NAVIGATION_LMT);
+	}
+
+	void FormModule::MouseNavigationLimit::set(long value)
+	{
+		SetNumberProperty(D2FP_MOUSE_NAVIGATION_LMT, value);
+	}
+
+	NdapiObject^ FormModule::CurrentRecordVisualAttribute::get()
+	{
+		return GetObjectProperty<NdapiObject^>(D2FP_REC_VAT_GRP_OBJ);
+	}
+
+	void FormModule::CurrentRecordVisualAttribute::set(NdapiObject^ value)
+	{
+		SetObjectProperty(D2FP_REC_VAT_GRP_OBJ, value);
+	}
+
+	long FormModule::RuntimeCompatibility::get()
+	{
+		return GetNumberProperty(D2FP_RUNTIME_COMP);
+	}
+
+	void FormModule::RuntimeCompatibility::set(long value)
+	{
+		SetNumberProperty(D2FP_RUNTIME_COMP, value);
+	}
+
+	String^ FormModule::Title::get()
+	{
+		return GetStringProperty(D2FP_TITLE);
+	}
+
+	void FormModule::Title::set(String^ value)
+	{
+		SetStringProperty(D2FP_TITLE, value);
+	}
+
+	bool FormModule::Use3DControls::get()
+	{
+		return GetBooleanProperty(D2FP_USE_3D_CNTRLS);
+	}
+
+	void FormModule::Use3DControls::set(bool value)
+	{
+		SetBooleanProperty(D2FP_USE_3D_CNTRLS, value);
+	}
+
+	long FormModule::ValidationUnit::get()
+	{
+		return GetNumberProperty(D2FP_VALIDATION_UNIT);
+	}
+
+	void FormModule::ValidationUnit::set(long value)
+	{
+		SetNumberProperty(D2FP_VALIDATION_UNIT, value);
+	}
+
+	String^ FormModule::VerticalToolbarCanvas::get()
+	{
+		return GetStringProperty(D2FP_VERT_TLBR_CNV);
+	}
+
+	void FormModule::VerticalToolbarCanvas::set(String^ value)
+	{
+		SetStringProperty(D2FP_VERT_TLBR_CNV, value);
+	}
+
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
