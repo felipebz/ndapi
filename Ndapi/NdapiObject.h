@@ -18,7 +18,7 @@ namespace Ndapi
 
 		NdapiObject();
 		NdapiObject(d2fob* object);
-		void FillWithObject(void* object);
+		void FillWithObject(d2fob* object);
 		void Create(String^ name, d2fotyp object_type);
 		void Create(String^ name, NdapiObject^ parent, d2fotyp object_type);
 

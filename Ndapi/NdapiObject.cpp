@@ -12,7 +12,7 @@ namespace Ndapi
 		_handler = object;
 	}
 
-	void NdapiObject::FillWithObject(void* object)
+	void NdapiObject::FillWithObject(d2fob* object)
 	{
 		_handler = object;
 	}

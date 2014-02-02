@@ -17,7 +17,7 @@ namespace Ndapi
 	{
 	private:
 		d2fob* _handler;
-		void* _result;
+		d2fob* _result;
 		int _property_id;
 
 	public:
