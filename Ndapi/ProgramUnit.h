@@ -17,5 +17,7 @@ namespace Ndapi
 		ProgramUnit(FormModule^ form, String^ name);
 		property String^ Comment { String^ get(); void set(String^ value); }
 		property String^ Text { String^ get(); void set(String^ value); }
+		property String^ Name { String^ get(); }
+		property long Type { long get(); }
 	};
 }

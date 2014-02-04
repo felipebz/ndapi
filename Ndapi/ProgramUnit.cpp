@@ -35,4 +35,14 @@ namespace Ndapi
 	{
 		SetStringProperty(D2FP_PGU_TXT, value);
 	}
+
+	String^ ProgramUnit::Name::get()
+	{
+		return GetStringProperty(D2FP_NAME);
+	}
+
+	long ProgramUnit::Type::get()
+	{
+		return GetNumberProperty(D2FP_PGU_TYP);
+	}
 }
