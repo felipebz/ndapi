@@ -41,8 +41,8 @@ namespace Ndapi
 		return GetStringProperty(D2FP_NAME);
 	}
 
-	long ProgramUnit::Type::get()
+	ProgramUnitType ProgramUnit::Type::get()
 	{
-		return GetNumberProperty(D2FP_PGU_TYP);
+		return safe_cast<ProgramUnitType>(GetNumberProperty(D2FP_PGU_TYP));
 	}
 }

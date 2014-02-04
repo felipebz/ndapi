@@ -18,6 +18,6 @@ namespace Ndapi
 		property String^ Comment { String^ get(); void set(String^ value); }
 		property String^ Text { String^ get(); void set(String^ value); }
 		property String^ Name { String^ get(); }
-		property long Type { long get(); }
+		property ProgramUnitType Type { ProgramUnitType get(); }
 	};
 }
