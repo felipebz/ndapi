@@ -305,6 +305,6 @@ namespace Ndapi
 	}
 
 	FormModule::~FormModule() {
-		d2ffmdde_Destroy(NdapiContext::Context, (d2ffmd*)_handler);
+		d2ffmdde_Destroy(NdapiContext::Context, safe_cast<d2ffmd*>(_handler));
 	}
 }

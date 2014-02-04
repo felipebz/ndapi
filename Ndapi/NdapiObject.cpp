@@ -79,7 +79,7 @@ namespace Ndapi
 			throw gcnew NdapiException(String::Format("Error getting a number property. Property id: {0}", property_id), status);
 		}
 
-		return (long)property_value;
+		return safe_cast<long>(property_value);
 	}
 
 	void NdapiObject::SetNumberProperty(int property_id, long value)
