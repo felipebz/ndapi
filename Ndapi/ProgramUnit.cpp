@@ -1,4 +1,6 @@
 #include "stdafx.h"
+
+#include <D2FPGU.H>
 #include "ProgramUnit.h"
 
 namespace Ndapi
@@ -14,6 +16,15 @@ namespace Ndapi
 	ProgramUnit::ProgramUnit(FormModule^ form, String^ name)
 	{
 		Create(name, form, D2FFO_PROG_UNIT);
+	}
+
+	void ProgramUnit::Compile()
+	{
+		auto status = d2fpguco_CompileObj(NdapiContext::Context, _handler);
+		if (status != D2FS_SUCCESS)
+		{
+			throw gcnew NdapiException(String::Format("Error compiling the object. Name: {0}, Type: {1}", Name, Type), status);
+		}
 	}
 
 	String^ ProgramUnit::Comment::get()
