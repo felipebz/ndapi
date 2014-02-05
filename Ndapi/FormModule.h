@@ -33,21 +33,21 @@ namespace Ndapi
 		property String^ HelpBookTitle { String^ get(); void set(String^ value); }
 		property String^ HorizontalToolbarCanvas { String^ get(); void set(String^ value); }
 		property String^ InitialMenu { String^ get(); void set(String^ value); }
-		property long InteractionMode { long get(); void set(long value); }
-		property long IsolationMode { long get(); void set(long value); }
-		property long LanguageDirection { long get(); void set(long value); }
+		property Ndapi::InteractionMode InteractionMode { Ndapi::InteractionMode get(); void set(Ndapi::InteractionMode value); }
+		property Ndapi::IsolationMode IsolationMode { Ndapi::IsolationMode get(); void set(Ndapi::IsolationMode value); }
+		property Ndapi::LanguageDirection LanguageDirection { Ndapi::LanguageDirection get(); void set(Ndapi::LanguageDirection value); }
 		property long MaximumQueryTime { long get(); void set(long value); }
 		property long MaxRecordsFetched { long get(); void set(long value); }
 		property String^ MenuModule { String^ get(); void set(String^ value); }
 		property String^ MenuRole { String^ get(); void set(String^ value); }
-		property long MenuSource { long get(); void set(long value); }
-		property long MenuStyle { long get(); void set(long value); }
-		property long MouseNavigationLimit { long get(); void set(long value); }
+		property Ndapi::MenuSource MenuSource { Ndapi::MenuSource get(); void set(Ndapi::MenuSource value); }
+		property Ndapi::MenuStyle MenuStyle { Ndapi::MenuStyle get(); void set(Ndapi::MenuStyle value); }
+		property Ndapi::MouseNavigationLimit MouseNavigationLimit { Ndapi::MouseNavigationLimit get(); void set(Ndapi::MouseNavigationLimit value); }
 		property NdapiObject^ CurrentRecordVisualAttribute { NdapiObject^ get(); void set(NdapiObject^ value); }
-		property long RuntimeCompatibility { long get(); void set(long value); }
+		property Ndapi::RuntimeCompatibility RuntimeCompatibility { Ndapi::RuntimeCompatibility get(); void set(Ndapi::RuntimeCompatibility value); }
 		property String^ Title { String^ get(); void set(String^ value); }
 		property bool Use3DControls { bool get(); void set(bool value); }
-		property long ValidationUnit { long get(); void set(long value); }
+		property Ndapi::ValidationUnit ValidationUnit { Ndapi::ValidationUnit get(); void set(Ndapi::ValidationUnit value); }
 		property String^ VerticalToolbarCanvas { String^ get(); void set(String^ value); }
 
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
