@@ -13,7 +13,7 @@ namespace Ndapi
 	private:
 		long _status;
 
-	public:
+	public:		
 		property long Status 
 		{ 
 			long get() 
@@ -37,11 +37,11 @@ namespace Ndapi
 	{
 	private:
 		T* value;
-		NativeString(const NativeString&);
-		NativeString& operator = (const NativeString&);
 
 	public:
 		NativeString(String^ s);
+		NativeString(const NativeString&) = delete;
+		NativeString& operator = (const NativeString&) = delete;
 		~NativeString() { Marshal::FreeHGlobal(IntPtr(value)); }
 		operator T* () { return value; }
 	};
