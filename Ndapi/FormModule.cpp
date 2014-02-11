@@ -176,6 +176,9 @@ namespace Ndapi
 
 	void FormModule::MaximumQueryTime::set(long value)
 	{
+		if (value < 0) {
+			throw gcnew ArgumentOutOfRangeException("value", value, "MaximumQueryTime cannot be negative.");
+		}
 		SetNumberProperty(D2FP_MAX_QRY_TIME, value);
 	}
 
@@ -186,6 +189,9 @@ namespace Ndapi
 
 	void FormModule::MaxRecordsFetched::set(long value)
 	{
+		if (value < 0) {
+			throw gcnew ArgumentOutOfRangeException("value", value, "MaxRecordsFetched cannot be negative.");
+		}
 		SetNumberProperty(D2FP_MAX_RECS_FETCHED, value);
 	}
 
