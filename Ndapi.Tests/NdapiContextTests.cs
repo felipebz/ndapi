@@ -9,7 +9,7 @@ namespace Ndapi.Tests
 {
     public class NdapiContextTests
     {
-        [TestCase]
+        [Test]
         public void Get_ProductVersion()
         {
             var version = NdapiContext.ProductVersion;
