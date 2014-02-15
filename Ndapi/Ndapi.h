@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ORATYPES.H>
+#include <D2FPRIV.H>
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -45,4 +46,6 @@ namespace Ndapi
 		~NativeString() { Marshal::FreeHGlobal(IntPtr(value)); }
 		operator T* () { return value; }
 	};
+
+	void CheckStatusAndThrow(d2fstatus status, String^ message);
 }

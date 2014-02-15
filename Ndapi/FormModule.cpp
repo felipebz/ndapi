@@ -23,10 +23,7 @@ namespace Ndapi
 
 		d2ffmd* form_module;
 		auto status = d2ffmdld_Load(NdapiContext::Context, &form_module, filename, FALSE);
-		if (status != D2FS_SUCCESS)
-		{
-			throw gcnew NdapiException(String::Format("Error opening the form module. Path: {0}", file), status);
-		}
+		CheckStatusAndThrow(status, String::Format("Error opening the form module. Path: {0}", file));
 
 		return gcnew FormModule(form_module);
 	}
@@ -45,28 +42,19 @@ namespace Ndapi
 	{
 		NativeString<text> module_path(path);
 		auto status = d2ffmdsv_Save(NdapiContext::Context, _handler, module_path, saveInDatabase);
-		if (status != D2FS_SUCCESS)
-		{
-			throw gcnew NdapiException(String::Format("Error saving the form module. Path: {0}", path), status);
-		}
+		CheckStatusAndThrow(status, String::Format("Error saving the form module. Path: {0}", path));
 	}
 
 	void FormModule::CompileFile()
 	{
 		auto status = d2ffmdcf_CompileFile(NdapiContext::Context, _handler);
-		if (status != D2FS_SUCCESS)
-		{
-			throw gcnew NdapiException(String::Format("Error compiling the form module."), status);
-		}
+		CheckStatusAndThrow(status, String::Format("Error compiling the form module."));
 	}
 
 	void FormModule::CompileObjects()
 	{
 		auto status = d2ffmdco_CompileObj(NdapiContext::Context, _handler);
-		if (status != D2FS_SUCCESS)
-		{
-			throw gcnew NdapiException(String::Format("Error compiling the PL/SQL objects."), status);
-		}
+		CheckStatusAndThrow(status, String::Format("Error compiling the PL/SQL objects."));
 	}
 
 	String^ FormModule::Comment::get()

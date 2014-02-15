@@ -34,18 +34,12 @@ namespace Ndapi
 			if (_result == nullptr)
 			{
 				status = d2fobgo_GetObjProp(NdapiContext::Context, _handler, _property_id, &result);
-				if (status != D2FS_SUCCESS)
-				{
-					throw gcnew NdapiException(String::Format("Error getting the first object from iterator. Property id: {0}", _property_id), status);
-				}
+				CheckStatusAndThrow(status, String::Format("Error getting the first object from iterator. Property id: {0}", _property_id));
 			}
 			else
 			{
 				status = d2fobgo_GetObjProp(NdapiContext::Context, _result, D2FP_NEXT, &result);
-				if (status != D2FS_SUCCESS)
-				{
-					throw gcnew NdapiException(String::Format("Error getting the next object from iterator. Property id: {0}", _property_id), status);
-				}
+				CheckStatusAndThrow(status, String::Format("Error getting the next object from iterator. Property id: {0}", _property_id));
 			}
 			_result = result;
 
