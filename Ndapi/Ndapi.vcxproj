@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alert.h" />
     <ClInclude Include="FormModule.h" />
     <ClInclude Include="Ndapi.h" />
     <ClInclude Include="NdapiContext.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Alert.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="FormModule.cpp" />
     <ClCompile Include="Ndapi.cpp" />

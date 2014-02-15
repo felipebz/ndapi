@@ -2,6 +2,7 @@
 
 #include "NdapiObject.h"
 #include "NdapiEnumerator.h"
+#include "Alert.h"
 #include "ProgramUnit.h"
 
 #include <D2FFMD.H>
@@ -10,6 +11,7 @@ using namespace System;
 
 namespace Ndapi
 {
+	ref class Alert;
 	ref class ProgramUnit;
 
 	public ref class FormModule : NdapiObject
@@ -50,6 +52,7 @@ namespace Ndapi
 		property Ndapi::ValidationUnit ValidationUnit { Ndapi::ValidationUnit get(); void set(Ndapi::ValidationUnit value); }
 		property String^ VerticalToolbarCanvas { String^ get(); void set(String^ value); }
 
+		property NdapiEnumerator<Alert^>^ Alerts { NdapiEnumerator<Alert^>^ get(); }
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 
 		~FormModule();

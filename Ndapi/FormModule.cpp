@@ -293,6 +293,11 @@ namespace Ndapi
 		SetStringProperty(D2FP_VERT_TLBR_CNV, value);
 	}
 
+	NdapiEnumerator<Alert^>^ FormModule::Alerts::get()
+	{
+		return gcnew NdapiEnumerator<Alert^>(_handler, D2FP_ALERT);
+	}
+
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
