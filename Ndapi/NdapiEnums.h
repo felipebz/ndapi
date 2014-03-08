@@ -125,4 +125,46 @@ namespace Ndapi
 		Extrabold = D2FC_FOWG_EXTRABOLD,
 		Ultrabold = D2FC_FOWG_ULTRABOLD
 	};
+
+	public enum class DMLDataTargetType : long
+	{
+		None = D2FC_DMDA_NONE,
+		Table = D2FC_DMDA_TABLE,
+		Procedure = D2FC_DMDA_PROCEDURE,
+		TransationalTrigger = D2FC_DMDA_TRANS_TRIG
+	};
+
+	public enum class KeyMode : long
+	{
+		Unique = D2FC_KEMO_UNIQUE,
+		Updateable = D2FC_KEMO_UPDATEABLE,
+		NonUpdateable = D2FC_KEMO_NUPDATEABLE,
+		Automatic = D2FC_KEMO_AUTO
+	};
+
+	public enum class LockingMode : long
+	{
+		Immediate = D2FC_LOMO_IMMEDIATE,
+		Delayed = D2FC_LOMO_DELAYED,
+		Automatic = D2FC_LOMO_AUTO
+	};
+
+	public enum class NavigationStyle : long
+	{
+		SameRecord = D2FC_NAST_SAMERECORD,
+		ChangeRecord = D2FC_NAST_CHANGERECORD,
+		ChangeBlock = D2FC_NAST_CHANGEBLOCK
+	};
+
+	public enum class RecordOrientation : long
+	{
+		Vertical = D2FC_REOR_VERTICAL,
+		Horizontal = D2FC_REOR_HORIZONTAL
+	};
+
+	public enum class ScrollBarOrientation : long
+	{
+		Vertical = D2FC_SCOR_VERTICAL,
+		Horizontal = D2FC_SCOR_HORIZONTAL
+	};
 }

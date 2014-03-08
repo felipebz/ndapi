@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alert.h" />
+    <ClInclude Include="Block.h" />
     <ClInclude Include="FormModule.h" />
     <ClInclude Include="Ndapi.h" />
     <ClInclude Include="NdapiContext.h" />
@@ -97,6 +98,7 @@
   <ItemGroup>
     <ClCompile Include="Alert.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="FormModule.cpp" />
     <ClCompile Include="Ndapi.cpp" />
     <ClCompile Include="NdapiContext.cpp" />

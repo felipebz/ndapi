@@ -298,6 +298,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<Alert^>(_handler, D2FP_ALERT);
 	}
 
+	NdapiEnumerator<Block^>^ FormModule::Blocks::get()
+	{
+		return gcnew NdapiEnumerator<Block^>(_handler, D2FP_BLOCK);
+	}
+
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
