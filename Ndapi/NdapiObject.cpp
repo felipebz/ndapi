@@ -185,4 +185,9 @@ namespace Ndapi
 	{
 		SetNumberProperty(D2FP_PAR_TYP, value);
 	}
+
+	String^ NdapiObject::ToString()
+	{
+		return Name;
+	}
 }
