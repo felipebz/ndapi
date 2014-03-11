@@ -180,4 +180,10 @@ namespace Ndapi
 		PLSQL = D2FC_TRST_PLSQL,
 		V2 = D2FC_TRST_V2
 	};
+
+	public enum class SourceType : long
+	{
+		Filesystem = D2FC_LISR_FS,
+		Dataabse = D2FC_LISR_DB
+	};
 }
