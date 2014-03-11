@@ -3,6 +3,7 @@
 #include "NdapiObject.h"
 #include "NdapiEnumerator.h"
 #include "Alert.h"
+#include "AttachedLibrary.h"
 #include "Block.h"
 #include "ProgramUnit.h"
 #include "Trigger.h"
@@ -17,6 +18,7 @@ namespace Ndapi
 	ref class ProgramUnit;
 	ref class Block;
 	ref class Trigger;
+	ref class AttachedLibrary;
 
 	public ref class FormModule : NdapiObject
 	{
@@ -57,6 +59,7 @@ namespace Ndapi
 		property String^ VerticalToolbarCanvas { String^ get(); void set(String^ value); }
 
 		property NdapiEnumerator<Alert^>^ Alerts { NdapiEnumerator<Alert^>^ get(); }
+		property NdapiEnumerator<AttachedLibrary^>^ AttachedLibraries { NdapiEnumerator<AttachedLibrary^>^ get(); }
 		property NdapiEnumerator<Block^>^ Blocks { NdapiEnumerator<Block^>^ get(); }
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }

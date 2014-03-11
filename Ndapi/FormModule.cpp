@@ -313,6 +313,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<Trigger^>(_handler, D2FP_TRIGGER);
 	}
 
+	NdapiEnumerator<AttachedLibrary^>^ FormModule::AttachedLibraries::get()
+	{
+		return gcnew NdapiEnumerator<AttachedLibrary^>(_handler, D2FP_ATT_LIB);
+	}
+
 	FormModule::~FormModule() {
 		d2ffmdde_Destroy(NdapiContext::Context, safe_cast<d2ffmd*>(_handler));
 	}
