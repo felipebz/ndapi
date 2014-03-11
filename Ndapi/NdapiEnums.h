@@ -167,4 +167,17 @@ namespace Ndapi
 		Vertical = D2FC_SCOR_VERTICAL,
 		Horizontal = D2FC_SCOR_HORIZONTAL
 	};
+
+	public enum class ExecutionStyle : long
+	{
+		Override = D2FC_EXHI_OVERRIDE,
+		Before = D2FC_EXHI_BEFORE,
+		After = D2FC_EXHI_AFTER
+	};
+
+	public enum class TriggerStyle : long
+	{
+		PLSQL = D2FC_TRST_PLSQL,
+		V2 = D2FC_TRST_V2
+	};
 }

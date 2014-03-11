@@ -2,10 +2,12 @@
 
 #include "NdapiObject.h"
 #include "FormModule.h"
+#include "Trigger.h"
 
 namespace Ndapi
 {
 	ref class FormModule;
+	ref class Trigger;
 
 	public ref class Block : NdapiObject
 	{
@@ -73,5 +75,6 @@ namespace Ndapi
 		property String^ WhereClause { String^ get(); void set(String^ value); }
 		property bool WhiteOnBlack { bool get(); void set(bool value); }
 
+		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }
 	};
 }
