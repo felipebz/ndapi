@@ -51,6 +51,9 @@
     <ClInclude Include="AttachedLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FormParameter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -90,6 +93,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AttachedLibrary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FormParameter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

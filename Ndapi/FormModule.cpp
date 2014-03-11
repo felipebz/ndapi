@@ -303,6 +303,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<Block^>(_handler, D2FP_BLOCK);
 	}
 
+	NdapiEnumerator<FormParameter^>^ FormModule::FormParameters::get()
+	{
+		return gcnew NdapiEnumerator<FormParameter^>(_handler, D2FP_FORM_PARAM);
+	}
+
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);

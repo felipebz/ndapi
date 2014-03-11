@@ -5,6 +5,7 @@
 #include "Alert.h"
 #include "AttachedLibrary.h"
 #include "Block.h"
+#include "FormParameter.h"
 #include "ProgramUnit.h"
 #include "Trigger.h"
 
@@ -15,10 +16,12 @@ using namespace System;
 namespace Ndapi
 {
 	ref class Alert;
-	ref class ProgramUnit;
-	ref class Block;
-	ref class Trigger;
 	ref class AttachedLibrary;
+	ref class Block;
+	ref class FormParameter;
+	ref class ProgramUnit;
+	ref class Trigger;
+
 
 	public ref class FormModule : NdapiObject
 	{
@@ -61,6 +64,7 @@ namespace Ndapi
 		property NdapiEnumerator<Alert^>^ Alerts { NdapiEnumerator<Alert^>^ get(); }
 		property NdapiEnumerator<AttachedLibrary^>^ AttachedLibraries { NdapiEnumerator<AttachedLibrary^>^ get(); }
 		property NdapiEnumerator<Block^>^ Blocks { NdapiEnumerator<Block^>^ get(); }
+		property NdapiEnumerator<FormParameter^>^ FormParameters { NdapiEnumerator<FormParameter^>^ get(); }
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }
 

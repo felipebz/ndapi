@@ -186,4 +186,11 @@ namespace Ndapi
 		Filesystem = D2FC_LISR_FS,
 		Dataabse = D2FC_LISR_DB
 	};
+
+	public enum class ParameterDataType : long
+	{
+		Char = D2FC_PADA_CHAR,
+		Number = D2FC_PADA_NUMBER,
+		Date = D2FC_PADA_DATE
+	};
 }
