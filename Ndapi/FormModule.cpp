@@ -308,6 +308,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
 	}
 
+	NdapiEnumerator<Trigger^>^ FormModule::Triggers::get()
+	{
+		return gcnew NdapiEnumerator<Trigger^>(_handler, D2FP_TRIGGER);
+	}
+
 	FormModule::~FormModule() {
 		d2ffmdde_Destroy(NdapiContext::Context, safe_cast<d2ffmd*>(_handler));
 	}
