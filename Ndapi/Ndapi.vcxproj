@@ -87,6 +87,7 @@
     <ClInclude Include="Alert.h" />
     <ClInclude Include="AttachedLibrary.h" />
     <ClInclude Include="Block.h" />
+    <ClInclude Include="BlockRelation.h" />
     <ClInclude Include="FormModule.h" />
     <ClInclude Include="FormParameter.h" />
     <ClInclude Include="Ndapi.h" />
@@ -103,6 +104,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="AttachedLibrary.cpp" />
     <ClCompile Include="Block.cpp" />
+    <ClCompile Include="BlockRelation.cpp" />
     <ClCompile Include="FormModule.cpp" />
     <ClCompile Include="FormParameter.cpp" />
     <ClCompile Include="Ndapi.cpp" />

@@ -193,4 +193,11 @@ namespace Ndapi
 		Number = D2FC_PADA_NUMBER,
 		Date = D2FC_PADA_DATE
 	};
+
+	public enum class DeleteRecordBehavior : long
+	{
+		Cascading = D2FC_DERE_CASCADING,
+		Isolated = D2FC_DERE_ISOLATED,
+		NonIsolated = D2FC_DERE_NON_ISOLATED
+	};
 }

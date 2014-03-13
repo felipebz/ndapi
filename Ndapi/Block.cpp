@@ -576,6 +576,11 @@ namespace Ndapi
 		SetBooleanProperty(D2FP_WHITE_ON_BLACK, value);
 	}
 
+	NdapiEnumerator<BlockRelation^>^ Block::BlockRelations::get()
+	{
+		return gcnew NdapiEnumerator<BlockRelation^>(_handler, D2FP_REL);
+	}
+
 	NdapiEnumerator<Trigger^>^ Block::Triggers::get()
 	{
 		return gcnew NdapiEnumerator<Trigger^>(_handler, D2FP_TRIGGER);
