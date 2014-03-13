@@ -206,4 +206,13 @@ namespace Ndapi
 		Query = D2FC_REGR_QUERY,
 		Static = D2FC_REGR_STATIC
 	};
+
+	public enum class ColumnSpecificationDataType : long
+	{
+		Char = D2FC_CODA_CHAR,
+		Number = D2FC_CODA_NUMBER,
+		Date = D2FC_CODA_DATE,
+		Long = D2FC_CODA_LONG,
+		RefObject = D2FC_CODA_REF
+	};
 }

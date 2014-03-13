@@ -16,11 +16,6 @@ namespace Ndapi
 		Create(name, form, D2FFO_REC_GROUP);
 	}
 
-	NdapiObject^ RecordGroup::ColumnSpecifications::get()
-	{
-		return GetObjectProperty<NdapiObject^>(D2FP_COL_SPEC);
-	}
-
 	String^ RecordGroup::Comment::get()
 	{
 		return GetStringProperty(D2FP_COMMENT);
@@ -69,5 +64,10 @@ namespace Ndapi
 	void RecordGroup::Type::set(RecordGroupType value)
 	{
 		SetNumberProperty(D2FP_REC_GRP_TYP, safe_cast<long>(value));
+	}
+
+	NdapiEnumerator<ColumnSpecification^>^ RecordGroup::ColumnSpecifications::get()
+	{
+		return gcnew NdapiEnumerator<ColumnSpecification^>(_handler, D2FP_COL_SPEC);
 	}
 }

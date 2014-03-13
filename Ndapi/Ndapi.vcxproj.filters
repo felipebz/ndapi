@@ -60,6 +60,9 @@
     <ClInclude Include="RecordGroup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ColumnSpecification.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -108,6 +111,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RecordGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColumnSpecification.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
