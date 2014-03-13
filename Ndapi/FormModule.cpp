@@ -313,6 +313,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
 	}
 
+	NdapiEnumerator<RecordGroup^>^ FormModule::RecordGroups::get()
+	{
+		return gcnew NdapiEnumerator<RecordGroup^>(_handler, D2FP_REC_GRP);
+	}
+
 	NdapiEnumerator<Trigger^>^ FormModule::Triggers::get()
 	{
 		return gcnew NdapiEnumerator<Trigger^>(_handler, D2FP_TRIGGER);

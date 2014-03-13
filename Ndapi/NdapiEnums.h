@@ -200,4 +200,10 @@ namespace Ndapi
 		Isolated = D2FC_DERE_ISOLATED,
 		NonIsolated = D2FC_DERE_NON_ISOLATED
 	};
+
+	public enum class RecordGroupType : long
+	{
+		Query = D2FC_REGR_QUERY,
+		Static = D2FC_REGR_STATIC
+	};
 }
