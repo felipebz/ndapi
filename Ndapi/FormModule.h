@@ -5,6 +5,7 @@
 #include "Alert.h"
 #include "AttachedLibrary.h"
 #include "Block.h"
+#include "Canvas.h"
 #include "FormParameter.h"
 #include "ProgramUnit.h"
 #include "RecordGroup.h"
@@ -19,6 +20,7 @@ namespace Ndapi
 	ref class Alert;
 	ref class AttachedLibrary;
 	ref class Block;
+	ref class Canvas;
 	ref class FormParameter;
 	ref class ProgramUnit;
 	ref class RecordGroup;
@@ -65,6 +67,7 @@ namespace Ndapi
 		property NdapiEnumerator<Alert^>^ Alerts { NdapiEnumerator<Alert^>^ get(); }
 		property NdapiEnumerator<AttachedLibrary^>^ AttachedLibraries { NdapiEnumerator<AttachedLibrary^>^ get(); }
 		property NdapiEnumerator<Block^>^ Blocks { NdapiEnumerator<Block^>^ get(); }
+		property NdapiEnumerator<Canvas^>^ Canvases { NdapiEnumerator<Canvas^>^ get(); }
 		property NdapiEnumerator<FormParameter^>^ FormParameters { NdapiEnumerator<FormParameter^>^ get(); }
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 		property NdapiEnumerator<RecordGroup^>^ RecordGroups { NdapiEnumerator<RecordGroup^>^ get(); }

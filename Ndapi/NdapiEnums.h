@@ -215,4 +215,40 @@ namespace Ndapi
 		Long = D2FC_CODA_LONG,
 		RefObject = D2FC_CODA_REF
 	};
+
+	public enum class Bevel : long
+	{
+		Raised = D2FC_BEST_RAISED,
+		Lowered = D2FC_BEST_LOWERED,
+		None = D2FC_BEST_NONE,
+		Inset = D2FC_BEST_NSET,
+		Outset = D2FC_BEST_OUTSET,
+		Plain = D2FC_BEST_PLAIN
+	};
+
+	public enum class CanvasType : long
+	{
+		Content = D2FC_CNTY_CONTENT,
+		Stacked = D2FC_CNTY_STACKED,
+		VerticalToolbar = D2FC_CNTY_VTOOLBAR,
+		HorizontalToolbar = D2FC_CNTY_HTOOLBAR,
+		Tab = D2FC_CNTY_TAB
+	};
+
+	public enum class TabAttachmentEdge : long
+	{
+		Top = D2FC_TAAT_TOP,
+		Bottom = D2FC_TAAT_BOTTOM,
+		Left = D2FC_TAAT_LEFT,
+		Right = D2FC_TAAT_RIGHT,
+		Start = D2FC_TAAT_START,
+		End = D2FC_TAAT_END
+	};
+
+	public enum class TabStyle : long
+	{
+		Chamfered = D2FC_TAST_CHAMFERED,
+		Square = D2FC_TAST_SQUARE,
+		Rounded = D2FC_TAST_ROUNDED
+	};
 }

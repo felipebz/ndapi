@@ -303,6 +303,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<Block^>(_handler, D2FP_BLOCK);
 	}
 
+	NdapiEnumerator<Canvas^>^ FormModule::Canvases::get()
+	{
+		return gcnew NdapiEnumerator<Canvas^>(_handler, D2FP_CANVAS);
+	}
+
 	NdapiEnumerator<FormParameter^>^ FormModule::FormParameters::get()
 	{
 		return gcnew NdapiEnumerator<FormParameter^>(_handler, D2FP_FORM_PARAM);
