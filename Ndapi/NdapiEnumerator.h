@@ -50,25 +50,25 @@ namespace Ndapi
 		{
 			virtual T get() = IEnumerator<T>::Current::get
 			{
-			if (_result == nullptr)
-			{
-				MoveNext();
+				if (_result == nullptr)
+				{
+					MoveNext();
+				}
+
+				NdapiObject^ instance = safe_cast<NdapiObject^>(Activator::CreateInstance<T>());
+
+				instance->FillWithObject(_result);
+
+				return safe_cast<T>(instance);
 			}
-
-			NdapiObject^ instance = safe_cast<NdapiObject^>(Activator::CreateInstance<T>());
-
-			instance->FillWithObject(_result);
-
-			return safe_cast<T>(instance);
-		}
 		};
 
 		property Object^ RawCurrent
 		{
 			virtual Object^ get() = System::Collections::IEnumerator::Current::get
 			{
-			return Current;
-		}
+				return Current;
+			}
 		};
 
 		virtual void Reset() = IEnumerator<T>::Reset
