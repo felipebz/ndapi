@@ -88,6 +88,18 @@ namespace Ndapi
 		CheckStatusAndThrow(status, String::Format("Error setting a boolean property. Property id: {0}", property_id));
 	}
 
+	generic <typename T>
+	T NdapiObject::GetNumberProperty(int property_id)
+	{
+		return safe_cast<T>(GetNumberProperty(property_id));
+	}
+
+	generic <typename T>
+	void NdapiObject::SetNumberProperty(int property_id, T value)
+	{
+		SetNumberProperty(property_id, safe_cast<long>(value));
+	}
+
 	generic <class T>
 	T NdapiObject::GetObjectProperty(int property_id)
 	{

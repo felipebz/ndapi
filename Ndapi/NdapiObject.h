@@ -30,6 +30,12 @@ namespace Ndapi
 		bool GetBooleanProperty(int property_id);
 		void SetBooleanProperty(int property_id, bool value);
 
+		generic <typename T>
+		T GetNumberProperty(int property_id);
+
+		generic <typename T>
+		void SetNumberProperty(int property_id, T value);
+
 		generic <class T> where T : NdapiObject
 		T GetObjectProperty(int property_id);
 		
