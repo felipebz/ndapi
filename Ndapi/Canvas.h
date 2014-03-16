@@ -2,9 +2,12 @@
 
 #include "NdapiObject.h"
 #include "FormModule.h"
+#include "Graphic.h"
 
 namespace Ndapi
 {
+	ref class Graphic;
+
 	public ref class Canvas : NdapiObject
 	{
 	public protected:
@@ -45,7 +48,7 @@ namespace Ndapi
 		property long Width { long get(); void set(long value); }
 		property String^ Window { String^ get(); void set(String^ value); }
 
-		property NdapiEnumerator<NdapiObject^>^ Graphics { NdapiEnumerator<NdapiObject^>^ get(); }
+		property NdapiEnumerator<Graphic^>^ Graphics { NdapiEnumerator<Graphic^>^ get(); }
 		property NdapiEnumerator<NdapiObject^>^ TabPage { NdapiEnumerator<NdapiObject^>^ get(); }
 
 	};

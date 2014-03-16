@@ -316,9 +316,9 @@ namespace Ndapi
 		SetStringProperty(D2FP_WND_NAM, value);
 	}
 
-	NdapiEnumerator<NdapiObject^>^ Canvas::Graphics::get()
+	NdapiEnumerator<Graphic^>^ Canvas::Graphics::get()
 	{
-		return gcnew NdapiEnumerator<NdapiObject^>(_handler, D2FP_GRAPHIC);
+		return gcnew NdapiEnumerator<Graphic^>(_handler, D2FP_GRAPHIC);
 	}
 
 	NdapiEnumerator<NdapiObject^>^ Canvas::TabPage::get()

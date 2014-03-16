@@ -251,4 +251,134 @@ namespace Ndapi
 		Square = D2FC_TAST_SQUARE,
 		Rounded = D2FC_TAST_ROUNDED
 	};
+
+	public enum class LineArrowStyle : long
+	{
+		None = D2FC_ARST_NONE,
+		Start = D2FC_ARST_START,
+		End = D2FC_ARST_END,
+		Both = D2FC_ARST_BOTH,
+		MiddleToStart = D2FC_ARST_MDLTOSTRT,
+		MiddleToEnd = D2FC_ARST_MDLTOEND
+	};
+
+	public enum class ObjectEdgeCapStyle : long
+	{
+		Butt = D2FC_CAST_BUTT,
+		Round = D2FC_CAST_ROUND,
+		Projecting = D2FC_CAST_PROJECT
+	};
+
+	public enum class DashStyle : long
+	{
+		Solid = D2FC_DAST_SOLID,
+		Dotted = D2FC_DAST_DOT,
+		Dashed = D2FC_DAST_DASH,
+		DashDot = D2FC_DAST_DASHDOT,
+		DoubleDot = D2FC_DAST_DOUBDOT,
+		LongDash = D2FC_DAST_LONGDASH,
+		DashDoubleDot = D2FC_DAST_DASHDOUBDOT
+	};
+
+	public enum class DisplayQuality : long
+	{
+		High = D2FC_DIQL_HIGH,
+		Medium = D2FC_DIQL_MEDIUM,
+		Low = D2FC_DIQL_LOW
+	};
+
+	public enum class FrameAlignment : long
+	{
+		Start = D2FC_FRAL_START,
+		End = D2FC_FRAL_END,
+		Center = D2FC_FRAL_CENTER,
+		Fill = D2FC_FRAL_FILL,
+		Column = D2FC_FRAL_COLUMN
+	};
+
+	public enum class FrameTitleAlignment : long
+	{
+		Left = D2FC_JUST_LEFT,
+		Right = D2FC_JUST_RIGHT,
+		Center = D2FC_JUST_CENTER,
+		Start = D2FC_JUST_START,
+		End = D2FC_JUST_END
+	};
+
+	public enum class GraphicsObjectType : long
+	{
+		Arc = D2FC_GRTY_ARC,
+		Image = D2FC_GRTY_IMAGE,
+		Line = D2FC_GRTY_LINE,
+		Polygon = D2FC_GRTY_POLY,
+		Rectangle = D2FC_GRTY_RECT,
+		RoundedRectangle = D2FC_GRTY_RREC,
+		Text = D2FC_GRTY_TEXT,
+		Group = D2FC_GRTY_GROUP,
+		Frame = D2FC_GRTY_FRAME
+	};
+
+	public enum class HorizontalJustification : long
+	{
+		Left = D2FC_HOJU_LEFT,
+		Right = D2FC_HOJU_RIGHT,
+		Center = D2FC_HOJU_CENTER,
+		Start = D2FC_HOJU_START,
+		End = D2FC_HOJU_END
+	};
+
+	public enum class JoinStyle : long
+	{
+		Mitre = D2FC_JOST_MITRE,
+		Bevel = D2FC_JOST_BEVEL,
+		Round = D2FC_JOST_ROUND
+	};
+
+	public enum class LayoutStyle : long
+	{
+		Form = D2FC_LAST_FORM,
+		Tabulat = D2FC_LAST_TABULAR
+	};
+
+	public enum class LineSpacing : long
+	{
+		Single = D2FC_LISP_SINGLE,
+		OneAndAHalf = D2FC_LISP_ONEHALF,
+		Double = D2FC_LISP_DOUBLE,
+		Custom = D2FC_LISP_CUSTOM
+	};
+
+	public enum class ScrollBarAlignment : long
+	{
+		Start = D2FC_SCAL_START,
+		End = D2FC_SCAL_END
+	};
+
+	public enum class Alignment : long
+	{
+		Start = D2FC_ALIG_START,
+		End = D2FC_ALIG_END,
+		Center = D2FC_ALIG_CENTER
+	};
+
+	public enum class TitleReadingOrder : long
+	{
+		Default = D2FC_READ_DEFAULT,
+		LeftToRight = D2FC_READ_TORIGHT,
+		RightToLeft = D2FC_READ_TOLEFT
+	};
+
+	public enum class UpdateLayout : long
+	{
+		Manual = D2FC_UPLA_MANUAL,
+		Automatic = D2FC_UPLA_AUTO,
+		Locked = D2FC_UPLA_LOCKED
+	};
+
+	public enum class VerticalJustification : long
+	{
+		Top = D2FC_VEJU_TOP,
+		Center = D2FC_VEJU_CENTER,
+		Bottom = D2FC_VEJU_BOTTOM
+	};
 }
