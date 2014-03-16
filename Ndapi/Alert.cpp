@@ -29,12 +29,12 @@ namespace Ndapi
 
 	AlertStyle Alert::AlertStyle::get()
 	{
-		return safe_cast<Ndapi::AlertStyle>(GetNumberProperty(D2FP_ALT_STY));
+		return GetNumberProperty<Ndapi::AlertStyle>(D2FP_ALT_STY);
 	}
 
 	void Alert::AlertStyle::set(Ndapi::AlertStyle value)
 	{
-		SetNumberProperty(D2FP_ALT_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_ALT_STY, value);
 	}
 
 	String^ Alert::BackgroundColor::get()
@@ -89,12 +89,12 @@ namespace Ndapi
 
 	AlertButton Alert::DefaultAlertButton::get()
 	{
-		return safe_cast<AlertButton>(GetNumberProperty(D2FP_DFLT_ALT_BTN));
+		return GetNumberProperty<AlertButton>(D2FP_DFLT_ALT_BTN);
 	}
 
 	void Alert::DefaultAlertButton::set(AlertButton value)
 	{
-		SetNumberProperty(D2FP_DFLT_ALT_BTN, safe_cast<long>(value));
+		SetNumberProperty(D2FP_DFLT_ALT_BTN, value);
 	}
 
 	String^ Alert::FillPattern::get()
@@ -129,32 +129,32 @@ namespace Ndapi
 
 	Ndapi::FontSpacing Alert::FontSpacing::get()
 	{
-		return safe_cast<Ndapi::FontSpacing>(GetNumberProperty(D2FP_FONT_SPCING));
+		return GetNumberProperty<Ndapi::FontSpacing>(D2FP_FONT_SPCING);
 	}
 
 	void Alert::FontSpacing::set(Ndapi::FontSpacing value)
 	{
-		SetNumberProperty(D2FP_FONT_SPCING, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_SPCING, value);
 	}
 
 	Ndapi::FontStyle Alert::FontStyle::get()
 	{
-		return safe_cast<Ndapi::FontStyle>(GetNumberProperty(D2FP_FONT_STY));
+		return GetNumberProperty<Ndapi::FontStyle>(D2FP_FONT_STY);
 	}
 
 	void Alert::FontStyle::set(Ndapi::FontStyle value)
 	{
-		SetNumberProperty(D2FP_FONT_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_STY, value);
 	}
 
 	Ndapi::FontWeight Alert::FontWeight::get()
 	{
-		return safe_cast<Ndapi::FontWeight>(GetNumberProperty(D2FP_FONT_WGHT));
+		return GetNumberProperty<Ndapi::FontWeight>(D2FP_FONT_WGHT);
 	}
 
 	void Alert::FontWeight::set(Ndapi::FontWeight value)
 	{
-		SetNumberProperty(D2FP_FONT_WGHT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_WGHT, value);
 	}
 
 	String^ Alert::ForegroundColor::get()
@@ -169,12 +169,12 @@ namespace Ndapi
 
 	Ndapi::LanguageDirection Alert::LanguageDirection::get()
 	{
-		return safe_cast<Ndapi::LanguageDirection>(GetNumberProperty(D2FP_LANG_DIR));
+		return GetNumberProperty<Ndapi::LanguageDirection>(D2FP_LANG_DIR);
 	}
 
 	void Alert::LanguageDirection::set(Ndapi::LanguageDirection value)
 	{
-		SetNumberProperty(D2FP_LANG_DIR, safe_cast<long>(value));
+		SetNumberProperty(D2FP_LANG_DIR, value);
 	}
 
 	String^ Alert::Name::get()

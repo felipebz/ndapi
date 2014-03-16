@@ -129,32 +129,32 @@ namespace Ndapi
 
 	Ndapi::InteractionMode FormModule::InteractionMode::get()
 	{
-		return safe_cast<Ndapi::InteractionMode>(GetNumberProperty(D2FP_INTERACTION_MODE));
+		return GetNumberProperty<Ndapi::InteractionMode>(D2FP_INTERACTION_MODE);
 	}
 
 	void FormModule::InteractionMode::set(Ndapi::InteractionMode value)
 	{
-		SetNumberProperty(D2FP_INTERACTION_MODE, safe_cast<long>(value));
+		SetNumberProperty(D2FP_INTERACTION_MODE, value);
 	}
 
 	Ndapi::IsolationMode FormModule::IsolationMode::get()
 	{
-		return safe_cast<Ndapi::IsolationMode>(GetNumberProperty(D2FP_ISOLATION_MODE));
+		return GetNumberProperty<Ndapi::IsolationMode>(D2FP_ISOLATION_MODE);
 	}
 
 	void FormModule::IsolationMode::set(Ndapi::IsolationMode value)
 	{
-		SetNumberProperty(D2FP_ISOLATION_MODE, safe_cast<long>(value));
+		SetNumberProperty(D2FP_ISOLATION_MODE, value);
 	}
 
 	Ndapi::LanguageDirection FormModule::LanguageDirection::get()
 	{
-		return safe_cast<Ndapi::LanguageDirection>(GetNumberProperty(D2FP_LANG_DIR));
+		return GetNumberProperty<Ndapi::LanguageDirection>(D2FP_LANG_DIR);
 	}
 
 	void FormModule::LanguageDirection::set(Ndapi::LanguageDirection value)
 	{
-		SetNumberProperty(D2FP_LANG_DIR, safe_cast<long>(value));
+		SetNumberProperty(D2FP_LANG_DIR, value);
 	}
 
 	long FormModule::MaximumQueryTime::get()
@@ -205,32 +205,32 @@ namespace Ndapi
 
 	Ndapi::MenuSource FormModule::MenuSource::get()
 	{
-		return safe_cast<Ndapi::MenuSource>(GetNumberProperty(D2FP_MNU_SRC));
+		return GetNumberProperty<Ndapi::MenuSource>(D2FP_MNU_SRC);
 	}
 
 	void FormModule::MenuSource::set(Ndapi::MenuSource value)
 	{
-		SetNumberProperty(D2FP_MNU_SRC, safe_cast<long>(value));
+		SetNumberProperty(D2FP_MNU_SRC, value);
 	}
 
 	Ndapi::MenuStyle FormModule::MenuStyle::get()
 	{
-		return safe_cast<Ndapi::MenuStyle>(GetNumberProperty(D2FP_MNU_STY));
+		return GetNumberProperty<Ndapi::MenuStyle>(D2FP_MNU_STY);
 	}
 
 	void FormModule::MenuStyle::set(Ndapi::MenuStyle value)
 	{
-		SetNumberProperty(D2FP_MNU_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_MNU_STY, value);
 	}
 
 	Ndapi::MouseNavigationLimit FormModule::MouseNavigationLimit::get()
 	{
-		return safe_cast<Ndapi::MouseNavigationLimit>(GetNumberProperty(D2FP_MOUSE_NAVIGATION_LMT));
+		return GetNumberProperty<Ndapi::MouseNavigationLimit>(D2FP_MOUSE_NAVIGATION_LMT);
 	}
 
 	void FormModule::MouseNavigationLimit::set(Ndapi::MouseNavigationLimit value)
 	{
-		SetNumberProperty(D2FP_MOUSE_NAVIGATION_LMT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_MOUSE_NAVIGATION_LMT, value);
 	}
 
 	NdapiObject^ FormModule::CurrentRecordVisualAttribute::get()
@@ -245,12 +245,12 @@ namespace Ndapi
 
 	Ndapi::RuntimeCompatibility FormModule::RuntimeCompatibility::get()
 	{
-		return safe_cast<Ndapi::RuntimeCompatibility>(GetNumberProperty(D2FP_RUNTIME_COMP));
+		return GetNumberProperty<Ndapi::RuntimeCompatibility>(D2FP_RUNTIME_COMP);
 	}
 
 	void FormModule::RuntimeCompatibility::set(Ndapi::RuntimeCompatibility value)
 	{
-		SetNumberProperty(D2FP_RUNTIME_COMP, safe_cast<long>(value));
+		SetNumberProperty(D2FP_RUNTIME_COMP, value);
 	}
 
 	String^ FormModule::Title::get()
@@ -275,12 +275,12 @@ namespace Ndapi
 
 	Ndapi::ValidationUnit FormModule::ValidationUnit::get()
 	{
-		return safe_cast<Ndapi::ValidationUnit>(GetNumberProperty(D2FP_VALIDATION_UNIT));
+		return GetNumberProperty<Ndapi::ValidationUnit>(D2FP_VALIDATION_UNIT);
 	}
 
 	void FormModule::ValidationUnit::set(Ndapi::ValidationUnit value)
 	{
-		SetNumberProperty(D2FP_VALIDATION_UNIT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_VALIDATION_UNIT, value);
 	}
 
 	String^ FormModule::VerticalToolbarCanvas::get()

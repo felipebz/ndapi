@@ -28,7 +28,7 @@ namespace Ndapi
 
 	Ndapi::SourceType AttachedLibrary::SourceType::get()
 	{
-		return safe_cast<Ndapi::SourceType>(GetNumberProperty(D2FP_LIB_SRC));
+		return GetNumberProperty<Ndapi::SourceType>(D2FP_LIB_SRC);
 	}
 
 	String^ AttachedLibrary::Name::get()

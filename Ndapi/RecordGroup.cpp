@@ -58,12 +58,12 @@ namespace Ndapi
 
 	RecordGroupType RecordGroup::Type::get()
 	{
-		return safe_cast<RecordGroupType>(GetNumberProperty(D2FP_REC_GRP_TYP));
+		return GetNumberProperty<RecordGroupType>(D2FP_REC_GRP_TYP);
 	}
 
 	void RecordGroup::Type::set(RecordGroupType value)
 	{
-		SetNumberProperty(D2FP_REC_GRP_TYP, safe_cast<long>(value));
+		SetNumberProperty(D2FP_REC_GRP_TYP, value);
 	}
 
 	NdapiEnumerator<ColumnSpecification^>^ RecordGroup::ColumnSpecifications::get()

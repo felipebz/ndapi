@@ -51,6 +51,6 @@ namespace Ndapi
 
 	ProgramUnitType ProgramUnit::Type::get()
 	{
-		return safe_cast<ProgramUnitType>(GetNumberProperty(D2FP_PGU_TYP));
+		return GetNumberProperty<ProgramUnitType>(D2FP_PGU_TYP);
 	}
 }

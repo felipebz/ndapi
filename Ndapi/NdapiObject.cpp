@@ -150,12 +150,12 @@ namespace Ndapi
 
 	ModuleStorageType NdapiObject::ParentModuleStorage::get()
 	{
-		return safe_cast<ModuleStorageType>(GetNumberProperty(D2FP_PAR_MODSTR));
+		return GetNumberProperty<ModuleStorageType>(D2FP_PAR_MODSTR);
 	}
 
 	void NdapiObject::ParentModuleStorage::set(ModuleStorageType value)
 	{
-		SetNumberProperty(D2FP_PAR_MODSTR, safe_cast<long>(value));
+		SetNumberProperty(D2FP_PAR_MODSTR, value);
 	}
 
 	long NdapiObject::ParentModuleType::get()

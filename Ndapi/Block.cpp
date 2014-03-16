@@ -88,12 +88,12 @@ namespace Ndapi
 
 	Ndapi::DMLDataTargetType Block::DMLDataTargetType::get()
 	{
-		return safe_cast<Ndapi::DMLDataTargetType>(GetNumberProperty(D2FP_DML_DAT_TYP));
+		return GetNumberProperty<Ndapi::DMLDataTargetType>(D2FP_DML_DAT_TYP);
 	}
 
 	void Block::DMLDataTargetType::set(Ndapi::DMLDataTargetType value)
 	{
-		SetNumberProperty(D2FP_DML_DAT_TYP, safe_cast<long>(value));
+		SetNumberProperty(D2FP_DML_DAT_TYP, value);
 	}
 
 	bool Block::EnforceColumnSecurity::get()
@@ -148,32 +148,32 @@ namespace Ndapi
 
 	Ndapi::FontSpacing Block::FontSpacing::get()
 	{
-		return safe_cast<Ndapi::FontSpacing>(GetNumberProperty(D2FP_FONT_SPCING));
+		return GetNumberProperty<Ndapi::FontSpacing>(D2FP_FONT_SPCING);
 	}
 
 	void Block::FontSpacing::set(Ndapi::FontSpacing value)
 	{
-		SetNumberProperty(D2FP_FONT_SPCING, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_SPCING, value);
 	}
 
 	Ndapi::FontStyle Block::FontStyle::get()
 	{
-		return safe_cast<Ndapi::FontStyle>(GetNumberProperty(D2FP_FONT_STY));
+		return GetNumberProperty<Ndapi::FontStyle>(D2FP_FONT_STY);
 	}
 
 	void Block::FontStyle::set(Ndapi::FontStyle value)
 	{
-		SetNumberProperty(D2FP_FONT_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_STY, value);
 	}
 
 	Ndapi::FontWeight Block::FontWeight::get()
 	{
-		return safe_cast<Ndapi::FontWeight>(GetNumberProperty(D2FP_FONT_WGHT));
+		return GetNumberProperty<Ndapi::FontWeight>(D2FP_FONT_WGHT);
 	}
 
 	void Block::FontWeight::set(Ndapi::FontWeight value)
 	{
-		SetNumberProperty(D2FP_FONT_WGHT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_WGHT, value);
 	}
 
 	String^ Block::ForegroundColor::get()
@@ -208,32 +208,32 @@ namespace Ndapi
 
 	Ndapi::KeyMode Block::KeyMode::get()
 	{
-		return safe_cast<Ndapi::KeyMode>(GetNumberProperty(D2FP_KEY_MODE));
+		return GetNumberProperty<Ndapi::KeyMode>(D2FP_KEY_MODE);
 	}
 
 	void Block::KeyMode::set(Ndapi::KeyMode value)
 	{
-		SetNumberProperty(D2FP_KEY_MODE, safe_cast<long>(value));
+		SetNumberProperty(D2FP_KEY_MODE, value);
 	}
 
 	Ndapi::LanguageDirection Block::LanguageDirection::get()
 	{
-		return safe_cast<Ndapi::LanguageDirection>(GetNumberProperty(D2FP_LANG_DIR));
+		return GetNumberProperty<Ndapi::LanguageDirection>(D2FP_LANG_DIR);
 	}
 
 	void Block::LanguageDirection::set(Ndapi::LanguageDirection value)
 	{
-		SetNumberProperty(D2FP_LANG_DIR, safe_cast<long>(value));
+		SetNumberProperty(D2FP_LANG_DIR, value);
 	}
 
 	Ndapi::LockingMode Block::LockingMode::get()
 	{
-		return safe_cast<Ndapi::LockingMode>(GetNumberProperty(D2FP_LOCK_MODE));
+		return GetNumberProperty<Ndapi::LockingMode>(D2FP_LOCK_MODE);
 	}
 
 	void Block::LockingMode::set(Ndapi::LockingMode value)
 	{
-		SetNumberProperty(D2FP_LOCK_MODE, safe_cast<long>(value));
+		SetNumberProperty(D2FP_LOCK_MODE, value);
 	}
 
 	String^ Block::LockProcedureName::get()
@@ -288,12 +288,12 @@ namespace Ndapi
 
 	Ndapi::NavigationStyle Block::NavigationStyle::get()
 	{
-		return safe_cast<Ndapi::NavigationStyle>(GetNumberProperty(D2FP_NAVIGATION_STY));
+		return GetNumberProperty<Ndapi::NavigationStyle>(D2FP_NAVIGATION_STY);
 	}
 
 	void Block::NavigationStyle::set(Ndapi::NavigationStyle value)
 	{
-		SetNumberProperty(D2FP_NAVIGATION_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_NAVIGATION_STY, value);
 	}
 
 	String^ Block::NextNavigationBlock::get()
@@ -398,12 +398,12 @@ namespace Ndapi
 
 	Ndapi::RecordOrientation Block::RecordOrientation::get()
 	{
-		return safe_cast<Ndapi::RecordOrientation>(GetNumberProperty(D2FP_REC_ORNT));
+		return GetNumberProperty<Ndapi::RecordOrientation>(D2FP_REC_ORNT);
 	}
 
 	void Block::RecordOrientation::set(Ndapi::RecordOrientation value)
 	{
-		SetNumberProperty(D2FP_REC_ORNT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_REC_ORNT, value);
 	}
 
 	String^ Block::CurrentRecordVisualAttributeGroup::get()
@@ -448,12 +448,12 @@ namespace Ndapi
 
 	Ndapi::ScrollBarOrientation Block::ScrollBarOrientation::get()
 	{
-		return safe_cast<Ndapi::ScrollBarOrientation>(GetNumberProperty(D2FP_SCRLBR_ORNT));
+		return GetNumberProperty<Ndapi::ScrollBarOrientation>(D2FP_SCRLBR_ORNT);
 	}
 
 	void Block::ScrollBarOrientation::set(Ndapi::ScrollBarOrientation value)
 	{
-		SetNumberProperty(D2FP_SCRLBR_ORNT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_SCRLBR_ORNT, value);
 	}
 
 	String^ Block::ScrollBarTabPage::get()

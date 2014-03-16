@@ -46,12 +46,12 @@ namespace Ndapi
 
 	Ndapi::ExecutionStyle Trigger::ExecutionStyle::get()
 	{
-		return safe_cast<Ndapi::ExecutionStyle>(GetNumberProperty(D2FP_EXEC_HIERARCHY));
+		return GetNumberProperty<Ndapi::ExecutionStyle>(D2FP_EXEC_HIERARCHY);
 	}
 
 	void Trigger::ExecutionStyle::set(Ndapi::ExecutionStyle value)
 	{
-		SetNumberProperty(D2FP_EXEC_HIERARCHY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_EXEC_HIERARCHY, value);
 	}
 
 	bool Trigger::FireInEnterQueryMode::get()
@@ -86,12 +86,12 @@ namespace Ndapi
 
 	TriggerStyle Trigger::Style::get()
 	{
-		return safe_cast<TriggerStyle>(GetNumberProperty(D2FP_TRG_STY));
+		return GetNumberProperty<TriggerStyle>(D2FP_TRG_STY);
 	}
 
 	void Trigger::Style::set(TriggerStyle value)
 	{
-		SetNumberProperty(D2FP_TRG_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_TRG_STY, value);
 	}
 
 	String^ Trigger::Text::get()

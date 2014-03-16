@@ -18,12 +18,12 @@ namespace Ndapi
 
 	Ndapi::ColumnSpecificationDataType ColumnSpecification::DataType::get()
 	{
-		return safe_cast<Ndapi::ColumnSpecificationDataType>(GetNumberProperty(D2FP_COL_DAT_TYP));
+		return GetNumberProperty<Ndapi::ColumnSpecificationDataType>(D2FP_COL_DAT_TYP);
 	}
 
 	void ColumnSpecification::DataType::set(Ndapi::ColumnSpecificationDataType value)
 	{
-		SetNumberProperty(D2FP_COL_DAT_TYP, safe_cast<long>(value));
+		SetNumberProperty(D2FP_COL_DAT_TYP, value);
 	}
 
 	long ColumnSpecification::ValueCount::get()

@@ -48,12 +48,12 @@ namespace Ndapi
 
 	ParameterDataType FormParameter::DataType::get()
 	{
-		return safe_cast<ParameterDataType>(GetNumberProperty(D2FP_PARAM_DAT_TYP));
+		return GetNumberProperty<ParameterDataType>(D2FP_PARAM_DAT_TYP);
 	}
 
 	void FormParameter::DataType::set(ParameterDataType value)
 	{
-		SetNumberProperty(D2FP_PARAM_DAT_TYP, safe_cast<long>(value));
+		SetNumberProperty(D2FP_PARAM_DAT_TYP, value);
 	}
 
 	String^ FormParameter::InitialValue::get()

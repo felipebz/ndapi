@@ -48,12 +48,12 @@ namespace Ndapi
 
 	Ndapi::DeleteRecordBehavior BlockRelation::DeleteRecordBehavior::get()
 	{
-		return safe_cast<Ndapi::DeleteRecordBehavior>(GetNumberProperty(D2FP_DEL_REC));
+		return GetNumberProperty<Ndapi::DeleteRecordBehavior>(D2FP_DEL_REC);
 	}
 
 	void BlockRelation::DeleteRecordBehavior::set(Ndapi::DeleteRecordBehavior value)
 	{
-		SetNumberProperty(D2FP_DEL_REC, safe_cast<long>(value));
+		SetNumberProperty(D2FP_DEL_REC, value);
 	}
 
 	String^ BlockRelation::DetailBlock::get()

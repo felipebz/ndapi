@@ -28,22 +28,22 @@ namespace Ndapi
 
 	Ndapi::Bevel Canvas::Bevel::get()
 	{
-		return safe_cast<Ndapi::Bevel>(GetNumberProperty(D2FP_BEVEL));
+		return GetNumberProperty<Ndapi::Bevel>(D2FP_BEVEL);
 	}
 
 	void Canvas::Bevel::set(Ndapi::Bevel value)
 	{
-		SetNumberProperty(D2FP_BEVEL, safe_cast<long>(value));
+		SetNumberProperty(D2FP_BEVEL, value);
 	}
 
 	Ndapi::CanvasType Canvas::CanvasType::get()
 	{
-		return safe_cast<Ndapi::CanvasType>(GetNumberProperty(D2FP_CNV_TYP));
+		return GetNumberProperty<Ndapi::CanvasType>(D2FP_CNV_TYP);
 	}
 
 	void Canvas::CanvasType::set(Ndapi::CanvasType value)
 	{
-		SetNumberProperty(D2FP_CNV_TYP, safe_cast<long>(value));
+		SetNumberProperty(D2FP_CNV_TYP, value);
 	}
 
 	String^ Canvas::Comment::get()
@@ -88,32 +88,32 @@ namespace Ndapi
 
 	Ndapi::FontSpacing Canvas::FontSpacing::get()
 	{
-		return safe_cast<Ndapi::FontSpacing>(GetNumberProperty(D2FP_FONT_SPCING));
+		return GetNumberProperty<Ndapi::FontSpacing>(D2FP_FONT_SPCING);
 	}
 
 	void Canvas::FontSpacing::set(Ndapi::FontSpacing value)
 	{
-		SetNumberProperty(D2FP_FONT_SPCING, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_SPCING, value);
 	}
 
 	Ndapi::FontStyle Canvas::FontStyle::get()
 	{
-		return safe_cast<Ndapi::FontStyle>(GetNumberProperty(D2FP_FONT_STY));
+		return GetNumberProperty<Ndapi::FontStyle>(D2FP_FONT_STY);
 	}
 
 	void Canvas::FontStyle::set(Ndapi::FontStyle value)
 	{
-		SetNumberProperty(D2FP_FONT_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_STY, value);
 	}
 
 	Ndapi::FontWeight Canvas::FontWeight::get()
 	{
-		return safe_cast<Ndapi::FontWeight>(GetNumberProperty(D2FP_FONT_WGHT));
+		return GetNumberProperty<Ndapi::FontWeight>(D2FP_FONT_WGHT);
 	}
 
 	void Canvas::FontWeight::set(Ndapi::FontWeight value)
 	{
-		SetNumberProperty(D2FP_FONT_WGHT, safe_cast<long>(value));
+		SetNumberProperty(D2FP_FONT_WGHT, value);
 	}
 
 	String^ Canvas::ForegroundColor::get()
@@ -188,22 +188,22 @@ namespace Ndapi
 
 	Ndapi::TabAttachmentEdge Canvas::TabAttachmentEdge::get()
 	{
-		return safe_cast<Ndapi::TabAttachmentEdge>(GetNumberProperty(D2FP_TAB_ATT_EDGE));
+		return GetNumberProperty<Ndapi::TabAttachmentEdge>(D2FP_TAB_ATT_EDGE);
 	}
 
 	void Canvas::TabAttachmentEdge::set(Ndapi::TabAttachmentEdge value)
 	{
-		SetNumberProperty(D2FP_TAB_ATT_EDGE, safe_cast<long>(value));
+		SetNumberProperty(D2FP_TAB_ATT_EDGE, value);
 	}
 
 	Ndapi::TabStyle Canvas::TabStyle::get()
 	{
-		return safe_cast<Ndapi::TabStyle>(GetNumberProperty(D2FP_TAB_STY));
+		return GetNumberProperty<Ndapi::TabStyle>(D2FP_TAB_STY);
 	}
 
 	void Canvas::TabStyle::set(Ndapi::TabStyle value)
 	{
-		SetNumberProperty(D2FP_TAB_STY, safe_cast<long>(value));
+		SetNumberProperty(D2FP_TAB_STY, value);
 	}
 
 	String^ Canvas::VisualAttributeGroup::get()
