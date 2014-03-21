@@ -381,4 +381,10 @@ namespace Ndapi
 		Center = D2FC_VEJU_CENTER,
 		Bottom = D2FC_VEJU_BOTTOM
 	};
+
+	public enum class WindowStyle : long
+	{
+		Document = D2FC_WIST_DOCUMENT,
+		Dialog = D2FC_WIST_DIALOG
+	};
 }

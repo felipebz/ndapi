@@ -10,6 +10,7 @@
 #include "ProgramUnit.h"
 #include "RecordGroup.h"
 #include "Trigger.h"
+#include "Window.h"
 
 #include <D2FFMD.H>
 
@@ -25,6 +26,7 @@ namespace Ndapi
 	ref class ProgramUnit;
 	ref class RecordGroup;
 	ref class Trigger;
+	ref class Window;
 
 	public ref class FormModule : NdapiObject
 	{
@@ -72,6 +74,7 @@ namespace Ndapi
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 		property NdapiEnumerator<RecordGroup^>^ RecordGroups { NdapiEnumerator<RecordGroup^>^ get(); }
 		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }
+		property NdapiEnumerator<Window^>^ Windows { NdapiEnumerator<Window^>^ get(); }
 
 		~FormModule();
 	};
