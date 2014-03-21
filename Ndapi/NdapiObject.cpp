@@ -107,8 +107,10 @@ namespace Ndapi
 
 		auto status = d2fobgo_GetObjProp(NdapiContext::Context, _handler, property_id, &object);
 		CheckStatusAndThrow(status, String::Format("Error getting a object property. Property id: {0}", property_id));
-
-		return safe_cast<T>(gcnew NdapiObject(object));
+		
+		auto instance = safe_cast<NdapiObject^>(Activator::CreateInstance<T>());
+		instance->FillWithObject(object);
+		return safe_cast<T>(instance);
 	}
 
 	generic <class T>
