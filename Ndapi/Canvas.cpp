@@ -306,12 +306,22 @@ namespace Ndapi
 		SetNumberProperty(D2FP_WIDTH, value);
 	}
 
-	String^ Canvas::Window::get()
+	Ndapi::Window^ Canvas::Window::get()
+	{
+		return GetObjectProperty<Ndapi::Window^>(D2FP_WND_OBJ);
+	}
+
+	void Canvas::Window::set(Ndapi::Window^ value)
+	{
+		SetObjectProperty(D2FP_WND_OBJ, value);
+	}
+
+	String^ Canvas::WindowName::get()
 	{
 		return GetStringProperty(D2FP_WND_NAM);
 	}
 
-	void Canvas::Window::set(String^ value)
+	void Canvas::WindowName::set(String^ value)
 	{
 		SetStringProperty(D2FP_WND_NAM, value);
 	}

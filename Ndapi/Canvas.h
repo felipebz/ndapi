@@ -3,10 +3,12 @@
 #include "NdapiObject.h"
 #include "FormModule.h"
 #include "Graphic.h"
+#include "Window.h"
 
 namespace Ndapi
 {
 	ref class Graphic;
+	ref class Window;
 
 	public ref class Canvas : NdapiObject
 	{
@@ -46,7 +48,8 @@ namespace Ndapi
 		property long ViewportYPositionOnCanvas { long get(); void set(long value); }
 		property bool WhiteOnBlack { bool get(); void set(bool value); }
 		property long Width { long get(); void set(long value); }
-		property String^ Window { String^ get(); void set(String^ value); }
+		property Ndapi::Window^ Window { Ndapi::Window^ get(); void set(Ndapi::Window^ value); }
+		property String^ WindowName { String^ get(); void set(String^ value); }
 
 		property NdapiEnumerator<Graphic^>^ Graphics { NdapiEnumerator<Graphic^>^ get(); }
 		property NdapiEnumerator<NdapiObject^>^ TabPage { NdapiEnumerator<NdapiObject^>^ get(); }
