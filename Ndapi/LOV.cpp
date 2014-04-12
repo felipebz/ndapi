@@ -86,9 +86,9 @@ namespace Ndapi
 		SetStringProperty(D2FP_BACK_COLOR, value);
 	}
 
-	NdapiObject^ LOV::ColumnMappingProperties::get()
+	NdapiEnumerator<ColumnMapping^>^ LOV::ColumnMappingProperties::get()
 	{
-		return GetObjectProperty<NdapiObject^>(D2FP_COL_MAP);
+		return gcnew NdapiEnumerator<ColumnMapping^>(_handler, D2FP_COL_MAP);
 	}
 
 	String^ LOV::Comment::get()
@@ -209,16 +209,6 @@ namespace Ndapi
 	void LOV::ListType::set(Ndapi::ListType value)
 	{
 		SetNumberProperty(D2FP_LST_TYP, value);
-	}
-
-	String^ LOV::Name::get()
-	{
-		return GetStringProperty(D2FP_NAME);
-	}
-
-	void LOV::Name::set(String^ value)
-	{
-		SetStringProperty(D2FP_NAME, value);
 	}
 
 	String^ LOV::OldLOVText::get()

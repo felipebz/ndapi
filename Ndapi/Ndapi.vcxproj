@@ -89,6 +89,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="BlockRelation.h" />
     <ClInclude Include="Canvas.h" />
+    <ClInclude Include="ColumnMapping.h" />
     <ClInclude Include="ColumnSpecification.h" />
     <ClInclude Include="FormModule.h" />
     <ClInclude Include="FormParameter.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="BlockRelation.cpp" />
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="ColumnMapping.cpp" />
     <ClCompile Include="ColumnSpecification.cpp" />
     <ClCompile Include="FormModule.cpp" />
     <ClCompile Include="FormParameter.cpp" />

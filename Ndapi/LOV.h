@@ -1,11 +1,13 @@
 #pragma once
 
 #include "NdapiObject.h"
+#include "ColumnMapping.h"
 #include "FormModule.h"
 #include "RecordGroup.h"
 
 namespace Ndapi
 {
+	ref class ColumnMapping;
 	ref class RecordGroup;
 
 	public ref class LOV : NdapiObject
@@ -24,7 +26,7 @@ namespace Ndapi
 		property bool AutomaticSkip { bool get(); void set(bool value); }
 		property bool AutomaticSelect { bool get(); void set(bool value); }
 		property String^ BackgroundColor { String^ get(); void set(String^ value); }
-		property NdapiObject^ ColumnMappingProperties { NdapiObject^ get(); }
+		property NdapiEnumerator<ColumnMapping^>^ ColumnMappingProperties { NdapiEnumerator<ColumnMapping^>^ get(); }
 		property String^ Comment { String^ get(); void set(String^ value); }
 		property String^ FillPattern { String^ get(); void set(String^ value); }
 		property bool FilterBeforeDisplay { bool get(); void set(bool value); }
@@ -37,7 +39,6 @@ namespace Ndapi
 		property long Height { long get(); void set(long value); }
 		property Ndapi::LanguageDirection LanguageDirection { Ndapi::LanguageDirection get(); void set(Ndapi::LanguageDirection value); }
 		property Ndapi::ListType ListType { Ndapi::ListType get(); void set(Ndapi::ListType value); }
-		property String^ Name { String^ get(); void set(String^ value); }
 		property String^ OldLOVText { String^ get(); void set(String^ value); }
 		property Ndapi::RecordGroup^ RecordGroup { Ndapi::RecordGroup^ get(); void set(Ndapi::RecordGroup^ value); }
 		property String^ Title { String^ get(); void set(String^ value); }
