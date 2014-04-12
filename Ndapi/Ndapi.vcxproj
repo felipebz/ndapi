@@ -93,6 +93,7 @@
     <ClInclude Include="FormModule.h" />
     <ClInclude Include="FormParameter.h" />
     <ClInclude Include="Graphic.h" />
+    <ClInclude Include="LOV.h" />
     <ClInclude Include="Ndapi.h" />
     <ClInclude Include="NdapiContext.h" />
     <ClInclude Include="NdapiEnumerator.h" />
@@ -115,6 +116,7 @@
     <ClCompile Include="FormModule.cpp" />
     <ClCompile Include="FormParameter.cpp" />
     <ClCompile Include="Graphic.cpp" />
+    <ClCompile Include="LOV.cpp" />
     <ClCompile Include="Ndapi.cpp" />
     <ClCompile Include="NdapiContext.cpp" />
     <ClCompile Include="NdapiEnumerator.cpp" />

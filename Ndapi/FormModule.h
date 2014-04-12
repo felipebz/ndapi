@@ -7,6 +7,7 @@
 #include "Block.h"
 #include "Canvas.h"
 #include "FormParameter.h"
+#include "LOV.h"
 #include "ProgramUnit.h"
 #include "RecordGroup.h"
 #include "Trigger.h"
@@ -23,6 +24,7 @@ namespace Ndapi
 	ref class Block;
 	ref class Canvas;
 	ref class FormParameter;
+	ref class LOV;
 	ref class ProgramUnit;
 	ref class RecordGroup;
 	ref class Trigger;
@@ -71,6 +73,7 @@ namespace Ndapi
 		property NdapiEnumerator<Block^>^ Blocks { NdapiEnumerator<Block^>^ get(); }
 		property NdapiEnumerator<Canvas^>^ Canvases { NdapiEnumerator<Canvas^>^ get(); }
 		property NdapiEnumerator<FormParameter^>^ FormParameters { NdapiEnumerator<FormParameter^>^ get(); }
+		property NdapiEnumerator<LOV^>^ LOVs { NdapiEnumerator<LOV^>^ get(); }
 		property NdapiEnumerator<ProgramUnit^>^ ProgramUnits { NdapiEnumerator<ProgramUnit^>^ get(); }
 		property NdapiEnumerator<RecordGroup^>^ RecordGroups { NdapiEnumerator<RecordGroup^>^ get(); }
 		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }

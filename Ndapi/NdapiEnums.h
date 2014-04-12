@@ -387,4 +387,10 @@ namespace Ndapi
 		Document = D2FC_WIST_DOCUMENT,
 		Dialog = D2FC_WIST_DIALOG
 	};
+
+	public enum class ListType : long
+	{
+		RecordGroup = D2FC_LSTY_RECORDGROUP,
+		Old = D2FC_LSTY_OLD
+	};
 }

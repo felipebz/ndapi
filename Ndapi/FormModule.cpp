@@ -313,6 +313,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<FormParameter^>(_handler, D2FP_FORM_PARAM);
 	}
 
+	NdapiEnumerator<LOV^>^ FormModule::LOVs::get()
+	{
+		return gcnew NdapiEnumerator<LOV^>(_handler, D2FP_LOV);
+	}
+
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
 		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
