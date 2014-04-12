@@ -23,7 +23,7 @@ namespace Ndapi
 		property long FontSize { long get(); void set(long value); }
 		property Ndapi::FontSpacing FontSpacing { Ndapi::FontSpacing get(); void set(Ndapi::FontSpacing value); }
 		property Ndapi::FontStyle FontStyle { Ndapi::FontStyle get(); void set(Ndapi::FontStyle value); }
-		property long FontWeight { long get(); void set(long value); }
+		property Ndapi::FontWeight FontWeight { Ndapi::FontWeight get(); void set(Ndapi::FontWeight value); }
 		property String^ ForegroundColor { String^ get(); void set(String^ value); }
 		property long Height { long get(); void set(long value); }
 		property String^ HelpBookTopic { String^ get(); void set(String^ value); }

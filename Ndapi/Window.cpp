@@ -106,12 +106,12 @@ namespace Ndapi
 		SetNumberProperty(D2FP_FONT_STY, value);
 	}
 
-	long Window::FontWeight::get()
+	Ndapi::FontWeight Window::FontWeight::get()
 	{
-		return GetNumberProperty(D2FP_FONT_WGHT);
+		return GetNumberProperty<Ndapi::FontWeight>(D2FP_FONT_WGHT);
 	}
 
-	void Window::FontWeight::set(long value)
+	void Window::FontWeight::set(Ndapi::FontWeight value)
 	{
 		SetNumberProperty(D2FP_FONT_WGHT, value);
 	}
