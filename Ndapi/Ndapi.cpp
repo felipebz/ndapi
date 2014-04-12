@@ -12,7 +12,7 @@ Ndapi::NativeString<text>::NativeString(String^ s)
 
 void Ndapi::CheckStatusAndThrow(d2fstatus status, String^ message)
 {
-	if (status != D2FS_SUCCESS) {
+	if (status != D2FS_SUCCESS && status != D2FS_YES && status != D2FS_NO) {
 		throw gcnew NdapiException(message, status);
 	}
 }

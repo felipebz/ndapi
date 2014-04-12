@@ -50,6 +50,7 @@ namespace Ndapi
 		property String^ ParentModule { String^ get(); void set(String^ value); }
 		property String^ ParentName { String^ get(); void set(String^ value); }
 		property long ParentType { long get(); void set(long value); }
+		property bool IsSubclassed { bool get(); }
 
 		virtual String^ ToString() override;
 	};

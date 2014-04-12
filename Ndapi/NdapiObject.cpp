@@ -200,6 +200,14 @@ namespace Ndapi
 		SetNumberProperty(D2FP_PAR_TYP, value);
 	}
 
+	bool NdapiObject::IsSubclassed::get() 
+	{
+		auto status = d2fobis_IsSubclassed(NdapiContext::Context, _handler);
+		CheckStatusAndThrow(status, "Error getting the IsSubclassed property");
+
+		return status == D2FS_YES;
+	}
+
 	String^ NdapiObject::ToString()
 	{
 		return Name;
