@@ -231,12 +231,12 @@ namespace Ndapi
 		SetStringProperty(D2FP_OLD_LOV_TXT, value);
 	}
 
-	NdapiObject^ LOV::RecordGroup::get()
+	Ndapi::RecordGroup^ LOV::RecordGroup::get()
 	{
-		return GetObjectProperty<NdapiObject^>(D2FP_REC_GRP_OBJ);
+		return GetObjectProperty<Ndapi::RecordGroup^>(D2FP_REC_GRP_OBJ);
 	}
 
-	void LOV::RecordGroup::set(NdapiObject^ value)
+	void LOV::RecordGroup::set(Ndapi::RecordGroup^ value)
 	{
 		SetObjectProperty(D2FP_REC_GRP_OBJ, value);
 	}

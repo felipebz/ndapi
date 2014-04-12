@@ -2,9 +2,12 @@
 
 #include "NdapiObject.h"
 #include "FormModule.h"
+#include "RecordGroup.h"
 
 namespace Ndapi
 {
+	ref class RecordGroup;
+
 	public ref class LOV : NdapiObject
 	{
 	public protected:
@@ -36,7 +39,7 @@ namespace Ndapi
 		property Ndapi::ListType ListType { Ndapi::ListType get(); void set(Ndapi::ListType value); }
 		property String^ Name { String^ get(); void set(String^ value); }
 		property String^ OldLOVText { String^ get(); void set(String^ value); }
-		property NdapiObject^ RecordGroup { NdapiObject^ get(); void set(NdapiObject^ value); }
+		property Ndapi::RecordGroup^ RecordGroup { Ndapi::RecordGroup^ get(); void set(Ndapi::RecordGroup^ value); }
 		property String^ Title { String^ get(); void set(String^ value); }
 		property String^ VisualAttributeGroup { String^ get(); void set(String^ value); }
 		property bool WhiteOnBlack { bool get(); void set(bool value); }
