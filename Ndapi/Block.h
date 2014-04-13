@@ -1,15 +1,17 @@
 #pragma once
 
 #include "NdapiObject.h"
-#include "FormModule.h"
 #include "BlockRelation.h"
+#include "FormModule.h"
+#include "Item.h"
 #include "Trigger.h"
 
 namespace Ndapi
 {
-	ref class FormModule;
-	ref class Trigger;
 	ref class BlockRelation;
+	ref class FormModule;
+	ref class Item;
+	ref class Trigger;
 
 	public ref class Block : NdapiObject
 	{
@@ -78,6 +80,7 @@ namespace Ndapi
 		property bool WhiteOnBlack { bool get(); void set(bool value); }
 
 		property NdapiEnumerator<BlockRelation^>^ BlockRelations { NdapiEnumerator<BlockRelation^>^ get(); }
+		property NdapiEnumerator<Item^>^ Items { NdapiEnumerator<Item^>^ get(); }
 		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }
 	};
 }

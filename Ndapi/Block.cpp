@@ -581,6 +581,11 @@ namespace Ndapi
 		return gcnew NdapiEnumerator<BlockRelation^>(_handler, D2FP_REL);
 	}
 
+	NdapiEnumerator<Item^>^ Block::Items::get()
+	{
+		return gcnew NdapiEnumerator<Item^>(_handler, D2FP_ITEM);
+	}
+
 	NdapiEnumerator<Trigger^>^ Block::Triggers::get()
 	{
 		return gcnew NdapiEnumerator<Trigger^>(_handler, D2FP_TRIGGER);
