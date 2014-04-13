@@ -721,12 +721,12 @@ namespace Ndapi
 		SetNumberProperty(D2FP_TOP_PRMPT_OFST, value);
 	}
 
-	Ndapi::TitleReadingOrder Graphic::TitleReadingOrder::get()
+	ReadingOrder Graphic::TitleReadingOrder::get()
 	{
-		return GetNumberProperty<Ndapi::TitleReadingOrder>(D2FP_TTL_READING_ORDR);
+		return GetNumberProperty<ReadingOrder>(D2FP_TTL_READING_ORDR);
 	}
 
-	void Graphic::TitleReadingOrder::set(Ndapi::TitleReadingOrder value)
+	void Graphic::TitleReadingOrder::set(ReadingOrder value)
 	{
 		SetNumberProperty(D2FP_TTL_READING_ORDR, value);
 	}

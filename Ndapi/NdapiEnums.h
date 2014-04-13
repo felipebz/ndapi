@@ -618,7 +618,7 @@ namespace Ndapi
 		Static = D2FC_REGR_STATIC
 	};
 
-	public enum class TitleReadingOrder : long
+	public enum class ReadingOrder : long
 	{
 		Default = D2FC_READ_DEFAULT,
 		LeftToRight = D2FC_READ_TORIGHT,

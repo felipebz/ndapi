@@ -85,7 +85,7 @@ namespace Ndapi
 		property long StartPromptOffset { long get(); void set(long value); }
 		property Alignment TopPromptAlignment { Alignment get(); void set(Alignment value); }
 		property long TopPromptOffset { long get(); void set(long value); }
-		property Ndapi::TitleReadingOrder TitleReadingOrder { Ndapi::TitleReadingOrder get(); void set(Ndapi::TitleReadingOrder value); }
+		property ReadingOrder TitleReadingOrder { ReadingOrder get(); void set(ReadingOrder value); }
 		property Ndapi::UpdateLayout UpdateLayout { Ndapi::UpdateLayout get(); void set(Ndapi::UpdateLayout value); }
 		property String^ VisualAttributeGroup { String^ get(); void set(String^ value); }
 		property bool VerticalFill { bool get(); void set(bool value); }
