@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "FormModule.h"
 #include "NdapiObject.h"
 
 namespace Ndapi
@@ -124,6 +125,14 @@ namespace Ndapi
 		CheckStatusAndThrow(status, String::Format("Error setting a object property. Property id: {0}", property_id));
 	}
 
+	bool NdapiObject::IsSubclassed::get()
+	{
+		auto status = d2fobis_IsSubclassed(NdapiContext::Context, _handler);
+		CheckStatusAndThrow(status, "Error getting the IsSubclassed property");
+
+		return status == D2FS_YES;
+	}
+
 	String^ NdapiObject::Name::get()
 	{
 		return GetStringProperty(D2FP_NAME);
@@ -132,6 +141,11 @@ namespace Ndapi
 	void NdapiObject::Name::set(String^ value)
 	{
 		SetStringProperty(D2FP_NAME, value);
+	}
+
+	NdapiObject^ NdapiObject::Owner::get()
+	{
+		return GetObjectProperty<NdapiObject^>(D2FP_OWNER);
 	}
 
 	String^ NdapiObject::ParentFileName::get()
@@ -204,12 +218,24 @@ namespace Ndapi
 		SetNumberProperty(D2FP_PAR_TYP, value);
 	}
 
-	bool NdapiObject::IsSubclassed::get() 
+	String^ NdapiObject::GetQualifiedName(bool includeModule)
 	{
-		auto status = d2fobis_IsSubclassed(NdapiContext::Context, _handler);
-		CheckStatusAndThrow(status, "Error getting the IsSubclassed property");
+		auto builder = gcnew StringBuilder();
+		auto owner = Owner;
+		if (owner != nullptr)
+		{
+			d2fotyp type;
+			auto status = d2fobqt_QueryType(NdapiContext::Context, owner->_handler, &type);
+			CheckStatusAndThrow(status, "Error getting querying the type");
 
-		return status == D2FS_YES;
+			if (includeModule || (type != D2FFO_FORM_MODULE))
+			{
+				builder->Append(owner->GetQualifiedName(includeModule));
+				builder->Append(".");
+			}
+		}
+		builder->Append(Name);
+		return builder->ToString();
 	}
 
 	String^ NdapiObject::ToString()

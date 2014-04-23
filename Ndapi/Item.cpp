@@ -646,6 +646,16 @@ namespace Ndapi
 		SetObjectProperty(D2FP_LOV_OBJ, value);
 	}
 
+	String^ Item::LOVName::get()
+	{
+		return GetStringProperty(D2FP_LOV_NAM);
+	}
+
+	void Item::LOVName::set(String^ value)
+	{
+		SetStringProperty(D2FP_LOV_NAM, value);
+	}
+
 	long Item::LOVXPosition::get()
 	{
 		return GetNumberProperty(D2FP_LOV_X_POS);
