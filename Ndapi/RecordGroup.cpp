@@ -68,6 +68,6 @@ namespace Ndapi
 
 	NdapiEnumerator<ColumnSpecification^>^ RecordGroup::ColumnSpecifications::get()
 	{
-		return gcnew NdapiEnumerator<ColumnSpecification^>(_handler, D2FP_COL_SPEC);
+		return gcnew NdapiObjectEnumerator<ColumnSpecification^>(_handler, D2FP_COL_SPEC);
 	}
 }

@@ -53,6 +53,6 @@ namespace Ndapi
 
 	NdapiEnumerator<NdapiObject^>^ ColumnSpecification::Values::get()
 	{
-		return gcnew NdapiEnumerator<NdapiObject^>(_handler, D2FP_COLUMN_VALUE);
+		return gcnew NdapiObjectEnumerator<NdapiObject^>(_handler, D2FP_COLUMN_VALUE);
 	}
 }

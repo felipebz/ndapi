@@ -328,12 +328,12 @@ namespace Ndapi
 
 	NdapiEnumerator<Graphic^>^ Canvas::Graphics::get()
 	{
-		return gcnew NdapiEnumerator<Graphic^>(_handler, D2FP_GRAPHIC);
+		return gcnew NdapiObjectEnumerator<Graphic^>(_handler, D2FP_GRAPHIC);
 	}
 
 	NdapiEnumerator<NdapiObject^>^ Canvas::TabPage::get()
 	{
-		return gcnew NdapiEnumerator<NdapiObject^>(_handler, D2FP_TAB_PAGE);
+		return gcnew NdapiObjectEnumerator<NdapiObject^>(_handler, D2FP_TAB_PAGE);
 	}
 }
 

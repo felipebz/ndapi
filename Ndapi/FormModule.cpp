@@ -295,52 +295,52 @@ namespace Ndapi
 
 	NdapiEnumerator<Alert^>^ FormModule::Alerts::get()
 	{
-		return gcnew NdapiEnumerator<Alert^>(_handler, D2FP_ALERT);
+		return gcnew NdapiObjectEnumerator<Alert^>(_handler, D2FP_ALERT);
 	}
 
 	NdapiEnumerator<Block^>^ FormModule::Blocks::get()
 	{
-		return gcnew NdapiEnumerator<Block^>(_handler, D2FP_BLOCK);
+		return gcnew NdapiObjectEnumerator<Block^>(_handler, D2FP_BLOCK);
 	}
 
 	NdapiEnumerator<Canvas^>^ FormModule::Canvases::get()
 	{
-		return gcnew NdapiEnumerator<Canvas^>(_handler, D2FP_CANVAS);
+		return gcnew NdapiObjectEnumerator<Canvas^>(_handler, D2FP_CANVAS);
 	}
 
 	NdapiEnumerator<FormParameter^>^ FormModule::FormParameters::get()
 	{
-		return gcnew NdapiEnumerator<FormParameter^>(_handler, D2FP_FORM_PARAM);
+		return gcnew NdapiObjectEnumerator<FormParameter^>(_handler, D2FP_FORM_PARAM);
 	}
 
 	NdapiEnumerator<LOV^>^ FormModule::LOVs::get()
 	{
-		return gcnew NdapiEnumerator<LOV^>(_handler, D2FP_LOV);
+		return gcnew NdapiObjectEnumerator<LOV^>(_handler, D2FP_LOV);
 	}
 
 	NdapiEnumerator<ProgramUnit^>^ FormModule::ProgramUnits::get()
 	{
-		return gcnew NdapiEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
+		return gcnew NdapiObjectEnumerator<ProgramUnit^>(_handler, D2FP_PROG_UNIT);
 	}
 
 	NdapiEnumerator<RecordGroup^>^ FormModule::RecordGroups::get()
 	{
-		return gcnew NdapiEnumerator<RecordGroup^>(_handler, D2FP_REC_GRP);
+		return gcnew NdapiObjectEnumerator<RecordGroup^>(_handler, D2FP_REC_GRP);
 	}
 
 	NdapiEnumerator<Trigger^>^ FormModule::Triggers::get()
 	{
-		return gcnew NdapiEnumerator<Trigger^>(_handler, D2FP_TRIGGER);
+		return gcnew NdapiObjectEnumerator<Trigger^>(_handler, D2FP_TRIGGER);
 	}
 
 	NdapiEnumerator<AttachedLibrary^>^ FormModule::AttachedLibraries::get()
 	{
-		return gcnew NdapiEnumerator<AttachedLibrary^>(_handler, D2FP_ATT_LIB);
+		return gcnew NdapiObjectEnumerator<AttachedLibrary^>(_handler, D2FP_ATT_LIB);
 	}
 
 	NdapiEnumerator<Window^>^ FormModule::Windows::get()
 	{
-		return gcnew NdapiEnumerator<Window^>(_handler, D2FP_WINDOW);
+		return gcnew NdapiObjectEnumerator<Window^>(_handler, D2FP_WINDOW);
 	}
 
 	FormModule::~FormModule() {

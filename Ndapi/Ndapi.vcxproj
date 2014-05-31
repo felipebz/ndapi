@@ -70,12 +70,14 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>ifd2f60.LIB</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -101,6 +103,8 @@
     <ClInclude Include="NdapiEnumerator.h" />
     <ClInclude Include="NdapiEnums.h" />
     <ClInclude Include="NdapiObject.h" />
+    <ClInclude Include="NdapiObjectLibraryEnumerator.h" />
+    <ClInclude Include="ObjectLibrary.h" />
     <ClInclude Include="ProgramUnit.h" />
     <ClInclude Include="RecordGroup.h" />
     <ClInclude Include="Stdafx.h" />
@@ -123,9 +127,10 @@
     <ClCompile Include="LOV.cpp" />
     <ClCompile Include="Ndapi.cpp" />
     <ClCompile Include="NdapiContext.cpp" />
-    <ClCompile Include="NdapiEnumerator.cpp" />
     <ClCompile Include="NdapiEnums.cpp" />
     <ClCompile Include="NdapiObject.cpp" />
+    <ClCompile Include="NdapiObjectLibraryEnumerator.cpp" />
+    <ClCompile Include="ObjectLibrary.cpp" />
     <ClCompile Include="ProgramUnit.cpp" />
     <ClCompile Include="RecordGroup.cpp" />
     <ClCompile Include="Stdafx.cpp">

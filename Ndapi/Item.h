@@ -82,6 +82,7 @@ namespace Ndapi
 		property Ndapi::LanguageDirection LanguageDirection { Ndapi::LanguageDirection get(); void set(Ndapi::LanguageDirection value); }
 		property bool LockRecord { bool get(); void set(bool value); }
 		property Ndapi::LOV^ LOV { Ndapi::LOV^ get(); void set(Ndapi::LOV^ value); }
+		property String^ LOVName { String^ get(); void set(String^ value); }
 		property long LOVXPosition { long get(); void set(long value); }
 		property long LOVXYosition { long get(); void set(long value); }
 		property String^ LowestAllowedValue { String^ get(); void set(String^ value); }

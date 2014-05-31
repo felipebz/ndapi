@@ -843,6 +843,6 @@ namespace Ndapi
 
 	NdapiEnumerator<Graphic^>^ Graphic::Graphics::get()
 	{
-		return gcnew NdapiEnumerator<Graphic^>(_handler, D2FP_GRAPHIC);
+		return gcnew NdapiObjectEnumerator<Graphic^>(_handler, D2FP_GRAPHIC);
 	}
 }

@@ -88,7 +88,7 @@ namespace Ndapi
 
 	NdapiEnumerator<ColumnMapping^>^ LOV::ColumnMappingProperties::get()
 	{
-		return gcnew NdapiEnumerator<ColumnMapping^>(_handler, D2FP_COL_MAP);
+		return gcnew NdapiObjectEnumerator<ColumnMapping^>(_handler, D2FP_COL_MAP);
 	}
 
 	String^ LOV::Comment::get()
