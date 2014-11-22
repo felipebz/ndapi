@@ -1,5 +1,5 @@
-﻿using NdapiManaged.Core.Handles;
-using System;
+﻿using NdapiManaged.Core;
+using NdapiManaged.Core.Handles;
 
 namespace NdapiManaged
 {
@@ -10,6 +10,13 @@ namespace NdapiManaged
         internal NdapiObject(ObjectSafeHandle handler)
         {
             _handler = handler;
+        }
+
+        public string GetStringProperty(int property)
+        {
+            string value;
+            NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handler, property, out value);
+            return value;
         }
     }
 }

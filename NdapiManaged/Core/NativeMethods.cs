@@ -31,9 +31,12 @@ namespace NdapiManaged.Core
                                                [MarshalAs(UnmanagedType.I1)] bool db);
 
         // Object methods
-        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int d2fobgt_GetTextProp(IntPtr pd2fctx, IntPtr pd2fob, ushort pnum, ref IntPtr pprp);
-
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fobgt_GetTextProp(ContextSafeHandle pd2fctx, 
+                                                     ObjectSafeHandle pd2fob,
+                                                     int pnum,
+                                                     [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaller))] out string pprp);
+        
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, IntPtr pd2fob);
     }
