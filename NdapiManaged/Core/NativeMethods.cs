@@ -26,7 +26,7 @@ namespace NdapiManaged.Core
         // Form module specific methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2ffmdld_Load(ContextSafeHandle pd2fctx,
-                                               ref IntPtr ppd2ffmd,
+                                               out ObjectSafeHandle ppd2ffmd,
                                                string formname,
                                                [MarshalAs(UnmanagedType.I1)] bool db);
 
@@ -34,5 +34,7 @@ namespace NdapiManaged.Core
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobgt_GetTextProp(IntPtr pd2fctx, IntPtr pd2fob, ushort pnum, ref IntPtr pprp);
 
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, IntPtr pd2fob);
     }
 }

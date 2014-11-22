@@ -11,7 +11,6 @@ namespace NdapiManaged.Core.Handles
     {
         protected SafeHandleBase() : base(IntPtr.Zero, true)
         {
-            //Console.WriteLine("SafeHandleBase");
         }
 
         public override bool IsInvalid
@@ -27,7 +26,6 @@ namespace NdapiManaged.Core.Handles
 
         protected override sealed bool ReleaseHandle()
         {
-            //Console.WriteLine("ReleaseHandle");
             return ReleaseHandleImpl();
         }
     }

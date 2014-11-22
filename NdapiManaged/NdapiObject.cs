@@ -1,12 +1,13 @@
-﻿using System;
+﻿using NdapiManaged.Core.Handles;
+using System;
 
 namespace NdapiManaged
 {
     public class NdapiObject
     {
-        private IntPtr _handler;
+        private ObjectSafeHandle _handler;
 
-        internal NdapiObject(IntPtr handler)
+        internal NdapiObject(ObjectSafeHandle handler)
         {
             _handler = handler;
         }

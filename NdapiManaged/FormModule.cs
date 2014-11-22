@@ -1,4 +1,5 @@
 ﻿using NdapiManaged.Core;
+using NdapiManaged.Core.Handles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +10,15 @@ namespace NdapiManaged
 {
     public class FormModule : NdapiObject
     {
-        internal FormModule(IntPtr handler) : base(handler)
+        internal FormModule(ObjectSafeHandle handler) : base(handler)
         {
         }
 
         public static FormModule Open(string filename)
         {
-            var form = IntPtr.Zero;
+            ObjectSafeHandle form;
 
-            var status = NativeMethods.d2ffmdld_Load(NdapiContext.Context, ref form, filename, false);
+            var status = NativeMethods.d2ffmdld_Load(NdapiContext.Context, out form, filename, false);
             Ensure.Success(status);
 
             return new FormModule(form);

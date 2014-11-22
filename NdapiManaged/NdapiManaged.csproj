@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Core\D2fErrorCode.cs" />
     <Compile Include="Core\Handles\ContextSafeHandle.cs" />
+    <Compile Include="Core\Handles\ObjectSafeHandle.cs" />
     <Compile Include="Core\Handles\SafeHandleBase.cs" />
     <Compile Include="Core\Ensure.cs" />
     <Compile Include="Core\NativeMethods.cs" />
