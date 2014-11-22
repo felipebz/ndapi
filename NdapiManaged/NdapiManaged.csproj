@@ -69,6 +69,7 @@
     <Compile Include="Core\StringMarshaller.cs" />
     <Compile Include="FormModule.cs" />
     <Compile Include="Core\D2fContext.cs" />
+    <Compile Include="NdapiConstants.cs" />
     <Compile Include="NdapiContext.cs" />
     <Compile Include="NdapiException.cs" />
     <Compile Include="NdapiObject.cs" />
