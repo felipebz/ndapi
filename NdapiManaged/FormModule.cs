@@ -7,19 +7,17 @@ using System.Text;
 
 namespace NdapiManaged
 {
-    public class FormModule
+    public class FormModule : NdapiObject
     {
-        public FormModule()
+        internal FormModule(IntPtr handler) : base(handler)
         {
-
         }
 
         public static FormModule Open(string filename)
         {
-            IntPtr form = IntPtr.Zero;
-
+            var form = IntPtr.Zero;
             var status = NativeMethods.d2ffmdld_Load(NdapiContext.Context, ref form, filename, false);
-            return new FormModule();
+            return new FormModule(form);
         }
     }
 }

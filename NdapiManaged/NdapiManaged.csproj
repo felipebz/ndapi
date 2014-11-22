@@ -58,10 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\D2fErrorCode.cs" />
     <Compile Include="Core\NativeMethods.cs" />
     <Compile Include="FormModule.cs" />
-    <Compile Include="Core\Context.cs" />
+    <Compile Include="Core\D2fContext.cs" />
     <Compile Include="NdapiContext.cs" />
+    <Compile Include="NdapiObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
