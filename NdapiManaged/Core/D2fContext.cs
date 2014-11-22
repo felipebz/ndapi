@@ -3,14 +3,14 @@ using System.Runtime.InteropServices;
 
 namespace NdapiManaged.Core
 {
-    public delegate IntPtr D2fMalloc(ref D2fContext context, IntPtr size);
+    internal delegate IntPtr D2fMalloc(ref D2fContext context, IntPtr size);
 
-    public delegate IntPtr D2fRealloc(ref D2fContext context, IntPtr ptr, IntPtr newsize);
+    internal delegate IntPtr D2fRealloc(ref D2fContext context, IntPtr ptr, IntPtr newsize);
 
-    public delegate void D2fFree(ref D2fContext context, IntPtr ptr);
+    internal delegate void D2fFree(ref D2fContext context, IntPtr ptr);
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct D2fContext
+    internal struct D2fContext
     {
         public IntPtr pidgc_d2fctx;
         public IntPtr cdata_d2fctx;
@@ -20,7 +20,7 @@ namespace NdapiManaged.Core
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct D2fContextAttributes
+    internal struct D2fContextAttributes
     {
         public uint mask_d2fctxa;
         public IntPtr cdata_d2fctxa;
