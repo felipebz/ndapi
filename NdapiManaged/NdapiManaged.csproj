@@ -71,6 +71,7 @@
     <Compile Include="Core\D2fContext.cs" />
     <Compile Include="NdapiConstants.cs" />
     <Compile Include="NdapiContext.cs" />
+    <Compile Include="Enums\NdapiEnums.cs" />
     <Compile Include="NdapiException.cs" />
     <Compile Include="NdapiObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
