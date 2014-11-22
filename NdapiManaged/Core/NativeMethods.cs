@@ -56,6 +56,10 @@ namespace NdapiManaged.Core
                                                      [MarshalAs(UnmanagedType.I1)] bool prp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobid_IspropDefault(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum);
+
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, IntPtr pd2fob);
     }
 }
