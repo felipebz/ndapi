@@ -16,7 +16,10 @@ namespace NdapiManaged
         public static FormModule Open(string filename)
         {
             var form = IntPtr.Zero;
+
             var status = NativeMethods.d2ffmdld_Load(NdapiContext.Context, ref form, filename, false);
+            Ensure.Success(status);
+
             return new FormModule(form);
         }
     }
