@@ -36,7 +36,25 @@ namespace NdapiManaged.Core
                                                      ObjectSafeHandle pd2fob,
                                                      int pnum,
                                                      [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaller))] out string pprp);
-        
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fobst_SetTextProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, string prp);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobgn_GetNumProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, out int pprp);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobsn_SetNumProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, int prp);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobgb_GetBoolProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, out bool pprp);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobsb_SetBoolProp(ContextSafeHandle pd2fctx,
+                                                     ObjectSafeHandle pd2fob,
+                                                     int pnum,
+                                                     [MarshalAs(UnmanagedType.I1)] bool prp);
+
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, IntPtr pd2fob);
     }
