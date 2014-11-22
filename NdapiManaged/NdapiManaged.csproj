@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\D2fErrorCode.cs" />
+    <Compile Include="Core\Handles\ContextSafeHandle.cs" />
+    <Compile Include="Core\Handles\SafeHandleBase.cs" />
     <Compile Include="Core\Ensure.cs" />
     <Compile Include="Core\NativeMethods.cs" />
     <Compile Include="FormModule.cs" />
