@@ -343,7 +343,11 @@ namespace Ndapi
 		return gcnew NdapiObjectEnumerator<Window^>(_handler, D2FP_WINDOW);
 	}
 
-	FormModule::~FormModule() {
+	void FormModule::Close() {
 		d2ffmdde_Destroy(NdapiContext::Context, safe_cast<d2ffmd*>(_handler));
+	}
+
+	FormModule::~FormModule() {
+		Close();
 	}
 }

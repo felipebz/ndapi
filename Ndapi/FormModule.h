@@ -43,6 +43,7 @@ namespace Ndapi
 		void Save(String^ path, bool saveInDatabase);
 		void CompileFile();
 		void CompileObjects();
+		void Close();
 
 		property String^ Comment { String^ get(); void set(String^ value); }
 		property String^ ConsoleWindow { String^ get(); void set(String^ value); }
@@ -79,6 +80,6 @@ namespace Ndapi
 		property NdapiEnumerator<Trigger^>^ Triggers { NdapiEnumerator<Trigger^>^ get(); }
 		property NdapiEnumerator<Window^>^ Windows { NdapiEnumerator<Window^>^ get(); }
 
-		~FormModule();
+				~FormModule();
 	};
 }
