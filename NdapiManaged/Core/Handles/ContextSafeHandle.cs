@@ -9,8 +9,8 @@ namespace NdapiManaged.Core.Handles
     {
         protected override bool ReleaseHandleImpl()
         {
-            NativeMethods.d2fctxde_Destroy(handle);
-            return true;
+            var status = NativeMethods.d2fctxde_Destroy(handle);
+            return status == (int)D2fErrorCode.D2FS_SUCCESS;
         }
     }
 }

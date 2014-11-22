@@ -47,7 +47,10 @@ namespace NdapiManaged.Core
         public static extern int d2fobsn_SetNumProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, int prp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int d2fobgb_GetBoolProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, out bool pprp);
+        public static extern int d2fobgb_GetBoolProp(ContextSafeHandle pd2fctx,
+                                                     ObjectSafeHandle pd2fob,
+                                                     int pnum,
+                                                     [MarshalAs(UnmanagedType.I1)] out bool pprp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobsb_SetBoolProp(ContextSafeHandle pd2fctx,

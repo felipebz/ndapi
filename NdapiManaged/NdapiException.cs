@@ -46,7 +46,6 @@ namespace NdapiManaged
         internal NdapiException(string message, D2fErrorCode code) : this(message)
         {
             Data.Add("ndapi.code", (int)code);
-
         }
     }
 }

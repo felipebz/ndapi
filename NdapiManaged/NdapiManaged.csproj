@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>ExtendedCorrectnessRules.ruleset</CodeAnalysisRuleSet>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -69,6 +69,7 @@
     <Compile Include="Core\StringMarshaller.cs" />
     <Compile Include="FormModule.cs" />
     <Compile Include="Core\D2fContext.cs" />
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="NdapiConstants.cs" />
     <Compile Include="NdapiContext.cs" />
     <Compile Include="Enums\NdapiEnums.cs" />
