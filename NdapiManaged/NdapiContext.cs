@@ -4,7 +4,7 @@ using System;
 
 namespace NdapiManaged
 {
-    public class NdapiContext
+    public sealed class NdapiContext : IDisposable
     {
         private static ContextSafeHandle _context;
 
@@ -55,6 +55,11 @@ namespace NdapiManaged
                 _context.Dispose();
                 _context = null;
             }
+        }
+
+        public void Dispose()
+        {
+            Destroy();
         }
     }
 }
