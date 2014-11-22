@@ -9,6 +9,10 @@ namespace NdapiManaged
     {
         private ObjectSafeHandle _handler;
 
+        public NdapiObject()
+        {        
+        }
+
         internal NdapiObject(ObjectSafeHandle handler)
         {
             _handler = handler;
@@ -110,6 +114,19 @@ namespace NdapiManaged
             }
         }
 
+        public NdapiObject Owner
+        {
+            get
+            {
+                return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER);
+            }
+        }
+
+        private void SetHandle(ObjectSafeHandle handle)
+        {
+            _handler = handle;
+        }
+
         public string GetStringProperty(int property)
         {
             string value;
@@ -159,6 +176,28 @@ namespace NdapiManaged
         public void SetBooleanProperty(int property, bool value)
         {
             var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.Context, _handler, property, value);
+            Ensure.Success(status);
+        }
+
+        public T GetObjectProperty<T>(int property) where T : NdapiObject
+        {
+            ObjectSafeHandle handle;
+            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.Context, _handler, property, out handle);
+            Ensure.Success(status);
+
+            if (handle.IsInvalid)
+            {
+                return null;
+            }
+
+            var instance = (NdapiObject)Activator.CreateInstance<T>();
+            instance.SetHandle(handle);
+            return (T)instance;
+        }
+
+        public void SetObjectProperty<T>(int property, T value) where T : NdapiObject
+        {
+            var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.Context, _handler, property, value._handler);
             Ensure.Success(status);
         }
 
