@@ -16,9 +16,12 @@ namespace NdapiManaged.Core
         public static extern int d2fctxcr_Create(out ContextSafeHandle ppd2fctx, ref D2fContextAttributes d2fctx_attr);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
-        public static extern int d2fctxcn_Connect(IntPtr pd2fctx,
-                                                  string con_str,
+        public static extern int d2fctxcn_Connect(ContextSafeHandle pd2fctx,
+                                                  [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaller))] string con_str,
                                                   IntPtr phstdef);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fctxdc_Disconnect(ContextSafeHandle pd2fctx);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fctxde_Destroy(IntPtr pd2fctx);

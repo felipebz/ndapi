@@ -1,5 +1,6 @@
 ﻿using NdapiManaged.Core;
 using NdapiManaged.Core.Handles;
+using System;
 
 namespace NdapiManaged
 {
@@ -32,6 +33,27 @@ namespace NdapiManaged
                 Ensure.Success(status);
 
                 return version;
+            }
+        }
+
+        public static void ConnectToDatabase(string connection)
+        {
+            var status = NativeMethods.d2fctxcn_Connect(Context, connection, IntPtr.Zero);
+            Ensure.Success(status);
+        }
+
+        public static void DisconnectFromDatabase()
+        {
+            var status = NativeMethods.d2fctxdc_Disconnect(Context);
+            Ensure.Success(status);
+        }
+
+        public static void Destroy()
+        {
+            if (!_context.IsInvalid)
+            {
+                _context.Dispose();
+                _context = null;
             }
         }
     }
