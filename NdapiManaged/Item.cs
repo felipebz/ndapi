@@ -394,11 +394,11 @@ namespace NdapiManaged
             set { SetBooleanProperty(NdapiConstants.D2FP_LOCK_REC, value); }
         }
 
-        /*public LOV LOV
+        public LOV LOV
         {
             get { return GetObjectProperty<LOV>(NdapiConstants.D2FP_LOV_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_LOV_OBJ, value); }
-        }*/
+        }
 
         public string LOVName
         {
