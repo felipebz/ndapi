@@ -3,6 +3,7 @@ using NdapiManaged.Core.Handles;
 using NdapiManaged.Enums;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace NdapiManaged
 {
@@ -70,6 +71,16 @@ namespace NdapiManaged
         public NdapiObject Owner
         {
             get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER); }
+        }
+
+        public bool IsSubclassed
+        {
+            get
+            {
+                var status = NativeMethods.d2fobis_IsSubclassed(NdapiContext.Context, _handle);
+                Ensure.BooleanResult(status);
+                return status == (int)D2fErrorCode.D2FS_YES;
+            }
         }
 
         protected void Create(string name, int type)
@@ -166,6 +177,26 @@ namespace NdapiManaged
                 _result = _result.GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
             }
 
+        }
+
+        public string GetQualifiedName(bool includeModule)
+        {
+            var builder = new StringBuilder();
+            var owner = Owner;
+            if (owner != null)
+            {
+                int type;
+                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, owner._handle, out type);
+                Ensure.Success(status);
+
+                if (includeModule || (type != NdapiConstants.D2FFO_FORM_MODULE))
+                {
+                    builder.Append(owner.GetQualifiedName(includeModule));
+                    builder.Append(".");
+                }
+            }
+            builder.Append(Name);
+            return builder.ToString();
         }
 
         public bool HasOverriddenProperty(int property)
