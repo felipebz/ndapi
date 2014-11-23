@@ -2,6 +2,7 @@
 using NdapiManaged.Core.Handles;
 using NdapiManaged.Enums;
 using System;
+using System.Collections.Generic;
 
 namespace NdapiManaged
 {
@@ -205,6 +206,17 @@ namespace NdapiManaged
         {
             var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.Context, _handle, property, value._handle);
             Ensure.Success(status);
+        }
+
+        public IEnumerable<T> GetObjectList<T>(int property) where T : NdapiObject
+        {
+            var _result = GetObjectProperty<T>(property);
+            while (_result != null)
+            {
+                yield return _result;
+                _result = _result.GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
+            }
+            
         }
 
         public bool HasOverriddenProperty(int property)
