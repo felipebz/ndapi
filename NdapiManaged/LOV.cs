@@ -141,11 +141,11 @@ namespace NdapiManaged
             set { SetStringProperty(NdapiConstants.D2FP_OLD_LOV_TXT, value); }
         }
 
-        /*public RecordGroup RecordGroup
+        public RecordGroup RecordGroup
         {
             get { return GetObjectProperty<RecordGroup>(NdapiConstants.D2FP_REC_GRP_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_REC_GRP_OBJ, value); }
-        }*/
+        }
 
         public string Title
         {

@@ -189,6 +189,11 @@ namespace NdapiManaged
             get { return GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT); }
         }
 
+        public IEnumerable<RecordGroup> RecordGroups
+        {
+            get { return GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP); }
+        }
+
         public static FormModule Open(string filename)
         {
             ObjectSafeHandle form;

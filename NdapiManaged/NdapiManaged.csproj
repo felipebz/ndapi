@@ -90,6 +90,7 @@
     <Compile Include="NdapiException.cs" />
     <Compile Include="NdapiObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordGroup.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
