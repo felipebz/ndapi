@@ -25,34 +25,19 @@ namespace NdapiManaged
 
         string Comment
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_COMMENT);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
+            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
         }
 
         string Text
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_PGU_TXT);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_PGU_TXT, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_PGU_TXT); }
+            set { SetStringProperty(NdapiConstants.D2FP_PGU_TXT, value); }
         }
 
         ProgramUnitType Type
         {
-            get
-            {
-                return GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP);
-            }
+            get { return GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP); }
         }
 
         void Compile()

@@ -11,7 +11,7 @@ namespace NdapiManaged
         internal ObjectSafeHandle _handle;
 
         public NdapiObject()
-        {        
+        {
         }
 
         internal NdapiObject(ObjectSafeHandle handle)
@@ -21,106 +21,55 @@ namespace NdapiManaged
 
         public string Name
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_NAME);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_NAME, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_NAME); }
+            set { SetStringProperty(NdapiConstants.D2FP_NAME, value); }
         }
 
         public int ParentType
         {
-            get
-            {
-                return GetNumberProperty(NdapiConstants.D2FP_PAR_TYP);
-            }
-            set
-            {
-                SetNumberProperty(NdapiConstants.D2FP_PAR_TYP, value);
-            }
+            get { return GetNumberProperty(NdapiConstants.D2FP_PAR_TYP); }
+            set { SetNumberProperty(NdapiConstants.D2FP_PAR_TYP, value); }
         }
 
         public string ParentName
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_PAR_NAM);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_PAR_NAM, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_PAR_NAM); }
+            set { SetStringProperty(NdapiConstants.D2FP_PAR_NAM, value); }
         }
 
         public string ParentModule
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_PAR_MODULE);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_PAR_MODULE, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_PAR_MODULE); }
+            set { SetStringProperty(NdapiConstants.D2FP_PAR_MODULE, value); }
         }
 
         public int ParentModuleType
         {
-            get
-            {
-                return GetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP);
-            }
-            set
-            {
-                SetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP, value);
-            }
+            get { return GetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP); }
+            set { SetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP, value); }
         }
 
         public ModuleStorageType ParentModuleStorage
         {
-            get
-            {
-                return GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR);
-            }
-            set
-            {
-                SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value);
-            }
+            get { return GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR); }
+            set { SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value); }
         }
 
         public string ParentFileNamePath
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_PAR_FLPATH);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_PAR_FLPATH, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_PAR_FLPATH); }
+            set { SetStringProperty(NdapiConstants.D2FP_PAR_FLPATH, value); }
         }
 
         public string ParentFileName
         {
-            get
-            {
-                return GetStringProperty(NdapiConstants.D2FP_PAR_FLNAM);
-            }
-            set
-            {
-                SetStringProperty(NdapiConstants.D2FP_PAR_FLNAM, value);
-            }
+            get { return GetStringProperty(NdapiConstants.D2FP_PAR_FLNAM); }
+            set { SetStringProperty(NdapiConstants.D2FP_PAR_FLNAM, value); }
         }
 
         public NdapiObject Owner
         {
-            get
-            {
-                return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER);
-            }
+            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER); }
         }
 
         protected void Create(string name, int type)
@@ -216,7 +165,7 @@ namespace NdapiManaged
                 yield return _result;
                 _result = _result.GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
             }
-            
+
         }
 
         public bool HasOverriddenProperty(int property)
