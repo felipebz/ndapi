@@ -56,20 +56,7 @@ namespace NdapiManaged.Core
                 throw new MarshalDirectiveException(string.Format(CultureInfo.InvariantCulture, "{0} must be used on a string.", GetType().Name));
             }
 
-            int length = _encoding.GetByteCount(str);
-            var buffer = (byte*)Marshal.AllocHGlobal(length + 1).ToPointer();
-
-            if (length > 0)
-            {
-                fixed (char* pValue = str)
-                {
-                    _encoding.GetBytes(pValue, str.Length, buffer, length);
-                }
-            }
-
-            buffer[length] = 0;
-
-            return new IntPtr(buffer);
+            return Marshal.StringToHGlobalAnsi(str);
         }
 
         public unsafe object MarshalNativeToManaged(IntPtr pNativeData)
@@ -79,21 +66,7 @@ namespace NdapiManaged.Core
                 return null;
             }
 
-            var start = (byte*)pNativeData;
-            byte* walk = start;
-
-            // Find the end of the string
-            while (*walk != 0)
-            {
-                walk++;
-            }
-
-            if (walk == start)
-            {
-                return string.Empty;
-            }
-
-            return new string((sbyte*)pNativeData.ToPointer(), 0, (int)(walk - start), _encoding);
+            return Marshal.PtrToStringAnsi(pNativeData);
         }
     }
 }
