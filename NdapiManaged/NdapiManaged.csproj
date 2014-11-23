@@ -70,6 +70,7 @@
     <Compile Include="Core\StringMarshaller.cs" />
     <Compile Include="FormModule.cs" />
     <Compile Include="Core\D2fContext.cs" />
+    <Compile Include="ProgramUnit.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="NdapiConstants.cs" />
     <Compile Include="NdapiContext.cs" />

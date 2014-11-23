@@ -1,6 +1,7 @@
 ﻿using NdapiManaged.Core;
 using NdapiManaged.Core.Handles;
 using NdapiManaged.Enums;
+using System.Collections.Generic;
 
 namespace NdapiManaged
 {
@@ -288,6 +289,14 @@ namespace NdapiManaged
             set
             {
                 SetStringProperty(NdapiConstants.D2FP_VERT_TLBR_CNV, value);
+            }
+        }
+
+        public IEnumerable<ProgramUnit> ProgramUnits
+        {
+            get
+            {
+                return GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
             }
         }
 
