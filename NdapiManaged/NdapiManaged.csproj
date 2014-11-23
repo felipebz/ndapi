@@ -80,6 +80,7 @@
     <Compile Include="Core\D2fContext.cs" />
     <Compile Include="FormParameter.cs" />
     <Compile Include="Graphic.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="ProgramUnit.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="NdapiConstants.cs" />
