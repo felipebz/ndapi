@@ -201,5 +201,10 @@ namespace NdapiManaged
             get { return GetStringProperty(NdapiConstants.D2FP_WND_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_WND_NAM, value); }
         }
+
+        public IEnumerable<Graphic> Graphics
+        {
+            get { return GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC); }
+        }
     }
 }
