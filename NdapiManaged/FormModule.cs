@@ -174,6 +174,11 @@ namespace NdapiManaged
             get { return GetObjectList<Block>(NdapiConstants.D2FP_BLOCK); }
         }
 
+        public IEnumerable<FormParameter> Parameters
+        {
+            get { return GetObjectList<FormParameter>(NdapiConstants.D2FP_FORM_PARAM); }
+        }
+
         public IEnumerable<ProgramUnit> ProgramUnits
         {
             get { return GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT); }
