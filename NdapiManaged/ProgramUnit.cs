@@ -23,24 +23,24 @@ namespace NdapiManaged
         {
         }
 
-        string Comment
+        public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
             set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
         }
 
-        string Text
+        public string Text
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PGU_TXT); }
             set { SetStringProperty(NdapiConstants.D2FP_PGU_TXT, value); }
         }
 
-        ProgramUnitType Type
+        public ProgramUnitType Type
         {
             get { return GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP); }
         }
 
-        void Compile()
+        public void Compile()
         {
             var status = NativeMethods.d2fpguco_CompileObj(NdapiContext.Context, _handle);
             Ensure.Success(status);

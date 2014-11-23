@@ -22,18 +22,18 @@ namespace NdapiManaged
         {
         }
 
-        string Comment
+        public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
             set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
         }
 
-        string Location
+        public string Location
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LIB_LOC); }
         }
 
-        SourceType SourceType
+        public SourceType SourceType
         {
             get { return GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC); }
         }
