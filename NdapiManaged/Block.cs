@@ -351,5 +351,10 @@ namespace NdapiManaged
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
         }
+
+        public IEnumerable<BlockRelation> Relations
+        {
+            get { return GetObjectList<BlockRelation>(NdapiConstants.D2FP_REL); }
+        }
     }
 }
