@@ -154,6 +154,11 @@ namespace NdapiManaged
             set { SetStringProperty(NdapiConstants.D2FP_VERT_TLBR_CNV, value); }
         }
 
+        public IEnumerable<Alert> Alerts
+        {
+            get { return GetObjectList<Alert>(NdapiConstants.D2FP_ALERT); }
+        }
+
         public IEnumerable<ProgramUnit> ProgramUnits
         {
             get { return GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT); }
