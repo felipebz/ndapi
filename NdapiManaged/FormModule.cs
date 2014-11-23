@@ -164,6 +164,11 @@ namespace NdapiManaged
             get { return GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB); }
         }
 
+        public IEnumerable<Canvas> Canvases
+        {
+            get { return GetObjectList<Canvas>(NdapiConstants.D2FP_CANVAS); }
+        }
+
         public IEnumerable<Block> Blocks
         {
             get { return GetObjectList<Block>(NdapiConstants.D2FP_BLOCK); }

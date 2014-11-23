@@ -66,6 +66,7 @@
     <Compile Include="AttachedLibrary.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="BlockRelation.cs" />
+    <Compile Include="Canvas.cs" />
     <Compile Include="Core\D2fErrorCode.cs" />
     <Compile Include="Core\Handles\ContextSafeHandle.cs" />
     <Compile Include="Core\Handles\ObjectSafeHandle.cs" />
