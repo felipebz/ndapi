@@ -7,7 +7,7 @@ namespace NdapiManaged
 {
     public class NdapiObject
     {
-        private ObjectSafeHandle _handler;
+        internal ObjectSafeHandle _handler;
 
         public NdapiObject()
         {        
@@ -120,6 +120,12 @@ namespace NdapiManaged
             {
                 return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER);
             }
+        }
+
+        protected void Create(string name, int type)
+        {
+            var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, new ObjectSafeHandle(), out _handler, name, type);
+            Ensure.Success(status);
         }
 
         private void SetHandle(ObjectSafeHandle handle)
