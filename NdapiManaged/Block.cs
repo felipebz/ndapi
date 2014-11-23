@@ -361,5 +361,10 @@ namespace NdapiManaged
         {
             get { return GetObjectList<BlockRelation>(NdapiConstants.D2FP_REL); }
         }
+        public IEnumerable<Trigger> Triggers
+        {
+            get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
+        }
+
     }
 }

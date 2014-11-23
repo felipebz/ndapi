@@ -49,6 +49,10 @@ namespace NdapiManaged.Core
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fpguco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
 
+        // Trigger specific methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2ftrgco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ftrg);
+
         // Object methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fobcr_Create(ContextSafeHandle pd2fctx,

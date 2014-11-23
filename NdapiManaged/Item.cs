@@ -913,5 +913,10 @@ namespace NdapiManaged
             get { return GetNumberProperty(NdapiConstants.D2FP_Y_POS); }
             set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
         }
+
+        public IEnumerable<Trigger> Triggers
+        {
+            get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
+        }
     }
 }
