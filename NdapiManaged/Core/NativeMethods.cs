@@ -33,7 +33,26 @@ namespace NdapiManaged.Core
                                                string formname,
                                                [MarshalAs(UnmanagedType.I1)] bool db);
 
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2ffmdsv_Save(ContextSafeHandle pd2fctx,
+                                               ObjectSafeHandle pd2ffmd,
+                                               string formname, 
+                                               [MarshalAs(UnmanagedType.I1)] bool db);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2ffmdcf_CompileFile(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ffmd);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2ffmdco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ffmd);
+
         // Object methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fobcr_Create(ContextSafeHandle pd2fctx,
+                                                ObjectSafeHandle owner,
+                                                out ObjectSafeHandle ppd2fob,
+                                                string name,
+                                                int objtyp);
+
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fobgt_GetTextProp(ContextSafeHandle pd2fctx, 
                                                      ObjectSafeHandle pd2fob,
@@ -69,7 +88,6 @@ namespace NdapiManaged.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobid_IspropDefault(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum);
-
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, IntPtr pd2fob);

@@ -7,15 +7,15 @@ namespace NdapiManaged
 {
     public class NdapiObject
     {
-        internal ObjectSafeHandle _handler;
+        internal ObjectSafeHandle _handle;
 
         public NdapiObject()
         {        
         }
 
-        internal NdapiObject(ObjectSafeHandle handler)
+        internal NdapiObject(ObjectSafeHandle handle)
         {
-            _handler = handler;
+            _handle = handle;
         }
 
         public string Name
@@ -124,33 +124,33 @@ namespace NdapiManaged
 
         protected void Create(string name, int type)
         {
-            var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, new ObjectSafeHandle(), out _handler, name, type);
+            var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, new ObjectSafeHandle(), out _handle, name, type);
             Ensure.Success(status);
         }
 
         private void SetHandle(ObjectSafeHandle handle)
         {
-            _handler = handle;
+            _handle = handle;
         }
 
         public string GetStringProperty(int property)
         {
             string value;
-            var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handler, property, out value);
+            var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handle, property, out value);
             Ensure.Success(status);
             return value;
         }
 
         public void SetStringProperty(int property, string value)
         {
-            var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.Context, _handler, property, value);
+            var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.Context, _handle, property, value);
             Ensure.Success(status);
         }
 
         public int GetNumberProperty(int property)
         {
             int value;
-            var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.Context, _handler, property, out value);
+            var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.Context, _handle, property, out value);
             Ensure.Success(status);
             return value;
         }
@@ -162,7 +162,7 @@ namespace NdapiManaged
 
         public void SetNumberProperty(int property, int value)
         {
-            var status = NativeMethods.d2fobsn_SetNumProp(NdapiContext.Context, _handler, property, value);
+            var status = NativeMethods.d2fobsn_SetNumProp(NdapiContext.Context, _handle, property, value);
             Ensure.Success(status);
         }
 
@@ -174,21 +174,21 @@ namespace NdapiManaged
         public bool GetBooleanProperty(int property)
         {
             bool value;
-            var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.Context, _handler, property, out value);
+            var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.Context, _handle, property, out value);
             Ensure.Success(status);
             return value;
         }
 
         public void SetBooleanProperty(int property, bool value)
         {
-            var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.Context, _handler, property, value);
+            var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.Context, _handle, property, value);
             Ensure.Success(status);
         }
 
         public T GetObjectProperty<T>(int property) where T : NdapiObject
         {
             ObjectSafeHandle handle;
-            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.Context, _handler, property, out handle);
+            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.Context, _handle, property, out handle);
             Ensure.Success(status);
 
             if (handle.IsInvalid)
@@ -203,13 +203,13 @@ namespace NdapiManaged
 
         public void SetObjectProperty<T>(int property, T value) where T : NdapiObject
         {
-            var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.Context, _handler, property, value._handler);
+            var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.Context, _handle, property, value._handle);
             Ensure.Success(status);
         }
 
         public bool HasOverriddenProperty(int property)
         {
-            var status = NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handler, property);
+            var status = NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
             Ensure.BooleanResult(status);
 
             return status == (int)D2fErrorCode.D2FS_YES;

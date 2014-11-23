@@ -6,7 +6,12 @@ namespace NdapiManaged
 {
     public class FormModule : NdapiObject
     {
-        internal FormModule(ObjectSafeHandle handler) : base(handler)
+        public FormModule(string name)
+        {
+            Create(name, NdapiConstants.D2FFO_FORM_MODULE);
+        }
+
+        internal FormModule(ObjectSafeHandle handle) : base(handle)
         {
         }
 
@@ -295,5 +300,24 @@ namespace NdapiManaged
 
             return new FormModule(form);
         }
+
+        public void Save(string path = null, bool saveInDatabase = false)
+        {
+            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.Context, _handle, path, saveInDatabase);
+            Ensure.Success(status);
+        }
+
+        public void CompileFile()
+        {
+            var status = NativeMethods.d2ffmdcf_CompileFile(NdapiContext.Context, _handle);
+            Ensure.Success(status);
+        }
+
+        public void CompileObjects()
+        {
+            var status = NativeMethods.d2ffmdco_CompileObj(NdapiContext.Context, _handle);
+            Ensure.Success(status);
+        }
+
     }
 }
