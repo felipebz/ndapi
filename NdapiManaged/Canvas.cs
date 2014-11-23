@@ -190,11 +190,11 @@ namespace NdapiManaged
             set { SetNumberProperty(NdapiConstants.D2FP_WIDTH, value); }
         }
 
-        /*public Window Window
+        public Window Window
         {
             get { return GetObjectProperty<Window>(NdapiConstants.D2FP_WND_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_WND_OBJ, value); }
-        }*/
+        }
 
         public string WindowName
         {

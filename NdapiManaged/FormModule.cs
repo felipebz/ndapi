@@ -199,6 +199,11 @@ namespace NdapiManaged
             get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
         }
 
+        public IEnumerable<Window> Windows
+        {
+            get { return GetObjectList<Window>(NdapiConstants.D2FP_WINDOW); }
+        }
+
         public static FormModule Open(string filename)
         {
             ObjectSafeHandle form;
