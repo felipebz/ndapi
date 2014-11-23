@@ -159,6 +159,11 @@ namespace NdapiManaged
             get { return GetObjectList<Alert>(NdapiConstants.D2FP_ALERT); }
         }
 
+        public IEnumerable<AttachedLibrary> AttachedLibraries
+        {
+            get { return GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB); }
+        }
+
         public IEnumerable<ProgramUnit> ProgramUnits
         {
             get { return GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT); }

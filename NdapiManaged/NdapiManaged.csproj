@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alert.cs" />
+    <Compile Include="AttachedLibrary.cs" />
     <Compile Include="Core\D2fErrorCode.cs" />
     <Compile Include="Core\Handles\ContextSafeHandle.cs" />
     <Compile Include="Core\Handles\ObjectSafeHandle.cs" />
