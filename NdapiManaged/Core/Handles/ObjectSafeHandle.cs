@@ -9,8 +9,10 @@ namespace NdapiManaged.Core.Handles
     {
         protected override bool ReleaseHandleImpl()
         {
-            var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, handle);
-            return status == (int)D2fErrorCode.D2FS_SUCCESS;
+            // TODO: try to figure out a way to do it.
+            //var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, handle);
+            //return status == (int)D2fErrorCode.D2FS_SUCCESS;
+            return true;
         }
     }
 }

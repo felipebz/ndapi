@@ -17,7 +17,7 @@ namespace NdapiManaged.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fctxcn_Connect(ContextSafeHandle pd2fctx,
-                                                  [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaller))] string con_str,
+                                                  string con_str,
                                                   IntPtr phstdef);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
@@ -62,10 +62,10 @@ namespace NdapiManaged.Core
                                                 int objtyp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
-        public static extern int d2fobgt_GetTextProp(ContextSafeHandle pd2fctx, 
+        public static extern int d2fobgt_GetTextProp(ContextSafeHandle pd2fctx,
                                                      ObjectSafeHandle pd2fob,
                                                      int pnum,
-                                                     [MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(StringMarshaller))] out string pprp);
+                                                     out IntPtr pprp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fobst_SetTextProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum, string prp);

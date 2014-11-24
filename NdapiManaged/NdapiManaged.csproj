@@ -75,7 +75,6 @@
     <Compile Include="Core\Handles\SafeHandleBase.cs" />
     <Compile Include="Core\Ensure.cs" />
     <Compile Include="Core\NativeMethods.cs" />
-    <Compile Include="Core\StringMarshaller.cs" />
     <Compile Include="FormModule.cs" />
     <Compile Include="Core\D2fContext.cs" />
     <Compile Include="FormParameter.cs" />

@@ -3,6 +3,7 @@ using NdapiManaged.Core.Handles;
 using NdapiManaged.Enums;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace NdapiManaged
@@ -96,10 +97,10 @@ namespace NdapiManaged
 
         public string GetStringProperty(int property)
         {
-            string value;
+            IntPtr value;
             var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handle, property, out value);
             Ensure.Success(status);
-            return value;
+            return Marshal.PtrToStringAnsi(value);
         }
 
         public void SetStringProperty(int property, string value)
