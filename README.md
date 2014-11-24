@@ -25,10 +25,48 @@ So, the same code with Ndapi would be:
 
 ```csharp
 var module = FormModule.Open(sourceFileName);
-foreach (var programUnit in module.ProgramUnits) {
+foreach (var programUnit in module.ProgramUnits)
+{
     var name = programUnit.Name;
     // ...
 }
 ```
 
 Initially, the API will support only Forms 6i API.
+
+Features available
+------------------
+
+- [x] Alert
+- [x] Attached Library
+- [x] Block
+- [x] Canvas
+- [ ] Data Source
+- [ ] Data Source Argument
+- [ ] Editor
+- [x] Form Module
+- [x] Form Parameter
+- [ ] Generic Object
+- [x] Graphics Object
+- [x] Item
+- [x] LOV
+- [x] LOV column mapping
+- [ ] Menu
+- [ ] Menu Item
+- [ ] Menu Module
+- [ ] Menu Parameter
+- [ ] Object Group
+- [ ] Object Group Child
+- [ ] Object Library
+- [ ] Object Library Tab
+- [x] Program Unit
+- [ ] Property
+- [ ] Property Class
+- [x] Record Group
+- [x] Record Group Column Specification
+- [x] Relation
+- [ ] Report
+- [ ] Tab Page
+- [x] Trigger
+- [ ] Visual Attribute
+- [x] Window
