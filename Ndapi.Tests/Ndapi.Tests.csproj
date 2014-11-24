@@ -48,13 +48,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ndapi\Ndapi.vcxproj">
-      <Project>{b9c9a003-65f0-4f09-ad0d-df9016c04c00}</Project>
-      <Name>Ndapi</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\NdapiManaged\NdapiManaged.csproj">
+      <Project>{9debde14-7c3c-4ebb-a3e9-5c8fbb7e0c04}</Project>
+      <Name>NdapiManaged</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

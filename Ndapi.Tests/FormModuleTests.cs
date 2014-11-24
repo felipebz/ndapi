@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using NdapiManaged;
+using NdapiManaged.Enums;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -191,12 +193,6 @@ namespace Ndapi.Tests
             _module.VerticalToolbarCanvas = value;
             Assert.AreEqual(value, _module.VerticalToolbarCanvas);
             _module.Save(@"C:\Users\Felipe\Desktop\teste.fmb");
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            _module.Dispose();
         }
     }
 }

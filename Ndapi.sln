@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ndapi", "Ndapi\Ndapi.vcxproj", "{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ndapi.Tests", "Ndapi.Tests\Ndapi.Tests.csproj", "{4ED589B0-D733-4401-BAAB-894F2CCEAD84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NdapiManaged", "NdapiManaged\NdapiManaged.csproj", "{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}"
@@ -21,20 +19,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|Mixed Platforms.Build.0 = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|Win32.ActiveCfg = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|Win32.Build.0 = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|x86.ActiveCfg = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Debug|x86.Build.0 = Debug|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|Any CPU.ActiveCfg = Release|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|Mixed Platforms.ActiveCfg = Release|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|Mixed Platforms.Build.0 = Release|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|Win32.ActiveCfg = Release|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|Win32.Build.0 = Release|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|x86.ActiveCfg = Release|Win32
-		{B9C9A003-65F0-4F09-AD0D-DF9016C04C00}.Release|x86.Build.0 = Release|Win32
 		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -62,6 +46,7 @@ Global
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|Mixed Platforms.Build.0 = Release|x86
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|Win32.ActiveCfg = Release|Any CPU
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x86.ActiveCfg = Release|Any CPU
+		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
