@@ -1,5 +1,5 @@
-﻿using NdapiManaged;
-using NdapiManaged.Enums;
+﻿using Ndapi;
+using Ndapi.Enums;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

@@ -51,9 +51,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NdapiManaged\NdapiManaged.csproj">
+    <ProjectReference Include="..\Ndapi\Ndapi.csproj">
       <Project>{9debde14-7c3c-4ebb-a3e9-5c8fbb7e0c04}</Project>
-      <Name>NdapiManaged</Name>
+      <Name>Ndapi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

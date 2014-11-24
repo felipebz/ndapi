@@ -1,4 +1,4 @@
-﻿using NdapiManaged;
+﻿using Ndapi;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
