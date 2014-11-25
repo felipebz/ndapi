@@ -40,6 +40,12 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
         }
 
+        public bool DatabaseBlock
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_DB_BLK); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_DB_BLK, value); }
+        }
+
         public bool DeleteAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DEL_ALLOWED); }

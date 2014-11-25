@@ -13,7 +13,7 @@ namespace Ndapi
         {
         }
 
-        public Item(FormModule module, string name)
+        public Item(Block module, string name)
         {
             Create(name, NdapiConstants.D2FFO_ITEM, module);
         }
