@@ -84,9 +84,10 @@ namespace Ndapi
             }
         }
 
-        protected void Create(string name, int type)
+        protected void Create(string name, int type, NdapiObject parent = null)
         {
-            var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, new ObjectSafeHandle(), out _handle, name, type);
+            var parentHandle = parent?._handle ?? new ObjectSafeHandle();
+            var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, parentHandle, out _handle, name, type);
             Ensure.Success(status);
         }
 

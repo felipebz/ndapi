@@ -14,9 +14,9 @@ namespace Ndapi
         {
         }
 
-        public ProgramUnit(string name)
+        public ProgramUnit(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_PROG_UNIT);
+            Create(name, NdapiConstants.D2FFO_PROG_UNIT, module);
         }
 
         internal ProgramUnit(ObjectSafeHandle handle) : base(handle)

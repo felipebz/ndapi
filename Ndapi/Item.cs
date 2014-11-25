@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public Item(string name)
+        public Item(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_ITEM);
+            Create(name, NdapiConstants.D2FFO_ITEM, module);
         }
 
         internal Item(ObjectSafeHandle handle) : base(handle)

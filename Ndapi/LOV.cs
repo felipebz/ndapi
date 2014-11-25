@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public LOV(string name)
+        public LOV(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_LOV);
+            Create(name, NdapiConstants.D2FFO_LOV, module);
         }
 
         internal LOV(ObjectSafeHandle handle) : base(handle)

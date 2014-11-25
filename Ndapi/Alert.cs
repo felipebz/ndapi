@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public Alert(string name)
+        public Alert(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_ALERT);
+            Create(name, NdapiConstants.D2FFO_ALERT, module);
         }
 
         internal Alert(ObjectSafeHandle handle) : base(handle)

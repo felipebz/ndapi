@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public BlockRelation(string name)
+        public BlockRelation(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_RELATION);
+            Create(name, NdapiConstants.D2FFO_RELATION, module);
         }
 
         internal BlockRelation(ObjectSafeHandle handle) : base(handle)

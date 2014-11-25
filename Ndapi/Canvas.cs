@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public Canvas(string name)
+        public Canvas(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_CANVAS);
+            Create(name, NdapiConstants.D2FFO_CANVAS, module);
         }
 
         internal Canvas(ObjectSafeHandle handle) : base(handle)

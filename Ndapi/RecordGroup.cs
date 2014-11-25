@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public RecordGroup(string name)
+        public RecordGroup(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_REC_GROUP);
+            Create(name, NdapiConstants.D2FFO_REC_GROUP, module);
         }
 
         internal RecordGroup(ObjectSafeHandle handle) : base(handle)

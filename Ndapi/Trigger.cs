@@ -14,9 +14,9 @@ namespace Ndapi
         {
         }
 
-        public Trigger(string name)
+        public Trigger(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_TRIGGER);
+            Create(name, NdapiConstants.D2FFO_TRIGGER, module);
         }
 
         internal Trigger(ObjectSafeHandle handle) : base(handle)

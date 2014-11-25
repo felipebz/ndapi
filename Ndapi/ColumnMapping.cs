@@ -12,9 +12,9 @@ namespace Ndapi
         {
         }
 
-        public ColumnMapping(string name)
+        public ColumnMapping(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_LV_COLMAP);
+            Create(name, NdapiConstants.D2FFO_LV_COLMAP, module);
         }
 
         internal ColumnMapping(ObjectSafeHandle handle) : base(handle)

@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public FormParameter(string name)
+        public FormParameter(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_FORM_PARAM);
+            Create(name, NdapiConstants.D2FFO_FORM_PARAM, module);
         }
 
         internal FormParameter(ObjectSafeHandle handle) : base(handle)

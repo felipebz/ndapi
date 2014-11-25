@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public Graphic(string name)
+        public Graphic(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_GRAPHIC);
+            Create(name, NdapiConstants.D2FFO_GRAPHIC, module);
         }
 
         internal Graphic(ObjectSafeHandle handle) : base(handle)

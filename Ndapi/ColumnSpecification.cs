@@ -13,9 +13,9 @@ namespace Ndapi
         {
         }
 
-        public ColumnSpecification(string name)
+        public ColumnSpecification(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_RG_COLSPEC);
+            Create(name, NdapiConstants.D2FFO_RG_COLSPEC, module);
         }
 
         internal ColumnSpecification(ObjectSafeHandle handle) : base(handle)
