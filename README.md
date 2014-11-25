@@ -69,8 +69,4 @@ Features available
 - [ ] Tab Page
 - [x] Trigger
 - [ ] Visual Attribute
-<<<<<<< HEAD
 - [x] Window
-=======
-- [x] Window
->>>>>>> 4d2555d364ed50305aaf7d0393db56319772f57c
