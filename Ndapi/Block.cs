@@ -226,10 +226,10 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_QRY_DAT_SRC_NAM, value); }
         }
 
-        public int QueryDataSourceType
+        public QueryDataSourceType QueryDataSourceType
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_QRY_DAT_SRC_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_QRY_DAT_SRC_TYP, value); }
+            get { return GetNumberProperty<QueryDataSourceType>(NdapiConstants.D2FP_QRY_DAT_SRC_TYP); }
+            set { SetNumberProperty<QueryDataSourceType>(NdapiConstants.D2FP_QRY_DAT_SRC_TYP, value); }
         }
 
         public int NumberorRecordsBuffered

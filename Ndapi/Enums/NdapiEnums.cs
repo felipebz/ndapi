@@ -100,7 +100,7 @@
         Real = NdapiConstants.D2FC_COSY_REAL
     }
 
-    public enum DataSourceQueryType
+    public enum QueryDataSourceType
     {
         None = NdapiConstants.D2FC_QRDA_NONE,
         Table = NdapiConstants.D2FC_QRDA_TABLE,
