@@ -108,6 +108,6 @@ namespace Ndapi.Core
         public static extern int d2fobqt_QueryType(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, out int objtyp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, IntPtr pd2fob);
+        public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
     }
 }

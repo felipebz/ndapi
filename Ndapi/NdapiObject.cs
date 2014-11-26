@@ -209,6 +209,12 @@ namespace Ndapi
             return status == (int)D2fErrorCode.D2FS_YES;
         }
 
+        public void Destroy()
+        {
+            var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, _handle);
+            Ensure.Success(status);
+        }
+
         public override string ToString()
         {
             return Name;
