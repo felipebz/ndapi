@@ -1,4 +1,5 @@
-﻿using Ndapi.Core.Handles;
+﻿using Ndapi.Core;
+using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace Ndapi
         {
         }
 
-        public BlockRelation(FormModule module, string name)
+        public BlockRelation(Block module, string name)
         {
             Create(name, NdapiConstants.D2FFO_RELATION, module);
         }
@@ -62,6 +63,12 @@ namespace Ndapi
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS); }
             set { SetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS, value); }
+        }
+
+        public void Generate()
+        {
+            var status = NativeMethods.d2frelup_Update(NdapiContext.Context, _handle);
+            Ensure.Success(status);
         }
     }
 }
