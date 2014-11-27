@@ -10,10 +10,6 @@ namespace Ndapi
 {
     public class ProgramUnit : NdapiObject
     {
-        public ProgramUnit()
-        {
-        }
-
         public ProgramUnit(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_PROG_UNIT, module);

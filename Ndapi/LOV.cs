@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class LOV : NdapiObject
     {
-        public LOV()
-        {
-        }
-
         public LOV(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_LOV, module);

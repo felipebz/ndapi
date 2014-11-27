@@ -10,10 +10,6 @@ namespace Ndapi
 {
     public class BlockRelation : NdapiObject
     {
-        public BlockRelation()
-        {
-        }
-
         public BlockRelation(Block module, string name)
         {
             Create(name, NdapiConstants.D2FFO_RELATION, module);

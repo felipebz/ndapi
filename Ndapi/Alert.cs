@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class Alert : NdapiObject
     {
-        public Alert()
-        {
-        }
-
         public Alert(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_ALERT, module);

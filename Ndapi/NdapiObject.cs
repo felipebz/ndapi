@@ -3,6 +3,7 @@ using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -91,11 +92,6 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
-        private void SetHandle(ObjectSafeHandle handle)
-        {
-            _handle = handle;
-        }
-
         public string GetStringProperty(int property)
         {
             IntPtr value;
@@ -159,8 +155,11 @@ namespace Ndapi
                 return null;
             }
 
-            var instance = (NdapiObject)Activator.CreateInstance<T>();
-            instance.SetHandle(handle);
+            var instance = Activator.CreateInstance(typeof(T),
+                BindingFlags.NonPublic | BindingFlags.Instance,
+                null,
+                new[] { handle },
+                null);
             return (T)instance;
         }
 

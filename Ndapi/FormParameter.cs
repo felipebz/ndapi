@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class FormParameter : NdapiObject
     {
-        public FormParameter()
-        {
-        }
-
         public FormParameter(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_FORM_PARAM, module);

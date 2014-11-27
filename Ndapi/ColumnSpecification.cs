@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class ColumnSpecification : NdapiObject
     {
-        public ColumnSpecification()
-        {
-        }
-
         public ColumnSpecification(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_RG_COLSPEC, module);

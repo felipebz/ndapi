@@ -8,10 +8,6 @@ namespace Ndapi
 {
     public class ColumnMapping : NdapiObject
     {
-        public ColumnMapping()
-        {
-        }
-
         public ColumnMapping(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_LV_COLMAP, module);

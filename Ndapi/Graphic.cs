@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class Graphic : NdapiObject
     {
-        public Graphic()
-        {
-        }
-
         public Graphic(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_GRAPHIC, module);

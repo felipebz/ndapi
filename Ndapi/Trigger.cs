@@ -10,10 +10,6 @@ namespace Ndapi
 {
     public class Trigger : NdapiObject
     {
-        public Trigger()
-        {
-        }
-
         public Trigger(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_TRIGGER, module);

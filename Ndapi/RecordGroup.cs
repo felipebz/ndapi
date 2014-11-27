@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class RecordGroup : NdapiObject
     {
-        public RecordGroup()
-        {
-        }
-
         public RecordGroup(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_REC_GROUP, module);

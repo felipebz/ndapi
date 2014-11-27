@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class Item : NdapiObject
     {
-        public Item()
-        {
-        }
-
         public Item(Block module, string name)
         {
             Create(name, NdapiConstants.D2FFO_ITEM, module);

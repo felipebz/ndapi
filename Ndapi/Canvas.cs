@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class Canvas : NdapiObject
     {
-        public Canvas()
-        {
-        }
-
         public Canvas(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_CANVAS, module);

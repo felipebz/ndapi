@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class Window : NdapiObject
     {
-        public Window()
-        {
-        }
-
         public Window(FormModule module, string name)
         {
             Create(name, NdapiConstants.D2FFO_WINDOW, module);

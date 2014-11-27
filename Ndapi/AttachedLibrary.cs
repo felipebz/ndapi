@@ -9,10 +9,6 @@ namespace Ndapi
 {
     public class AttachedLibrary : NdapiObject
     {
-        public AttachedLibrary()
-        {
-        }
-
         public AttachedLibrary(string name)
         {
             Create(name, NdapiConstants.D2FFO_ATT_LIB);
