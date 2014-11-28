@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ndapi.Core.Handles
+﻿namespace Ndapi.Core.Handles
 {
     internal class ContextSafeHandle : SafeHandleBase
     {

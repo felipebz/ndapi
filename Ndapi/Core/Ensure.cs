@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ndapi.Core
+﻿namespace Ndapi.Core
 {
     internal static class Ensure
     {
