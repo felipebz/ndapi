@@ -55,7 +55,6 @@
     <Compile Include="Core\Ensure.cs" />
     <Compile Include="Core\NativeMethods.cs" />
     <Compile Include="FormModule.cs" />
-    <Compile Include="Core\D2fContext.cs" />
     <Compile Include="FormParameter.cs" />
     <Compile Include="Graphic.cs" />
     <Compile Include="Item.cs" />

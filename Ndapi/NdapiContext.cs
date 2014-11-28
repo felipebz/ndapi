@@ -14,8 +14,7 @@ namespace Ndapi
             {
                 if (_context == null)
                 {
-                    var context_attributes = new D2fContextAttributes();
-                    context_attributes.mask_d2fctxa = 0;
+                    var context_attributes = IntPtr.Zero;
                     var status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
                     Ensure.Success(status);
                 }
