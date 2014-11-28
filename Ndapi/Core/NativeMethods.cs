@@ -45,6 +45,16 @@ namespace Ndapi.Core
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2ffmdco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ffmd);
 
+        // Object library specific methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2folbld_Load(ContextSafeHandle pd2fctx,
+                                               out ObjectSafeHandle ppd2folb,
+                                               string olibname,
+                                               [MarshalAs(UnmanagedType.I1)] bool db);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2folbf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, int pos, out ObjectSafeHandle ppret_obj);
+
         // Block relation specific methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2frelup_Update(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
