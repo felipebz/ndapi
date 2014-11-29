@@ -205,7 +205,7 @@ namespace Ndapi
             var status = NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
             Ensure.BooleanResult(status);
 
-            return status == (int)D2fErrorCode.D2FS_YES;
+            return status == (int)D2fErrorCode.D2FS_NO;
         }
 
         public void Destroy()
