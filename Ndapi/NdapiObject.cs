@@ -235,6 +235,31 @@ namespace Ndapi
             return !HasDefaultedProperty(property);
         }
 
+        public PropertyState GetPropertyState(int property)
+        {
+            var state = PropertyState.Unknown;
+            if (HasInheritedProperty(property))
+            {
+                state = PropertyState.Inherited;
+            }
+            else if (HasDefaultedProperty(property))
+            {
+                state = PropertyState.Default;
+            }
+            else
+            {
+                if (IsSubclassed)
+                {
+                    state = PropertyState.OverriddenInherited;
+                }
+                else
+                {
+                    state = PropertyState.OverriddenDefault;
+                }
+            }
+            return state;
+        }
+
         public void Destroy()
         {
             var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, _handle);
