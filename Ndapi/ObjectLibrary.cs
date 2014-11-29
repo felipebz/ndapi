@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Ndapi.Core.Handles;
 using Ndapi.Core;
+using Ndapi.Enums;
 
 namespace Ndapi
 {
@@ -11,7 +12,7 @@ namespace Ndapi
     {
         public ObjectLibrary(string name)
         {
-            Create(name, NdapiConstants.D2FFO_LIBRARY_MODULE);
+            Create(name, ObjectType.ObjectLibrary);
         }
 
         internal ObjectLibrary(ObjectSafeHandle handle) : base(handle)

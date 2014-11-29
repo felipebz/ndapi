@@ -8,7 +8,7 @@ namespace Ndapi
     {
         public Trigger(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_TRIGGER, module);
+            Create(name, ObjectType.Trigger, module);
         }
 
         internal Trigger(ObjectSafeHandle handle) : base(handle)

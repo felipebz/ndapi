@@ -7,7 +7,7 @@ namespace Ndapi
     {
         public AttachedLibrary(string name)
         {
-            Create(name, NdapiConstants.D2FFO_ATT_LIB);
+            Create(name, ObjectType.AttachedLibrary);
         }
 
         internal AttachedLibrary(ObjectSafeHandle handle) : base(handle)

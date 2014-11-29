@@ -7,7 +7,7 @@ namespace Ndapi
     {
         public Alert(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_ALERT, module);
+            Create(name, ObjectType.Alert, module);
         }
 
         internal Alert(ObjectSafeHandle handle) : base(handle)

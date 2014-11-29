@@ -7,7 +7,7 @@ namespace Ndapi
     {
         public Window(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_WINDOW, module);
+            Create(name, ObjectType.Window, module);
         }
 
         internal Window(ObjectSafeHandle handle) : base(handle)

@@ -8,7 +8,7 @@ namespace Ndapi
     {
         public Block(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_BLOCK, module);
+            Create(name, ObjectType.Block, module);
         }
 
         internal Block(ObjectSafeHandle handle) : base(handle)

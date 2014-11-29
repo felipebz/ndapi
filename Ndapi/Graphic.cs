@@ -8,7 +8,7 @@ namespace Ndapi
     {
         public Graphic(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_GRAPHIC, module);
+            Create(name, ObjectType.Graphic, module);
         }
 
         internal Graphic(ObjectSafeHandle handle) : base(handle)

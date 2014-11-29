@@ -1,4 +1,5 @@
 ﻿using Ndapi.Core.Handles;
+using Ndapi.Enums;
 
 namespace Ndapi
 {
@@ -6,7 +7,7 @@ namespace Ndapi
     {
         public ColumnMapping(FormModule module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_LV_COLMAP, module);
+            Create(name, ObjectType.ColumnMapping, module);
         }
 
         internal ColumnMapping(ObjectSafeHandle handle) : base(handle)

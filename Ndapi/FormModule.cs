@@ -9,7 +9,7 @@ namespace Ndapi
     {
         public FormModule(string name)
         {
-            Create(name, NdapiConstants.D2FFO_FORM_MODULE);
+            Create(name, ObjectType.FormModule);
         }
 
         internal FormModule(ObjectSafeHandle handle) : base(handle)

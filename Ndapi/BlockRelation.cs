@@ -8,7 +8,7 @@ namespace Ndapi
     {
         public BlockRelation(Block module, string name)
         {
-            Create(name, NdapiConstants.D2FFO_RELATION, module);
+            Create(name, ObjectType.BlockRelation, module);
         }
 
         internal BlockRelation(ObjectSafeHandle handle) : base(handle)
