@@ -200,12 +200,39 @@ namespace Ndapi
             return builder.ToString();
         }
 
-        public bool HasOverriddenProperty(int property)
+        public bool HasProperty(int property)
+        {
+            var status = NativeMethods.d2fobhp_HasProp(NdapiContext.Context, _handle, property);
+            Ensure.BooleanResult(status);
+
+            return status == (int)D2fErrorCode.D2FS_YES;
+        }
+
+        public void InheritProperty(int property)
+        {
+            var status = NativeMethods.d2fobip_InheritProp(NdapiContext.Context, _handle, property);
+            Ensure.Success(status);
+        }
+
+        public bool HasDefaultedProperty(int property)
         {
             var status = NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
             Ensure.BooleanResult(status);
 
-            return status == (int)D2fErrorCode.D2FS_NO;
+            return status == (int)D2fErrorCode.D2FS_YES;
+        }
+
+        public bool HasInheritedProperty(int property)
+        {
+            var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.Context, _handle, property);
+            Ensure.BooleanResult(status);
+
+            return status == (int)D2fErrorCode.D2FS_YES;
+        }
+
+        public bool HasOverriddenProperty(int property)
+        {
+            return !HasDefaultedProperty(property);
         }
 
         public void Destroy()
