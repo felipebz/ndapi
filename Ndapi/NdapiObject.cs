@@ -12,12 +12,14 @@ namespace Ndapi
     public class NdapiObject
     {
         internal ObjectSafeHandle _handle;
+        private ObjectType _type;
 
-        public NdapiObject()
+        internal NdapiObject()
         {
+            _type = ObjectType.Undefined;
         }
 
-        internal NdapiObject(ObjectSafeHandle handle)
+        internal NdapiObject(ObjectSafeHandle handle) : this()
         {
             _handle = handle;
         }
@@ -90,6 +92,7 @@ namespace Ndapi
             var parentHandle = parent?._handle ?? new ObjectSafeHandle();
             var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, parentHandle, out _handle, name, (int)type);
             Ensure.Success(status);
+            _type = type;
         }
 
         public string GetStringProperty(int property)
@@ -177,24 +180,29 @@ namespace Ndapi
                 yield return _result;
                 _result = _result.GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
             }
+        }
 
+        public ObjectType GetObjectType()
+        {
+            if (_type != ObjectType.Undefined)
+            {
+                return _type;
+            }
+
+            var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, _handle, out _type);
+            Ensure.Success(status);
+
+            return _type;
         }
 
         public string GetQualifiedName(bool includeModule)
         {
             var builder = new StringBuilder();
             var owner = Owner;
-            if (owner != null)
+            if ((owner != null) && (includeModule || (owner.GetObjectType() != ObjectType.FormModule)))
             {
-                int type;
-                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, owner._handle, out type);
-                Ensure.Success(status);
-
-                if (includeModule || (type != NdapiConstants.D2FFO_FORM_MODULE))
-                {
-                    builder.Append(owner.GetQualifiedName(includeModule));
-                    builder.Append(".");
-                }
+                builder.Append(owner.GetQualifiedName(includeModule));
+                builder.Append(".");
             }
             builder.Append(Name);
             return builder.ToString();

@@ -1,4 +1,5 @@
 ﻿using Ndapi.Core.Handles;
+using Ndapi.Enums;
 using System;
 using System.Runtime.InteropServices;
 
@@ -124,7 +125,7 @@ namespace Ndapi.Core
         public static extern int d2fobis_IsSubclassed(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int d2fobqt_QueryType(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, out int objtyp);
+        public static extern int d2fobqt_QueryType(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, out ObjectType objtyp);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
