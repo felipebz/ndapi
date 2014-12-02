@@ -37,36 +37,41 @@ Initially, the API will support only Forms 6i API.
 Features available
 ------------------
 
+Partial:
+
 - [x] Alert
 - [x] Attached Library
 - [x] Block
 - [x] Canvas
-- [ ] Data Source
-- [ ] Data Source Argument
-- [ ] Editor
 - [x] Form Module
 - [x] Form Parameter
-- [ ] Generic Object
 - [x] Graphics Object
 - [x] Item
 - [x] LOV
 - [x] LOV column mapping
+- [x] Generic Object
+- [x] Object Group
+- [x] Program Unit
+- [x] Record Group
+- [x] Record Group Column Specification
+- [x] Relation
+- [x] Trigger
+- [x] Window
+
+Missing:
+
+- [ ] Data Source
+- [ ] Data Source Argument
+- [ ] Editor
 - [ ] Menu
 - [ ] Menu Item
 - [ ] Menu Module
 - [ ] Menu Parameter
-- [ ] Object Group
 - [ ] Object Group Child
 - [ ] Object Library
 - [ ] Object Library Tab
-- [x] Program Unit
 - [ ] Property
 - [ ] Property Class
-- [x] Record Group
-- [x] Record Group Column Specification
-- [x] Relation
 - [ ] Report
 - [ ] Tab Page
-- [x] Trigger
 - [ ] Visual Attribute
-- [x] Window
