@@ -24,7 +24,7 @@ namespace Ndapi
             _handle = handle;
         }
 
-        public string Name
+        public virtual string Name
         {
             get { return GetStringProperty(NdapiConstants.D2FP_NAME); }
             set { SetStringProperty(NdapiConstants.D2FP_NAME, value); }

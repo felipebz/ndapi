@@ -54,6 +54,7 @@
     <Compile Include="Core\Handles\SafeHandleBase.cs" />
     <Compile Include="Core\Ensure.cs" />
     <Compile Include="Core\NativeMethods.cs" />
+    <Compile Include="DataSourceColumn.cs" />
     <Compile Include="Editor.cs" />
     <Compile Include="Enums\ObjectType.cs" />
     <Compile Include="Enums\PropertyState.cs" />

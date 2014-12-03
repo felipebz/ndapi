@@ -351,18 +351,39 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
         }
 
+        public IEnumerable<DataSourceColumn> DeleteDataSourceColumns
+        {
+            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_DEL_DAT_SRC_COL); }
+        }
+
+        public IEnumerable<DataSourceColumn> InsertDataSourceColumns
+        {
+            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_INS_DAT_SRC_COL); }
+        }
+
         public IEnumerable<Item> Items
         {
             get { return GetObjectList<Item>(NdapiConstants.D2FP_ITEM); }
+        }
+
+        public IEnumerable<DataSourceColumn> QueryDataSourceColumns
+        {
+            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_QRY_DAT_SRC_COL); }
         }
 
         public IEnumerable<BlockRelation> Relations
         {
             get { return GetObjectList<BlockRelation>(NdapiConstants.D2FP_REL); }
         }
+
         public IEnumerable<Trigger> Triggers
         {
             get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
+        }
+
+        public IEnumerable<DataSourceColumn> UpdateDataSourceColumns
+        {
+            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_UPD_DAT_SRC_COL); }
         }
 
     }
