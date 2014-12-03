@@ -43,6 +43,8 @@ Partial:
 - [x] Attached Library
 - [x] Block
 - [x] Canvas
+- [x] Data Source
+- [x] Data Source Argument
 - [x] Editor
 - [x] Form Module
 - [x] Form Parameter
@@ -62,8 +64,6 @@ Partial:
 
 Missing:
 
-- [ ] Data Source
-- [ ] Data Source Argument
 - [ ] Menu
 - [ ] Menu Item
 - [ ] Menu Module

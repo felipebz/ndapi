@@ -44,9 +44,9 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_DSC_SCALE, value); }
         }
 
-        public int Type
+        public DataSourceColumnType Type
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_DSC_TYP); }
+            get { return GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSC_TYP); }
             set { SetNumberProperty(NdapiConstants.D2FP_DSC_TYP, value); }
         }
 

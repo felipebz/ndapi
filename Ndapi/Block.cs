@@ -351,9 +351,19 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
         }
 
+        public IEnumerable<DataSourceArgument> DeleteDataSourceArguments
+        {
+            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_DEL_DAT_SRC_ARG); }
+        }
+
         public IEnumerable<DataSourceColumn> DeleteDataSourceColumns
         {
             get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_DEL_DAT_SRC_COL); }
+        }
+
+        public IEnumerable<DataSourceArgument> InsertDataSourceArguments
+        {
+            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_INS_DAT_SRC_ARG); }
         }
 
         public IEnumerable<DataSourceColumn> InsertDataSourceColumns
@@ -364,6 +374,11 @@ namespace Ndapi
         public IEnumerable<Item> Items
         {
             get { return GetObjectList<Item>(NdapiConstants.D2FP_ITEM); }
+        }
+
+        public IEnumerable<DataSourceArgument> QueryDataSourceArguments
+        {
+            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_QRY_DAT_SRC_ARG); }
         }
 
         public IEnumerable<DataSourceColumn> QueryDataSourceColumns
@@ -381,10 +396,14 @@ namespace Ndapi
             get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
         }
 
+        public IEnumerable<DataSourceArgument> UpdateDataSourceArguments
+        {
+            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_UPD_DAT_SRC_ARG); }
+        }
+
         public IEnumerable<DataSourceColumn> UpdateDataSourceColumns
         {
             get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_UPD_DAT_SRC_COL); }
         }
-
     }
 }
