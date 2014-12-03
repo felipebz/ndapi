@@ -56,6 +56,7 @@ Partial:
 - [x] Record Group
 - [x] Record Group Column Specification
 - [x] Relation
+- [x] Tab Page
 - [x] Trigger
 - [x] Window
 
@@ -73,5 +74,4 @@ Missing:
 - [ ] Property
 - [ ] Property Class
 - [ ] Report
-- [ ] Tab Page
 - [ ] Visual Attribute

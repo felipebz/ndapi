@@ -199,5 +199,10 @@ namespace Ndapi
         {
             get { return GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC); }
         }
+
+        public IEnumerable<TabPage> TabPages
+        {
+            get { return GetObjectList<TabPage>(NdapiConstants.D2FP_TAB_PAGE); }
+        }
     }
 }
