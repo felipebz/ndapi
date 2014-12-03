@@ -174,6 +174,11 @@ namespace Ndapi
             get { return GetObjectList<Block>(NdapiConstants.D2FP_BLOCK); }
         }
 
+        public IEnumerable<Editor> Editors
+        {
+            get { return GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR); }
+        }
+
         public IEnumerable<LOV> LOVs
         {
             get { return GetObjectList<LOV>(NdapiConstants.D2FP_LOV); }

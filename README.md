@@ -43,6 +43,7 @@ Partial:
 - [x] Attached Library
 - [x] Block
 - [x] Canvas
+- [x] Editor
 - [x] Form Module
 - [x] Form Parameter
 - [x] Graphics Object
@@ -62,7 +63,6 @@ Missing:
 
 - [ ] Data Source
 - [ ] Data Source Argument
-- [ ] Editor
 - [ ] Menu
 - [ ] Menu Item
 - [ ] Menu Module
