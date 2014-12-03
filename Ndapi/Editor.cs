@@ -80,12 +80,6 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_HEIGHT, value); }
         }
 
-        public string Name
-        {
-            get { return GetStringProperty(NdapiConstants.D2FP_NAME); }
-            set { SetStringProperty(NdapiConstants.D2FP_NAME, value); }
-        }
-
         public bool ShowHorizonatalScrollbar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR); }
