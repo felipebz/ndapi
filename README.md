@@ -54,6 +54,7 @@ Partial:
 - [x] LOV
 - [x] LOV column mapping
 - [x] Menu
+- [x] Menu Item
 - [x] Object Group
 - [x] Program Unit
 - [x] Record Group
@@ -65,7 +66,6 @@ Partial:
 
 Missing:
 
-- [ ] Menu Item
 - [ ] Menu Module
 - [ ] Menu Parameter
 - [ ] Object Group Child
