@@ -119,7 +119,7 @@ namespace Ndapi
 
         public T GetNumberProperty<T>(int property) where T : struct
         {
-            return (T)Enum.Parse(typeof(T), GetNumberProperty(property).ToString(), true);
+            return (T)(ValueType)GetNumberProperty(property);
         }
 
         public void SetNumberProperty(int property, int value)
