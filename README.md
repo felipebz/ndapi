@@ -56,6 +56,7 @@ Partial:
 - [x] Menu
 - [x] Menu Item
 - [x] Object Group
+- [x] Object Library
 - [x] Program Unit
 - [x] Record Group
 - [x] Record Group Column Specification
@@ -69,7 +70,6 @@ Missing:
 - [ ] Menu Module
 - [ ] Menu Parameter
 - [ ] Object Group Child
-- [ ] Object Library
 - [ ] Object Library Tab
 - [ ] Property
 - [ ] Property Class
