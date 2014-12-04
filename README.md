@@ -48,11 +48,12 @@ Partial:
 - [x] Editor
 - [x] Form Module
 - [x] Form Parameter
+- [x] Generic Object
 - [x] Graphics Object
 - [x] Item
 - [x] LOV
 - [x] LOV column mapping
-- [x] Generic Object
+- [x] Menu
 - [x] Object Group
 - [x] Program Unit
 - [x] Record Group
@@ -64,7 +65,6 @@ Partial:
 
 Missing:
 
-- [ ] Menu
 - [ ] Menu Item
 - [ ] Menu Module
 - [ ] Menu Parameter

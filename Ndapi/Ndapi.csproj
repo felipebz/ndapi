@@ -66,6 +66,7 @@
     <Compile Include="Graphic.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="LOV.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="ObjectLibrary.cs" />
     <Compile Include="ProgramUnit.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
