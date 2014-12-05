@@ -87,9 +87,9 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_CMPRSSION_QLTY, value); }
         }
 
-        public NdapiObject Canvas
+        public Canvas Canvas
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_CNV_OBJ); }
+            get { return GetObjectProperty<Canvas>(NdapiConstants.D2FP_CNV_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_CNV_OBJ, value); }
         }
 
@@ -177,9 +177,9 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_DIST_BTWN_RECS, value); }
         }
 
-        public NdapiObject Editor
+        public Editor Editor
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_EDT_OBJ); }
+            get { return GetObjectProperty<Editor>(NdapiConstants.D2FP_EDT_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_EDT_OBJ, value); }
         }
 
@@ -521,7 +521,7 @@ namespace Ndapi
         public Menu PopupMenu
         {
             get { return GetObjectProperty<Menu>(NdapiConstants.D2FP_POPUP_MNU_OBJ); }
-            set { SetObjectProperty<Menu>(NdapiConstants.D2FP_POPUP_MNU_OBJ, value); }
+            set { SetObjectProperty(NdapiConstants.D2FP_POPUP_MNU_OBJ, value); }
         }
 
         public NdapiObject PopUpVisualAttribute
@@ -805,9 +805,9 @@ namespace Ndapi
             set { SetObjectProperty(NdapiConstants.D2FP_SYNC_ITM_OBJ, value); }
         }
 
-        public NdapiObject TabPage
+        public TabPage TabPage
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_TBP_OBJ); }
+            get { return GetObjectProperty<TabPage>(NdapiConstants.D2FP_TBP_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_TBP_OBJ, value); }
         }
 

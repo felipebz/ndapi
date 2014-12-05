@@ -34,9 +34,9 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF, value); }
         }
 
-        public NdapiObject FirstNavigationBlock
+        public Block FirstNavigationBlock
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ); }
+            get { return GetObjectProperty<Block>(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ, value); }
         }
 
