@@ -512,16 +512,16 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_OTHER_VALS, value); }
         }
 
-        public string PopupMenu
+        public string PopupMenuName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_POPUP_MNU_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_POPUP_MNU_NAM, value); }
         }
 
-        public string PopUpMenu
+        public Menu PopupMenu
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_POPUP_MNU_OBJ); }
-            set { SetStringProperty(NdapiConstants.D2FP_POPUP_MNU_OBJ, value); }
+            get { return GetObjectProperty<Menu>(NdapiConstants.D2FP_POPUP_MNU_OBJ); }
+            set { SetObjectProperty<Menu>(NdapiConstants.D2FP_POPUP_MNU_OBJ, value); }
         }
 
         public NdapiObject PopUpVisualAttribute
