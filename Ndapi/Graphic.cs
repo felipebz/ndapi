@@ -249,7 +249,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_FRAME_TTL_SPCING, value); }
         }
 
-        public string FrameTitleVisualAttributeGroup
+        public string FrameTitleVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FRAME_TTL_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_FRAME_TTL_VAT_NAM, value); }
@@ -446,7 +446,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_UPDT_LAYOUT, value); }
         }
 
-        public string VisualAttributeGroup
+        public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }

@@ -249,7 +249,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_REC_ORNT, value); }
         }
 
-        public string CurrentRecordVisualAttributeGroup
+        public string CurrentRecordVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM, value); }
@@ -333,7 +333,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_UPDT_PROC_NAM, value); }
         }
 
-        public string VisualAttributeGroup
+        public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }

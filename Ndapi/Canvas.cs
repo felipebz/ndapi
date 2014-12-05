@@ -99,7 +99,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_LANG_DIR, value); }
         }
 
-        public string PopupMenu
+        public string PopupMenuName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_POPUP_MNU_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_POPUP_MNU_NAM, value); }
@@ -123,7 +123,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_TAB_STY, value); }
         }
 
-        public string VisualAttributeGroup
+        public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }

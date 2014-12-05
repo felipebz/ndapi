@@ -146,7 +146,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_TITLE, value); }
         }
 
-        public string VisualAttributeGroup
+        public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }

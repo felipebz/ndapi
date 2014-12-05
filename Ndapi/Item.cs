@@ -423,12 +423,12 @@ namespace Ndapi
         }
 
         public ListStyle ListStyle
-            {
-                get   { return GetNumberProperty<ListStyle>(NdapiConstants.D2FP_LST_STY); }
-                set   { SetNumberProperty(NdapiConstants.D2FP_LST_STY, value); }
-            }
+        {
+            get { return GetNumberProperty<ListStyle>(NdapiConstants.D2FP_LST_STY); }
+            set { SetNumberProperty(NdapiConstants.D2FP_LST_STY, value); }
+        }
 
-            public  int MaximumLength
+        public int MaximumLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
             set { SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value); }
@@ -632,7 +632,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_PRMPT_READING_ORDR, value); }
         }
 
-        public string PromptVisualAttributeGroup
+        public string PromptVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_PRMPT_VAT_NAM, value); }
@@ -674,12 +674,12 @@ namespace Ndapi
         }
 
         public ReadingOrder ReadingOrder
-            {
-                get     { return GetNumberProperty<ReadingOrder>(NdapiConstants.D2FP_READING_ORDR); }
-                set   { SetNumberProperty(NdapiConstants.D2FP_READING_ORDR, value); }
-            }
+        {
+            get { return GetNumberProperty<ReadingOrder>(NdapiConstants.D2FP_READING_ORDR); }
+            set { SetNumberProperty(NdapiConstants.D2FP_READING_ORDR, value); }
+        }
 
-            public  string CurrentRecordVisualAttributeGroup
+        public string CurrentRecordVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM, value); }
@@ -817,7 +817,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_TOOLTIP, value); }
         }
 
-        public string TooltipVisualAttributeGroup
+        public string TooltipVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TOOLTIP_VAT_GRP); }
             set { SetStringProperty(NdapiConstants.D2FP_TOOLTIP_VAT_GRP, value); }
@@ -859,7 +859,7 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_VALIDATE_FROM_LST, value); }
         }
 
-        public string VisualAttributeGroup
+        public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }

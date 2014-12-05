@@ -139,7 +139,7 @@ namespace Ndapi
             get { return GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT); }
         }
 
-        public string VisualAttributeGroup
+        public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }
