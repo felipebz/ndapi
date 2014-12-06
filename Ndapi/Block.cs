@@ -255,9 +255,9 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM, value); }
         }
 
-        public NdapiObject CurrentRecordVisualAttribute
+        public VisualAttribute CurrentRecordVisualAttribute
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
+            get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_REC_VAT_GRP_OBJ, value); }
         }
 

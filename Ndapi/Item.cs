@@ -524,9 +524,9 @@ namespace Ndapi
             set { SetObjectProperty(NdapiConstants.D2FP_POPUP_MNU_OBJ, value); }
         }
 
-        public NdapiObject PopUpVisualAttribute
+        public VisualAttribute PopUpVisualAttribute
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_POPUP_VA_OBJ); }
+            get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_POPUP_VA_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_POPUP_VA_OBJ, value); }
         }
 
@@ -638,9 +638,9 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_PRMPT_VAT_NAM, value); }
         }
 
-        public NdapiObject PromptVisualAttribute
+        public VisualAttribute PromptVisualAttribute
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_PRMPT_VAT_OBJ); }
+            get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_PRMPT_VAT_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_PRMPT_VAT_OBJ, value); }
         }
 
@@ -685,9 +685,9 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM, value); }
         }
 
-        public NdapiObject CurrentRecordVisualAttribute
+        public VisualAttribute CurrentRecordVisualAttribute
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
+            get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_REC_VAT_GRP_OBJ, value); }
         }
 
@@ -865,9 +865,9 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }
         }
 
-        public NdapiObject VisualAttribute
+        public VisualAttribute VisualAttribute
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_VAT_OBJ); }
+            get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_VAT_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_VAT_OBJ, value); }
         }
 

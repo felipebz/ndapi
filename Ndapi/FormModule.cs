@@ -118,9 +118,9 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_MOUSE_NAVIGATION_LMT, value); }
         }
 
-        public NdapiObject CurrentRecordVisualAttribute
+        public VisualAttribute CurrentRecordVisualAttribute
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
+            get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_REC_VAT_GRP_OBJ, value); }
         }
 
@@ -207,6 +207,11 @@ namespace Ndapi
         public IEnumerable<Trigger> Triggers
         {
             get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
+        }
+
+        public IEnumerable<VisualAttribute> VisualAttributes
+        {
+            get { return GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR); }
         }
 
         public IEnumerable<Window> Windows

@@ -63,6 +63,7 @@ Partial:
 - [x] Relation
 - [x] Tab Page
 - [x] Trigger
+- [x] Visual Attribute
 - [x] Window
 
 Missing:
@@ -74,4 +75,3 @@ Missing:
 - [ ] Property
 - [ ] Property Class
 - [ ] Report
-- [ ] Visual Attribute
