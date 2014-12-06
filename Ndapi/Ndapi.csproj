@@ -69,6 +69,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="ObjectLibrary.cs" />
+    <Compile Include="ObjectLibraryTab.cs" />
     <Compile Include="ProgramUnit.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="NdapiConstants.cs" />
