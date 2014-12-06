@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ndapi.Tests", "Ndapi.Tests\Ndapi.Tests.csproj", "{4ED589B0-D733-4401-BAAB-894F2CCEAD84}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ndapi", "Ndapi\Ndapi.csproj", "{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{4723020B-11B3-4F47-8B03-9202932B1664}"
@@ -17,10 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Debug|x86.ActiveCfg = Debug|x86
-		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Debug|x86.Build.0 = Debug|x86
-		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Release|x86.ActiveCfg = Release|x86
-		{4ED589B0-D733-4401-BAAB-894F2CCEAD84}.Release|x86.Build.0 = Release|x86
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|x86.ActiveCfg = Debug|x86
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|x86.Build.0 = Debug|x86
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x86.ActiveCfg = Release|x86
