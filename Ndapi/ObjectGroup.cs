@@ -21,9 +21,9 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
         }
 
-        public IEnumerable<NdapiObject> Childs
+        public IEnumerable<ObjectGroupChild> Childs
         {
-            get { return GetObjectList<NdapiObject>(NdapiConstants.D2FP_OG_CHILD); }
+            get { return GetObjectList<ObjectGroupChild>(NdapiConstants.D2FP_OG_CHILD); }
         }
     }
 }

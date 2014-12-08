@@ -56,6 +56,7 @@ Partial:
 - [x] Menu
 - [x] Menu Item
 - [x] Object Group
+- [x] Object Group Child
 - [x] Object Library
 - [x] Object Library Tab
 - [x] Program Unit
@@ -71,7 +72,6 @@ Missing:
 
 - [ ] Menu Module
 - [ ] Menu Parameter
-- [ ] Object Group Child
 - [ ] Property
 - [ ] Property Class
 - [ ] Report
