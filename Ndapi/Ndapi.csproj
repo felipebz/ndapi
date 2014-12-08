@@ -80,6 +80,7 @@
     <Compile Include="NdapiException.cs" />
     <Compile Include="NdapiObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property.cs" />
     <Compile Include="RecordGroup.cs" />
     <Compile Include="TabPage.cs" />
     <Compile Include="Trigger.cs" />

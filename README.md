@@ -60,6 +60,7 @@ Partial:
 - [x] Object Library
 - [x] Object Library Tab
 - [x] Program Unit
+- [x] Property
 - [x] Record Group
 - [x] Record Group Column Specification
 - [x] Relation
@@ -72,6 +73,5 @@ Missing:
 
 - [ ] Menu Module
 - [ ] Menu Parameter
-- [ ] Property
 - [ ] Property Class
 - [ ] Report
