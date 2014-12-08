@@ -68,6 +68,22 @@ namespace Ndapi.Core
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fpguco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
 
+        // Property specific methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern PropertyType d2fprgt_GetType(ContextSafeHandle pd2fctx, int pnum);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fprgn_GetName(ContextSafeHandle pd2fctx, int pnum, out string pname);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fprgvn_GetValueName(ContextSafeHandle pd2fctx, int pnum, int val, out string vname);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fprgcv_GetConstValue(ContextSafeHandle pd2fctx, string pcname, out int pnum);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fprgcn_GetConstName(ContextSafeHandle pd2fctx, int pnum, out string pcname);
+
         // Trigger specific methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2ftrgco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ftrg);

@@ -998,5 +998,10 @@
         public const int D2FP_TRIG_STEP = 550;
         public const int D2FP_QRY_NAME = 551;
         public const int D2FP_MAX = 551;
+        public const int D2FP_TYP_UNKNOWN = 0;
+        public const int D2FP_TYP_BOOLEAN = 1;
+        public const int D2FP_TYP_NUMBER = 2;
+        public const int D2FP_TYP_TEXT = 3;
+        public const int D2FP_TYP_OBJECT = 4;
     }
 }

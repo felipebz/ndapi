@@ -766,4 +766,13 @@
         Start = NdapiConstants.D2FC_JUST_START,
         End = NdapiConstants.D2FC_JUST_END
     }
+
+    public enum PropertyType
+    {
+        Unknown = NdapiConstants.D2FP_TYP_UNKNOWN,
+        Boolean = NdapiConstants.D2FP_TYP_BOOLEAN,
+        Number = NdapiConstants.D2FP_TYP_NUMBER,
+        Text = NdapiConstants.D2FP_TYP_TEXT,
+        Object = NdapiConstants.D2FP_TYP_OBJECT
+    }
 }
