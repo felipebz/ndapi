@@ -189,6 +189,11 @@ namespace Ndapi
             get { return GetObjectList<Menu>(NdapiConstants.D2FP_MENU); }
         }
 
+        public IEnumerable<ObjectGroup> ObjectGroups
+        {
+            get { return GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP); }
+        }
+
         public IEnumerable<FormParameter> Parameters
         {
             get { return GetObjectList<FormParameter>(NdapiConstants.D2FP_FORM_PARAM); }
