@@ -668,11 +668,6 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_QRY_ONLY, value); }
         }
 
-        public NdapiObject RadioButtons
-        {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_RAD_BUT); }
-        }
-
         public ReadingOrder ReadingOrder
         {
             get { return GetNumberProperty<ReadingOrder>(NdapiConstants.D2FP_READING_ORDR); }
@@ -907,9 +902,8 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
         }
 
-        public IEnumerable<Trigger> Triggers
-        {
-            get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
-        }
+        public NdapiObject RadioButtons => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_RAD_BUT);
+
+        public IEnumerable<Trigger> Triggers => GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
     }
 }

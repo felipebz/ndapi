@@ -506,9 +506,6 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
         }
 
-        public IEnumerable<Graphic> Graphics
-        {
-            get { return GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC); }
-        }
+        public IEnumerable<Graphic> Graphics => GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC);
     }
 }

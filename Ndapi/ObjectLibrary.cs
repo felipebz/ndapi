@@ -19,15 +19,9 @@ namespace Ndapi
         {
         }
 
-        public int ObjectCount
-        {
-            get { return GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT); }
-        }
+        public int ObjectCount => GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
 
-        public IEnumerable<ObjectLibraryTab> Tabs
-        {
-            get { return GetObjectList<ObjectLibraryTab>(NdapiConstants.D2FP_OBJ_LIB_TAB); }
-        }
+        public IEnumerable<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstants.D2FP_OBJ_LIB_TAB);
 
         public IEnumerable<NdapiObject> Objects
         {

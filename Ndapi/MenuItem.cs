@@ -134,10 +134,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_MNU_ITM_TYP, value); }
         }
 
-        public int RoleCount
-        {
-            get { return GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT); }
-        }
+        public int RoleCount => GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT);
 
         public string VisualAttributeName
         {

@@ -72,10 +72,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_PAR_FLNAM, value); }
         }
 
-        public NdapiObject Owner
-        {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER); }
-        }
+        public NdapiObject Owner => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER);
 
         public bool IsSubclassed
         {
@@ -246,25 +243,7 @@ namespace Ndapi
         public PropertyState GetPropertyState(int property)
         {
             var state = PropertyState.Unknown;
-            if (HasInheritedProperty(property))
-            {
-                state = PropertyState.Inherited;
-            }
-            else if (HasDefaultedProperty(property))
-            {
-                state = PropertyState.Default;
-            }
-            else
-            {
-                if (IsSubclassed)
-                {
-                    state = PropertyState.OverriddenInherited;
-                }
-                else
-                {
-                    state = PropertyState.OverriddenDefault;
-                }
-            }
+            state = HasInheritedProperty(property) ? PropertyState.Inherited : HasDefaultedProperty(property) ? PropertyState.Default : IsSubclassed ? PropertyState.OverriddenInherited : PropertyState.OverriddenDefault;
             return state;
         }
 
@@ -274,9 +253,6 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
-        public override string ToString()
-        {
-            return Name;
-        }
+        public override string ToString() => Name;
     }
 }

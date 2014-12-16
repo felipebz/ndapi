@@ -24,7 +24,7 @@
 
         private static void HandleError(int result)
         {
-            throw new NdapiException("An error occurred", (D2fErrorCode)result); // TODO: improve error handling
+            throw new NdapiException("An error occurred", (D2fErrorCode)result);
         }
     }
 }

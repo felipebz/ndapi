@@ -5,10 +5,7 @@ namespace Ndapi
 {
     public static class Property
     {
-        public static PropertyType GetPropertyType(int property)
-        {
-            return NativeMethods.d2fprgt_GetType(NdapiContext.Context, property);
-        }
+        public static PropertyType GetPropertyType(int property) => NativeMethods.d2fprgt_GetType(NdapiContext.Context, property);
 
         public static string GetName(int property)
         {

@@ -20,15 +20,12 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_COL_DAT_TYP, value); }
         }
 
-        public int ValueCount
-        {
-            get { return GetNumberProperty(NdapiConstants.D2FP_COL_VALS_COUNT); }
-        }
-            
         public int MaximumLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
             set { SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value); }
         }
+
+        public int ValueCount => GetNumberProperty(NdapiConstants.D2FP_COL_VALS_COUNT);
     }
 }

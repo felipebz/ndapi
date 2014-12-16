@@ -33,9 +33,6 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU, value); }
         }
 
-        public IEnumerable<MenuItem> MenuItems
-        {
-            get { return GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM); }
-        }
+        public IEnumerable<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM);
     }
 }

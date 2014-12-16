@@ -31,10 +31,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_LABEL, value); }
         }
 
-        public int ObjectCount
-        {
-            get { return GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT); }
-        }
+        public int ObjectCount => GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
 
         public IEnumerable<NdapiObject> Objects
         {

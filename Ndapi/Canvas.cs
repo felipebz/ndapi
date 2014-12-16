@@ -195,14 +195,10 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_WND_NAM, value); }
         }
 
-        public IEnumerable<Graphic> Graphics
-        {
-            get { return GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC); }
-        }
+        public IEnumerable<Graphic> Graphics =>
+            GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC);
 
-        public IEnumerable<TabPage> TabPages
-        {
-            get { return GetObjectList<TabPage>(NdapiConstants.D2FP_TAB_PAGE); }
-        }
+        public IEnumerable<TabPage> TabPages =>
+            GetObjectList<TabPage>(NdapiConstants.D2FP_TAB_PAGE);
     }
 }

@@ -39,9 +39,6 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_REC_GRP_TYP, value); }
         }
 
-        public IEnumerable<ColumnSpecification> ColumnSpecifications
-        {
-            get { return GetObjectList<ColumnSpecification>(NdapiConstants.D2FP_COL_SPEC); }
-        }
+        public IEnumerable<ColumnSpecification> ColumnSpecifications => GetObjectList<ColumnSpecification>(NdapiConstants.D2FP_COL_SPEC);
     }
 }

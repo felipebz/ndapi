@@ -154,75 +154,47 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_VERT_TLBR_CNV, value); }
         }
 
-        public IEnumerable<Alert> Alerts
-        {
-            get { return GetObjectList<Alert>(NdapiConstants.D2FP_ALERT); }
-        }
+        public IEnumerable<Alert> Alerts => 
+            GetObjectList<Alert>(NdapiConstants.D2FP_ALERT);
 
-        public IEnumerable<AttachedLibrary> AttachedLibraries
-        {
-            get { return GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB); }
-        }
+        public IEnumerable<AttachedLibrary> AttachedLibraries => 
+            GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
 
-        public IEnumerable<Canvas> Canvases
-        {
-            get { return GetObjectList<Canvas>(NdapiConstants.D2FP_CANVAS); }
-        }
+        public IEnumerable<Canvas> Canvases => 
+            GetObjectList<Canvas>(NdapiConstants.D2FP_CANVAS);
 
-        public IEnumerable<Block> Blocks
-        {
-            get { return GetObjectList<Block>(NdapiConstants.D2FP_BLOCK); }
-        }
+        public IEnumerable<Block> Blocks => 
+            GetObjectList<Block>(NdapiConstants.D2FP_BLOCK);
 
-        public IEnumerable<Editor> Editors
-        {
-            get { return GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR); }
-        }
+        public IEnumerable<Editor> Editors => 
+            GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR);
 
-        public IEnumerable<LOV> LOVs
-        {
-            get { return GetObjectList<LOV>(NdapiConstants.D2FP_LOV); }
-        }
+        public IEnumerable<LOV> LOVs => 
+            GetObjectList<LOV>(NdapiConstants.D2FP_LOV);
 
-        public IEnumerable<Menu> Menus
-        {
-            get { return GetObjectList<Menu>(NdapiConstants.D2FP_MENU); }
-        }
+        public IEnumerable<Menu> Menus => 
+            GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
 
-        public IEnumerable<ObjectGroup> ObjectGroups
-        {
-            get { return GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP); }
-        }
+        public IEnumerable<ObjectGroup> ObjectGroups => 
+            GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP);
 
-        public IEnumerable<FormParameter> Parameters
-        {
-            get { return GetObjectList<FormParameter>(NdapiConstants.D2FP_FORM_PARAM); }
-        }
+        public IEnumerable<FormParameter> Parameters => 
+            GetObjectList<FormParameter>(NdapiConstants.D2FP_FORM_PARAM);
 
-        public IEnumerable<ProgramUnit> ProgramUnits
-        {
-            get { return GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT); }
-        }
+        public IEnumerable<ProgramUnit> ProgramUnits => 
+            GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
 
-        public IEnumerable<RecordGroup> RecordGroups
-        {
-            get { return GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP); }
-        }
+        public IEnumerable<RecordGroup> RecordGroups => 
+            GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP);
 
-        public IEnumerable<Trigger> Triggers
-        {
-            get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
-        }
+        public IEnumerable<Trigger> Triggers => 
+            GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
-        public IEnumerable<VisualAttribute> VisualAttributes
-        {
-            get { return GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR); }
-        }
+        public IEnumerable<VisualAttribute> VisualAttributes =>
+            GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
 
-        public IEnumerable<Window> Windows
-        {
-            get { return GetObjectList<Window>(NdapiConstants.D2FP_WINDOW); }
-        }
+        public IEnumerable<Window> Windows =>
+            GetObjectList<Window>(NdapiConstants.D2FP_WINDOW);
 
         public static FormModule Open(string filename)
         {

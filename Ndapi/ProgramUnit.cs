@@ -27,10 +27,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_PGU_TXT, value); }
         }
 
-        public ProgramUnitType Type
-        {
-            get { return GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP); }
-        }
+        public ProgramUnitType Type => GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP);
 
         public void Compile()
         {

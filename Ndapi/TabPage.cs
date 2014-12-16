@@ -39,9 +39,6 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
         }
 
-        public IEnumerable<Graphic> Graphics
-        {
-            get { return GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC); }
-        }
+        public IEnumerable<Graphic> Graphics => GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC);
     }
 }

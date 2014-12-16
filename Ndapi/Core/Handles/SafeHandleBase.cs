@@ -10,20 +10,11 @@ namespace Ndapi.Core.Handles
         {
         }
 
-        public override bool IsInvalid
-        {
-            get
-            {
-                return handle == IntPtr.Zero;
-            }
-        }
+        public override bool IsInvalid => handle == IntPtr.Zero;
 
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         protected abstract bool ReleaseHandleImpl();
 
-        protected override sealed bool ReleaseHandle()
-        {
-            return ReleaseHandleImpl();
-        }
+        protected override sealed bool ReleaseHandle() => ReleaseHandleImpl();
     }
 }

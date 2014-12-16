@@ -20,14 +20,8 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
         }
 
-        public string Location
-        {
-            get { return GetStringProperty(NdapiConstants.D2FP_LIB_LOC); }
-        }
+        public string Location => GetStringProperty(NdapiConstants.D2FP_LIB_LOC);
 
-        public SourceType SourceType
-        {
-            get { return GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC); }
-        }
+        public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC);
     }
 }

@@ -176,9 +176,6 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
         }
 
-        public IEnumerable<ColumnMapping> ColumnMappingProperties
-        {
-            get { return GetObjectList<ColumnMapping>(NdapiConstants.D2FP_COL_MAP); }
-        }
+        public IEnumerable<ColumnMapping> ColumnMappingProperties => GetObjectList<ColumnMapping>(NdapiConstants.D2FP_COL_MAP);
     }
 }

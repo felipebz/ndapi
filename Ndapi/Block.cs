@@ -351,59 +351,37 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
         }
 
-        public IEnumerable<DataSourceArgument> DeleteDataSourceArguments
-        {
-            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_DEL_DAT_SRC_ARG); }
-        }
+        public IEnumerable<DataSourceArgument> DeleteDataSourceArguments =>
+            GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_DEL_DAT_SRC_ARG);
 
-        public IEnumerable<DataSourceColumn> DeleteDataSourceColumns
-        {
-            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_DEL_DAT_SRC_COL); }
-        }
+        public IEnumerable<DataSourceColumn> DeleteDataSourceColumns =>
+            GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_DEL_DAT_SRC_COL);
 
-        public IEnumerable<DataSourceArgument> InsertDataSourceArguments
-        {
-            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_INS_DAT_SRC_ARG); }
-        }
+        public IEnumerable<DataSourceArgument> InsertDataSourceArguments =>
+            GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_INS_DAT_SRC_ARG);
 
-        public IEnumerable<DataSourceColumn> InsertDataSourceColumns
-        {
-            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_INS_DAT_SRC_COL); }
-        }
+        public IEnumerable<DataSourceColumn> InsertDataSourceColumns =>
+            GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_INS_DAT_SRC_COL);
 
-        public IEnumerable<Item> Items
-        {
-            get { return GetObjectList<Item>(NdapiConstants.D2FP_ITEM); }
-        }
+        public IEnumerable<Item> Items =>
+            GetObjectList<Item>(NdapiConstants.D2FP_ITEM);
 
-        public IEnumerable<DataSourceArgument> QueryDataSourceArguments
-        {
-            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_QRY_DAT_SRC_ARG); }
-        }
+        public IEnumerable<DataSourceArgument> QueryDataSourceArguments =>
+            GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_QRY_DAT_SRC_ARG);
 
-        public IEnumerable<DataSourceColumn> QueryDataSourceColumns
-        {
-            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_QRY_DAT_SRC_COL); }
-        }
+        public IEnumerable<DataSourceColumn> QueryDataSourceColumns =>
+            GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_QRY_DAT_SRC_COL);
 
-        public IEnumerable<BlockRelation> Relations
-        {
-            get { return GetObjectList<BlockRelation>(NdapiConstants.D2FP_REL); }
-        }
+        public IEnumerable<BlockRelation> Relations =>
+            GetObjectList<BlockRelation>(NdapiConstants.D2FP_REL);
 
-        public IEnumerable<Trigger> Triggers
-        {
-            get { return GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER); }
-        }
+        public IEnumerable<Trigger> Triggers =>
+            GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
-        public IEnumerable<DataSourceArgument> UpdateDataSourceArguments
-        {
-            get { return GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_UPD_DAT_SRC_ARG); }
-        }
+        public IEnumerable<DataSourceArgument> UpdateDataSourceArguments =>
+            GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_UPD_DAT_SRC_ARG);
 
-        public IEnumerable<DataSourceColumn> UpdateDataSourceColumns
-        {
-            get { return GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_UPD_DAT_SRC_COL); }
-        }
+        public IEnumerable<DataSourceColumn> UpdateDataSourceColumns =>
+            GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_UPD_DAT_SRC_COL);
     }
 }

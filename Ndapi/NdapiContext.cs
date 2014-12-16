@@ -26,7 +26,7 @@ namespace Ndapi
         {
             get
             {
-                int version = 0;
+                var version = 0;
 
                 var status = NativeMethods.d2fctxbv_BuilderVersion(Context, ref version);
                 Ensure.Success(status);
@@ -59,6 +59,7 @@ namespace Ndapi
         public void Dispose()
         {
             Destroy();
+            GC.SuppressFinalize(this);
         }
     }
 }
