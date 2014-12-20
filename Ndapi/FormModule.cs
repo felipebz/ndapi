@@ -187,6 +187,9 @@ namespace Ndapi
         public IEnumerable<RecordGroup> RecordGroups => 
             GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP);
 
+        public IEnumerable<Report> Reports =>
+            GetObjectList<Report>(NdapiConstants.D2FP_REPORT);
+
         public IEnumerable<Trigger> Triggers => 
             GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 

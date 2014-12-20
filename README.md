@@ -64,6 +64,7 @@ Partial:
 - [x] Record Group
 - [x] Record Group Column Specification
 - [x] Relation
+- [x] Report
 - [x] Tab Page
 - [x] Trigger
 - [x] Visual Attribute
@@ -74,4 +75,3 @@ Missing:
 - [ ] Menu Module
 - [ ] Menu Parameter
 - [ ] Property Class
-- [ ] Report
