@@ -63,6 +63,7 @@ Partial:
 - [x] Object Library Tab
 - [x] Program Unit
 - [x] Property
+- [x] Property Class
 - [x] Record Group
 - [x] Record Group Column Specification
 - [x] Relation
@@ -71,7 +72,3 @@ Partial:
 - [x] Trigger
 - [x] Visual Attribute
 - [x] Window
-
-Missing:
-
-- [ ] Property Class

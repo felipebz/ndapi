@@ -73,8 +73,8 @@ namespace Ndapi
         public IEnumerable<ProgramUnit> ProgramUnits =>
             GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
 
-        public IEnumerable<NdapiObject> PropertyClasses =>
-            GetObjectList<NdapiObject>(NdapiConstants.D2FP_PROP_CLASS);
+        public IEnumerable<PropertyClass> PropertyClasses =>
+            GetObjectList<PropertyClass>(NdapiConstants.D2FP_PROP_CLASS);
 
         public int RoleCount =>
             GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT);

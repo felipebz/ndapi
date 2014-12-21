@@ -184,6 +184,9 @@ namespace Ndapi
         public IEnumerable<ProgramUnit> ProgramUnits => 
             GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
 
+        public IEnumerable<PropertyClass> PropertyClasses =>
+            GetObjectList<PropertyClass>(NdapiConstants.D2FP_PROP_CLASS);
+
         public IEnumerable<RecordGroup> RecordGroups => 
             GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP);
 
