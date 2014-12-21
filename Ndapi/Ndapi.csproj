@@ -66,6 +66,7 @@
     <Compile Include="Graphic.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="LibraryModule.cs" />
+    <Compile Include="LibraryProgramUnit.cs" />
     <Compile Include="LOV.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuItem.cs" />

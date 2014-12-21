@@ -15,9 +15,11 @@ namespace Ndapi
 
         public string Location => GetStringProperty(NdapiConstants.D2FP_LIB_LOC);
 
+        public IEnumerable<LibraryProgramUnit> ProgramUnits => GetObjectList<LibraryProgramUnit>(NdapiConstants.D2FP_LIB_PROG_UNIT);
+
         public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC);
 
-        public new LibraryModule Open(string filename)
+        public new static LibraryModule Open(string filename)
         {
             ObjectSafeHandle library;
 
