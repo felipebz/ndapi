@@ -90,6 +90,14 @@ namespace Ndapi.Core
         public static extern int d2fmmdco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd);
         #endregion
 
+        #region Library module methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2flibld_Load(ContextSafeHandle pd2fctx,
+                                               out ObjectSafeHandle ppd2flib,
+                                               string libname,
+                                               [MarshalAs(UnmanagedType.I1)] bool db);
+        #endregion
+
         #region Block relation methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2frelup_Update(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
