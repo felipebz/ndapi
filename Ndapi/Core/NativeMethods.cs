@@ -9,7 +9,7 @@ namespace Ndapi.Core
     {
         const string ifd2f60 = "ifd2f60.DLL";
 
-        // Context specific methods
+        #region Context methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fctxbv_BuilderVersion(ContextSafeHandle pd2fctx, ref int version);
 
@@ -26,8 +26,9 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fctxde_Destroy(IntPtr pd2fctx);
+        #endregion
 
-        // Form module specific methods
+        #region Form module methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2ffmdld_Load(ContextSafeHandle pd2fctx,
                                                out ObjectSafeHandle ppd2ffmd,
@@ -45,8 +46,9 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2ffmdco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ffmd);
+        #endregion
 
-        // Object library specific methods
+        #region Object library methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2folbld_Load(ContextSafeHandle pd2fctx,
                                                out ObjectSafeHandle ppd2folb,
@@ -55,20 +57,24 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2folbf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, int pos, out ObjectSafeHandle ppret_obj);
+        #endregion
 
-        // Object library tab specific methods
+        #region Object library tab methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2foltf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folt, int pos, out ObjectSafeHandle ppret_obj);
+        #endregion
 
-        // Block relation specific methods
+        #region Block relation methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2frelup_Update(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
+        #endregion
 
-        // Program unit specific methods
+        #region Program unit methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fpguco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
+        #endregion
 
-        // Property specific methods
+        #region Property methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern PropertyType d2fprgt_GetType(ContextSafeHandle pd2fctx, int pnum);
 
@@ -83,12 +89,14 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fprgcn_GetConstName(ContextSafeHandle pd2fctx, int pnum, out string pcname);
+        #endregion
 
-        // Trigger specific methods
+        #region Trigger methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2ftrgco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ftrg);
+        #endregion
 
-        // Object methods
+        #region Object methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fobcr_Create(ContextSafeHandle pd2fctx,
                                                 ObjectSafeHandle owner,
@@ -149,5 +157,6 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
+        #endregion
     }
 }
