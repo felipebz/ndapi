@@ -55,6 +55,7 @@ Partial:
 - [x] LOV column mapping
 - [x] Menu
 - [x] Menu Item
+- [x] Menu Module
 - [x] Object Group
 - [x] Object Group Child
 - [x] Object Library
@@ -72,6 +73,5 @@ Partial:
 
 Missing:
 
-- [ ] Menu Module
 - [ ] Menu Parameter
 - [ ] Property Class

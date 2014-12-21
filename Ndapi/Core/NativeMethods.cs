@@ -64,6 +64,26 @@ namespace Ndapi.Core
         public static extern int d2foltf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folt, int pos, out ObjectSafeHandle ppret_obj);
         #endregion
 
+        #region Menu module methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmmdld_Load(ContextSafeHandle pd2fctx,
+                                               out ObjectSafeHandle ppd2fmmd,
+                                               string formname,
+                                               [MarshalAs(UnmanagedType.I1)] bool db);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmmdsv_Save(ContextSafeHandle pd2fctx,
+                                               ObjectSafeHandle pd2fmmd,
+                                               string menuname,
+                                               [MarshalAs(UnmanagedType.I1)] bool db);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fmmdcf_CompileFile(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fmmdco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd);
+        #endregion
+
         #region Block relation methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2frelup_Update(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
