@@ -56,6 +56,7 @@ Partial:
 - [x] Menu
 - [x] Menu Item
 - [x] Menu Module
+- [x] Menu Parameter
 - [x] Object Group
 - [x] Object Group Child
 - [x] Object Library
@@ -73,5 +74,4 @@ Partial:
 
 Missing:
 
-- [ ] Menu Parameter
 - [ ] Property Class

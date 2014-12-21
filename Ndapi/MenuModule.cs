@@ -64,8 +64,8 @@ namespace Ndapi
         public IEnumerable<Menu> Menus =>
             GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
 
-        public IEnumerable<NdapiObject> Parameters =>
-            GetObjectList<NdapiObject>(NdapiConstants.D2FP_MNU_PARAM);
+        public IEnumerable<MenuParameter> Parameters =>
+            GetObjectList<MenuParameter>(NdapiConstants.D2FP_MNU_PARAM);
 
         public IEnumerable<ObjectGroup> ObjectGroups =>
             GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP);
