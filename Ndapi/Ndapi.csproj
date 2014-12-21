@@ -70,6 +70,7 @@
     <Compile Include="MenuItem.cs" />
     <Compile Include="MenuModule.cs" />
     <Compile Include="MenuParameter.cs" />
+    <Compile Include="NdapiModule.cs" />
     <Compile Include="ObjectGroup.cs" />
     <Compile Include="ObjectGroupChild.cs" />
     <Compile Include="ObjectLibrary.cs" />

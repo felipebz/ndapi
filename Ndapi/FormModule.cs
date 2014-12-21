@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Ndapi
 {
-    public class FormModule : NdapiObject
+    public class FormModule : NdapiModule
     {
         public FormModule(string name)
         {
@@ -202,7 +202,7 @@ namespace Ndapi
         public IEnumerable<Window> Windows =>
             GetObjectList<Window>(NdapiConstants.D2FP_WINDOW);
 
-        public static FormModule Open(string filename)
+        public new static FormModule Open(string filename)
         {
             ObjectSafeHandle form;
 
@@ -212,19 +212,19 @@ namespace Ndapi
             return new FormModule(form);
         }
 
-        public void Save(string path = null, bool saveInDatabase = false)
+        public override void Save(string path = null, bool saveInDatabase = false)
         {
             var status = NativeMethods.d2ffmdsv_Save(NdapiContext.Context, _handle, path, saveInDatabase);
             Ensure.Success(status);
         }
 
-        public void CompileFile()
+        public override void CompileFile()
         {
             var status = NativeMethods.d2ffmdcf_CompileFile(NdapiContext.Context, _handle);
             Ensure.Success(status);
         }
 
-        public void CompileObjects()
+        public override void CompileObjects()
         {
             var status = NativeMethods.d2ffmdco_CompileObj(NdapiContext.Context, _handle);
             Ensure.Success(status);

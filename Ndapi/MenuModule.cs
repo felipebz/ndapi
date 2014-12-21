@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Ndapi
 {
-    public class MenuModule : NdapiObject
+    public class MenuModule : NdapiModule
     {
         public MenuModule(string name)
         {
@@ -82,7 +82,7 @@ namespace Ndapi
         public IEnumerable<VisualAttribute> VisualAttributes =>
             GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
 
-        public static MenuModule Open(string filename)
+        public new static MenuModule Open(string filename)
         {
             ObjectSafeHandle menu;
 
@@ -92,19 +92,19 @@ namespace Ndapi
             return new MenuModule(menu);
         }
 
-        public void Save(string path = null, bool saveInDatabase = false)
+        public override void Save(string path = null, bool saveInDatabase = false)
         {
             var status = NativeMethods.d2fmmdsv_Save(NdapiContext.Context, _handle, path, saveInDatabase);
             Ensure.Success(status);
         }
 
-        public void CompileFile()
+        public override void CompileFile()
         {
             var status = NativeMethods.d2fmmdcf_CompileFile(NdapiContext.Context, _handle);
             Ensure.Success(status);
         }
 
-        public void CompileObjects()
+        public override void CompileObjects()
         {
             var status = NativeMethods.d2fmmdco_CompileObj(NdapiContext.Context, _handle);
             Ensure.Success(status);

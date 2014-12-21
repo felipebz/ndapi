@@ -55,6 +55,12 @@ namespace Ndapi.Core
                                                string olibname,
                                                [MarshalAs(UnmanagedType.I1)] bool db);
 
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2folbsv_Save(ContextSafeHandle pd2fctx,
+                                               ObjectSafeHandle pd2folb,
+                                               string olibname,
+                                               [MarshalAs(UnmanagedType.I1)] bool db);
+
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2folbf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, int pos, out ObjectSafeHandle ppret_obj);
         #endregion

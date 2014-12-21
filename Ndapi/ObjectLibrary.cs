@@ -8,7 +8,7 @@ using Ndapi.Enums;
 
 namespace Ndapi
 {
-    public class ObjectLibrary : NdapiObject
+    public class ObjectLibrary : NdapiModule
     {
         public ObjectLibrary(string name)
         {
@@ -34,7 +34,7 @@ namespace Ndapi
             }
         }
 
-        public static ObjectLibrary Open(string filename)
+        public new static ObjectLibrary Open(string filename)
         {
             ObjectSafeHandle form;
 
@@ -56,6 +56,22 @@ namespace Ndapi
             }
 
             return new NdapiObject(obj);
+        }
+
+        public override void Save(string path = null, bool saveInDatabase = false)
+        {
+            var status = NativeMethods.d2folbsv_Save(NdapiContext.Context, _handle, path, saveInDatabase);
+            Ensure.Success(status);
+        }
+
+        public override void CompileFile()
+        {
+            throw new NdapiException("Object library module does not support compilation");
+        }
+
+        public override void CompileObjects()
+        {
+            throw new NdapiException("Object library module does not support compilation");
         }
     }
 }
