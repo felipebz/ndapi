@@ -109,5 +109,12 @@ namespace Ndapi
             var status = NativeMethods.d2fmmdco_CompileObj(NdapiContext.Context, _handle);
             Ensure.Success(status);
         }
+
+        /// <summary>
+        /// Attaches a new library to the current module.
+        /// </summary>
+        /// <param name="location">Library location.</param>
+        /// <returns>Instance of the attached library.</returns>
+        public AttachedLibrary AttachLibrary(string location) => new AttachedLibrary(this, location);
     }
 }
