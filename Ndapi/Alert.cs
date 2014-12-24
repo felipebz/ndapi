@@ -28,6 +28,16 @@ namespace Ndapi
             Create(name, ObjectType.Alert, group);
         }
 
+        /// <summary>
+        /// Creates an alert object.
+        /// </summary>
+        /// <param name="library">Alert owner.</param>
+        /// <param name="name">Alert name.</param>
+        public Alert(ObjectLibrary library, string name)
+        {
+            Create(name, ObjectType.Alert, library);
+        }
+
         internal Alert(ObjectSafeHandle handle) : base(handle)
         {
         }
