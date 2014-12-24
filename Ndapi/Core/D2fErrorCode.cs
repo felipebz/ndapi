@@ -165,7 +165,6 @@
         /// <summary>
         /// The specified file was not found
         /// </summary>
-        /// </summary>
         D2FS_FILENOTFOUND = 32,
 
         /// <summary>

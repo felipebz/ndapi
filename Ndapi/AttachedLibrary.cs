@@ -10,7 +10,7 @@ namespace Ndapi
     public class AttachedLibrary : NdapiObject
     {
         /// <summary>
-        /// Create an attached library in the specified module.
+        /// Creates an attached library in the specified module.
         /// </summary>
         /// <param name="module">Form module to attach the library.</param>
         /// <param name="location">Library location.</param>
@@ -21,7 +21,7 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Create an attached library in the specified module.
+        /// Creates an attached library in the specified module.
         /// </summary>
         /// <param name="module">Form module to attach the library.</param>
         /// <param name="location">Library location.</param>
@@ -54,6 +54,9 @@ namespace Ndapi
         /// </summary>
         public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC);
 
+        /// <summary>
+        /// Detaches the attached library and destroy the object.
+        /// </summary>
         public void Detach()
         {
             var status = NativeMethods.d2falbdt_Detach(NdapiContext.Context, _handle);
