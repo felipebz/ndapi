@@ -24,6 +24,8 @@ namespace Ndapi
                     return ObjectLibrary.Open(filename);
                 case ".MMB":
                     return MenuModule.Open(filename);
+                case ".PLL":
+                    return LibraryModule.Open(filename);
                 default:
                     throw new NdapiException(string.Format("The file {0} does not have a valid extension.", filename));
             }
