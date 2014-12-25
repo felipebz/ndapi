@@ -40,6 +40,11 @@ namespace Ndapi.Core
         public static extern int d2falbdt_Detach(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2falb);
         #endregion
 
+        #region Block methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fblkco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fblk);
+        #endregion
+
         #region Form module methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2ffmdld_Load(ContextSafeHandle pd2fctx,
