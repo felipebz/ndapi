@@ -3,29 +3,46 @@ using Ndapi.Enums;
 
 namespace Ndapi
 {
+    /// <summary>
+    /// Represents a column mapping for lists of values.
+    /// </summary>
     public class ColumnMapping : NdapiObject
     {
-        public ColumnMapping(FormModule module, string name)
+        /// <summary>
+        /// Creates a column mapping.
+        /// </summary>
+        /// <param name="lov">List of values.</param>
+        /// <param name="name">Column name.</param>
+        public ColumnMapping(LOV lov, string name)
         {
-            Create(name, ObjectType.ColumnMapping, module);
+            Create(name, ObjectType.ColumnMapping, lov);
         }
 
         internal ColumnMapping(ObjectSafeHandle handle) : base(handle)
         {
         }
 
+        /// <summary>
+        /// Gets or sets the display width.
+        /// </summary>
         public int DisplayWidth
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_DISP_WID); }
             set { SetNumberProperty(NdapiConstants.D2FP_DISP_WID, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the return item.
+        /// </summary>
         public string ReturnItem
         {
             get { return GetStringProperty(NdapiConstants.D2FP_RTRN_ITM); }
             set { SetStringProperty(NdapiConstants.D2FP_RTRN_ITM, value); }
         }
 
+        /// <summary>
+        /// Gets or sets the column title.
+        /// </summary>
         public string Title
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TITLE); }
