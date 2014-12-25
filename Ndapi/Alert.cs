@@ -116,7 +116,8 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets the fill pattern.
+        /// Gets or sets the pattern to be used for the fill region.
+        /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
         /// </summary>
         public string FillPattern
         {
@@ -134,7 +135,7 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets the font size;
+        /// Gets or sets the font size.
         /// </summary>
         public int FontSize
         {
