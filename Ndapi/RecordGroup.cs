@@ -6,9 +6,8 @@ namespace Ndapi
 {
     public class RecordGroup : NdapiObject
     {
-        public RecordGroup(FormModule module, string name)
+        public RecordGroup(FormModule module, string name) : base(name, ObjectType.RecordGroup, module)
         {
-            Create(name, ObjectType.RecordGroup, module);
         }
 
         internal RecordGroup(ObjectSafeHandle handle) : base(handle)

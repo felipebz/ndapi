@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Object owner.</param>
         /// <param name="name">Object name.</param>
-        public ObjectGroupChild(ObjectGroup group, string name)
+        public ObjectGroupChild(ObjectGroup group, string name) : base(name, ObjectType.ObjectGroupChild, group)
         {
-            Create(name, ObjectType.ObjectGroupChild, group);
         }
 
         internal ObjectGroupChild(ObjectSafeHandle handle) : base(handle)

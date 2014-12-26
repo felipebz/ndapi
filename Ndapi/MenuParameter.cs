@@ -13,9 +13,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Parameter owner.</param>
         /// <param name="name">Parameter name.</param>
-        public MenuParameter(MenuModule module, string name)
+        public MenuParameter(MenuModule module, string name) : base(name, ObjectType.MenuParameter, module)
         {
-            Create(name, ObjectType.MenuParameter, module);
         }
 
         internal MenuParameter(ObjectSafeHandle handle) : base(handle)

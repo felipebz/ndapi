@@ -13,9 +13,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Parameter owner.</param>
         /// <param name="name">Parameter name.</param>
-        public FormParameter(FormModule module, string name)
+        public FormParameter(FormModule module, string name) : base(name, ObjectType.FormParameter, module)
         {
-            Create(name, ObjectType.FormParameter, module);
         }
 
         internal FormParameter(ObjectSafeHandle handle) : base(handle)

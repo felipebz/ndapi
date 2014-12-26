@@ -15,9 +15,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Property class owner.</param>
         /// <param name="name">Property class name.</param>
-        public PropertyClass(FormModule module, string name)
+        public PropertyClass(FormModule module, string name) : base(name, ObjectType.PropertyClass, module)
         {
-            Create(name, ObjectType.PropertyClass, module);
         }
 
         /// <summary>
@@ -25,9 +24,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Property class owner.</param>
         /// <param name="name">Property class name.</param>
-        public PropertyClass(MenuModule module, string name)
+        public PropertyClass(MenuModule module, string name) : base(name, ObjectType.PropertyClass, module)
         {
-            Create(name, ObjectType.PropertyClass, module);
         }
 
         /// <summary>
@@ -35,9 +33,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Property class owner.</param>
         /// <param name="name">Property class name.</param>
-        public PropertyClass(ObjectGroup group, string name)
+        public PropertyClass(ObjectGroup group, string name) : base(name, ObjectType.PropertyClass, group)
         {
-            Create(name, ObjectType.PropertyClass, group);
         }
 
         /// <summary>
@@ -45,9 +42,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="library">Property class owner.</param>
         /// <param name="name">Property class name.</param>
-        public PropertyClass(LibraryModule library, string name)
+        public PropertyClass(LibraryModule library, string name) : base(name, ObjectType.PropertyClass, library)
         {
-            Create(name, ObjectType.PropertyClass, library);
         }
 
         internal PropertyClass(ObjectSafeHandle handle) : base(handle)

@@ -13,9 +13,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Editor owner.</param>
         /// <param name="name">Editor name.</param>
-        public Editor(FormModule module, string name)
+        public Editor(FormModule module, string name) : base(name, ObjectType.Editor, module)
         {
-            Create(name, ObjectType.Editor, module);
         }
 
         /// <summary>
@@ -23,9 +22,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Editor owner.</param>
         /// <param name="name">Editor name.</param>
-        public Editor(ObjectGroup group, string name)
+        public Editor(ObjectGroup group, string name) : base(name, ObjectType.Editor, group)
         {
-            Create(name, ObjectType.Editor, group);
         }
 
         /// <summary>
@@ -33,9 +31,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Editor owner.</param>
         /// <param name="name">Editor name.</param>
-        public Editor(ObjectLibrary module, string name)
+        public Editor(ObjectLibrary module, string name) : base(name, ObjectType.Editor, module)
         {
-            Create(name, ObjectType.Editor, module);
         }
 
         internal Editor(ObjectSafeHandle handle) : base(handle)

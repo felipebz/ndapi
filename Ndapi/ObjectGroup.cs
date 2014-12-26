@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Object group owner.</param>
         /// <param name="name">Object group name.</param>
-        public ObjectGroup(FormModule module, string name)
+        public ObjectGroup(FormModule module, string name) : base(name, ObjectType.ObjectGroup, module)
         {
-            Create(name, ObjectType.ObjectGroup, module);
         }
 
         /// <summary>
@@ -24,9 +23,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Object group owner.</param>
         /// <param name="name">Object group name.</param>
-        public ObjectGroup(MenuModule module, string name)
+        public ObjectGroup(MenuModule module, string name) : base(name, ObjectType.ObjectGroup, module)
         {
-            Create(name, ObjectType.ObjectGroup, module);
         }
 
         /// <summary>
@@ -34,9 +32,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="library">Object group owner.</param>
         /// <param name="name">Object group name.</param>
-        public ObjectGroup(ObjectLibrary library, string name)
+        public ObjectGroup(ObjectLibrary library, string name) : base(name, ObjectType.ObjectGroup, library)
         {
-            Create(name, ObjectType.ObjectGroup, library);
         }
 
         internal ObjectGroup(ObjectSafeHandle handle) : base(handle)

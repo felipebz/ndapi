@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Relation owner.</param>
         /// <param name="name">Relation name.</param>
-        public BlockRelation(Block module, string name)
+        public BlockRelation(Block module, string name) : base(name, ObjectType.BlockRelation, module)
         {
-            Create(name, ObjectType.BlockRelation, module);
         }
 
         internal BlockRelation(ObjectSafeHandle handle) : base(handle)

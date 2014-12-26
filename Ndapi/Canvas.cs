@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Canvas owner.</param>
         /// <param name="name">Canvas name.</param>
-        public Canvas(FormModule module, string name)
+        public Canvas(FormModule module, string name) : base(name, ObjectType.Canvas, module)
         {
-            Create(name, ObjectType.Canvas, module);
         }
 
         /// <summary>
@@ -24,9 +23,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Canvas owner.</param>
         /// <param name="name">Canvas name.</param>
-        public Canvas(ObjectGroup group, string name)
+        public Canvas(ObjectGroup group, string name) : base(name, ObjectType.Canvas, group)
         {
-            Create(name, ObjectType.Canvas, group);
         }
 
         /// <summary>
@@ -34,9 +32,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="library">Canvas owner.</param>
         /// <param name="name">Canvas name.</param>
-        public Canvas(ObjectLibrary library, string name)
+        public Canvas(ObjectLibrary library, string name) : base(name, ObjectType.Canvas, library)
         {
-            Create(name, ObjectType.Canvas, library);
         }
 
         internal Canvas(ObjectSafeHandle handle) : base(handle)

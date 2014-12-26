@@ -13,9 +13,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Alert owner.</param>
         /// <param name="name">Alert name.</param>
-        public Alert(FormModule module, string name)
+        public Alert(FormModule module, string name) : base(name, ObjectType.Alert, module)
         {
-            Create(name, ObjectType.Alert, module);
         }
 
         /// <summary>
@@ -23,9 +22,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Alert owner.</param>
         /// <param name="name">Alert name.</param>
-        public Alert(ObjectGroup group, string name)
+        public Alert(ObjectGroup group, string name) : base(name, ObjectType.Alert, group)
         {
-            Create(name, ObjectType.Alert, group);
         }
 
         /// <summary>
@@ -33,9 +31,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="library">Alert owner.</param>
         /// <param name="name">Alert name.</param>
-        public Alert(ObjectLibrary library, string name)
+        public Alert(ObjectLibrary library, string name) : base(name, ObjectType.Alert, library)
         {
-            Create(name, ObjectType.Alert, library);
         }
 
         internal Alert(ObjectSafeHandle handle) : base(handle)

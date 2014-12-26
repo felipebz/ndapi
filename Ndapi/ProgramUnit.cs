@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Program unit owner.</param>
         /// <param name="name">Program unit name.</param>
-        public ProgramUnit(FormModule module, string name)
+        public ProgramUnit(FormModule module, string name) : base(name, ObjectType.ProgramUnit, module)
         {
-            Create(name, ObjectType.ProgramUnit, module);
         }
 
         /// <summary>
@@ -24,9 +23,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Program unit owner.</param>
         /// <param name="name">Program unit name.</param>
-        public ProgramUnit(MenuModule module, string name)
+        public ProgramUnit(MenuModule module, string name) : base(name, ObjectType.ProgramUnit, module)
         {
-            Create(name, ObjectType.ProgramUnit, module);
         }
 
         /// <summary>
@@ -34,9 +32,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Program unit owner.</param>
         /// <param name="name">Program unit name.</param>
-        public ProgramUnit(ObjectGroup module, string name)
+        public ProgramUnit(ObjectGroup module, string name) : base(name, ObjectType.ProgramUnit, module)
         {
-            Create(name, ObjectType.ProgramUnit, module);
         }
 
         /// <summary>
@@ -44,9 +41,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Program unit owner.</param>
         /// <param name="name">Program unit name.</param>
-        public ProgramUnit(ObjectLibrary module, string name)
+        public ProgramUnit(ObjectLibrary module, string name) : base(name, ObjectType.ProgramUnit, module)
         {
-            Create(name, ObjectType.ProgramUnit, module);
         }
 
         internal ProgramUnit(ObjectSafeHandle handle) : base(handle)

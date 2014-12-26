@@ -11,11 +11,10 @@ namespace Ndapi
         /// <summary>
         /// Creates a record group column.
         /// </summary>
-        /// <param name="module"></param>
-        /// <param name="name"></param>
-        public ColumnSpecification(RecordGroup module, string name)
+        /// <param name="module">Column owner.</param>
+        /// <param name="name">Column name.</param>
+        public ColumnSpecification(RecordGroup module, string name) : base(name, ObjectType.ColumnSpecification, module)
         {
-            Create(name, ObjectType.ColumnSpecification, module);
         }
 
         internal ColumnSpecification(ObjectSafeHandle handle) : base(handle)

@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="canvas">Canvas object.</param>
         /// <param name="name">Tab page name.</param>
-        public TabPage(Canvas canvas, string name)
+        public TabPage(Canvas canvas, string name) : base(name, ObjectType.TabPage, canvas)
         {
-            Create(name, ObjectType.TabPage, canvas);
         }
 
         internal TabPage(ObjectSafeHandle handle) : base(handle)

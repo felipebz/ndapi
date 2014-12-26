@@ -1,11 +1,16 @@
-﻿using System.IO;
-using Ndapi.Core.Handles;
+﻿using Ndapi.Core.Handles;
+using Ndapi.Enums;
+using System.IO;
 
 namespace Ndapi
 {
     public abstract class NdapiModule : NdapiObject
     {
         internal NdapiModule()
+        {
+        }
+
+        internal NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
         {
         }
 

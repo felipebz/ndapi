@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
-        public Trigger(FormModule module, string name)
+        public Trigger(FormModule module, string name) : base(name, ObjectType.Trigger, module)
         {
-            Create(name, ObjectType.Trigger, module);
         }
 
         /// <summary>
@@ -24,9 +23,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
-        public Trigger(ObjectGroup group, string name)
+        public Trigger(ObjectGroup group, string name) : base(name, ObjectType.Trigger, group)
         {
-            Create(name, ObjectType.Trigger, group);
         }
 
         /// <summary>
@@ -34,9 +32,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="library">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
-        public Trigger(ObjectLibrary library, string name)
+        public Trigger(ObjectLibrary library, string name) : base(name, ObjectType.Trigger, library)
         {
-            Create(name, ObjectType.Trigger, library);
         }
 
         /// <summary>
@@ -44,9 +41,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="block">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
-        public Trigger(Block block, string name)
+        public Trigger(Block block, string name) : base(name, ObjectType.Trigger, block)
         {
-            Create(name, ObjectType.Trigger, block);
         }
 
         /// <summary>
@@ -54,9 +50,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="item">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
-        public Trigger(Item item, string name)
+        public Trigger(Item item, string name) : base(name, ObjectType.Trigger, item)
         {
-            Create(name, ObjectType.Trigger, item);
         }
 
         /// <summary>
@@ -64,9 +59,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="propertyClass">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
-        public Trigger(PropertyClass propertyClass, string name)
+        public Trigger(PropertyClass propertyClass, string name) : base(name, ObjectType.Trigger, propertyClass)
         {
-            Create(name, ObjectType.Trigger, propertyClass);
         }
 
         internal Trigger(ObjectSafeHandle handle) : base(handle)

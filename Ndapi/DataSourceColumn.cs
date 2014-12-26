@@ -13,9 +13,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="block">Block object.</param>
         /// <param name="name">Data source column name.</param>
-        public DataSourceColumn(Block block, string name)
+        public DataSourceColumn(Block block, string name) : base(name, ObjectType.DataSourceColumn, block)
         {
-            Create(name, ObjectType.DataSourceColumn, block);
         }
 
         internal DataSourceColumn(ObjectSafeHandle handle) : base(handle)

@@ -13,9 +13,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="block">Block object.</param>
         /// <param name="name">Data source argument name.</param>
-        public DataSourceArgument(Block block, string name)
+        public DataSourceArgument(Block block, string name) : base(name, ObjectType.DataSourceArgument, block)
         {
-            Create(name, ObjectType.DataSourceArgument, block);
         }
 
         internal DataSourceArgument(ObjectSafeHandle handle) : base(handle)

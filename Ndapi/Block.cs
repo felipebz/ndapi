@@ -15,9 +15,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Block owner.</param>
         /// <param name="name">Block name.</param>
-        public Block(FormModule module, string name)
+        public Block(FormModule module, string name) : base(name, ObjectType.Block, module)
         {
-            Create(name, ObjectType.Block, module);
         }
 
         /// <summary>
@@ -25,9 +24,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="group">Block owner.</param>
         /// <param name="name">Block name.</param>
-        public Block(ObjectGroup group, string name)
+        public Block(ObjectGroup group, string name) : base(name, ObjectType.Block, group)
         {
-            Create(name, ObjectType.Block, group);
         }
 
         /// <summary>
@@ -35,9 +33,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Block owner.</param>
         /// <param name="name">Block name.</param>
-        public Block(ObjectLibrary module, string name)
+        public Block(ObjectLibrary module, string name) : base(name, ObjectType.Block, module)
         {
-            Create(name, ObjectType.Block, module);
         }
 
         internal Block(ObjectSafeHandle handle) : base(handle)

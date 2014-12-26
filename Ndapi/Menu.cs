@@ -14,9 +14,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Menu owner.</param>
         /// <param name="name">Menu name</param>
-        public Menu(FormModule module, string name)
+        public Menu(FormModule module, string name) : base(name, ObjectType.Menu, module)
         {
-            Create(name, ObjectType.Menu, module);
         }
 
         /// <summary>
@@ -24,9 +23,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Menu owner.</param>
         /// <param name="name">Menu name</param>
-        public Menu(MenuModule module, string name)
+        public Menu(MenuModule module, string name) : base(name, ObjectType.Menu, module)
         {
-            Create(name, ObjectType.Menu, module);
         }
 
         internal Menu(ObjectSafeHandle handle) : base(handle)
