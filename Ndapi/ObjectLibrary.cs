@@ -1,6 +1,7 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace Ndapi
@@ -96,7 +97,7 @@ namespace Ndapi
         /// </summary>
         public override void CompileFile()
         {
-            throw new NdapiException("Object library module does not support compilation");
+            throw new NotSupportedException("Object library module does not support compilation");
         }
 
         /// <summary>
@@ -104,7 +105,7 @@ namespace Ndapi
         /// </summary>
         public override void CompileObjects()
         {
-            throw new NdapiException("Object library module does not support compilation");
+            throw new NotSupportedException("Object library module does not support compilation");
         }
 
         /// <summary>

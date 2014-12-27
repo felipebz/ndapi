@@ -1,6 +1,7 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace Ndapi
@@ -54,7 +55,7 @@ namespace Ndapi
         /// </summary>
         public override void CompileFile()
         {
-            throw new NdapiException("Library module does not support compilation");
+            throw new NotSupportedException("Library module does not support compilation");
         }
 
         /// <summary>
@@ -62,7 +63,7 @@ namespace Ndapi
         /// </summary>
         public override void CompileObjects()
         {
-            throw new NdapiException("Library module does not support compilation");
+            throw new NotSupportedException("Library module does not support compilation");
         }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace Ndapi
         /// </summary>
         public override void Save(string path = null, bool saveInDatabase = false)
         {
-            throw new NdapiException("Library module does not support saving");
+            throw new NotSupportedException("Library module does not support saving");
         }
     }
 }
