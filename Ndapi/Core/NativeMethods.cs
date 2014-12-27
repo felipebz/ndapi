@@ -91,6 +91,12 @@ namespace Ndapi.Core
         #region Object library tab methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2foltf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folt, int pos, out ObjectSafeHandle ppret_obj);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2folbfv_FileVersion(ContextSafeHandle pd2fctx,
+                                                      string olibname,
+                                                      [MarshalAs(UnmanagedType.I1)] bool db,
+                                                      out int version);
         #endregion
 
         #region Menu module methods
