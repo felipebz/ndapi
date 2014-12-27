@@ -374,7 +374,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="file">Form module location (.fmb file)</param>
         /// <param name="loadFromDb">Module should be loaded from database.</param>
-        /// <returns></returns>
+        /// <returns>The Form Builder version</returns>
         public static int GetFileVersion(string file, bool loadFromDb = false)
         {
             int version;
