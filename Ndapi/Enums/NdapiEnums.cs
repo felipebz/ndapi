@@ -90,8 +90,8 @@
 
     public enum CommunicationMode
     {
-        Synch = NdapiConstants.D2FC_COMO_SYNCH,
-        Asynch = NdapiConstants.D2FC_COMO_ASYNCH
+        Synchronous = NdapiConstants.D2FC_COMO_SYNCH,
+        Asynchronous = NdapiConstants.D2FC_COMO_ASYNCH
     }
 
     public enum CoordinateSystem
