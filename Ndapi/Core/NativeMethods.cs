@@ -111,6 +111,12 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fmmdco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmmdfv_FileVersion(ContextSafeHandle pd2fctx,
+                                                      string menuname,
+                                                      [MarshalAs(UnmanagedType.I1)] bool db,
+                                                      out int version);
         #endregion
 
         #region Library module methods
