@@ -8,54 +8,54 @@ namespace Ndapi
     /// <summary>
     /// Represents a graphics opbject.
     /// </summary>
-    public class Graphic : NdapiObject
+    public class Graphics : NdapiObject
     {
         /// <summary>
         /// Creates a graphics object.
         /// </summary>
-        /// <param name="canvas">Graphic owner.</param>
-        /// <param name="name">Graphic name.</param>
-        public Graphic(Canvas canvas, string name) : base(name, ObjectType.Graphic, canvas)
+        /// <param name="canvas">Graphics owner.</param>
+        /// <param name="name">Graphics name.</param>
+        public Graphics(Canvas canvas, string name) : base(name, ObjectType.Graphics, canvas)
         {
         }
 
         /// <summary>
         /// Creates a graphics object.
         /// </summary>
-        /// <param name="graphics">Graphic owner.</param>
-        /// <param name="name">Graphic name.</param>
-        public Graphic(Graphic graphics, string name) : base(name, ObjectType.Graphic, graphics)
+        /// <param name="graphics">Graphics owner.</param>
+        /// <param name="name">Graphics name.</param>
+        public Graphics(Graphics graphics, string name) : base(name, ObjectType.Graphics, graphics)
         {
         }
 
         /// <summary>
         /// Creates a graphics object.
         /// </summary>
-        /// <param name="group">Graphic owner.</param>
-        /// <param name="name">Graphic name.</param>
-        public Graphic(ObjectGroup group, string name) : base(name, ObjectType.Graphic, group)
+        /// <param name="group">Graphics owner.</param>
+        /// <param name="name">Graphics name.</param>
+        public Graphics(ObjectGroup group, string name) : base(name, ObjectType.Graphics, group)
         {
         }
 
         /// <summary>
         /// Creates a graphics object.
         /// </summary>
-        /// <param name="library">Graphic owner.</param>
-        /// <param name="name">Graphic name.</param>
-        public Graphic(ObjectLibrary library, string name) : base(name, ObjectType.Graphic, library)
+        /// <param name="library">Graphics owner.</param>
+        /// <param name="name">Graphics name.</param>
+        public Graphics(ObjectLibrary library, string name) : base(name, ObjectType.Graphics, library)
         {
         }
 
         /// <summary>
         /// Creates a graphics object.
         /// </summary>
-        /// <param name="tab">Graphic owner.</param>
-        /// <param name="name">Graphic name.</param>
-        public Graphic(TabPage tab, string name) : base(name, ObjectType.Graphic, tab)
+        /// <param name="tab">Graphics owner.</param>
+        /// <param name="name">Graphics name.</param>
+        public Graphics(TabPage tab, string name) : base(name, ObjectType.Graphics, tab)
         {
         }
 
-        internal Graphic(ObjectSafeHandle handle) : base(handle)
+        internal Graphics(ObjectSafeHandle handle) : base(handle)
         {
         }
 
@@ -803,7 +803,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the child graphics.
         /// </summary>
-        public IEnumerable<Graphic> Graphics => GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC);
+        public IEnumerable<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
 
         /// <summary>
         /// Imports an image from disk into a graphics image object.

@@ -67,7 +67,7 @@
     <Compile Include="Enums\PropertyState.cs" />
     <Compile Include="FormModule.cs" />
     <Compile Include="FormParameter.cs" />
-    <Compile Include="Graphic.cs" />
+    <Compile Include="Graphics.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="LibraryModule.cs" />
     <Compile Include="LibraryProgramUnit.cs" />

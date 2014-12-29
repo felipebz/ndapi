@@ -317,10 +317,10 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets all the graphic objects attached to the canvas.
+        /// Gets all the graphics objects attached to the canvas.
         /// </summary>
-        public IEnumerable<Graphic> Graphics =>
-            GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC);
+        public IEnumerable<Graphics> Graphics =>
+            GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
 
         /// <summary>
         /// Gets all the tab pages associated with the current canvas.

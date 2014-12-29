@@ -61,6 +61,6 @@ namespace Ndapi
         /// <summary>
         /// Gets all the graphic objects attached to the canvas.
         /// </summary>
-        public IEnumerable<Graphic> Graphics => GetObjectList<Graphic>(NdapiConstants.D2FP_GRAPHIC);
+        public IEnumerable<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
     }
 }

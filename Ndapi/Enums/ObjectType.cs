@@ -76,9 +76,9 @@
         FormParameter = NdapiConstants.D2FFO_FORM_PARAM,
 
         /// <summary>
-        /// Graphic item.
+        /// Graphics item.
         /// </summary>
-        Graphic = NdapiConstants.D2FFO_GRAPHIC,
+        Graphics = NdapiConstants.D2FFO_GRAPHIC,
 
         /// <summary>
         /// Item;
