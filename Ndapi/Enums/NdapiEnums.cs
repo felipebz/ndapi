@@ -540,7 +540,7 @@
         About = NdapiConstants.D2FC_MAIT_ABOUT,
         Quit = NdapiConstants.D2FC_MAIT_QUIT,
         Window = NdapiConstants.D2FC_MAIT_WINDOW,
-        Pagesetup = NdapiConstants.D2FC_MAIT_PAGESETUP
+        PageSetup = NdapiConstants.D2FC_MAIT_PAGESETUP
     }
 
     public enum MouseNavigationLimit
