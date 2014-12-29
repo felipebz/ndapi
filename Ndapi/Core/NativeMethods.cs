@@ -138,6 +138,11 @@ namespace Ndapi.Core
         public static extern int d2frelup_Update(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
         #endregion
 
+        #region Graphics methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fgraim_importImage(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fgra, string filename, ImageStorageFormat format);
+        #endregion
+
         #region Program unit methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fpguco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fpgu);
