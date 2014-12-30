@@ -140,7 +140,12 @@ namespace Ndapi.Core
 
         #region Graphics methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
-        public static extern int d2fgraim_importImage(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fgra, string filename, ImageStorageFormat format);
+        public static extern int d2fgraim_importImage(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fgra, string filename, ImageFormat format);
+        #endregion
+
+        #region Item methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fitmco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fitm);
         #endregion
 
         #region Program unit methods

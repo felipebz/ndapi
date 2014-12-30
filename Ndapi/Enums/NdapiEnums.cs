@@ -432,7 +432,7 @@
         File = NdapiConstants.D2FC_DATY_FILE
     }
 
-    public enum ImageStorageFormat
+    public enum ImageFormat
     {
         Bmp = NdapiConstants.D2FC_IMFM_BMP,
         Cals = NdapiConstants.D2FC_IMFM_CALS,

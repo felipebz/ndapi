@@ -803,14 +803,14 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the child graphics.
         /// </summary>
-        public IEnumerable<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
+        public IEnumerable<Graphics> ChildGraphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
 
         /// <summary>
         /// Imports an image from disk into a graphics image object.
         /// </summary>
         /// <param name="filename">Image path.</param>
         /// <param name="format">Image format.</param>
-        public void ImportImage(string filename, ImageStorageFormat format)
+        public void ImportImage(string filename, ImageFormat format)
         {
             var status = NativeMethods.d2fgraim_importImage(NdapiContext.Context, _handle, filename, format);
             Ensure.Success(status);
