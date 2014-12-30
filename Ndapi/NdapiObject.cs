@@ -97,7 +97,9 @@ namespace Ndapi
             IntPtr value;
             var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handle, property, out value);
             Ensure.Success(status);
-            return Marshal.PtrToStringAnsi(value);
+            var str = Marshal.PtrToStringAnsi(value);
+            Marshal.FreeHGlobal(value);
+            return str;
         }
 
         public void SetStringProperty(int property, string value)

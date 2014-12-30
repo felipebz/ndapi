@@ -27,7 +27,9 @@ namespace Ndapi
             IntPtr name;
             var status = NativeMethods.d2fprgn_GetName(NdapiContext.Context, property, out name);
             Ensure.Success(status);
-            return Marshal.PtrToStringAnsi(name);
+            var str = Marshal.PtrToStringAnsi(name);
+            Marshal.FreeHGlobal(name);
+            return str;
         }
 
         /// <summary>
@@ -41,7 +43,9 @@ namespace Ndapi
             IntPtr name;
             var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.Context, property, value, out name);
             Ensure.Success(status);
-            return Marshal.PtrToStringAnsi(name);
+            var str = Marshal.PtrToStringAnsi(name);
+            Marshal.FreeHGlobal(name);
+            return str;
         }
 
         /// <summary>
@@ -67,7 +71,9 @@ namespace Ndapi
             IntPtr name;
             var status = NativeMethods.d2fprgcn_GetConstName(NdapiContext.Context, constant, out name);
             Ensure.Success(status);
-            return Marshal.PtrToStringAnsi(name);
+            var str = Marshal.PtrToStringAnsi(name);
+            Marshal.FreeHGlobal(name);
+            return str;
         }
     }
 }

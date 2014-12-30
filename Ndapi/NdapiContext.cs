@@ -1,6 +1,7 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using System;
+using System.Runtime.InteropServices;
 
 namespace Ndapi
 {
@@ -9,6 +10,14 @@ namespace Ndapi
     /// </summary>
     public sealed class NdapiContext : IDisposable
     {
+        private const int D2FCTXACDATA = 1; // client data
+        private const int D2FCTXAMCALLS = 2; // memory callbacks
+
+        // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
+        internal static D2fMalloc allocateMemory = AllocateMemory;
+        internal static D2fRealloc reallocateMemory = ReallocateMemory;
+        internal static D2fFree freeMemory = FreeMemory;
+
         private static ContextSafeHandle _context;
 
         internal static ContextSafeHandle Context
@@ -17,12 +26,34 @@ namespace Ndapi
             {
                 if (_context == null)
                 {
-                    var context_attributes = IntPtr.Zero;
+                    var context_attributes = new D2fContextAttributes();
+                    context_attributes.mask_d2fctxa = D2FCTXAMCALLS;
+                    context_attributes.d2fmalc_d2fctxa = allocateMemory;
+                    context_attributes.d2fmrlc_d2fctxa = reallocateMemory;
+                    context_attributes.d2fmfre_d2fctxa = freeMemory;
                     var status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
                     Ensure.Success(status);
                 }
                 return _context;
             }
+        }
+
+        private static IntPtr AllocateMemory(ref IntPtr context, IntPtr size)
+        {
+            return Marshal.AllocHGlobal(size);
+        }
+
+        private static IntPtr ReallocateMemory(ref IntPtr context, IntPtr ptr, IntPtr newsize)
+        {
+            if (ptr == IntPtr.Zero)
+                return AllocateMemory(ref context, newsize);
+
+            return Marshal.ReAllocHGlobal(ptr, newsize);
+        }
+
+        private static void FreeMemory(ref IntPtr context, IntPtr ptr)
+        {
+            Marshal.FreeHGlobal(ptr);
         }
 
         /// <summary>

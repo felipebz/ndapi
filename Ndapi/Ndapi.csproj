@@ -24,6 +24,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DocumentationFile>bin\Debug\Ndapi.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\Release\</OutputPath>
@@ -36,6 +37,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DocumentationFile>bin\Release\Ndapi.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -54,6 +56,7 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="ColumnMapping.cs" />
     <Compile Include="ColumnSpecification.cs" />
+    <Compile Include="Core\D2fContext.cs" />
     <Compile Include="Core\D2fErrorCode.cs" />
     <Compile Include="Core\Handles\ContextSafeHandle.cs" />
     <Compile Include="Core\Handles\ObjectSafeHandle.cs" />

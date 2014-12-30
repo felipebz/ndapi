@@ -14,7 +14,7 @@ namespace Ndapi.Core
         public static extern int d2fctxbv_BuilderVersion(ContextSafeHandle pd2fctx, ref int version);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int d2fctxcr_Create(out ContextSafeHandle ppd2fctx, ref IntPtr d2fctx_attr);
+        public static extern int d2fctxcr_Create(out ContextSafeHandle ppd2fctx, ref D2fContextAttributes d2fctx_attr);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2fctxcn_Connect(ContextSafeHandle pd2fctx,
