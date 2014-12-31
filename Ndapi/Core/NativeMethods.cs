@@ -175,6 +175,11 @@ namespace Ndapi.Core
         public static extern int d2fppcrp_RemoveProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fppc, int pnum);
         #endregion
 
+        #region Record group methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2frcgs_qry_noparse(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcg, string query);
+        #endregion
+
         #region Trigger methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2ftrgco_CompileObj(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ftrg);
