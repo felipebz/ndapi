@@ -94,12 +94,10 @@ namespace Ndapi
 
         public string GetStringProperty(int property)
         {
-            IntPtr value;
+            string value;
             var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handle, property, out value);
             Ensure.Success(status);
-            var str = Marshal.PtrToStringAnsi(value);
-            Marshal.FreeHGlobal(value);
-            return str;
+            return value;
         }
 
         public void SetStringProperty(int property, string value)

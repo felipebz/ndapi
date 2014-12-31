@@ -24,12 +24,10 @@ namespace Ndapi
         /// <returns>The property name.</returns>
         public static string GetName(int property)
         {
-            IntPtr name;
+            string name;
             var status = NativeMethods.d2fprgn_GetName(NdapiContext.Context, property, out name);
             Ensure.Success(status);
-            var str = Marshal.PtrToStringAnsi(name);
-            Marshal.FreeHGlobal(name);
-            return str;
+            return name;
         }
 
         /// <summary>
@@ -40,12 +38,10 @@ namespace Ndapi
         /// <returns>The value name.</returns>
         public static string GetValueName(int property, int value)
         {
-            IntPtr name;
+            string name;
             var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.Context, property, value, out name);
             Ensure.Success(status);
-            var str = Marshal.PtrToStringAnsi(name);
-            Marshal.FreeHGlobal(name);
-            return str;
+            return name;
         }
 
         /// <summary>
@@ -68,12 +64,10 @@ namespace Ndapi
         /// <returns>The constant name.</returns>
         public static string GetConstantName(int constant)
         {
-            IntPtr name;
+            string name;
             var status = NativeMethods.d2fprgcn_GetConstName(NdapiContext.Context, constant, out name);
             Ensure.Success(status);
-            var str = Marshal.PtrToStringAnsi(name);
-            Marshal.FreeHGlobal(name);
-            return str;
+            return name;
         }
     }
 }
