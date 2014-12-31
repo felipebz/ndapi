@@ -80,7 +80,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the columns in the record group.
         /// </summary>
-        public IEnumerable<ColumnSpecification> ColumnSpecifications => GetObjectList<ColumnSpecification>(NdapiConstants.D2FP_COL_SPEC);
+        public IEnumerable<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstants.D2FP_COL_SPEC);
 
         /// <summary>
         /// Set the record group query without parsing the SQL to create the record group column specifications.

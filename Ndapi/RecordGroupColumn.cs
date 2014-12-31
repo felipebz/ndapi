@@ -6,18 +6,18 @@ namespace Ndapi
     /// <summary>
     /// Represents a record group column.
     /// </summary>
-    public class ColumnSpecification : NdapiObject
+    public class RecordGroupColumn : NdapiObject
     {
         /// <summary>
         /// Creates a record group column.
         /// </summary>
         /// <param name="module">Column owner.</param>
         /// <param name="name">Column name.</param>
-        public ColumnSpecification(RecordGroup module, string name) : base(name, ObjectType.ColumnSpecification, module)
+        public RecordGroupColumn(RecordGroup module, string name) : base(name, ObjectType.ColumnSpecification, module)
         {
         }
 
-        internal ColumnSpecification(ObjectSafeHandle handle) : base(handle)
+        internal RecordGroupColumn(ObjectSafeHandle handle) : base(handle)
         {
         }
 
