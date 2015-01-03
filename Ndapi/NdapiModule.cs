@@ -4,6 +4,9 @@ using System.IO;
 
 namespace Ndapi
 {
+    /// <summary>
+    /// Represents a generic module.
+    /// </summary>
     public abstract class NdapiModule : NdapiObject
     {
         internal NdapiModule()
@@ -18,6 +21,11 @@ namespace Ndapi
         {
         }
 
+        /// <summary>
+        /// Load the module into memory.
+        /// </summary>
+        /// <param name="filename">Module location (.fmb, .olb, .mmb or .pll file)</param>
+        /// <returns>Loaded module reference.</returns>
         public static NdapiModule Open(string filename)
         {
             var extension = Path.GetExtension(filename).ToUpper(); ;
@@ -36,10 +44,21 @@ namespace Ndapi
             }
         }
 
+        /// <summary>
+        /// Save the module to disk.
+        /// </summary>
+        /// <param name="path">Location to save.</param>
+        /// <param name="saveInDatabase">Should save module in database.</param>
         public abstract void Save(string path = null, bool saveInDatabase = false);
 
+        /// <summary>
+        /// Compile the module.
+        /// </summary>
         public abstract void CompileFile();
 
+        /// <summary>
+        /// Compile PL/SQL code in the module.
+        /// </summary>
         public abstract void CompileObjects();
     }
 }
