@@ -1383,12 +1383,61 @@ namespace Ndapi
         public IEnumerable<Trigger> Triggers => GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
         /// <summary>
+        /// Gets the list elements. Valid only when <see cref="ItemType"/> is <see cref="ItemType.ListItem"/>.
+        /// </summary>
+        public IEnumerable<KeyValuePair<string, string>> ListElements
+        {
+            get
+            {
+                for (var i = 1; i <= ListElementCount; i++) // objects index is one-based
+                {
+                    yield return GetListElementAt(i);
+                }
+            }
+        }
+
+        /// <summary>
         /// Compile the item-level triggers.
         /// </summary>
         public void Compile()
         {
             var status = NativeMethods.d2fitmco_CompileObj(NdapiContext.Context, _handle);
             Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Inserts a list element in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index at which item should be inserted.</param>
+        /// <param name="label">Element label.</param>
+        /// <param name="value">Element value.</param>
+        public void InsertListElementAt(int index, string label, string value)
+        {
+            var status = NativeMethods.d2fitmile_InsertListElem(NdapiContext.Context, _handle, index, label, value);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Deletes the list element in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index at which item should be removed.</param>
+        public void DeleteListElementAt(int index)
+        {
+            var status = NativeMethods.d2fitmdle_DeleteListElem(NdapiContext.Context, _handle, index);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Gets the list element in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index of the element.</param>
+        /// <returns>The label and the value of the list element.</returns>
+        public KeyValuePair<string, string> GetListElementAt(int index)
+        {
+            string label, value;
+            var status = NativeMethods.d2fitmgle_GetListElem(NdapiContext.Context, _handle, index, out label, out value);
+            Ensure.Success(status);
+            return new KeyValuePair<string, string>(label, value);
         }
     }
 }
