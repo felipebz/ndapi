@@ -148,6 +148,17 @@ namespace Ndapi.Core
         public static extern int d2fmnigr_GetRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmni, int index, out string role_name);
         #endregion
 
+        #region Menu parameter methods
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmpmaam_AddAssocMenu(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmpm, int index, string menu_name);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fmpmram_RemoveAssocMenu(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmpm, int index);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmpmgam_GetAssocMenu(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmpm, int index, out string menu_name);
+        #endregion
+
         #region Library module methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern int d2flibld_Load(ContextSafeHandle pd2fctx,
