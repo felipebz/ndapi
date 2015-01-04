@@ -134,6 +134,20 @@ namespace Ndapi
             GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
 
         /// <summary>
+        /// Gets the menu roles.
+        /// </summary>
+        public IEnumerable<string> Roles
+        {
+            get
+            {
+                for (var i = 1; i <= RoleCount; i++) // objects index is one-based
+                {
+                    yield return GetRoleAt(i);
+                }
+            }
+        }
+
+        /// <summary>
         /// Load the menu module into memory.
         /// </summary>
         /// <param name="filename">Menu module location (.mmb file)</param>
@@ -197,5 +211,39 @@ namespace Ndapi
         /// <param name="location">Library location.</param>
         /// <returns>Instance of the attached library.</returns>
         public AttachedLibrary AttachLibrary(string location) => new AttachedLibrary(this, location);
+
+        /// <summary>
+        /// Inserts a role in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index at which role should be inserted.</param>
+        /// <param name="role">Role name.</param>
+        public void AddRoleAt(int index, string role)
+        {
+            var status = NativeMethods.d2fmmdar_AddRole(NdapiContext.Context, _handle, index, role);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Deletes the role in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index at which role should be removed.</param>
+        public void DeleteRoleAt(int index)
+        {
+            var status = NativeMethods.d2fmmdrr_RemoveRole(NdapiContext.Context, _handle, index);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Gets the role in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index of the role.</param>
+        /// <returns>The role name.</returns>
+        public string GetRoleAt(int index)
+        {
+            string role;
+            var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.Context, _handle, index, out role);
+            Ensure.Success(status);
+            return role;
+        }
     }
 }

@@ -123,6 +123,15 @@ namespace Ndapi.Core
                                                       string menuname,
                                                       [MarshalAs(UnmanagedType.I1)] bool db,
                                                       out int version);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmmdar_AddRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd, int index, string role_name);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fmmdrr_RemoveRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd, int index);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fmmdgr_GetRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd, int index, out string role_name);
         #endregion
 
         #region Library module methods
