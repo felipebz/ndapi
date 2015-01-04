@@ -34,43 +34,15 @@ foreach (var programUnit in module.ProgramUnits)
 
 Initially, the API will support only Forms 6i API.
 
-Features available
-------------------
+Installing
+----------
 
-Partial:
+For now only the alpha builds are available. To get them, add https://www.myget.org/F/nuget/ to your nuget feed.
 
-- [x] Alert
-- [x] Attached Library
-- [x] Block
-- [x] Canvas
-- [x] Data Source
-- [x] Data Source Argument
-- [x] Editor
-- [x] Form Module
-- [x] Form Parameter
-- [x] Generic Object
-- [x] Graphics Object
-- [x] Item
-- [x] LOV
-- [x] LOV column mapping
-- [x] Library Module
-- [x] Library Program Unit
-- [x] Menu
-- [x] Menu Item
-- [x] Menu Module
-- [x] Menu Parameter
-- [x] Object Group
-- [x] Object Group Child
-- [x] Object Library
-- [x] Object Library Tab
-- [x] Program Unit
-- [x] Property
-- [x] Property Class
-- [x] Record Group
-- [x] Record Group Column Specification
-- [x] Relation
-- [x] Report
-- [x] Tab Page
-- [x] Trigger
-- [x] Visual Attribute
-- [x] Window
+To install, run:
+
+```powershell
+Install-Package Ndapi
+```
+
+Or use the Package Manager in Visual Studio.
