@@ -56,6 +56,9 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="ColumnMapping.cs" />
     <Compile Include="Metadata\NdapiMetadata.cs" />
+    <Compile Include="Metadata\NdapiMetaObject.cs" />
+    <Compile Include="Metadata\NdapiMetaProperty.cs" />
+    <Compile Include="PropertyAttribute.cs" />
     <Compile Include="RecordGroupColumn.cs" />
     <Compile Include="Core\D2fContext.cs" />
     <Compile Include="Core\D2fErrorCode.cs" />

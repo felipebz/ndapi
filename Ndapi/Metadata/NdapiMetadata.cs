@@ -14,5 +14,10 @@ namespace Ndapi.Metadata
         {
             return typeof(NdapiContext).Assembly.GetTypes().Where(t => t.BaseType == typeof(NdapiObject));
         }
+
+        public static NdapiMetaObject GetMetaObjectFrom(Type type)
+        {
+            return new NdapiMetaObject(type);
+        }
     }
 }
