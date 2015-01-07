@@ -1,10 +1,10 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
+using Ndapi.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Ndapi
@@ -124,6 +124,11 @@ namespace Ndapi
                 return status == (int)D2fErrorCode.D2FS_YES;
             }
         }
+
+        /// <summary>
+        /// Gets a <see cref="NdapiMetaObject"/> instance for the object type.
+        /// </summary>
+        public NdapiMetaObject MetaObject => NdapiMetadata.GetMetaObjectFrom(GetType());
 
         /// <summary>
         /// Gets the value of a string property.
