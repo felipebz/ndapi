@@ -38,6 +38,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment property.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -47,11 +48,13 @@ namespace Ndapi
         /// <summary>
         /// Gets the library location.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LIB_LOC)]
         public string Location => GetStringProperty(NdapiConstants.D2FP_LIB_LOC);
 
         /// <summary>
         /// Gets the library source type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LIB_SRC)]
         public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC);
 
         /// <summary>

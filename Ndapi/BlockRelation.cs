@@ -26,6 +26,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should execute an automatic query when the user navigates to
         /// the detail block. This property will affect master-details triggers only when <see cref="Deferred"/> is true.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_QRY)]
         public bool AutomaticQuery
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_QRY); }
@@ -35,6 +36,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -44,6 +46,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should defer fetching the associated details records.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DEFERRED)]
         public bool Deferred
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DEFERRED); }
@@ -53,6 +56,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the relation behavior when deleting records.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DEL_REC)]
         public DeleteRecordBehavior DeleteRecordBehavior
         {
             get { return GetNumberProperty<DeleteRecordBehavior>(NdapiConstants.D2FP_DEL_REC); }
@@ -62,6 +66,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the detail block.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DETAIL_BLK)]
         public string DetailBlock
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DETAIL_BLK); }
@@ -71,6 +76,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the join condition between master and detail block.
         /// </summary>
+        [Property(NdapiConstants.D2FP_JOIN_COND)]
         public string JoinCondition
         {
             get { return GetStringProperty(NdapiConstants.D2FP_JOIN_COND); }
@@ -80,6 +86,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should be allowed to query or insert records in a block that is a detail block in a master-detail relation.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS)]
         public bool PreventMasterlessOperations
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS); }
