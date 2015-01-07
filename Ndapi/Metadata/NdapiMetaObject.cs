@@ -15,7 +15,7 @@ namespace Ndapi.Metadata
         public IEnumerable<NdapiMetaProperty> BooleanProperties => AllProperties.Where(p => p.PropertyType == typeof(bool));
         public IEnumerable<NdapiMetaProperty> IntegerProperties => AllProperties.Where(p => p.PropertyType == typeof(int) || p.PropertyType.IsEnum);
         public IEnumerable<NdapiMetaProperty> ObjectProperties => AllProperties.Where(p => p.PropertyType.BaseType == typeof(NdapiObject));
-        public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.PropertyType.BaseType == typeof(IEnumerable<>));
+        public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(IEnumerable<>));
 
         public NdapiMetaObject(Type type)
         {
