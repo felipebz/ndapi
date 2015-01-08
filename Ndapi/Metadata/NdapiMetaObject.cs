@@ -27,7 +27,7 @@ namespace Ndapi.Metadata
         {
             return from property in _type.GetProperties()
                    from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
-                   select new NdapiMetaProperty(info.PropertyId, property.CanRead, property.CanWrite, property.PropertyType);
+                   select new NdapiMetaProperty(info.PropertyId, property.Name, property.CanRead, property.CanWrite, property.PropertyType);
         }
     }
 }
