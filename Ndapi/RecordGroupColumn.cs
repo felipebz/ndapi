@@ -26,6 +26,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the column data type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COL_DAT_TYP)]
         public ColumnSpecificationDataType DataType
         {
             get { return GetNumberProperty<ColumnSpecificationDataType>(NdapiConstants.D2FP_COL_DAT_TYP); }
@@ -35,6 +36,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the maximum length.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
@@ -44,6 +46,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the number of values.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COL_VALS_COUNT)]
         public int ValueCount => GetNumberProperty(NdapiConstants.D2FP_COL_VALS_COUNT);
 
         /// <summary>

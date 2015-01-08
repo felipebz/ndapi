@@ -38,6 +38,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_NAME)]
         public virtual string Name
         {
             get { return GetStringProperty(NdapiConstants.D2FP_NAME); }
@@ -47,6 +48,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_TYP)]
         public int ParentType
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_PAR_TYP); }
@@ -56,6 +58,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_NAM)]
         public string ParentName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PAR_NAM); }
@@ -65,6 +68,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent module.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_MODULE)]
         public string ParentModule
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PAR_MODULE); }
@@ -74,6 +78,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent module type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_MODTYP)]
         public int ParentModuleType
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP); }
@@ -83,6 +88,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent module storage.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_MODSTR)]
         public ModuleStorageType ParentModuleStorage
         {
             get { return GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR); }
@@ -92,6 +98,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent filename path.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_FLPATH)]
         public string ParentFileNamePath
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PAR_FLPATH); }
@@ -101,6 +108,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parent filename.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_FLNAM)]
         public string ParentFileName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PAR_FLNAM); }
@@ -110,6 +118,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the object owner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OWNER)]
         public NdapiObject Owner => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER);
 
         /// <summary>

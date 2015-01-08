@@ -24,6 +24,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -33,6 +34,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the communication mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMM_MODE)]
         public CommunicationMode CommunicationMode
         {
             get { return GetNumberProperty<CommunicationMode>(NdapiConstants.D2FP_COMM_MODE); }
@@ -42,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the data source block.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DAT_SRC_BLK)]
         public string DataSourceBlock
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK); }
@@ -51,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the execution mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_EXEC_MODE)]
         public ExecutionMode ExecutionMode
         {
             get { return GetNumberProperty<ExecutionMode>(NdapiConstants.D2FP_EXEC_MODE); }
@@ -60,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the filename.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FLNAM)]
         public string Filename
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FLNAM); }
@@ -69,6 +74,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the destination format.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RPT_DESTINATION_FMT)]
         public string DestinationFormat
         {
             get { return GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT); }
@@ -78,6 +84,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the destination name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RPT_DESTINATION_NAM)]
         public string DestinationName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM); }
@@ -87,6 +94,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the destination type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RPT_DESTINATION_TYP)]
         public ReportDestinationType DestinationType
         {
             get { return GetNumberProperty<ReportDestinationType>(NdapiConstants.D2FP_RPT_DESTINATION_TYP); }
@@ -96,6 +104,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parameters.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RPT_PARAMS)]
         public string Parameters
         {
             get { return GetStringProperty(NdapiConstants.D2FP_RPT_PARAMS); }
@@ -105,6 +114,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the server adress.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RPT_SRVR)]
         public string Server
         {
             get { return GetStringProperty(NdapiConstants.D2FP_RPT_SRVR); }

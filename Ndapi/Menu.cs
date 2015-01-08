@@ -34,6 +34,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -43,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the subtitle.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SUB_TTL)]
         public string Subtitle
         {
             get { return GetStringProperty(NdapiConstants.D2FP_SUB_TTL); }
@@ -52,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu is a tear-off menu.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TEAR_OFF_MNU)]
         public bool TearOffMenu
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU); }
@@ -61,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the menu items.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_ITM)]
         public IEnumerable<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM);
     }
 }

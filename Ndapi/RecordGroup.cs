@@ -44,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -53,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the query fetch size.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ)]
         public int FetchSize
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ); }
@@ -62,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the SQL query.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REC_GRP_QRY)]
         public string Query
         {
             get { return GetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY); }
@@ -71,6 +74,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the record group type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REC_GRP_TYP)]
         public RecordGroupType Type
         {
             get { return GetNumberProperty<RecordGroupType>(NdapiConstants.D2FP_REC_GRP_TYP); }
@@ -80,6 +84,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the columns in the record group.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COL_SPEC)]
         public IEnumerable<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstants.D2FP_COL_SPEC);
 
         /// <summary>

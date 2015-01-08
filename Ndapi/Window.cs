@@ -42,6 +42,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the background color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_BACK_COLOR)]
         public string BackgroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_BACK_COLOR); }
@@ -51,6 +52,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the appearance of the object border.
         /// </summary>
+        [Property(NdapiConstants.D2FP_BEVEL)]
         public Bevel Bevel
         {
             get { return GetNumberProperty<Bevel>(NdapiConstants.D2FP_BEVEL); }
@@ -60,6 +62,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether window can be closed.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CLS_ALLOWED)]
         public bool CloseAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED); }
@@ -69,6 +72,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -79,6 +83,7 @@ namespace Ndapi
         /// Gets or sets the pattern to be used for the fill region.
         /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FILL_PAT)]
         public string FillPattern
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FILL_PAT); }
@@ -88,6 +93,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_NAM)]
         public string FontName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FONT_NAM); }
@@ -97,6 +103,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font size.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SIZ)]
         public int FontSize
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ); }
@@ -106,6 +113,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font spacing.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SPCING)]
         public FontSpacing FontSpacing
         {
             get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING); }
@@ -115,6 +123,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_STY)]
         public FontStyle FontStyle
         {
             get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY); }
@@ -124,6 +133,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font weight.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_WGHT)]
         public FontWeight FontWeight
         {
             get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT); }
@@ -133,6 +143,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the foreground color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FORE_COLOR)]
         public string ForegroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FORE_COLOR); }
@@ -142,15 +153,17 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the height.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HEIGHT)]
         public int Height
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_HEIGHT); }
             set { SetNumberProperty(NdapiConstants.D2FP_HEIGHT, value); }
         }
-        
+
         /// <summary>
         /// Gets or sets the help book title.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HELP_BOOK_TOPIC)]
         public string HelpBookTopic
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TOPIC); }
@@ -160,6 +173,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should hide the window when the user navigates to an item in another window.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HIDE_ON_EXIT)]
         public bool HideOnExit
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_HIDE_ON_EXIT); }
@@ -169,6 +183,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the canvas name of the horizontal toolbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HTB_CNV_NAME)]
         public string HorizontalToolbarCanvas
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HTB_CNV_NAME); }
@@ -178,6 +193,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the icon filename.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ICON_FLNAM)]
         public string IconFilename
         {
             get { return GetStringProperty(NdapiConstants.D2FP_ICON_FLNAM); }
@@ -187,6 +203,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the window should display the current form menu.
         /// </summary>
+        [Property(NdapiConstants.D2FP_INHRT_MNU)]
         public bool InheritMenu
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_INHRT_MNU); }
@@ -196,6 +213,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the language direction.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LANG_DIR)]
         public LanguageDirection LanguageDirection
         {
             get { return GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR); }
@@ -205,6 +223,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether window can be maximized.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAXIMIZE_ALLOWED)]
         public bool MaximizeAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED); }
@@ -214,6 +233,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether window can be minimized.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MINIMIZE_ALLOWED)]
         public bool MinimizedAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED); }
@@ -223,6 +243,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the text string that will appear below an iconified window. 
         /// </summary>
+        [Property(NdapiConstants.D2FP_MINIMIZE_TTL)]
         public string MinimizeTitle
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MINIMIZE_TTL); }
@@ -232,6 +253,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether window is modal or not.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MODAL)]
         public bool Modal
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MODAL); }
@@ -241,6 +263,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether window can be moved.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MV_ALLOWED)]
         public bool MoveAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED); }
@@ -250,6 +273,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the primary canvas.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMRY_CNV)]
         public string PrimaryCanvas
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMRY_CNV); }
@@ -259,6 +283,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether window can be resized.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RESIZE_ALLOWED)]
         public bool ResizeAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED); }
@@ -268,6 +293,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should show a horizontal scrollbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR)]
         public bool ShowHorizontalScrollBar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR); }
@@ -277,6 +303,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should show a vertical scrollbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_VERT_SCRLBR)]
         public bool ShowVerticalScrollBar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_VERT_SCRLBR); }
@@ -286,6 +313,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TITLE)]
         public string Title
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TITLE); }
@@ -295,6 +323,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the visual attribute name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VAT_NAM)]
         public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
@@ -304,6 +333,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the canvas name of the vertical toolbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VTB_CNV_NAME)]
         public string VerticalToolbarCanvas
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VTB_CNV_NAME); }
@@ -313,6 +343,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the white-on-black property.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
         public bool WhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
@@ -322,6 +353,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WIDTH)]
         public int Width
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_WIDTH); }
@@ -331,6 +363,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the window style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WIN_STY)]
         public WindowStyle WindowStyle
         {
             get { return GetNumberProperty<WindowStyle>(NdapiConstants.D2FP_WIN_STY); }
@@ -340,6 +373,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the X position measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_X_POS)]
         public int XPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_X_POS); }
@@ -349,6 +383,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the Y position measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_Y_POS)]
         public int YPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_Y_POS); }

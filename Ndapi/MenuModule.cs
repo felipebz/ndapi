@@ -25,6 +25,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -34,6 +35,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the main menu.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAIN_MNU)]
         public string MainMenu
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MAIN_MNU); }
@@ -43,6 +45,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the module directory.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_DRCTRY)]
         public string Directory
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MNU_DRCTRY); }
@@ -52,6 +55,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the filename.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_FLNAM)]
         public string Filename
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MNU_FLNAM); }
@@ -61,6 +65,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu module will share it attached libraries with form modules.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHARE_LIB)]
         public bool ShareLibraryWithForm
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHARE_LIB); }
@@ -70,6 +75,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the startup code.
         /// </summary>
+        [Property(NdapiConstants.D2FP_STRTUP_CODE)]
         public string StartupCode
         {
             get { return GetStringProperty(NdapiConstants.D2FP_STRTUP_CODE); }
@@ -79,6 +85,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should enforce the security scheme defined for the menu module.
         /// </summary>
+        [Property(NdapiConstants.D2FP_USE_SECURITY)]
         public bool UseSecurity
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_USE_SECURITY); }
@@ -88,48 +95,56 @@ namespace Ndapi
         /// <summary>
         /// Gets all the attached libraries.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ATT_LIB)]
         public IEnumerable<AttachedLibrary> AttachedLibraries =>
             GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
 
         /// <summary>
         /// Gets all the menus.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MENU)]
         public IEnumerable<Menu> Menus =>
             GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
 
         /// <summary>
         /// Gets all the menu parameters.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_PARAM)]
         public IEnumerable<MenuParameter> Parameters =>
             GetObjectList<MenuParameter>(NdapiConstants.D2FP_MNU_PARAM);
 
         /// <summary>
         /// Gets all the object groups.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OBJ_GRP)]
         public IEnumerable<ObjectGroup> ObjectGroups =>
             GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP);
 
         /// <summary>
         /// Gets all the program units.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PROG_UNIT)]
         public IEnumerable<ProgramUnit> ProgramUnits =>
             GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
 
         /// <summary>
         /// Gets all the property classes.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PROP_CLASS)]
         public IEnumerable<PropertyClass> PropertyClasses =>
             GetObjectList<PropertyClass>(NdapiConstants.D2FP_PROP_CLASS);
 
         /// <summary>
         /// Gets the total number of roles.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ROLE_COUNT)]
         public int RoleCount =>
             GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT);
 
         /// <summary>
         /// Gets all the visual attributes.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VIS_ATTR)]
         public IEnumerable<VisualAttribute> VisualAttributes =>
             GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
 

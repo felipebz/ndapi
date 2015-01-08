@@ -24,6 +24,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets data source argument mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSA_MODE)]
         public DataSourceArgumentMode Mode
         {
             get { return GetNumberProperty<DataSourceArgumentMode>(NdapiConstants.D2FP_DSA_MODE); }
@@ -33,6 +34,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source argument name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSA_NAM)]
         public override string Name
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DSA_NAM); }
@@ -42,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source argument type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSA_TYP)]
         public DataSourceColumnType Type
         {
             get { return GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSA_TYP); }
@@ -51,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets name of the data source argument type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSA_TYP_NAM)]
         public string TypeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM); }
@@ -60,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source argument value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSA_VAL)]
         public string Value
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DSA_VAL); }

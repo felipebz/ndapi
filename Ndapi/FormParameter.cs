@@ -24,6 +24,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -33,6 +34,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the maximum length.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
@@ -42,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parameter data type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PARAM_DAT_TYP)]
         public ParameterDataType DataType
         {
             get { return GetNumberProperty<ParameterDataType>(NdapiConstants.D2FP_PARAM_DAT_TYP); }
@@ -51,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the initial value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PARAM_INIT_VAL)]
         public string InitialValue
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL); }

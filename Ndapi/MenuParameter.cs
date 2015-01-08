@@ -26,11 +26,13 @@ namespace Ndapi
         /// <summary>
         /// Gets the number of associated menus.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ASSOC_MENUS_COUNT)]
         public int AssociatedMenusCount => GetNumberProperty(NdapiConstants.D2FP_ASSOC_MENUS_COUNT);
 
         /// <summary>
         /// Gets or sets the case restriction.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CASE_RSTRCTION)]
         public CaseRestriction CaseRestriction
         {
             get { return GetNumberProperty<CaseRestriction>(NdapiConstants.D2FP_CASE_RSTRCTION); }
@@ -40,6 +42,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -49,6 +52,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should hide characters that the user types into the text item. 
         /// </summary>
+        [Property(NdapiConstants.D2FP_CONCEAL_DATA)]
         public bool ConcealData
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CONCEAL_DATA); }
@@ -58,6 +62,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the length is fixed.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FIXED_LEN)]
         public bool FixedLength
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN); }
@@ -67,6 +72,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the parameter hint.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HINT)]
         public string Hint
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HINT); }
@@ -76,6 +82,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the label of the associated text item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
@@ -85,6 +92,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the maximum length.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
@@ -94,6 +102,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the initial value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL)]
         public string InitialValue
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL); }

@@ -26,6 +26,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -35,6 +36,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
@@ -44,6 +46,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the number of object in the tab.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OBJ_COUNT)]
         public int ObjectCount => GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
 
         /// <summary>

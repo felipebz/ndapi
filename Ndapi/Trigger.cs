@@ -70,6 +70,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -79,6 +80,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display the trigger in keyboard help.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DISP_IN_KBRD_HLP)]
         public bool DisplayInKeyboardHelp
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP); }
@@ -88,6 +90,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the execution style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_EXEC_HIERARCHY)]
         public ExecutionStyle ExecutionStyle
         {
             get { return GetNumberProperty<ExecutionStyle>(NdapiConstants.D2FP_EXEC_HIERARCHY); }
@@ -97,6 +100,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should fire the trigger in enter-query mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FIRE_IN_QRY)]
         public bool FireInEnterQueryMode
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY); }
@@ -106,6 +110,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the keyboard help description.
         /// </summary>
+        [Property(NdapiConstants.D2FP_KBRD_HLP_TXT)]
         public string KeyboardHelpDescription
         {
             get { return GetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT); }
@@ -115,6 +120,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the trigger style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TRG_STY)]
         public TriggerStyle Style
         {
             get { return GetNumberProperty<TriggerStyle>(NdapiConstants.D2FP_TRG_STY); }
@@ -124,6 +130,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the trigger code.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TRG_TXT)]
         public string Text
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TRG_TXT); }

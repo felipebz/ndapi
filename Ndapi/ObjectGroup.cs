@@ -43,6 +43,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -52,6 +53,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the objects contained in the group.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OG_CHILD)]
         public IEnumerable<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstants.D2FP_OG_CHILD);
     }
 }

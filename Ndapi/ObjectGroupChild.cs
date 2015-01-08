@@ -25,6 +25,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the real object.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ)]
         public NdapiObject RealObject
         {
             get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ); }

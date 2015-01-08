@@ -53,6 +53,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -62,6 +63,7 @@ namespace Ndapi
         /// <summary>
         /// Gets all the triggers attached to this property class.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TRIGGER)]
         public IEnumerable<Trigger> Triggers =>
             GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 

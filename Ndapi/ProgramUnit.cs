@@ -52,6 +52,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -61,6 +62,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the program unit code.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PGU_TXT)]
         public string Text
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PGU_TXT); }
@@ -70,6 +72,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the program unit type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PGU_TYP)]
         public ProgramUnitType Type => GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP);
 
         /// <summary>

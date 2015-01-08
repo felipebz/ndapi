@@ -43,6 +43,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should adjust the width of columns automatically.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_COL_WID)]
         public bool AutomaticColumnWidth
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_COL_WID); }
@@ -53,6 +54,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should display the LOV automatically when the user or
         /// the application navigates into a text item to which the LOV is attached.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_DISP)]
         public bool AutomaticDisplay
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_DISP); }
@@ -62,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should position the LOV automatically near the field from which it was invoked. 
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_POS)]
         public bool AutomaticPosition
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_POS); }
@@ -71,6 +74,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime re-executes the query to populate an LOV that is based on a query record group.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_RFRSH)]
         public bool AutomaticRefresh
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_RFRSH); }
@@ -81,6 +85,7 @@ namespace Ndapi
         /// Gets or sets whether runtime moves the cursor to the next navigable item when the user makes 
         /// a selection from an LOV to a text item. 
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_SKP)]
         public bool AutomaticSkip
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_SKP); }
@@ -93,6 +98,7 @@ namespace Ndapi
         /// single row are assigned to their corresponding return items. If false, the LOV remains displayed, giving the user 
         /// the option to explicitly select the remaining choice or dismiss the LOV.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_SLCT)]
         public bool AutomaticSelect
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_SLCT); }
@@ -102,6 +108,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the background color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_BACK_COLOR)]
         public string BackgroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_BACK_COLOR); }
@@ -111,6 +118,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -121,6 +129,7 @@ namespace Ndapi
         /// Gets or sets the pattern to be used for the fill region.
         /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FILL_PAT)]
         public string FillPattern
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FILL_PAT); }
@@ -130,6 +139,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime allows the user to enter a query criteria before displaying the query results.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FLTR_BEFORE_DISP)]
         public bool FilterBeforeDisplay
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FLTR_BEFORE_DISP); }
@@ -139,6 +149,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_NAM)]
         public string FontName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FONT_NAM); }
@@ -148,6 +159,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font size.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SIZ)]
         public int FontSize
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ); }
@@ -157,6 +169,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font spacing.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SPCING)]
         public FontSpacing FontSpacing
         {
             get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING); }
@@ -166,6 +179,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_STY)]
         public FontStyle FontStyle
         {
             get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY); }
@@ -175,6 +189,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font weight.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_WGHT)]
         public FontWeight FontWeight
         {
             get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT); }
@@ -184,6 +199,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the foreground color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FORE_COLOR)]
         public string ForegroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FORE_COLOR); }
@@ -193,6 +209,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the height.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HEIGHT)]
         public int Height
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_HEIGHT); }
@@ -202,6 +219,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the language direction.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LANG_DIR)]
         public LanguageDirection LanguageDirection
         {
             get { return GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR); }
@@ -211,6 +229,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the list type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LST_TYP)]
         public ListType ListType
         {
             get { return GetNumberProperty<ListType>(NdapiConstants.D2FP_LST_TYP); }
@@ -220,6 +239,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the LOV text (included only for compatibility).
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLD_LOV_TXT)]
         public string OldLOVText
         {
             get { return GetStringProperty(NdapiConstants.D2FP_OLD_LOV_TXT); }
@@ -229,6 +249,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the record group associated with the LOV.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REC_GRP_OBJ)]
         public RecordGroup RecordGroup
         {
             get { return GetObjectProperty<RecordGroup>(NdapiConstants.D2FP_REC_GRP_OBJ); }
@@ -238,6 +259,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the LOV title.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TITLE)]
         public string Title
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TITLE); }
@@ -247,6 +269,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the visual attribute name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VAT_NAM)]
         public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
@@ -256,6 +279,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the white-on-black property.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
         public bool WhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
@@ -265,6 +289,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WIDTH)]
         public int Width
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_WIDTH); }
@@ -274,6 +299,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the X position measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_X_POS)]
         public int XPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_X_POS); }
@@ -283,6 +309,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the Y position measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_Y_POS)]
         public int YPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_Y_POS); }
@@ -292,6 +319,7 @@ namespace Ndapi
         /// <summary>
         /// Gets all the LOV column mappings.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COL_MAP)]
         public IEnumerable<ColumnMapping> ColumnMappings => GetObjectList<ColumnMapping>(NdapiConstants.D2FP_COL_MAP);
     }
 }

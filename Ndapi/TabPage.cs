@@ -25,6 +25,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -34,6 +35,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the tab is enabled.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ENABLED)]
         public bool Enabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
@@ -43,6 +45,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
@@ -52,6 +55,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the tab is visible.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VISIBLE)]
         public bool Visible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
@@ -61,6 +65,7 @@ namespace Ndapi
         /// <summary>
         /// Gets all the graphic objects attached to the canvas.
         /// </summary>
+        [Property(NdapiConstants.D2FP_GRAPHIC)]
         public IEnumerable<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
     }
 }

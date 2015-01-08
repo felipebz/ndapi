@@ -24,6 +24,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the display width.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DISP_WID)]
         public int DisplayWidth
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_DISP_WID); }
@@ -33,6 +34,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the return item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RTRN_ITM)]
         public string ReturnItem
         {
             get { return GetStringProperty(NdapiConstants.D2FP_RTRN_ITM); }
@@ -42,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the column title.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TITLE)]
         public string Title
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TITLE); }

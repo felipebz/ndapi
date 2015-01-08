@@ -24,6 +24,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source column length.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_LEN)]
         public int Length
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_DSC_LEN); }
@@ -33,6 +34,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the data source column is mandatory.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_MANDATORY)]
         public bool Mandatory
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY); }
@@ -42,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source column name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_NAM)]
         public override string Name
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DSC_NAM); }
@@ -51,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source column precision.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_PRECISION)]
         public int Precision
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_DSC_PRECISION); }
@@ -60,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source column scale.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_SCALE)]
         public int Scale
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_DSC_SCALE); }
@@ -69,6 +74,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source column type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_TYP)]
         public DataSourceColumnType Type
         {
             get { return GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSC_TYP); }
@@ -78,6 +84,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the data source column type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DSC_TYPE_NAME)]
         public string TypeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DSC_TYPE_NAME); }

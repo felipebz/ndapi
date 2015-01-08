@@ -26,11 +26,13 @@ namespace Ndapi
         /// <summary>
         /// Gets the number of object in the library.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OBJ_COUNT)]
         public int ObjectCount => GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
 
         /// <summary>
         /// Gets all the tabs.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OBJ_LIB_TAB)]
         public IEnumerable<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstants.D2FP_OBJ_LIB_TAB);
 
         /// <summary>

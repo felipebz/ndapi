@@ -18,21 +18,25 @@ namespace Ndapi
         /// <summary>
         /// Gets all the attached libraries.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ATT_LIB)]
         public IEnumerable<AttachedLibrary> AttachedLibraries => GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
 
         /// <summary>
         /// Gets the library location.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LIB_LOC)]
         public string Location => GetStringProperty(NdapiConstants.D2FP_LIB_LOC);
 
         /// <summary>
         /// Gets all the program units.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LIB_PROG_UNIT)]
         public IEnumerable<LibraryProgramUnit> ProgramUnits => GetObjectList<LibraryProgramUnit>(NdapiConstants.D2FP_LIB_PROG_UNIT);
 
         /// <summary>
         /// Gets the source type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LIB_SRC)]
         public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC);
 
         /// <summary>

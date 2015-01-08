@@ -44,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the access key.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ACCESS_KEY)]
         public string AccessKey
         {
             get { return GetStringProperty(NdapiConstants.D2FP_ACCESS_KEY); }
@@ -53,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the audio channels.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUDIO_CHNNLS)]
         public SoundChannels AudioChannels
         {
             get { return GetNumberProperty<SoundChannels>(NdapiConstants.D2FP_AUDIO_CHNNLS); }
@@ -62,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display the <see cref="Hint"/> automatically.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_HINT)]
         public bool DisplayHintAutomatically
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_HINT); }
@@ -71,6 +74,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should skip to the next item when the user fill the field.
         /// </summary>
+        [Property(NdapiConstants.D2FP_AUTO_SKP)]
         public bool AutoSkip
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_SKP); }
@@ -80,6 +84,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the background color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_BACK_COLOR)]
         public string BackgroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_BACK_COLOR); }
@@ -89,6 +94,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the appearance of the object border.
         /// </summary>
+        [Property(NdapiConstants.D2FP_BEVEL)]
         public Bevel Bevel
         {
             get { return GetNumberProperty<Bevel>(NdapiConstants.D2FP_BEVEL); }
@@ -98,6 +104,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the calculation mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CALC_MODE)]
         public CalculationMode CalculationMode
         {
             get { return GetNumberProperty<CalculationMode>(NdapiConstants.D2FP_CALC_MODE); }
@@ -107,6 +114,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether query is case insensitive.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CASE_INSENSITIVE_QRY)]
         public bool CaseInsensitiveQuery
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CASE_INSENSITIVE_QRY); }
@@ -116,6 +124,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the case restriction.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CASE_RSTRCTION)]
         public CaseRestriction CaseRestriction
         {
             get { return GetNumberProperty<CaseRestriction>(NdapiConstants.D2FP_CASE_RSTRCTION); }
@@ -125,6 +134,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the checked value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CHKED_VAL)]
         public string Checked
         {
             get { return GetStringProperty(NdapiConstants.D2FP_CHKED_VAL); }
@@ -134,6 +144,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the checkbox other values.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CHK_BX_OTHER_VALS)]
         public CheckBoxOtherValues CheckBoxOtherValues
         {
             get { return GetNumberProperty<CheckBoxOtherValues>(NdapiConstants.D2FP_CHK_BX_OTHER_VALS); }
@@ -143,6 +154,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the audio compression quality.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CMPRSSION_QLTY)]
         public CompressionQuality CompressionQuality
         {
             get { return GetNumberProperty<CompressionQuality>(NdapiConstants.D2FP_CMPRSSION_QLTY); }
@@ -152,6 +164,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the canvas.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CNV_OBJ)]
         public Canvas Canvas
         {
             get { return GetObjectProperty<Canvas>(NdapiConstants.D2FP_CNV_OBJ); }
@@ -161,6 +174,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the database column name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COL_NAM)]
         public string ColumnName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COL_NAM); }
@@ -170,6 +184,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comments
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -179,6 +194,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the communication mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMM_MODE)]
         public CommunicationMode CommunicationMode
         {
             get { return GetNumberProperty<CommunicationMode>(NdapiConstants.D2FP_COMM_MODE); }
@@ -188,6 +204,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the sound compression.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMPRESS)]
         public SoundCompression Compress
         {
             get { return GetNumberProperty<SoundCompression>(NdapiConstants.D2FP_COMPRESS); }
@@ -197,6 +214,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should hide the text entered in the field.
         /// </summary>
+        [Property(NdapiConstants.D2FP_CONCEAL_DATA)]
         public bool ConcealData
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CONCEAL_DATA); }
@@ -206,6 +224,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the item to copy value from.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COPY_VAL_FROM_ITM)]
         public string CopyValueFromItem
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COPY_VAL_FROM_ITM); }
@@ -215,6 +234,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the data source block.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DAT_SRC_BLK)]
         public string DataSourceBlock
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK); }
@@ -224,6 +244,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source X axis.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DAT_SRC_X_AXS)]
         public string DataSourceXAxis
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DAT_SRC_X_AXS); }
@@ -233,6 +254,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data source Y axis.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DAT_SRC_Y_AXS)]
         public string DataSourceYAxis
         {
             get { return GetStringProperty(NdapiConstants.D2FP_DAT_SRC_Y_AXS); }
@@ -242,6 +264,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the data type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DAT_TYP)]
         public ItemDataType DataType
         {
             get { return GetNumberProperty<ItemDataType>(NdapiConstants.D2FP_DAT_TYP); }
@@ -251,6 +274,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the item is a database item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DB_ITM)]
         public bool DatabaseItem
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DB_ITM); }
@@ -260,6 +284,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whther the item should be identified as the default button.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DFLT_BTN)]
         public bool DefaultButton
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DFLT_BTN); }
@@ -269,6 +294,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the display quality.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DISP_QLTY)]
         public DisplayQuality DisplayQuality
         {
             get { return GetNumberProperty<DisplayQuality>(NdapiConstants.D2FP_DISP_QLTY); }
@@ -278,6 +304,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the distance between record.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DIST_BTWN_RECS)]
         public int DistanceBetweenRecords
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_DIST_BTWN_RECS); }
@@ -287,6 +314,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the editor.
         /// </summary>
+        [Property(NdapiConstants.D2FP_EDT_OBJ)]
         public Editor Editor
         {
             get { return GetObjectProperty<Editor>(NdapiConstants.D2FP_EDT_OBJ); }
@@ -296,6 +324,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the X position of the editor measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_EDT_X_POS)]
         public int EditorXPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_EDT_X_POS); }
@@ -305,6 +334,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the Y position of the editor measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_EDT_Y_POS)]
         public int EditorYPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_EDT_Y_POS); }
@@ -314,6 +344,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether item is enabled.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ENABLED)]
         public bool Enabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
@@ -323,6 +354,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the execution mode.
         /// </summary>
+        [Property(NdapiConstants.D2FP_EXEC_MODE)]
         public ExecutionMode ExecutionMode
         {
             get { return GetNumberProperty<ExecutionMode>(NdapiConstants.D2FP_EXEC_MODE); }
@@ -333,6 +365,7 @@ namespace Ndapi
         /// Gets or sets the pattern to be used for the fill region.
         /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FILL_PAT)]
         public string FillPattern
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FILL_PAT); }
@@ -342,6 +375,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the fixed length.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FIXED_LEN)]
         public bool FixedLength
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN); }
@@ -351,6 +385,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the filename.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FLNAM)]
         public string FileName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FLNAM); }
@@ -360,6 +395,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the format masl.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FMT_MSK)]
         public string FormatMask
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FMT_MSK); }
@@ -369,6 +405,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_NAM)]
         public string FontName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FONT_NAM); }
@@ -378,6 +415,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font size.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SIZ)]
         public int FontSize
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ); }
@@ -387,6 +425,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font spacing.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SPCING)]
         public FontSpacing FontSpacing
         {
             get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING); }
@@ -396,6 +435,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_STY)]
         public FontStyle FontStyle
         {
             get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY); }
@@ -405,6 +445,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font weight.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_WGHT)]
         public FontWeight FontWeight
         {
             get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT); }
@@ -414,6 +455,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the foreground color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FORE_COLOR)]
         public string ForegroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FORE_COLOR); }
@@ -423,6 +465,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the formula.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FORMULA)]
         public string Formula
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FORMULA); }
@@ -432,6 +475,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the height.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HEIGHT)]
         public int Height
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_HEIGHT); }
@@ -441,6 +485,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the help book topic.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HELP_BOOK_TOPIC)]
         public string HelpBookTopic
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TOPIC); }
@@ -450,6 +495,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the highest allowed value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HIGHEST_ALLOWED_VAL)]
         public string HighestAllowedValue
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HIGHEST_ALLOWED_VAL); }
@@ -459,6 +505,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the hint.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HINT)]
         public string Hint
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HINT); }
@@ -468,6 +515,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether button is iconic.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ICONIC)]
         public bool Iconic
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ICONIC); }
@@ -477,6 +525,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the icon file name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ICON_FLNAM)]
         public string IconFilename
         {
             get { return GetStringProperty(NdapiConstants.D2FP_ICON_FLNAM); }
@@ -486,6 +535,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the image depth.
         /// </summary>
+        [Property(NdapiConstants.D2FP_IMG_DPTH)]
         public ImageDepth ImageDepth
         {
             get { return GetNumberProperty<ImageDepth>(NdapiConstants.D2FP_IMG_DPTH); }
@@ -495,6 +545,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the image format.
         /// </summary>
+        [Property(NdapiConstants.D2FP_IMG_FMT)]
         public ImageFormat ImageFormat
         {
             get { return GetNumberProperty<ImageFormat>(NdapiConstants.D2FP_IMG_FMT); }
@@ -504,6 +555,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the initial keyboard direction.
         /// </summary>
+        [Property(NdapiConstants.D2FP_INIT_KBRD_DIR)]
         public InitialKeyboardDirection InitialKeyboardDirection
         {
             get { return GetNumberProperty<InitialKeyboardDirection>(NdapiConstants.D2FP_INIT_KBRD_DIR); }
@@ -513,6 +565,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the initial value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_INIT_VAL)]
         public string InitialValue
         {
             get { return GetStringProperty(NdapiConstants.D2FP_INIT_VAL); }
@@ -522,6 +575,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime allows inserting of data.
         /// </summary>
+        [Property(NdapiConstants.D2FP_INSRT_ALLOWED)]
         public bool InsertAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_INSRT_ALLOWED); }
@@ -531,6 +585,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the number of items displayed.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ITMS_DISP)]
         public int NumberOfItemsDisplayed
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_ITMS_DISP); }
@@ -540,6 +595,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the item type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ITM_TYP)]
         public ItemType ItemType
         {
             get { return GetNumberProperty<ItemType>(NdapiConstants.D2FP_ITM_TYP); }
@@ -549,6 +605,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the justification.
         /// </summary>
+        [Property(NdapiConstants.D2FP_JUSTIFICATION)]
         public Justification Justification
         {
             get { return GetNumberProperty<Justification>(NdapiConstants.D2FP_JUSTIFICATION); }
@@ -558,6 +615,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the field is navigable with keyboard.
         /// </summary>
+        [Property(NdapiConstants.D2FP_KBRD_NAVIGABLE)]
         public bool KeyboardNavigable
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_KBRD_NAVIGABLE); }
@@ -567,6 +625,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether field should keep the last cursor position.
         /// </summary>
+        [Property(NdapiConstants.D2FP_KEEP_CRSR_POS)]
         public bool KeepCursorPosition
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_KEEP_CRSR_POS); }
@@ -576,6 +635,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
@@ -585,6 +645,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the language direction.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LANG_DIR)]
         public LanguageDirection LanguageDirection
         {
             get { return GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR); }
@@ -594,6 +655,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether item should lock record.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LOCK_REC)]
         public bool LockRecord
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_LOCK_REC); }
@@ -603,6 +665,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the list of values.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LOV_OBJ)]
         public LOV LOV
         {
             get { return GetObjectProperty<LOV>(NdapiConstants.D2FP_LOV_OBJ); }
@@ -612,6 +675,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the list of values.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LOV_NAM)]
         public string LOVName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LOV_NAM); }
@@ -621,6 +685,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the X position of the list of values measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LOV_X_POS)]
         public int LOVXPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_LOV_X_POS); }
@@ -630,6 +695,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the X position of the list of values measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LOV_Y_POS)]
         public int LOVXYosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_LOV_Y_POS); }
@@ -639,6 +705,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the lowest allowed value.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LOWEST_ALLOWED_VAL)]
         public string LowestAllowedValue
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LOWEST_ALLOWED_VAL); }
@@ -648,11 +715,13 @@ namespace Ndapi
         /// <summary>
         /// Gets the list element count.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LST_ELEMENT_COUNT)]
         public int ListElementCount => GetNumberProperty(NdapiConstants.D2FP_LST_ELEMENT_COUNT);
 
         /// <summary>
         /// Gets or sets the list style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LST_STY)]
         public ListStyle ListStyle
         {
             get { return GetNumberProperty<ListStyle>(NdapiConstants.D2FP_LST_STY); }
@@ -662,6 +731,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the maximum length.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
@@ -671,6 +741,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether field allows multiple lines.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MLT_LIN)]
         public bool MultiLine
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MLT_LIN); }
@@ -680,6 +751,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether item is navigable with mouse.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MOUSE_NAVIGATE)]
         public bool MouseNavigate
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MOUSE_NAVIGATE); }
@@ -689,6 +761,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the next navigation item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_NXT_NAVIGATION_ITM_OBJ)]
         public Item NextNavigationItem
         {
             get { return GetObjectProperty<Item>(NdapiConstants.D2FP_NXT_NAVIGATION_ITM_OBJ); }
@@ -698,6 +771,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the OLE activation style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_ACT_STY)]
         public OleActivationStyle OLEActivationStyle
         {
             get { return GetNumberProperty<OleActivationStyle>(NdapiConstants.D2FP_OLE_ACT_STY); }
@@ -707,6 +781,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the OLE class name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_CLASS)]
         public string OLEClass
         {
             get { return GetStringProperty(NdapiConstants.D2FP_OLE_CLASS); }
@@ -716,6 +791,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets if OLE in-place activation is used for editing embedded OLE objects.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_INSD_OUT_SUPPORT)]
         public bool OLEInsideOutSupport
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_OLE_INSD_OUT_SUPPORT); }
@@ -725,6 +801,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets if the OLE server of the embedded object allows inside-out object support during in-place activation.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_IN_PLACE_ACT)]
         public bool OLEInPlaceActivation
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_OLE_IN_PLACE_ACT); }
@@ -735,6 +812,7 @@ namespace Ndapi
         /// Gets or sets which OLE popup menu commands are displayed and enabled when the mouse cursor is on the OLE 
         /// object and and the right mouse button is pressed.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_POPUP_MNU_ITMS)]
         public int OLEPopUpMenuItems
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_OLE_POPUP_MNU_ITMS); }
@@ -744,6 +822,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the OLE resize style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_RESIZ_STY)]
         public OleResizeStyle OLEResizeStyle
         {
             get { return GetNumberProperty<OleResizeStyle>(NdapiConstants.D2FP_OLE_RESIZ_STY); }
@@ -753,6 +832,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display the OLE tenant type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_SHOW_TNNT_TYP)]
         public bool ShowOLETenantType
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_OLE_SHOW_TNNT_TYP); }
@@ -762,6 +842,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the OLE tenant aspect.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_TNNT_ASPCT)]
         public OleTenantAspect OLETenantAspect
         {
             get { return GetNumberProperty<OleTenantAspect>(NdapiConstants.D2FP_OLE_TNNT_ASPCT); }
@@ -771,6 +852,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the OLE tentat type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OLE_TNNT_TYP)]
         public OleTenantTypes OLETenantType
         {
             get { return GetNumberProperty<OleTenantTypes>(NdapiConstants.D2FP_OLE_TNNT_TYP); }
@@ -780,6 +862,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the mapping of other values.
         /// </summary>
+        [Property(NdapiConstants.D2FP_OTHER_VALS)]
         public string MappingOfOtherValues
         {
             get { return GetStringProperty(NdapiConstants.D2FP_OTHER_VALS); }
@@ -789,6 +872,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the popup menu name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_POPUP_MNU_NAM)]
         public string PopupMenuName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_POPUP_MNU_NAM); }
@@ -798,6 +882,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the popup menu.
         /// </summary>
+        [Property(NdapiConstants.D2FP_POPUP_MNU_OBJ)]
         public Menu PopupMenu
         {
             get { return GetObjectProperty<Menu>(NdapiConstants.D2FP_POPUP_MNU_OBJ); }
@@ -807,6 +892,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the popup visual attribute.
         /// </summary>
+        [Property(NdapiConstants.D2FP_POPUP_VA_OBJ)]
         public VisualAttribute PopUpVisualAttribute
         {
             get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_POPUP_VA_OBJ); }
@@ -816,6 +902,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the previous navigation item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PREV_NAVIGATION_ITM_OBJ)]
         public Item PreviousNavigationItem
         {
             get { return GetObjectProperty<Item>(NdapiConstants.D2FP_PREV_NAVIGATION_ITM_OBJ); }
@@ -825,6 +912,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT)]
         public string Prompt
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT); }
@@ -834,6 +922,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt alignment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_ALIGN)]
         public Alignment PromptAlignment
         {
             get { return GetNumberProperty<Alignment>(NdapiConstants.D2FP_PRMPT_ALIGN); }
@@ -843,6 +932,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt alignment offset.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_ALIGN_OFST)]
         public int PromptAlignmentOffset
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_PRMPT_ALIGN_OFST); }
@@ -852,6 +942,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt attachment edge.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_ATT_EDGE)]
         public EdgeAtachmentType PromptAttachmentEdge
         {
             get { return GetNumberProperty<EdgeAtachmentType>(NdapiConstants.D2FP_PRMPT_ATT_EDGE); }
@@ -861,6 +952,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt attachment offset.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_ATT_OFST)]
         public int PromptAttachementOffset
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_PRMPT_ATT_OFST); }
@@ -870,6 +962,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt background color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_BACK_COLOR)]
         public string PromptBackgroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_BACK_COLOR); }
@@ -879,6 +972,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt display style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_DISP_STY)]
         public PromptDisplayStyle PromptDisplayStyle
         {
             get { return GetNumberProperty<PromptDisplayStyle>(NdapiConstants.D2FP_PRMPT_DISP_STY); }
@@ -889,6 +983,7 @@ namespace Ndapi
         /// Gets or sets the pattern to be used for the prompt's fill region.
         /// Patterns are rendered in the two colors specified by <see cref="PromptBackgroundColor"/> and <see cref="PromptForegroundColor"/>.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FILL_PAT)]
         public string PromptFillPattern
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_FILL_PAT); }
@@ -898,6 +993,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FONT_NAM)]
         public string PromptFontName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_FONT_NAM); }
@@ -907,6 +1003,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font size.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FONT_SIZ)]
         public int PromptFontSize
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SIZ); }
@@ -916,6 +1013,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font spacing.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FONT_SPCING)]
         public FontSpacing PromptFontSpacing
         {
             get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_PRMPT_FONT_SPCING); }
@@ -925,6 +1023,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FONT_STY)]
         public FontStyle PromptFontStyle
         {
             get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_PRMPT_FONT_STY); }
@@ -934,6 +1033,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font weight.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FONT_WGHT)]
         public FontWeight PromptFontWeight
         {
             get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_PRMPT_FONT_WGHT); }
@@ -943,6 +1043,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font foreground color.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_FORE_COLOR)]
         public string PromptForegroundColor
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_FORE_COLOR); }
@@ -952,6 +1053,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt font justification.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_JST)]
         public Justification PromptJustification
         {
             get { return GetNumberProperty<Justification>(NdapiConstants.D2FP_PRMPT_JST); }
@@ -961,6 +1063,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt reading order.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_READING_ORDR)]
         public ReadingOrder PromptReadingOrder
         {
             get { return GetNumberProperty<ReadingOrder>(NdapiConstants.D2FP_PRMPT_READING_ORDR); }
@@ -970,6 +1073,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt visual attribute name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_VAT_NAM)]
         public string PromptVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_VAT_NAM); }
@@ -979,6 +1083,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the prompt visual attribute.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMPT_VAT_OBJ)]
         public VisualAttribute PromptVisualAttribute
         {
             get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_PRMPT_VAT_OBJ); }
@@ -988,6 +1093,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the item is part of the primary key.
         /// </summary>
+        [Property(NdapiConstants.D2FP_PRMRY_KEY)]
         public bool PrimaryKey
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_PRMRY_KEY); }
@@ -997,6 +1103,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should allow the end user to execute a query in the item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_QRY_ALLOWED)]
         public bool QueryAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_QRY_ALLOWED); }
@@ -1006,6 +1113,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the length for entering queries.
         /// </summary>
+        [Property(NdapiConstants.D2FP_QRY_LEN)]
         public int QueryLength
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_QRY_LEN); }
@@ -1015,6 +1123,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the item is query only.
         /// </summary>
+        [Property(NdapiConstants.D2FP_QRY_ONLY)]
         public bool QueryOnly
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_QRY_ONLY); }
@@ -1024,6 +1133,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the reading order.
         /// </summary>
+        [Property(NdapiConstants.D2FP_READING_ORDR)]
         public ReadingOrder ReadingOrder
         {
             get { return GetNumberProperty<ReadingOrder>(NdapiConstants.D2FP_READING_ORDR); }
@@ -1033,6 +1143,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the visual attribute used when an item is part of the current record.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REC_VAT_GRP_NAM)]
         public string CurrentRecordVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_REC_VAT_GRP_NAM); }
@@ -1042,6 +1153,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the visual attribute used when an item is part of the current record.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REC_VAT_GRP_OBJ)]
         public VisualAttribute CurrentRecordVisualAttribute
         {
             get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ); }
@@ -1051,6 +1163,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether item is to be displayed as a rendered object when it does not have focus. 
         /// </summary>
+        [Property(NdapiConstants.D2FP_RENDERED)]
         public bool Rendered
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_RENDERED); }
@@ -1060,6 +1173,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether item is required.
         /// </summary>
+        [Property(NdapiConstants.D2FP_REQUIRED)]
         public bool Required
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_REQUIRED); }
@@ -1069,6 +1183,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a fast forward button.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_FAST_FWD)]
         public bool ShowFastForwardButton
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_FAST_FWD); }
@@ -1078,6 +1193,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a horizontal toolbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR)]
         public bool ShowHorizonatalScrollbar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR); }
@@ -1087,6 +1203,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a color palette.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_PALETTE)]
         public bool ShowPalette
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_PALETTE); }
@@ -1096,6 +1213,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a play button.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_PLAY)]
         public bool ShowPlayButton
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_PLAY); }
@@ -1105,6 +1223,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a record button.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_REC)]
         public bool ShowRecordButton
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_REC); }
@@ -1114,6 +1233,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a rewind button.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_REWIND)]
         public bool ShowRewindButton
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_REWIND); }
@@ -1123,6 +1243,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a time slider.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_SLIDER)]
         public bool ShowSlider
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_SLIDER); }
@@ -1132,6 +1253,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a time indicator.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_TIME)]
         public bool ShowTimeIndicator
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_TIME); }
@@ -1141,6 +1263,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a vertical scrollbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_VERT_SCRLBR)]
         public bool ShowVerticalScrollBar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_VERT_SCRLBR); }
@@ -1150,6 +1273,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime should display a volume control.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_VOLUME)]
         public bool ShowVolumeControl
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_VOLUME); }
@@ -1159,6 +1283,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the sizing style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SIZING_STY)]
         public ImageSizingStyle SizingStyle
         {
             get { return GetNumberProperty<ImageSizingStyle>(NdapiConstants.D2FP_SIZING_STY); }
@@ -1168,6 +1293,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the sound format.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SND_FMT)]
         public SoundFormat SoundFormat
         {
             get { return GetNumberProperty<SoundFormat>(NdapiConstants.D2FP_SND_FMT); }
@@ -1177,6 +1303,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the sound quality.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SND_QLTY)]
         public SoundQuality SoundQuality
         {
             get { return GetNumberProperty<SoundQuality>(NdapiConstants.D2FP_SND_QLTY); }
@@ -1186,6 +1313,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the block to summarize.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SUMM_BLK_NAM)]
         public string SummarizedBlock
         {
             get { return GetStringProperty(NdapiConstants.D2FP_SUMM_BLK_NAM); }
@@ -1195,6 +1323,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the summary function.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SUMM_FUNC)]
         public SummaryFunction SummarizedFunction
         {
             get { return GetNumberProperty<SummaryFunction>(NdapiConstants.D2FP_SUMM_FUNC); }
@@ -1204,6 +1333,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the name of the item to summarize.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SUMM_ITM_NAM)]
         public string SummarizedItem
         {
             get { return GetStringProperty(NdapiConstants.D2FP_SUMM_ITM_NAM); }
@@ -1213,6 +1343,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the item to synchronize with;
         /// </summary>
+        [Property(NdapiConstants.D2FP_SYNC_ITM_OBJ)]
         public Item SynchronizeWithItem
         {
             get { return GetObjectProperty<Item>(NdapiConstants.D2FP_SYNC_ITM_OBJ); }
@@ -1222,6 +1353,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the tab page.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TBP_OBJ)]
         public TabPage TabPage
         {
             get { return GetObjectProperty<TabPage>(NdapiConstants.D2FP_TBP_OBJ); }
@@ -1231,6 +1363,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the tooltip.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TOOLTIP)]
         public string Tooltip
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TOOLTIP); }
@@ -1240,6 +1373,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the tooltip visual attribute name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TOOLTIP_VAT_GRP)]
         public string TooltipVisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TOOLTIP_VAT_GRP); }
@@ -1249,6 +1383,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the value when unchecked.
         /// </summary>
+        [Property(NdapiConstants.D2FP_UNCHKED_VAL)]
         public string ValueWhenUnchecked
         {
             get { return GetStringProperty(NdapiConstants.D2FP_UNCHKED_VAL); }
@@ -1258,6 +1393,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime allows the item to be updated.
         /// </summary>
+        [Property(NdapiConstants.D2FP_UPDT_ALLOWED)]
         public bool UpdateAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_ALLOWED); }
@@ -1267,6 +1403,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether a chart item is updated to reflect changes made by committing new or updated records to its source block.
         /// </summary>
+        [Property(NdapiConstants.D2FP_UPDT_COMMIT)]
         public bool UpdateCommit
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_COMMIT); }
@@ -1276,6 +1413,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether user can modify the value of the item only when the current value of the item is NULL. 
         /// </summary>
+        [Property(NdapiConstants.D2FP_UPDT_IF_NULL)]
         public bool UpdateOnlyIfNull
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_IF_NULL); }
@@ -1285,6 +1423,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether a chart item is updated to reflect changes made by querying records in its source block.
         /// </summary>
+        [Property(NdapiConstants.D2FP_UPDT_QRY)]
         public bool UpdateQuery
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_QRY); }
@@ -1294,6 +1433,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether runtime shoud validate the data entered using the values of the associated <see cref="LOV"/>.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VALIDATE_FROM_LST)]
         public bool ValidateFromList
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VALIDATE_FROM_LST); }
@@ -1303,6 +1443,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the visual attribute name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VAT_NAM)]
         public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
@@ -1312,6 +1453,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the visual attribute.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VAT_OBJ)]
         public VisualAttribute VisualAttribute
         {
             get { return GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_VAT_OBJ); }
@@ -1321,6 +1463,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether item is visible.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VISIBLE)]
         public bool Visible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
@@ -1330,6 +1473,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the white-on-black property.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
         public bool WhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
@@ -1339,6 +1483,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WIDTH)]
         public int Width
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_WIDTH); }
@@ -1348,6 +1493,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the wrap style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_WRAP_STY)]
         public WrapStyle WrapStyle
         {
             get { return GetNumberProperty<WrapStyle>(NdapiConstants.D2FP_WRAP_STY); }
@@ -1357,6 +1503,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the X position measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_X_POS)]
         public int XPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_X_POS); }
@@ -1366,6 +1513,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the Y position measured at the upper left corner.
         /// </summary>
+        [Property(NdapiConstants.D2FP_Y_POS)]
         public int YPosition
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_Y_POS); }
@@ -1375,11 +1523,13 @@ namespace Ndapi
         /// <summary>
         /// Gets the radio button items.
         /// </summary>
+        [Property(NdapiConstants.D2FP_RAD_BUT)]
         public NdapiObject RadioButtons => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_RAD_BUT);
 
         /// <summary>
         /// Gets the item-level triggers.
         /// </summary>
+        [Property(NdapiConstants.D2FP_TRIGGER)]
         public IEnumerable<Trigger> Triggers => GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
         /// <summary>

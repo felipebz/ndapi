@@ -44,6 +44,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
@@ -53,6 +54,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the command text.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COM_TXT)]
         public string CommandText
         {
             get { return GetStringProperty(NdapiConstants.D2FP_COM_TXT); }
@@ -62,6 +64,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the command type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_COM_TYP)]
         public MenuCommandType CommandType
         {
             get { return GetNumberProperty<MenuCommandType>(NdapiConstants.D2FP_COM_TYP); }
@@ -71,6 +74,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu item is displayed when the user is not a member of a security role that has access privileges to the item.
         /// </summary>
+        [Property(NdapiConstants.D2FP_DISP_NO_PRIV)]
         public bool DisplayWithoutPrivilege
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DISP_NO_PRIV); }
@@ -80,6 +84,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether menu item is enabled.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ENABLED)]
         public bool Enabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
@@ -89,6 +94,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_NAM)]
         public string FontName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_FONT_NAM); }
@@ -98,6 +104,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font size.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SIZ)]
         public int FontSize
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ); }
@@ -107,6 +114,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font spacing.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_SPCING)]
         public int FontSpacing
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SPCING); }
@@ -116,6 +124,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font style.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_STY)]
         public FontStyle FontStyle
         {
             get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY); }
@@ -125,6 +134,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the font weight.
         /// </summary>
+        [Property(NdapiConstants.D2FP_FONT_WGHT)]
         public FontWeight FontWeight
         {
             get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT); }
@@ -134,6 +144,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the hint.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HINT)]
         public string Hint
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HINT); }
@@ -143,6 +154,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the help text.
         /// </summary>
+        [Property(NdapiConstants.D2FP_HLP_DESCRIPTION)]
         public string Help
         {
             get { return GetStringProperty(NdapiConstants.D2FP_HLP_DESCRIPTION); }
@@ -152,6 +164,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the icon filename.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ICON_FLNAM)]
         public string IconFilename
         {
             get { return GetStringProperty(NdapiConstants.D2FP_ICON_FLNAM); }
@@ -161,6 +174,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu item is iconic.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ICON_IN_MNU)]
         public bool Iconic
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ICON_IN_MNU); }
@@ -170,6 +184,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the keyboard accelerator.
         /// </summary>
+        [Property(NdapiConstants.D2FP_KBRD_ACC)]
         public string KeyboardAccelerator
         {
             get { return GetStringProperty(NdapiConstants.D2FP_KBRD_ACC); }
@@ -179,6 +194,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
+        [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
@@ -188,6 +204,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the magic menu item type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MAGIC_ITM)]
         public MagicMenuItemType MagicItemType
         {
             get { return GetNumberProperty<MagicMenuItemType>(NdapiConstants.D2FP_MAGIC_ITM); }
@@ -197,6 +214,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the code.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_ITM_CODE)]
         public string Code
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MNU_ITM_CODE); }
@@ -206,6 +224,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the menu item radio group.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_ITM_RAD_GRP)]
         public string MenuItemRadioGroup
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MNU_ITM_RAD_GRP); }
@@ -215,6 +234,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the menu item type.
         /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_ITM_TYP)]
         public MenuItemType MenuItemType
         {
             get { return GetNumberProperty<MenuItemType>(NdapiConstants.D2FP_MNU_ITM_TYP); }
@@ -224,11 +244,13 @@ namespace Ndapi
         /// <summary>
         /// Gets the role count.
         /// </summary>
+        [Property(NdapiConstants.D2FP_ROLE_COUNT)]
         public int RoleCount => GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT);
 
         /// <summary>
         /// Gets or sets the visual attribute name.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VAT_NAM)]
         public string VisualAttributeName
         {
             get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
@@ -238,6 +260,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu item is visible.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VISIBLE)]
         public bool Visible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
@@ -247,6 +270,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu item is visible in the horizontal toolbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR)]
         public bool VisibleInHorizontalToolbar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR); }
@@ -256,6 +280,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu item is visible in menu.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VSBL_IN_MENU)]
         public bool VisibleInMenu
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_MENU); }
@@ -265,6 +290,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets whether the menu item is visible in the vertical toolbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR)]
         public bool VisibleInVerticalToolbar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR); }
