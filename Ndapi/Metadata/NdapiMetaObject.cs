@@ -27,9 +27,10 @@ namespace Ndapi.Metadata
 
         private IEnumerable<NdapiMetaProperty> LoadProperties()
         {
-            return from property in _type.GetProperties()
-                   from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
-                   select NdapiMetaProperty.GetOrCreate(info.PropertyId, property.Name, property.CanRead, property.CanWrite, property.PropertyType);
+            var properties = from property in _type.GetProperties()
+                             from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
+                             select NdapiMetaProperty.GetOrCreate(info.PropertyId, property.Name, property.CanRead, property.CanWrite, property.PropertyType);
+            return properties.ToList();
         }
 
         public static NdapiMetaObject GetOrCreate(Type type)
