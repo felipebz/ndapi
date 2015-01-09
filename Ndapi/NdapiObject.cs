@@ -247,7 +247,17 @@ namespace Ndapi
                 return null;
             }
 
-            var instance = Activator.CreateInstance(typeof(T),
+            Type objectType = typeof(T);
+            if (objectType == typeof(NdapiObject))
+            {
+                ObjectType type;
+                status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, handle, out type);
+                Ensure.Success(status);
+
+                objectType = NdapiMetadata.ObjectTypeMapping[type];
+            }
+
+            var instance = Activator.CreateInstance(objectType,
                 BindingFlags.NonPublic | BindingFlags.Instance,
                 null,
                 new[] { handle },
