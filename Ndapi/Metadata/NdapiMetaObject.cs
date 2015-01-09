@@ -6,6 +6,8 @@ namespace Ndapi.Metadata
 {
     public class NdapiMetaObject
     {
+        private static Dictionary<Type, NdapiMetaObject> _cache = new Dictionary<Type, NdapiMetaObject>();
+
         private readonly Type _type;
         private readonly Lazy<IEnumerable<NdapiMetaProperty>> _properties;
 
@@ -17,7 +19,7 @@ namespace Ndapi.Metadata
         public IEnumerable<NdapiMetaProperty> ObjectProperties => AllProperties.Where(p => p.PropertyType.BaseType == typeof(NdapiObject));
         public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(IEnumerable<>));
 
-        public NdapiMetaObject(Type type)
+        private NdapiMetaObject(Type type)
         {
             _type = type;
             _properties = new Lazy<IEnumerable<NdapiMetaProperty>>(LoadProperties);
@@ -27,7 +29,20 @@ namespace Ndapi.Metadata
         {
             return from property in _type.GetProperties()
                    from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
-                   select new NdapiMetaProperty(info.PropertyId, property.Name, property.CanRead, property.CanWrite, property.PropertyType);
+                   select NdapiMetaProperty.GetOrCreate(info.PropertyId, property.Name, property.CanRead, property.CanWrite, property.PropertyType);
+        }
+
+        public static NdapiMetaObject GetOrCreate(Type type)
+        {
+            NdapiMetaObject metaObject;
+            if (_cache.TryGetValue(type, out metaObject))
+            {
+                return metaObject;
+            }
+
+            metaObject = new NdapiMetaObject(type);
+            _cache.Add(type, metaObject);
+            return metaObject;
         }
     }
 }

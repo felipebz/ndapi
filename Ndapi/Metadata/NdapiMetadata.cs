@@ -73,6 +73,6 @@ namespace Ndapi.Metadata
         /// </summary>
         /// <param name="type">A Ndapi class.</param>
         /// <returns>The meta object instance.</returns>
-        public static NdapiMetaObject GetMetaObjectFrom(Type type) => new NdapiMetaObject(type);
+        public static NdapiMetaObject GetMetaObjectFrom(Type type) => NdapiMetaObject.GetOrCreate(type);
     }
 }
