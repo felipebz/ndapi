@@ -1,6 +1,8 @@
 Ndapi
 =====
 
+[![Build status](https://ci.appveyor.com/api/projects/status/sm2f9vamtugb4tc0?svg=true)](https://ci.appveyor.com/project/felipebz/ndapi)
+
 Oracle Forms includes an API that enables C/C++ developers to create, load, edit, save, and compile Oracle Forms modules (.fmb, .mmb, .olb and .pll files). It gives access to almost all the Forms Builder functionality.
 
 Oracle Forms also includes a Java API (JDAPI) that wraps the Open API functionality and offer a complete API to Java developers. But the API is a bit verbose because it doesn't have any support for generics nor iterators.
