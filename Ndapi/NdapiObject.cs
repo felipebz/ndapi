@@ -140,6 +140,11 @@ namespace Ndapi
         public NdapiMetaObject MetaObject => NdapiMetadata.GetMetaObjectFrom(GetType());
 
         /// <summary>
+        /// Gets a list of the available properties for the object type.
+        /// </summary>
+        public IEnumerable<NdapiMetaProperty> MetaProperties => MetaObject.AllProperties;
+
+        /// <summary>
         /// Gets the value of a string property.
         /// </summary>
         /// <param name="property">Property id.</param>
