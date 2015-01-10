@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Ndapi.Metadata
 {
+    /// <summary>
+    /// Provides access for the Ndapi metadada.
+    /// </summary>
     public static class NdapiMetadata
     {
         private static readonly Lazy<Dictionary<ObjectType, Type>> _objectTypeMapping = new Lazy<Dictionary<ObjectType, Type>>(LoadObjectTypeMapping);
