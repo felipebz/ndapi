@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ndapi.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,27 +28,27 @@ namespace Ndapi.Metadata
         /// <summary>
         /// Gets the string properties.
         /// </summary>
-        public IEnumerable<NdapiMetaProperty> StringProperties => AllProperties.Where(p => p.PropertyType == typeof(string));
+        public IEnumerable<NdapiMetaProperty> StringProperties => AllProperties.Where(p => p.PropertyType == PropertyType.Text);
 
         /// <summary>
         /// Gets the boolean properties.
         /// </summary>
-        public IEnumerable<NdapiMetaProperty> BooleanProperties => AllProperties.Where(p => p.PropertyType == typeof(bool));
+        public IEnumerable<NdapiMetaProperty> BooleanProperties => AllProperties.Where(p => p.PropertyType == PropertyType.Boolean);
 
         /// <summary>
         /// Gets the integer properties.
         /// </summary>
-        public IEnumerable<NdapiMetaProperty> IntegerProperties => AllProperties.Where(p => p.PropertyType == typeof(int) || p.PropertyType.IsEnum);
+        public IEnumerable<NdapiMetaProperty> IntegerProperties => AllProperties.Where(p => p.PropertyType == PropertyType.Number);
 
         /// <summary>
         /// Gets the object properties.
         /// </summary>
-        public IEnumerable<NdapiMetaProperty> ObjectProperties => AllProperties.Where(p => p.PropertyType.BaseType == typeof(NdapiObject));
+        public IEnumerable<NdapiMetaProperty> ObjectProperties => AllProperties.Where(p => p.PropertyType == PropertyType.Object && !p.IsList);
 
         /// <summary>
         /// Gets the object list properties.
         /// </summary>
-        public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.PropertyType.IsGenericType && p.PropertyType.GetGenericTypeDefinition() == typeof(IEnumerable<>));
+        public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.IsList);
 
         private NdapiMetaObject(Type type)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ndapi.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,9 +34,19 @@ namespace Ndapi.Metadata
         public bool AllowSet { get; }
 
         /// <summary>
+        /// Gets whether the property represents a list of items.
+        /// </summary>
+        public bool IsList { get; }
+
+        /// <summary>
+        /// Gets the raw property type.
+        /// </summary>
+        public Type RawPropertyType { get; }
+
+        /// <summary>
         /// Gets the property type.
         /// </summary>
-        public Type PropertyType { get; }
+        public PropertyType PropertyType { get; }
 
         /// <summary>
         /// Gets the property description.
@@ -53,8 +64,30 @@ namespace Ndapi.Metadata
             Name = name;
             AllowGet = allowGet;
             AllowSet = allowSet;
-            PropertyType = propertyType;
+            RawPropertyType = propertyType;
             _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
+
+            if (RawPropertyType == typeof(string))
+            {
+                PropertyType = PropertyType.Text;
+            }
+            else if (RawPropertyType == typeof(bool))
+            {
+                PropertyType = PropertyType.Boolean;
+            }
+            else if (RawPropertyType == typeof(int) || RawPropertyType.IsEnum)
+            {
+                PropertyType = PropertyType.Number;
+            }
+            else
+            {
+                PropertyType = PropertyType.Object;
+
+                if (RawPropertyType.IsGenericType && RawPropertyType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+                {
+                    IsList = true;
+                }
+            }
         }
 
         internal static NdapiMetaProperty GetOrCreate(int propertyId, string name, bool allowGet, bool allowSet, Type propertyType)
@@ -72,9 +105,9 @@ namespace Ndapi.Metadata
 
         private Dictionary<int, string> LoadAllowedValues()
         {
-            if (PropertyType.IsEnum)
+            if (RawPropertyType.IsEnum)
             {
-                return Enum.GetValues(PropertyType).Cast<int>().ToDictionary(e => e, e => Enum.GetName(PropertyType, e));
+                return Enum.GetValues(RawPropertyType).Cast<int>().ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e));
             }
 
             return new Dictionary<int, string>();
