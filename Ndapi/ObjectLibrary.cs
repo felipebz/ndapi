@@ -65,7 +65,7 @@ namespace Ndapi
                 return null;
             }
 
-            return new NdapiObject(obj);
+            return NdapiObject.Create<NdapiObject>(obj);
         }
 
         /// <summary>

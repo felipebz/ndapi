@@ -252,22 +252,7 @@ namespace Ndapi
                 return null;
             }
 
-            Type objectType = typeof(T);
-            if (objectType == typeof(NdapiObject))
-            {
-                ObjectType type;
-                status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, handle, out type);
-                Ensure.Success(status);
-
-                objectType = NdapiMetadata.ObjectTypeMapping[type];
-            }
-
-            var instance = Activator.CreateInstance(objectType,
-                BindingFlags.NonPublic | BindingFlags.Instance,
-                null,
-                new[] { handle },
-                null);
-            return (T)instance;
+            return Create<T>(handle);
         }
 
         /// <summary>
@@ -420,6 +405,26 @@ namespace Ndapi
         {
             var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, _handle);
             Ensure.Success(status);
+        }
+
+        internal static T Create<T>(ObjectSafeHandle handle)
+        {
+            Type objectType = typeof(T);
+            if (objectType == typeof(NdapiObject))
+            {
+                ObjectType type;
+                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, handle, out type);
+                Ensure.Success(status);
+
+                objectType = NdapiMetadata.ObjectTypeMapping[type];
+            }
+
+            var instance = Activator.CreateInstance(objectType,
+                BindingFlags.NonPublic | BindingFlags.Instance,
+                null,
+                new[] { handle },
+                null);
+            return (T)instance;
         }
 
         /// <summary>
