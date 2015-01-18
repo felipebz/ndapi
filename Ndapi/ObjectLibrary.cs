@@ -32,13 +32,7 @@ namespace Ndapi
         /// <summary>
         /// Gets all the objects contained in this Library.
         /// </summary>
-        public NdapiObjectLibraryObjectList Objects
-        {
-            get
-            {
-                return new NdapiObjectLibraryObjectList(this);
-            }
-        }
+        public NdapiObjectLibraryObjectList Objects => new NdapiObjectLibraryObjectList(this);
 
         /// <summary>
         /// Get the object in the specified position.
@@ -56,7 +50,7 @@ namespace Ndapi
                 return null;
             }
 
-            return NdapiObject.Create<NdapiObject>(obj);
+            return Create<NdapiObject>(obj);
         }
 
         /// <summary>
