@@ -58,6 +58,7 @@
     <Compile Include="Metadata\NdapiMetadata.cs" />
     <Compile Include="Metadata\NdapiMetaObject.cs" />
     <Compile Include="Metadata\NdapiMetaProperty.cs" />
+    <Compile Include="NdapiObjectLibraryObjectList.cs" />
     <Compile Include="NdapiObjectList.cs" />
     <Compile Include="PropertyAttribute.cs" />
     <Compile Include="RecordGroupColumn.cs" />
