@@ -26,21 +26,15 @@ namespace Ndapi
             }
         }
 
-        public NdapiObjectList(NdapiObject ndapiObject, int property)
+        internal NdapiObjectList(NdapiObject ndapiObject, int property)
         {
             _ndapiObject = ndapiObject;
             _property = property;
         }
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new Enumerator(this);
-        }
+        public IEnumerator<T> GetEnumerator() => new Enumerator(this);
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return new Enumerator(this);
-        }
+        IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
 
         public void RemoveAll()
         {
@@ -56,7 +50,7 @@ namespace Ndapi
             }
         }
 
-        private class Enumerator : IEnumerator<T>
+        public class Enumerator : IEnumerator<T>
         {
             private readonly NdapiObjectList<T> _objectList;
             private T _current;
@@ -79,10 +73,7 @@ namespace Ndapi
                 return _current != null;
             }
 
-            public void Reset()
-            {
-                _current = null;
-            }
+            public void Reset() => _current = null;
 
             public T Current
             {
@@ -97,13 +88,7 @@ namespace Ndapi
                 }
             }
 
-            object IEnumerator.Current
-            {
-                get
-                {
-                    return Current;
-                }
-            }
+            object IEnumerator.Current => Current;
 
             public void Dispose()
             {
