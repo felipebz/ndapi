@@ -2,7 +2,6 @@
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -19,7 +18,7 @@ namespace Ndapi
         /// Gets all the attached libraries.
         /// </summary>
         [Property(NdapiConstants.D2FP_ATT_LIB)]
-        public IEnumerable<AttachedLibrary> AttachedLibraries => GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
+        public NdapiObjectList<AttachedLibrary> AttachedLibraries => GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
 
         /// <summary>
         /// Gets the library location.
@@ -31,7 +30,7 @@ namespace Ndapi
         /// Gets all the program units.
         /// </summary>
         [Property(NdapiConstants.D2FP_LIB_PROG_UNIT)]
-        public IEnumerable<LibraryProgramUnit> ProgramUnits => GetObjectList<LibraryProgramUnit>(NdapiConstants.D2FP_LIB_PROG_UNIT);
+        public NdapiObjectList<LibraryProgramUnit> ProgramUnits => GetObjectList<LibraryProgramUnit>(NdapiConstants.D2FP_LIB_PROG_UNIT);
 
         /// <summary>
         /// Gets the source type.

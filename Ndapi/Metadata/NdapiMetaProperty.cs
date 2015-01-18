@@ -83,7 +83,7 @@ namespace Ndapi.Metadata
             {
                 PropertyType = PropertyType.Object;
 
-                if (RawPropertyType.IsGenericType && RawPropertyType.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+                if (RawPropertyType.IsGenericType)
                 {
                     IsList = true;
                 }

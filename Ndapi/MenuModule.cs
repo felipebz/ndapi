@@ -96,42 +96,42 @@ namespace Ndapi
         /// Gets all the attached libraries.
         /// </summary>
         [Property(NdapiConstants.D2FP_ATT_LIB)]
-        public IEnumerable<AttachedLibrary> AttachedLibraries =>
+        public NdapiObjectList<AttachedLibrary> AttachedLibraries =>
             GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
 
         /// <summary>
         /// Gets all the menus.
         /// </summary>
         [Property(NdapiConstants.D2FP_MENU)]
-        public IEnumerable<Menu> Menus =>
+        public NdapiObjectList<Menu> Menus =>
             GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
 
         /// <summary>
         /// Gets all the menu parameters.
         /// </summary>
         [Property(NdapiConstants.D2FP_MNU_PARAM)]
-        public IEnumerable<MenuParameter> Parameters =>
+        public NdapiObjectList<MenuParameter> Parameters =>
             GetObjectList<MenuParameter>(NdapiConstants.D2FP_MNU_PARAM);
 
         /// <summary>
         /// Gets all the object groups.
         /// </summary>
         [Property(NdapiConstants.D2FP_OBJ_GRP)]
-        public IEnumerable<ObjectGroup> ObjectGroups =>
+        public NdapiObjectList<ObjectGroup> ObjectGroups =>
             GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP);
 
         /// <summary>
         /// Gets all the program units.
         /// </summary>
         [Property(NdapiConstants.D2FP_PROG_UNIT)]
-        public IEnumerable<ProgramUnit> ProgramUnits =>
+        public NdapiObjectList<ProgramUnit> ProgramUnits =>
             GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
 
         /// <summary>
         /// Gets all the property classes.
         /// </summary>
         [Property(NdapiConstants.D2FP_PROP_CLASS)]
-        public IEnumerable<PropertyClass> PropertyClasses =>
+        public NdapiObjectList<PropertyClass> PropertyClasses =>
             GetObjectList<PropertyClass>(NdapiConstants.D2FP_PROP_CLASS);
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Ndapi
         /// Gets all the visual attributes.
         /// </summary>
         [Property(NdapiConstants.D2FP_VIS_ATTR)]
-        public IEnumerable<VisualAttribute> VisualAttributes =>
+        public NdapiObjectList<VisualAttribute> VisualAttributes =>
             GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
 
         /// <summary>

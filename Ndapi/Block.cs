@@ -1,7 +1,6 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -625,77 +624,77 @@ namespace Ndapi
         /// Gets the delete data source arguments.
         /// </summary>
         [Property(NdapiConstants.D2FP_DEL_DAT_SRC_ARG)]
-        public IEnumerable<DataSourceArgument> DeleteDataSourceArguments =>
+        public NdapiObjectList<DataSourceArgument> DeleteDataSourceArguments =>
             GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_DEL_DAT_SRC_ARG);
 
         /// <summary>
         /// Gets the delete data source columns.
         /// </summary>
         [Property(NdapiConstants.D2FP_DEL_DAT_SRC_COL)]
-        public IEnumerable<DataSourceColumn> DeleteDataSourceColumns =>
+        public NdapiObjectList<DataSourceColumn> DeleteDataSourceColumns =>
             GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_DEL_DAT_SRC_COL);
 
         /// <summary>
         /// Gets the insert data source arguments.
         /// </summary>
         [Property(NdapiConstants.D2FP_INS_DAT_SRC_ARG)]
-        public IEnumerable<DataSourceArgument> InsertDataSourceArguments =>
+        public NdapiObjectList<DataSourceArgument> InsertDataSourceArguments =>
             GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_INS_DAT_SRC_ARG);
 
         /// <summary>
         /// Gets the insert data source columns.
         /// </summary>
         [Property(NdapiConstants.D2FP_INS_DAT_SRC_COL)]
-        public IEnumerable<DataSourceColumn> InsertDataSourceColumns =>
+        public NdapiObjectList<DataSourceColumn> InsertDataSourceColumns =>
             GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_INS_DAT_SRC_COL);
 
         /// <summary>
         /// Gets the child itens.
         /// </summary>
         [Property(NdapiConstants.D2FP_ITEM)]
-        public IEnumerable<Item> Items =>
+        public NdapiObjectList<Item> Items =>
             GetObjectList<Item>(NdapiConstants.D2FP_ITEM);
 
         /// <summary>
         /// Gets the query data source arguments.
         /// </summary>
         [Property(NdapiConstants.D2FP_QRY_DAT_SRC_ARG)]
-        public IEnumerable<DataSourceArgument> QueryDataSourceArguments =>
+        public NdapiObjectList<DataSourceArgument> QueryDataSourceArguments =>
             GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_QRY_DAT_SRC_ARG);
 
         /// <summary>
         /// Gets the query data source columns.
         /// </summary>
         [Property(NdapiConstants.D2FP_QRY_DAT_SRC_COL)]
-        public IEnumerable<DataSourceColumn> QueryDataSourceColumns =>
+        public NdapiObjectList<DataSourceColumn> QueryDataSourceColumns =>
             GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_QRY_DAT_SRC_COL);
 
         /// <summary>
         /// Gets the block relations.
         /// </summary>
         [Property(NdapiConstants.D2FP_REL)]
-        public IEnumerable<BlockRelation> Relations =>
+        public NdapiObjectList<BlockRelation> Relations =>
             GetObjectList<BlockRelation>(NdapiConstants.D2FP_REL);
 
         /// <summary>
         /// Gets the block-level triggers.
         /// </summary>
         [Property(NdapiConstants.D2FP_TRIGGER)]
-        public IEnumerable<Trigger> Triggers =>
+        public NdapiObjectList<Trigger> Triggers =>
             GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
         /// <summary>
         /// Gets the update data source arguments.
         /// </summary>
         [Property(NdapiConstants.D2FP_UPD_DAT_SRC_ARG)]
-        public IEnumerable<DataSourceArgument> UpdateDataSourceArguments =>
+        public NdapiObjectList<DataSourceArgument> UpdateDataSourceArguments =>
             GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_UPD_DAT_SRC_ARG);
 
         /// <summary>
         /// Gets the update data source columns.
         /// </summary>
         [Property(NdapiConstants.D2FP_UPD_DAT_SRC_COL)]
-        public IEnumerable<DataSourceColumn> UpdateDataSourceColumns =>
+        public NdapiObjectList<DataSourceColumn> UpdateDataSourceColumns =>
             GetObjectList<DataSourceColumn>(NdapiConstants.D2FP_UPD_DAT_SRC_COL);
 
         /// <summary>

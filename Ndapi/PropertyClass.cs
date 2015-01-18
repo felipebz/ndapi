@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Ndapi.Core.Handles;
+﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using Ndapi.Core;
 
@@ -64,7 +63,7 @@ namespace Ndapi
         /// Gets all the triggers attached to this property class.
         /// </summary>
         [Property(NdapiConstants.D2FP_TRIGGER)]
-        public IEnumerable<Trigger> Triggers =>
+        public NdapiObjectList<Trigger> Triggers =>
             GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
         /// <summary>

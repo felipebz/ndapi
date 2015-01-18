@@ -1,6 +1,5 @@
 ﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -54,6 +53,6 @@ namespace Ndapi
         /// Gets the objects contained in the group.
         /// </summary>
         [Property(NdapiConstants.D2FP_OG_CHILD)]
-        public IEnumerable<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstants.D2FP_OG_CHILD);
+        public NdapiObjectList<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstants.D2FP_OG_CHILD);
     }
 }

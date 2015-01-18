@@ -1,6 +1,5 @@
 ﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -350,7 +349,7 @@ namespace Ndapi
         /// Gets all the graphics objects attached to the canvas.
         /// </summary>
         [Property(NdapiConstants.D2FP_GRAPHIC)]
-        public IEnumerable<Graphics> Graphics =>
+        public NdapiObjectList<Graphics> Graphics =>
             GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
 
         /// <summary>
@@ -358,7 +357,7 @@ namespace Ndapi
         /// This property is valid only when the <see cref="CanvasType"/> is set to <see cref="CanvasType.Tab"/>.
         /// </summary>
         [Property(NdapiConstants.D2FP_TAB_PAGE)]
-        public IEnumerable<TabPage> TabPages =>
+        public NdapiObjectList<TabPage> TabPages =>
             GetObjectList<TabPage>(NdapiConstants.D2FP_TAB_PAGE);
     }
 }

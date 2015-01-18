@@ -1,7 +1,6 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -85,7 +84,7 @@ namespace Ndapi
         /// Gets the columns in the record group.
         /// </summary>
         [Property(NdapiConstants.D2FP_COL_SPEC)]
-        public IEnumerable<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstants.D2FP_COL_SPEC);
+        public NdapiObjectList<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstants.D2FP_COL_SPEC);
 
         /// <summary>
         /// Set the record group query without parsing the SQL to create the record group column specifications.

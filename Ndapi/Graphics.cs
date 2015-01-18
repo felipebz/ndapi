@@ -1,7 +1,6 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -886,7 +885,7 @@ namespace Ndapi
         /// Gets or sets the child graphics.
         /// </summary>
         [Property(NdapiConstants.D2FP_GRAPHIC)]
-        public IEnumerable<Graphics> ChildGraphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
+        public NdapiObjectList<Graphics> ChildGraphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
 
         /// <summary>
         /// Imports an image from disk into a graphics image object.

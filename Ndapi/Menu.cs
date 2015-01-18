@@ -1,6 +1,5 @@
 ﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -65,6 +64,6 @@ namespace Ndapi
         /// Gets the menu items.
         /// </summary>
         [Property(NdapiConstants.D2FP_MNU_ITM)]
-        public IEnumerable<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM);
+        public NdapiObjectList<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM);
     }
 }

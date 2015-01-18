@@ -1,6 +1,5 @@
 ﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using Ndapi.Metadata;
 
 namespace Ndapi
 {

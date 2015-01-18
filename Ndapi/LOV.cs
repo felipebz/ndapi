@@ -1,6 +1,5 @@
 ﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -320,6 +319,6 @@ namespace Ndapi
         /// Gets all the LOV column mappings.
         /// </summary>
         [Property(NdapiConstants.D2FP_COL_MAP)]
-        public IEnumerable<ColumnMapping> ColumnMappings => GetObjectList<ColumnMapping>(NdapiConstants.D2FP_COL_MAP);
+        public NdapiObjectList<ColumnMapping> ColumnMappings => GetObjectList<ColumnMapping>(NdapiConstants.D2FP_COL_MAP);
     }
 }

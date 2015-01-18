@@ -1,7 +1,6 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -256,112 +255,112 @@ namespace Ndapi
         /// Gets all the alerts.
         /// </summary>
         [Property(NdapiConstants.D2FP_ALERT)]
-        public IEnumerable<Alert> Alerts =>
+        public NdapiObjectList<Alert> Alerts =>
             GetObjectList<Alert>(NdapiConstants.D2FP_ALERT);
 
         /// <summary>
         /// Gets all the attached libraries.
         /// </summary>
         [Property(NdapiConstants.D2FP_ATT_LIB)]
-        public IEnumerable<AttachedLibrary> AttachedLibraries =>
+        public NdapiObjectList<AttachedLibrary> AttachedLibraries =>
             GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
 
         /// <summary>
         /// Gets all the canvases.
         /// </summary>
         [Property(NdapiConstants.D2FP_CANVAS)]
-        public IEnumerable<Canvas> Canvases =>
+        public NdapiObjectList<Canvas> Canvases =>
             GetObjectList<Canvas>(NdapiConstants.D2FP_CANVAS);
 
         /// <summary>
         /// Gets all the blocks.
         /// </summary>
         [Property(NdapiConstants.D2FP_BLOCK)]
-        public IEnumerable<Block> Blocks =>
+        public NdapiObjectList<Block> Blocks =>
             GetObjectList<Block>(NdapiConstants.D2FP_BLOCK);
 
         /// <summary>
         /// Gets all the editors.
         /// </summary>
         [Property(NdapiConstants.D2FP_EDITOR)]
-        public IEnumerable<Editor> Editors =>
+        public NdapiObjectList<Editor> Editors =>
             GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR);
 
         /// <summary>
         /// Gets all the list of values.
         /// </summary>
         [Property(NdapiConstants.D2FP_LOV)]
-        public IEnumerable<LOV> LOVs =>
+        public NdapiObjectList<LOV> LOVs =>
             GetObjectList<LOV>(NdapiConstants.D2FP_LOV);
 
         /// <summary>
         /// Gets all the menus.
         /// </summary>
         [Property(NdapiConstants.D2FP_MENU)]
-        public IEnumerable<Menu> Menus =>
+        public NdapiObjectList<Menu> Menus =>
             GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
 
         /// <summary>
         /// Gets all the object groups.
         /// </summary>
         [Property(NdapiConstants.D2FP_OBJ_GRP)]
-        public IEnumerable<ObjectGroup> ObjectGroups =>
+        public NdapiObjectList<ObjectGroup> ObjectGroups =>
             GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP);
 
         /// <summary>
         /// Gets all the form parameters.
         /// </summary>
         [Property(NdapiConstants.D2FP_FORM_PARAM)]
-        public IEnumerable<FormParameter> Parameters =>
+        public NdapiObjectList<FormParameter> Parameters =>
             GetObjectList<FormParameter>(NdapiConstants.D2FP_FORM_PARAM);
 
         /// <summary>
         /// Gets all the program units.
         /// </summary>
         [Property(NdapiConstants.D2FP_PROG_UNIT)]
-        public IEnumerable<ProgramUnit> ProgramUnits =>
+        public NdapiObjectList<ProgramUnit> ProgramUnits =>
             GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
 
         /// <summary>
         /// Gets all the property classes.
         /// </summary>
         [Property(NdapiConstants.D2FP_PROP_CLASS)]
-        public IEnumerable<PropertyClass> PropertyClasses =>
+        public NdapiObjectList<PropertyClass> PropertyClasses =>
             GetObjectList<PropertyClass>(NdapiConstants.D2FP_PROP_CLASS);
 
         /// <summary>
         /// Gets all the record groups.
         /// </summary>
         [Property(NdapiConstants.D2FP_REC_GRP)]
-        public IEnumerable<RecordGroup> RecordGroups =>
+        public NdapiObjectList<RecordGroup> RecordGroups =>
             GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP);
 
         /// <summary>
         /// Gets all the reports.
         /// </summary>
         [Property(NdapiConstants.D2FP_REPORT)]
-        public IEnumerable<Report> Reports =>
+        public NdapiObjectList<Report> Reports =>
             GetObjectList<Report>(NdapiConstants.D2FP_REPORT);
 
         /// <summary>
         /// Gets all the form-level triggers.
         /// </summary>
         [Property(NdapiConstants.D2FP_TRIGGER)]
-        public IEnumerable<Trigger> Triggers =>
+        public NdapiObjectList<Trigger> Triggers =>
             GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
         /// <summary>
         /// Gets all the visual attributes.
         /// </summary>
         [Property(NdapiConstants.D2FP_VIS_ATTR)]
-        public IEnumerable<VisualAttribute> VisualAttributes =>
+        public NdapiObjectList<VisualAttribute> VisualAttributes =>
             GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
 
         /// <summary>
         /// Gets all the windows.
         /// </summary>
         [Property(NdapiConstants.D2FP_WINDOW)]
-        public IEnumerable<Window> Windows =>
+        public NdapiObjectList<Window> Windows =>
             GetObjectList<Window>(NdapiConstants.D2FP_WINDOW);
 
         /// <summary>

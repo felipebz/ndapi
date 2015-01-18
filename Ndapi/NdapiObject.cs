@@ -271,14 +271,9 @@ namespace Ndapi
         /// </summary>
         /// <param name="property">Property id.</param>
         /// <returns>List of child objects.</returns>
-        public IEnumerable<T> GetObjectList<T>(int property) where T : NdapiObject
+        public NdapiObjectList<T> GetObjectList<T>(int property) where T : NdapiObject
         {
-            var _result = GetObjectProperty<T>(property);
-            while (_result != null)
-            {
-                yield return _result;
-                _result = _result.GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
-            }
+            return new NdapiObjectList<T>(this, property);
         }
 
         /// <summary>

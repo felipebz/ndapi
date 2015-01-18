@@ -1530,7 +1530,7 @@ namespace Ndapi
         /// Gets the item-level triggers.
         /// </summary>
         [Property(NdapiConstants.D2FP_TRIGGER)]
-        public IEnumerable<Trigger> Triggers => GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
+        public NdapiObjectList<Trigger> Triggers => GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
 
         /// <summary>
         /// Gets the list elements. Valid only when <see cref="ItemType"/> is <see cref="ItemType.ListItem"/>.

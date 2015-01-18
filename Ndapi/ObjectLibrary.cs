@@ -33,7 +33,7 @@ namespace Ndapi
         /// Gets all the tabs.
         /// </summary>
         [Property(NdapiConstants.D2FP_OBJ_LIB_TAB)]
-        public IEnumerable<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstants.D2FP_OBJ_LIB_TAB);
+        public NdapiObjectList<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstants.D2FP_OBJ_LIB_TAB);
 
         /// <summary>
         /// Gets all the objects contained in this Library.

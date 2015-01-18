@@ -1,6 +1,5 @@
 ﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -66,6 +65,6 @@ namespace Ndapi
         /// Gets all the graphic objects attached to the canvas.
         /// </summary>
         [Property(NdapiConstants.D2FP_GRAPHIC)]
-        public IEnumerable<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
+        public NdapiObjectList<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
     }
 }
