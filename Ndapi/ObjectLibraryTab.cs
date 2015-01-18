@@ -44,24 +44,9 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets the number of object in the tab.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_OBJ_COUNT)]
-        public int ObjectCount => GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
-
-        /// <summary>
         /// Gets all the objects contained in this tab.
         /// </summary>
-        public IEnumerable<NdapiObject> Objects
-        {
-            get
-            {
-                for (var i = 1; i <= ObjectCount; i++) // objects index is one-based
-                {
-                    yield return GetObjectByPosition(i);
-                }
-            }
-        }
+        public NdapiObjectLibraryTabObjectsList Objects => new NdapiObjectLibraryTabObjectsList(this);
 
         /// <summary>
         /// Get the object in the specified position.
