@@ -24,7 +24,7 @@ namespace Ndapi
 
         IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
 
-        public class Enumerator : IEnumerator<NdapiObject>
+        public sealed class Enumerator : IEnumerator<NdapiObject>
         {
             private NdapiObjectLibraryTabObjectsList _list;
             private int _position;

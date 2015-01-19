@@ -50,7 +50,7 @@ namespace Ndapi
             }
         }
 
-        public class Enumerator : IEnumerator<T>
+        public sealed class Enumerator : IEnumerator<T>
         {
             private readonly NdapiObjectList<T> _objectList;
             private T _current;
