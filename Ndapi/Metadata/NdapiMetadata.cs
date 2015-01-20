@@ -32,7 +32,7 @@ namespace Ndapi.Metadata
                 { ObjectType.Canvas,              typeof(Canvas) },
                 //{ ObjectType.ColumnValue,       typeof(NdapiObject) },
                 //{ ObjectType.CompoundText,      typeof(NdapiObject) },
-                //{ ObjectType.Coordinate,        typeof(NdapiObject) },
+                { ObjectType.Coordinate,          typeof(Coordinate) },
                 { ObjectType.DataSourceArgument,  typeof(DataSourceArgument) },
                 { ObjectType.DataSourceColumn,    typeof(DataSourceColumn) },
                 { ObjectType.Editor,              typeof(Editor) },
