@@ -394,6 +394,20 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Reattaches subclassed object.
+        /// </summary>
+        /// <remarks>
+        /// This method must be called if you changed one of the following properties:
+        /// <see cref="ParentFileName"/>, <see cref="ParentFileNamePath"/>, <see cref="ParentModule"/>, <see cref="ParentModuleStorage"/>,
+        /// <see cref="ParentModuleType"/>, <see cref="ParentName"/> or <see cref="ParentType"/>.
+        /// </remarks>
+        public void Reattach()
+        {
+            var status = NativeMethods.d2fobra_Reattach(NdapiContext.Context, _handle);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
         /// Destroy the current object.
         /// </summary>
         public void Destroy()

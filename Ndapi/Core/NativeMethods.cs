@@ -300,6 +300,9 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobde_Destroy(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobra_Reattach(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
         #endregion
     }
 }
