@@ -13,6 +13,25 @@ namespace Ndapi
     /// </summary>
     public class Coordinate : NdapiObject
     {
+        /// <summary>
+        /// Creates a coordinate declaration
+        /// </summary>
+        public Coordinate() : base(ObjectType.Coordinate)
+        {
+        }
+
+        /// <summary>
+        /// Extracts the coordinate declaration from a form module
+        /// </summary>
+        /// <param name="module">Form module.</param>
+        public Coordinate(FormModule module) : base(ObjectType.Coordinate)
+        {
+            _handle = new ObjectSafeHandle();
+            var status = NativeMethods.d2fcrdcr_Create(NdapiContext.Context, out _handle);
+            Ensure.Success(status);
+            Extract(module);
+        }
+
         internal Coordinate(ObjectSafeHandle handle) : base(handle)
         {
         }
@@ -73,7 +92,7 @@ namespace Ndapi
         /// <param name="module">Form module.</param>
         public void Extract(FormModule module)
         {
-            var status = NativeMethods.d2fcrdap_Apply(NdapiContext.Context, _handle, module._handle);
+            var status = NativeMethods.d2fcrdex_Extract(NdapiContext.Context, _handle, module._handle);
             Ensure.Success(status);
         }
 

@@ -22,6 +22,11 @@ namespace Ndapi
             _type = ObjectType.Undefined;
         }
 
+        internal NdapiObject(ObjectType type)
+        {
+            _type = type;
+        }
+
         internal NdapiObject(string name, ObjectType type, NdapiObject parent = null)
         {
             var parentHandle = parent?._handle ?? new ObjectSafeHandle();

@@ -47,6 +47,9 @@ namespace Ndapi.Core
 
         #region Coordinate methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fcrdcr_Create(ContextSafeHandle pd2fctx, out ObjectSafeHandle ppd2fcrd);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fcrdex_Extract(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fcrd, ObjectSafeHandle pd2ffmd);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
