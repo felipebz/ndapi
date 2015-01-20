@@ -242,12 +242,6 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets the role count.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_ROLE_COUNT)]
-        public int RoleCount => GetNumberProperty(NdapiConstants.D2FP_ROLE_COUNT);
-
-        /// <summary>
         /// Gets or sets the visual attribute name.
         /// </summary>
         [Property(NdapiConstants.D2FP_VAT_NAM)]
@@ -300,16 +294,7 @@ namespace Ndapi
         /// <summary>
         /// Gets the menu item roles.
         /// </summary>
-        public IEnumerable<string> Roles
-        {
-            get
-            {
-                for (var i = 1; i <= RoleCount; i++) // objects index is one-based
-                {
-                    yield return GetRoleAt(i);
-                }
-            }
-        }
+        public IEnumerable<string> Roles => new NdapiMenuItemRoleList(this);
 
         /// <summary>
         /// Compile PL/SQL code in the menu item.
