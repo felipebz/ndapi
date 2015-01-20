@@ -68,6 +68,16 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Extract the coordinate declaration from the specified form module.
+        /// </summary>
+        /// <param name="module">Form module.</param>
+        public void Extract(FormModule module)
+        {
+            var status = NativeMethods.d2fcrdap_Apply(NdapiContext.Context, _handle, module._handle);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
         /// Apply the coordinate declaration to the specified form module.
         /// </summary>
         /// <param name="module">Form module to be changed.</param>
