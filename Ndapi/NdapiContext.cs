@@ -45,8 +45,10 @@ namespace Ndapi
 
         private static IntPtr ReallocateMemory(ref IntPtr context, IntPtr ptr, IntPtr newsize)
         {
-            if (ptr == IntPtr.Zero)
+            if (ptr == IntPtr.Zero) 
+            {
                 return AllocateMemory(ref context, newsize);
+            }
 
             return Marshal.ReAllocHGlobal(ptr, newsize);
         }
@@ -97,11 +99,10 @@ namespace Ndapi
         /// </summary>
         public static void Destroy()
         {
-            if (!_context.IsInvalid)
-            {
-                _context.Dispose();
-                _context = null;
-            }
+            if (_context.IsInvalid) return;
+            
+            _context.Dispose();
+            _context = null;
         }
 
         /// <summary>
