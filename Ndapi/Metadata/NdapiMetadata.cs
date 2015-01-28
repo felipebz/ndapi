@@ -56,7 +56,7 @@ namespace Ndapi.Metadata
                 //{ ObjectType.Point,             typeof(NdapiObject) },
                 { ObjectType.ProgramUnit,         typeof(ProgramUnit) },
                 { ObjectType.PropertyClass,       typeof(PropertyClass) },
-                //{ ObjectType.RadioButton,       typeof(NdapiObject) },
+                { ObjectType.RadioButton,         typeof(RadioButton) },
                 { ObjectType.RecordGroup,         typeof(RecordGroup) },
                 { ObjectType.BlockRelation,       typeof(BlockRelation) },
                 { ObjectType.Report,              typeof(Report) },

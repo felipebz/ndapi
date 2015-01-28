@@ -64,6 +64,7 @@
     <Compile Include="NdapiObjectLibraryTabObjectsList.cs" />
     <Compile Include="NdapiObjectList.cs" />
     <Compile Include="PropertyAttribute.cs" />
+    <Compile Include="RadioButton.cs" />
     <Compile Include="RecordGroupColumn.cs" />
     <Compile Include="Core\D2fContext.cs" />
     <Compile Include="Core\D2fErrorCode.cs" />

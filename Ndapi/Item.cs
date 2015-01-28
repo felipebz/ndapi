@@ -1524,7 +1524,7 @@ namespace Ndapi
         /// Gets the radio button items.
         /// </summary>
         [Property(NdapiConstants.D2FP_RAD_BUT)]
-        public NdapiObject RadioButtons => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_RAD_BUT);
+        public NdapiObjectList<RadioButton> RadioButtons => GetObjectList<RadioButton>(NdapiConstants.D2FP_RAD_BUT);
 
         /// <summary>
         /// Gets the item-level triggers.
