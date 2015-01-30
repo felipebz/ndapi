@@ -19,8 +19,6 @@ while (programUnits.hasNext()) {
 }
 ```
 
-While JDAPI can be used in .NET projects after converted by ikvmc (from [IKVM.NET](http://www.ikvm.net/)), the resulting API isn't nice for .NET developers.
-
 The objective of this project is to implement a fully featured .NET wrapper for Oracle Forms Open API, providing a more idiomatic API for .NET developers. 
 
 So, the same code with Ndapi would be:
