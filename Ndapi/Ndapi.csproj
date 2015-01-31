@@ -56,6 +56,7 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="ColumnMapping.cs" />
     <Compile Include="Coordinate.cs" />
+    <Compile Include="Font.cs" />
     <Compile Include="Metadata\NdapiMetadata.cs" />
     <Compile Include="Metadata\NdapiMetaObject.cs" />
     <Compile Include="Metadata\NdapiMetaProperty.cs" />

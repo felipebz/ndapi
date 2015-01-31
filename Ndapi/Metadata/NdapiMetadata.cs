@@ -36,7 +36,7 @@ namespace Ndapi.Metadata
                 { ObjectType.DataSourceArgument,  typeof(DataSourceArgument) },
                 { ObjectType.DataSourceColumn,    typeof(DataSourceColumn) },
                 { ObjectType.Editor,              typeof(Editor) },
-                //{ ObjectType.Font,              typeof(NdapiObject) },
+                { ObjectType.Font,                typeof(Font) },
                 { ObjectType.FormModule,          typeof(FormModule) },
                 { ObjectType.FormParameter,       typeof(FormParameter) },
                 { ObjectType.Graphics,            typeof(Graphics) },
