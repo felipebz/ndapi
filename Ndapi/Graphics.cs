@@ -873,12 +873,12 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets the font point size.
+        /// Gets the graphics points.
         /// </summary>
         [Property(NdapiConstants.D2FP_POINT)]
-        public NdapiObject FontPointSize
+        public NdapiObjectList<Point> Points
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_POINT); }
+            get { return GetObjectList<Point>(NdapiConstants.D2FP_POINT); }
         }
 
         /// <summary>

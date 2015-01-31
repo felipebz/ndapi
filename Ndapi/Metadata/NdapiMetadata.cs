@@ -53,7 +53,7 @@ namespace Ndapi.Metadata
                 { ObjectType.ObjectGroupChild,    typeof(ObjectGroupChild) },
                 { ObjectType.ObjectLibrary,       typeof(ObjectLibrary) },
                 { ObjectType.ObjectLibraryTab,    typeof(ObjectLibraryTab) },
-                //{ ObjectType.Point,             typeof(NdapiObject) },
+                { ObjectType.Point,               typeof(Point) },
                 { ObjectType.ProgramUnit,         typeof(ProgramUnit) },
                 { ObjectType.PropertyClass,       typeof(PropertyClass) },
                 { ObjectType.RadioButton,         typeof(RadioButton) },
