@@ -14,17 +14,17 @@ namespace Ndapi
         /// </summary>
         public Coordinate() : base(ObjectType.Coordinate)
         {
+            _handle = new ObjectSafeHandle();
+            var status = NativeMethods.d2fcrdcr_Create(NdapiContext.Context, out _handle);
+            Ensure.Success(status);
         }
 
         /// <summary>
         /// Extracts the coordinate declaration from a form module
         /// </summary>
         /// <param name="module">Form module.</param>
-        public Coordinate(FormModule module) : base(ObjectType.Coordinate)
+        public Coordinate(FormModule module) : this()
         {
-            _handle = new ObjectSafeHandle();
-            var status = NativeMethods.d2fcrdcr_Create(NdapiContext.Context, out _handle);
-            Ensure.Success(status);
             Extract(module);
         }
 

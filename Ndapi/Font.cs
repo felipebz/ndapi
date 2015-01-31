@@ -14,6 +14,9 @@ namespace Ndapi
         /// </summary>
         public Font() : base(ObjectType.Font)
         {
+            _handle = new ObjectSafeHandle();
+            var status = NativeMethods.d2ffntcr_Create(NdapiContext.Context, out _handle);
+            Ensure.Success(status);
         }
 
         /// <summary>
@@ -21,11 +24,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object.</param>
         /// /// /// <param name="type">Visual attribute type.</param>
-        public Font(NdapiObject obj, VisualAttributeType type) : base(ObjectType.Coordinate)
+        public Font(NdapiObject obj, VisualAttributeType type) : this()
         {
-            _handle = new ObjectSafeHandle();
-            var status = NativeMethods.d2ffntcr_Create(NdapiContext.Context, out _handle);
-            Ensure.Success(status);
             Extract(obj, type);
         }
 
