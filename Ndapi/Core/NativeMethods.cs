@@ -11,7 +11,7 @@ namespace Ndapi.Core
 
         #region Context methods
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int d2fctxbv_BuilderVersion(ContextSafeHandle pd2fctx, ref int version);
+        public static extern int d2fctxbv_BuilderVersion(ContextSafeHandle pd2fctx, out int version);
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fctxcr_Create(out ContextSafeHandle ppd2fctx, ref D2fContextAttributes d2fctx_attr);

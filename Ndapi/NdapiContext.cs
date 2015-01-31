@@ -66,9 +66,8 @@ namespace Ndapi
         {
             get
             {
-                var version = 0;
-
-                var status = NativeMethods.d2fctxbv_BuilderVersion(Context, ref version);
+                int version;
+                var status = NativeMethods.d2fctxbv_BuilderVersion(Context, out version);
                 Ensure.Success(status);
 
                 return version;
