@@ -23,7 +23,7 @@ namespace Ndapi
         /// Extracts the font declaration from an object.
         /// </summary>
         /// <param name="obj">Object.</param>
-        /// /// /// <param name="type">Visual attribute type.</param>
+        /// <param name="type">Visual attribute type.</param>
         public Font(NdapiObject obj, VisualAttributeType type) : this()
         {
             Extract(obj, type);
@@ -98,7 +98,7 @@ namespace Ndapi
         /// Apply the coordinate declaration to the specified form module.
         /// </summary>
         /// <param name="module">Form module to be changed.</param>
-        /// /// <param name="type">Visual attribute type.</param>
+        /// <param name="type">Visual attribute type.</param>
         public void Apply(NdapiObject module, VisualAttributeType type)
         {
             var status = NativeMethods.d2ffntap_Apply(NdapiContext.Context, _handle, module._handle, type);
