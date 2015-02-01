@@ -1,6 +1,6 @@
 ﻿namespace Ndapi.Core
 {
-    internal enum D2fErrorCode
+    public enum D2fErrorCode
     {
         /// <summary>
         /// Operation Succeeded

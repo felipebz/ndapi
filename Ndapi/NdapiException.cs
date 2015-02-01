@@ -11,6 +11,11 @@ namespace Ndapi
     public class NdapiException : Exception
     {
         /// <summary>
+        /// Gets the internal Forms API error code.
+        /// </summary>
+        public D2fErrorCode ErrorCode { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="NdapiException"/> class.
         /// </summary>
         public NdapiException()
@@ -45,7 +50,8 @@ namespace Ndapi
 
         internal NdapiException(string message, D2fErrorCode code) : this(message)
         {
-            Data.Add("ndapi.code", (int)code);
+            ErrorCode = code;
+            Data.Add("ndapi.code", (int)ErrorCode);
         }
     }
 }
