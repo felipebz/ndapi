@@ -30,7 +30,6 @@ namespace Ndapi.Metadata
                 { ObjectType.AttachedLibrary,     typeof(AttachedLibrary) },
                 { ObjectType.Block,               typeof(Block) },
                 { ObjectType.Canvas,              typeof(Canvas) },
-                //{ ObjectType.ColumnValue,       typeof(NdapiObject) },
                 { ObjectType.CompoundText,        typeof(CompoundText) },
                 { ObjectType.Coordinate,          typeof(Coordinate) },
                 { ObjectType.DataSourceArgument,  typeof(DataSourceArgument) },
