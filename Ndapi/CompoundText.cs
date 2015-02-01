@@ -25,6 +25,6 @@ namespace Ndapi
         /// Gets the text segments.
         /// </summary>
         [Property(NdapiConstants.D2FP_TEXT_SEG)]
-        public NdapiObjectList<NdapiObject> TextSegments => GetObjectList<NdapiObject>(NdapiConstants.D2FP_TEXT_SEG);
+        public NdapiObjectList<TextSegment> TextSegments => GetObjectList<TextSegment>(NdapiConstants.D2FP_TEXT_SEG);
     }
 }

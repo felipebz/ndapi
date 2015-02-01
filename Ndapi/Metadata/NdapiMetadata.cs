@@ -62,7 +62,7 @@ namespace Ndapi.Metadata
                 { ObjectType.Report,              typeof(Report) },
                 { ObjectType.ColumnSpecification, typeof(RecordGroupColumn) },
                 { ObjectType.TabPage,             typeof(TabPage) },
-                //{ ObjectType.TextSegment,       typeof(NdapiObject) },
+                { ObjectType.TextSegment,         typeof(TextSegment) },
                 { ObjectType.Trigger,             typeof(Trigger) },
                 //{ ObjectType.TriggerStep,       typeof(NdapiObject) },
                 { ObjectType.VisualAttribute,     typeof(VisualAttribute) },
