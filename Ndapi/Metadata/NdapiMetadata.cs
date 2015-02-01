@@ -63,7 +63,6 @@ namespace Ndapi.Metadata
                 { ObjectType.TabPage,             typeof(TabPage) },
                 { ObjectType.TextSegment,         typeof(TextSegment) },
                 { ObjectType.Trigger,             typeof(Trigger) },
-                //{ ObjectType.TriggerStep,       typeof(NdapiObject) },
                 { ObjectType.VisualAttribute,     typeof(VisualAttribute) },
                 { ObjectType.Window,              typeof(Window) }
             };
