@@ -873,13 +873,16 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Gets the compound texts.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_CMPTXT)]
+        public NdapiObjectList<CompoundText> CompoundTexts => GetObjectList<CompoundText>(NdapiConstants.D2FP_CMPTXT);
+
+        /// <summary>
         /// Gets the graphics points.
         /// </summary>
         [Property(NdapiConstants.D2FP_POINT)]
-        public NdapiObjectList<Point> Points
-        {
-            get { return GetObjectList<Point>(NdapiConstants.D2FP_POINT); }
-        }
+        public NdapiObjectList<Point> Points => GetObjectList<Point>(NdapiConstants.D2FP_POINT);
 
         /// <summary>
         /// Gets or sets the child graphics.
