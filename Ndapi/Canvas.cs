@@ -26,15 +26,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a canvas object.
-        /// </summary>
-        /// <param name="library">Canvas owner.</param>
-        /// <param name="name">Canvas name.</param>
-        public Canvas(ObjectLibrary library, string name) : base(name, ObjectType.Canvas, library)
-        {
-        }
-
         internal Canvas(ObjectSafeHandle handle) : base(handle)
         {
         }

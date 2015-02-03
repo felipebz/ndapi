@@ -26,15 +26,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates an editor.
-        /// </summary>
-        /// <param name="module">Editor owner.</param>
-        /// <param name="name">Editor name.</param>
-        public Editor(ObjectLibrary module, string name) : base(name, ObjectType.Editor, module)
-        {
-        }
-
         internal Editor(ObjectSafeHandle handle) : base(handle)
         {
         }

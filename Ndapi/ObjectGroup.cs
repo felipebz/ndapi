@@ -26,15 +26,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a object group.
-        /// </summary>
-        /// <param name="library">Object group owner.</param>
-        /// <param name="name">Object group name.</param>
-        public ObjectGroup(ObjectLibrary library, string name) : base(name, ObjectType.ObjectGroup, library)
-        {
-        }
-
         internal ObjectGroup(ObjectSafeHandle handle) : base(handle)
         {
         }

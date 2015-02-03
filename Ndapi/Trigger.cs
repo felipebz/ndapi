@@ -30,15 +30,6 @@ namespace Ndapi
         /// <summary>
         /// Creates a trigger.
         /// </summary>
-        /// <param name="library">Trigger owner.</param>
-        /// <param name="name">Trigger name.</param>
-        public Trigger(ObjectLibrary library, string name) : base(name, ObjectType.Trigger, library)
-        {
-        }
-
-        /// <summary>
-        /// Creates a trigger.
-        /// </summary>
         /// <param name="block">Trigger owner.</param>
         /// <param name="name">Trigger name.</param>
         public Trigger(Block block, string name) : base(name, ObjectType.Trigger, block)

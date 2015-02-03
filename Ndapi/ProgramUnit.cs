@@ -36,15 +36,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a program unit.
-        /// </summary>
-        /// <param name="module">Program unit owner.</param>
-        /// <param name="name">Program unit name.</param>
-        public ProgramUnit(ObjectLibrary module, string name) : base(name, ObjectType.ProgramUnit, module)
-        {
-        }
-
         internal ProgramUnit(ObjectSafeHandle handle) : base(handle)
         {
         }

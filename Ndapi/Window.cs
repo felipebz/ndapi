@@ -26,15 +26,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a window object.
-        /// </summary>
-        /// <param name="library">Window owner</param>
-        /// <param name="name">Window name.</param>
-        public Window(ObjectLibrary library, string name) : base(name, ObjectType.Window, library)
-        {
-        }
-
         internal Window(ObjectSafeHandle handle) : base(handle)
         {
         }

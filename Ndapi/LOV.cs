@@ -26,15 +26,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a list of values.
-        /// </summary>
-        /// <param name="library">List of values owner.</param>
-        /// <param name="name">List of values name.</param>
-        public LOV(ObjectLibrary library, string name) : base(name, ObjectType.LOV, library)
-        {
-        }
-
         internal LOV(ObjectSafeHandle handle) : base(handle)
         {
         }

@@ -27,15 +27,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a record group
-        /// </summary>
-        /// <param name="ibrary">Record group owner.</param>
-        /// <param name="name">Record group name.</param>
-        public RecordGroup(ObjectLibrary ibrary, string name) : base(name, ObjectType.RecordGroup, ibrary)
-        {
-        }
-
         internal RecordGroup(ObjectSafeHandle handle) : base(handle)
         {
         }

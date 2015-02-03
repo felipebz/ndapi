@@ -28,15 +28,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a menu item.
-        /// </summary>
-        /// <param name="library">Menu item owner.</param>
-        /// <param name="name">Menu item name.</param>
-        public MenuItem(ObjectLibrary library, string name) : base(name, ObjectType.MenuItem, library)
-        {
-        }
-
         internal MenuItem(ObjectSafeHandle handle) : base(handle)
         {
         }

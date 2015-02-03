@@ -27,15 +27,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a block object.
-        /// </summary>
-        /// <param name="module">Block owner.</param>
-        /// <param name="name">Block name.</param>
-        public Block(ObjectLibrary module, string name) : base(name, ObjectType.Block, module)
-        {
-        }
-
         internal Block(ObjectSafeHandle handle) : base(handle)
         {
         }

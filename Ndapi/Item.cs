@@ -28,15 +28,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates an item object.
-        /// </summary>
-        /// <param name="library">Item owner.</param>
-        /// <param name="name">Item name.</param>
-        public Item(ObjectLibrary library, string name) : base(name, ObjectType.Item, library)
-        {
-        }
-
         internal Item(ObjectSafeHandle handle) : base(handle)
         {
         }

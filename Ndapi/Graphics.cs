@@ -39,15 +39,6 @@ namespace Ndapi
         /// <summary>
         /// Creates a graphics object.
         /// </summary>
-        /// <param name="library">Graphics owner.</param>
-        /// <param name="name">Graphics name.</param>
-        public Graphics(ObjectLibrary library, string name) : base(name, ObjectType.Graphics, library)
-        {
-        }
-
-        /// <summary>
-        /// Creates a graphics object.
-        /// </summary>
         /// <param name="tab">Graphics owner.</param>
         /// <param name="name">Graphics name.</param>
         public Graphics(TabPage tab, string name) : base(name, ObjectType.Graphics, tab)

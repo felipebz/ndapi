@@ -34,16 +34,6 @@ namespace Ndapi
         {
         }
 
-        /// <summary>
-        /// Creates a visual attribute.
-        /// </summary>
-        /// <param name="library">Visual attribute owner.</param>
-        /// <param name="name">Visual attribute name.</param>
-        public VisualAttribute(ObjectLibrary library, string name) : base(name, ObjectType.VisualAttribute, library)
-        {
-        }
-
-
         internal VisualAttribute(ObjectSafeHandle handle) : base(handle)
         {
         }
