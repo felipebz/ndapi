@@ -108,6 +108,14 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2folbf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, int pos, out ObjectSafeHandle ppret_obj);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2folbao_AddObj(ContextSafeHandle pd2fctx,
+                                                 ObjectSafeHandle pd2folb,
+                                                 ObjectSafeHandle pd2folt,
+                                                 ObjectSafeHandle pd2fob,
+                                                 out ObjectSafeHandle ppd2fob,
+                                                 [MarshalAs(UnmanagedType.I1)] bool replace);
         #endregion
 
         #region Object library tab methods
