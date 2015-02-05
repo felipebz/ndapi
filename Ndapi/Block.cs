@@ -631,7 +631,7 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_INS_DAT_SRC_ARG)]
         public NdapiObjectList<DataSourceArgument> InsertDataSourceArguments =>
             GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_INS_DAT_SRC_ARG);
-
+        
         /// <summary>
         /// Gets the insert data source columns.
         /// </summary>
@@ -697,5 +697,26 @@ namespace Ndapi
             var status = NativeMethods.d2fblkco_CompileObj(NdapiContext.Context, _handle);
             Ensure.Success(status);
         }
+
+        /// <summary>
+        /// Creates a child item.
+        /// </summary>
+        /// <param name="name">Name of the child item.</param>
+        /// <returns>The child object.</returns>
+        public Item CreateItem(string name) => new Item(this, name);
+
+        /// <summary>
+        /// Creates a block relation.
+        /// </summary>
+        /// <param name="name">Name of the relation.</param>
+        /// <returns>The child object.</returns>
+        public BlockRelation CreateBlockRelation(string name) => new BlockRelation(this, name);
+
+        /// <summary>
+        /// Creates a child trigger.
+        /// </summary>
+        /// <param name="name">Name of the child trigger.</param>
+        /// <returns>The child object.</returns>
+        public Trigger CreateTrigger(string name) => new Trigger(this, name);
     }
 }

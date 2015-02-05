@@ -1580,5 +1580,19 @@ namespace Ndapi
             Ensure.Success(status);
             return new KeyValuePair<string, string>(label, value);
         }
+
+        /// <summary>
+        /// Creates a radio button.
+        /// </summary>
+        /// <param name="name">Name of the radio button.</param>
+        /// <returns>The child object.</returns>
+        public RadioButton CreateRadioButton(string name) => new RadioButton(this, name);
+
+        /// <summary>
+        /// Creates a trigger.
+        /// </summary>
+        /// <param name="name">Name of the trigger.</param>
+        /// <returns>The child object.</returns>
+        public Trigger CreateTrigger(string name) => new Trigger(this, name);
     }
 }

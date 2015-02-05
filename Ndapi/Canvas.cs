@@ -350,5 +350,19 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_TAB_PAGE)]
         public NdapiObjectList<TabPage> TabPages =>
             GetObjectList<TabPage>(NdapiConstants.D2FP_TAB_PAGE);
+
+        /// <summary>
+        /// Creates a child graphics.
+        /// </summary>
+        /// <param name="name">Name of the child graphics.</param>
+        /// <returns>The child object.</returns>
+        public Graphics CreateGraphics(string name) => new Graphics(this, name);
+
+        /// <summary>
+        /// Creates a tab page.
+        /// </summary>
+        /// <param name="name">Name of the tab page.</param>
+        /// <returns>The child object.</returns>
+        public TabPage CreateTabPage(string name) => new TabPage(this, name);
     }
 }

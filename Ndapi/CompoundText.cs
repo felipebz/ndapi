@@ -26,5 +26,12 @@ namespace Ndapi
         /// </summary>
         [Property(NdapiConstants.D2FP_TEXT_SEG)]
         public NdapiObjectList<TextSegment> TextSegments => GetObjectList<TextSegment>(NdapiConstants.D2FP_TEXT_SEG);
+
+        /// <summary>
+        /// Creates a text segment.
+        /// </summary>
+        /// <param name="name">Name of the text segment.</param>
+        /// <returns>The child object.</returns>
+        public TextSegment CreateTextSegment(string name) => new TextSegment(this, name);
     }
 }

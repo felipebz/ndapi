@@ -260,5 +260,47 @@ namespace Ndapi
             Ensure.Success(status);
             return role;
         }
+
+        /// <summary>
+        /// Creates a menu.
+        /// </summary>
+        /// <param name="name">Name of the menu.</param>
+        /// <returns>The child object.</returns>
+        public Menu CreateMenu(string name) => new Menu(this, name);
+
+        /// <summary>
+        /// Creates a menu parameter.
+        /// </summary>
+        /// <param name="name">Name of the menu parameter.</param>
+        /// <returns>The child object.</returns>
+        public MenuParameter CreateFormParameter(string name) => new MenuParameter(this, name);
+
+        /// <summary>
+        /// Creates a program unit.
+        /// </summary>
+        /// <param name="name">Name of the program unit.</param>
+        /// <returns>The child object.</returns>
+        public ProgramUnit CreateProgramUnit(string name) => new ProgramUnit(this, name);
+
+        /// <summary>
+        /// Creates an object group.
+        /// </summary>
+        /// <param name="name">Name of the object group.</param>
+        /// <returns>The child object.</returns>
+        public ObjectGroup CreateObjectGroup(string name) => new ObjectGroup(this, name);
+
+        /// <summary>
+        /// Creates a property class.
+        /// </summary>
+        /// <param name="name">Name of the property class.</param>
+        /// <returns>The child object.</returns>
+        public PropertyClass CreatePropertyClass(string name) => new PropertyClass(this, name);
+
+        /// <summary>
+        /// Creates a visual attribute.
+        /// </summary>
+        /// <param name="name">Name of the visual attribute.</param>
+        /// <returns>The child object.</returns>
+        public VisualAttribute CreateVisualAttribute(string name) => new VisualAttribute(this, name);
     }
 }

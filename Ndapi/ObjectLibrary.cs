@@ -108,5 +108,12 @@ namespace Ndapi
             Ensure.Success(status);
             return version;
         }
+
+        /// <summary>
+        /// Creates a object library tab.
+        /// </summary>
+        /// <param name="name">Name of the object library tab.</param>
+        /// <returns>The child object.</returns>
+        public ObjectLibraryTab CreateObjectLibraryTab(string name) => new ObjectLibraryTab(this, name);
     }
 }

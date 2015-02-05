@@ -66,5 +66,12 @@ namespace Ndapi
         /// </summary>
         [Property(NdapiConstants.D2FP_GRAPHIC)]
         public NdapiObjectList<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
+
+        /// <summary>
+        /// Creates a child graphics object.
+        /// </summary>
+        /// <param name="name">Name of the graphics object.</param>
+        /// <returns>The child object.</returns>
+        public Graphics CreateGraphics(string name) => new Graphics(this, name);
     }
 }

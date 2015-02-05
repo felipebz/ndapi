@@ -86,5 +86,12 @@ namespace Ndapi
             var status = NativeMethods.d2frcgs_qry_noparse(NdapiContext.Context, _handle, query);
             Ensure.Success(status);
         }
+
+        /// <summary>
+        /// Creates a record group column.
+        /// </summary>
+        /// <param name="name">Name of the record group column.</param>
+        /// <returns>The child object.</returns>
+        public RecordGroupColumn CreateRecordGroupColumn(string name) => new RecordGroupColumn(this, name);
     }
 }

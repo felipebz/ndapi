@@ -75,5 +75,12 @@ namespace Ndapi
             var status = NativeMethods.d2fppcrp_RemoveProp(NdapiContext.Context, _handle, propertyId);
             Ensure.Success(status);
         }
+
+        /// <summary>
+        /// Creates a trigger.
+        /// </summary>
+        /// <param name="name">Name of the trigger.</param>
+        /// <returns>The child object.</returns>
+        public Trigger CreateTrigger(string name) => new Trigger(this, name);
     }
 }

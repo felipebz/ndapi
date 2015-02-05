@@ -311,5 +311,12 @@ namespace Ndapi
         /// </summary>
         [Property(NdapiConstants.D2FP_COL_MAP)]
         public NdapiObjectList<ColumnMapping> ColumnMappings => GetObjectList<ColumnMapping>(NdapiConstants.D2FP_COL_MAP);
+
+        /// <summary>
+        /// Creates a column mapping.
+        /// </summary>
+        /// <param name="name">Name of the column mapping.</param>
+        /// <returns>The child object.</returns>
+        public ColumnMapping CreateColumnMapping(string name) => new ColumnMapping(this, name);
     }
 }

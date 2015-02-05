@@ -45,5 +45,12 @@ namespace Ndapi
         /// </summary>
         [Property(NdapiConstants.D2FP_OG_CHILD)]
         public NdapiObjectList<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstants.D2FP_OG_CHILD);
+
+        /// <summary>
+        /// Creates a object group child.
+        /// </summary>
+        /// <param name="name">Name of the object group child.</param>
+        /// <returns>The child object.</returns>
+        public ObjectGroupChild CreateObjectGroupChild(string name) => new ObjectGroupChild(this, name);
     }
 }

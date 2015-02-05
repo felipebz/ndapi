@@ -65,5 +65,12 @@ namespace Ndapi
         /// </summary>
         [Property(NdapiConstants.D2FP_MNU_ITM)]
         public NdapiObjectList<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM);
+
+        /// <summary>
+        /// Creates a menu item.
+        /// </summary>
+        /// <param name="name">Name of the menu item.</param>
+        /// <returns>The child object.</returns>
+        public MenuItem CreateMenuItem(string name) => new MenuItem(this, name);
     }
 }
