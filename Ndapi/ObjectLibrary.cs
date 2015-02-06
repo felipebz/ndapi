@@ -110,10 +110,80 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Creates a object library tab.
+        /// Creates an object library tab.
         /// </summary>
         /// <param name="name">Name of the object library tab.</param>
         /// <returns>The child object.</returns>
         public ObjectLibraryTab CreateObjectLibraryTab(string name) => new ObjectLibraryTab(this, name);
+
+        /// <summary>
+        /// Removes the object from the object library.
+        /// </summary>
+        /// <param name="obj">Object to be removed.</param>
+        public void RemoveObject(NdapiObject obj)
+        {
+            var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.Context, _handle, obj._handle);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Flag whether an object is considered a smart object or not.
+        /// </summary>
+        /// <param name="obj">Object to check.</param>
+        /// <param name="state">Indicate if it's a smart object or not.</param>
+        public void SetSmartclass(NdapiObject obj, bool state)
+        {
+            var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.Context, _handle, obj._handle, state);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Checks if an object is considered a smart object.
+        /// </summary>
+        /// <param name="obj">Object to check.</param>
+        /// <returns>The state indicating if it's a smart object or not.</returns>
+        public bool IsSmartclass(NdapiObject obj)
+        {
+            var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.Context, _handle, obj._handle);
+            Ensure.BooleanResult(status);
+            return status == (int)D2fErrorCode.D2FS_YES;
+        }
+
+        /// <summary>
+        /// Sets the description for an object in the library.
+        /// </summary>
+        /// <param name="obj">Object in library.</param>
+        /// <param name="description">Description of object.</param>
+        public void SetObjectDescription(NdapiObject obj, string description)
+        {
+            var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.Context, _handle, obj._handle, description);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Gets the description for an object in the library.
+        /// </summary>
+        /// <param name="obj">Object in library.</param>
+        /// <returns>Description of object.</returns>
+        public string GetObjectDescription(NdapiObject obj)
+        {
+            string description;
+            var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.Context, _handle, obj._handle, out description);
+            Ensure.Success(status);
+            return description;
+        }
+
+        /// <summary>
+        /// Gets the name of the tab that a given object is on. 
+        /// </summary>
+        /// <param name="obj">Object in library.</param>
+        /// <returns>Name of tab the object is on.</returns>
+        public string GetObjectTabName(NdapiObject obj)
+        {
+            string tabName;
+            var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.Context, _handle, obj._handle, out tabName);
+            Ensure.Success(status);
+            return tabName;
+        }
     }
 }

@@ -116,6 +116,29 @@ namespace Ndapi.Core
                                                  ObjectSafeHandle pd2fob,
                                                  out ObjectSafeHandle ppd2fob,
                                                  [MarshalAs(UnmanagedType.I1)] bool replace);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2folbro_RemoveObj(ContextSafeHandle pd2fctx, ObjectSafeHandle po2olb, ObjectSafeHandle pd2fob);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2folbss_SetSmartclass(ContextSafeHandle pd2fctx,
+                                                        ObjectSafeHandle pd2folb,
+                                                        ObjectSafeHandle pd2fob,
+                                                        [MarshalAs(UnmanagedType.I1)] bool state);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2folbis_IsSmartclassed(ContextSafeHandle pd2fctx,
+                                                        ObjectSafeHandle pd2folb,
+                                                        ObjectSafeHandle pd2fob);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2folbsd_SetDesc(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, ObjectSafeHandle pd2fob, string desc);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2folbgd_GetDesc(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, ObjectSafeHandle pd2fob, out string desc);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2folbot_ObjTabname(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, ObjectSafeHandle pd2fob, out string tname);
         #endregion
 
         #region Object library tab methods
