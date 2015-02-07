@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a window object.
     /// </summary>
-    public class Window : BaseNdapiObject
+    public class Window : NdapiObject<Window>
     {
         /// <summary>
         /// Creates a window object.

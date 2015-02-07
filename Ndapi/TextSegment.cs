@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a text segment.
     /// </summary>
-    public class TextSegment : BaseNdapiObject
+    public class TextSegment : NdapiObject<TextSegment>
     {
         /// <summary>
         /// Creates a text segment.

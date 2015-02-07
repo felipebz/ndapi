@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a program unit object.
     /// </summary>
-    public class ProgramUnit : BaseNdapiObject
+    public class ProgramUnit : NdapiObject<ProgramUnit>
     {
         /// <summary>
         /// Creates a program unit.

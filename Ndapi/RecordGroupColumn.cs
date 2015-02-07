@@ -8,7 +8,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a record group column.
     /// </summary>
-    public class RecordGroupColumn : BaseNdapiObject
+    public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     {
         /// <summary>
         /// Creates a record group column.

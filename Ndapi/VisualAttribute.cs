@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a visual attribute.
     /// </summary>
-    public class VisualAttribute : BaseNdapiObject
+    public class VisualAttribute : NdapiObject<VisualAttribute>
     {
         /// <summary>
         /// Creates a visual attribute.

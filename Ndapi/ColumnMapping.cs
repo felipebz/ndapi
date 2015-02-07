@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a column mapping for lists of values.
     /// </summary>
-    public class ColumnMapping : BaseNdapiObject
+    public class ColumnMapping : NdapiObject<ColumnMapping>
     {
         /// <summary>
         /// Creates a column mapping.

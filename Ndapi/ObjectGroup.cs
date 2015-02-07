@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a group of objects.
     /// </summary>
-    public class ObjectGroup : BaseNdapiObject
+    public class ObjectGroup : NdapiObject<ObjectGroup>
     {
         /// <summary>
         /// Creates a object group.

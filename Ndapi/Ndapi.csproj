@@ -62,6 +62,7 @@
     <Compile Include="Metadata\NdapiMetaObject.cs" />
     <Compile Include="Metadata\NdapiMetaProperty.cs" />
     <Compile Include="NdapiMenuItemRoleList.cs" />
+    <Compile Include="NdapiObject.cs" />
     <Compile Include="NdapiObjectLibraryObjectList.cs" />
     <Compile Include="NdapiObjectLibraryTabObjectsList.cs" />
     <Compile Include="NdapiObjectList.cs" />

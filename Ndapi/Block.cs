@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a block object.
     /// </summary>
-    public class Block : BaseNdapiObject
+    public class Block : NdapiObject<Block>
     {
         /// <summary>
         /// Creates a block object.

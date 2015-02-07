@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a tab page.
     /// </summary>
-    public class TabPage : BaseNdapiObject
+    public class TabPage : NdapiObject<TabPage>
     {
         /// <summary>
         /// Creates a tab page.

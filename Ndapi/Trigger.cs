@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a trigger object.
     /// </summary>
-    public class Trigger : BaseNdapiObject
+    public class Trigger : NdapiObject<Trigger>
     {
         /// <summary>
         /// Creates a trigger.

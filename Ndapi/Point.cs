@@ -3,7 +3,7 @@ using Ndapi.Enums;
 
 namespace Ndapi
 {
-    public class Point : BaseNdapiObject
+    public class Point : NdapiObject<Point>
     {
         /// <summary>
         /// Creates a point.

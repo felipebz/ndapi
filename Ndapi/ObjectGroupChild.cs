@@ -7,7 +7,7 @@ namespace Ndapi
     /// Represents an object group child. Every object must be wrapped in an "object group child" to add it
     /// in an object group.
     /// </summary>
-    public class ObjectGroupChild : BaseNdapiObject
+    public class ObjectGroupChild : NdapiObject<ObjectGroupChild>
     {
         /// <summary>
         /// Creates an object group child.

@@ -2,7 +2,6 @@
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using System;
-using System.Collections.Generic;
 
 namespace Ndapi
 {

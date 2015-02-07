@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a report object.
     /// </summary>
-    public class Report : BaseNdapiObject
+    public class Report : NdapiObject<Report>
     {
         /// <summary>
         /// Creates a report object.

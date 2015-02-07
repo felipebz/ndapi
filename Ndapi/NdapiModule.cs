@@ -9,9 +9,9 @@ namespace Ndapi
     /// </summary>
     public abstract class NdapiModule : BaseNdapiObject
     {
-        internal NdapiModule()
-        {
-        }
+        //internal NdapiModule()
+        //{
+        //}
 
         internal NdapiModule(string name, ObjectType type, BaseNdapiObject parent = null) : base(name, type, parent)
         {

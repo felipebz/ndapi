@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represent a property class.
     /// </summary>
-    public class PropertyClass : BaseNdapiObject
+    public class PropertyClass : NdapiObject<PropertyClass>
     {
         /// <summary>
         /// Creates a property class.

@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a data source column.
     /// </summary>
-    public class DataSourceColumn : BaseNdapiObject
+    public class DataSourceColumn : NdapiObject<DataSourceColumn>
     {
         /// <summary>
         /// Creates a data source column.

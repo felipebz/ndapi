@@ -8,7 +8,7 @@ namespace Ndapi
     /// <summary>
     /// Represents an item object.
     /// </summary>
-    public class Item : BaseNdapiObject
+    public class Item : NdapiObject<Item>
     {
         /// <summary>
         /// Creates an item object.

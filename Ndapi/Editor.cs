@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents an editor object.
     /// </summary>
-    public class Editor : BaseNdapiObject
+    public class Editor : NdapiObject<Editor>
     {
         /// <summary>
         /// Creates an editor.

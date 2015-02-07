@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Ndapi.Core.Handles;
+﻿using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using Ndapi.Core;
 
@@ -8,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represent an object library tab.
     /// </summary>
-    public class ObjectLibraryTab : BaseNdapiObject
+    public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     {
         /// <summary>
         /// Creates an object library tab..

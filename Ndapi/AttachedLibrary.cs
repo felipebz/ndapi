@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents an attached library object.
     /// </summary>
-    public class AttachedLibrary : BaseNdapiObject
+    public class AttachedLibrary : NdapiObject<AttachedLibrary>
     {
         /// <summary>
         /// Creates an attached library in the specified module.

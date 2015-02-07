@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a font declaration
     /// </summary>
-    public class Font : BaseNdapiObject
+    public class Font : NdapiObject<Font>
     {
         /// <summary>
         /// Creates a font declaration

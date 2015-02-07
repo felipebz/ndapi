@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a coordinate declaration.
     /// </summary>
-    public class Coordinate : BaseNdapiObject
+    public class Coordinate : NdapiObject<Coordinate>
     {
         /// <summary>
         /// Creates a coordinate declaration
