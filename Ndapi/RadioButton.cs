@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a radio button object.
     /// </summary>
-    public class RadioButton : NdapiObject
+    public class RadioButton : BaseNdapiObject
     {
         /// <summary>
         /// Creates a radio button.

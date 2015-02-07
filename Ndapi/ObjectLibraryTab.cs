@@ -8,7 +8,7 @@ namespace Ndapi
     /// <summary>
     /// Represent an object library tab.
     /// </summary>
-    public class ObjectLibraryTab : NdapiObject
+    public class ObjectLibraryTab : BaseNdapiObject
     {
         /// <summary>
         /// Creates an object library tab..
@@ -56,7 +56,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="position">Position.</param>
         /// <returns>The object found.</returns>
-        public NdapiObject GetObjectByPosition(int position)
+        public BaseNdapiObject GetObjectByPosition(int position)
         {
             ObjectSafeHandle obj;
             var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.Context, _handle, position, out obj);
@@ -67,7 +67,7 @@ namespace Ndapi
                 return null;
             }
 
-            return Create<NdapiObject>(obj);
+            return Create<BaseNdapiObject>(obj);
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Ndapi
         /// <param name="obj">Object to add to library tab.</param>
         /// <param name="replace">Should replace the existing object.</param>
         /// <returns>A copy of the original object.</returns>
-        public T AddObject<T>(T obj, bool replace = false) where T : NdapiObject
+        public T AddObject<T>(T obj, bool replace = false) where T : BaseNdapiObject
         {
             var handle = new ObjectSafeHandle();
             var status = NativeMethods.d2folbao_AddObj(NdapiContext.Context, ObjectLibrary._handle, _handle, obj._handle, out handle, replace);

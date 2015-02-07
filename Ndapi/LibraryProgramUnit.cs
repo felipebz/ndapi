@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a library program unit.
     /// </summary>
-    public class LibraryProgramUnit : NdapiObject
+    public class LibraryProgramUnit : BaseNdapiObject
     {
         internal LibraryProgramUnit(ObjectSafeHandle handle) : base(handle)
         {

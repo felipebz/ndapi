@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a record group.
     /// </summary>
-    public class RecordGroup : NdapiObject
+    public class RecordGroup : BaseNdapiObject
     {
         /// <summary>
         /// Creates a record group

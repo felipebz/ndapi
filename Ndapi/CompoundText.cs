@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a compound text.
     /// </summary>
-    public class CompoundText : NdapiObject
+    public class CompoundText : BaseNdapiObject
     {
         /// <summary>
         /// Creates a compound text.

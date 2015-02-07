@@ -103,7 +103,7 @@
     <Compile Include="NdapiContext.cs" />
     <Compile Include="Enums\NdapiEnums.cs" />
     <Compile Include="NdapiException.cs" />
-    <Compile Include="NdapiObject.cs" />
+    <Compile Include="BaseNdapiObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyClass.cs" />
     <Compile Include="RecordGroup.cs" />

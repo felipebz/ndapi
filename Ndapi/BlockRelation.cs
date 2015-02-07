@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a relation between blocks.
     /// </summary>
-    public class BlockRelation : NdapiObject
+    public class BlockRelation : BaseNdapiObject
     {
         /// <summary>
         /// Creates a block relation.

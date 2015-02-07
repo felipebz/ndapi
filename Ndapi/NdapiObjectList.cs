@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Ndapi
 {
-    public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
+    public class NdapiObjectList<T> : IEnumerable<T> where T : BaseNdapiObject
     {
-        private readonly NdapiObject _ndapiObject;
+        private readonly BaseNdapiObject _ndapiObject;
         private readonly int _property;
 
         public T this[int index]
@@ -26,7 +26,7 @@ namespace Ndapi
             }
         }
 
-        internal NdapiObjectList(NdapiObject ndapiObject, int property)
+        internal NdapiObjectList(BaseNdapiObject ndapiObject, int property)
         {
             _ndapiObject = ndapiObject;
             _property = property;

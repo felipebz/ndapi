@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a canvas object.
     /// </summary>
-    public class Canvas : NdapiObject
+    public class Canvas : BaseNdapiObject
     {
         /// <summary>
         /// Creates a canvas object.

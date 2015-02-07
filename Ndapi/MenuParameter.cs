@@ -8,7 +8,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a menu module parameter.
     /// </summary>
-    public class MenuParameter : NdapiObject
+    public class MenuParameter : BaseNdapiObject
     {
         /// <summary>
         /// Creates a new menu parameter.

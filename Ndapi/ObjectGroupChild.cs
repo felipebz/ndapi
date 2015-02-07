@@ -7,7 +7,7 @@ namespace Ndapi
     /// Represents an object group child. Every object must be wrapped in an "object group child" to add it
     /// in an object group.
     /// </summary>
-    public class ObjectGroupChild : NdapiObject
+    public class ObjectGroupChild : BaseNdapiObject
     {
         /// <summary>
         /// Creates an object group child.
@@ -26,9 +26,9 @@ namespace Ndapi
         /// Gets or sets the real object.
         /// </summary>
         [Property(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ)]
-        public NdapiObject RealObject
+        public BaseNdapiObject RealObject
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ); }
+            get { return GetObjectProperty<BaseNdapiObject>(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ); }
             set { SetObjectProperty(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ, value); }
         }
     }

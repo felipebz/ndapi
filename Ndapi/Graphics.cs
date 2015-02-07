@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a graphics opbject.
     /// </summary>
-    public class Graphics : NdapiObject
+    public class Graphics : BaseNdapiObject
     {
         /// <summary>
         /// Creates a graphics object.

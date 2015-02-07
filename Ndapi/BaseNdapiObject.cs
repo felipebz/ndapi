@@ -12,22 +12,22 @@ namespace Ndapi
     /// <summary>
     /// Represents a generic object.
     /// </summary>
-    public class NdapiObject
+    public class BaseNdapiObject
     {
         internal ObjectSafeHandle _handle;
         private ObjectType _type;
 
-        internal NdapiObject()
+        internal BaseNdapiObject()
         {
             _type = ObjectType.Undefined;
         }
 
-        internal NdapiObject(ObjectType type)
+        internal BaseNdapiObject(ObjectType type)
         {
             _type = type;
         }
 
-        internal NdapiObject(string name, ObjectType type, NdapiObject parent = null)
+        internal BaseNdapiObject(string name, ObjectType type, BaseNdapiObject parent = null)
         {
             var parentHandle = parent?._handle ?? new ObjectSafeHandle();
             var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, parentHandle, out _handle, name, (int)type);
@@ -35,7 +35,7 @@ namespace Ndapi
             _type = type;
         }
 
-        internal NdapiObject(ObjectSafeHandle handle) : this()
+        internal BaseNdapiObject(ObjectSafeHandle handle) : this()
         {
             _handle = handle;
         }
@@ -124,7 +124,7 @@ namespace Ndapi
         /// Gets or sets the object owner.
         /// </summary>
         [Property(NdapiConstants.D2FP_OWNER)]
-        public NdapiObject Owner => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OWNER);
+        public BaseNdapiObject Owner => GetObjectProperty<BaseNdapiObject>(NdapiConstants.D2FP_OWNER);
 
         /// <summary>
         /// Gets whether item is subclassed. 
@@ -246,7 +246,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="property">Property id.</param>
         /// <returns>The property value.</returns>
-        public T GetObjectProperty<T>(int property) where T : NdapiObject
+        public T GetObjectProperty<T>(int property) where T : BaseNdapiObject
         {
             ObjectSafeHandle handle;
             var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.Context, _handle, property, out handle);
@@ -265,7 +265,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="property">Property id.</param>
         /// <param name="value">Property value</param>
-        public void SetObjectProperty<T>(int property, T value) where T : NdapiObject
+        public void SetObjectProperty<T>(int property, T value) where T : BaseNdapiObject
         {
             var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.Context, _handle, property, value._handle);
             Ensure.Success(status);
@@ -276,7 +276,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="property">Property id.</param>
         /// <returns>List of child objects.</returns>
-        public NdapiObjectList<T> GetObjectList<T>(int property) where T : NdapiObject
+        public NdapiObjectList<T> GetObjectList<T>(int property) where T : BaseNdapiObject
         {
             return new NdapiObjectList<T>(this, property);
         }
@@ -424,7 +424,7 @@ namespace Ndapi
         internal static T Create<T>(ObjectSafeHandle handle)
         {
             Type objectType = typeof(T);
-            if (objectType == typeof(NdapiObject))
+            if (objectType == typeof(BaseNdapiObject))
             {
                 ObjectType type;
                 var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, handle, out type);

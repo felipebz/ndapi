@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a form parameter.
     /// </summary>
-    public class FormParameter : NdapiObject
+    public class FormParameter : BaseNdapiObject
     {
         /// <summary>
         /// Creates a parameter in the specified form module.

@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents an alert object.
     /// </summary>
-    public class Alert : NdapiObject
+    public class Alert : BaseNdapiObject
     {
         /// <summary>
         /// Creates an alert object.

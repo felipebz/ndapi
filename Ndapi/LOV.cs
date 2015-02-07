@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a list of values.
     /// </summary>
-    public class LOV : NdapiObject
+    public class LOV : BaseNdapiObject
     {
         /// <summary>
         /// Creates a list of values.

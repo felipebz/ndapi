@@ -39,7 +39,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="position">Position.</param>
         /// <returns>The object found.</returns>
-        public NdapiObject GetObjectByPosition(int position)
+        public BaseNdapiObject GetObjectByPosition(int position)
         {
             ObjectSafeHandle obj;
             var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.Context, _handle, position, out obj);
@@ -50,7 +50,7 @@ namespace Ndapi
                 return null;
             }
 
-            return Create<NdapiObject>(obj);
+            return Create<BaseNdapiObject>(obj);
         }
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Ndapi
         /// Removes the object from the object library.
         /// </summary>
         /// <param name="obj">Object to be removed.</param>
-        public void RemoveObject(NdapiObject obj)
+        public void RemoveObject(BaseNdapiObject obj)
         {
             var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.Context, _handle, obj._handle);
             Ensure.Success(status);
@@ -131,7 +131,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object to check.</param>
         /// <param name="state">Indicate if it's a smart object or not.</param>
-        public void SetSmartclass(NdapiObject obj, bool state)
+        public void SetSmartclass(BaseNdapiObject obj, bool state)
         {
             var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.Context, _handle, obj._handle, state);
             Ensure.Success(status);
@@ -142,7 +142,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object to check.</param>
         /// <returns>The state indicating if it's a smart object or not.</returns>
-        public bool IsSmartclass(NdapiObject obj)
+        public bool IsSmartclass(BaseNdapiObject obj)
         {
             var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.Context, _handle, obj._handle);
             Ensure.BooleanResult(status);
@@ -154,7 +154,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object in library.</param>
         /// <param name="description">Description of object.</param>
-        public void SetObjectDescription(NdapiObject obj, string description)
+        public void SetObjectDescription(BaseNdapiObject obj, string description)
         {
             var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.Context, _handle, obj._handle, description);
             Ensure.Success(status);
@@ -165,7 +165,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object in library.</param>
         /// <returns>Description of object.</returns>
-        public string GetObjectDescription(NdapiObject obj)
+        public string GetObjectDescription(BaseNdapiObject obj)
         {
             string description;
             var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.Context, _handle, obj._handle, out description);
@@ -178,7 +178,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object in library.</param>
         /// <returns>Name of tab the object is on.</returns>
-        public string GetObjectTabName(NdapiObject obj)
+        public string GetObjectTabName(BaseNdapiObject obj)
         {
             string tabName;
             var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.Context, _handle, obj._handle, out tabName);

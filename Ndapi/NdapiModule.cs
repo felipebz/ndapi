@@ -7,13 +7,13 @@ namespace Ndapi
     /// <summary>
     /// Represents a generic module.
     /// </summary>
-    public abstract class NdapiModule : NdapiObject
+    public abstract class NdapiModule : BaseNdapiObject
     {
         internal NdapiModule()
         {
         }
 
-        internal NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
+        internal NdapiModule(string name, ObjectType type, BaseNdapiObject parent = null) : base(name, type, parent)
         {
         }
 

@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a data source argument.
     /// </summary>
-    public class DataSourceArgument : NdapiObject
+    public class DataSourceArgument : BaseNdapiObject
     {
         /// <summary>
         /// Creates a data source argument.

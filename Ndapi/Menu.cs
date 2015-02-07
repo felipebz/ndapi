@@ -6,7 +6,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a menu object.
     /// </summary>
-    public class Menu : NdapiObject
+    public class Menu : BaseNdapiObject
     {
         /// <summary>
         /// Creates a new menu.

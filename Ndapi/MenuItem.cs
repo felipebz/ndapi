@@ -8,7 +8,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a menu item.
     /// </summary>
-    public class MenuItem : NdapiObject
+    public class MenuItem : BaseNdapiObject
     {
         /// <summary>
         /// Creates a menu item.
