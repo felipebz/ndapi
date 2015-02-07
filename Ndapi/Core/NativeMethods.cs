@@ -356,6 +356,20 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fobra_Reattach(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fobdu_Duplicate(ContextSafeHandle pd2fctx,
+                                                   ObjectSafeHandle new_owner,
+                                                   ObjectSafeHandle pd2fob_src,
+                                                   out ObjectSafeHandle ppd2fob_dst,
+                                                   string new_name);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fobre_Replicate(ContextSafeHandle pd2fctx,
+                                                   ObjectSafeHandle new_parent,
+                                                   ObjectSafeHandle pd2fob_src,
+                                                   out ObjectSafeHandle ppd2fob_dst,
+                                                   string new_name);
         #endregion
     }
 }
