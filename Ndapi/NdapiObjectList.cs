@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Ndapi.Core;
+using Ndapi.Core.Handles;
+using Ndapi.Metadata;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ndapi
 {
@@ -48,6 +52,26 @@ namespace Ndapi
                 value.Destroy();
                 value = nextValue;
             }
+        }
+
+        /// <summary>
+        /// Finds an object by name.
+        /// </summary>
+        /// <param name="name">Name of the object.</param>
+        /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
+        public T Single(string name)
+        {
+            var type = NdapiMetadata.ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
+            ObjectSafeHandle handle;
+
+            var status = NativeMethods.d2fobfo_FindObj(NdapiContext.Context, _ndapiObject._handle, name, type, out handle);
+            if (status == (int)D2fErrorCode.D2FS_OBJNOTFOUND)
+            {
+                return null;
+            }
+            Ensure.Success(status);
+
+            return BaseNdapiObject.Create<T>(handle);
         }
 
         public sealed class Enumerator : IEnumerator<T>

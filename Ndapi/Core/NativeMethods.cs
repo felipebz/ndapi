@@ -370,6 +370,13 @@ namespace Ndapi.Core
                                                    ObjectSafeHandle pd2fob_src,
                                                    out ObjectSafeHandle ppd2fob_dst,
                                                    string new_name);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fobfo_FindObj(ContextSafeHandle pd2fctx,
+                                                 ObjectSafeHandle owner,
+                                                 string name,
+                                                 ObjectType objtyp,
+                                                 out ObjectSafeHandle ppd2fob);
         #endregion
     }
 }
