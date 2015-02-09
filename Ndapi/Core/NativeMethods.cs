@@ -383,6 +383,9 @@ namespace Ndapi.Core
                                                   ObjectSafeHandle pd2fob,
                                                   ObjectSafeHandle parent,
                                                   [MarshalAs(UnmanagedType.I1)] bool keep_path);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobmv_Move(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, ObjectSafeHandle pd2fob_nxt);
         #endregion
     }
 }

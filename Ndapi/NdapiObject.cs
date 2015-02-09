@@ -7,7 +7,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a generic object.
     /// </summary>
-    public class NdapiObject<T> : BaseNdapiObject where T : class
+    public class NdapiObject<T> : BaseNdapiObject where T : BaseNdapiObject
     {
         internal NdapiObject() : base() { }
         internal NdapiObject(ObjectType type) : base(type) { }
@@ -34,5 +34,17 @@ namespace Ndapi
             return Create<T>(newHandle);
         }
 
+        /// <summary>
+        /// Change the order of the object relative to its siblings. This is similar to a drag-and-drop operation in
+        /// the Form Builder. The object will be moved before the specified object, retaining the same owner. You cannot use
+        /// this method to move objects between parents.
+        /// </summary>
+        /// <param name="nextObject">The next object instance. If null, the object will be moved to the end of the list.</param>
+        public void Move(T nextObject)
+        {
+            var nextHandle = nextObject?._handle ?? new ObjectSafeHandle();
+            var status = NativeMethods.d2fobmv_Move(NdapiContext.Context, _handle, nextHandle);
+            Ensure.Success(status);
+        }
     }
 }
