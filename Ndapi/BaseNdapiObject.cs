@@ -413,6 +413,19 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Change the subclassing parent of an object to the parent object.
+        /// This will cause the property values to be overriden for all properties which are defined on the parent object.
+        /// </summary>
+        /// <param name="parent">Object to subclass.</param>
+        /// <param name="keepPath">Indicates whether the system should refer to the parent object's module by filename or by path+filename.
+        /// The recommended choice is false in most cases.</param>
+        public void Subclass(BaseNdapiObject parent, bool keepPath = false)
+        {
+            var status = NativeMethods.d2fobsc_SubClass(NdapiContext.Context, _handle, parent._handle, keepPath);
+            Ensure.Success(status);
+        }
+
+        /// <summary>
         /// Destroy the current object.
         /// </summary>
         public void Destroy()

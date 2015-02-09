@@ -377,6 +377,12 @@ namespace Ndapi.Core
                                                  string name,
                                                  ObjectType objtyp,
                                                  out ObjectSafeHandle ppd2fob);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int d2fobsc_SubClass(ContextSafeHandle pd2fctx,
+                                                  ObjectSafeHandle pd2fob,
+                                                  ObjectSafeHandle parent,
+                                                  [MarshalAs(UnmanagedType.I1)] bool keep_path);
         #endregion
     }
 }
