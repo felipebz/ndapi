@@ -3,7 +3,6 @@ using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using Ndapi.Metadata;
 using System.IO;
-using System.Linq;
 
 namespace Ndapi
 {
@@ -70,7 +69,7 @@ namespace Ndapi
         /// <param name="filename">File to convert.</param>
         public static void ConvertToText<T>(string filename) where T : NdapiModule
         {
-            var type = NdapiMetadata.ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
+            var type = NdapiMetadata.GetObjectTypeFrom<T>();
             var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.Context, filename, type, NdapiConstants.BINTOTEXT);
             Ensure.Success(status);
         }
@@ -81,7 +80,7 @@ namespace Ndapi
         /// <param name="filename">File to convert.</param>
         public static void ConvertFromText<T>(string filename) where T : NdapiModule
         {
-            var type = NdapiMetadata.ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
+            var type = NdapiMetadata.GetObjectTypeFrom<T>();
             var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.Context, filename, type, NdapiConstants.TEXTTOBIN);
             Ensure.Success(status);
         }

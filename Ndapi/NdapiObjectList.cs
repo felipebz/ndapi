@@ -4,7 +4,6 @@ using Ndapi.Metadata;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Ndapi
 {
@@ -61,7 +60,7 @@ namespace Ndapi
         /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
         public T Single(string name)
         {
-            var type = NdapiMetadata.ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
+            var type = NdapiMetadata.GetObjectTypeFrom<T>();
             ObjectSafeHandle handle;
 
             var status = NativeMethods.d2fobfo_FindObj(NdapiContext.Context, _ndapiObject._handle, name, type, out handle);

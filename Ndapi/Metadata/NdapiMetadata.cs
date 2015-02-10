@@ -1,6 +1,7 @@
 ﻿using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ndapi.Metadata
 {
@@ -71,5 +72,7 @@ namespace Ndapi.Metadata
         /// <param name="type">A Ndapi class.</param>
         /// <returns>The meta object instance.</returns>
         public static NdapiMetaObject GetMetaObjectFrom(Type type) => NdapiMetaObject.GetOrCreate(type);
+
+        internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
     }
 }
