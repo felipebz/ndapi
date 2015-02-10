@@ -5,8 +5,8 @@ namespace Ndapi
 {
     public class NdapiObjectLibraryTabObjectsList : IEnumerable<BaseNdapiObject>
     {
-        private ObjectLibraryTab _objectLibraryTab;
-        private int _count;
+        private readonly ObjectLibraryTab _objectLibraryTab;
+        private readonly int _count;
 
         public BaseNdapiObject this[int index] => _objectLibraryTab.GetObjectByPosition(index);
 
@@ -26,7 +26,7 @@ namespace Ndapi
 
         public sealed class Enumerator : IEnumerator<BaseNdapiObject>
         {
-            private NdapiObjectLibraryTabObjectsList _list;
+            private readonly NdapiObjectLibraryTabObjectsList _list;
             private int _position;
             private BaseNdapiObject _current;
 

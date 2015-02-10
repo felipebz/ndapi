@@ -5,8 +5,8 @@ namespace Ndapi
 {
     public class NdapiMenuItemRoleList : IEnumerable<string>
     {
-        private MenuItem _menuItem;
-        private  int _count;
+        private readonly MenuItem _menuItem;
+        private readonly int _count;
 
         internal NdapiMenuItemRoleList(MenuItem menuitem)
         {
@@ -22,7 +22,7 @@ namespace Ndapi
 
         public sealed class Enumerator : IEnumerator<string>
         {
-            private NdapiMenuItemRoleList _ndapiMenuItemRoleList;
+            private readonly NdapiMenuItemRoleList _ndapiMenuItemRoleList;
             private int _position;
             private string _current;
 

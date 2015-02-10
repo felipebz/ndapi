@@ -127,7 +127,7 @@ namespace Ndapi
         public BaseNdapiObject Owner => GetObjectProperty<BaseNdapiObject>(NdapiConstants.D2FP_OWNER);
 
         /// <summary>
-        /// Gets whether item is subclassed. 
+        /// Gets whether item is subclassed.
         /// </summary>
         public bool IsSubclassed
         {
@@ -442,7 +442,7 @@ namespace Ndapi
 
         internal static T Create<T>(ObjectSafeHandle handle)
         {
-            Type objectType = typeof(T);
+            var objectType = typeof(T);
             if (objectType == typeof(BaseNdapiObject))
             {
                 ObjectType type;

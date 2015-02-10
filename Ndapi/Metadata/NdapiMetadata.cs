@@ -21,10 +21,8 @@ namespace Ndapi.Metadata
         /// </summary>
         public static Dictionary<ObjectType, Type> ObjectTypeMapping => _objectTypeMapping.Value;
 
-        private static Dictionary<ObjectType, Type> LoadObjectTypeMapping()
-        {
-
-            return new Dictionary<ObjectType, Type>
+        private static Dictionary<ObjectType, Type> LoadObjectTypeMapping() =>
+            new Dictionary<ObjectType, Type>
             {
                 { ObjectType.Alert,               typeof(Alert) },
                 { ObjectType.AttachedLibrary,     typeof(AttachedLibrary) },
@@ -66,7 +64,6 @@ namespace Ndapi.Metadata
                 { ObjectType.VisualAttribute,     typeof(VisualAttribute) },
                 { ObjectType.Window,              typeof(Window) }
             };
-        }
 
         /// <summary>
         /// Gets a <see cref="NdapiMetaObject"/> for the specified class.

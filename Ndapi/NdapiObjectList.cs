@@ -89,7 +89,8 @@ namespace Ndapi
                 if (_current == null)
                 {
                     _current = _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property);
-                } else
+                }
+                else
                 {
                     _current = _current.GetNext<T>();
                 }

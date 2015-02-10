@@ -40,7 +40,7 @@ namespace Ndapi
                 case ".PLL":
                     return LibraryModule.Open(filename);
                 default:
-                    throw new NdapiException(string.Format("The file {0} does not have a valid extension.", filename));
+                    throw new NdapiException($"The file {filename} does not have a valid extension.");
             }
         }
 
