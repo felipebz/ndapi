@@ -39,7 +39,7 @@ after_build:
 
     echo "Packing nuget..."
 
-    nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
+    $root\packages\NuGet.CommandLine.2.8.3\tools\nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
 
     $nupkgPathCS = "$root\Ndapi\Ndapi.$($xmlCS.package.metadata.version).nupkg"
 
@@ -51,7 +51,7 @@ after_build:
 
     echo "Pushing nuget artifact..."
 
-    appveyor PushArtifact $nupkgPathCS
+    Push-AppveyorArtifact $nupkgPathCS
 
     echo "Nupkg pushed"
 test: off
