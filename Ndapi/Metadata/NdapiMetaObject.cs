@@ -1,4 +1,5 @@
-﻿using Ndapi.Enums;
+﻿using Ndapi.Core;
+using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

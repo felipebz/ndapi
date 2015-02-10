@@ -67,7 +67,8 @@
     <Compile Include="NdapiObjectLibraryTabObjectsList.cs" />
     <Compile Include="NdapiObjectList.cs" />
     <Compile Include="Point.cs" />
-    <Compile Include="PropertyAttribute.cs" />
+    <Compile Include="Core\PropertyAttribute.cs" />
+    <Compile Include="PropertyClass.cs" />
     <Compile Include="RadioButton.cs" />
     <Compile Include="RecordGroupColumn.cs" />
     <Compile Include="Core\D2fContext.cs" />
@@ -106,7 +107,6 @@
     <Compile Include="NdapiException.cs" />
     <Compile Include="BaseNdapiObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyClass.cs" />
     <Compile Include="RecordGroup.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="TabPage.cs" />

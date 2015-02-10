@@ -1,4 +1,5 @@
-﻿using Ndapi.Core.Handles;
+﻿using Ndapi.Core;
+using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
 namespace Ndapi
