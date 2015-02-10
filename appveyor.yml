@@ -8,6 +8,8 @@ platform: x86
 clone_depth: 1
 before_build:
 - ps: >-
+    $env:path="C:\Program Files (x86)\MSBuild\14.0\Bin";$env:path
+
     $buildNumber = [Convert]::ToInt32($env:APPVEYOR_BUILD_NUMBER).ToString("0000")
 
     echo "Updating version in nuspec file"
