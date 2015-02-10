@@ -26,6 +26,12 @@ namespace Ndapi.Core
 
         [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl)]
         public static extern int d2fctxde_Destroy(IntPtr pd2fctx);
+
+        [DllImport(ifd2f60, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
+        public static extern int d2fctxcf_ConvertFile(ContextSafeHandle pd2fctx,
+                                                      string filename,
+                                                      ObjectType modtyp,
+                                                      int direction);
         #endregion
 
         #region Attached library methods

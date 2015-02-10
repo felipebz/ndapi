@@ -1003,5 +1003,7 @@
         public const int D2FP_TYP_NUMBER = 2;
         public const int D2FP_TYP_TEXT = 3;
         public const int D2FP_TYP_OBJECT = 4;
+        public const int BINTOTEXT = 1;
+        public const int TEXTTOBIN = 2;
     }
 }
