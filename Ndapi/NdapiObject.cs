@@ -15,6 +15,16 @@ namespace Ndapi
         internal NdapiObject(ObjectSafeHandle handle) : base(handle) { }
 
         /// <summary>
+        /// Get the previous object.
+        /// </summary>
+        public T Previous => GetPrevious<T>();
+
+        /// <summary>
+        /// Get the next object.
+        /// </summary>
+        public T Next => GetNext<T>();
+
+        /// <summary>
         /// Creates a new object with the given name and owner.
         /// The new object is an exact copy of the original object, with all the same property values.
         /// </summary>

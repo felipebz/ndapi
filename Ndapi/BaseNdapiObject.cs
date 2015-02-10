@@ -149,6 +149,12 @@ namespace Ndapi
         /// </summary>
         public IEnumerable<NdapiMetaProperty> MetaProperties => MetaObject.AllProperties;
 
+        internal T GetPrevious<T>() where T : BaseNdapiObject =>
+            GetObjectProperty<T>(NdapiConstants.D2FP_PREVIOUS);
+
+        internal T GetNext<T>() where T : BaseNdapiObject =>
+            GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
+
         /// <summary>
         /// Gets the value of a string property.
         /// </summary>

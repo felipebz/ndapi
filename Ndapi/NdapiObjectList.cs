@@ -91,7 +91,7 @@ namespace Ndapi
                     _current = _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property);
                 } else
                 {
-                    _current = _current.GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
+                    _current = _current.GetNext<T>();
                 }
 
                 return _current != null;
