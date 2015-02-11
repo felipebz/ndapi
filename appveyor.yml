@@ -39,7 +39,7 @@ after_build:
 
     echo "Packing nuget..."
 
-    $root\packages\NuGet.CommandLine.2.8.3\tools\nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
+    &"$root\packages\NuGet.CommandLine.2.8.3\tools\nuget" pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
 
     $nupkgPathCS = "$root\Ndapi\Ndapi.$($xmlCS.package.metadata.version).nupkg"
 
