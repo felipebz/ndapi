@@ -1,3 +1,4 @@
+
 version: 1.0.0.{build}
 branches:
   only:
@@ -8,7 +9,7 @@ platform: x86
 clone_depth: 1
 before_build:
 - ps: >-
-    $env:path="C:\Program Files (x86)\MSBuild\14.0\Bin";$env:path
+    $env:path="C:\Program Files (x86)\MSBuild\14.0\Bin;$env:path"
 
     $buildNumber = [Convert]::ToInt32($env:APPVEYOR_BUILD_NUMBER).ToString("0000")
 
@@ -39,7 +40,7 @@ after_build:
 
     echo "Packing nuget..."
 
-    &"$root\packages\NuGet.CommandLine.2.8.3\tools\nuget" pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
+    nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
 
     $nupkgPathCS = "$root\Ndapi\Ndapi.$($xmlCS.package.metadata.version).nupkg"
 
@@ -51,7 +52,7 @@ after_build:
 
     echo "Pushing nuget artifact..."
 
-    Push-AppveyorArtifact $nupkgPathCS
+    appveyor PushArtifact $nupkgPathCS
 
     echo "Nupkg pushed"
 test: off
