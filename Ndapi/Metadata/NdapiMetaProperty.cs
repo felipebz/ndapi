@@ -59,6 +59,11 @@ namespace Ndapi.Metadata
         /// </summary>
         public Dictionary<int, string> AllowedValues => _allowedValues.Value;
 
+        /// <summary>
+        /// Gets whether the property accepts constant values.
+        /// </summary>
+        public bool AcceptConstants { get; }
+
         private NdapiMetaProperty(int propertyId, string name, bool allowGet, bool allowSet, Type propertyType)
         {
             PropertyId = propertyId;
@@ -67,6 +72,7 @@ namespace Ndapi.Metadata
             AllowSet = allowSet;
             RawPropertyType = propertyType;
             _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
+            AcceptConstants = propertyType.IsEnum;
 
             PropertyType = GetPropertyType(propertyId);
             if (RawPropertyType.IsGenericType)
