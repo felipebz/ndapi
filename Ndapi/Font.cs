@@ -24,7 +24,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object.</param>
         /// <param name="type">Visual attribute type.</param>
-        public Font(BaseNdapiObject obj, VisualAttributeType type) : this()
+        public Font(NdapiObject obj, VisualAttributeType type) : this()
         {
             Extract(obj, type);
         }
@@ -88,7 +88,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="obj">Object.</param>
         /// <param name="type">Visual attribute type.</param>
-        public void Extract(BaseNdapiObject obj, VisualAttributeType type)
+        public void Extract(NdapiObject obj, VisualAttributeType type)
         {
             var status = NativeMethods.d2ffntex_Extract(NdapiContext.Context, _handle, obj._handle, type);
             Ensure.Success(status);
@@ -99,7 +99,7 @@ namespace Ndapi
         /// </summary>
         /// <param name="module">Form module to be changed.</param>
         /// <param name="type">Visual attribute type.</param>
-        public void Apply(BaseNdapiObject module, VisualAttributeType type)
+        public void Apply(NdapiObject module, VisualAttributeType type)
         {
             var status = NativeMethods.d2ffntap_Apply(NdapiContext.Context, _handle, module._handle, type);
             Ensure.Success(status);

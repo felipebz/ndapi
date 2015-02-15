@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace Ndapi
 {
-    public class NdapiObjectList<T> : IEnumerable<T> where T : BaseNdapiObject
+    public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
     {
-        private readonly BaseNdapiObject _ndapiObject;
+        private readonly NdapiObject _ndapiObject;
         private readonly int _property;
 
         public T this[int index]
@@ -29,7 +29,7 @@ namespace Ndapi
             }
         }
 
-        internal NdapiObjectList(BaseNdapiObject ndapiObject, int property)
+        internal NdapiObjectList(NdapiObject ndapiObject, int property)
         {
             _ndapiObject = ndapiObject;
             _property = property;
@@ -70,7 +70,7 @@ namespace Ndapi
             }
             Ensure.Success(status);
 
-            return BaseNdapiObject.Create<T>(handle);
+            return NdapiObject.Create<T>(handle);
         }
 
         public sealed class Enumerator : IEnumerator<T>

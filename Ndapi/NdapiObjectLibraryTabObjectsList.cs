@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Ndapi
 {
-    public class NdapiObjectLibraryTabObjectsList : IEnumerable<BaseNdapiObject>
+    public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
     {
         private readonly ObjectLibraryTab _objectLibraryTab;
         private readonly int _count;
 
-        public BaseNdapiObject this[int index] => _objectLibraryTab.GetObjectByPosition(index);
+        public NdapiObject this[int index] => _objectLibraryTab.GetObjectByPosition(index);
 
         internal NdapiObjectLibraryTabObjectsList(ObjectLibraryTab objectLibraryTab)
         {
@@ -20,15 +20,15 @@ namespace Ndapi
 
         public bool Any() => _count > 1;
 
-        public IEnumerator<BaseNdapiObject> GetEnumerator() => new Enumerator(this);
+        public IEnumerator<NdapiObject> GetEnumerator() => new Enumerator(this);
 
         IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
 
-        public sealed class Enumerator : IEnumerator<BaseNdapiObject>
+        public sealed class Enumerator : IEnumerator<NdapiObject>
         {
             private readonly NdapiObjectLibraryTabObjectsList _list;
             private int _position;
-            private BaseNdapiObject _current;
+            private NdapiObject _current;
 
             internal Enumerator(NdapiObjectLibraryTabObjectsList list)
             {
@@ -50,7 +50,7 @@ namespace Ndapi
 
             public void Reset() => _position = 1;
 
-            public BaseNdapiObject Current
+            public NdapiObject Current
             {
                 get
                 {
