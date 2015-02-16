@@ -13,6 +13,7 @@ namespace Ndapi.Metadata
     {
         private static Dictionary<int, NdapiMetaProperty> _cache = new Dictionary<int, NdapiMetaProperty>();
         private Lazy<Dictionary<int, string>> _allowedValues;
+        private Lazy<PropertyType> _propertyType;
 
         /// <summary>
         /// Gets the property id;
@@ -47,7 +48,7 @@ namespace Ndapi.Metadata
         /// <summary>
         /// Gets the property type.
         /// </summary>
-        public PropertyType PropertyType { get; }
+        public PropertyType PropertyType => _propertyType.Value;
 
         /// <summary>
         /// Gets the property description.
@@ -71,14 +72,11 @@ namespace Ndapi.Metadata
             AllowGet = allowGet;
             AllowSet = allowSet;
             RawPropertyType = propertyType;
-            _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
             AcceptConstants = propertyType.IsEnum;
+            IsList = RawPropertyType.IsGenericType;
 
-            PropertyType = GetPropertyType(propertyId);
-            if (RawPropertyType.IsGenericType)
-            {
-                IsList = true;
-            }
+            _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
+            _propertyType = new Lazy<PropertyType>(() => GetPropertyType(propertyId));
         }
 
         internal static NdapiMetaProperty GetOrCreate(int propertyId, string name, bool allowGet, bool allowSet, Type propertyType)
