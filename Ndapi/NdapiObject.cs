@@ -12,7 +12,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a generic object.
     /// </summary>
-    public class NdapiObject
+    public abstract class NdapiObject
     {
         internal ObjectSafeHandle _handle;
         private ObjectType _type;
@@ -470,7 +470,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a generic object.
     /// </summary>
-    public class NdapiObject<T> : NdapiObject where T : NdapiObject
+    public abstract class NdapiObject<T> : NdapiObject where T : NdapiObject
     {
         internal NdapiObject() : base() { }
         internal NdapiObject(ObjectType type) : base(type) { }
