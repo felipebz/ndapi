@@ -1,17 +1,14 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
 using System.Runtime.ConstrainedExecution;
-using System.Runtime.InteropServices;
 
 namespace Ndapi.Core.Handles
 {
-    internal abstract class SafeHandleBase : SafeHandle
+    internal abstract class SafeHandleBase : SafeHandleZeroOrMinusOneIsInvalid
     {
-        protected SafeHandleBase() : base(IntPtr.Zero, true)
+        protected SafeHandleBase() : base(true)
         {
         }
-
-        public override bool IsInvalid => handle == IntPtr.Zero;
-
+        
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         protected abstract bool ReleaseHandleImpl();
 
