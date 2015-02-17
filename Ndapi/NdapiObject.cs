@@ -12,7 +12,7 @@ namespace Ndapi
     /// <summary>
     /// Represents a generic object.
     /// </summary>
-    public abstract class NdapiObject
+    public abstract class NdapiObject : IDisposable
     {
         internal ObjectSafeHandle _handle;
         private ObjectType _type;
@@ -465,6 +465,28 @@ namespace Ndapi
         /// </summary>
         /// <returns></returns>
         public override string ToString() => Name;
+
+        #region IDisposable Support
+        private bool disposedValue = false; // To detect redundant calls
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    _handle?.Dispose();
+                }
+                
+                disposedValue = true;
+            }
+        }
+        
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+        #endregion
     }
 
     /// <summary>
