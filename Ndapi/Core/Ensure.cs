@@ -24,7 +24,8 @@
 
         private static void HandleError(int result)
         {
-            throw new NdapiException("An error occurred", (D2fErrorCode)result);
+            var code = (D2fErrorCode)result;
+            throw new NdapiException($"The Forms API returned an error. Error code: {code}", code);
         }
     }
 }
