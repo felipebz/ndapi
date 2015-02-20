@@ -312,12 +312,15 @@ namespace Ndapi
         public string GetQualifiedName(bool includeModule)
         {
             var builder = new StringBuilder();
+            
             var owner = Owner;
-            if ((owner != null) && (includeModule || (owner.GetObjectType() != ObjectType.FormModule)))
+            while ((owner != null) && (includeModule || (owner.GetObjectType() != ObjectType.FormModule)))
             {
-                builder.Append(owner.GetQualifiedName(includeModule));
-                builder.Append(".");
+                builder.Insert(0, ".");
+                builder.Insert(0, owner.Name);
+                owner = (owner is NdapiModule) ? null : owner.Owner; // if owner is a module, the Owner property returns a Point object (?)
             }
+
             builder.Append(Name);
             return builder.ToString();
         }
