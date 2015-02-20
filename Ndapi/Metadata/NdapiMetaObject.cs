@@ -19,7 +19,7 @@ namespace Ndapi.Metadata
         /// <summary>
         /// Gets the type name.
         /// </summary>
-        public string TypeName => _type.Name;
+        public string TypeName { get; }
 
         /// <summary>
         /// Gets all the properties.
@@ -53,6 +53,8 @@ namespace Ndapi.Metadata
 
         private NdapiMetaObject(Type type)
         {
+            TypeName = type.Name;
+
             _type = type;
             _properties = new Lazy<IEnumerable<NdapiMetaProperty>>(LoadProperties);
         }
