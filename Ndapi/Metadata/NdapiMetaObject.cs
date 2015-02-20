@@ -9,7 +9,7 @@ namespace Ndapi.Metadata
     /// <summary>
     /// Represents a Ndapi metaobject.
     /// </summary>
-    public class NdapiMetaObject
+    public sealed class NdapiMetaObject
     {
         private static Dictionary<Type, NdapiMetaObject> _cache = new Dictionary<Type, NdapiMetaObject>();
 
