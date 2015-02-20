@@ -9,7 +9,7 @@ namespace Ndapi.Metadata
     /// <summary>
     /// Represents a Ndapi metaproperty.
     /// </summary>
-    public class NdapiMetaProperty
+    public class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     {
         private static Dictionary<int, NdapiMetaProperty> _cache = new Dictionary<int, NdapiMetaProperty>();
         private Lazy<Dictionary<int, string>> _allowedValues;
@@ -171,7 +171,11 @@ namespace Ndapi.Metadata
 
         public override bool Equals(object obj)
         {
-            var other = obj as NdapiMetaProperty;
+            return Equals(obj as NdapiMetaProperty);
+        }
+
+        public bool Equals(NdapiMetaProperty other)
+        {
             return PropertyId == other?.PropertyId;
         }
 
