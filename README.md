@@ -37,7 +37,7 @@ Initially, the API will support only Forms 6i API.
 Installing
 ----------
 
-For now only the alpha builds are available. To get them, add https://www.myget.org/F/nuget/ to your nuget feed.
+For now only the alpha builds are available. To get them, add https://www.myget.org/F/ndapi/ to your nuget feed.
 
 To install, run:
 
