@@ -348,19 +348,39 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
+        internal int IsPropertyDefaulted(int property)
+        {
+            return NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
+        }
+
         /// <summary>
         /// Checks whether the property has its default value.
         /// </summary>
         /// <param name="property">Property id.</param>
-        /// <returns>A boolean indicating whether property  has its default value.</returns>
+        /// <returns>A boolean indicating whether property has its default value. If the object doesn't have the property, returns false.</returns>
         public bool HasDefaultedProperty(int property)
         {
-            var status = NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
-            Ensure.BooleanResult(status);
+            var status = IsPropertyDefaulted(property);
+            if (status == (int)D2fErrorCode.D2FS_DONTHAVE) return false;
 
+            Ensure.BooleanResult(status);
             return status == (int)D2fErrorCode.D2FS_YES;
         }
 
+        /// <summary>
+        /// Checks whether the property value was overriden.
+        /// </summary>
+        /// <param name="property">Property id.</param>
+        /// <returns>A boolean indicating whether property value was overriden. If the object doesn't have the property, returns false.</returns>
+        public bool HasOverriddenProperty(int property)
+        {
+            var status = IsPropertyDefaulted(property);
+            if (status == (int)D2fErrorCode.D2FS_DONTHAVE) return false;
+
+            Ensure.BooleanResult(status);
+            return status == (int)D2fErrorCode.D2FS_NO;
+        }
+        
         /// <summary>
         /// Checks whether the property was inherited.
         /// </summary>
@@ -372,16 +392,6 @@ namespace Ndapi
             Ensure.BooleanResult(status);
 
             return status == (int)D2fErrorCode.D2FS_YES;
-        }
-
-        /// <summary>
-        /// Checks whether the property value was overriden.
-        /// </summary>
-        /// <param name="property">Property id.</param>
-        /// <returns>A boolean indicating whether property value was overriden.</returns>
-        public bool HasOverriddenProperty(int property)
-        {
-            return !HasDefaultedProperty(property);
         }
 
         /// <summary>
