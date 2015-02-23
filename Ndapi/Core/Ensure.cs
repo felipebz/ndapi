@@ -1,4 +1,6 @@
-﻿namespace Ndapi.Core
+﻿using Ndapi.Enums;
+
+namespace Ndapi.Core
 {
     internal static class Ensure
     {

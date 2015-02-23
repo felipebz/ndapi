@@ -71,7 +71,7 @@
     <Compile Include="RadioButton.cs" />
     <Compile Include="RecordGroupColumn.cs" />
     <Compile Include="Core\D2fContext.cs" />
-    <Compile Include="Core\D2fErrorCode.cs" />
+    <Compile Include="Enums\D2fErrorCode.cs" />
     <Compile Include="Core\Handles\ContextSafeHandle.cs" />
     <Compile Include="Core\Handles\ObjectSafeHandle.cs" />
     <Compile Include="Core\Handles\SafeHandleBase.cs" />

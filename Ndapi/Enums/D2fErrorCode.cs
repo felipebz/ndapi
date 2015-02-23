@@ -1,4 +1,4 @@
-﻿namespace Ndapi.Core
+﻿namespace Ndapi.Enums
 {
     public enum D2fErrorCode
     {

@@ -1,4 +1,4 @@
-﻿using Ndapi.Core;
+﻿using Ndapi.Enums;
 using System;
 using System.Runtime.Serialization;
 

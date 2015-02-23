@@ -1,4 +1,6 @@
-﻿namespace Ndapi.Core.Handles
+﻿using Ndapi.Enums;
+
+namespace Ndapi.Core.Handles
 {
     internal class ContextSafeHandle : SafeHandleBase
     {
