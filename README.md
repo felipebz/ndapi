@@ -37,12 +37,12 @@ Initially, the API will support only Forms 6i API.
 Installing
 ----------
 
-For now only the alpha builds are available. To get them, add https://www.myget.org/F/ndapi/ to your nuget feed.
-
-To install, run:
+For now only the alpha builds are available. To install, run:
 
 ```powershell
-Install-Package Ndapi
+Install-Package Ndapi -Pre
 ```
 
 Or use the Package Manager in Visual Studio.
+
+To get the latest builds add https://www.myget.org/F/ndapi/ to your NuGet feed.
