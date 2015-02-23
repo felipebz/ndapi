@@ -145,7 +145,7 @@ namespace Ndapi
         {
             var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.Context, _handle, obj._handle);
             Ensure.BooleanResult(status);
-            return status == (int)D2fErrorCode.D2FS_YES;
+            return status == D2fErrorCode.D2FS_YES;
         }
 
         /// <summary>

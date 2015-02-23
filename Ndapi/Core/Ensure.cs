@@ -4,9 +4,9 @@ namespace Ndapi.Core
 {
     internal static class Ensure
     {
-        public static void Success(int result)
+        public static void Success(D2fErrorCode result)
         {
-            if (result == (int)D2fErrorCode.D2FS_SUCCESS)
+            if (result == D2fErrorCode.D2FS_SUCCESS)
             {
                 return;
             }
@@ -14,9 +14,9 @@ namespace Ndapi.Core
             HandleError(result);
         }
 
-        public static void BooleanResult(int result)
+        public static void BooleanResult(D2fErrorCode result)
         {
-            if (result == (int)D2fErrorCode.D2FS_YES || result == (int)D2fErrorCode.D2FS_NO)
+            if (result == D2fErrorCode.D2FS_YES || result == D2fErrorCode.D2FS_NO)
             {
                 return;
             }
@@ -24,10 +24,9 @@ namespace Ndapi.Core
             HandleError(result);
         }
 
-        private static void HandleError(int result)
+        private static void HandleError(D2fErrorCode result)
         {
-            var code = (D2fErrorCode)result;
-            throw new NdapiException($"The Forms API returned an error. Error code: {code}", code);
+            throw new NdapiException($"The Forms API returned an error. Error code: {result}", result);
         }
     }
 }

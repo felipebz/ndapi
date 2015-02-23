@@ -135,7 +135,7 @@ namespace Ndapi
             {
                 var status = NativeMethods.d2fobis_IsSubclassed(NdapiContext.Context, _handle);
                 Ensure.BooleanResult(status);
-                return status == (int)D2fErrorCode.D2FS_YES;
+                return status == D2fErrorCode.D2FS_YES;
             }
         }
 
@@ -335,7 +335,7 @@ namespace Ndapi
             var status = NativeMethods.d2fobhp_HasProp(NdapiContext.Context, _handle, property);
             Ensure.BooleanResult(status);
 
-            return status == (int)D2fErrorCode.D2FS_YES;
+            return status == D2fErrorCode.D2FS_YES;
         }
 
         /// <summary>
@@ -348,7 +348,7 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
-        internal int IsPropertyDefaulted(int property)
+        internal D2fErrorCode IsPropertyDefaulted(int property)
         {
             return NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
         }
@@ -361,10 +361,10 @@ namespace Ndapi
         public bool HasDefaultedProperty(int property)
         {
             var status = IsPropertyDefaulted(property);
-            if (status == (int)D2fErrorCode.D2FS_DONTHAVE) return false;
+            if (status == D2fErrorCode.D2FS_DONTHAVE) return false;
 
             Ensure.BooleanResult(status);
-            return status == (int)D2fErrorCode.D2FS_YES;
+            return status == D2fErrorCode.D2FS_YES;
         }
 
         /// <summary>
@@ -375,10 +375,10 @@ namespace Ndapi
         public bool HasOverriddenProperty(int property)
         {
             var status = IsPropertyDefaulted(property);
-            if (status == (int)D2fErrorCode.D2FS_DONTHAVE) return false;
+            if (status == D2fErrorCode.D2FS_DONTHAVE) return false;
 
             Ensure.BooleanResult(status);
-            return status == (int)D2fErrorCode.D2FS_NO;
+            return status == D2fErrorCode.D2FS_NO;
         }
         
         /// <summary>
@@ -391,7 +391,7 @@ namespace Ndapi
             var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.Context, _handle, property);
             Ensure.BooleanResult(status);
 
-            return status == (int)D2fErrorCode.D2FS_YES;
+            return status == D2fErrorCode.D2FS_YES;
         }
 
         /// <summary>

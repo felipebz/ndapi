@@ -65,7 +65,7 @@ namespace Ndapi
             ObjectSafeHandle handle;
 
             var status = NativeMethods.d2fobfo_FindObj(NdapiContext.Context, _ndapiObject._handle, name, type, out handle);
-            if (status == (int)D2fErrorCode.D2FS_OBJNOTFOUND)
+            if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
             {
                 return null;
             }
