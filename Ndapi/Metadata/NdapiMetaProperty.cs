@@ -12,9 +12,9 @@ namespace Ndapi.Metadata
     public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     {
         private static Dictionary<int, NdapiMetaProperty> _cache = new Dictionary<int, NdapiMetaProperty>();
-        private Lazy<Dictionary<int, string>> _allowedValues;
-        private Lazy<PropertyType> _propertyType;
-        private Lazy<string> _description;
+        private readonly Lazy<Dictionary<int, string>> _allowedValues;
+        private readonly Lazy<PropertyType> _propertyType;
+        private readonly Lazy<string> _description;
 
         /// <summary>
         /// Gets the property id;
