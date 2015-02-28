@@ -23,6 +23,9 @@ namespace Ndapi
         {
         }
 
+        /// <summary>
+        /// Get the object library that owns the current tab.
+        /// </summary>
         public ObjectLibrary ObjectLibrary { get; }
 
         /// <summary>

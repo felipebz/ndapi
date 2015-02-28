@@ -4,6 +4,9 @@ using Ndapi.Enums;
 
 namespace Ndapi
 {
+    /// <summary>
+    /// Represents a point object.
+    /// </summary>
     public class Point : NdapiObject<Point>
     {
         /// <summary>
