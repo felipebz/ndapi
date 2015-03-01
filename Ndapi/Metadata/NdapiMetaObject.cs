@@ -64,7 +64,7 @@ namespace Ndapi.Metadata
             var properties = from property in _type.GetProperties()
                              from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
                              select NdapiMetaProperty.GetOrCreate(info.PropertyId, property.Name, property.CanRead, property.CanWrite, property.PropertyType);
-            return properties.ToList();
+            return properties.OrderBy(p => p.PropertyId).ToList();
         }
 
         internal static NdapiMetaObject GetOrCreate(Type type)
