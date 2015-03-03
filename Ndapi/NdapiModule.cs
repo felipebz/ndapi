@@ -17,10 +17,12 @@ namespace Ndapi
 
         internal NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
         {
+            NdapiContext.AddModule(this);
         }
 
         internal NdapiModule(ObjectSafeHandle handle) : base(handle)
         {
+            NdapiContext.AddModule(this);
         }
 
         /// <summary>
@@ -83,6 +85,15 @@ namespace Ndapi
             var type = NdapiMetadata.GetObjectTypeFrom<T>();
             var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.Context, filename, type, NdapiConstants.TEXTTOBIN);
             Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Close the module.
+        /// </summary>
+        public override void Destroy()
+        {
+            NdapiContext.RemoveModule(this);
+            base.Destroy();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace Ndapi
@@ -17,6 +18,8 @@ namespace Ndapi
         internal static D2fMalloc allocateMemory = AllocateMemory;
         internal static D2fRealloc reallocateMemory = ReallocateMemory;
         internal static D2fFree freeMemory = FreeMemory;
+
+        private static List<NdapiModule> _modules = new List<NdapiModule>();
 
         private static ContextSafeHandle _context;
 
@@ -72,6 +75,21 @@ namespace Ndapi
 
                 return version;
             }
+        }
+
+        /// <summary>
+        /// Returns the open modules in the current context.
+        /// </summary>
+        public static IEnumerable<NdapiModule> Modules => _modules;
+
+        internal static void AddModule(NdapiModule module)
+        {
+            _modules.Add(module);
+        }
+
+        internal static void RemoveModule(NdapiModule module)
+        {
+            _modules.Remove(module);
         }
 
         /// <summary>

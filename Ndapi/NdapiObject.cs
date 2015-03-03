@@ -447,7 +447,7 @@ namespace Ndapi
         /// <summary>
         /// Destroy the current object.
         /// </summary>
-        public void Destroy()
+        public virtual void Destroy()
         {
             var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, _handle);
             Ensure.Success(status);
