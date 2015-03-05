@@ -55,7 +55,7 @@ namespace Ndapi
         /// Gets or sets whether the menu is a tear-off menu.
         /// </summary>
         [Property(NdapiConstants.D2FP_TEAR_OFF_MNU)]
-        public bool TearOffMenu
+        public bool IsTearOffMenu
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU); }
             set { SetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU, value); }

@@ -35,7 +35,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should adjust the width of columns automatically.
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_COL_WID)]
-        public bool AutomaticColumnWidth
+        public bool IsAutomaticColumnWidth
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_COL_WID); }
             set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_COL_WID, value); }
@@ -46,7 +46,7 @@ namespace Ndapi
         /// the application navigates into a text item to which the LOV is attached.
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_DISP)]
-        public bool AutomaticDisplay
+        public bool IsAutomaticDisplay
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_DISP); }
             set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_DISP, value); }
@@ -56,7 +56,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should position the LOV automatically near the field from which it was invoked. 
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_POS)]
-        public bool AutomaticPosition
+        public bool IsAutomaticPosition
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_POS); }
             set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_POS, value); }
@@ -66,7 +66,7 @@ namespace Ndapi
         /// Gets or sets whether runtime re-executes the query to populate an LOV that is based on a query record group.
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_RFRSH)]
-        public bool AutomaticRefresh
+        public bool IsAutomaticRefresh
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_RFRSH); }
             set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_RFRSH, value); }
@@ -77,7 +77,7 @@ namespace Ndapi
         /// a selection from an LOV to a text item. 
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_SKP)]
-        public bool AutomaticSkip
+        public bool IsAutomaticSkip
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_SKP); }
             set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_SKP, value); }
@@ -90,7 +90,7 @@ namespace Ndapi
         /// the option to explicitly select the remaining choice or dismiss the LOV.
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_SLCT)]
-        public bool AutomaticSelect
+        public bool IsAutomaticSelect
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_SLCT); }
             set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_SLCT, value); }
@@ -271,7 +271,7 @@ namespace Ndapi
         /// Gets or sets the white-on-black property.
         /// </summary>
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool WhiteOnBlack
+        public bool IsWhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }

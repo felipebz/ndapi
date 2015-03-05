@@ -66,7 +66,7 @@ namespace Ndapi
         /// Gets or sets whether item is enabled.
         /// </summary>
         [Property(NdapiConstants.D2FP_ENABLED)]
-        public bool Enabled
+        public bool IsEnabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value); }
@@ -378,7 +378,7 @@ namespace Ndapi
         /// Gets or sets whether item is visible.
         /// </summary>
         [Property(NdapiConstants.D2FP_VISIBLE)]
-        public bool Visible
+        public bool IsVisible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
@@ -388,7 +388,7 @@ namespace Ndapi
         /// Gets or sets the white-on-black property.
         /// </summary>
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool WhiteOnBlack
+        public bool IsWhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }

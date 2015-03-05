@@ -36,7 +36,7 @@ namespace Ndapi
         /// Gets or sets whether the data source column is mandatory.
         /// </summary>
         [Property(NdapiConstants.D2FP_DSC_MANDATORY)]
-        public bool Mandatory
+        public bool IsMandatory
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY); }
             set { SetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY, value); }

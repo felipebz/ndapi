@@ -76,7 +76,7 @@ namespace Ndapi
         /// Gets or sets whether menu item is enabled.
         /// </summary>
         [Property(NdapiConstants.D2FP_ENABLED)]
-        public bool Enabled
+        public bool IsEnabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value); }
@@ -166,7 +166,7 @@ namespace Ndapi
         /// Gets or sets whether the menu item is iconic.
         /// </summary>
         [Property(NdapiConstants.D2FP_ICON_IN_MNU)]
-        public bool Iconic
+        public bool IsIconic
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ICON_IN_MNU); }
             set { SetBooleanProperty(NdapiConstants.D2FP_ICON_IN_MNU, value); }
@@ -246,7 +246,7 @@ namespace Ndapi
         /// Gets or sets whether the menu item is visible.
         /// </summary>
         [Property(NdapiConstants.D2FP_VISIBLE)]
-        public bool Visible
+        public bool IsVisible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
@@ -256,7 +256,7 @@ namespace Ndapi
         /// Gets or sets whether the menu item is visible in the horizontal toolbar.
         /// </summary>
         [Property(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR)]
-        public bool VisibleInHorizontalToolbar
+        public bool IsVisibleInHorizontalToolbar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR, value); }
@@ -266,7 +266,7 @@ namespace Ndapi
         /// Gets or sets whether the menu item is visible in menu.
         /// </summary>
         [Property(NdapiConstants.D2FP_VSBL_IN_MENU)]
-        public bool VisibleInMenu
+        public bool IsVisibleInMenu
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_MENU); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_MENU, value); }
@@ -276,7 +276,7 @@ namespace Ndapi
         /// Gets or sets whether the menu item is visible in the vertical toolbar.
         /// </summary>
         [Property(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR)]
-        public bool VisibleInVerticalToolbar
+        public bool IsVisibleInVerticalToolbar
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR, value); }

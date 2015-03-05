@@ -175,7 +175,7 @@ namespace Ndapi
         /// Gets or sets whether an arc is closed.
         /// </summary>
         [Property(NdapiConstants.D2FP_CLOSED)]
-        public bool Closed
+        public bool IsClosed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CLOSED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_CLOSED, value); }
@@ -286,7 +286,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should use a fixed size for bounding box.
         /// </summary>
         [Property(NdapiConstants.D2FP_FIXED_BOUNDING_BX)]
-        public bool FixedSizeForBoundingBox
+        public bool IsFixedSizeForBoundingBox
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FIXED_BOUNDING_BX); }
             set { SetBooleanProperty(NdapiConstants.D2FP_FIXED_BOUNDING_BX, value); }
@@ -296,7 +296,7 @@ namespace Ndapi
         /// Gets or sets whether point size scales with object.
         /// </summary>
         [Property(NdapiConstants.D2FP_FONT_SCALEABLE)]
-        public bool PointSizeScalable
+        public bool IsPointSizeScalable
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FONT_SCALEABLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_FONT_SCALEABLE, value); }

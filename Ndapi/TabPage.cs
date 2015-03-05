@@ -36,7 +36,7 @@ namespace Ndapi
         /// Gets or sets whether the tab is enabled.
         /// </summary>
         [Property(NdapiConstants.D2FP_ENABLED)]
-        public bool Enabled
+        public bool IsEnabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value); }
@@ -56,7 +56,7 @@ namespace Ndapi
         /// Gets or sets whether the tab is visible.
         /// </summary>
         [Property(NdapiConstants.D2FP_VISIBLE)]
-        public bool Visible
+        public bool IsVisible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }

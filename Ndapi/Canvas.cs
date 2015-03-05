@@ -229,7 +229,7 @@ namespace Ndapi
         /// This property is valid only when the <see cref="CanvasType"/> is set to <see cref="CanvasType.Stacked"/>.
         /// </summary>
         [Property(NdapiConstants.D2FP_VISIBLE)]
-        public bool Visible
+        public bool IsVisible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
@@ -301,7 +301,7 @@ namespace Ndapi
         /// Gets or sets the white-on-black property.
         /// </summary>
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool WhiteOnBlack
+        public bool IsWhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }

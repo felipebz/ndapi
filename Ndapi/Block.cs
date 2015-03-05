@@ -65,7 +65,7 @@ namespace Ndapi
         /// Gets or sets whether the block is a database block.
         /// </summary>
         [Property(NdapiConstants.D2FP_DB_BLK)]
-        public bool DatabaseBlock
+        public bool IsDatabaseBlock
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DB_BLK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_DB_BLK, value); }
@@ -75,7 +75,7 @@ namespace Ndapi
         /// Gets or sets whether records can be deleted from the block. 
         /// </summary>
         [Property(NdapiConstants.D2FP_DEL_ALLOWED)]
-        public bool DeleteAllowed
+        public bool IsDeleteAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DEL_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_DEL_ALLOWED, value); }
@@ -218,7 +218,7 @@ namespace Ndapi
         /// Gets or sets whether records can be inserted from the block. 
         /// </summary>
         [Property(NdapiConstants.D2FP_INSRT_ALLOWED)]
-        public bool InsertAllowed
+        public bool IsInsertAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_INSRT_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_INSRT_ALLOWED, value); }
@@ -280,7 +280,7 @@ namespace Ndapi
         /// Gets or sets whether the block should be listed in the block menu. 
         /// </summary>
         [Property(NdapiConstants.D2FP_LST_IN_BLK_MNU)]
-        public bool ListedInBlockMenu
+        public bool IsListedInBlockMenu
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_LST_IN_BLK_MNU); }
             set { SetBooleanProperty(NdapiConstants.D2FP_LST_IN_BLK_MNU, value); }
@@ -350,7 +350,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should allow the end user to execute a query in the block.
         /// </summary>
         [Property(NdapiConstants.D2FP_QRY_ALLOWED)]
-        public bool QueryAllowed
+        public bool IsQueryAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_QRY_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_QRY_ALLOWED, value); }
@@ -360,7 +360,7 @@ namespace Ndapi
         /// Gets or sets whether all the records matching the query criteria should be fetched.
         /// </summary>
         [Property(NdapiConstants.D2FP_QRY_ALL_RECS)]
-        public bool QueryAllRecord
+        public bool IsQueryAllRecords
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_QRY_ALL_RECS); }
             set { SetBooleanProperty(NdapiConstants.D2FP_QRY_ALL_RECS, value); }
@@ -462,7 +462,7 @@ namespace Ndapi
         /// Gets or sets the reverse direction property.
         /// </summary>
         [Property(NdapiConstants.D2FP_REV_DIR)]
-        public bool ReverseDirection
+        public bool IsReverseDirection
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_REV_DIR); }
             set { SetBooleanProperty(NdapiConstants.D2FP_REV_DIR, value); }
@@ -542,7 +542,7 @@ namespace Ndapi
         /// Gets or sets whether block always should contain one record. 
         /// </summary>
         [Property(NdapiConstants.D2FP_SNGL_REC)]
-        public bool SingleRecord
+        public bool IsSingleRecord
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_SNGL_REC); }
             set { SetBooleanProperty(NdapiConstants.D2FP_SNGL_REC, value); }
@@ -552,7 +552,7 @@ namespace Ndapi
         /// Gets or sets whether records can be updated from the block. 
         /// </summary>
         [Property(NdapiConstants.D2FP_UPDT_ALLOWED)]
-        public bool UpdateAllowed
+        public bool IsUpdateAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_UPDT_ALLOWED, value); }
@@ -605,7 +605,7 @@ namespace Ndapi
         /// Gets or sets the white-on-black property.
         /// </summary>
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool WhiteOnBlack
+        public bool IsWhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }

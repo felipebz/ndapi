@@ -63,7 +63,7 @@ namespace Ndapi
         /// Gets or sets whether the length is fixed.
         /// </summary>
         [Property(NdapiConstants.D2FP_FIXED_LEN)]
-        public bool FixedLength
+        public bool IsFixedLength
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN); }
             set { SetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN, value); }

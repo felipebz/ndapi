@@ -24,7 +24,7 @@ namespace Ndapi
 
         /// <summary>
         /// Gets or sets whether runtime should execute an automatic query when the user navigates to
-        /// the detail block. This property will affect master-details triggers only when <see cref="Deferred"/> is true.
+        /// the detail block. This property will affect master-details triggers only when <see cref="IsDeferred"/> is true.
         /// </summary>
         [Property(NdapiConstants.D2FP_AUTO_QRY)]
         public bool AutomaticQuery
@@ -47,7 +47,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should defer fetching the associated details records.
         /// </summary>
         [Property(NdapiConstants.D2FP_DEFERRED)]
-        public bool Deferred
+        public bool IsDeferred
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DEFERRED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_DEFERRED, value); }

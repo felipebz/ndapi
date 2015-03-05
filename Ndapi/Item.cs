@@ -106,7 +106,7 @@ namespace Ndapi
         /// Gets or sets whether query is case insensitive.
         /// </summary>
         [Property(NdapiConstants.D2FP_CASE_INSENSITIVE_QRY)]
-        public bool CaseInsensitiveQuery
+        public bool IsCaseInsensitiveQuery
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CASE_INSENSITIVE_QRY); }
             set { SetBooleanProperty(NdapiConstants.D2FP_CASE_INSENSITIVE_QRY, value); }
@@ -266,7 +266,7 @@ namespace Ndapi
         /// Gets or sets whether the item is a database item.
         /// </summary>
         [Property(NdapiConstants.D2FP_DB_ITM)]
-        public bool DatabaseItem
+        public bool IsDatabaseItem
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DB_ITM); }
             set { SetBooleanProperty(NdapiConstants.D2FP_DB_ITM, value); }
@@ -276,7 +276,7 @@ namespace Ndapi
         /// Gets or sets whther the item should be identified as the default button.
         /// </summary>
         [Property(NdapiConstants.D2FP_DFLT_BTN)]
-        public bool DefaultButton
+        public bool IsDefaultButton
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_DFLT_BTN); }
             set { SetBooleanProperty(NdapiConstants.D2FP_DFLT_BTN, value); }
@@ -336,7 +336,7 @@ namespace Ndapi
         /// Gets or sets whether item is enabled.
         /// </summary>
         [Property(NdapiConstants.D2FP_ENABLED)]
-        public bool Enabled
+        public bool IsEnabled
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value); }
@@ -367,7 +367,7 @@ namespace Ndapi
         /// Gets or sets the fixed length.
         /// </summary>
         [Property(NdapiConstants.D2FP_FIXED_LEN)]
-        public bool FixedLength
+        public bool IsFixedLength
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN); }
             set { SetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN, value); }
@@ -507,7 +507,7 @@ namespace Ndapi
         /// Gets or sets whether button is iconic.
         /// </summary>
         [Property(NdapiConstants.D2FP_ICONIC)]
-        public bool Iconic
+        public bool IsIconic
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_ICONIC); }
             set { SetBooleanProperty(NdapiConstants.D2FP_ICONIC, value); }
@@ -567,7 +567,7 @@ namespace Ndapi
         /// Gets or sets whether runtime allows inserting of data.
         /// </summary>
         [Property(NdapiConstants.D2FP_INSRT_ALLOWED)]
-        public bool InsertAllowed
+        public bool IsInsertAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_INSRT_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_INSRT_ALLOWED, value); }
@@ -607,7 +607,7 @@ namespace Ndapi
         /// Gets or sets whether the field is navigable with keyboard.
         /// </summary>
         [Property(NdapiConstants.D2FP_KBRD_NAVIGABLE)]
-        public bool KeyboardNavigable
+        public bool IsKeyboardNavigable
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_KBRD_NAVIGABLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_KBRD_NAVIGABLE, value); }
@@ -733,7 +733,7 @@ namespace Ndapi
         /// Gets or sets whether field allows multiple lines.
         /// </summary>
         [Property(NdapiConstants.D2FP_MLT_LIN)]
-        public bool MultiLine
+        public bool IsMultiLine
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MLT_LIN); }
             set { SetBooleanProperty(NdapiConstants.D2FP_MLT_LIN, value); }
@@ -743,7 +743,7 @@ namespace Ndapi
         /// Gets or sets whether item is navigable with mouse.
         /// </summary>
         [Property(NdapiConstants.D2FP_MOUSE_NAVIGATE)]
-        public bool MouseNavigate
+        public bool IsMouseNavigate
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MOUSE_NAVIGATE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_MOUSE_NAVIGATE, value); }
@@ -1085,7 +1085,7 @@ namespace Ndapi
         /// Gets or sets whether the item is part of the primary key.
         /// </summary>
         [Property(NdapiConstants.D2FP_PRMRY_KEY)]
-        public bool PrimaryKey
+        public bool IsPrimaryKey
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_PRMRY_KEY); }
             set { SetBooleanProperty(NdapiConstants.D2FP_PRMRY_KEY, value); }
@@ -1095,7 +1095,7 @@ namespace Ndapi
         /// Gets or sets whether runtime should allow the end user to execute a query in the item.
         /// </summary>
         [Property(NdapiConstants.D2FP_QRY_ALLOWED)]
-        public bool QueryAllowed
+        public bool IsQueryAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_QRY_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_QRY_ALLOWED, value); }
@@ -1115,7 +1115,7 @@ namespace Ndapi
         /// Gets or sets whether the item is query only.
         /// </summary>
         [Property(NdapiConstants.D2FP_QRY_ONLY)]
-        public bool QueryOnly
+        public bool IsQueryOnly
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_QRY_ONLY); }
             set { SetBooleanProperty(NdapiConstants.D2FP_QRY_ONLY, value); }
@@ -1155,7 +1155,7 @@ namespace Ndapi
         /// Gets or sets whether item is to be displayed as a rendered object when it does not have focus. 
         /// </summary>
         [Property(NdapiConstants.D2FP_RENDERED)]
-        public bool Rendered
+        public bool IsRendered
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_RENDERED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_RENDERED, value); }
@@ -1165,7 +1165,7 @@ namespace Ndapi
         /// Gets or sets whether item is required.
         /// </summary>
         [Property(NdapiConstants.D2FP_REQUIRED)]
-        public bool Required
+        public bool IsRequired
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_REQUIRED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_REQUIRED, value); }
@@ -1385,7 +1385,7 @@ namespace Ndapi
         /// Gets or sets whether runtime allows the item to be updated.
         /// </summary>
         [Property(NdapiConstants.D2FP_UPDT_ALLOWED)]
-        public bool UpdateAllowed
+        public bool IsUpdateAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_UPDT_ALLOWED, value); }
@@ -1395,7 +1395,7 @@ namespace Ndapi
         /// Gets or sets whether a chart item is updated to reflect changes made by committing new or updated records to its source block.
         /// </summary>
         [Property(NdapiConstants.D2FP_UPDT_COMMIT)]
-        public bool UpdateCommit
+        public bool IsUpdateCommit
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_UPDT_COMMIT); }
             set { SetBooleanProperty(NdapiConstants.D2FP_UPDT_COMMIT, value); }
@@ -1455,7 +1455,7 @@ namespace Ndapi
         /// Gets or sets whether item is visible.
         /// </summary>
         [Property(NdapiConstants.D2FP_VISIBLE)]
-        public bool Visible
+        public bool IsVisible
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
@@ -1465,7 +1465,7 @@ namespace Ndapi
         /// Gets or sets the white-on-black property.
         /// </summary>
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool WhiteOnBlack
+        public bool IsWhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }

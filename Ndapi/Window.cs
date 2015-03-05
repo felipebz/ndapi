@@ -55,7 +55,7 @@ namespace Ndapi
         /// Gets or sets whether window can be closed.
         /// </summary>
         [Property(NdapiConstants.D2FP_CLS_ALLOWED)]
-        public bool CloseAllowed
+        public bool IsCloseAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED, value); }
@@ -216,7 +216,7 @@ namespace Ndapi
         /// Gets or sets whether window can be maximized.
         /// </summary>
         [Property(NdapiConstants.D2FP_MAXIMIZE_ALLOWED)]
-        public bool MaximizeAllowed
+        public bool IsMaximizeAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED, value); }
@@ -226,7 +226,7 @@ namespace Ndapi
         /// Gets or sets whether window can be minimized.
         /// </summary>
         [Property(NdapiConstants.D2FP_MINIMIZE_ALLOWED)]
-        public bool MinimizedAllowed
+        public bool IsMinimizedAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED, value); }
@@ -246,7 +246,7 @@ namespace Ndapi
         /// Gets or sets whether window is modal or not.
         /// </summary>
         [Property(NdapiConstants.D2FP_MODAL)]
-        public bool Modal
+        public bool IsModal
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MODAL); }
             set { SetBooleanProperty(NdapiConstants.D2FP_MODAL, value); }
@@ -256,7 +256,7 @@ namespace Ndapi
         /// Gets or sets whether window can be moved.
         /// </summary>
         [Property(NdapiConstants.D2FP_MV_ALLOWED)]
-        public bool MoveAllowed
+        public bool IsMoveAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED, value); }
@@ -276,7 +276,7 @@ namespace Ndapi
         /// Gets or sets whether window can be resized.
         /// </summary>
         [Property(NdapiConstants.D2FP_RESIZE_ALLOWED)]
-        public bool ResizeAllowed
+        public bool IsResizeAllowed
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED); }
             set { SetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED, value); }
@@ -336,7 +336,7 @@ namespace Ndapi
         /// Gets or sets the white-on-black property.
         /// </summary>
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool WhiteOnBlack
+        public bool IsWhiteOnBlack
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
             set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
