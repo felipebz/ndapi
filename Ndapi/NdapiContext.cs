@@ -20,8 +20,12 @@ namespace Ndapi
         internal static D2fFree freeMemory = FreeMemory;
 
         private static List<NdapiModule> _modules = new List<NdapiModule>();
-
         private static ContextSafeHandle _context;
+
+        /// <summary>
+        /// Gets whether the context is connected to database or not.
+        /// </summary>
+        public static bool IsConnected { get; private set; }
 
         internal static ContextSafeHandle Context
         {
@@ -100,6 +104,7 @@ namespace Ndapi
         {
             var status = NativeMethods.d2fctxcn_Connect(Context, connection, IntPtr.Zero);
             Ensure.Success(status);
+            IsConnected = true;
         }
 
         /// <summary>
@@ -109,6 +114,7 @@ namespace Ndapi
         {
             var status = NativeMethods.d2fctxdc_Disconnect(Context);
             Ensure.Success(status);
+            IsConnected = false;
         }
 
         /// <summary>
