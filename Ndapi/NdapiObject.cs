@@ -453,7 +453,7 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
-        internal static T Create<T>(ObjectSafeHandle handle)
+        internal static T Create<T>(ObjectSafeHandle handle) where T : NdapiObject
         {
             var objectType = typeof(T);
             if (objectType == typeof(NdapiObject))
@@ -461,6 +461,8 @@ namespace Ndapi
                 ObjectType type;
                 var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, handle, out type);
                 Ensure.Success(status);
+                
+                if (type == ObjectType.Undefined) return null;
 
                 objectType = NdapiMetadata.ObjectTypeMapping[type];
             }
