@@ -1,0 +1,28 @@
+﻿{
+  "version": "1.0.0-alpha3",
+  "description": "A .NET wrapper for Oracle Forms 6i Open API.",
+  "authors": [ "Felipe Zorzo" ],
+  "tags": [ "oracle", "wrapper", "API", "oracleforms" ],
+  "projectUrl": "https://github.com/felipebz/ndapi",
+  "licenseUrl": "https://github.com/felipebz/ndapi/blob/master/LICENSE",
+
+  "dependencies": {
+  },
+
+  "frameworks": {
+    "net40": { },
+    "dnx451": { },
+    "dnxcore50": {
+      "compilationOptions": { "define": [ "NETCORE" ] },
+      "dependencies": {
+        "Microsoft.CSharp": "4.0.0-*",
+        "System.Collections": "4.0.10-*",
+        "System.Linq": "4.0.0-*",
+        "System.Reflection.Extensions": "4.0.0-*",
+        "System.Reflection.TypeExtensions": "4.0.0-*",
+        "System.Runtime.Extensions": "4.0.10-*",
+        "System.Runtime.InteropServices": "4.0.20-*"
+      }
+    }
+  }
+}

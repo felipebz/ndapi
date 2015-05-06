@@ -1,13 +1,16 @@
 ﻿using Ndapi.Enums;
 using System;
+#if !NETCORE
 using System.Runtime.Serialization;
-
+#endif
 namespace Ndapi
 {
     /// <summary>
     /// The exception that is thrown when an error occurs during application execution.
     /// </summary>
+#if !NETCORE
     [Serializable]
+#endif
     public class NdapiException : Exception
     {
         /// <summary>
@@ -39,6 +42,7 @@ namespace Ndapi
         {
         }
 
+#if !NETCORE
         /// <summary>
         /// Initializes a new instance of the <see cref="NdapiException"/> class with a serialized data.
         /// </summary>
@@ -53,5 +57,6 @@ namespace Ndapi
             ErrorCode = code;
             Data.Add("ndapi.code", (int)ErrorCode);
         }
+#endif
     }
 }
