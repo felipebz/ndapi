@@ -15,9 +15,10 @@
   },
 
   "frameworks": {
-    "net40": { },
-    "dnx451": { },
+    "net40": { "compilationOptions": { "platform": "x86" } },
+    "dnx451": { "compilationOptions": { "platform": "x86" } },
     "dnxcore50": {
+      "compilationOptions": { "platform":  "x86" },
       "dependencies": {
         "Microsoft.CSharp": "4.0.0-*",
         "System.Collections": "4.0.10-*",
