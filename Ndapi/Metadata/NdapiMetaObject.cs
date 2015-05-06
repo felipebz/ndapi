@@ -3,7 +3,9 @@ using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if NETCORE
 using System.Reflection;
+#endif
 
 namespace Ndapi.Metadata
 {
