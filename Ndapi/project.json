@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-alpha3-*",
+  "version": "1.0.0-beta1-*",
   "description": "A .NET wrapper for Oracle Forms 6i Open API.",
   "authors": [ "Felipe Zorzo" ],
   "tags": [ "oracle", "wrapper", "API", "oracleforms" ],

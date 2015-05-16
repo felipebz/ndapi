@@ -19,7 +19,7 @@ build_script:
 
     $root = $env:APPVEYOR_BUILD_FOLDER
 
-    $nupkgPathCS = "$root\Ndapi\bin\Release\Ndapi.1.0.0-alpha3-$buildNumber.nupkg"
+    $nupkgPathCS = "$root\Ndapi\bin\Release\Ndapi.1.0.0-beta1-$buildNumber.nupkg"
 
     appveyor PushArtifact $nupkgPathCS
 test: off
