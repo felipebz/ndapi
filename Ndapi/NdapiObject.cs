@@ -30,7 +30,7 @@ namespace Ndapi
         internal NdapiObject(string name, ObjectType type, NdapiObject parent = null)
         {
             var parentHandle = parent?._handle ?? new ObjectSafeHandle();
-            var status = NativeMethods.d2fobcr_Create(NdapiContext.Context, parentHandle, out _handle, name, (int)type);
+            var status = NativeMethods.d2fobcr_Create(NdapiContext.GetContext(), parentHandle, out _handle, name, (int)type);
             Ensure.Success(status);
             _type = type;
         }
@@ -133,7 +133,7 @@ namespace Ndapi
         {
             get
             {
-                var status = NativeMethods.d2fobis_IsSubclassed(NdapiContext.Context, _handle);
+                var status = NativeMethods.d2fobis_IsSubclassed(NdapiContext.GetContext(), _handle);
                 Ensure.BooleanResult(status);
                 return status == D2fErrorCode.D2FS_YES;
             }
@@ -163,7 +163,7 @@ namespace Ndapi
         public string GetStringProperty(int property)
         {
             string value;
-            var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.Context, _handle, property, out value);
+            var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), _handle, property, out value);
             Ensure.Success(status);
             return value;
         }
@@ -175,7 +175,7 @@ namespace Ndapi
         /// <param name="value">Property value</param>
         public void SetStringProperty(int property, string value)
         {
-            var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.Context, _handle, property, value);
+            var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.GetContext(), _handle, property, value);
             Ensure.Success(status);
         }
 
@@ -187,7 +187,7 @@ namespace Ndapi
         public int GetNumberProperty(int property)
         {
             int value;
-            var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.Context, _handle, property, out value);
+            var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.GetContext(), _handle, property, out value);
             Ensure.Success(status);
             return value;
         }
@@ -209,7 +209,7 @@ namespace Ndapi
         /// <param name="value">Property value</param>
         public void SetNumberProperty(int property, int value)
         {
-            var status = NativeMethods.d2fobsn_SetNumProp(NdapiContext.Context, _handle, property, value);
+            var status = NativeMethods.d2fobsn_SetNumProp(NdapiContext.GetContext(), _handle, property, value);
             Ensure.Success(status);
         }
 
@@ -231,7 +231,7 @@ namespace Ndapi
         public bool GetBooleanProperty(int property)
         {
             bool value;
-            var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.Context, _handle, property, out value);
+            var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.GetContext(), _handle, property, out value);
             Ensure.Success(status);
             return value;
         }
@@ -243,7 +243,7 @@ namespace Ndapi
         /// <param name="value">Property value</param>
         public void SetBooleanProperty(int property, bool value)
         {
-            var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.Context, _handle, property, value);
+            var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.GetContext(), _handle, property, value);
             Ensure.Success(status);
         }
 
@@ -255,7 +255,7 @@ namespace Ndapi
         public T GetObjectProperty<T>(int property) where T : NdapiObject
         {
             ObjectSafeHandle handle;
-            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.Context, _handle, property, out handle);
+            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), _handle, property, out handle);
             Ensure.Success(status);
 
             if (handle.IsInvalid)
@@ -273,7 +273,7 @@ namespace Ndapi
         /// <param name="value">Property value</param>
         public void SetObjectProperty<T>(int property, T value) where T : NdapiObject
         {
-            var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.Context, _handle, property, value._handle);
+            var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.GetContext(), _handle, property, value._handle);
             Ensure.Success(status);
         }
 
@@ -298,7 +298,7 @@ namespace Ndapi
                 return _type;
             }
 
-            var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, _handle, out _type);
+            var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), _handle, out _type);
             Ensure.Success(status);
 
             return _type;
@@ -332,7 +332,7 @@ namespace Ndapi
         /// <returns>A boolean indicating whether item has the property.</returns>
         public bool HasProperty(int property)
         {
-            var status = NativeMethods.d2fobhp_HasProp(NdapiContext.Context, _handle, property);
+            var status = NativeMethods.d2fobhp_HasProp(NdapiContext.GetContext(), _handle, property);
             Ensure.BooleanResult(status);
 
             return status == D2fErrorCode.D2FS_YES;
@@ -344,13 +344,13 @@ namespace Ndapi
         /// <param name="property"></param>
         public void InheritProperty(int property)
         {
-            var status = NativeMethods.d2fobip_InheritProp(NdapiContext.Context, _handle, property);
+            var status = NativeMethods.d2fobip_InheritProp(NdapiContext.GetContext(), _handle, property);
             Ensure.Success(status);
         }
 
         internal D2fErrorCode IsPropertyDefaulted(int property)
         {
-            return NativeMethods.d2fobid_IspropDefault(NdapiContext.Context, _handle, property);
+            return NativeMethods.d2fobid_IspropDefault(NdapiContext.GetContext(), _handle, property);
         }
 
         /// <summary>
@@ -361,7 +361,10 @@ namespace Ndapi
         public bool HasDefaultedProperty(int property)
         {
             var status = IsPropertyDefaulted(property);
-            if (status == D2fErrorCode.D2FS_DONTHAVE) return false;
+            if (status == D2fErrorCode.D2FS_DONTHAVE)
+            {
+                return false;
+            }
 
             Ensure.BooleanResult(status);
             return status == D2fErrorCode.D2FS_YES;
@@ -375,7 +378,10 @@ namespace Ndapi
         public bool HasOverriddenProperty(int property)
         {
             var status = IsPropertyDefaulted(property);
-            if (status == D2fErrorCode.D2FS_DONTHAVE) return false;
+            if (status == D2fErrorCode.D2FS_DONTHAVE)
+            {
+                return false;
+            }
 
             Ensure.BooleanResult(status);
             return status == D2fErrorCode.D2FS_NO;
@@ -388,7 +394,7 @@ namespace Ndapi
         /// <returns>A boolean indicating whether property was inherited.</returns>
         public bool HasInheritedProperty(int property)
         {
-            var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.Context, _handle, property);
+            var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.GetContext(), _handle, property);
             Ensure.BooleanResult(status);
 
             return status == D2fErrorCode.D2FS_YES;
@@ -427,8 +433,18 @@ namespace Ndapi
         /// </remarks>
         public void Reattach()
         {
-            var status = NativeMethods.d2fobra_Reattach(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fobra_Reattach(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Change the subclassing parent of an object to the parent object.
+        /// This will cause the property values to be overriden for all properties which are defined on the parent object.
+        /// </summary>
+        /// <param name="parent">Object to subclass.</param>
+        public void Subclass(NdapiObject parent)
+        {
+            Subclass(parent, false);
         }
 
         /// <summary>
@@ -438,9 +454,9 @@ namespace Ndapi
         /// <param name="parent">Object to subclass.</param>
         /// <param name="keepPath">Indicates whether the system should refer to the parent object's module by filename or by path+filename.
         /// The recommended choice is false in most cases.</param>
-        public void Subclass(NdapiObject parent, bool keepPath = false)
+        public void Subclass(NdapiObject parent, bool keepPath)
         {
-            var status = NativeMethods.d2fobsc_SubClass(NdapiContext.Context, _handle, parent._handle, keepPath);
+            var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), _handle, parent._handle, keepPath);
             Ensure.Success(status);
         }
 
@@ -449,7 +465,7 @@ namespace Ndapi
         /// </summary>
         public virtual void Destroy()
         {
-            var status = NativeMethods.d2fobde_Destroy(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fobde_Destroy(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
 
@@ -459,10 +475,13 @@ namespace Ndapi
             if (objectType == typeof(NdapiObject))
             {
                 ObjectType type;
-                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.Context, handle, out type);
+                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out type);
                 Ensure.Success(status);
-                
-                if (type == ObjectType.Undefined) return null;
+
+                if (type == ObjectType.Undefined)
+                {
+                    return null;
+                }
 
                 objectType = NdapiMetadata.ObjectTypeMapping[type];
             }
@@ -529,16 +548,37 @@ namespace Ndapi
         /// The new object is an exact copy of the original object, with all the same property values.
         /// </summary>
         /// <param name="newName">Name of the new object.</param>
+        public T Clone(string newName)
+        {
+            return Clone(newName, null, true);
+        }
+
+        /// <summary>
+        /// Creates a new object with the given name and owner.
+        /// The new object is an exact copy of the original object, with all the same property values.
+        /// </summary>
+        /// <param name="newName">Name of the new object.</param>
+        /// /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
+        public T Clone(string newName, NdapiObject newOwner)
+        {
+            return Clone(newName, newOwner, true);
+        }
+
+        /// <summary>
+        /// Creates a new object with the given name and owner.
+        /// The new object is an exact copy of the original object, with all the same property values.
+        /// </summary>
+        /// <param name="newName">Name of the new object.</param>
         /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
         /// <param name="keepSubclassingInfo">If false, the sublassing info is discarded and the inherited properties are flattened into local values in the new object.</param>
         /// <returns>The new object.</returns>
-        public T Clone(string newName, NdapiObject newOwner = null, bool keepSubclassingInfo = true)
+        public T Clone(string newName, NdapiObject newOwner, bool keepSubclassingInfo)
         {
             var parentHandle = newOwner?._handle ?? Owner._handle;
 
             ObjectSafeHandle newHandle;
-            var status = keepSubclassingInfo ? NativeMethods.d2fobre_Replicate(NdapiContext.Context, parentHandle, _handle, out newHandle, newName)
-                                             : NativeMethods.d2fobdu_Duplicate(NdapiContext.Context, parentHandle, _handle, out newHandle, newName);
+            var status = keepSubclassingInfo ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, _handle, out newHandle, newName)
+                                             : NativeMethods.d2fobdu_Duplicate(NdapiContext.GetContext(), parentHandle, _handle, out newHandle, newName);
             Ensure.Success(status);
 
             return Create<T>(newHandle);
@@ -553,7 +593,7 @@ namespace Ndapi
         public void Move(T nextObject)
         {
             var nextHandle = nextObject?._handle ?? new ObjectSafeHandle();
-            var status = NativeMethods.d2fobmv_Move(NdapiContext.Context, _handle, nextHandle);
+            var status = NativeMethods.d2fobmv_Move(NdapiContext.GetContext(), _handle, nextHandle);
             Ensure.Success(status);
         }
     }

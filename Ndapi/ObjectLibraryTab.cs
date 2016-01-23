@@ -61,7 +61,7 @@ namespace Ndapi
         public NdapiObject GetObjectByPosition(int position)
         {
             ObjectSafeHandle obj;
-            var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.Context, _handle, position, out obj);
+            var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out obj);
             Ensure.Success(status);
 
             if (obj.IsInvalid)
@@ -77,12 +77,23 @@ namespace Ndapi
         /// </summary>
         /// <typeparam name="T">Object type.</typeparam>
         /// <param name="obj">Object to add to library tab.</param>
+        /// <returns>A copy of the original object.</returns>
+        public T AddObject<T>(T obj) where T : NdapiObject
+        {
+            return AddObject(obj, false);
+        }
+
+        /// <summary>
+        /// Add an object to the object library tab. When adding an object, a copy is made and it is this copy that is added to the library.
+        /// </summary>
+        /// <typeparam name="T">Object type.</typeparam>
+        /// <param name="obj">Object to add to library tab.</param>
         /// <param name="replace">Should replace the existing object.</param>
         /// <returns>A copy of the original object.</returns>
-        public T AddObject<T>(T obj, bool replace = false) where T : NdapiObject
+        public T AddObject<T>(T obj, bool replace) where T : NdapiObject
         {
-            var handle = new ObjectSafeHandle();
-            var status = NativeMethods.d2folbao_AddObj(NdapiContext.Context, ObjectLibrary._handle, _handle, obj._handle, out handle, replace);
+            ObjectSafeHandle handle;
+            var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out handle, replace);
             Ensure.Success(status);
             return Create<T>(handle);
         }

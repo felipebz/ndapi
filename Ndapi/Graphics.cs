@@ -888,7 +888,7 @@ namespace Ndapi
         /// <param name="format">Image format.</param>
         public void ImportImage(string filename, ImageFormat format)
         {
-            var status = NativeMethods.d2fgraim_importImage(NdapiContext.Context, _handle, filename, format);
+            var status = NativeMethods.d2fgraim_importImage(NdapiContext.GetContext(), _handle, filename, format);
             Ensure.Success(status);
         }
 

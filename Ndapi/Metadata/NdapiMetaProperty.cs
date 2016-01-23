@@ -116,7 +116,7 @@ namespace Ndapi.Metadata
         /// </summary>
         /// <param name="property">Property id (see <see cref="NdapiConstants"/>).</param>
         /// <returns>The property type.</returns>
-        public static PropertyType GetPropertyType(int property) => NativeMethods.d2fprgt_GetType(NdapiContext.Context, property);
+        public static PropertyType GetPropertyType(int property) => NativeMethods.d2fprgt_GetType(NdapiContext.GetContext(), property);
 
         /// <summary>
         /// Gets the property name.
@@ -126,7 +126,7 @@ namespace Ndapi.Metadata
         public static string GetName(int property)
         {
             string name;
-            var status = NativeMethods.d2fprgn_GetName(NdapiContext.Context, property, out name);
+            var status = NativeMethods.d2fprgn_GetName(NdapiContext.GetContext(), property, out name);
             Ensure.Success(status);
             return name;
         }
@@ -140,7 +140,7 @@ namespace Ndapi.Metadata
         public static string GetValueName(int property, int value)
         {
             string name;
-            var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.Context, property, value, out name);
+            var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.GetContext(), property, value, out name);
             Ensure.Success(status);
             return name;
         }
@@ -153,7 +153,7 @@ namespace Ndapi.Metadata
         public static int GetConstantValue(string constant)
         {
             int value;
-            var status = NativeMethods.d2fprgcv_GetConstValue(NdapiContext.Context, constant, out value);
+            var status = NativeMethods.d2fprgcv_GetConstValue(NdapiContext.GetContext(), constant, out value);
             Ensure.Success(status);
             return value;
         }
@@ -166,7 +166,7 @@ namespace Ndapi.Metadata
         public static string GetConstantName(int constant)
         {
             string name;
-            var status = NativeMethods.d2fprgcn_GetConstName(NdapiContext.Context, constant, out name);
+            var status = NativeMethods.d2fprgcn_GetConstName(NdapiContext.GetContext(), constant, out name);
             Ensure.Success(status);
             return name;
         }

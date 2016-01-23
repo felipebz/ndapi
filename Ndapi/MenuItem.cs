@@ -292,7 +292,7 @@ namespace Ndapi
         /// </summary>
         public void Compile()
         {
-            var status = NativeMethods.d2fmnico_CompileObj(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fmnico_CompileObj(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
 
@@ -303,7 +303,7 @@ namespace Ndapi
         /// <param name="role">Role name.</param>
         public void AddRoleAt(int index, string role)
         {
-            var status = NativeMethods.d2fmniar_AddRole(NdapiContext.Context, _handle, index, role);
+            var status = NativeMethods.d2fmniar_AddRole(NdapiContext.GetContext(), _handle, index, role);
             Ensure.Success(status);
         }
 
@@ -313,7 +313,7 @@ namespace Ndapi
         /// <param name="index">The one-based index at which role should be removed.</param>
         public void DeleteRoleAt(int index)
         {
-            var status = NativeMethods.d2fmnirr_RemoveRole(NdapiContext.Context, _handle, index);
+            var status = NativeMethods.d2fmnirr_RemoveRole(NdapiContext.GetContext(), _handle, index);
             Ensure.Success(status);
         }
 
@@ -325,7 +325,7 @@ namespace Ndapi
         public string GetRoleAt(int index)
         {
             string role;
-            var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.Context, _handle, index, out role);
+            var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), _handle, index, out role);
             Ensure.Success(status);
             return role;
         }

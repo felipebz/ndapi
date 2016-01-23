@@ -1542,7 +1542,7 @@ namespace Ndapi
         /// </summary>
         public void Compile()
         {
-            var status = NativeMethods.d2fitmco_CompileObj(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fitmco_CompileObj(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
 
@@ -1554,7 +1554,7 @@ namespace Ndapi
         /// <param name="value">Element value.</param>
         public void InsertListElementAt(int index, string label, string value)
         {
-            var status = NativeMethods.d2fitmile_InsertListElem(NdapiContext.Context, _handle, index, label, value);
+            var status = NativeMethods.d2fitmile_InsertListElem(NdapiContext.GetContext(), _handle, index, label, value);
             Ensure.Success(status);
         }
 
@@ -1564,7 +1564,7 @@ namespace Ndapi
         /// <param name="index">The one-based index at which item should be removed.</param>
         public void DeleteListElementAt(int index)
         {
-            var status = NativeMethods.d2fitmdle_DeleteListElem(NdapiContext.Context, _handle, index);
+            var status = NativeMethods.d2fitmdle_DeleteListElem(NdapiContext.GetContext(), _handle, index);
             Ensure.Success(status);
         }
 
@@ -1575,8 +1575,9 @@ namespace Ndapi
         /// <returns>The label and the value of the list element.</returns>
         public KeyValuePair<string, string> GetListElementAt(int index)
         {
-            string label, value;
-            var status = NativeMethods.d2fitmgle_GetListElem(NdapiContext.Context, _handle, index, out label, out value);
+            string label;
+            string value;
+            var status = NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), _handle, index, out label, out value);
             Ensure.Success(status);
             return new KeyValuePair<string, string>(label, value);
         }

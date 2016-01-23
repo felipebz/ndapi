@@ -83,7 +83,7 @@ namespace Ndapi
         /// <param name="query">SQL query.</param>
         public void SetQueryWithoutParse(string query)
         {
-            var status = NativeMethods.d2frcgs_qry_noparse(NdapiContext.Context, _handle, query);
+            var status = NativeMethods.d2frcgs_qry_noparse(NdapiContext.GetContext(), _handle, query);
             Ensure.Success(status);
         }
 

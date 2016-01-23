@@ -130,7 +130,7 @@ namespace Ndapi
         /// <param name="menu">Associated menu name.</param>
         public void AddAssociatedMenuAt(int index, string menu)
         {
-            var status = NativeMethods.d2fmpmaam_AddAssocMenu(NdapiContext.Context, _handle, index, menu);
+            var status = NativeMethods.d2fmpmaam_AddAssocMenu(NdapiContext.GetContext(), _handle, index, menu);
             Ensure.Success(status);
         }
 
@@ -140,7 +140,7 @@ namespace Ndapi
         /// <param name="index">The one-based index at which associated menu should be removed.</param>
         public void DeleteAssociatedMenuAt(int index)
         {
-            var status = NativeMethods.d2fmpmram_RemoveAssocMenu(NdapiContext.Context, _handle, index);
+            var status = NativeMethods.d2fmpmram_RemoveAssocMenu(NdapiContext.GetContext(), _handle, index);
             Ensure.Success(status);
         }
 
@@ -152,7 +152,7 @@ namespace Ndapi
         public string GetAssociatedMenuAt(int index)
         {
             string menu;
-            var status = NativeMethods.d2fmpmgam_GetAssocMenu(NdapiContext.Context, _handle, index, out menu);
+            var status = NativeMethods.d2fmpmgam_GetAssocMenu(NdapiContext.GetContext(), _handle, index, out menu);
             Ensure.Success(status);
             return menu;
         }

@@ -133,7 +133,7 @@ namespace Ndapi
         /// </summary>
         public void Compile()
         {
-            var status = NativeMethods.d2ftrgco_CompileObj(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2ftrgco_CompileObj(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
     }

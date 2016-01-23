@@ -68,10 +68,20 @@ namespace Ndapi
         /// </summary>
         /// <param name="index">The one-based index at which value should be inserted.</param>
         /// <param name="value">Value to insert.</param>
-        /// <param name="formatMask">Format mask to format the data.</param>
-        public void AddValueAt(int index, string value, string formatMask = null)
+        public void AddValueAt(int index, string value)
         {
-            var status = NativeMethods.d2frcsir_InsertRow_Int(NdapiContext.Context, _handle, index, value, formatMask);
+            AddValueAt(index, value, null);
+        }
+
+        /// <summary>
+        /// Inserts a value in the specified index.
+        /// </summary>
+        /// <param name="index">The one-based index at which value should be inserted.</param>
+        /// <param name="value">Value to insert.</param>
+        /// <param name="formatMask">Format mask to format the data.</param>
+        public void AddValueAt(int index, string value, string formatMask)
+        {
+            var status = NativeMethods.d2frcsir_InsertRow_Int(NdapiContext.GetContext(), _handle, index, value, formatMask);
             Ensure.Success(status);
         }
 
@@ -81,7 +91,7 @@ namespace Ndapi
         /// <param name="index">The one-based index at which value should be removed.</param>
         public void DeleteValueAt(int index)
         {
-            var status = NativeMethods.d2frcsdr_DeleteRow(NdapiContext.Context, _handle, index);
+            var status = NativeMethods.d2frcsdr_DeleteRow(NdapiContext.GetContext(), _handle, index);
             Ensure.Success(status);
         }
 
@@ -93,7 +103,7 @@ namespace Ndapi
         public string GetValueAt(int index)
         {
             string value;
-            var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.Context, _handle, index, out value);
+            var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), _handle, index, out value);
             Ensure.Success(status);
             return value;
         }

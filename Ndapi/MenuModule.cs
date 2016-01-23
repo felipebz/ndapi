@@ -171,7 +171,7 @@ namespace Ndapi
         {
             ObjectSafeHandle menu;
 
-            var status = NativeMethods.d2fmmdld_Load(NdapiContext.Context, out menu, filename, false);
+            var status = NativeMethods.d2fmmdld_Load(NdapiContext.GetContext(), out menu, filename, false);
             Ensure.Success(status);
 
             return new MenuModule(menu);
@@ -180,11 +180,28 @@ namespace Ndapi
         /// <summary>
         /// Save the menu module to disk.
         /// </summary>
+        public override void Save()
+        {
+            Save(null, false);
+        }
+
+        /// <summary>
+        /// Save the menu module to disk.
+        /// </summary>
+        /// <param name="path">Location to save.</param>
+        public override void Save(string path)
+        {
+            Save(path, false);
+        }
+
+        /// <summary>
+        /// Save the menu module to disk.
+        /// </summary>
         /// <param name="path">Location to save.</param>
         /// <param name="saveInDatabase">Should save module in database.</param>
-        public override void Save(string path = null, bool saveInDatabase = false)
+        public override void Save(string path, bool saveInDatabase)
         {
-            var status = NativeMethods.d2fmmdsv_Save(NdapiContext.Context, _handle, path, saveInDatabase);
+            var status = NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
             Ensure.Success(status);
         }
 
@@ -193,7 +210,7 @@ namespace Ndapi
         /// </summary>
         public override void CompileFile()
         {
-            var status = NativeMethods.d2fmmdcf_CompileFile(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fmmdcf_CompileFile(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
 
@@ -202,8 +219,18 @@ namespace Ndapi
         /// </summary>
         public override void CompileObjects()
         {
-            var status = NativeMethods.d2fmmdco_CompileObj(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fmmdco_CompileObj(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Gets the version of the last Form Builder that loaded the module.
+        /// </summary>
+        /// <param name="file">Menu module location (.mmb file)</param>
+        /// <returns>The Form Builder version</returns>
+        public static int GetFileVersion(string file)
+        {
+            return GetFileVersion(file, false);
         }
 
         /// <summary>
@@ -212,10 +239,10 @@ namespace Ndapi
         /// <param name="file">Menu module location (.mmb file)</param>
         /// <param name="loadFromDb">Module should be loaded from database.</param>
         /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file, bool loadFromDb = false)
+        public static int GetFileVersion(string file, bool loadFromDb)
         {
             int version;
-            var status = NativeMethods.d2fmmdfv_FileVersion(NdapiContext.Context, file, loadFromDb, out version);
+            var status = NativeMethods.d2fmmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out version);
             Ensure.Success(status);
             return version;
         }
@@ -234,7 +261,7 @@ namespace Ndapi
         /// <param name="role">Role name.</param>
         public void AddRoleAt(int index, string role)
         {
-            var status = NativeMethods.d2fmmdar_AddRole(NdapiContext.Context, _handle, index, role);
+            var status = NativeMethods.d2fmmdar_AddRole(NdapiContext.GetContext(), _handle, index, role);
             Ensure.Success(status);
         }
 
@@ -244,7 +271,7 @@ namespace Ndapi
         /// <param name="index">The one-based index at which role should be removed.</param>
         public void DeleteRoleAt(int index)
         {
-            var status = NativeMethods.d2fmmdrr_RemoveRole(NdapiContext.Context, _handle, index);
+            var status = NativeMethods.d2fmmdrr_RemoveRole(NdapiContext.GetContext(), _handle, index);
             Ensure.Success(status);
         }
 
@@ -256,7 +283,7 @@ namespace Ndapi
         public string GetRoleAt(int index)
         {
             string role;
-            var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.Context, _handle, index, out role);
+            var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.GetContext(), _handle, index, out role);
             Ensure.Success(status);
             return role;
         }

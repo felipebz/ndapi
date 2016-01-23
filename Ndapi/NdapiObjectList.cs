@@ -64,7 +64,7 @@ namespace Ndapi
             var type = NdapiMetadata.GetObjectTypeFrom<T>();
             ObjectSafeHandle handle;
 
-            var status = NativeMethods.d2fobfo_FindObj(NdapiContext.Context, _ndapiObject._handle, name, type, out handle);
+            var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject._handle, name, type, out handle);
             if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
             {
                 return null;

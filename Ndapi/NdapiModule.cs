@@ -11,10 +11,6 @@ namespace Ndapi
     /// </summary>
     public abstract class NdapiModule : NdapiObject
     {
-        //internal NdapiModule()
-        //{
-        //}
-
         internal NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
         {
             NdapiContext.AddModule(this);
@@ -32,7 +28,7 @@ namespace Ndapi
         /// <returns>Loaded module reference.</returns>
         public static NdapiModule Open(string filename)
         {
-            var extension = Path.GetExtension(filename).ToUpper(); ;
+            var extension = Path.GetExtension(filename).ToUpperInvariant();
             switch (extension)
             {
                 case ".FMB":
@@ -51,9 +47,20 @@ namespace Ndapi
         /// <summary>
         /// Save the module to disk.
         /// </summary>
+        public abstract void Save();
+
+        /// <summary>
+        /// Save the module to disk.
+        /// </summary>
+        /// <param name="path">Location to save.</param>
+        public abstract void Save(string path);
+
+        /// <summary>
+        /// Save the module to disk.
+        /// </summary>
         /// <param name="path">Location to save.</param>
         /// <param name="saveInDatabase">Should save module in database.</param>
-        public abstract void Save(string path = null, bool saveInDatabase = false);
+        public abstract void Save(string path, bool saveInDatabase);
 
         /// <summary>
         /// Compile the module.
@@ -72,7 +79,7 @@ namespace Ndapi
         public static void ConvertToText<T>(string filename) where T : NdapiModule
         {
             var type = NdapiMetadata.GetObjectTypeFrom<T>();
-            var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.Context, filename, type, NdapiConstants.BINTOTEXT);
+            var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.GetContext(), filename, type, NdapiConstants.BINTOTEXT);
             Ensure.Success(status);
         }
 
@@ -83,7 +90,7 @@ namespace Ndapi
         public static void ConvertFromText<T>(string filename) where T : NdapiModule
         {
             var type = NdapiMetadata.GetObjectTypeFrom<T>();
-            var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.Context, filename, type, NdapiConstants.TEXTTOBIN);
+            var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.GetContext(), filename, type, NdapiConstants.TEXTTOBIN);
             Ensure.Success(status);
         }
 

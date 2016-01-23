@@ -372,7 +372,7 @@ namespace Ndapi
         {
             ObjectSafeHandle form;
 
-            var status = NativeMethods.d2ffmdld_Load(NdapiContext.Context, out form, filename, false);
+            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename, false);
             Ensure.Success(status);
 
             return new FormModule(form);
@@ -381,11 +381,28 @@ namespace Ndapi
         /// <summary>
         /// Save the form module to disk.
         /// </summary>
+        public override void Save()
+        {
+            Save(null, false);
+        }
+
+        /// <summary>
+        /// Save the form module to disk.
+        /// </summary>
+        /// <param name="path">Location to save.</param>
+        public override void Save(string path)
+        {
+            Save(path, false);
+        }
+
+        /// <summary>
+        /// Save the form module to disk.
+        /// </summary>
         /// <param name="path">Location to save.</param>
         /// <param name="saveInDatabase">Should save module in database.</param>
-        public override void Save(string path = null, bool saveInDatabase = false)
+        public override void Save(string path, bool saveInDatabase)
         {
-            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.Context, _handle, path, saveInDatabase);
+            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
             Ensure.Success(status);
         }
 
@@ -394,7 +411,7 @@ namespace Ndapi
         /// </summary>
         public override void CompileFile()
         {
-            var status = NativeMethods.d2ffmdcf_CompileFile(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2ffmdcf_CompileFile(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
 
@@ -403,8 +420,18 @@ namespace Ndapi
         /// </summary>
         public override void CompileObjects()
         {
-            var status = NativeMethods.d2ffmdco_CompileObj(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2ffmdco_CompileObj(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
+        }
+
+        /// <summary>
+        /// Gets the version of the last Form Builder that loaded the module.
+        /// </summary>
+        /// <param name="file">Form module location (.fmb file)</param>
+        /// <returns>The Form Builder version</returns>
+        public static int GetFileVersion(string file)
+        {
+            return GetFileVersion(file, false);
         }
 
         /// <summary>
@@ -413,10 +440,10 @@ namespace Ndapi
         /// <param name="file">Form module location (.fmb file)</param>
         /// <param name="loadFromDb">Module should be loaded from database.</param>
         /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file, bool loadFromDb = false)
+        public static int GetFileVersion(string file, bool loadFromDb)
         {
             int version;
-            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.Context, file, loadFromDb, out version);
+            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out version);
             Ensure.Success(status);
             return version;
         }

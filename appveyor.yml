@@ -4,7 +4,7 @@ branches:
   only:
   - master
 os: Visual Studio 2015
-configuration: Debug
+configuration: Release
 platform: x86
 clone_depth: 1
 before_build:
@@ -40,7 +40,7 @@ after_build:
 
     echo "Packing nuget..."
 
-    nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
+    nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Release;Platform=x86" -OutputDirectory "$root\Ndapi\"
 
     $nupkgPathCS = "$root\Ndapi\Ndapi.$($xmlCS.package.metadata.version).nupkg"
 

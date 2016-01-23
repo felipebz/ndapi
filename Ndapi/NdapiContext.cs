@@ -16,9 +16,9 @@ namespace Ndapi
         private const int D2FCTXAMCALLS = 2; // memory callbacks
 
         // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
-        internal static D2fMalloc allocateMemory = AllocateMemory;
-        internal static D2fRealloc reallocateMemory = ReallocateMemory;
-        internal static D2fFree freeMemory = FreeMemory;
+        private static D2fMalloc allocateMemory = AllocateMemory;
+        private static D2fRealloc reallocateMemory = ReallocateMemory;
+        private static D2fFree freeMemory = FreeMemory;
 
         private static List<NdapiModule> _modules = new List<NdapiModule>();
         private static ContextSafeHandle _context;
@@ -28,31 +28,28 @@ namespace Ndapi
         /// </summary>
         public static bool IsConnected { get; private set; }
 
-        internal static ContextSafeHandle Context
+        internal static ContextSafeHandle GetContext()
         {
-            get
-            {
                 if (_context == null)
                 {
-                    var context_attributes = new D2fContextAttributes();
-                    context_attributes.mask_d2fctxa = D2FCTXAMCALLS;
-                    context_attributes.d2fmalc_d2fctxa = allocateMemory;
-                    context_attributes.d2fmrlc_d2fctxa = reallocateMemory;
-                    context_attributes.d2fmfre_d2fctxa = freeMemory;
-                    D2fErrorCode status;
-                    try
-                    {
-                        status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
-                    }
-                    catch (DllNotFoundException)
-                    {
-                        throw new NdapiException("Could not found the ifd2f60.dll from Oracle Forms 6i installation. " +
-                            "Please check if this version of Oracle Forms is installed.");
-                    }
-                    Ensure.Success(status);
+                var context_attributes = new D2fContextAttributes();
+                context_attributes.mask_d2fctxa = D2FCTXAMCALLS;
+                context_attributes.d2fmalc_d2fctxa = allocateMemory;
+                context_attributes.d2fmrlc_d2fctxa = reallocateMemory;
+                context_attributes.d2fmfre_d2fctxa = freeMemory;
+                D2fErrorCode status;
+                try
+                {
+                    status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
                 }
-                return _context;
+                catch (DllNotFoundException)
+                {
+                    throw new NdapiException("Could not found the ifd2f60.dll from Oracle Forms 6i installation. " +
+                        "Please check if this version of Oracle Forms is installed.");
+                }
+                Ensure.Success(status);
             }
+            return _context;
         }
 
         private static IntPtr AllocateMemory(ref IntPtr context, IntPtr size)
@@ -84,7 +81,7 @@ namespace Ndapi
             get
             {
                 int version;
-                var status = NativeMethods.d2fctxbv_BuilderVersion(Context, out version);
+                var status = NativeMethods.d2fctxbv_BuilderVersion(GetContext(), out version);
                 Ensure.Success(status);
 
                 return version;
@@ -112,7 +109,7 @@ namespace Ndapi
         /// <param name="connection">Connection string (username/password@database).</param>
         public static void ConnectToDatabase(string connection)
         {
-            var status = NativeMethods.d2fctxcn_Connect(Context, connection, IntPtr.Zero);
+            var status = NativeMethods.d2fctxcn_Connect(GetContext(), connection, IntPtr.Zero);
             Ensure.Success(status);
             IsConnected = true;
         }
@@ -122,7 +119,7 @@ namespace Ndapi
         /// </summary>
         public static void DisconnectFromDatabase()
         {
-            var status = NativeMethods.d2fctxdc_Disconnect(Context);
+            var status = NativeMethods.d2fctxdc_Disconnect(GetContext());
             Ensure.Success(status);
             IsConnected = false;
         }
@@ -132,7 +129,10 @@ namespace Ndapi
         /// </summary>
         public static void Destroy()
         {
-            if (_context.IsInvalid) return;
+            if (_context.IsInvalid)
+            {
+                return;
+            }
             
             _context.Dispose();
             _context = null;

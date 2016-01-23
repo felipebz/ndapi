@@ -694,7 +694,7 @@ namespace Ndapi
         /// </summary>
         public void CompileObjects()
         {
-            var status = NativeMethods.d2fblkco_CompileObj(NdapiContext.Context, _handle);
+            var status = NativeMethods.d2fblkco_CompileObj(NdapiContext.GetContext(), _handle);
             Ensure.Success(status);
         }
 
