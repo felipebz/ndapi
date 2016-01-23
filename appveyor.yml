@@ -23,7 +23,9 @@ before_build:
 
     [xml]$xmlCS = cat $nuspecPathCS
 
-    $xmlCS.package.metadata.version+="-$buildNumber"
+    if ($xmlCS.package.metadata.version.Contains("-")) {
+      $xmlCS.package.metadata.version+="-$buildNumber"
+    }
 
     echo "Nuspec version will be $($xmlCS.package.metadata.version)"
 
