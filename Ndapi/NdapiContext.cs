@@ -1,5 +1,6 @@
 ﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
+using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -38,7 +39,16 @@ namespace Ndapi
                     context_attributes.d2fmalc_d2fctxa = allocateMemory;
                     context_attributes.d2fmrlc_d2fctxa = reallocateMemory;
                     context_attributes.d2fmfre_d2fctxa = freeMemory;
-                    var status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
+                    D2fErrorCode status;
+                    try
+                    {
+                        status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
+                    }
+                    catch (DllNotFoundException)
+                    {
+                        throw new NdapiException("Could not found the ifd2f60.dll from Oracle Forms 6i installation. " +
+                            "Please check if this version of Oracle Forms is installed.");
+                    }
                     Ensure.Success(status);
                 }
                 return _context;
