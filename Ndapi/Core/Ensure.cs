@@ -26,7 +26,7 @@ namespace Ndapi.Core
 
         private static void HandleError(D2fErrorCode result)
         {
-            throw new NdapiException($"The Forms API returned an error. Error code: {result}");
+            throw new NdapiException($"The Forms API returned an error. Error code: {result}", result);
         }
     }
 }

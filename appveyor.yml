@@ -3,26 +3,62 @@ version: 1.0.0.{build}
 branches:
   only:
   - master
-os: Visual Studio 2015 RC
+os: Visual Studio 2015 CTP 6
+configuration: Debug
+platform: x86
 clone_depth: 1
-build_script:
+before_build:
 - ps: >-
+    $env:path="C:\Program Files (x86)\MSBuild\14.0\Bin;$env:path"
+
     $buildNumber = [Convert]::ToInt32($env:APPVEYOR_BUILD_NUMBER).ToString("0000")
 
-    $env:DNX_BUILD_VERSION=$buildNumber
-
-    dnvm upgrade
-
-    dnu restore
-
-    dnu pack --configuration=Release Ndapi\project.json
+    echo "Updating version in nuspec file"
 
     $root = $env:APPVEYOR_BUILD_FOLDER
 
-    $nupkgPathCS = "$root\Ndapi\bin\Release\Ndapi.1.0.0-beta2-$buildNumber.nupkg"
+    echo "Build folder is $root"
+
+    $nuspecPathCS = "$root\Ndapi\Ndapi.nuspec"
+
+    [xml]$xmlCS = cat $nuspecPathCS
+
+    $xmlCS.package.metadata.version+="-$buildNumber"
+
+    echo "Nuspec version will be $($xmlCS.package.metadata.version)"
+
+    $xmlCS.Save($nuspecPathCS)
+
+    echo "Nuspec saved!"
+build:
+  publish_nuget_symbols: true
+  parallel: true
+  verbosity: minimal
+after_build:
+- ps: >-
+    $root = $env:APPVEYOR_BUILD_FOLDER
+
+    echo "Packing nuget..."
+
+    nuget pack "$root\Ndapi\Ndapi.csproj" -Properties "Configuration=Debug;Platform=x86" -OutputDirectory "$root\Ndapi\"
+
+    $nupkgPathCS = "$root\Ndapi\Ndapi.$($xmlCS.package.metadata.version).nupkg"
+
+    echo "Nupkg path is $nupkgPathCS"
+
+    ls $nupkgPathCS
+
+    echo "Nuget packed!"
+
+    echo "Pushing nuget artifact..."
 
     appveyor PushArtifact $nupkgPathCS
+
+    echo "Nupkg pushed"
 test: off
+artifacts:
+- path: Ndapi\bin\$(configuration)\Ndapi.dll
+  name: ndapi
 deploy:
 - provider: NuGet
   server: https://www.myget.org/F/ndapi/api/v2/package

@@ -3,9 +3,6 @@ using Ndapi.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-#if NETCORE
-using System.Reflection;
-#endif
 
 namespace Ndapi.Metadata
 {
@@ -76,13 +73,9 @@ namespace Ndapi.Metadata
             AllowGet = allowGet;
             AllowSet = allowSet;
             RawPropertyType = propertyType;
-#if !NETCORE
             AcceptConstants = propertyType.IsEnum;
             IsList = RawPropertyType.IsGenericType;
-#else
-            AcceptConstants = propertyType.GetTypeInfo().IsEnum;
-            IsList = RawPropertyType.GetTypeInfo().IsGenericType;
-#endif
+
             _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
             _propertyType = new Lazy<PropertyType>(() => GetPropertyType(propertyId));
             _description = new Lazy<string>(() => GetName(PropertyId));
