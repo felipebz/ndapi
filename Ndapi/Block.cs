@@ -501,6 +501,16 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the width of a block scrollbar.
         /// </summary>
+        [Property(NdapiConstants.D2FP_SCRLBR_LEN)]
+        public int ScrollBarLength
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_SCRLBR_LEN); }
+            set { SetNumberProperty(NdapiConstants.D2FP_SCRLBR_LEN, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the width of a block scrollbar.
+        /// </summary>
         [Property(NdapiConstants.D2FP_SCRLBR_WID)]
         public int ScrollBarWidth
         {
