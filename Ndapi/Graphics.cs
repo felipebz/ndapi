@@ -272,6 +272,16 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Gets or sets the edge foreground color.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_EDGE_PAT)]
+        public string EdgePattern
+        {
+            get { return GetStringProperty(NdapiConstants.D2FP_EDGE_PAT); }
+            set { SetStringProperty(NdapiConstants.D2FP_EDGE_PAT, value); }
+        }
+
+        /// <summary>
         /// Gets or sets the pattern to be used for the fill region.
         /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
         /// </summary>
@@ -581,6 +591,46 @@ namespace Ndapi
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_HORZ_ORGN); }
             set { SetNumberProperty(NdapiConstants.D2FP_HORZ_ORGN, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the internal end angle.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_INTERNAL_END_ANGLE)]
+        public int InternalEndAngle
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_INTERNAL_END_ANGLE); }
+            set { SetNumberProperty(NdapiConstants.D2FP_INTERNAL_END_ANGLE, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the internal rotation angle.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_INTERNAL_ROTATION_ANGLE)]
+        public int InternalRotationAngle
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_INTERNAL_ROTATION_ANGLE); }
+            set { SetNumberProperty(NdapiConstants.D2FP_INTERNAL_ROTATION_ANGLE, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the internal line width.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_INTERNAL_LIN_WID)]
+        public int InternalLineWidth
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_INTERNAL_LIN_WID); }
+            set { SetNumberProperty(NdapiConstants.D2FP_INTERNAL_LIN_WID, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the internal rotation angle.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_INTERNAL_STRT_ANGLE)]
+        public int InternalStartAngle
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_INTERNAL_STRT_ANGLE); }
+            set { SetNumberProperty(NdapiConstants.D2FP_INTERNAL_STRT_ANGLE, value); }
         }
 
         /// <summary>
