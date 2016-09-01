@@ -143,16 +143,6 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets the help text.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_HLP_DESCRIPTION)]
-        public string Help
-        {
-            get { return GetStringProperty(NdapiConstants.D2FP_HLP_DESCRIPTION); }
-            set { SetStringProperty(NdapiConstants.D2FP_HLP_DESCRIPTION, value); }
-        }
-
-        /// <summary>
         /// Gets or sets the icon filename.
         /// </summary>
         [Property(NdapiConstants.D2FP_ICON_FLNAM)]

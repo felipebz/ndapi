@@ -121,11 +121,6 @@
         MenuModule = NdapiConstants.D2FFO_MENU_MODULE,
 
         /// <summary>
-        /// Menu module parameter.
-        /// </summary>
-        MenuParameter = NdapiConstants.D2FFO_MENU_PARAM,
-
-        /// <summary>
         /// Object group.
         /// </summary>
         ObjectGroup = NdapiConstants.D2FFO_OBJ_GROUP,

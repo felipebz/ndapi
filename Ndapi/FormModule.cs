@@ -42,16 +42,6 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets whether runtime should defer enforcement of the Required item attribute until the record is validated.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_DEFER_REQ_ENF)]
-        public bool DeferRequiredEnforcement
-        {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF, value); }
-        }
-
-        /// <summary>
         /// Gets or sets the first navigation block.
         /// </summary>
         [Property(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ)]
@@ -159,26 +149,6 @@ namespace Ndapi
         {
             get { return GetStringProperty(NdapiConstants.D2FP_MNU_ROLE); }
             set { SetStringProperty(NdapiConstants.D2FP_MNU_ROLE, value); }
-        }
-
-        /// <summary>
-        /// Gets or sets the menu source.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_MNU_SRC)]
-        public MenuSource MenuSource
-        {
-            get { return GetNumberProperty<MenuSource>(NdapiConstants.D2FP_MNU_SRC); }
-            set { SetNumberProperty(NdapiConstants.D2FP_MNU_SRC, value); }
-        }
-
-        /// <summary>
-        /// Gets or sets the menu style.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_MNU_STY)]
-        public MenuStyle MenuStyle
-        {
-            get { return GetNumberProperty<MenuStyle>(NdapiConstants.D2FP_MNU_STY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_MNU_STY, value); }
         }
 
         /// <summary>

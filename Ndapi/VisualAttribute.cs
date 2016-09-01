@@ -220,15 +220,5 @@ namespace Ndapi
             get { return GetNumberProperty<VisualAttributeType>(NdapiConstants.D2FP_VAT_TYP); }
             set { SetNumberProperty(NdapiConstants.D2FP_VAT_TYP, value); }
         }
-
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
-        }
     }
 }

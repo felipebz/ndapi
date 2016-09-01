@@ -83,9 +83,7 @@
         Nestedtab = NdapiConstants.D2FC_DSTY_NESTEDTAB,
         Blob = NdapiConstants.D2FC_DSTY_BLOB,
         Clob = NdapiConstants.D2FC_DSTY_CLOB,
-        Bfile = NdapiConstants.D2FC_DSTY_BFILE,
-        Cfile = NdapiConstants.D2FC_DSTY_CFILE,
-        Unknown = NdapiConstants.D2FC_DSTY_UNKNOWN
+        Bfile = NdapiConstants.D2FC_DSTY_BFILE
     }
 
     public enum CommunicationMode
@@ -427,9 +425,7 @@
         Rinteger = NdapiConstants.D2FC_DATY_RINTEGER,
         Money = NdapiConstants.D2FC_DATY_MONEY,
         Rmoney = NdapiConstants.D2FC_DATY_RMONEY,
-        Objectref = NdapiConstants.D2FC_DATY_OBJECTREF,
-        Lob = NdapiConstants.D2FC_DATY_LOB,
-        File = NdapiConstants.D2FC_DATY_FILE
+        Objectref = NdapiConstants.D2FC_DATY_OBJECTREF
     }
 
     public enum ImageFormat
@@ -515,10 +511,7 @@
     {
         Null = NdapiConstants.D2FC_COTY_NULL,
         Menu = NdapiConstants.D2FC_COTY_MENU,
-        Plsql = NdapiConstants.D2FC_COTY_PLSQL,
-        Plus = NdapiConstants.D2FC_COTY_PLUS,
-        Form = NdapiConstants.D2FC_COTY_FORM,
-        Macro = NdapiConstants.D2FC_COTY_MACRO
+        Plsql = NdapiConstants.D2FC_COTY_PLSQL
     }
 
     public enum DeleteRecordBehavior
@@ -551,18 +544,6 @@
         Item = NdapiConstants.D2FC_MONA_ITEM
     }
 
-    public enum MenuStyle
-    {
-        Pulldown = NdapiConstants.D2FC_MNST_PULLDOWN,
-        Fullscreen = NdapiConstants.D2FC_MNST_FULLSCREEN
-    }
-
-    public enum MenuSource
-    {
-        File = NdapiConstants.D2FC_MNSR_FILE,
-        Database = NdapiConstants.D2FC_MNSR_DB
-    }
-
     public enum MenuItemType
     {
         Plain = NdapiConstants.D2FC_MNIT_PLAIN,
@@ -577,12 +558,6 @@
         SameRecord = NdapiConstants.D2FC_NAST_SAMERECORD,
         ChangeRecord = NdapiConstants.D2FC_NAST_CHANGERECORD,
         ChangeBlock = NdapiConstants.D2FC_NAST_CHANGEBLOCK
-    }
-
-    public enum ModuleStorageType
-    {
-        Filesystem = NdapiConstants.D2FC_PAMO_FILESYSTEM,
-        Database = NdapiConstants.D2FC_PAMO_DATABASE
     }
 
     public enum RecordOrientation
@@ -707,12 +682,6 @@
     {
         PLSQL = NdapiConstants.D2FC_TRST_PLSQL,
         V2 = NdapiConstants.D2FC_TRST_V2
-    }
-
-    public enum TriggerType
-    {
-        Builtin = NdapiConstants.D2FC_TRTY_BUILTIN,
-        Usernamed = NdapiConstants.D2FC_TRTY_USERNAMED
     }
 
     public enum VerticalOrigin

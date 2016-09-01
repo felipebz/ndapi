@@ -107,13 +107,6 @@ namespace Ndapi
             GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
 
         /// <summary>
-        /// Gets all the menu parameters.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_MNU_PARAM)]
-        public NdapiObjectList<MenuParameter> Parameters =>
-            GetObjectList<MenuParameter>(NdapiConstants.D2FP_MNU_PARAM);
-
-        /// <summary>
         /// Gets all the object groups.
         /// </summary>
         [Property(NdapiConstants.D2FP_OBJ_GRP)]
@@ -294,13 +287,6 @@ namespace Ndapi
         /// <param name="name">Name of the menu.</param>
         /// <returns>The child object.</returns>
         public Menu CreateMenu(string name) => new Menu(this, name);
-
-        /// <summary>
-        /// Creates a menu parameter.
-        /// </summary>
-        /// <param name="name">Name of the menu parameter.</param>
-        /// <returns>The child object.</returns>
-        public MenuParameter CreateFormParameter(string name) => new MenuParameter(this, name);
 
         /// <summary>
         /// Creates a program unit.

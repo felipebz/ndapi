@@ -42,16 +42,6 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_BLK_DESCRIPTION)]
-        public string Description
-        {
-            get { return GetStringProperty(NdapiConstants.D2FP_BLK_DESCRIPTION); }
-            set { SetStringProperty(NdapiConstants.D2FP_BLK_DESCRIPTION, value); }
-        }
-
-        /// <summary>
         /// Gets or sets the comment.
         /// </summary>
         [Property(NdapiConstants.D2FP_COMMENT)]
@@ -274,16 +264,6 @@ namespace Ndapi
         {
             get { return GetStringProperty(NdapiConstants.D2FP_LOCK_PROC_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_LOCK_PROC_NAM, value); }
-        }
-
-        /// <summary>
-        /// Gets or sets whether the block should be listed in the block menu. 
-        /// </summary>
-        [Property(NdapiConstants.D2FP_LST_IN_BLK_MNU)]
-        public bool IsListedInBlockMenu
-        {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_LST_IN_BLK_MNU); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_LST_IN_BLK_MNU, value); }
         }
 
         /// <summary>
@@ -609,16 +589,6 @@ namespace Ndapi
         {
             get { return GetStringProperty(NdapiConstants.D2FP_WHERE_CLAUSE); }
             set { SetStringProperty(NdapiConstants.D2FP_WHERE_CLAUSE, value); }
-        }
-
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
         }
 
         /// <summary>

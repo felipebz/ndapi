@@ -1192,16 +1192,6 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets whether runtime should display a color palette.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_SHOW_PALETTE)]
-        public bool ShowPalette
-        {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_PALETTE); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_SHOW_PALETTE, value); }
-        }
-
-        /// <summary>
         /// Gets or sets whether runtime should display a play button.
         /// </summary>
         [Property(NdapiConstants.D2FP_SHOW_PLAY)]
@@ -1459,16 +1449,6 @@ namespace Ndapi
         {
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
-        }
-
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
         }
 
         /// <summary>

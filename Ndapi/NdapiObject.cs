@@ -91,16 +91,6 @@ namespace Ndapi
         }
 
         /// <summary>
-        /// Gets or sets the parent module storage.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_PAR_MODSTR)]
-        public ModuleStorageType ParentModuleStorage
-        {
-            get { return GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR); }
-            set { SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value); }
-        }
-
-        /// <summary>
         /// Gets or sets the parent filename path.
         /// </summary>
         [Property(NdapiConstants.D2FP_PAR_FLPATH)]
@@ -428,7 +418,7 @@ namespace Ndapi
         /// </summary>
         /// <remarks>
         /// This method must be called if you changed one of the following properties:
-        /// <see cref="ParentFileName"/>, <see cref="ParentFileNamePath"/>, <see cref="ParentModule"/>, <see cref="ParentModuleStorage"/>,
+        /// <see cref="ParentFileName"/>, <see cref="ParentFileNamePath"/>, <see cref="ParentModule"/>,
         /// <see cref="ParentModuleType"/>, <see cref="ParentName"/> or <see cref="ParentType"/>.
         /// </remarks>
         public void Reattach()
