@@ -47,7 +47,7 @@ namespace Ndapi
         {
             ObjectSafeHandle library;
 
-            var status = NativeMethods.d2flibld_Load(NdapiContext.GetContext(), out library, filename, false);
+            var status = NativeMethods.d2flibld_Load(NdapiContext.GetContext(), out library, filename);
             Ensure.Success(status);
 
             return new LibraryModule(library);
@@ -81,14 +81,6 @@ namespace Ndapi
         /// Program unit libraries does not support saving.
         /// </summary>
         public override void Save(string path)
-        {
-            throw new NotSupportedException("Library module does not support saving");
-        }
-
-        /// <summary>
-        /// Program unit libraries does not support saving.
-        /// </summary>
-        public override void Save(string path = null, bool saveInDatabase = false)
         {
             throw new NotSupportedException("Library module does not support saving");
         }

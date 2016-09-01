@@ -342,7 +342,7 @@ namespace Ndapi
         {
             ObjectSafeHandle form;
 
-            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename, false);
+            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename);
             Ensure.Success(status);
 
             return new FormModule(form);
@@ -353,7 +353,7 @@ namespace Ndapi
         /// </summary>
         public override void Save()
         {
-            Save(null, false);
+            Save(null);
         }
 
         /// <summary>
@@ -362,17 +362,7 @@ namespace Ndapi
         /// <param name="path">Location to save.</param>
         public override void Save(string path)
         {
-            Save(path, false);
-        }
-
-        /// <summary>
-        /// Save the form module to disk.
-        /// </summary>
-        /// <param name="path">Location to save.</param>
-        /// <param name="saveInDatabase">Should save module in database.</param>
-        public override void Save(string path, bool saveInDatabase)
-        {
-            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
+            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path);
             Ensure.Success(status);
         }
 
@@ -401,19 +391,8 @@ namespace Ndapi
         /// <returns>The Form Builder version</returns>
         public static int GetFileVersion(string file)
         {
-            return GetFileVersion(file, false);
-        }
-
-        /// <summary>
-        /// Gets the version of the last Form Builder that loaded the module.
-        /// </summary>
-        /// <param name="file">Form module location (.fmb file)</param>
-        /// <param name="loadFromDb">Module should be loaded from database.</param>
-        /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file, bool loadFromDb)
-        {
             int version;
-            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out version);
+            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, out version);
             Ensure.Success(status);
             return version;
         }

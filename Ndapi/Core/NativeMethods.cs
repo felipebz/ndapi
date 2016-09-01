@@ -39,7 +39,6 @@ namespace Ndapi.Core
         public static extern D2fErrorCode d2falbat_Attach(ContextSafeHandle pd2fctx,
                                                  ObjectSafeHandle parent,
                                                  out ObjectSafeHandle ppd2falb,
-                                                 [MarshalAs(UnmanagedType.I1)] bool db,
                                                  string name);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl)]
@@ -77,14 +76,12 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2ffmdld_Load(ContextSafeHandle pd2fctx,
                                                out ObjectSafeHandle ppd2ffmd,
-                                               string formname,
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string formname);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2ffmdsv_Save(ContextSafeHandle pd2fctx,
                                                ObjectSafeHandle pd2ffmd,
-                                               string formname, 
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string formname);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl)]
         public static extern D2fErrorCode d2ffmdcf_CompileFile(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2ffmd);
@@ -95,7 +92,6 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2ffmdfv_FileVersion(ContextSafeHandle pd2fctx,
                                                       string formname,
-                                                      [MarshalAs(UnmanagedType.I1)] bool db,
                                                       out int version);
         #endregion
 
@@ -103,14 +99,12 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2folbld_Load(ContextSafeHandle pd2fctx,
                                                out ObjectSafeHandle ppd2folb,
-                                               string olibname,
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string olibname);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2folbsv_Save(ContextSafeHandle pd2fctx,
                                                ObjectSafeHandle pd2folb,
-                                               string olibname,
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string olibname);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl)]
         public static extern D2fErrorCode d2folbf2_Findobjbypos(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb, int pos, out ObjectSafeHandle ppret_obj);
@@ -154,7 +148,6 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2folbfv_FileVersion(ContextSafeHandle pd2fctx,
                                                       string olibname,
-                                                      [MarshalAs(UnmanagedType.I1)] bool db,
                                                       out int version);
         #endregion
 
@@ -162,14 +155,12 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2fmmdld_Load(ContextSafeHandle pd2fctx,
                                                out ObjectSafeHandle ppd2fmmd,
-                                               string formname,
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string formname);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2fmmdsv_Save(ContextSafeHandle pd2fctx,
                                                ObjectSafeHandle pd2fmmd,
-                                               string menuname,
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string menuname);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl)]
         public static extern D2fErrorCode d2fmmdcf_CompileFile(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd);
@@ -180,7 +171,6 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2fmmdfv_FileVersion(ContextSafeHandle pd2fctx,
                                                       string menuname,
-                                                      [MarshalAs(UnmanagedType.I1)] bool db,
                                                       out int version);
 
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
@@ -222,8 +212,7 @@ namespace Ndapi.Core
         [DllImport(formsLib, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, BestFitMapping = false, ThrowOnUnmappableChar = true)]
         public static extern D2fErrorCode d2flibld_Load(ContextSafeHandle pd2fctx,
                                                out ObjectSafeHandle ppd2flib,
-                                               string libname,
-                                               [MarshalAs(UnmanagedType.I1)] bool db);
+                                               string libname);
         #endregion
 
         #region Block relation methods

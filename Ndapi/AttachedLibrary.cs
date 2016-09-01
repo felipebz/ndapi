@@ -16,7 +16,7 @@ namespace Ndapi
         /// <param name="location">Library location.</param>
         public AttachedLibrary(FormModule module, string location)
         {
-            var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location);
+            var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
             Ensure.Success(status);
         }
 
@@ -27,7 +27,7 @@ namespace Ndapi
         /// <param name="location">Library location.</param>
         public AttachedLibrary(MenuModule module, string location)
         {
-            var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location);
+            var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
             Ensure.Success(status);
         }
 

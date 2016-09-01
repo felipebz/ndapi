@@ -56,13 +56,6 @@ namespace Ndapi
         public abstract void Save(string path);
 
         /// <summary>
-        /// Save the module to disk.
-        /// </summary>
-        /// <param name="path">Location to save.</param>
-        /// <param name="saveInDatabase">Should save module in database.</param>
-        public abstract void Save(string path, bool saveInDatabase);
-
-        /// <summary>
         /// Compile the module.
         /// </summary>
         public abstract void CompileFile();

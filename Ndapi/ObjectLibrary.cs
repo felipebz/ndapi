@@ -61,7 +61,7 @@ namespace Ndapi
         {
             ObjectSafeHandle form;
 
-            var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out form, filename, false);
+            var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out form, filename);
             Ensure.Success(status);
 
             return new ObjectLibrary(form);
@@ -72,7 +72,7 @@ namespace Ndapi
         /// </summary>
         public override void Save()
         {
-            Save(null, false);
+            Save(null);
         }
 
         /// <summary>
@@ -81,17 +81,7 @@ namespace Ndapi
         /// <param name="path">Location to save.</param>
         public override void Save(string path)
         {
-            Save(path, false);
-        }
-
-        /// <summary>
-        /// Save the object library to disk.
-        /// </summary>
-        /// <param name="path">Location to save.</param>
-        /// <param name="saveInDatabase">Should save library in database.</param>
-        public override void Save(string path, bool saveInDatabase)
-        {
-            var status = NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
+            var status = NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path);
             Ensure.Success(status);
         }
 
@@ -118,19 +108,8 @@ namespace Ndapi
         /// <returns>The Form Builder version</returns>
         public static int GetFileVersion(string file)
         {
-            return GetFileVersion(file, false);
-        }
-
-        /// <summary>
-        /// Gets the version of the last Form Builder that loaded the library.
-        /// </summary>
-        /// <param name="file">Object library location (.olb file)</param>
-        /// <param name="loadFromDb">Library should be loaded from database.</param>
-        /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file, bool loadFromDb)
-        {
             int version;
-            var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out version);
+            var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, out version);
             Ensure.Success(status);
             return version;
         }
