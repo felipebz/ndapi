@@ -11,18 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateModuleDemo", "samples
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|x86.Build.0 = Debug|Any CPU
-		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x86.ActiveCfg = Release|Any CPU
-		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x86.Build.0 = Release|Any CPU
-		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Debug|x86.Build.0 = Debug|Any CPU
-		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Release|x86.ActiveCfg = Release|Any CPU
-		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Release|x86.Build.0 = Release|Any CPU
+		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|x64.ActiveCfg = Debug|x64
+		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|x64.Build.0 = Debug|x64
+		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x64.ActiveCfg = Release|Any CPU
+		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|x64.Build.0 = Release|Any CPU
+		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Debug|x64.ActiveCfg = Debug|x64
+		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Debug|x64.Build.0 = Debug|x64
+		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Release|x64.ActiveCfg = Release|Any CPU
+		{B19FAA09-7A39-4E23-B1CF-E93A02B41D9E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
