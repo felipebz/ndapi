@@ -56,7 +56,7 @@ namespace Ndapi
                 }
                 catch (DllNotFoundException)
                 {
-                    throw new NdapiException("Could not found the ifd2f60.dll from Oracle Forms 6i installation. " +
+                    throw new NdapiException("Could not found the frmd2f.dll from Oracle Forms 12c installation. " +
                         "Please check if this version of Oracle Forms is installed.");
                 }
                 Ensure.Success(status);
