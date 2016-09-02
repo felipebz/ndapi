@@ -24,6 +24,18 @@ namespace Ndapi
         private static ContextSafeHandle _context;
 
         /// <summary>
+        /// If true, the module loading will not fail when a required library module is not in the 
+        /// search path. The default value is false.
+        /// </summary>
+        public static bool IgnoreMissingLibrary { get; set; } = false;
+
+        /// <summary>
+        /// If true, the module loading will not fail when a required object library is not in the 
+        /// search path. The default value is false.
+        /// </summary>
+        public static bool IgnoreMissingSubclass { get; set; } = false;
+
+        /// <summary>
         /// Gets whether the context is connected to database or not.
         /// </summary>
         public static bool IsConnected { get; private set; }

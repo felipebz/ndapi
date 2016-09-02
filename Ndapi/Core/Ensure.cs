@@ -6,7 +6,11 @@ namespace Ndapi.Core
     {
         public static void Success(D2fErrorCode result)
         {
-            if (result == D2fErrorCode.D2FS_SUCCESS)
+            var success = (result == D2fErrorCode.D2FS_SUCCESS);
+            var shouldIgnoreMissingSubclass = (result == D2fErrorCode.D2FS_MISSINGSUBCLMOD && NdapiContext.IgnoreMissingSubclass);
+            var shouldIgnoreMissingLibrary = (result == D2fErrorCode.D2FS_MISSINGLIBMOD && NdapiContext.IgnoreMissingLibrary);
+
+            if (success || shouldIgnoreMissingLibrary || shouldIgnoreMissingSubclass)
             {
                 return;
             }
