@@ -544,6 +544,16 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Gets or sets the implementation class.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_IMPL_CLASS)]
+        public string ImplementationClass
+        {
+            get { return GetStringProperty(NdapiConstants.D2FP_IMPL_CLASS); }
+            set { SetStringProperty(NdapiConstants.D2FP_IMPL_CLASS, value); }
+        }
+
+        /// <summary>
         /// Gets or sets the initial keyboard direction.
         /// </summary>
         [Property(NdapiConstants.D2FP_INIT_KBRD_DIR)]
