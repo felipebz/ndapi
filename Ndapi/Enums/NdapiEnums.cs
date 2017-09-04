@@ -437,7 +437,8 @@
         Pict = NdapiConstants.D2FC_IMFM_PICT,
         Ras = NdapiConstants.D2FC_IMFM_RAS,
         Tiff = NdapiConstants.D2FC_IMFM_TIFF,
-        Tpic = NdapiConstants.D2FC_IMFM_TPIC
+        Tpic = NdapiConstants.D2FC_IMFM_TPIC,
+        Native = NdapiConstants.D2FC_IMFM_NATIVE
     }
 
     public enum DisplayQuality
@@ -450,7 +451,8 @@
     public enum ImageSizingStyle
     {
         Crop = NdapiConstants.D2FC_SIST_CROP,
-        Adjust = NdapiConstants.D2FC_SIST_ADJUST
+        Adjust = NdapiConstants.D2FC_SIST_ADJUST,
+        Fill = NdapiConstants.D2FC_SIST_FILL
     }
 
     public enum JoinStyle
@@ -743,5 +745,33 @@
         Number = NdapiConstants.D2FP_TYP_NUMBER,
         Text = NdapiConstants.D2FP_TYP_TEXT,
         Object = NdapiConstants.D2FP_TYP_OBJECT
+    }
+
+    public enum CursorStyle
+    {
+        Unspecified = NdapiConstants.D2FC_CURSOR_STYLE_UNSPECIFIED,
+        Busy = NdapiConstants.D2FC_CURSOR_STYLE_BUSY,
+        Crosshair = NdapiConstants.D2FC_CURSOR_STYLE_CROSSHAIR,
+        DefaultCursor = NdapiConstants.D2FC_CURSOR_STYLE_DEFAULT,
+        Insertion = NdapiConstants.D2FC_CURSOR_STYLE_INSERTION,
+        Hand = NdapiConstants.D2FC_CURSOR_STYLE_HAND,
+        Move = NdapiConstants.D2FC_CURSOR_STYLE_MOVE,
+        NorthResize = NdapiConstants.D2FC_CURSOR_STYLE_NRESIZE,
+        SouthResize = NdapiConstants.D2FC_CURSOR_STYLE_SRESIZE,
+        EastResize = NdapiConstants.D2FC_CURSOR_STYLE_ERESIZE,
+        WestResize = NdapiConstants.D2FC_CURSOR_STYLE_WRESIZE,
+        NortheastResize = NdapiConstants.D2FC_CURSOR_STYLE_NERESIZE,
+        Northwestresize = NdapiConstants.D2FC_CURSOR_STYLE_NWRESIZE,
+        SoutheastResize = NdapiConstants.D2FC_CURSOR_STYLE_SERESIZE,
+        SouthwestResize = NdapiConstants.D2FC_CURSOR_STYLE_SWRESIZE
+    }
+
+    public enum GradientStartSide
+    {
+        None = NdapiConstants.D2FC_GRADIENT_NONE,
+        Left = NdapiConstants.D2FC_GRADIENT_LEFT,
+        Top = NdapiConstants.D2FC_GRADIENT_TOP,
+        Right = NdapiConstants.D2FC_GRADIENT_RIGHT,
+        Bottom = NdapiConstants.D2FC_GRADIENT_BOTTOM
     }
 }

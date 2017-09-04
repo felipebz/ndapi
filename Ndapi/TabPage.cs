@@ -63,6 +63,17 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Gets or sets the side of the tab-page from where the gradient color begins
+        /// or that there should be no gradient color used.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_GRADIENT_START)]
+        public GradientStartSide GradientStartSide
+        {
+            get { return GetNumberProperty<GradientStartSide>(NdapiConstants.D2FP_GRADIENT_START); }
+            set { SetNumberProperty(NdapiConstants.D2FP_GRADIENT_START, value); }
+        }
+
+        /// <summary>
         /// Gets all the graphic objects attached to the canvas.
         /// </summary>
         [Property(NdapiConstants.D2FP_GRAPHIC)]

@@ -592,6 +592,17 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Gets or sets the row banding frequency. When row banding is set, every n-th instance of
+        /// the record would appear in a different background color.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_ROW_BANDING_FREQ)]
+        public int RowBandingFrequency
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ); }
+            set { SetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ, value); }
+        }
+
+        /// <summary>
         /// Gets the delete data source arguments.
         /// </summary>
         [Property(NdapiConstants.D2FP_DEL_DAT_SRC_ARG)]

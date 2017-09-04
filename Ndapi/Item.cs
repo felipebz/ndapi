@@ -1502,6 +1502,27 @@ namespace Ndapi
         }
 
         /// <summary>
+        /// Gets or sets the mouse cursor style that is displayed while hovering over that object.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_CURSOR_STYLE)]
+        public CursorStyle CursorStyle
+        {
+            get { return GetNumberProperty<CursorStyle>(NdapiConstants.D2FP_CURSOR_STYLE); }
+            set { SetNumberProperty(NdapiConstants.D2FP_CURSOR_STYLE, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the row banding frequency. When row banding is set, every n-th instance of
+        /// the item would appear in a different background color.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_ROW_BANDING_FREQ)]
+        public int RowBandingFrequency
+        {
+            get { return GetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ); }
+            set { SetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ, value); }
+        }
+
+        /// <summary>
         /// Gets the radio button items.
         /// </summary>
         [Property(NdapiConstants.D2FP_RAD_BUT)]
