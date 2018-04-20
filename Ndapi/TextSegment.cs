@@ -85,7 +85,7 @@ namespace Ndapi
         /// <summary>
         /// Gets or sets the text segment content.
         /// </summary>
-        [Property(NdapiConstants.D2FP_FORE_COLOR)]
+        [Property(NdapiConstants.D2FP_TEXT)]
         public string Text
         {
             get { return GetStringProperty(NdapiConstants.D2FP_TEXT); }
