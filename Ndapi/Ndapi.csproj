@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>oracle wrapper API oracleforms</PackageTags>
-    <Version>12.2.1.3-alpha</Version>
+    <Version>12.2.1.3</Version>
   </PropertyGroup>
   
 </Project>
