@@ -3,15 +3,14 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
     <PlatformTarget>x64</PlatformTarget>
-    <Description>A .NET wrapper for Oracle Forms 6i Open API</Description>
+    <Description>A .NET wrapper for Oracle Forms 12c Open API</Description>
     <Authors>Felipe Zorzo</Authors>
     <PackageLicenseUrl>https://github.com/felipebz/ndapi/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>oracle wrapper API oracleforms</PackageTags>
-    <Version>12.2.1.3</Version>
-    <Platforms>x64</Platforms>
+    <Version>12.2.1.3-alpha</Version>
   </PropertyGroup>
   
 </Project>

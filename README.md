@@ -32,8 +32,6 @@ foreach (var programUnit in module.ProgramUnits)
 }
 ```
 
-Initially, the API will support only Forms 6i API.
-
 Installing
 ----------
 
