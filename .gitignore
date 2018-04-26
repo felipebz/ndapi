@@ -157,3 +157,4 @@ $RECYCLE.BIN/
 API
 /Ndapi.sln.ide
 *.nupkg
+.vs
