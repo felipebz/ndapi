@@ -35,10 +35,10 @@ foreach (var programUnit in module.ProgramUnits)
 Installing
 ----------
 
-For now only the alpha builds are available. To install, run:
+To install the latest version, compatible with Oracle Forms 12c, run:
 
 ```powershell
-Install-Package Ndapi -Pre
+Install-Package Ndapi
 ```
 
 Or use the Package Manager in Visual Studio.
