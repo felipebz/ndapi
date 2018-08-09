@@ -460,6 +460,20 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
+        public NdapiObject Find(Type type, string name)
+        {
+            var objectType = NdapiMetadata.GetObjectTypeFromType(type);
+
+            var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _handle, name, objectType, out ObjectSafeHandle handle);
+            if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
+            {
+                return null;
+            }
+            Ensure.Success(status);
+
+            return NdapiObject.Create(type, handle);
+        }
+
         /// <summary>
         /// Destroy the current object.
         /// </summary>
@@ -469,29 +483,32 @@ namespace Ndapi
             Ensure.Success(status);
         }
 
-        internal static T Create<T>(ObjectSafeHandle handle) where T : NdapiObject
+        internal static NdapiObject Create(Type type, ObjectSafeHandle handle)
         {
-            var objectType = typeof(T);
-            if (objectType == typeof(NdapiObject))
+            var foundType = type;
+            if (type == typeof(NdapiObject))
             {
-                ObjectType type;
-                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out type);
+                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out ObjectType objectType);
                 Ensure.Success(status);
 
-                if (type == ObjectType.Undefined)
+                if (objectType == ObjectType.Undefined)
                 {
                     return null;
                 }
-
-                objectType = NdapiMetadata.ObjectTypeMapping[type];
+                foundType = NdapiMetadata.GetTypeFromObjectType(objectType);
             }
 
-            var instance = Activator.CreateInstance(objectType,
+            var instance = Activator.CreateInstance(foundType,
                 BindingFlags.NonPublic | BindingFlags.Instance,
                 null,
                 new[] { handle },
                 null);
-            return (T)instance;
+            return (NdapiObject)instance;
+        }
+
+        internal static T Create<T>(ObjectSafeHandle handle) where T : NdapiObject
+        {
+            return (T)Create(typeof(T), handle);
         }
 
         /// <summary>

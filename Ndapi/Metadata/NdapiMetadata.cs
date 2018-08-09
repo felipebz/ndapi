@@ -73,6 +73,10 @@ namespace Ndapi.Metadata
         /// <returns>The meta object instance.</returns>
         public static NdapiMetaObject GetMetaObjectFrom(Type type) => NdapiMetaObject.GetOrCreate(type);
 
-        internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
+        internal static ObjectType GetObjectTypeFrom<T>() => GetObjectTypeFromType(typeof(T));
+
+        internal static ObjectType GetObjectTypeFromType(Type type) => ObjectTypeMapping.Single(t => t.Value == type).Key;
+
+        internal static Type GetTypeFromObjectType(ObjectType type) => ObjectTypeMapping.Single(t => t.Key == type).Value;
     }
 }
