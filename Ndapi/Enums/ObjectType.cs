@@ -61,6 +61,11 @@
         Editor = NdapiConstants.D2FFO_EDITOR,
 
         /// <summary>
+        /// Event.
+        /// </summary>
+        Event = NdapiConstants.D2FFO_EVENT,
+
+        /// <summary>
         /// Font declaration.
         /// </summary>
         Font = NdapiConstants.D2FFO_FONT,

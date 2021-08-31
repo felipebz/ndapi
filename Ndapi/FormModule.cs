@@ -257,6 +257,13 @@ namespace Ndapi
             GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR);
 
         /// <summary>
+        /// Gets all the events.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_EVENT)]
+        public NdapiObjectList<Event> Events =>
+            GetObjectList<Event>(NdapiConstants.D2FP_EVENT);
+
+        /// <summary>
         /// Gets all the list of values.
         /// </summary>
         [Property(NdapiConstants.D2FP_LOV)]
@@ -508,5 +515,12 @@ namespace Ndapi
         /// <param name="name">Name of the window.</param>
         /// <returns>The child object.</returns>
         public Window CreateWindow(string name) => new Window(this, name);
+
+        /// <summary>
+        /// Creates an event.
+        /// </summary>
+        /// <param name="name">Name of the event.</param>
+        /// <returns>The child object.</returns>
+        public Event CreateEvent(string name) => new Event(this, name);
     }
 }

@@ -774,4 +774,28 @@
         Right = NdapiConstants.D2FC_GRADIENT_RIGHT,
         Bottom = NdapiConstants.D2FC_GRADIENT_BOTTOM
     }
+
+    public enum EventType
+    {
+        Database = NdapiConstants.D2FC_EVENT_TYPE_DATABASE,
+        UserDefined = NdapiConstants.D2FC_EVENT_TYPE_USERDEFINED,
+        SystemIdle = NdapiConstants.D2FC_EVENT_TYPE_SYSTEMIDLE,
+        SystemDbIdle = NdapiConstants.D2FC_EVENT_TYPE_SYSTEMDBIDLE,
+        SystemLogout = NdapiConstants.D2FC_EVENT_TYPE_SYSTEMLOGOUT,
+        SystemEmPing = NdapiConstants.D2FC_EVENT_TYPE_SYSTEMEMPING,
+        SystemMediaDone = NdapiConstants.D2FC_EVENT_TYPE_SYSTEMMEDIADONE
+    }
+
+    public enum EventScope
+    {
+        Application = NdapiConstants.D2FC_EVENT_SCOPE_APPLICATION,
+        Form = NdapiConstants.D2FC_EVENT_SCOPE_FORM
+    }
+
+    public enum EventViewMode
+    {
+        Browse = NdapiConstants.D2FC_EVENT_VIEW_MODE_BROWSE,
+        Locked = NdapiConstants.D2FC_EVENT_VIEW_MODE_LOCKED,
+        Remove = NdapiConstants.D2FC_EVENT_VIEW_MODE_REMOVE
+    }
 }
