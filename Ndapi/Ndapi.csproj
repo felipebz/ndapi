@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PlatformTarget>x86</PlatformTarget>
     <Description>A .NET wrapper for Oracle Forms 6i Open API</Description>
     <Authors>Felipe Zorzo</Authors>
