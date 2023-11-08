@@ -954,7 +954,7 @@ namespace Ndapi
         /// Gets or sets the prompt attachment offset.
         /// </summary>
         [Property(NdapiConstants.D2FP_PRMPT_ATT_OFST)]
-        public int PromptAttachementOffset
+        public int PromptAttachmentOffset
         {
             get { return GetNumberProperty(NdapiConstants.D2FP_PRMPT_ATT_OFST); }
             set { SetNumberProperty(NdapiConstants.D2FP_PRMPT_ATT_OFST, value); }
