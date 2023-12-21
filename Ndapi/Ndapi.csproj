@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>oracle wrapper API oracleforms</PackageTags>
-    <Version>12.2.1.39</Version>
+    <Version>13.0.0-alpha</Version>
     <NoWarn>NU5128</NoWarn>
 
     <IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
