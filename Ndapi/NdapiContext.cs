@@ -1,9 +1,10 @@
-﻿using Ndapi.Core;
-using Ndapi.Core.Handles;
-using Ndapi.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+
+using Ndapi.Core;
+using Ndapi.Core.Handles;
+using Ndapi.Enums;
 
 namespace Ndapi
 {
@@ -16,11 +17,11 @@ namespace Ndapi
         private const int D2FCTXAMCALLS = 2; // memory callbacks
 
         // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
-        private static D2fMalloc allocateMemory = AllocateMemory;
-        private static D2fRealloc reallocateMemory = ReallocateMemory;
-        private static D2fFree freeMemory = FreeMemory;
+        private static readonly D2fMalloc allocateMemory = AllocateMemory;
+        private static readonly D2fRealloc reallocateMemory = ReallocateMemory;
+        private static readonly D2fFree freeMemory = FreeMemory;
 
-        private static List<NdapiModule> _modules = new List<NdapiModule>();
+        private static readonly List<NdapiModule> _modules = new List<NdapiModule>();
         private static ContextSafeHandle _context;
 
         /// <summary>
@@ -71,7 +72,7 @@ namespace Ndapi
 
         private static IntPtr ReallocateMemory(ref IntPtr context, IntPtr ptr, IntPtr newsize)
         {
-            if (ptr == IntPtr.Zero) 
+            if (ptr == IntPtr.Zero)
             {
                 return AllocateMemory(ref context, newsize);
             }
@@ -145,7 +146,7 @@ namespace Ndapi
             {
                 return;
             }
-            
+
             _context.Dispose();
             _context = null;
         }

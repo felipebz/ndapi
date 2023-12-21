@@ -562,7 +562,7 @@
         Record = NdapiConstants.D2FC_MONA_RECORD,
         Item = NdapiConstants.D2FC_MONA_ITEM
     }
-    
+
 #if FORMS_6
     public enum MenuStyle
     {
@@ -592,7 +592,7 @@
         ChangeRecord = NdapiConstants.D2FC_NAST_CHANGERECORD,
         ChangeBlock = NdapiConstants.D2FC_NAST_CHANGEBLOCK
     }
-    
+
 #if FORMS_6
     public enum ModuleStorageType
     {
@@ -600,7 +600,7 @@
         Database = NdapiConstants.D2FC_PAMO_DATABASE
     }
 #endif
-    
+
     public enum RecordOrientation
     {
         Vertical = NdapiConstants.D2FC_REOR_VERTICAL,
@@ -724,7 +724,7 @@
         PLSQL = NdapiConstants.D2FC_TRST_PLSQL,
         V2 = NdapiConstants.D2FC_TRST_V2
     }
-    
+
 #if FORMS_6
     public enum TriggerType
     {
@@ -793,7 +793,7 @@
         Text = NdapiConstants.D2FP_TYP_TEXT,
         Object = NdapiConstants.D2FP_TYP_OBJECT
     }
-    
+
 #if FORMS_12_OR_GREATER
     public enum CursorStyle
     {

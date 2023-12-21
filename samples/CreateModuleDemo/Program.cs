@@ -1,6 +1,7 @@
-﻿using Ndapi;
+﻿using System;
+
+using Ndapi;
 using Ndapi.Enums;
-using System;
 
 namespace CreateModuleDemo
 {

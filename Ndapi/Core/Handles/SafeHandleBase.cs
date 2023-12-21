@@ -1,5 +1,6 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System.Runtime.ConstrainedExecution;
+﻿using System.Runtime.ConstrainedExecution;
+
+using Microsoft.Win32.SafeHandles;
 
 namespace Ndapi.Core.Handles
 {
@@ -8,7 +9,7 @@ namespace Ndapi.Core.Handles
         protected SafeHandleBase() : base(true)
         {
         }
-        
+
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
         protected abstract bool ReleaseHandleImpl();
 

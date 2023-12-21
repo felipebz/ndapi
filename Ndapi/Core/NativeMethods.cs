@@ -1,7 +1,8 @@
-﻿using Ndapi.Core.Handles;
-using Ndapi.Enums;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
+
+using Ndapi.Core.Handles;
+using Ndapi.Enums;
 
 namespace Ndapi.Core
 {

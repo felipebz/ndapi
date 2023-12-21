@@ -153,7 +153,7 @@
         /// Object library tab;
         /// </summary>
         ObjectLibraryTab = NdapiConstants.D2FFO_OBJ_LIB_TAB,
-        
+
         /// <summary>
         /// Point declaration.
         /// </summary>
@@ -193,7 +193,7 @@
         /// List-of-values column specification.
         /// </summary>
         ColumnSpecification = NdapiConstants.D2FFO_RG_COLSPEC,
-        
+
         /// <summary>
         /// Tab page.
         /// </summary>
@@ -208,7 +208,7 @@
         /// Trigger.
         /// </summary>
         Trigger = NdapiConstants.D2FFO_TRIGGER,
-        
+
         /// <summary>
         /// Trigger step.
         /// </summary>

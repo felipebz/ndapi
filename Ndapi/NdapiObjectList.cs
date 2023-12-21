@@ -1,10 +1,11 @@
-﻿using Ndapi.Core;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+
+using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using Ndapi.Metadata;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Ndapi
 {

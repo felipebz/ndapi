@@ -14,7 +14,7 @@
     <Version>13.0.0-alpha</Version>
     <NoWarn>NU5128</NoWarn>
 
-    <IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>
+    <!--<IsTrimmable Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net6.0'))">true</IsTrimmable>-->
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug_6_0_8' ">

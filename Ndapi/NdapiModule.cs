@@ -1,8 +1,9 @@
-﻿using Ndapi.Core;
+﻿using System.IO;
+
+using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using Ndapi.Metadata;
-using System.IO;
 
 namespace Ndapi
 {

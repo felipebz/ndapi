@@ -1,6 +1,7 @@
-﻿using Ndapi.Enums;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
+
+using Ndapi.Enums;
 
 namespace Ndapi
 {

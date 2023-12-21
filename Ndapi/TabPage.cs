@@ -61,7 +61,7 @@ namespace Ndapi
             get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
         }
-        
+
 #if FORMS_12_OR_GREATER
         /// <summary>
         /// Gets or sets the side of the tab-page from where the gradient color begins

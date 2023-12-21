@@ -1,8 +1,9 @@
-﻿using Ndapi.Core;
-using Ndapi.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+using Ndapi.Core;
+using Ndapi.Enums;
 
 namespace Ndapi.Metadata
 {
@@ -11,7 +12,7 @@ namespace Ndapi.Metadata
     /// </summary>
     public sealed class NdapiMetaObject
     {
-        private static Dictionary<Type, NdapiMetaObject> _cache = new Dictionary<Type, NdapiMetaObject>();
+        private static readonly Dictionary<Type, NdapiMetaObject> _cache = new Dictionary<Type, NdapiMetaObject>();
 
         private readonly Type _type;
         private readonly Lazy<IEnumerable<NdapiMetaProperty>> _properties;

@@ -1,11 +1,12 @@
-﻿using Ndapi.Core;
-using Ndapi.Core.Handles;
-using Ndapi.Enums;
-using Ndapi.Metadata;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+
+using Ndapi.Core;
+using Ndapi.Core.Handles;
+using Ndapi.Enums;
+using Ndapi.Metadata;
 
 namespace Ndapi
 {
@@ -314,7 +315,7 @@ namespace Ndapi
         public string GetQualifiedName(bool includeModule)
         {
             var builder = new StringBuilder();
-            
+
             var owner = Owner;
             while ((owner != null) && (includeModule || (owner.GetObjectType() != ObjectType.FormModule)))
             {
@@ -388,7 +389,7 @@ namespace Ndapi
             Ensure.BooleanResult(status);
             return status == D2fErrorCode.D2FS_NO;
         }
-        
+
         /// <summary>
         /// Checks whether the property was inherited.
         /// </summary>
@@ -513,11 +514,11 @@ namespace Ndapi
                 {
                     _handle?.Dispose();
                 }
-                
+
                 disposedValue = true;
             }
         }
-        
+
         public void Dispose()
         {
             Dispose(true);

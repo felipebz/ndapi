@@ -614,7 +614,7 @@ namespace Ndapi
             get { return GetStringProperty(NdapiConstants.D2FP_WHERE_CLAUSE); }
             set { SetStringProperty(NdapiConstants.D2FP_WHERE_CLAUSE, value); }
         }
-        
+
 #if FORMS_6
         /// <summary>
         /// Gets or sets the white-on-black property.
@@ -660,7 +660,7 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_INS_DAT_SRC_ARG)]
         public NdapiObjectList<DataSourceArgument> InsertDataSourceArguments =>
             GetObjectList<DataSourceArgument>(NdapiConstants.D2FP_INS_DAT_SRC_ARG);
-        
+
         /// <summary>
         /// Gets the insert data source columns.
         /// </summary>
