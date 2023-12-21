@@ -41,6 +41,18 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_CONSOLE_WIN, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets whether runtime should defer enforcement of the Required item attribute until the record is validated.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_DEFER_REQ_ENF)]
+        public bool DeferRequiredEnforcement
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the first navigation block.
         /// </summary>
@@ -151,6 +163,28 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_MNU_ROLE, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the menu source.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_SRC)]
+        public MenuSource MenuSource
+        {
+            get { return GetNumberProperty<MenuSource>(NdapiConstants.D2FP_MNU_SRC); }
+            set { SetNumberProperty(NdapiConstants.D2FP_MNU_SRC, value); }
+        }
+
+        /// <summary>
+        /// Gets or sets the menu style.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_MNU_STY)]
+        public MenuStyle MenuStyle
+        {
+            get { return GetNumberProperty<MenuStyle>(NdapiConstants.D2FP_MNU_STY); }
+            set { SetNumberProperty(NdapiConstants.D2FP_MNU_STY, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the mouse navigation limit.
         /// </summary>
@@ -256,12 +290,14 @@ namespace Ndapi
         public NdapiObjectList<Editor> Editors =>
             GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR);
 
+#if FORMS_12_OR_GREATER
         /// <summary>
         /// Gets all the events.
         /// </summary>
         [Property(NdapiConstants.D2FP_EVENT)]
         public NdapiObjectList<Event> Events =>
             GetObjectList<Event>(NdapiConstants.D2FP_EVENT);
+#endif
 
         /// <summary>
         /// Gets all the list of values.
@@ -348,8 +384,11 @@ namespace Ndapi
         public new static FormModule Open(string filename)
         {
             ObjectSafeHandle form;
-
+#if FORMS_6
+            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename, false);
+#else
             var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename);
+#endif
             Ensure.Success(status);
 
             return new FormModule(form);
@@ -360,7 +399,7 @@ namespace Ndapi
         /// </summary>
         public override void Save()
         {
-            Save(null);
+            Save(null, false);
         }
 
         /// <summary>
@@ -369,7 +408,21 @@ namespace Ndapi
         /// <param name="path">Location to save.</param>
         public override void Save(string path)
         {
+            Save(path, false);
+        }
+
+        /// <summary>
+        /// Save the form module to disk.
+        /// </summary>
+        /// <param name="path">Location to save.</param>
+        /// <param name="saveInDatabase">Should save module in database.</param>
+        public override void Save(string path, bool saveInDatabase)
+        {
+#if FORMS_6
+            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
+#else
             var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path);
+#endif
             Ensure.Success(status);
         }
 
@@ -398,8 +451,22 @@ namespace Ndapi
         /// <returns>The Form Builder version</returns>
         public static int GetFileVersion(string file)
         {
-            int version;
-            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, out version);
+            return GetFileVersion(file, false);
+        }
+
+        /// <summary>
+        /// Gets the version of the last Form Builder that loaded the module.
+        /// </summary>
+        /// <param name="file">Form module location (.fmb file)</param>
+        /// <param name="loadFromDb">Module should be loaded from database.</param>
+        /// <returns>The Form Builder version</returns>
+        public static int GetFileVersion(string file, bool loadFromDb)
+        {
+#if FORMS_6
+            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);
+#else
+            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, out var version);
+#endif
             Ensure.Success(status);
             return version;
         }
@@ -516,11 +583,13 @@ namespace Ndapi
         /// <returns>The child object.</returns>
         public Window CreateWindow(string name) => new Window(this, name);
 
+#if FORMS_12_OR_GREATER
         /// <summary>
         /// Creates an event.
         /// </summary>
         /// <param name="name">Name of the event.</param>
         /// <returns>The child object.</returns>
         public Event CreateEvent(string name) => new Event(this, name);
+#endif
     }
 }

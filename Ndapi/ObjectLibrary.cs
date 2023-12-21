@@ -59,9 +59,11 @@ namespace Ndapi
         /// <returns>Loaded library reference.</returns>
         public new static ObjectLibrary Open(string filename)
         {
-            ObjectSafeHandle form;
-
-            var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out form, filename);
+#if FORMS_6
+            var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out var form, filename, false);
+#else
+            var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out ObjectSafeHandle form, filename);
+#endif
             Ensure.Success(status);
 
             return new ObjectLibrary(form);
@@ -72,7 +74,7 @@ namespace Ndapi
         /// </summary>
         public override void Save()
         {
-            Save(null);
+            Save(null, false);
         }
 
         /// <summary>
@@ -81,7 +83,21 @@ namespace Ndapi
         /// <param name="path">Location to save.</param>
         public override void Save(string path)
         {
+            Save(path, false);
+        }
+
+        /// <summary>
+        /// Save the object library to disk.
+        /// </summary>
+        /// <param name="path">Location to save.</param>
+        /// <param name="saveInDatabase">Should save library in database.</param>
+        public override void Save(string path, bool saveInDatabase)
+        {
+#if FORMS_6
+            var status = NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
+#else
             var status = NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path);
+#endif
             Ensure.Success(status);
         }
 
@@ -108,8 +124,22 @@ namespace Ndapi
         /// <returns>The Form Builder version</returns>
         public static int GetFileVersion(string file)
         {
-            int version;
-            var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, out version);
+            return GetFileVersion(file, false);
+        }
+
+        /// <summary>
+        /// Gets the version of the last Form Builder that loaded the library.
+        /// </summary>
+        /// <param name="file">Object library location (.olb file)</param>
+        /// <param name="loadFromDb">Library should be loaded from database.</param>
+        /// <returns>The Form Builder version</returns>
+        public static int GetFileVersion(string file, bool loadFromDb)
+        {
+#if FORMS_6
+            var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);
+#else
+            var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, out int version);
+#endif
             Ensure.Success(status);
             return version;
         }

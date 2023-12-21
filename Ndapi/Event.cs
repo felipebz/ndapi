@@ -1,4 +1,5 @@
-﻿using Ndapi.Core;
+﻿#if FORMS_12_OR_GREATER
+using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
@@ -112,3 +113,4 @@ namespace Ndapi
         }
     }
 }
+#endif

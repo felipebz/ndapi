@@ -297,6 +297,18 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_VPRT_Y_POS_ON_CNV, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the white-on-black property.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
+        public bool IsWhiteOnBlack
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
@@ -327,6 +339,7 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_WND_NAM, value); }
         }
 
+#if FORMS_12_OR_GREATER
         /// <summary>
         /// Gets or sets the side of the canvas from where the gradient color begins
         /// or that there should be no gradient color used.
@@ -337,6 +350,7 @@ namespace Ndapi
             get { return GetNumberProperty<GradientStartSide>(NdapiConstants.D2FP_GRADIENT_START); }
             set { SetNumberProperty(NdapiConstants.D2FP_GRADIENT_START, value); }
         }
+#endif
 
         /// <summary>
         /// Gets all the graphics objects attached to the canvas.

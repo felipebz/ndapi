@@ -90,6 +90,18 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the parent module storage.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_PAR_MODSTR)]
+        public ModuleStorageType ParentModuleStorage
+        {
+            get { return GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR); }
+            set { SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the parent filename path.
         /// </summary>

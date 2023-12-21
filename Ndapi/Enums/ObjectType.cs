@@ -60,10 +60,12 @@
         /// </summary>
         Editor = NdapiConstants.D2FFO_EDITOR,
 
+#if FORMS_12_OR_GREATER
         /// <summary>
         /// Event.
         /// </summary>
         Event = NdapiConstants.D2FFO_EVENT,
+#endif
 
         /// <summary>
         /// Font declaration.
@@ -124,6 +126,13 @@
         /// Menu module.
         /// </summary>
         MenuModule = NdapiConstants.D2FFO_MENU_MODULE,
+
+#if FORMS_6
+        /// <summary>
+        /// Menu module parameter.
+        /// </summary>
+        MenuParameter = NdapiConstants.D2FFO_MENU_PARAM,
+#endif
 
         /// <summary>
         /// Object group.

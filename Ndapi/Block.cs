@@ -41,6 +41,18 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_BACK_COLOR, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_BLK_DESCRIPTION)]
+        public string Description
+        {
+            get { return GetStringProperty(NdapiConstants.D2FP_BLK_DESCRIPTION); }
+            set { SetStringProperty(NdapiConstants.D2FP_BLK_DESCRIPTION, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the comment.
         /// </summary>
@@ -265,6 +277,18 @@ namespace Ndapi
             get { return GetStringProperty(NdapiConstants.D2FP_LOCK_PROC_NAM); }
             set { SetStringProperty(NdapiConstants.D2FP_LOCK_PROC_NAM, value); }
         }
+
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets whether the block should be listed in the block menu. 
+        /// </summary>
+        [Property(NdapiConstants.D2FP_LST_IN_BLK_MNU)]
+        public bool IsListedInBlockMenu
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_LST_IN_BLK_MNU); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_LST_IN_BLK_MNU, value); }
+        }
+#endif
 
         /// <summary>
         /// Gets or sets the timeout to abort a query.
@@ -590,7 +614,20 @@ namespace Ndapi
             get { return GetStringProperty(NdapiConstants.D2FP_WHERE_CLAUSE); }
             set { SetStringProperty(NdapiConstants.D2FP_WHERE_CLAUSE, value); }
         }
+        
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the white-on-black property.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
+        public bool IsWhiteOnBlack
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
+        }
+#endif
 
+#if FORMS_12_OR_GREATER
         /// <summary>
         /// Gets or sets the row banding frequency. When row banding is set, every n-th instance of
         /// the record would appear in a different background color.
@@ -601,6 +638,7 @@ namespace Ndapi
             get { return GetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ); }
             set { SetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ, value); }
         }
+#endif
 
         /// <summary>
         /// Gets the delete data source arguments.

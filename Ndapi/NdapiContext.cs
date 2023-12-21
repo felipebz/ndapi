@@ -42,8 +42,8 @@ namespace Ndapi
 
         internal static ContextSafeHandle GetContext()
         {
-                if (_context == null)
-                {
+            if (_context == null)
+            {
                 var context_attributes = new D2fContextAttributes();
                 context_attributes.mask_d2fctxa = D2FCTXAMCALLS;
                 context_attributes.d2fmalc_d2fctxa = allocateMemory;
@@ -56,7 +56,7 @@ namespace Ndapi
                 }
                 catch (DllNotFoundException)
                 {
-                    throw new NdapiException("Could not found the frmd2f.dll from Oracle Forms 12c installation. " +
+                    throw new NdapiException($"Could not found the {NativeMethods.formsLib} from Oracle Forms installation. " +
                         "Please check if this version of Oracle Forms is installed.");
                 }
                 Ensure.Success(status);

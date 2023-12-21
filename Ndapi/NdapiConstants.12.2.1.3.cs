@@ -1,7 +1,8 @@
 ﻿namespace Ndapi
 {
-    public static class NdapiConstants
+    public static partial class NdapiConstants
     {
+#if FORMS_12213
         public const int D2FC_UNDEFINED = 255;
         public const int D2FC_DFAL_BTN1 = 0;
         public const int D2FC_DFAL_BTN2 = 1;
@@ -1100,5 +1101,6 @@
         public const int D2FP_TYP_OBJECT = 4;
         public const int BINTOTEXT = 1;
         public const int TEXTTOBIN = 2;
+#endif
     }
 }

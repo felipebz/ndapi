@@ -1201,6 +1201,18 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets whether runtime should display a color palette.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_SHOW_PALETTE)]
+        public bool ShowPalette
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_PALETTE); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_SHOW_PALETTE, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets whether runtime should display a play button.
         /// </summary>
@@ -1461,6 +1473,18 @@ namespace Ndapi
             set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the white-on-black property.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
+        public bool IsWhiteOnBlack
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the width.
         /// </summary>
@@ -1501,6 +1525,7 @@ namespace Ndapi
             set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
         }
 
+#if FORMS_12_OR_GREATER
         /// <summary>
         /// Gets or sets the mouse cursor style that is displayed while hovering over that object.
         /// </summary>
@@ -1521,6 +1546,7 @@ namespace Ndapi
             get { return GetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ); }
             set { SetNumberProperty(NdapiConstants.D2FP_ROW_BANDING_FREQ, value); }
         }
+#endif
 
         /// <summary>
         /// Gets the radio button items.

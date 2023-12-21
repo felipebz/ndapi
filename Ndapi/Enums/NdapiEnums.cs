@@ -83,7 +83,11 @@
         Nestedtab = NdapiConstants.D2FC_DSTY_NESTEDTAB,
         Blob = NdapiConstants.D2FC_DSTY_BLOB,
         Clob = NdapiConstants.D2FC_DSTY_CLOB,
-        Bfile = NdapiConstants.D2FC_DSTY_BFILE
+        Bfile = NdapiConstants.D2FC_DSTY_BFILE,
+#if FORMS_6
+        Cfile = NdapiConstants.D2FC_DSTY_CFILE,
+        Unknown = NdapiConstants.D2FC_DSTY_UNKNOWN
+#endif
     }
 
     public enum CommunicationMode
@@ -425,7 +429,11 @@
         Rinteger = NdapiConstants.D2FC_DATY_RINTEGER,
         Money = NdapiConstants.D2FC_DATY_MONEY,
         Rmoney = NdapiConstants.D2FC_DATY_RMONEY,
-        Objectref = NdapiConstants.D2FC_DATY_OBJECTREF
+        Objectref = NdapiConstants.D2FC_DATY_OBJECTREF,
+#if FORMS_6
+        Lob = NdapiConstants.D2FC_DATY_LOB,
+        File = NdapiConstants.D2FC_DATY_FILE
+#endif
     }
 
     public enum ImageFormat
@@ -438,7 +446,9 @@
         Ras = NdapiConstants.D2FC_IMFM_RAS,
         Tiff = NdapiConstants.D2FC_IMFM_TIFF,
         Tpic = NdapiConstants.D2FC_IMFM_TPIC,
+#if FORMS_12_OR_GREATER
         Native = NdapiConstants.D2FC_IMFM_NATIVE
+#endif
     }
 
     public enum DisplayQuality
@@ -452,7 +462,9 @@
     {
         Crop = NdapiConstants.D2FC_SIST_CROP,
         Adjust = NdapiConstants.D2FC_SIST_ADJUST,
+#if FORMS_12_OR_GREATER
         Fill = NdapiConstants.D2FC_SIST_FILL
+#endif
     }
 
     public enum JoinStyle
@@ -513,7 +525,12 @@
     {
         Null = NdapiConstants.D2FC_COTY_NULL,
         Menu = NdapiConstants.D2FC_COTY_MENU,
-        Plsql = NdapiConstants.D2FC_COTY_PLSQL
+        Plsql = NdapiConstants.D2FC_COTY_PLSQL,
+#if FORMS_6
+        Plus = NdapiConstants.D2FC_COTY_PLUS,
+        Form = NdapiConstants.D2FC_COTY_FORM,
+        Macro = NdapiConstants.D2FC_COTY_MACRO
+#endif
     }
 
     public enum DeleteRecordBehavior
@@ -545,6 +562,20 @@
         Record = NdapiConstants.D2FC_MONA_RECORD,
         Item = NdapiConstants.D2FC_MONA_ITEM
     }
+    
+#if FORMS_6
+    public enum MenuStyle
+    {
+        Pulldown = NdapiConstants.D2FC_MNST_PULLDOWN,
+        Fullscreen = NdapiConstants.D2FC_MNST_FULLSCREEN
+    }
+
+    public enum MenuSource
+    {
+        File = NdapiConstants.D2FC_MNSR_FILE,
+        Database = NdapiConstants.D2FC_MNSR_DB
+    }
+#endif
 
     public enum MenuItemType
     {
@@ -561,7 +592,15 @@
         ChangeRecord = NdapiConstants.D2FC_NAST_CHANGERECORD,
         ChangeBlock = NdapiConstants.D2FC_NAST_CHANGEBLOCK
     }
-
+    
+#if FORMS_6
+    public enum ModuleStorageType
+    {
+        Filesystem = NdapiConstants.D2FC_PAMO_FILESYSTEM,
+        Database = NdapiConstants.D2FC_PAMO_DATABASE
+    }
+#endif
+    
     public enum RecordOrientation
     {
         Vertical = NdapiConstants.D2FC_REOR_VERTICAL,
@@ -685,6 +724,14 @@
         PLSQL = NdapiConstants.D2FC_TRST_PLSQL,
         V2 = NdapiConstants.D2FC_TRST_V2
     }
+    
+#if FORMS_6
+    public enum TriggerType
+    {
+        Builtin = NdapiConstants.D2FC_TRTY_BUILTIN,
+        Usernamed = NdapiConstants.D2FC_TRTY_USERNAMED
+    }
+#endif
 
     public enum VerticalOrigin
     {
@@ -746,7 +793,8 @@
         Text = NdapiConstants.D2FP_TYP_TEXT,
         Object = NdapiConstants.D2FP_TYP_OBJECT
     }
-
+    
+#if FORMS_12_OR_GREATER
     public enum CursorStyle
     {
         Unspecified = NdapiConstants.D2FC_CURSOR_STYLE_UNSPECIFIED,
@@ -798,4 +846,5 @@
         Locked = NdapiConstants.D2FC_EVENT_VIEW_MODE_LOCKED,
         Remove = NdapiConstants.D2FC_EVENT_VIEW_MODE_REMOVE
     }
+#endif
 }

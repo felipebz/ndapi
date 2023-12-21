@@ -332,6 +332,18 @@ namespace Ndapi
             set { SetStringProperty(NdapiConstants.D2FP_VTB_CNV_NAME, value); }
         }
 
+#if FORMS_6
+        /// <summary>
+        /// Gets or sets the white-on-black property.
+        /// </summary>
+        [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
+        public bool IsWhiteOnBlack
+        {
+            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
+            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
+        }
+#endif
+
         /// <summary>
         /// Gets or sets the width.
         /// </summary>

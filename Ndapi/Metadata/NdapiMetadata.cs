@@ -46,6 +46,9 @@ namespace Ndapi.Metadata
                 { ObjectType.Menu,                typeof(Menu) },
                 { ObjectType.MenuItem,            typeof(MenuItem) },
                 { ObjectType.MenuModule,          typeof(MenuModule) },
+#if FORMS_6
+                { ObjectType.MenuParameter,       typeof(MenuParameter) },
+#endif
                 { ObjectType.ObjectGroup,         typeof(ObjectGroup) },
                 { ObjectType.ObjectGroupChild,    typeof(ObjectGroupChild) },
                 { ObjectType.ObjectLibrary,       typeof(ObjectLibrary) },
