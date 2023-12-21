@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMM_MODE)]
         public CommunicationMode CommunicationMode
         {
-            get { return GetNumberProperty<CommunicationMode>(NdapiConstants.D2FP_COMM_MODE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_COMM_MODE, value); }
+            get => GetNumberProperty<CommunicationMode>(NdapiConstants.D2FP_COMM_MODE);
+            set => SetNumberProperty(NdapiConstants.D2FP_COMM_MODE, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DAT_SRC_BLK)]
         public string DataSourceBlock
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK); }
-            set { SetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK);
+            set => SetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EXEC_MODE)]
         public ExecutionMode ExecutionMode
         {
-            get { return GetNumberProperty<ExecutionMode>(NdapiConstants.D2FP_EXEC_MODE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_EXEC_MODE, value); }
+            get => GetNumberProperty<ExecutionMode>(NdapiConstants.D2FP_EXEC_MODE);
+            set => SetNumberProperty(NdapiConstants.D2FP_EXEC_MODE, value);
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FLNAM)]
         public string Filename
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FLNAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_FLNAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FLNAM);
+            set => SetStringProperty(NdapiConstants.D2FP_FLNAM, value);
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RPT_DESTINATION_FMT)]
         public string DestinationFormat
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT); }
-            set { SetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT);
+            set => SetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT, value);
         }
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RPT_DESTINATION_NAM)]
         public string DestinationName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM, value);
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RPT_DESTINATION_TYP)]
         public ReportDestinationType DestinationType
         {
-            get { return GetNumberProperty<ReportDestinationType>(NdapiConstants.D2FP_RPT_DESTINATION_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_RPT_DESTINATION_TYP, value); }
+            get => GetNumberProperty<ReportDestinationType>(NdapiConstants.D2FP_RPT_DESTINATION_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_RPT_DESTINATION_TYP, value);
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RPT_PARAMS)]
         public string Parameters
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_RPT_PARAMS); }
-            set { SetStringProperty(NdapiConstants.D2FP_RPT_PARAMS, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_RPT_PARAMS);
+            set => SetStringProperty(NdapiConstants.D2FP_RPT_PARAMS, value);
         }
 
         /// <summary>
@@ -118,8 +118,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RPT_SRVR)]
         public string Server
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_RPT_SRVR); }
-            set { SetStringProperty(NdapiConstants.D2FP_RPT_SRVR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_RPT_SRVR);
+            set => SetStringProperty(NdapiConstants.D2FP_RPT_SRVR, value);
         }
     }
 }

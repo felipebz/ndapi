@@ -37,8 +37,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_BACK_COLOR)]
         public string BackgroundColor
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_BACK_COLOR); }
-            set { SetStringProperty(NdapiConstants.D2FP_BACK_COLOR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_BACK_COLOR);
+            set => SetStringProperty(NdapiConstants.D2FP_BACK_COLOR, value);
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_BEVEL)]
         public Bevel Bevel
         {
-            get { return GetNumberProperty<Bevel>(NdapiConstants.D2FP_BEVEL); }
-            set { SetNumberProperty(NdapiConstants.D2FP_BEVEL, value); }
+            get => GetNumberProperty<Bevel>(NdapiConstants.D2FP_BEVEL);
+            set => SetNumberProperty(NdapiConstants.D2FP_BEVEL, value);
         }
 
         /// <summary>
@@ -57,8 +57,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_CLS_ALLOWED)]
         public bool IsCloseAllowed
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_CLS_ALLOWED, value);
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FILL_PAT)]
         public string FillPattern
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FILL_PAT); }
-            set { SetStringProperty(NdapiConstants.D2FP_FILL_PAT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FILL_PAT);
+            set => SetStringProperty(NdapiConstants.D2FP_FILL_PAT, value);
         }
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_NAM)]
         public string FontName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FONT_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FONT_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value);
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_SIZ)]
         public int FontSize
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value);
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_SPCING)]
         public FontSpacing FontSpacing
         {
-            get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value); }
+            get => GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value);
         }
 
         /// <summary>
@@ -118,8 +118,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_STY)]
         public FontStyle FontStyle
         {
-            get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value); }
+            get => GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value);
         }
 
         /// <summary>
@@ -128,8 +128,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_WGHT)]
         public FontWeight FontWeight
         {
-            get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value); }
+            get => GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value);
         }
 
         /// <summary>
@@ -138,8 +138,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FORE_COLOR)]
         public string ForegroundColor
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FORE_COLOR); }
-            set { SetStringProperty(NdapiConstants.D2FP_FORE_COLOR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FORE_COLOR);
+            set => SetStringProperty(NdapiConstants.D2FP_FORE_COLOR, value);
         }
 
         /// <summary>
@@ -148,8 +148,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_HEIGHT)]
         public int Height
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_HEIGHT); }
-            set { SetNumberProperty(NdapiConstants.D2FP_HEIGHT, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_HEIGHT);
+            set => SetNumberProperty(NdapiConstants.D2FP_HEIGHT, value);
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_HELP_BOOK_TOPIC)]
         public string HelpBookTopic
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TOPIC); }
-            set { SetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TOPIC, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TOPIC);
+            set => SetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TOPIC, value);
         }
 
         /// <summary>
@@ -168,8 +168,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_HIDE_ON_EXIT)]
         public bool HideOnExit
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_HIDE_ON_EXIT); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_HIDE_ON_EXIT, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_HIDE_ON_EXIT);
+            set => SetBooleanProperty(NdapiConstants.D2FP_HIDE_ON_EXIT, value);
         }
 
         /// <summary>
@@ -178,8 +178,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_HTB_CNV_NAME)]
         public string HorizontalToolbarCanvas
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_HTB_CNV_NAME); }
-            set { SetStringProperty(NdapiConstants.D2FP_HTB_CNV_NAME, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_HTB_CNV_NAME);
+            set => SetStringProperty(NdapiConstants.D2FP_HTB_CNV_NAME, value);
         }
 
         /// <summary>
@@ -188,8 +188,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_ICON_FLNAM)]
         public string IconFilename
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_ICON_FLNAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_ICON_FLNAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_ICON_FLNAM);
+            set => SetStringProperty(NdapiConstants.D2FP_ICON_FLNAM, value);
         }
 
         /// <summary>
@@ -198,8 +198,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_INHRT_MNU)]
         public bool InheritMenu
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_INHRT_MNU); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_INHRT_MNU, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_INHRT_MNU);
+            set => SetBooleanProperty(NdapiConstants.D2FP_INHRT_MNU, value);
         }
 
         /// <summary>
@@ -208,8 +208,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_LANG_DIR)]
         public LanguageDirection LanguageDirection
         {
-            get { return GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR); }
-            set { SetNumberProperty(NdapiConstants.D2FP_LANG_DIR, value); }
+            get => GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR);
+            set => SetNumberProperty(NdapiConstants.D2FP_LANG_DIR, value);
         }
 
         /// <summary>
@@ -218,8 +218,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MAXIMIZE_ALLOWED)]
         public bool IsMaximizeAllowed
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_MAXIMIZE_ALLOWED, value);
         }
 
         /// <summary>
@@ -228,8 +228,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MINIMIZE_ALLOWED)]
         public bool IsMinimizedAllowed
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_MINIMIZE_ALLOWED, value);
         }
 
         /// <summary>
@@ -238,8 +238,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MINIMIZE_TTL)]
         public string MinimizeTitle
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_MINIMIZE_TTL); }
-            set { SetStringProperty(NdapiConstants.D2FP_MINIMIZE_TTL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_MINIMIZE_TTL);
+            set => SetStringProperty(NdapiConstants.D2FP_MINIMIZE_TTL, value);
         }
 
         /// <summary>
@@ -248,8 +248,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MODAL)]
         public bool IsModal
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_MODAL); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_MODAL, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_MODAL);
+            set => SetBooleanProperty(NdapiConstants.D2FP_MODAL, value);
         }
 
         /// <summary>
@@ -258,8 +258,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MV_ALLOWED)]
         public bool IsMoveAllowed
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_MV_ALLOWED, value);
         }
 
         /// <summary>
@@ -268,8 +268,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMRY_CNV)]
         public string PrimaryCanvas
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PRMRY_CNV); }
-            set { SetStringProperty(NdapiConstants.D2FP_PRMRY_CNV, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PRMRY_CNV);
+            set => SetStringProperty(NdapiConstants.D2FP_PRMRY_CNV, value);
         }
 
         /// <summary>
@@ -278,8 +278,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RESIZE_ALLOWED)]
         public bool IsResizeAllowed
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_RESIZE_ALLOWED, value);
         }
 
         /// <summary>
@@ -288,8 +288,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR)]
         public bool ShowHorizontalScrollBar
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR);
+            set => SetBooleanProperty(NdapiConstants.D2FP_SHOW_HORZ_SCRLBR, value);
         }
 
         /// <summary>
@@ -298,8 +298,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_SHOW_VERT_SCRLBR)]
         public bool ShowVerticalScrollBar
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_SHOW_VERT_SCRLBR); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_SHOW_VERT_SCRLBR, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_SHOW_VERT_SCRLBR);
+            set => SetBooleanProperty(NdapiConstants.D2FP_SHOW_VERT_SCRLBR, value);
         }
 
         /// <summary>
@@ -308,8 +308,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_TITLE)]
         public string Title
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_TITLE); }
-            set { SetStringProperty(NdapiConstants.D2FP_TITLE, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_TITLE);
+            set => SetStringProperty(NdapiConstants.D2FP_TITLE, value);
         }
 
         /// <summary>
@@ -318,8 +318,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_VAT_NAM)]
         public string VisualAttributeName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_VAT_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_VAT_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value);
         }
 
         /// <summary>
@@ -328,8 +328,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_VTB_CNV_NAME)]
         public string VerticalToolbarCanvas
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_VTB_CNV_NAME); }
-            set { SetStringProperty(NdapiConstants.D2FP_VTB_CNV_NAME, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_VTB_CNV_NAME);
+            set => SetStringProperty(NdapiConstants.D2FP_VTB_CNV_NAME, value);
         }
 
 #if FORMS_6
@@ -339,8 +339,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
         public bool IsWhiteOnBlack
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK);
+            set => SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value);
         }
 #endif
 
@@ -350,8 +350,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_WIDTH)]
         public int Width
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_WIDTH); }
-            set { SetNumberProperty(NdapiConstants.D2FP_WIDTH, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_WIDTH);
+            set => SetNumberProperty(NdapiConstants.D2FP_WIDTH, value);
         }
 
         /// <summary>
@@ -360,8 +360,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_WIN_STY)]
         public WindowStyle WindowStyle
         {
-            get { return GetNumberProperty<WindowStyle>(NdapiConstants.D2FP_WIN_STY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_WIN_STY, value); }
+            get => GetNumberProperty<WindowStyle>(NdapiConstants.D2FP_WIN_STY);
+            set => SetNumberProperty(NdapiConstants.D2FP_WIN_STY, value);
         }
 
         /// <summary>
@@ -370,8 +370,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_X_POS)]
         public int XPosition
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_X_POS); }
-            set { SetNumberProperty(NdapiConstants.D2FP_X_POS, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_X_POS);
+            set => SetNumberProperty(NdapiConstants.D2FP_X_POS, value);
         }
 
         /// <summary>
@@ -380,8 +380,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_Y_POS)]
         public int YPosition
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_Y_POS); }
-            set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_Y_POS);
+            set => SetNumberProperty(NdapiConstants.D2FP_Y_POS, value);
         }
     }
 }

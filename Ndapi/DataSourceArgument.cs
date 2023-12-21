@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSA_MODE)]
         public DataSourceArgumentMode Mode
         {
-            get { return GetNumberProperty<DataSourceArgumentMode>(NdapiConstants.D2FP_DSA_MODE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DSA_MODE, value); }
+            get => GetNumberProperty<DataSourceArgumentMode>(NdapiConstants.D2FP_DSA_MODE);
+            set => SetNumberProperty(NdapiConstants.D2FP_DSA_MODE, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSA_NAM)]
         public override string Name
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DSA_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_DSA_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DSA_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_DSA_NAM, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSA_TYP)]
         public DataSourceColumnType Type
         {
-            get { return GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSA_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DSA_TYP, value); }
+            get => GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSA_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_DSA_TYP, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSA_TYP_NAM)]
         public string TypeName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM, value);
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSA_VAL)]
         public string Value
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DSA_VAL); }
-            set { SetStringProperty(NdapiConstants.D2FP_DSA_VAL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DSA_VAL);
+            set => SetStringProperty(NdapiConstants.D2FP_DSA_VAL, value);
         }
     }
 }

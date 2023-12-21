@@ -30,8 +30,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COL_DAT_TYP)]
         public ColumnSpecificationDataType DataType
         {
-            get { return GetNumberProperty<ColumnSpecificationDataType>(NdapiConstants.D2FP_COL_DAT_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_COL_DAT_TYP, value); }
+            get => GetNumberProperty<ColumnSpecificationDataType>(NdapiConstants.D2FP_COL_DAT_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_COL_DAT_TYP, value);
         }
 
         /// <summary>
@@ -40,8 +40,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
-            set { SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_MAX_LEN);
+            set => SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value);
         }
 
         /// <summary>

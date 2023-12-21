@@ -47,8 +47,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_NAME)]
         public virtual string Name
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_NAME); }
-            set { SetStringProperty(NdapiConstants.D2FP_NAME, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_NAME);
+            set => SetStringProperty(NdapiConstants.D2FP_NAME, value);
         }
 
         /// <summary>
@@ -57,8 +57,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_TYP)]
         public int ParentType
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_PAR_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PAR_TYP, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_PAR_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_PAR_TYP, value);
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_NAM)]
         public string ParentName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PAR_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_PAR_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PAR_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_PAR_NAM, value);
         }
 
         /// <summary>
@@ -77,8 +77,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_MODULE)]
         public string ParentModule
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PAR_MODULE); }
-            set { SetStringProperty(NdapiConstants.D2FP_PAR_MODULE, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PAR_MODULE);
+            set => SetStringProperty(NdapiConstants.D2FP_PAR_MODULE, value);
         }
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_MODTYP)]
         public int ParentModuleType
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_PAR_MODTYP, value);
         }
 
 #if FORMS_6
@@ -98,8 +98,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_MODSTR)]
         public ModuleStorageType ParentModuleStorage
         {
-            get { return GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR); }
-            set { SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value); }
+            get => GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR);
+            set => SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value);
         }
 #endif
 
@@ -109,8 +109,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_FLPATH)]
         public string ParentFileNamePath
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PAR_FLPATH); }
-            set { SetStringProperty(NdapiConstants.D2FP_PAR_FLPATH, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PAR_FLPATH);
+            set => SetStringProperty(NdapiConstants.D2FP_PAR_FLPATH, value);
         }
 
         /// <summary>
@@ -119,8 +119,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PAR_FLNAM)]
         public string ParentFileName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PAR_FLNAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_PAR_FLNAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PAR_FLNAM);
+            set => SetStringProperty(NdapiConstants.D2FP_PAR_FLNAM, value);
         }
 
         /// <summary>

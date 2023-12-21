@@ -29,8 +29,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_AUTO_QRY)]
         public bool AutomaticQuery
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_AUTO_QRY); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_AUTO_QRY, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_AUTO_QRY);
+            set => SetBooleanProperty(NdapiConstants.D2FP_AUTO_QRY, value);
         }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DEFERRED)]
         public bool IsDeferred
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_DEFERRED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_DEFERRED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_DEFERRED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_DEFERRED, value);
         }
 
         /// <summary>
@@ -59,8 +59,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DEL_REC)]
         public DeleteRecordBehavior DeleteRecordBehavior
         {
-            get { return GetNumberProperty<DeleteRecordBehavior>(NdapiConstants.D2FP_DEL_REC); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DEL_REC, value); }
+            get => GetNumberProperty<DeleteRecordBehavior>(NdapiConstants.D2FP_DEL_REC);
+            set => SetNumberProperty(NdapiConstants.D2FP_DEL_REC, value);
         }
 
         /// <summary>
@@ -69,8 +69,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DETAIL_BLK)]
         public string DetailBlock
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DETAIL_BLK); }
-            set { SetStringProperty(NdapiConstants.D2FP_DETAIL_BLK, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DETAIL_BLK);
+            set => SetStringProperty(NdapiConstants.D2FP_DETAIL_BLK, value);
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_JOIN_COND)]
         public string JoinCondition
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_JOIN_COND); }
-            set { SetStringProperty(NdapiConstants.D2FP_JOIN_COND, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_JOIN_COND);
+            set => SetStringProperty(NdapiConstants.D2FP_JOIN_COND, value);
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS)]
         public bool PreventMasterlessOperations
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS);
+            set => SetBooleanProperty(NdapiConstants.D2FP_PRVNT_MSTRLESS_OPS, value);
         }
 
         /// <summary>

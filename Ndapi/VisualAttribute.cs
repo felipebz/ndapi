@@ -45,8 +45,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_BACK_COLOR)]
         public string BackgroundColor
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_BACK_COLOR); }
-            set { SetStringProperty(NdapiConstants.D2FP_BACK_COLOR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_BACK_COLOR);
+            set => SetStringProperty(NdapiConstants.D2FP_BACK_COLOR, value);
         }
 
         /// <summary>
@@ -55,8 +55,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -66,8 +66,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FILL_PAT)]
         public string FillPattern
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FILL_PAT); }
-            set { SetStringProperty(NdapiConstants.D2FP_FILL_PAT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FILL_PAT);
+            set => SetStringProperty(NdapiConstants.D2FP_FILL_PAT, value);
         }
 
         /// <summary>
@@ -76,8 +76,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_NAM)]
         public string FontName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FONT_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FONT_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value);
         }
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_SIZ)]
         public int FontSize
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value);
         }
 
         /// <summary>
@@ -96,8 +96,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_SPCING)]
         public FontSpacing FontSpacing
         {
-            get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value); }
+            get => GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value);
         }
 
         /// <summary>
@@ -106,8 +106,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_STY)]
         public FontStyle FontStyle
         {
-            get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value); }
+            get => GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value);
         }
 
         /// <summary>
@@ -116,8 +116,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FONT_WGHT)]
         public FontWeight FontWeight
         {
-            get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT); }
-            set { SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value); }
+            get => GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT);
+            set => SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value);
         }
 
         /// <summary>
@@ -126,8 +126,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FORE_COLOR)]
         public string ForegroundColor
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_FORE_COLOR); }
-            set { SetStringProperty(NdapiConstants.D2FP_FORE_COLOR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_FORE_COLOR);
+            set => SetStringProperty(NdapiConstants.D2FP_FORE_COLOR, value);
         }
 
         /// <summary>
@@ -136,8 +136,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_BACK_COLOR)]
         public string PromptBackgroundColor
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_BACK_COLOR); }
-            set { SetStringProperty(NdapiConstants.D2FP_PRMPT_BACK_COLOR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PRMPT_BACK_COLOR);
+            set => SetStringProperty(NdapiConstants.D2FP_PRMPT_BACK_COLOR, value);
         }
 
         /// <summary>
@@ -147,8 +147,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FILL_PAT)]
         public string PromptFillPattern
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_FILL_PAT); }
-            set { SetStringProperty(NdapiConstants.D2FP_PRMPT_FILL_PAT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PRMPT_FILL_PAT);
+            set => SetStringProperty(NdapiConstants.D2FP_PRMPT_FILL_PAT, value);
         }
 
         /// <summary>
@@ -157,8 +157,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FONT_NAM)]
         public string PromptFontName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_FONT_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_PRMPT_FONT_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PRMPT_FONT_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_PRMPT_FONT_NAM, value);
         }
 
         /// <summary>
@@ -167,8 +167,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FONT_SIZ)]
         public int PromptFontSize
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SIZ); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SIZ, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SIZ);
+            set => SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SIZ, value);
         }
 
         /// <summary>
@@ -177,8 +177,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FONT_SPCING)]
         public FontSpacing PromptFontSpacing
         {
-            get { return GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_PRMPT_FONT_SPCING); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SPCING, value); }
+            get => GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_PRMPT_FONT_SPCING);
+            set => SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_SPCING, value);
         }
 
         /// <summary>
@@ -187,8 +187,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FONT_STY)]
         public FontStyle PromptFontStyle
         {
-            get { return GetNumberProperty<FontStyle>(NdapiConstants.D2FP_PRMPT_FONT_STY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_STY, value); }
+            get => GetNumberProperty<FontStyle>(NdapiConstants.D2FP_PRMPT_FONT_STY);
+            set => SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_STY, value);
         }
 
         /// <summary>
@@ -197,8 +197,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FONT_WGHT)]
         public FontWeight PromptFontWeight
         {
-            get { return GetNumberProperty<FontWeight>(NdapiConstants.D2FP_PRMPT_FONT_WGHT); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_WGHT, value); }
+            get => GetNumberProperty<FontWeight>(NdapiConstants.D2FP_PRMPT_FONT_WGHT);
+            set => SetNumberProperty(NdapiConstants.D2FP_PRMPT_FONT_WGHT, value);
         }
 
         /// <summary>
@@ -207,8 +207,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PRMPT_FORE_COLOR)]
         public string PromptForegroundColor
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PRMPT_FORE_COLOR); }
-            set { SetStringProperty(NdapiConstants.D2FP_PRMPT_FORE_COLOR, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PRMPT_FORE_COLOR);
+            set => SetStringProperty(NdapiConstants.D2FP_PRMPT_FORE_COLOR, value);
         }
 
         /// <summary>
@@ -217,8 +217,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_VAT_TYP)]
         public VisualAttributeType Type
         {
-            get { return GetNumberProperty<VisualAttributeType>(NdapiConstants.D2FP_VAT_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_VAT_TYP, value); }
+            get => GetNumberProperty<VisualAttributeType>(NdapiConstants.D2FP_VAT_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_VAT_TYP, value);
         }
 
 #if FORMS_6
@@ -228,8 +228,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
         public bool IsWhiteOnBlack
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK);
+            set => SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value);
         }
 #endif
     }

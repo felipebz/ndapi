@@ -36,8 +36,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_CASE_RSTRCTION)]
         public CaseRestriction CaseRestriction
         {
-            get { return GetNumberProperty<CaseRestriction>(NdapiConstants.D2FP_CASE_RSTRCTION); }
-            set { SetNumberProperty(NdapiConstants.D2FP_CASE_RSTRCTION, value); }
+            get => GetNumberProperty<CaseRestriction>(NdapiConstants.D2FP_CASE_RSTRCTION);
+            set => SetNumberProperty(NdapiConstants.D2FP_CASE_RSTRCTION, value);
         }
 
         /// <summary>
@@ -46,8 +46,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -56,8 +56,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_CONCEAL_DATA)]
         public bool ConcealData
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_CONCEAL_DATA); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_CONCEAL_DATA, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_CONCEAL_DATA);
+            set => SetBooleanProperty(NdapiConstants.D2FP_CONCEAL_DATA, value);
         }
 
         /// <summary>
@@ -66,8 +66,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FIXED_LEN)]
         public bool IsFixedLength
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN);
+            set => SetBooleanProperty(NdapiConstants.D2FP_FIXED_LEN, value);
         }
 
         /// <summary>
@@ -76,8 +76,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_HINT)]
         public string Hint
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_HINT); }
-            set { SetStringProperty(NdapiConstants.D2FP_HINT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_HINT);
+            set => SetStringProperty(NdapiConstants.D2FP_HINT, value);
         }
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
-            set { SetStringProperty(NdapiConstants.D2FP_LABEL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_LABEL);
+            set => SetStringProperty(NdapiConstants.D2FP_LABEL, value);
         }
 
         /// <summary>
@@ -96,8 +96,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
-            set { SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_MAX_LEN);
+            set => SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value);
         }
 
         /// <summary>
@@ -106,8 +106,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL)]
         public string InitialValue
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL); }
-            set { SetStringProperty(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL);
+            set => SetStringProperty(NdapiConstants.D2FP_MNU_PARAM_INIT_VAL, value);
         }
 
         /// <summary>

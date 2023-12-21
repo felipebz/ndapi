@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_LEN)]
         public int Length
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_DSC_LEN); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DSC_LEN, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_DSC_LEN);
+            set => SetNumberProperty(NdapiConstants.D2FP_DSC_LEN, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_MANDATORY)]
         public bool IsMandatory
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY);
+            set => SetBooleanProperty(NdapiConstants.D2FP_DSC_MANDATORY, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_NAM)]
         public override string Name
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DSC_NAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_DSC_NAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DSC_NAM);
+            set => SetStringProperty(NdapiConstants.D2FP_DSC_NAM, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_PRECISION)]
         public int Precision
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_DSC_PRECISION); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DSC_PRECISION, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_DSC_PRECISION);
+            set => SetNumberProperty(NdapiConstants.D2FP_DSC_PRECISION, value);
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_SCALE)]
         public int Scale
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_DSC_SCALE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DSC_SCALE, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_DSC_SCALE);
+            set => SetNumberProperty(NdapiConstants.D2FP_DSC_SCALE, value);
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_TYP)]
         public DataSourceColumnType Type
         {
-            get { return GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSC_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DSC_TYP, value); }
+            get => GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSC_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_DSC_TYP, value);
         }
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DSC_TYPE_NAME)]
         public string TypeName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_DSC_TYPE_NAME); }
-            set { SetStringProperty(NdapiConstants.D2FP_DSC_TYPE_NAME, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_DSC_TYPE_NAME);
+            set => SetStringProperty(NdapiConstants.D2FP_DSC_TYPE_NAME, value);
         }
     }
 }

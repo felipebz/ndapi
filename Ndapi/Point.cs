@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_X_POS)]
         public int XPosition
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_X_POS); }
-            set { SetNumberProperty(NdapiConstants.D2FP_X_POS, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_X_POS);
+            set => SetNumberProperty(NdapiConstants.D2FP_X_POS, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_Y_POS)]
         public int YPosition
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_Y_POS); }
-            set { SetNumberProperty(NdapiConstants.D2FP_Y_POS, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_Y_POS);
+            set => SetNumberProperty(NdapiConstants.D2FP_Y_POS, value);
         }
     }
 }

@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MAX_LEN)]
         public int MaximumLength
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_MAX_LEN); }
-            set { SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_MAX_LEN);
+            set => SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PARAM_DAT_TYP)]
         public ParameterDataType DataType
         {
-            get { return GetNumberProperty<ParameterDataType>(NdapiConstants.D2FP_PARAM_DAT_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_PARAM_DAT_TYP, value); }
+            get => GetNumberProperty<ParameterDataType>(NdapiConstants.D2FP_PARAM_DAT_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_PARAM_DAT_TYP, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_PARAM_INIT_VAL)]
         public string InitialValue
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL); }
-            set { SetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL);
+            set => SetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL, value);
         }
     }
 }

@@ -29,8 +29,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ)]
         public NdapiObject RealObject
         {
-            get { return GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ); }
-            set { SetObjectProperty(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ, value); }
+            get => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ);
+            set => SetObjectProperty(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ, value);
         }
     }
 }

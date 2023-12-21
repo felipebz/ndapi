@@ -37,8 +37,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ)]
         public int FetchSize
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ); }
-            set { SetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ);
+            set => SetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ, value);
         }
 
         /// <summary>
@@ -57,8 +57,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_REC_GRP_QRY)]
         public string Query
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY); }
-            set { SetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY);
+            set => SetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY, value);
         }
 
         /// <summary>
@@ -67,8 +67,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_REC_GRP_TYP)]
         public RecordGroupType Type
         {
-            get { return GetNumberProperty<RecordGroupType>(NdapiConstants.D2FP_REC_GRP_TYP); }
-            set { SetNumberProperty(NdapiConstants.D2FP_REC_GRP_TYP, value); }
+            get => GetNumberProperty<RecordGroupType>(NdapiConstants.D2FP_REC_GRP_TYP);
+            set => SetNumberProperty(NdapiConstants.D2FP_REC_GRP_TYP, value);
         }
 
         /// <summary>

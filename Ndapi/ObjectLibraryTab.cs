@@ -34,8 +34,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -44,8 +44,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
-            set { SetStringProperty(NdapiConstants.D2FP_LABEL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_LABEL);
+            set => SetStringProperty(NdapiConstants.D2FP_LABEL, value);
         }
 
         /// <summary>

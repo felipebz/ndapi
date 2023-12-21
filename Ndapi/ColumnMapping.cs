@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DISP_WID)]
         public int DisplayWidth
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_DISP_WID); }
-            set { SetNumberProperty(NdapiConstants.D2FP_DISP_WID, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_DISP_WID);
+            set => SetNumberProperty(NdapiConstants.D2FP_DISP_WID, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_RTRN_ITM)]
         public string ReturnItem
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_RTRN_ITM); }
-            set { SetStringProperty(NdapiConstants.D2FP_RTRN_ITM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_RTRN_ITM);
+            set => SetStringProperty(NdapiConstants.D2FP_RTRN_ITM, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_TITLE)]
         public string Title
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_TITLE); }
-            set { SetStringProperty(NdapiConstants.D2FP_TITLE, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_TITLE);
+            set => SetStringProperty(NdapiConstants.D2FP_TITLE, value);
         }
     }
 }

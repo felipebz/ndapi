@@ -46,13 +46,7 @@ namespace Ndapi
 
             public void Reset() => _position = 1;
 
-            public string Current
-            {
-                get
-                {
-                    return _current;
-                }
-            }
+            public string Current => _current;
 
             object IEnumerator.Current => Current;
 

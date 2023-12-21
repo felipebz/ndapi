@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_CORRID)]
         public string CorrelationId
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_EVENT_CORRID); }
-            set { SetStringProperty(NdapiConstants.D2FP_EVENT_CORRID, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_EVENT_CORRID);
+            set => SetStringProperty(NdapiConstants.D2FP_EVENT_CORRID, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_ENABLED)]
         public bool IsEnabled
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_EVENT_ENABLED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_EVENT_ENABLED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_EVENT_ENABLED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_EVENT_ENABLED, value);
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_PRIORITY_MODE)]
         public int PriorityMode
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_EVENT_PRIORITY_MODE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_EVENT_PRIORITY_MODE, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_EVENT_PRIORITY_MODE);
+            set => SetNumberProperty(NdapiConstants.D2FP_EVENT_PRIORITY_MODE, value);
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_SCOPE)]
         public EventScope EventScope
         {
-            get { return GetNumberProperty<EventScope>(NdapiConstants.D2FP_EVENT_SCOPE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_EVENT_SCOPE, value); }
+            get => GetNumberProperty<EventScope>(NdapiConstants.D2FP_EVENT_SCOPE);
+            set => SetNumberProperty(NdapiConstants.D2FP_EVENT_SCOPE, value);
         }
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_SUBS_NAME)]
         public string SubscriptionName
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_EVENT_SUBS_NAME); }
-            set { SetStringProperty(NdapiConstants.D2FP_EVENT_SUBS_NAME, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_EVENT_SUBS_NAME);
+            set => SetStringProperty(NdapiConstants.D2FP_EVENT_SUBS_NAME, value);
         }
 
         /// <summary>
@@ -98,8 +98,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_TYPE)]
         public EventType EventType
         {
-            get { return GetNumberProperty<EventType>(NdapiConstants.D2FP_EVENT_TYPE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_EVENT_TYPE, value); }
+            get => GetNumberProperty<EventType>(NdapiConstants.D2FP_EVENT_TYPE);
+            set => SetNumberProperty(NdapiConstants.D2FP_EVENT_TYPE, value);
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EVENT_VIEW_MODE)]
         public EventViewMode EventViewMode
         {
-            get { return GetNumberProperty<EventViewMode>(NdapiConstants.D2FP_EVENT_VIEW_MODE); }
-            set { SetNumberProperty(NdapiConstants.D2FP_EVENT_VIEW_MODE, value); }
+            get => GetNumberProperty<EventViewMode>(NdapiConstants.D2FP_EVENT_VIEW_MODE);
+            set => SetNumberProperty(NdapiConstants.D2FP_EVENT_VIEW_MODE, value);
         }
     }
 }

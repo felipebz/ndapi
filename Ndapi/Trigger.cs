@@ -64,8 +64,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -74,8 +74,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DISP_IN_KBRD_HLP)]
         public bool DisplayInKeyboardHelp
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP);
+            set => SetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP, value);
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_EXEC_HIERARCHY)]
         public ExecutionStyle ExecutionStyle
         {
-            get { return GetNumberProperty<ExecutionStyle>(NdapiConstants.D2FP_EXEC_HIERARCHY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_EXEC_HIERARCHY, value); }
+            get => GetNumberProperty<ExecutionStyle>(NdapiConstants.D2FP_EXEC_HIERARCHY);
+            set => SetNumberProperty(NdapiConstants.D2FP_EXEC_HIERARCHY, value);
         }
 
         /// <summary>
@@ -94,8 +94,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_FIRE_IN_QRY)]
         public bool FireInEnterQueryMode
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY);
+            set => SetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY, value);
         }
 
         /// <summary>
@@ -104,8 +104,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_KBRD_HLP_TXT)]
         public string KeyboardHelpDescription
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT); }
-            set { SetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT);
+            set => SetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT, value);
         }
 
         /// <summary>
@@ -114,8 +114,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_TRG_STY)]
         public TriggerStyle Style
         {
-            get { return GetNumberProperty<TriggerStyle>(NdapiConstants.D2FP_TRG_STY); }
-            set { SetNumberProperty(NdapiConstants.D2FP_TRG_STY, value); }
+            get => GetNumberProperty<TriggerStyle>(NdapiConstants.D2FP_TRG_STY);
+            set => SetNumberProperty(NdapiConstants.D2FP_TRG_STY, value);
         }
 
         /// <summary>
@@ -124,8 +124,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_TRG_TXT)]
         public string Text
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_TRG_TXT); }
-            set { SetStringProperty(NdapiConstants.D2FP_TRG_TXT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_TRG_TXT);
+            set => SetStringProperty(NdapiConstants.D2FP_TRG_TXT, value);
         }
 
         /// <summary>

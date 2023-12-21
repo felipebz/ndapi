@@ -37,8 +37,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -47,8 +47,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_SUB_TTL)]
         public string Subtitle
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_SUB_TTL); }
-            set { SetStringProperty(NdapiConstants.D2FP_SUB_TTL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_SUB_TTL);
+            set => SetStringProperty(NdapiConstants.D2FP_SUB_TTL, value);
         }
 
         /// <summary>
@@ -57,8 +57,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_TEAR_OFF_MNU)]
         public bool IsTearOffMenu
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU);
+            set => SetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU, value);
         }
 
         /// <summary>

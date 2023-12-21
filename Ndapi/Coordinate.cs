@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_CHAR_CELL_HGT)]
         public int CharacterCellHeight
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT); }
-            set { SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT);
+            set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_CHAR_CELL_WID)]
         public int CharacterCellWidth
         {
-            get { return GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID); }
-            set { SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID, value); }
+            get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID);
+            set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COORD_SYS)]
         public CoordinateSystem CoordinateSystem
         {
-            get { return GetNumberProperty<CoordinateSystem>(NdapiConstants.D2FP_COORD_SYS); }
-            set { SetNumberProperty(NdapiConstants.D2FP_COORD_SYS, value); }
+            get => GetNumberProperty<CoordinateSystem>(NdapiConstants.D2FP_COORD_SYS);
+            set => SetNumberProperty(NdapiConstants.D2FP_COORD_SYS, value);
         }
 
         /// <summary>
@@ -68,8 +68,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_DFLT_FNT_SCALING)]
         public bool IsDefaultFontScaling
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING);
+            set => SetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING, value);
         }
 
         /// <summary>
@@ -78,8 +78,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_REAL_UNIT)]
         public RealUnit RealUnit
         {
-            get { return GetNumberProperty<RealUnit>(NdapiConstants.D2FP_REAL_UNIT); }
-            set { SetNumberProperty(NdapiConstants.D2FP_REAL_UNIT, value); }
+            get => GetNumberProperty<RealUnit>(NdapiConstants.D2FP_REAL_UNIT);
+            set => SetNumberProperty(NdapiConstants.D2FP_REAL_UNIT, value);
         }
 
         /// <summary>

@@ -28,8 +28,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_ENABLED)]
         public bool IsEnabled
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_ENABLED); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_ENABLED);
+            set => SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value);
         }
 
         /// <summary>
@@ -48,8 +48,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_LABEL)]
         public string Label
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_LABEL); }
-            set { SetStringProperty(NdapiConstants.D2FP_LABEL, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_LABEL);
+            set => SetStringProperty(NdapiConstants.D2FP_LABEL, value);
         }
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_VISIBLE)]
         public bool IsVisible
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_VISIBLE); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_VISIBLE);
+            set => SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value);
         }
 
 #if FORMS_12_OR_GREATER
@@ -70,8 +70,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_GRADIENT_START)]
         public GradientStartSide GradientStartSide
         {
-            get { return GetNumberProperty<GradientStartSide>(NdapiConstants.D2FP_GRADIENT_START); }
-            set { SetNumberProperty(NdapiConstants.D2FP_GRADIENT_START, value); }
+            get => GetNumberProperty<GradientStartSide>(NdapiConstants.D2FP_GRADIENT_START);
+            set => SetNumberProperty(NdapiConstants.D2FP_GRADIENT_START, value);
         }
 #endif
 

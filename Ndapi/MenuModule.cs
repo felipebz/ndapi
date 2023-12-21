@@ -29,8 +29,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_COMMENT)]
         public string Comment
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_COMMENT); }
-            set { SetStringProperty(NdapiConstants.D2FP_COMMENT, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
+            set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
         }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MAIN_MNU)]
         public string MainMenu
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_MAIN_MNU); }
-            set { SetStringProperty(NdapiConstants.D2FP_MAIN_MNU, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_MAIN_MNU);
+            set => SetStringProperty(NdapiConstants.D2FP_MAIN_MNU, value);
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MNU_DRCTRY)]
         public string Directory
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_MNU_DRCTRY); }
-            set { SetStringProperty(NdapiConstants.D2FP_MNU_DRCTRY, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_MNU_DRCTRY);
+            set => SetStringProperty(NdapiConstants.D2FP_MNU_DRCTRY, value);
         }
 
         /// <summary>
@@ -59,8 +59,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_MNU_FLNAM)]
         public string Filename
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_MNU_FLNAM); }
-            set { SetStringProperty(NdapiConstants.D2FP_MNU_FLNAM, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_MNU_FLNAM);
+            set => SetStringProperty(NdapiConstants.D2FP_MNU_FLNAM, value);
         }
 
         /// <summary>
@@ -69,8 +69,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_SHARE_LIB)]
         public bool ShareLibraryWithForm
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_SHARE_LIB); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_SHARE_LIB, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_SHARE_LIB);
+            set => SetBooleanProperty(NdapiConstants.D2FP_SHARE_LIB, value);
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_STRTUP_CODE)]
         public string StartupCode
         {
-            get { return GetStringProperty(NdapiConstants.D2FP_STRTUP_CODE); }
-            set { SetStringProperty(NdapiConstants.D2FP_STRTUP_CODE, value); }
+            get => GetStringProperty(NdapiConstants.D2FP_STRTUP_CODE);
+            set => SetStringProperty(NdapiConstants.D2FP_STRTUP_CODE, value);
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace Ndapi
         [Property(NdapiConstants.D2FP_USE_SECURITY)]
         public bool UseSecurity
         {
-            get { return GetBooleanProperty(NdapiConstants.D2FP_USE_SECURITY); }
-            set { SetBooleanProperty(NdapiConstants.D2FP_USE_SECURITY, value); }
+            get => GetBooleanProperty(NdapiConstants.D2FP_USE_SECURITY);
+            set => SetBooleanProperty(NdapiConstants.D2FP_USE_SECURITY, value);
         }
 
         /// <summary>
