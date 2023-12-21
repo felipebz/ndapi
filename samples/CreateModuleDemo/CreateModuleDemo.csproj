@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <PlatformTarget>x64</PlatformTarget>
+    <TargetFramework>net8.0</TargetFramework>
+    <Platforms>x64;x86</Platforms>
     <OutputType>Exe</OutputType>
+    <Configurations>Debug;Release;Debug_12_2_1_3;Debug_6_0_8;Release_12_2_1_3;Release_6_0_8</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
