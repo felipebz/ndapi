@@ -9,5 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: dotnet build -c Release
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build dll for Forms 6.0.8
+        run: dotnet build -c Release_6_0_8
+
+      - name: Build dll for Forms 12.2.1.3
+        run: dotnet build -c Release_12_2_1_3 -p:Platform=x64
+
+      - name: Build NuGet package
+        run: dotnet pack -c Release --no-build
