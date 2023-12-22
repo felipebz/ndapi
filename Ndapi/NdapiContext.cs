@@ -43,25 +43,30 @@ namespace Ndapi
 
         internal static ContextSafeHandle GetContext()
         {
-            if (_context == null)
+            if (_context != null)
             {
-                var context_attributes = new D2fContextAttributes();
-                context_attributes.mask_d2fctxa = D2FCTXAMCALLS;
-                context_attributes.d2fmalc_d2fctxa = allocateMemory;
-                context_attributes.d2fmrlc_d2fctxa = reallocateMemory;
-                context_attributes.d2fmfre_d2fctxa = freeMemory;
-                D2fErrorCode status;
-                try
-                {
-                    status = NativeMethods.d2fctxcr_Create(out _context, ref context_attributes);
-                }
-                catch (DllNotFoundException)
-                {
-                    throw new NdapiException($"Could not found the {NativeMethods.formsLib} from Oracle Forms installation. " +
-                        "Please check if this version of Oracle Forms is installed.");
-                }
-                Ensure.Success(status);
+                return _context;
             }
+
+            var contextAttributes = new D2fContextAttributes
+            {
+                mask_d2fctxa = D2FCTXAMCALLS,
+                d2fmalc_d2fctxa = allocateMemory,
+                d2fmrlc_d2fctxa = reallocateMemory,
+                d2fmfre_d2fctxa = freeMemory
+            };
+
+            D2fErrorCode status;
+            try
+            {
+                status = NativeMethods.d2fctxcr_Create(out _context, ref contextAttributes);
+            }
+            catch (DllNotFoundException)
+            {
+                throw new NdapiException($"Could not found the {NativeMethods.formsLib} from Oracle Forms installation. " +
+                                         "Please check if this version of Oracle Forms is installed.");
+            }
+            Ensure.Success(status);
             return _context;
         }
 
@@ -72,12 +77,7 @@ namespace Ndapi
 
         private static IntPtr ReallocateMemory(ref IntPtr context, IntPtr ptr, IntPtr newsize)
         {
-            if (ptr == IntPtr.Zero)
-            {
-                return AllocateMemory(ref context, newsize);
-            }
-
-            return Marshal.ReAllocHGlobal(ptr, newsize);
+            return ptr == IntPtr.Zero ? AllocateMemory(ref context, newsize) : Marshal.ReAllocHGlobal(ptr, newsize);
         }
 
         private static void FreeMemory(ref IntPtr context, IntPtr ptr)

@@ -6,19 +6,18 @@ namespace Ndapi
     public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
     {
         private readonly ObjectLibraryTab _objectLibraryTab;
-        private readonly int _count;
 
         public NdapiObject this[int index] => _objectLibraryTab.GetObjectByPosition(index);
 
         internal NdapiObjectLibraryTabObjectsList(ObjectLibraryTab objectLibraryTab)
         {
             _objectLibraryTab = objectLibraryTab;
-            _count = _objectLibraryTab.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+            Count = _objectLibraryTab.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
         }
 
-        public int Count => _count;
+        public int Count { get; }
 
-        public bool Any() => _count > 1;
+        public bool Any() => Count > 1;
 
         public IEnumerator<NdapiObject> GetEnumerator() => new Enumerator(this);
 
@@ -28,7 +27,6 @@ namespace Ndapi
         {
             private readonly NdapiObjectLibraryTabObjectsList _list;
             private int _position;
-            private NdapiObject _current;
 
             internal Enumerator(NdapiObjectLibraryTabObjectsList list)
             {
@@ -43,14 +41,14 @@ namespace Ndapi
                     return false;
                 }
 
-                _current = _list._objectLibraryTab.GetObjectByPosition(_position);
+                Current = _list._objectLibraryTab.GetObjectByPosition(_position);
                 _position++;
                 return true;
             }
 
             public void Reset() => _position = 1;
 
-            public NdapiObject Current => _current;
+            public NdapiObject Current { get; private set; }
 
             object IEnumerator.Current => Current;
 

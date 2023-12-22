@@ -44,12 +44,7 @@ namespace Ndapi
             var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
             Ensure.Success(status);
 
-            if (obj.IsInvalid)
-            {
-                return null;
-            }
-
-            return Create<NdapiObject>(obj);
+            return obj.IsInvalid ? null : Create<NdapiObject>(obj);
         }
 
         /// <summary>
@@ -121,19 +116,9 @@ namespace Ndapi
         /// Gets the version of the last Form Builder that loaded the library.
         /// </summary>
         /// <param name="file">Object library location (.olb file)</param>
-        /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file)
-        {
-            return GetFileVersion(file, false);
-        }
-
-        /// <summary>
-        /// Gets the version of the last Form Builder that loaded the library.
-        /// </summary>
-        /// <param name="file">Object library location (.olb file)</param>
         /// <param name="loadFromDb">Library should be loaded from database.</param>
         /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file, bool loadFromDb)
+        public static int GetFileVersion(string file, bool loadFromDb = false)
         {
 #if FORMS_6
             var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);

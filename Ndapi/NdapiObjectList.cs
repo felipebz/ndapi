@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 using Ndapi.Core;
-using Ndapi.Core.Handles;
 using Ndapi.Enums;
 using Ndapi.Metadata;
 
@@ -18,16 +17,18 @@ namespace Ndapi
         {
             get
             {
-                var enumerator = GetEnumerator();
-                for (var i = 0; i <= index; i++)
+                using (var enumerator = GetEnumerator())
                 {
-                    if (!enumerator.MoveNext())
+                    for (var i = 0; i <= index; i++)
                     {
-                        throw new ArgumentOutOfRangeException(nameof(index));
+                        if (!enumerator.MoveNext())
+                        {
+                            throw new ArgumentOutOfRangeException(nameof(index));
+                        }
                     }
-                }
 
-                return enumerator.Current;
+                    return enumerator.Current;
+                }
             }
         }
 
@@ -43,15 +44,16 @@ namespace Ndapi
 
         public void RemoveAll()
         {
-            var enumerator = GetEnumerator();
-
-            var value = enumerator.Current;
-            while (value != null)
+            using (var enumerator = GetEnumerator())
             {
-                enumerator.MoveNext();
-                var nextValue = enumerator.Current;
-                value.Destroy();
-                value = nextValue;
+                var value = enumerator.Current;
+                while (value != null)
+                {
+                    enumerator.MoveNext();
+                    var nextValue = enumerator.Current;
+                    value.Destroy();
+                    value = nextValue;
+                }
             }
         }
 
@@ -86,14 +88,9 @@ namespace Ndapi
 
             public bool MoveNext()
             {
-                if (_current == null)
-                {
-                    _current = _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property);
-                }
-                else
-                {
-                    _current = _current.GetNext<T>();
-                }
+                _current = _current == null ?
+                    _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property) :
+                    _current.GetNext<T>();
 
                 return _current != null;
             }

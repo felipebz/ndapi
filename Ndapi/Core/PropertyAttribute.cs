@@ -2,7 +2,7 @@
 
 namespace Ndapi.Core
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Property)]
     internal sealed class PropertyAttribute : Attribute
     {
         internal int PropertyId { get; }

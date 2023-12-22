@@ -69,18 +69,8 @@ namespace Ndapi
         /// </summary>
         /// <param name="index">The one-based index at which value should be inserted.</param>
         /// <param name="value">Value to insert.</param>
-        public void AddValueAt(int index, string value)
-        {
-            AddValueAt(index, value, null);
-        }
-
-        /// <summary>
-        /// Inserts a value in the specified index.
-        /// </summary>
-        /// <param name="index">The one-based index at which value should be inserted.</param>
-        /// <param name="value">Value to insert.</param>
         /// <param name="formatMask">Format mask to format the data.</param>
-        public void AddValueAt(int index, string value, string formatMask)
+        public void AddValueAt(int index, string value, string formatMask = null)
         {
             var status = NativeMethods.d2frcsir_InsertRow_Int(NdapiContext.GetContext(), _handle, index, value, formatMask);
             Ensure.Success(status);

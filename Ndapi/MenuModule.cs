@@ -236,19 +236,9 @@ namespace Ndapi
         /// Gets the version of the last Form Builder that loaded the module.
         /// </summary>
         /// <param name="file">Menu module location (.mmb file)</param>
-        /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file)
-        {
-            return GetFileVersion(file, false);
-        }
-
-        /// <summary>
-        /// Gets the version of the last Form Builder that loaded the module.
-        /// </summary>
-        /// <param name="file">Menu module location (.mmb file)</param>
         /// <param name="loadFromDb">Module should be loaded from database.</param>
         /// <returns>The Form Builder version</returns>
-        public static int GetFileVersion(string file, bool loadFromDb)
+        public static int GetFileVersion(string file, bool loadFromDb = false)
         {
 #if FORMS_6
             var status = NativeMethods.d2fmmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);

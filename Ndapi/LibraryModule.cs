@@ -91,7 +91,7 @@ namespace Ndapi
         /// <summary>
         /// Program unit libraries does not support saving.
         /// </summary>
-        public override void Save(string path = null, bool saveInDatabase = false)
+        public override void Save(string path, bool saveInDatabase)
         {
             throw new NotSupportedException("Library module does not support saving");
         }

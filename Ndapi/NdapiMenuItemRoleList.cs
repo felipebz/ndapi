@@ -6,15 +6,14 @@ namespace Ndapi
     public class NdapiMenuItemRoleList : IEnumerable<string>
     {
         private readonly MenuItem _menuItem;
-        private readonly int _count;
 
         internal NdapiMenuItemRoleList(MenuItem menuitem)
         {
             _menuItem = menuitem;
-            _count = menuitem.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+            Count = menuitem.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
         }
 
-        public int Count => _count;
+        public int Count { get; }
 
         public IEnumerator<string> GetEnumerator() => new Enumerator(this);
 
@@ -24,7 +23,6 @@ namespace Ndapi
         {
             private readonly NdapiMenuItemRoleList _ndapiMenuItemRoleList;
             private int _position;
-            private string _current;
 
             internal Enumerator(NdapiMenuItemRoleList ndapiMenuItemRoleList)
             {
@@ -39,14 +37,14 @@ namespace Ndapi
                     return false;
                 }
 
-                _current = _ndapiMenuItemRoleList._menuItem.GetRoleAt(_position);
+                Current = _ndapiMenuItemRoleList._menuItem.GetRoleAt(_position);
                 _position++;
                 return true;
             }
 
             public void Reset() => _position = 1;
 
-            public string Current => _current;
+            public string Current { get; private set; }
 
             object IEnumerator.Current => Current;
 

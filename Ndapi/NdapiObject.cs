@@ -99,7 +99,7 @@ namespace Ndapi
         public ModuleStorageType ParentModuleStorage
         {
             get => GetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR);
-            set => SetNumberProperty<ModuleStorageType>(NdapiConstants.D2FP_PAR_MODSTR, value);
+            set => SetNumberProperty(NdapiConstants.D2FP_PAR_MODSTR, value);
         }
 #endif
 
@@ -257,12 +257,7 @@ namespace Ndapi
             var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), _handle, property, out var handle);
             Ensure.Success(status);
 
-            if (handle.IsInvalid)
-            {
-                return null;
-            }
-
-            return Create<T>(handle);
+            return handle.IsInvalid ? null : Create<T>(handle);
         }
 
         /// <summary>
@@ -406,7 +401,7 @@ namespace Ndapi
         /// <returns>The property state.</returns>
         public PropertyState GetPropertyState(int property)
         {
-            var state = PropertyState.Unknown;
+            PropertyState state;
             if (HasInheritedProperty(property))
             {
                 state = PropertyState.Inherited;
@@ -441,19 +436,9 @@ namespace Ndapi
         /// This will cause the property values to be overriden for all properties which are defined on the parent object.
         /// </summary>
         /// <param name="parent">Object to subclass.</param>
-        public void Subclass(NdapiObject parent)
-        {
-            Subclass(parent, false);
-        }
-
-        /// <summary>
-        /// Change the subclassing parent of an object to the parent object.
-        /// This will cause the property values to be overriden for all properties which are defined on the parent object.
-        /// </summary>
-        /// <param name="parent">Object to subclass.</param>
         /// <param name="keepPath">Indicates whether the system should refer to the parent object's module by filename or by path+filename.
         /// The recommended choice is false in most cases.</param>
-        public void Subclass(NdapiObject parent, bool keepPath)
+        public void Subclass(NdapiObject parent, bool keepPath = false)
         {
             var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), _handle, parent._handle, keepPath);
             Ensure.Success(status);
@@ -487,7 +472,7 @@ namespace Ndapi
             var instance = Activator.CreateInstance(objectType,
                 BindingFlags.NonPublic | BindingFlags.Instance,
                 null,
-                new[] { handle },
+                new object[] { handle },
                 null);
             return (T)instance;
         }
@@ -499,19 +484,21 @@ namespace Ndapi
         public override string ToString() => Name;
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
+        private bool disposedValue; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (disposedValue)
             {
-                if (disposing)
-                {
-                    _handle?.Dispose();
-                }
-
-                disposedValue = true;
+                return;
             }
+
+            if (disposing)
+            {
+                _handle?.Dispose();
+            }
+
+            disposedValue = true;
         }
 
         public void Dispose()
@@ -526,7 +513,7 @@ namespace Ndapi
     /// </summary>
     public abstract class NdapiObject<T> : NdapiObject where T : NdapiObject
     {
-        internal NdapiObject() : base() { }
+        internal NdapiObject() { }
         internal NdapiObject(ObjectType type) : base(type) { }
         internal NdapiObject(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent) { }
         internal NdapiObject(ObjectSafeHandle handle) : base(handle) { }
@@ -548,18 +535,7 @@ namespace Ndapi
         /// <param name="newName">Name of the new object.</param>
         public T Clone(string newName)
         {
-            return Clone(newName, null, true);
-        }
-
-        /// <summary>
-        /// Creates a new object with the given name and owner.
-        /// The new object is an exact copy of the original object, with all the same property values.
-        /// </summary>
-        /// <param name="newName">Name of the new object.</param>
-        /// /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
-        public T Clone(string newName, NdapiObject newOwner)
-        {
-            return Clone(newName, newOwner, true);
+            return Clone(newName, null);
         }
 
         /// <summary>
@@ -570,7 +546,7 @@ namespace Ndapi
         /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
         /// <param name="keepSubclassingInfo">If false, the sublassing info is discarded and the inherited properties are flattened into local values in the new object.</param>
         /// <returns>The new object.</returns>
-        public T Clone(string newName, NdapiObject newOwner, bool keepSubclassingInfo)
+        public T Clone(string newName, NdapiObject newOwner, bool keepSubclassingInfo = true)
         {
             var parentHandle = newOwner?._handle ?? Owner._handle;
 

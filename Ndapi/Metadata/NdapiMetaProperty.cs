@@ -96,12 +96,9 @@ namespace Ndapi.Metadata
 
         private Dictionary<int, string> LoadAllowedValues()
         {
-            if (AcceptConstants)
-            {
-                return Enum.GetValues(RawPropertyType).Cast<int>().ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e));
-            }
-
-            return new Dictionary<int, string>();
+            return AcceptConstants ?
+                Enum.GetValues(RawPropertyType).Cast<int>().ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e)) :
+                new Dictionary<int, string>();
         }
 
         /// <summary>

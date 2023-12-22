@@ -387,7 +387,7 @@ namespace Ndapi
         public QueryDataSourceType QueryDataSourceType
         {
             get => GetNumberProperty<QueryDataSourceType>(NdapiConstants.D2FP_QRY_DAT_SRC_TYP);
-            set => SetNumberProperty<QueryDataSourceType>(NdapiConstants.D2FP_QRY_DAT_SRC_TYP, value);
+            set => SetNumberProperty(NdapiConstants.D2FP_QRY_DAT_SRC_TYP, value);
         }
 
         /// <summary>
