@@ -6,7 +6,7 @@
     <Configurations>Release;Debug_12_2_1_3;Debug_6_0_8;Release_12_2_1_3;Release_6_0_8</Configurations>
     <Description>A .NET wrapper for Oracle Forms 12c Open API</Description>
     <Authors>Felipe Zorzo</Authors>
-    <PackageLicenseUrl>https://github.com/felipebz/ndapi/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
