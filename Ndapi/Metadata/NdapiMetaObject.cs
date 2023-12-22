@@ -70,8 +70,7 @@ namespace Ndapi.Metadata
 
         internal static NdapiMetaObject GetOrCreate(Type type)
         {
-            NdapiMetaObject metaObject;
-            if (_cache.TryGetValue(type, out metaObject))
+            if (_cache.TryGetValue(type, out var metaObject))
             {
                 return metaObject;
             }

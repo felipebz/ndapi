@@ -41,8 +41,7 @@ namespace Ndapi
         /// <returns>The object found.</returns>
         public NdapiObject GetObjectByPosition(int position)
         {
-            ObjectSafeHandle obj;
-            var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out obj);
+            var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
             Ensure.Success(status);
 
             if (obj.IsInvalid)
@@ -203,8 +202,7 @@ namespace Ndapi
         /// <returns>Description of object.</returns>
         public string GetObjectDescription(NdapiObject obj)
         {
-            string description;
-            var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out description);
+            var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out var description);
             Ensure.Success(status);
             return description;
         }
@@ -216,8 +214,7 @@ namespace Ndapi
         /// <returns>Name of tab the object is on.</returns>
         public string GetObjectTabName(NdapiObject obj)
         {
-            string tabName;
-            var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out tabName);
+            var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out var tabName);
             Ensure.Success(status);
             return tabName;
         }

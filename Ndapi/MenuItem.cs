@@ -327,8 +327,7 @@ namespace Ndapi
         /// <returns>The role name.</returns>
         public string GetRoleAt(int index)
         {
-            string role;
-            var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), _handle, index, out role);
+            var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), _handle, index, out var role);
             Ensure.Success(status);
             return role;
         }

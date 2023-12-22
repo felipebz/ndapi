@@ -103,8 +103,7 @@ namespace Ndapi
         /// <returns>The row value.</returns>
         public string GetValueAt(int index)
         {
-            string value;
-            var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), _handle, index, out value);
+            var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), _handle, index, out var value);
             Ensure.Success(status);
             return value;
         }

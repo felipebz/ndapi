@@ -383,9 +383,8 @@ namespace Ndapi
         /// <returns>Loaded form module reference.</returns>
         public new static FormModule Open(string filename)
         {
-            ObjectSafeHandle form;
 #if FORMS_6
-            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename, false);
+            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out var form, filename, false);
 #else
             var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename);
 #endif

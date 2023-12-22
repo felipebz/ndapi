@@ -60,8 +60,7 @@ namespace Ndapi
         /// <returns>The object found.</returns>
         public NdapiObject GetObjectByPosition(int position)
         {
-            ObjectSafeHandle obj;
-            var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out obj);
+            var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
             Ensure.Success(status);
 
             if (obj.IsInvalid)
@@ -92,8 +91,7 @@ namespace Ndapi
         /// <returns>A copy of the original object.</returns>
         public T AddObject<T>(T obj, bool replace) where T : NdapiObject
         {
-            ObjectSafeHandle handle;
-            var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out handle, replace);
+            var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out var handle, replace);
             Ensure.Success(status);
             return Create<T>(handle);
         }

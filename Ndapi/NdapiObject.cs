@@ -165,8 +165,7 @@ namespace Ndapi
         /// <returns>The property value.</returns>
         public string GetStringProperty(int property)
         {
-            string value;
-            var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), _handle, property, out value);
+            var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), _handle, property, out var value);
             Ensure.Success(status);
             return value;
         }
@@ -189,8 +188,7 @@ namespace Ndapi
         /// <returns>The property value.</returns>
         public int GetNumberProperty(int property)
         {
-            int value;
-            var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.GetContext(), _handle, property, out value);
+            var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.GetContext(), _handle, property, out var value);
             Ensure.Success(status);
             return value;
         }
@@ -233,8 +231,7 @@ namespace Ndapi
         /// <returns>The property value.</returns>
         public bool GetBooleanProperty(int property)
         {
-            bool value;
-            var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.GetContext(), _handle, property, out value);
+            var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.GetContext(), _handle, property, out var value);
             Ensure.Success(status);
             return value;
         }
@@ -257,8 +254,7 @@ namespace Ndapi
         /// <returns>The property value.</returns>
         public T GetObjectProperty<T>(int property) where T : NdapiObject
         {
-            ObjectSafeHandle handle;
-            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), _handle, property, out handle);
+            var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), _handle, property, out var handle);
             Ensure.Success(status);
 
             if (handle.IsInvalid)
@@ -477,8 +473,7 @@ namespace Ndapi
             var objectType = typeof(T);
             if (objectType == typeof(NdapiObject))
             {
-                ObjectType type;
-                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out type);
+                var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out var type);
                 Ensure.Success(status);
 
                 if (type == ObjectType.Undefined)
@@ -579,8 +574,7 @@ namespace Ndapi
         {
             var parentHandle = newOwner?._handle ?? Owner._handle;
 
-            ObjectSafeHandle newHandle;
-            var status = keepSubclassingInfo ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, _handle, out newHandle, newName)
+            var status = keepSubclassingInfo ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, _handle, out var newHandle, newName)
                                              : NativeMethods.d2fobdu_Duplicate(NdapiContext.GetContext(), parentHandle, _handle, out newHandle, newName);
             Ensure.Success(status);
 

@@ -1613,9 +1613,7 @@ namespace Ndapi
         /// <returns>The label and the value of the list element.</returns>
         public KeyValuePair<string, string> GetListElementAt(int index)
         {
-            string label;
-            string value;
-            var status = NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), _handle, index, out label, out value);
+            var status = NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), _handle, index, out var label, out var value);
             Ensure.Success(status);
             return new KeyValuePair<string, string>(label, value);
         }

@@ -152,8 +152,7 @@ namespace Ndapi
         /// <returns>The associated menu name.</returns>
         public string GetAssociatedMenuAt(int index)
         {
-            string menu;
-            var status = NativeMethods.d2fmpmgam_GetAssocMenu(NdapiContext.GetContext(), _handle, index, out menu);
+            var status = NativeMethods.d2fmpmgam_GetAssocMenu(NdapiContext.GetContext(), _handle, index, out var menu);
             Ensure.Success(status);
             return menu;
         }
