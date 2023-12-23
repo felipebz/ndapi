@@ -17,11 +17,11 @@ public class ObjectLibrary : NdapiModule
     /// <param name="name">Object library name.</param>
     public ObjectLibrary(string name) : base(name, ObjectType.ObjectLibrary)
     {
-        }
+    }
 
     internal ObjectLibrary(ObjectSafeHandle handle) : base(handle)
     {
-        }
+    }
 
     /// <summary>
     /// Gets all the tabs.
@@ -41,11 +41,11 @@ public class ObjectLibrary : NdapiModule
     /// <returns>The object found.</returns>
     public NdapiObject GetObjectByPosition(int position)
     {
-            var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
-            Ensure.Success(status);
+        var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
+        Ensure.Success(status);
 
-            return obj.IsInvalid ? null : Create<NdapiObject>(obj);
-        }
+        return obj.IsInvalid ? null : Create<NdapiObject>(obj);
+    }
 
     /// <summary>
     /// Load the object library into memory.
@@ -69,8 +69,8 @@ public class ObjectLibrary : NdapiModule
     /// </summary>
     public override void Save()
     {
-            Save(null, false);
-        }
+        Save(null, false);
+    }
 
     /// <summary>
     /// Save the object library to disk.
@@ -78,8 +78,8 @@ public class ObjectLibrary : NdapiModule
     /// <param name="path">Location to save.</param>
     public override void Save(string path)
     {
-            Save(path, false);
-        }
+        Save(path, false);
+    }
 
     /// <summary>
     /// Save the object library to disk.
@@ -101,16 +101,16 @@ public class ObjectLibrary : NdapiModule
     /// </summary>
     public override void CompileFile()
     {
-            throw new NotSupportedException("Object library module does not support compilation");
-        }
+        throw new NotSupportedException("Object library module does not support compilation");
+    }
 
     /// <summary>
     /// Object libraries does not support compilation.
     /// </summary>
     public override void CompileObjects()
     {
-            throw new NotSupportedException("Object library module does not support compilation");
-        }
+        throw new NotSupportedException("Object library module does not support compilation");
+    }
 
     /// <summary>
     /// Gets the version of the last Form Builder that loaded the library.
@@ -142,9 +142,9 @@ public class ObjectLibrary : NdapiModule
     /// <param name="obj">Object to be removed.</param>
     public void RemoveObject(NdapiObject obj)
     {
-            var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.GetContext(), _handle, obj._handle);
-            Ensure.Success(status);
-        }
+        var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.GetContext(), _handle, obj._handle);
+        Ensure.Success(status);
+    }
 
     /// <summary>
     /// Flag whether an object is considered a smart object or not.
@@ -153,9 +153,9 @@ public class ObjectLibrary : NdapiModule
     /// <param name="state">Indicate if it's a smart object or not.</param>
     public void SetSmartclass(NdapiObject obj, bool state)
     {
-            var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.GetContext(), _handle, obj._handle, state);
-            Ensure.Success(status);
-        }
+        var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.GetContext(), _handle, obj._handle, state);
+        Ensure.Success(status);
+    }
 
     /// <summary>
     /// Checks if an object is considered a smart object.
@@ -164,10 +164,10 @@ public class ObjectLibrary : NdapiModule
     /// <returns>The state indicating if it's a smart object or not.</returns>
     public bool IsSmartclass(NdapiObject obj)
     {
-            var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.GetContext(), _handle, obj._handle);
-            Ensure.BooleanResult(status);
-            return status == D2fErrorCode.D2FS_YES;
-        }
+        var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.GetContext(), _handle, obj._handle);
+        Ensure.BooleanResult(status);
+        return status == D2fErrorCode.D2FS_YES;
+    }
 
     /// <summary>
     /// Sets the description for an object in the library.
@@ -176,9 +176,9 @@ public class ObjectLibrary : NdapiModule
     /// <param name="description">Description of object.</param>
     public void SetObjectDescription(NdapiObject obj, string description)
     {
-            var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.GetContext(), _handle, obj._handle, description);
-            Ensure.Success(status);
-        }
+        var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.GetContext(), _handle, obj._handle, description);
+        Ensure.Success(status);
+    }
 
     /// <summary>
     /// Gets the description for an object in the library.
@@ -187,10 +187,10 @@ public class ObjectLibrary : NdapiModule
     /// <returns>Description of object.</returns>
     public string GetObjectDescription(NdapiObject obj)
     {
-            var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out var description);
-            Ensure.Success(status);
-            return description;
-        }
+        var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out var description);
+        Ensure.Success(status);
+        return description;
+    }
 
     /// <summary>
     /// Gets the name of the tab that a given object is on. 
@@ -199,8 +199,8 @@ public class ObjectLibrary : NdapiModule
     /// <returns>Name of tab the object is on.</returns>
     public string GetObjectTabName(NdapiObject obj)
     {
-            var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out var tabName);
-            Ensure.Success(status);
-            return tabName;
-        }
+        var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out var tabName);
+        Ensure.Success(status);
+        return tabName;
+    }
 }

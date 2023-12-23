@@ -16,12 +16,12 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <param name="name">Tab name.</param>
     public ObjectLibraryTab(ObjectLibrary library, string name) : base(name, ObjectType.ObjectLibraryTab, library)
     {
-            ObjectLibrary = library;
-        }
+        ObjectLibrary = library;
+    }
 
     internal ObjectLibraryTab(ObjectSafeHandle handle) : base(handle)
     {
-        }
+    }
 
     /// <summary>
     /// Get the object library that owns the current tab.
@@ -60,11 +60,11 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <returns>The object found.</returns>
     public NdapiObject GetObjectByPosition(int position)
     {
-            var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
-            Ensure.Success(status);
+        var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
+        Ensure.Success(status);
 
-            return obj.IsInvalid ? null : Create<NdapiObject>(obj);
-        }
+        return obj.IsInvalid ? null : Create<NdapiObject>(obj);
+    }
 
     /// <summary>
     /// Add an object to the object library tab. When adding an object, a copy is made and it is this copy that is added to the library.
@@ -75,8 +75,8 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <returns>A copy of the original object.</returns>
     public T AddObject<T>(T obj, bool replace = false) where T : NdapiObject
     {
-            var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out var handle, replace);
-            Ensure.Success(status);
-            return Create<T>(handle);
-        }
+        var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out var handle, replace);
+        Ensure.Success(status);
+        return Create<T>(handle);
+    }
 }
