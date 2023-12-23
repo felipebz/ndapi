@@ -1,15 +1,14 @@
 ﻿using Microsoft.Win32.SafeHandles;
 
-namespace Ndapi.Core.Handles
+namespace Ndapi.Core.Handles;
+
+internal abstract class SafeHandleBase : SafeHandleZeroOrMinusOneIsInvalid
 {
-    internal abstract class SafeHandleBase : SafeHandleZeroOrMinusOneIsInvalid
+    protected SafeHandleBase() : base(true)
     {
-        protected SafeHandleBase() : base(true)
-        {
-        }
-
-        protected abstract bool ReleaseHandleImpl();
-
-        protected override sealed bool ReleaseHandle() => ReleaseHandleImpl();
     }
+
+    protected abstract bool ReleaseHandleImpl();
+
+    protected override sealed bool ReleaseHandle() => ReleaseHandleImpl();
 }

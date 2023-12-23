@@ -2,104 +2,103 @@ using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
-namespace Ndapi
+namespace Ndapi;
+
+/// <summary>
+/// Represents a coordinate declaration.
+/// </summary>
+public class Coordinate : NdapiObject<Coordinate>
 {
     /// <summary>
-    /// Represents a coordinate declaration.
+    /// Creates a coordinate declaration
     /// </summary>
-    public class Coordinate : NdapiObject<Coordinate>
+    public Coordinate() : base(ObjectType.Coordinate)
     {
-        /// <summary>
-        /// Creates a coordinate declaration
-        /// </summary>
-        public Coordinate() : base(ObjectType.Coordinate)
-        {
-            _handle = new ObjectSafeHandle();
-            var status = NativeMethods.d2fcrdcr_Create(NdapiContext.GetContext(), out _handle);
-            Ensure.Success(status);
-        }
+        _handle = new ObjectSafeHandle();
+        var status = NativeMethods.d2fcrdcr_Create(NdapiContext.GetContext(), out _handle);
+        Ensure.Success(status);
+    }
 
-        /// <summary>
-        /// Extracts the coordinate declaration from a form module
-        /// </summary>
-        /// <param name="module">Form module.</param>
-        public Coordinate(FormModule module) : this()
-        {
-            Extract(module);
-        }
+    /// <summary>
+    /// Extracts the coordinate declaration from a form module
+    /// </summary>
+    /// <param name="module">Form module.</param>
+    public Coordinate(FormModule module) : this()
+    {
+        Extract(module);
+    }
 
-        internal Coordinate(ObjectSafeHandle handle) : base(handle)
-        {
-        }
+    internal Coordinate(ObjectSafeHandle handle) : base(handle)
+    {
+    }
 
-        /// <summary>
-        /// Gets or sets the height of the character cell.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_CHAR_CELL_HGT)]
-        public int CharacterCellHeight
-        {
-            get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT);
-            set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT, value);
-        }
+    /// <summary>
+    /// Gets or sets the height of the character cell.
+    /// </summary>
+    [Property(NdapiConstants.D2FP_CHAR_CELL_HGT)]
+    public int CharacterCellHeight
+    {
+        get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT);
+        set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT, value);
+    }
 
-        /// <summary>
-        /// Gets or sets the width of the character cell.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_CHAR_CELL_WID)]
-        public int CharacterCellWidth
-        {
-            get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID);
-            set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID, value);
-        }
+    /// <summary>
+    /// Gets or sets the width of the character cell.
+    /// </summary>
+    [Property(NdapiConstants.D2FP_CHAR_CELL_WID)]
+    public int CharacterCellWidth
+    {
+        get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID);
+        set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID, value);
+    }
 
-        /// <summary>
-        /// Gets or sets the coordinate system.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_COORD_SYS)]
-        public CoordinateSystem CoordinateSystem
-        {
-            get => GetNumberProperty<CoordinateSystem>(NdapiConstants.D2FP_COORD_SYS);
-            set => SetNumberProperty(NdapiConstants.D2FP_COORD_SYS, value);
-        }
+    /// <summary>
+    /// Gets or sets the coordinate system.
+    /// </summary>
+    [Property(NdapiConstants.D2FP_COORD_SYS)]
+    public CoordinateSystem CoordinateSystem
+    {
+        get => GetNumberProperty<CoordinateSystem>(NdapiConstants.D2FP_COORD_SYS);
+        set => SetNumberProperty(NdapiConstants.D2FP_COORD_SYS, value);
+    }
 
-        /// <summary>
-        /// Gets or sets whether runtime should use the default font scaling method.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_DFLT_FNT_SCALING)]
-        public bool IsDefaultFontScaling
-        {
-            get => GetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING);
-            set => SetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING, value);
-        }
+    /// <summary>
+    /// Gets or sets whether runtime should use the default font scaling method.
+    /// </summary>
+    [Property(NdapiConstants.D2FP_DFLT_FNT_SCALING)]
+    public bool IsDefaultFontScaling
+    {
+        get => GetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING);
+        set => SetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING, value);
+    }
 
-        /// <summary>
-        /// Gets or sets the real unit.
-        /// </summary>
-        [Property(NdapiConstants.D2FP_REAL_UNIT)]
-        public RealUnit RealUnit
-        {
-            get => GetNumberProperty<RealUnit>(NdapiConstants.D2FP_REAL_UNIT);
-            set => SetNumberProperty(NdapiConstants.D2FP_REAL_UNIT, value);
-        }
+    /// <summary>
+    /// Gets or sets the real unit.
+    /// </summary>
+    [Property(NdapiConstants.D2FP_REAL_UNIT)]
+    public RealUnit RealUnit
+    {
+        get => GetNumberProperty<RealUnit>(NdapiConstants.D2FP_REAL_UNIT);
+        set => SetNumberProperty(NdapiConstants.D2FP_REAL_UNIT, value);
+    }
 
-        /// <summary>
-        /// Extract the coordinate declaration from the specified form module.
-        /// </summary>
-        /// <param name="module">Form module.</param>
-        public void Extract(FormModule module)
-        {
-            var status = NativeMethods.d2fcrdex_Extract(NdapiContext.GetContext(), _handle, module._handle);
-            Ensure.Success(status);
-        }
+    /// <summary>
+    /// Extract the coordinate declaration from the specified form module.
+    /// </summary>
+    /// <param name="module">Form module.</param>
+    public void Extract(FormModule module)
+    {
+        var status = NativeMethods.d2fcrdex_Extract(NdapiContext.GetContext(), _handle, module._handle);
+        Ensure.Success(status);
+    }
 
-        /// <summary>
-        /// Apply the coordinate declaration to the specified form module.
-        /// </summary>
-        /// <param name="module">Form module to be changed.</param>
-        public void Apply(FormModule module)
-        {
-            var status = NativeMethods.d2fcrdap_Apply(NdapiContext.GetContext(), _handle, module._handle);
-            Ensure.Success(status);
-        }
+    /// <summary>
+    /// Apply the coordinate declaration to the specified form module.
+    /// </summary>
+    /// <param name="module">Form module to be changed.</param>
+    public void Apply(FormModule module)
+    {
+        var status = NativeMethods.d2fcrdap_Apply(NdapiContext.GetContext(), _handle, module._handle);
+        Ensure.Success(status);
     }
 }

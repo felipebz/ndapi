@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Ndapi.Core
-{
-    [AttributeUsage(AttributeTargets.Property)]
-    internal sealed class PropertyAttribute : Attribute
-    {
-        internal int PropertyId { get; }
+namespace Ndapi.Core;
 
-        public PropertyAttribute(int propertyId)
-        {
-            PropertyId = propertyId;
-        }
+[AttributeUsage(AttributeTargets.Property)]
+internal sealed class PropertyAttribute : Attribute
+{
+    internal int PropertyId { get; }
+
+    public PropertyAttribute(int propertyId)
+    {
+        PropertyId = propertyId;
     }
 }

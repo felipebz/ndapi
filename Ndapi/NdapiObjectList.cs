@@ -6,115 +6,114 @@ using Ndapi.Core;
 using Ndapi.Enums;
 using Ndapi.Metadata;
 
-namespace Ndapi
+namespace Ndapi;
+
+public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
 {
-    public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
+    private readonly NdapiObject _ndapiObject;
+    private readonly int _property;
+
+    public T this[int index]
     {
-        private readonly NdapiObject _ndapiObject;
-        private readonly int _property;
-
-        public T this[int index]
-        {
-            get
-            {
-                using (var enumerator = GetEnumerator())
-                {
-                    for (var i = 0; i <= index; i++)
-                    {
-                        if (!enumerator.MoveNext())
-                        {
-                            throw new ArgumentOutOfRangeException(nameof(index));
-                        }
-                    }
-
-                    return enumerator.Current;
-                }
-            }
-        }
-
-        internal NdapiObjectList(NdapiObject ndapiObject, int property)
-        {
-            _ndapiObject = ndapiObject;
-            _property = property;
-        }
-
-        public IEnumerator<T> GetEnumerator() => new Enumerator(this);
-
-        IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
-
-        public void RemoveAll()
+        get
         {
             using (var enumerator = GetEnumerator())
             {
-                var value = enumerator.Current;
-                while (value != null)
+                for (var i = 0; i <= index; i++)
                 {
-                    enumerator.MoveNext();
-                    var nextValue = enumerator.Current;
-                    value.Destroy();
-                    value = nextValue;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Finds an object by name.
-        /// </summary>
-        /// <param name="name">Name of the object.</param>
-        /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
-        public T Single(string name)
-        {
-            var type = NdapiMetadata.GetObjectTypeFrom<T>();
-
-            var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject._handle, name, type, out var handle);
-            if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
-            {
-                return null;
-            }
-            Ensure.Success(status);
-
-            return NdapiObject.Create<T>(handle);
-        }
-
-        public sealed class Enumerator : IEnumerator<T>
-        {
-            private readonly NdapiObjectList<T> _objectList;
-            private T _current;
-
-            internal Enumerator(NdapiObjectList<T> ndapiObjectList)
-            {
-                _objectList = ndapiObjectList;
-            }
-
-            public bool MoveNext()
-            {
-                _current = _current == null ?
-                    _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property) :
-                    _current.GetNext<T>();
-
-                return _current != null;
-            }
-
-            public void Reset() => _current = null;
-
-            public T Current
-            {
-                get
-                {
-                    if (_current == null)
+                    if (!enumerator.MoveNext())
                     {
-                        MoveNext();
+                        throw new ArgumentOutOfRangeException(nameof(index));
                     }
-
-                    return _current;
                 }
+
+                return enumerator.Current;
             }
+        }
+    }
 
-            object IEnumerator.Current => Current;
+    internal NdapiObjectList(NdapiObject ndapiObject, int property)
+    {
+        _ndapiObject = ndapiObject;
+        _property = property;
+    }
 
-            public void Dispose()
+    public IEnumerator<T> GetEnumerator() => new Enumerator(this);
+
+    IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
+
+    public void RemoveAll()
+    {
+        using (var enumerator = GetEnumerator())
+        {
+            var value = enumerator.Current;
+            while (value != null)
             {
+                enumerator.MoveNext();
+                var nextValue = enumerator.Current;
+                value.Destroy();
+                value = nextValue;
             }
+        }
+    }
+
+    /// <summary>
+    /// Finds an object by name.
+    /// </summary>
+    /// <param name="name">Name of the object.</param>
+    /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
+    public T Single(string name)
+    {
+        var type = NdapiMetadata.GetObjectTypeFrom<T>();
+
+        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject._handle, name, type, out var handle);
+        if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
+        {
+            return null;
+        }
+        Ensure.Success(status);
+
+        return NdapiObject.Create<T>(handle);
+    }
+
+    public sealed class Enumerator : IEnumerator<T>
+    {
+        private readonly NdapiObjectList<T> _objectList;
+        private T _current;
+
+        internal Enumerator(NdapiObjectList<T> ndapiObjectList)
+        {
+            _objectList = ndapiObjectList;
+        }
+
+        public bool MoveNext()
+        {
+            _current = _current == null ?
+                _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property) :
+                _current.GetNext<T>();
+
+            return _current != null;
+        }
+
+        public void Reset() => _current = null;
+
+        public T Current
+        {
+            get
+            {
+                if (_current == null)
+                {
+                    MoveNext();
+                }
+
+                return _current;
+            }
+        }
+
+        object IEnumerator.Current => Current;
+
+        public void Dispose()
+        {
         }
     }
 }

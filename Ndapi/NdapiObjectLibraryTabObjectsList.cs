@@ -1,60 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace Ndapi
+namespace Ndapi;
+
+public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
 {
-    public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
+    private readonly ObjectLibraryTab _objectLibraryTab;
+
+    public NdapiObject this[int index] => _objectLibraryTab.GetObjectByPosition(index);
+
+    internal NdapiObjectLibraryTabObjectsList(ObjectLibraryTab objectLibraryTab)
     {
-        private readonly ObjectLibraryTab _objectLibraryTab;
+        _objectLibraryTab = objectLibraryTab;
+        Count = _objectLibraryTab.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+    }
 
-        public NdapiObject this[int index] => _objectLibraryTab.GetObjectByPosition(index);
+    public int Count { get; }
 
-        internal NdapiObjectLibraryTabObjectsList(ObjectLibraryTab objectLibraryTab)
+    public bool Any() => Count > 1;
+
+    public IEnumerator<NdapiObject> GetEnumerator() => new Enumerator(this);
+
+    IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
+
+    public sealed class Enumerator : IEnumerator<NdapiObject>
+    {
+        private readonly NdapiObjectLibraryTabObjectsList _list;
+        private int _position;
+
+        internal Enumerator(NdapiObjectLibraryTabObjectsList list)
         {
-            _objectLibraryTab = objectLibraryTab;
-            Count = _objectLibraryTab.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+            _list = list;
+            _position = 1;
         }
 
-        public int Count { get; }
-
-        public bool Any() => Count > 1;
-
-        public IEnumerator<NdapiObject> GetEnumerator() => new Enumerator(this);
-
-        IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
-
-        public sealed class Enumerator : IEnumerator<NdapiObject>
+        public bool MoveNext()
         {
-            private readonly NdapiObjectLibraryTabObjectsList _list;
-            private int _position;
-
-            internal Enumerator(NdapiObjectLibraryTabObjectsList list)
+            if (_position > _list.Count)
             {
-                _list = list;
-                _position = 1;
+                return false;
             }
 
-            public bool MoveNext()
-            {
-                if (_position > _list.Count)
-                {
-                    return false;
-                }
+            Current = _list._objectLibraryTab.GetObjectByPosition(_position);
+            _position++;
+            return true;
+        }
 
-                Current = _list._objectLibraryTab.GetObjectByPosition(_position);
-                _position++;
-                return true;
-            }
+        public void Reset() => _position = 1;
 
-            public void Reset() => _position = 1;
+        public NdapiObject Current { get; private set; }
 
-            public NdapiObject Current { get; private set; }
+        object IEnumerator.Current => Current;
 
-            object IEnumerator.Current => Current;
-
-            public void Dispose()
-            {
-            }
+        public void Dispose()
+        {
         }
     }
 }
