@@ -17,18 +17,16 @@ public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
     {
         get
         {
-            using (var enumerator = GetEnumerator())
+            using var enumerator = GetEnumerator();
+            for (var i = 0; i <= index; i++)
             {
-                for (var i = 0; i <= index; i++)
+                if (!enumerator.MoveNext())
                 {
-                    if (!enumerator.MoveNext())
-                    {
-                        throw new ArgumentOutOfRangeException(nameof(index));
-                    }
+                    throw new ArgumentOutOfRangeException(nameof(index));
                 }
-
-                return enumerator.Current;
             }
+
+            return enumerator.Current;
         }
     }
 
@@ -44,16 +42,14 @@ public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
 
     public void RemoveAll()
     {
-        using (var enumerator = GetEnumerator())
+        using var enumerator = GetEnumerator();
+        var value = enumerator.Current;
+        while (value != null)
         {
-            var value = enumerator.Current;
-            while (value != null)
-            {
-                enumerator.MoveNext();
-                var nextValue = enumerator.Current;
-                value.Destroy();
-                value = nextValue;
-            }
+            enumerator.MoveNext();
+            var nextValue = enumerator.Current;
+            value.Destroy();
+            value = nextValue;
         }
     }
 
