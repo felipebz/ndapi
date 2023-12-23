@@ -20,7 +20,7 @@ internal static class Ensure
 
     public static void BooleanResult(D2fErrorCode result)
     {
-        if (result == D2fErrorCode.D2FS_YES || result == D2fErrorCode.D2FS_NO)
+        if (result is D2fErrorCode.D2FS_YES or D2fErrorCode.D2FS_NO)
         {
             return;
         }
