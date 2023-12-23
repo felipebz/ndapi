@@ -81,5 +81,5 @@ public class PropertyClass : NdapiObject<PropertyClass>
     /// </summary>
     /// <param name="name">Name of the trigger.</param>
     /// <returns>The child object.</returns>
-    public Trigger CreateTrigger(string name) => new Trigger(this, name);
+    public Trigger CreateTrigger(string name) => new(this, name);
 }

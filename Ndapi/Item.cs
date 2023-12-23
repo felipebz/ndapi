@@ -1623,12 +1623,12 @@ public class Item : NdapiObject<Item>
     /// </summary>
     /// <param name="name">Name of the radio button.</param>
     /// <returns>The child object.</returns>
-    public RadioButton CreateRadioButton(string name) => new RadioButton(this, name);
+    public RadioButton CreateRadioButton(string name) => new(this, name);
 
     /// <summary>
     /// Creates a trigger.
     /// </summary>
     /// <param name="name">Name of the trigger.</param>
     /// <returns>The child object.</returns>
-    public Trigger CreateTrigger(string name) => new Trigger(this, name);
+    public Trigger CreateTrigger(string name) => new(this, name);
 }

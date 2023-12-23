@@ -732,19 +732,19 @@ public class Block : NdapiObject<Block>
     /// </summary>
     /// <param name="name">Name of the child item.</param>
     /// <returns>The child object.</returns>
-    public Item CreateItem(string name) => new Item(this, name);
+    public Item CreateItem(string name) => new(this, name);
 
     /// <summary>
     /// Creates a block relation.
     /// </summary>
     /// <param name="name">Name of the relation.</param>
     /// <returns>The child object.</returns>
-    public BlockRelation CreateBlockRelation(string name) => new BlockRelation(this, name);
+    public BlockRelation CreateBlockRelation(string name) => new(this, name);
 
     /// <summary>
     /// Creates a child trigger.
     /// </summary>
     /// <param name="name">Name of the child trigger.</param>
     /// <returns>The child object.</returns>
-    public Trigger CreateTrigger(string name) => new Trigger(this, name);
+    public Trigger CreateTrigger(string name) => new(this, name);
 }

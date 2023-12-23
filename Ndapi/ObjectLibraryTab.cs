@@ -51,7 +51,7 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <summary>
     /// Gets all the objects contained in this tab.
     /// </summary>
-    public NdapiObjectLibraryTabObjectsList Objects => new NdapiObjectLibraryTabObjectsList(this);
+    public NdapiObjectLibraryTabObjectsList Objects => new(this);
 
     /// <summary>
     /// Get the object in the specified position.

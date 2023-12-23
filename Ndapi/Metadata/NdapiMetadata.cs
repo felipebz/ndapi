@@ -11,7 +11,7 @@ namespace Ndapi.Metadata;
 /// </summary>
 public static class NdapiMetadata
 {
-    private static readonly Lazy<Dictionary<ObjectType, Type>> _objectTypeMapping = new Lazy<Dictionary<ObjectType, Type>>(LoadObjectTypeMapping);
+    private static readonly Lazy<Dictionary<ObjectType, Type>> _objectTypeMapping = new(LoadObjectTypeMapping);
 
     /// <summary>
     /// Gets the Ndapi classes that represents a Forms API object.
@@ -24,7 +24,7 @@ public static class NdapiMetadata
     public static Dictionary<ObjectType, Type> ObjectTypeMapping => _objectTypeMapping.Value;
 
     private static Dictionary<ObjectType, Type> LoadObjectTypeMapping() =>
-        new Dictionary<ObjectType, Type>
+        new()
         {
             { ObjectType.Alert,               typeof(Alert) },
             { ObjectType.AttachedLibrary,     typeof(AttachedLibrary) },

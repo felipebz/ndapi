@@ -372,12 +372,12 @@ public class Canvas : NdapiObject<Canvas>
     /// </summary>
     /// <param name="name">Name of the child graphics.</param>
     /// <returns>The child object.</returns>
-    public Graphics CreateGraphics(string name) => new Graphics(this, name);
+    public Graphics CreateGraphics(string name) => new(this, name);
 
     /// <summary>
     /// Creates a tab page.
     /// </summary>
     /// <param name="name">Name of the tab page.</param>
     /// <returns>The child object.</returns>
-    public TabPage CreateTabPage(string name) => new TabPage(this, name);
+    public TabPage CreateTabPage(string name) => new(this, name);
 }

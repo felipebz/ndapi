@@ -33,5 +33,5 @@ public class CompoundText : NdapiObject<CompoundText>
     /// </summary>
     /// <param name="name">Name of the text segment.</param>
     /// <returns>The child object.</returns>
-    public TextSegment CreateTextSegment(string name) => new TextSegment(this, name);
+    public TextSegment CreateTextSegment(string name) => new(this, name);
 }

@@ -72,5 +72,5 @@ public class Menu : NdapiObject<Menu>
     /// </summary>
     /// <param name="name">Name of the menu item.</param>
     /// <returns>The child object.</returns>
-    public MenuItem CreateMenuItem(string name) => new MenuItem(this, name);
+    public MenuItem CreateMenuItem(string name) => new(this, name);
 }

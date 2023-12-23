@@ -12,7 +12,7 @@ namespace Ndapi.Metadata;
 /// </summary>
 public sealed class NdapiMetaObject
 {
-    private static readonly Dictionary<Type, NdapiMetaObject> _cache = new Dictionary<Type, NdapiMetaObject>();
+    private static readonly Dictionary<Type, NdapiMetaObject> _cache = new();
 
     private readonly Type _type;
     private readonly Lazy<IEnumerable<NdapiMetaProperty>> _properties;

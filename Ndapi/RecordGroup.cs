@@ -92,5 +92,5 @@ public class RecordGroup : NdapiObject<RecordGroup>
     /// </summary>
     /// <param name="name">Name of the record group column.</param>
     /// <returns>The child object.</returns>
-    public RecordGroupColumn CreateRecordGroupColumn(string name) => new RecordGroupColumn(this, name);
+    public RecordGroupColumn CreateRecordGroupColumn(string name) => new(this, name);
 }

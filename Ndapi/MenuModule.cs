@@ -254,7 +254,7 @@ public class MenuModule : NdapiModule
     /// </summary>
     /// <param name="location">Library location.</param>
     /// <returns>Instance of the attached library.</returns>
-    public AttachedLibrary AttachLibrary(string location) => new AttachedLibrary(this, location);
+    public AttachedLibrary AttachLibrary(string location) => new(this, location);
 
     /// <summary>
     /// Inserts a role in the specified index.
@@ -294,7 +294,7 @@ public class MenuModule : NdapiModule
     /// </summary>
     /// <param name="name">Name of the menu.</param>
     /// <returns>The child object.</returns>
-    public Menu CreateMenu(string name) => new Menu(this, name);
+    public Menu CreateMenu(string name) => new(this, name);
 
 #if FORMS_6
         /// <summary>
@@ -310,26 +310,26 @@ public class MenuModule : NdapiModule
     /// </summary>
     /// <param name="name">Name of the program unit.</param>
     /// <returns>The child object.</returns>
-    public ProgramUnit CreateProgramUnit(string name) => new ProgramUnit(this, name);
+    public ProgramUnit CreateProgramUnit(string name) => new(this, name);
 
     /// <summary>
     /// Creates an object group.
     /// </summary>
     /// <param name="name">Name of the object group.</param>
     /// <returns>The child object.</returns>
-    public ObjectGroup CreateObjectGroup(string name) => new ObjectGroup(this, name);
+    public ObjectGroup CreateObjectGroup(string name) => new(this, name);
 
     /// <summary>
     /// Creates a property class.
     /// </summary>
     /// <param name="name">Name of the property class.</param>
     /// <returns>The child object.</returns>
-    public PropertyClass CreatePropertyClass(string name) => new PropertyClass(this, name);
+    public PropertyClass CreatePropertyClass(string name) => new(this, name);
 
     /// <summary>
     /// Creates a visual attribute.
     /// </summary>
     /// <param name="name">Name of the visual attribute.</param>
     /// <returns>The child object.</returns>
-    public VisualAttribute CreateVisualAttribute(string name) => new VisualAttribute(this, name);
+    public VisualAttribute CreateVisualAttribute(string name) => new(this, name);
 }

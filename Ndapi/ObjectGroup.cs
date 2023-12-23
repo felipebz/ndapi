@@ -52,5 +52,5 @@ public class ObjectGroup : NdapiObject<ObjectGroup>
     /// </summary>
     /// <param name="name">Name of the object group child.</param>
     /// <returns>The child object.</returns>
-    public ObjectGroupChild CreateObjectGroupChild(string name) => new ObjectGroupChild(this, name);
+    public ObjectGroupChild CreateObjectGroupChild(string name) => new(this, name);
 }

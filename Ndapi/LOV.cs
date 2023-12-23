@@ -320,5 +320,5 @@ public class LOV : NdapiObject<LOV>
     /// </summary>
     /// <param name="name">Name of the column mapping.</param>
     /// <returns>The child object.</returns>
-    public ColumnMapping CreateColumnMapping(string name) => new ColumnMapping(this, name);
+    public ColumnMapping CreateColumnMapping(string name) => new(this, name);
 }

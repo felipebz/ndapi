@@ -32,7 +32,7 @@ public class ObjectLibrary : NdapiModule
     /// <summary>
     /// Gets all the objects contained in this Library.
     /// </summary>
-    public NdapiObjectLibraryObjectList Objects => new NdapiObjectLibraryObjectList(this);
+    public NdapiObjectLibraryObjectList Objects => new(this);
 
     /// <summary>
     /// Get the object in the specified position.
@@ -134,7 +134,7 @@ public class ObjectLibrary : NdapiModule
     /// </summary>
     /// <param name="name">Name of the object library tab.</param>
     /// <returns>The child object.</returns>
-    public ObjectLibraryTab CreateObjectLibraryTab(string name) => new ObjectLibraryTab(this, name);
+    public ObjectLibraryTab CreateObjectLibraryTab(string name) => new(this, name);
 
     /// <summary>
     /// Removes the object from the object library.

@@ -465,112 +465,112 @@ public class FormModule : NdapiModule
     /// </summary>
     /// <param name="location">Library location.</param>
     /// <returns>Instance of the attached library.</returns>
-    public AttachedLibrary AttachLibrary(string location) => new AttachedLibrary(this, location);
+    public AttachedLibrary AttachLibrary(string location) => new(this, location);
 
     /// <summary>
     /// Creates an alert.
     /// </summary>
     /// <param name="name">Name of the alert.</param>
     /// <returns>The child object.</returns>
-    public Alert CreateAlert(string name) => new Alert(this, name);
+    public Alert CreateAlert(string name) => new(this, name);
 
     /// <summary>
     /// Creates a canvas.
     /// </summary>
     /// <param name="name">Name of the canvas.</param>
     /// <returns>The child object.</returns>
-    public Canvas CreateCanvas(string name) => new Canvas(this, name);
+    public Canvas CreateCanvas(string name) => new(this, name);
 
     /// <summary>
     /// Creates a block.
     /// </summary>
     /// <param name="name">Name of the block.</param>
     /// <returns>The child object.</returns>
-    public Block CreateBlock(string name) => new Block(this, name);
+    public Block CreateBlock(string name) => new(this, name);
 
     /// <summary>
     /// Creates an editor.
     /// </summary>
     /// <param name="name">Name of the editor.</param>
     /// <returns>The child object.</returns>
-    public Editor CreateEditor(string name) => new Editor(this, name);
+    public Editor CreateEditor(string name) => new(this, name);
 
     /// <summary>
     /// Creates a LOV.
     /// </summary>
     /// <param name="name">Name of the LOV.</param>
     /// <returns>The child object.</returns>
-    public LOV CreateLOV(string name) => new LOV(this, name);
+    public LOV CreateLOV(string name) => new(this, name);
 
     /// <summary>
     /// Creates a menu.
     /// </summary>
     /// <param name="name">Name of the menu.</param>
     /// <returns>The child object.</returns>
-    public Menu CreateMenu(string name) => new Menu(this, name);
+    public Menu CreateMenu(string name) => new(this, name);
 
     /// <summary>
     /// Creates an object group.
     /// </summary>
     /// <param name="name">Name of the object group.</param>
     /// <returns>The child object.</returns>
-    public ObjectGroup CreateObjectGroup(string name) => new ObjectGroup(this, name);
+    public ObjectGroup CreateObjectGroup(string name) => new(this, name);
 
     /// <summary>
     /// Creates a form parameter.
     /// </summary>
     /// <param name="name">Name of the form parameter.</param>
     /// <returns>The child object.</returns>
-    public FormParameter CreateFormParameter(string name) => new FormParameter(this, name);
+    public FormParameter CreateFormParameter(string name) => new(this, name);
 
     /// <summary>
     /// Creates a program unit.
     /// </summary>
     /// <param name="name">Name of the program unit.</param>
     /// <returns>The child object.</returns>
-    public ProgramUnit CreateProgramUnit(string name) => new ProgramUnit(this, name);
+    public ProgramUnit CreateProgramUnit(string name) => new(this, name);
 
     /// <summary>
     /// Creates a property class.
     /// </summary>
     /// <param name="name">Name of the property class.</param>
     /// <returns>The child object.</returns>
-    public PropertyClass CreatePropertyClass(string name) => new PropertyClass(this, name);
+    public PropertyClass CreatePropertyClass(string name) => new(this, name);
 
     /// <summary>
     /// Creates a record group.
     /// </summary>
     /// <param name="name">Name of the record group.</param>
     /// <returns>The child object.</returns>
-    public RecordGroup CreateRecordGroup(string name) => new RecordGroup(this, name);
+    public RecordGroup CreateRecordGroup(string name) => new(this, name);
 
     /// <summary>
     /// Creates a report.
     /// </summary>
     /// <param name="name">Name of the report.</param>
     /// <returns>The child object.</returns>
-    public Report CreateReport(string name) => new Report(this, name);
+    public Report CreateReport(string name) => new(this, name);
 
     /// <summary>
     /// Creates a trigger.
     /// </summary>
     /// <param name="name">Name of the trigger.</param>
     /// <returns>The child object.</returns>
-    public Trigger CreateTrigger(string name) => new Trigger(this, name);
+    public Trigger CreateTrigger(string name) => new(this, name);
 
     /// <summary>
     /// Creates a visual attribute.
     /// </summary>
     /// <param name="name">Name of the visual attribute.</param>
     /// <returns>The child object.</returns>
-    public VisualAttribute CreateVisualAttribute(string name) => new VisualAttribute(this, name);
+    public VisualAttribute CreateVisualAttribute(string name) => new(this, name);
 
     /// <summary>
     /// Creates a window.
     /// </summary>
     /// <param name="name">Name of the window.</param>
     /// <returns>The child object.</returns>
-    public Window CreateWindow(string name) => new Window(this, name);
+    public Window CreateWindow(string name) => new(this, name);
 
 #if FORMS_12_OR_GREATER
     /// <summary>
@@ -578,6 +578,6 @@ public class FormModule : NdapiModule
     /// </summary>
     /// <param name="name">Name of the event.</param>
     /// <returns>The child object.</returns>
-    public Event CreateEvent(string name) => new Event(this, name);
+    public Event CreateEvent(string name) => new(this, name);
 #endif
 }

@@ -947,19 +947,19 @@ public class Graphics : NdapiObject<Graphics>
     /// </summary>
     /// <param name="name">Name of the compound text.</param>
     /// <returns>The child object.</returns>
-    public CompoundText CreateCompoundText(string name) => new CompoundText(this, name);
+    public CompoundText CreateCompoundText(string name) => new(this, name);
 
     /// <summary>
     /// Creates a point.
     /// </summary>
     /// <param name="name">Name of the point.</param>
     /// <returns>The child object.</returns>
-    public Point CreatePoint(string name) => new Point(this, name);
+    public Point CreatePoint(string name) => new(this, name);
 
     /// <summary>
     /// Creates a child graphics object.
     /// </summary>
     /// <param name="name">Name of the graphics object.</param>
     /// <returns>The child object.</returns>
-    public Graphics CreateChildGraphics(string name) => new Graphics(this, name);
+    public Graphics CreateChildGraphics(string name) => new(this, name);
 }
