@@ -533,20 +533,10 @@ public abstract class NdapiObject<T> : NdapiObject where T : NdapiObject
     /// The new object is an exact copy of the original object, with all the same property values.
     /// </summary>
     /// <param name="newName">Name of the new object.</param>
-    public T Clone(string newName)
-    {
-        return Clone(newName, null);
-    }
-
-    /// <summary>
-    /// Creates a new object with the given name and owner.
-    /// The new object is an exact copy of the original object, with all the same property values.
-    /// </summary>
-    /// <param name="newName">Name of the new object.</param>
     /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
     /// <param name="keepSubclassingInfo">If false, the sublassing info is discarded and the inherited properties are flattened into local values in the new object.</param>
     /// <returns>The new object.</returns>
-    public T Clone(string newName, NdapiObject newOwner, bool keepSubclassingInfo = true)
+    public T Clone(string newName, NdapiObject newOwner = null, bool keepSubclassingInfo = true)
     {
         var parentHandle = newOwner?._handle ?? Owner._handle;
 
