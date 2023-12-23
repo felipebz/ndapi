@@ -30,19 +30,14 @@ public abstract class NdapiModule : NdapiObject
     public static NdapiModule Open(string filename)
     {
         var extension = Path.GetExtension(filename).ToUpperInvariant();
-        switch (extension)
+        return extension switch
         {
-            case ".FMB":
-                return FormModule.Open(filename);
-            case ".OLB":
-                return ObjectLibrary.Open(filename);
-            case ".MMB":
-                return MenuModule.Open(filename);
-            case ".PLL":
-                return LibraryModule.Open(filename);
-            default:
-                throw new NdapiException($"The file {filename} does not have a valid extension.");
-        }
+            ".FMB" => FormModule.Open(filename),
+            ".OLB" => ObjectLibrary.Open(filename),
+            ".MMB" => MenuModule.Open(filename),
+            ".PLL" => LibraryModule.Open(filename),
+            _ => throw new NdapiException($"The file {filename} does not have a valid extension.")
+        };
     }
 
     /// <summary>
