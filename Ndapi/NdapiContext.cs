@@ -21,7 +21,7 @@ public sealed class NdapiContext : IDisposable
     private static readonly D2fRealloc reallocateMemory = ReallocateMemory;
     private static readonly D2fFree freeMemory = FreeMemory;
 
-    private static readonly List<NdapiModule> _modules = new();
+    private static readonly List<NdapiModule> _modules = [];
     private static ContextSafeHandle _context;
 
     /// <summary>

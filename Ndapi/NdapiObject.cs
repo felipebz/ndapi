@@ -472,7 +472,7 @@ public abstract class NdapiObject : IDisposable
         var instance = Activator.CreateInstance(objectType,
             BindingFlags.NonPublic | BindingFlags.Instance,
             null,
-            new object[] { handle },
+            [handle],
             null);
         return (T)instance;
     }
