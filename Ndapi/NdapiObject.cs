@@ -146,7 +146,7 @@ public abstract class NdapiObject : IDisposable
     /// <summary>
     /// Gets a <see cref="NdapiMetaObject"/> instance for the object type.
     /// </summary>
-    public NdapiMetaObject MetaObject => NdapiMetadata.GetMetaObjectFrom(GetType());
+    public NdapiMetaObject MetaObject => NdapiMetadata.GetMetaObjectFrom(NdapiMetadata.GetTypeFrom(_type));
 
     /// <summary>
     /// Gets a list of the available properties for the object type.

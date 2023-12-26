@@ -14,7 +14,7 @@
     <Version>13.0.0-alpha</Version>
     <NoWarn>NU5128</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug_6_0_8' ">

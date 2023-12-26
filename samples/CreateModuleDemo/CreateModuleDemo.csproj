@@ -10,5 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Ndapi\Ndapi.csproj" />
+    <TrimmerRootAssembly Include="Ndapi" />
   </ItemGroup>
 </Project>
