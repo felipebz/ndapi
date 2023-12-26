@@ -9,6 +9,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>oracle wrapper API oracleforms</PackageTags>
     <Version>13.0.0-alpha</Version>
     <NoWarn>NU5128</NoWarn>
@@ -48,15 +49,19 @@
     <DefineConstants>FORMS_12213;FORMS_12;FORMS_12_OR_GREATER</DefineConstants>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
-  
+
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
   <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
-    <None Include="bin\Release\6.0.8\net8.0\Ndapi.dll" Pack="true" PackagePath="build\6.0.8\net8.0\Ndapi.dll" />
-    <None Include="bin\Release\12.2.1.3\net8.0\Ndapi.dll" Pack="true" PackagePath="build\12.2.1.3\net8.0\Ndapi.dll" />
-    <Content Include="Ndapi.targets" Pack="true" PackagePath="build\Ndapi.targets" />
+    <None Include="bin\Release\6.0.8\net8.0\Ndapi.dll" Pack="true" PackagePath="build\6.0.8\net8.0\Ndapi.dll"/>
+    <None Include="bin\Release\12.2.1.3\net8.0\Ndapi.dll" Pack="true" PackagePath="build\12.2.1.3\net8.0\Ndapi.dll"/>
+    <Content Include="Ndapi.targets" Pack="true" PackagePath="build\Ndapi.targets"/>
   </ItemGroup>
 
 </Project>

@@ -43,4 +43,4 @@ Install-Package Ndapi
 
 Or use the Package Manager in Visual Studio.
 
-To get the latest builds add https://www.myget.org/F/ndapi/ to your NuGet feed.
+To get the latest builds use https://github.com/felipebz/ndapi/pkgs/nuget/Ndapi.
