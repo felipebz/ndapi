@@ -1,7 +1,7 @@
 Ndapi
 =====
 
-[![Build status](https://ci.appveyor.com/api/projects/status/sm2f9vamtugb4tc0?svg=true)](https://ci.appveyor.com/project/felipebz/ndapi)
+[![Build](https://github.com/felipebz/ndapi/actions/workflows/build.yml/badge.svg)](https://github.com/felipebz/ndapi/actions/workflows/build.yml)
 
 Oracle Forms includes an API that enables C/C++ developers to create, load, edit, save, and compile Oracle Forms modules (.fmb, .mmb, .olb and .pll files). It gives access to almost all the Forms Builder functionality.
 
@@ -32,15 +32,18 @@ foreach (var programUnit in module.ProgramUnits)
 }
 ```
 
+Supported Oracle Forms versions
+-------------------------------
+
+Currently this projects is tested with Forms 6.0.8.22.1 (32-bit)  and Forms 12.2.1.3.0 (64-bit).
+
 Installing
 ----------
 
-To install the latest version, compatible with Oracle Forms 12c, run:
+Official releases can be obtained using the [NuGet package](https://www.nuget.org/packages/Ndapi).
 
-```powershell
-Install-Package Ndapi
-```
+To integrate with Forms 6i, use version [6.0.8.2](https://www.nuget.org/packages/Ndapi/6.0.8.2). To integrate with Forms
+12c, use version [12.2.1.33](https://www.nuget.org/packages/Ndapi/12.2.1.33). Both packages are compatible with .NET
+Framework 4.6.1 and newer, as they target .NET Standard 2.0.
 
-Or use the Package Manager in Visual Studio.
-
-To get the latest builds use https://github.com/felipebz/ndapi/pkgs/nuget/Ndapi.
+To get the development builds use https://github.com/felipebz/ndapi/pkgs/nuget/Ndapi.
