@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using Ndapi.Enums;
@@ -11,70 +12,83 @@ namespace Ndapi.Metadata;
 /// </summary>
 public static class NdapiMetadata
 {
-    private static readonly Lazy<Dictionary<ObjectType, Type>> _objectTypeMapping = new(LoadObjectTypeMapping);
+
+    private static readonly IList<ObjectTypeMap> _objectTypeMapping = LoadObjectTypeMapping();
 
     /// <summary>
     /// Gets the Ndapi classes that represents a Forms API object.
     /// </summary>
-    public static IEnumerable<Type> Classes => ObjectTypeMapping.Values;
+    public static IEnumerable<Type> Classes => _objectTypeMapping.Select(x => x.Type);
 
     /// <summary>
     /// Gets a dictionary containing the relation bettwen an <see cref="ObjectType"/> and a Ndapi class.
     /// </summary>
-    public static Dictionary<ObjectType, Type> ObjectTypeMapping => _objectTypeMapping.Value;
+    //public static Dictionary<ObjectType, Type> ObjectTypeMapping => _objectTypeMapping.Value;
 
-    private static Dictionary<ObjectType, Type> LoadObjectTypeMapping() =>
-        new()
-        {
-            { ObjectType.Alert,               typeof(Alert) },
-            { ObjectType.AttachedLibrary,     typeof(AttachedLibrary) },
-            { ObjectType.Block,               typeof(Block) },
-            { ObjectType.Canvas,              typeof(Canvas) },
-            { ObjectType.CompoundText,        typeof(CompoundText) },
-            { ObjectType.Coordinate,          typeof(Coordinate) },
-            { ObjectType.DataSourceArgument,  typeof(DataSourceArgument) },
-            { ObjectType.DataSourceColumn,    typeof(DataSourceColumn) },
-            { ObjectType.Editor,              typeof(Editor) },
-            { ObjectType.Font,                typeof(Font) },
-            { ObjectType.FormModule,          typeof(FormModule) },
-            { ObjectType.FormParameter,       typeof(FormParameter) },
-            { ObjectType.Graphics,            typeof(Graphics) },
-            { ObjectType.Item,                typeof(Item) },
-            { ObjectType.LibraryProgramUnit,  typeof(LibraryProgramUnit) },
-            { ObjectType.LibraryModule,       typeof(LibraryModule) },
-            { ObjectType.LOV,                 typeof(LOV) },
-            { ObjectType.ColumnMapping,       typeof(ColumnMapping) },
-            { ObjectType.Menu,                typeof(Menu) },
-            { ObjectType.MenuItem,            typeof(MenuItem) },
-            { ObjectType.MenuModule,          typeof(MenuModule) },
+    private static IList<ObjectTypeMap> LoadObjectTypeMapping() =>
+        [
+            new ObjectTypeMap(ObjectType.Alert, typeof(Alert)),
+            new ObjectTypeMap(ObjectType.AttachedLibrary, typeof(AttachedLibrary)),
+            new ObjectTypeMap(ObjectType.Block, typeof(Block)),
+            new ObjectTypeMap(ObjectType.Canvas, typeof(Canvas)),
+            new ObjectTypeMap(ObjectType.CompoundText, typeof(CompoundText)),
+            new ObjectTypeMap(ObjectType.Coordinate, typeof(Coordinate)),
+            new ObjectTypeMap(ObjectType.DataSourceArgument, typeof(DataSourceArgument)),
+            new ObjectTypeMap(ObjectType.DataSourceColumn, typeof(DataSourceColumn)),
+            new ObjectTypeMap(ObjectType.Editor, typeof(Editor)),
+            new ObjectTypeMap(ObjectType.Font, typeof(Font)),
+            new ObjectTypeMap(ObjectType.FormModule, typeof(FormModule)),
+            new ObjectTypeMap(ObjectType.FormParameter, typeof(FormParameter)),
+            new ObjectTypeMap(ObjectType.Graphics, typeof(Graphics)),
+            new ObjectTypeMap(ObjectType.Item, typeof(Item)),
+            new ObjectTypeMap(ObjectType.LibraryProgramUnit, typeof(LibraryProgramUnit)),
+            new ObjectTypeMap(ObjectType.LibraryModule, typeof(LibraryModule)),
+            new ObjectTypeMap(ObjectType.LOV, typeof(LOV)),
+            new ObjectTypeMap(ObjectType.ColumnMapping, typeof(ColumnMapping)),
+            new ObjectTypeMap(ObjectType.Menu, typeof(Menu)),
+            new ObjectTypeMap(ObjectType.MenuItem, typeof(MenuItem)),
+            new ObjectTypeMap(ObjectType.MenuModule, typeof(MenuModule)),
 #if FORMS_6
-                { ObjectType.MenuParameter,       typeof(MenuParameter) },
+            new ObjectTypeMap(ObjectType.MenuParameter,       typeof(MenuParameter)),
 #endif
-            { ObjectType.ObjectGroup,         typeof(ObjectGroup) },
-            { ObjectType.ObjectGroupChild,    typeof(ObjectGroupChild) },
-            { ObjectType.ObjectLibrary,       typeof(ObjectLibrary) },
-            { ObjectType.ObjectLibraryTab,    typeof(ObjectLibraryTab) },
-            { ObjectType.Point,               typeof(Point) },
-            { ObjectType.ProgramUnit,         typeof(ProgramUnit) },
-            { ObjectType.PropertyClass,       typeof(PropertyClass) },
-            { ObjectType.RadioButton,         typeof(RadioButton) },
-            { ObjectType.RecordGroup,         typeof(RecordGroup) },
-            { ObjectType.BlockRelation,       typeof(BlockRelation) },
-            { ObjectType.Report,              typeof(Report) },
-            { ObjectType.ColumnSpecification, typeof(RecordGroupColumn) },
-            { ObjectType.TabPage,             typeof(TabPage) },
-            { ObjectType.TextSegment,         typeof(TextSegment) },
-            { ObjectType.Trigger,             typeof(Trigger) },
-            { ObjectType.VisualAttribute,     typeof(VisualAttribute) },
-            { ObjectType.Window,              typeof(Window) }
-        };
+            new ObjectTypeMap(ObjectType.ObjectGroup, typeof(ObjectGroup)),
+            new ObjectTypeMap(ObjectType.ObjectGroupChild, typeof(ObjectGroupChild)),
+            new ObjectTypeMap(ObjectType.ObjectLibrary, typeof(ObjectLibrary)),
+            new ObjectTypeMap(ObjectType.ObjectLibraryTab, typeof(ObjectLibraryTab)),
+            new ObjectTypeMap(ObjectType.Point, typeof(Point)),
+            new ObjectTypeMap(ObjectType.ProgramUnit, typeof(ProgramUnit)),
+            new ObjectTypeMap(ObjectType.PropertyClass, typeof(PropertyClass)),
+            new ObjectTypeMap(ObjectType.RadioButton, typeof(RadioButton)),
+            new ObjectTypeMap(ObjectType.RecordGroup, typeof(RecordGroup)),
+            new ObjectTypeMap(ObjectType.BlockRelation, typeof(BlockRelation)),
+            new ObjectTypeMap(ObjectType.Report, typeof(Report)),
+            new ObjectTypeMap(ObjectType.ColumnSpecification, typeof(RecordGroupColumn)),
+            new ObjectTypeMap(ObjectType.TabPage, typeof(TabPage)),
+            new ObjectTypeMap(ObjectType.TextSegment, typeof(TextSegment)),
+            new ObjectTypeMap(ObjectType.Trigger, typeof(Trigger)),
+            new ObjectTypeMap(ObjectType.VisualAttribute, typeof(VisualAttribute)),
+            new ObjectTypeMap(ObjectType.Window, typeof(Window))
+        ];
 
     /// <summary>
     /// Gets a <see cref="NdapiMetaObject"/> for the specified class.
     /// </summary>
     /// <param name="type">A Ndapi class.</param>
     /// <returns>The meta object instance.</returns>
-    public static NdapiMetaObject GetMetaObjectFrom(Type type) => NdapiMetaObject.GetOrCreate(type);
+    public static NdapiMetaObject GetMetaObjectFrom([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type) => NdapiMetaObject.GetOrCreate(type);
 
-    internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Value == typeof(T)).Key;
+    internal static ObjectType GetObjectTypeFrom<T>() => _objectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
+
+    [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+    internal static Type GetTypeFrom(ObjectType type) => _objectTypeMapping.Single(t => t.ObjectType == type).Type;
+
+    private class ObjectTypeMap(
+        ObjectType objectType,
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+        Type type)
+    {
+        public ObjectType ObjectType { get; } = objectType;
+
+        public Type Type { [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] get; } = type;
+    }
 }

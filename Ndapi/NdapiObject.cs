@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Text;
 
@@ -152,10 +153,10 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     public IEnumerable<NdapiMetaProperty> MetaProperties => MetaObject.AllProperties;
 
-    internal T GetPrevious<T>() where T : NdapiObject =>
+    internal T GetPrevious<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>() where T : NdapiObject =>
         GetObjectProperty<T>(NdapiConstants.D2FP_PREVIOUS);
 
-    internal T GetNext<T>() where T : NdapiObject =>
+    internal T GetNext<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>() where T : NdapiObject =>
         GetObjectProperty<T>(NdapiConstants.D2FP_NEXT);
 
     /// <summary>
@@ -252,7 +253,7 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>The property value.</returns>
-    public T GetObjectProperty<T>(int property) where T : NdapiObject
+    public T GetObjectProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(int property) where T : NdapiObject
     {
         var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), _handle, property, out var handle);
         Ensure.Success(status);
@@ -276,7 +277,7 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>List of child objects.</returns>
-    public NdapiObjectList<T> GetObjectList<T>(int property) where T : NdapiObject
+    public NdapiObjectList<T> GetObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(int property) where T : NdapiObject
     {
         return new NdapiObjectList<T>(this, property);
     }
@@ -453,7 +454,7 @@ public abstract class NdapiObject : IDisposable
         Ensure.Success(status);
     }
 
-    internal static T Create<T>(ObjectSafeHandle handle) where T : NdapiObject
+    internal static T Create<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(ObjectSafeHandle handle) where T : NdapiObject
     {
         var objectType = typeof(T);
         if (objectType == typeof(NdapiObject))
@@ -466,7 +467,7 @@ public abstract class NdapiObject : IDisposable
                 return null;
             }
 
-            objectType = NdapiMetadata.ObjectTypeMapping[type];
+            objectType = NdapiMetadata.GetTypeFrom(type);
         }
 
         var instance = Activator.CreateInstance(objectType,
@@ -511,7 +512,7 @@ public abstract class NdapiObject : IDisposable
 /// <summary>
 /// Represents a generic object.
 /// </summary>
-public abstract class NdapiObject<T> : NdapiObject where T : NdapiObject
+public abstract class NdapiObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T> : NdapiObject where T : NdapiObject
 {
     internal NdapiObject() { }
     internal NdapiObject(ObjectType type) : base(type) { }

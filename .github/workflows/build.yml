@@ -30,6 +30,9 @@ jobs:
       - name: Build NuGet package
         run: dotnet pack -c Release --no-build
 
+      - name: Build trimmed sample with NativeAOT
+        run: dotnet publish -c Release_12_2_1_3 -p:"Platform=x64;PublishAot=true" -r linux-x64
+
       - name: Add NuGet source
         run: dotnet nuget add source --username felipebz --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/felipebz/index.json"
 

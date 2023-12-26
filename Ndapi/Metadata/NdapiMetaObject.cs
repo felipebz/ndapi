@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using Ndapi.Core;
@@ -13,7 +14,7 @@ namespace Ndapi.Metadata;
 public sealed class NdapiMetaObject
 {
     private static readonly Dictionary<Type, NdapiMetaObject> _cache = new();
-
+    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
     private readonly Type _type;
     private readonly Lazy<IEnumerable<NdapiMetaProperty>> _properties;
 
@@ -52,7 +53,7 @@ public sealed class NdapiMetaObject
     /// </summary>
     public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.IsList);
 
-    private NdapiMetaObject(Type type)
+    private NdapiMetaObject([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type)
     {
         TypeName = type.Name;
 
@@ -68,7 +69,7 @@ public sealed class NdapiMetaObject
         return properties.OrderBy(p => p.PropertyId).ToList();
     }
 
-    internal static NdapiMetaObject GetOrCreate(Type type)
+    internal static NdapiMetaObject GetOrCreate([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type)
     {
         if (_cache.TryGetValue(type, out var metaObject))
         {

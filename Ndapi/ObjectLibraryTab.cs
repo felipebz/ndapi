@@ -1,4 +1,6 @@
-﻿using Ndapi.Core;
+﻿using System.Diagnostics.CodeAnalysis;
+
+using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
@@ -73,7 +75,7 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <param name="obj">Object to add to library tab.</param>
     /// <param name="replace">Should replace the existing object.</param>
     /// <returns>A copy of the original object.</returns>
-    public T AddObject<T>(T obj, bool replace = false) where T : NdapiObject
+    public T AddObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(T obj, bool replace = false) where T : NdapiObject
     {
         var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out var handle, replace);
         Ensure.Success(status);
