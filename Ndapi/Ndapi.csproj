@@ -9,7 +9,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>oracle wrapper API oracleforms</PackageTags>
     <Version>13.0.0-alpha</Version>
     <NoWarn>NU5128</NoWarn>
