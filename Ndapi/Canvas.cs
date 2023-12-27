@@ -27,7 +27,7 @@ public class Canvas : NdapiObject<Canvas>
     {
     }
 
-    internal Canvas(ObjectSafeHandle handle) : base(handle)
+    internal Canvas(ObjectSafeHandle handle) : base(handle, ObjectType.Canvas)
     {
     }
 

@@ -27,7 +27,7 @@ public class Menu : NdapiObject<Menu>
     {
     }
 
-    internal Menu(ObjectSafeHandle handle) : base(handle)
+    internal Menu(ObjectSafeHandle handle) : base(handle, ObjectType.Menu)
     {
     }
 

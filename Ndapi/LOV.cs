@@ -27,7 +27,7 @@ public class LOV : NdapiObject<LOV>
     {
     }
 
-    internal LOV(ObjectSafeHandle handle) : base(handle)
+    internal LOV(ObjectSafeHandle handle) : base(handle, ObjectType.LOV)
     {
     }
 

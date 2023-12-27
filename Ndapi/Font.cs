@@ -29,7 +29,7 @@ public class Font : NdapiObject<Font>
         Extract(obj, type);
     }
 
-    internal Font(ObjectSafeHandle handle) : base(handle)
+    internal Font(ObjectSafeHandle handle) : base(handle, ObjectType.Font)
     {
     }
 

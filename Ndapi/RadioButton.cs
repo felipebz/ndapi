@@ -18,7 +18,7 @@ public class RadioButton : NdapiObject<RadioButton>
     {
     }
 
-    internal RadioButton(ObjectSafeHandle handle) : base(handle)
+    internal RadioButton(ObjectSafeHandle handle) : base(handle, ObjectType.RadioButton)
     {
     }
 

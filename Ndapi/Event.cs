@@ -28,7 +28,7 @@ public class Event : NdapiObject<Event>
     {
     }
 
-    internal Event(ObjectSafeHandle handle) : base(handle)
+    internal Event(ObjectSafeHandle handle) : base(handle, ObjectType.Event)
     {
     }
 

@@ -18,7 +18,7 @@ public class DataSourceArgument : NdapiObject<DataSourceArgument>
     {
     }
 
-    internal DataSourceArgument(ObjectSafeHandle handle) : base(handle)
+    internal DataSourceArgument(ObjectSafeHandle handle) : base(handle, ObjectType.DataSourceArgument)
     {
     }
 

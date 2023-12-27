@@ -21,7 +21,7 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
         ObjectLibrary = library;
     }
 
-    internal ObjectLibraryTab(ObjectSafeHandle handle) : base(handle)
+    internal ObjectLibraryTab(ObjectSafeHandle handle) : base(handle, ObjectType.ObjectLibraryTab)
     {
     }
 

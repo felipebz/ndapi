@@ -18,7 +18,7 @@ public class FormParameter : NdapiObject<FormParameter>
     {
     }
 
-    internal FormParameter(ObjectSafeHandle handle) : base(handle)
+    internal FormParameter(ObjectSafeHandle handle) : base(handle, ObjectType.FormParameter)
     {
     }
 

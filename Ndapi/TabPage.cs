@@ -18,7 +18,7 @@ public class TabPage : NdapiObject<TabPage>
     {
     }
 
-    internal TabPage(ObjectSafeHandle handle) : base(handle)
+    internal TabPage(ObjectSafeHandle handle) : base(handle, ObjectType.TabPage)
     {
     }
 

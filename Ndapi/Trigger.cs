@@ -54,7 +54,7 @@ public class Trigger : NdapiObject<Trigger>
     {
     }
 
-    internal Trigger(ObjectSafeHandle handle) : base(handle)
+    internal Trigger(ObjectSafeHandle handle) : base(handle, ObjectType.Trigger)
     {
     }
 

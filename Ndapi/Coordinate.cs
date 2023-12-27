@@ -28,7 +28,7 @@ public class Coordinate : NdapiObject<Coordinate>
         Extract(module);
     }
 
-    internal Coordinate(ObjectSafeHandle handle) : base(handle)
+    internal Coordinate(ObjectSafeHandle handle) : base(handle, ObjectType.Coordinate)
     {
     }
 

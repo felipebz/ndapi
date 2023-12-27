@@ -37,9 +37,10 @@ public abstract class NdapiObject : IDisposable
         _type = type;
     }
 
-    internal NdapiObject(ObjectSafeHandle handle) : this()
+    internal NdapiObject(ObjectSafeHandle handle, ObjectType type) : this()
     {
         _handle = handle;
+        _type = type;
     }
 
     /// <summary>
@@ -517,7 +518,7 @@ public abstract class NdapiObject<[DynamicallyAccessedMembers(DynamicallyAccesse
     internal NdapiObject() { }
     internal NdapiObject(ObjectType type) : base(type) { }
     internal NdapiObject(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent) { }
-    internal NdapiObject(ObjectSafeHandle handle) : base(handle) { }
+    internal NdapiObject(ObjectSafeHandle handle, ObjectType type) : base(handle, type) { }
 
     /// <summary>
     /// Get the previous object.

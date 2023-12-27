@@ -18,7 +18,7 @@ public class Point : NdapiObject<Point>
     {
     }
 
-    internal Point(ObjectSafeHandle handle) : base(handle)
+    internal Point(ObjectSafeHandle handle) : base(handle, ObjectType.Point)
     {
     }
 

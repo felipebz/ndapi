@@ -19,7 +19,7 @@ public class ObjectLibrary : NdapiModule
     {
     }
 
-    internal ObjectLibrary(ObjectSafeHandle handle) : base(handle)
+    internal ObjectLibrary(ObjectSafeHandle handle) : base(handle, ObjectType.ObjectLibrary)
     {
     }
 

@@ -27,7 +27,7 @@ public class Alert : NdapiObject<Alert>
     {
     }
 
-    internal Alert(ObjectSafeHandle handle) : base(handle)
+    internal Alert(ObjectSafeHandle handle) : base(handle, ObjectType.Alert)
     {
     }
 

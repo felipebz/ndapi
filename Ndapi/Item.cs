@@ -29,7 +29,7 @@ public class Item : NdapiObject<Item>
     {
     }
 
-    internal Item(ObjectSafeHandle handle) : base(handle)
+    internal Item(ObjectSafeHandle handle) : base(handle, ObjectType.Item)
     {
     }
 

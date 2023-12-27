@@ -29,7 +29,7 @@ public class MenuItem : NdapiObject<MenuItem>
     {
     }
 
-    internal MenuItem(ObjectSafeHandle handle) : base(handle)
+    internal MenuItem(ObjectSafeHandle handle) : base(handle, ObjectType.MenuItem)
     {
     }
 

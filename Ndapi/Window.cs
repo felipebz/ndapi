@@ -27,7 +27,7 @@ public class Window : NdapiObject<Window>
     {
     }
 
-    internal Window(ObjectSafeHandle handle) : base(handle)
+    internal Window(ObjectSafeHandle handle) : base(handle, ObjectType.Window)
     {
     }
 

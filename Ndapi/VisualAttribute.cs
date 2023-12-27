@@ -35,7 +35,7 @@ public class VisualAttribute : NdapiObject<VisualAttribute>
     {
     }
 
-    internal VisualAttribute(ObjectSafeHandle handle) : base(handle)
+    internal VisualAttribute(ObjectSafeHandle handle) : base(handle, ObjectType.VisualAttribute)
     {
     }
 

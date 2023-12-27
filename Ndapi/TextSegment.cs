@@ -18,7 +18,7 @@ public class TextSegment : NdapiObject<TextSegment>
     {
     }
 
-    internal TextSegment(ObjectSafeHandle handle) : base(handle)
+    internal TextSegment(ObjectSafeHandle handle) : base(handle, ObjectType.TextSegment)
     {
     }
 

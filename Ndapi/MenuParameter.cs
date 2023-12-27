@@ -20,7 +20,7 @@ namespace Ndapi
         {
         }
 
-        internal MenuParameter(ObjectSafeHandle handle) : base(handle)
+        internal MenuParameter(ObjectSafeHandle handle) : base(handle, ObjectType.MenuParameter)
         {
         }
 

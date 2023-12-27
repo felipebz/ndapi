@@ -45,7 +45,7 @@ public class PropertyClass : NdapiObject<PropertyClass>
     {
     }
 
-    internal PropertyClass(ObjectSafeHandle handle) : base(handle)
+    internal PropertyClass(ObjectSafeHandle handle) : base(handle, ObjectType.PropertyClass)
     {
     }
 

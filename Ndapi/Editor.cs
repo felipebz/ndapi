@@ -27,7 +27,7 @@ public class Editor : NdapiObject<Editor>
     {
     }
 
-    internal Editor(ObjectSafeHandle handle) : base(handle)
+    internal Editor(ObjectSafeHandle handle) : base(handle, ObjectType.Editor)
     {
     }
 

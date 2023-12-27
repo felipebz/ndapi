@@ -18,7 +18,7 @@ public class ColumnMapping : NdapiObject<ColumnMapping>
     {
     }
 
-    internal ColumnMapping(ObjectSafeHandle handle) : base(handle)
+    internal ColumnMapping(ObjectSafeHandle handle) : base(handle, ObjectType.ColumnMapping)
     {
     }
 

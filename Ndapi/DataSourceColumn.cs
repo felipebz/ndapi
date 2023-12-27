@@ -18,7 +18,7 @@ public class DataSourceColumn : NdapiObject<DataSourceColumn>
     {
     }
 
-    internal DataSourceColumn(ObjectSafeHandle handle) : base(handle)
+    internal DataSourceColumn(ObjectSafeHandle handle, ObjectType type) : base(handle, type)
     {
     }
 

@@ -18,7 +18,7 @@ public class BlockRelation : NdapiObject<BlockRelation>
     {
     }
 
-    internal BlockRelation(ObjectSafeHandle handle) : base(handle)
+    internal BlockRelation(ObjectSafeHandle handle) : base(handle, ObjectType.BlockRelation)
     {
     }
 

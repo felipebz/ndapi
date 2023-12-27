@@ -19,7 +19,7 @@ public class ObjectGroupChild : NdapiObject<ObjectGroupChild>
     {
     }
 
-    internal ObjectGroupChild(ObjectSafeHandle handle) : base(handle)
+    internal ObjectGroupChild(ObjectSafeHandle handle) : base(handle, ObjectType.ObjectGroupChild)
     {
     }
 

@@ -27,7 +27,7 @@ public class RecordGroup : NdapiObject<RecordGroup>
     {
     }
 
-    internal RecordGroup(ObjectSafeHandle handle) : base(handle)
+    internal RecordGroup(ObjectSafeHandle handle) : base(handle, ObjectType.RecordGroup)
     {
     }
 

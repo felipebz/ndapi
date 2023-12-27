@@ -36,7 +36,7 @@ public class ProgramUnit : NdapiObject<ProgramUnit>
     {
     }
 
-    internal ProgramUnit(ObjectSafeHandle handle) : base(handle)
+    internal ProgramUnit(ObjectSafeHandle handle) : base(handle, ObjectType.ProgramUnit)
     {
     }
 

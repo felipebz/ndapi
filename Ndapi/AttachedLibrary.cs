@@ -39,7 +39,7 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
         Ensure.Success(status);
     }
 
-    internal AttachedLibrary(ObjectSafeHandle handle) : base(handle)
+    internal AttachedLibrary(ObjectSafeHandle handle) : base(handle, ObjectType.AttachedLibrary)
     {
     }
 

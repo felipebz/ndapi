@@ -17,7 +17,7 @@ public class FormModule : NdapiModule
     {
     }
 
-    internal FormModule(ObjectSafeHandle handle) : base(handle)
+    internal FormModule(ObjectSafeHandle handle) : base(handle, ObjectType.FormModule)
     {
     }
 

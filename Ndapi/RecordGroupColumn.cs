@@ -20,7 +20,7 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     {
     }
 
-    internal RecordGroupColumn(ObjectSafeHandle handle) : base(handle)
+    internal RecordGroupColumn(ObjectSafeHandle handle) : base(handle, ObjectType.ColumnSpecification)
     {
     }
 

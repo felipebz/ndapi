@@ -18,7 +18,7 @@ public class Report : NdapiObject<Report>
     {
     }
 
-    internal Report(ObjectSafeHandle handle) : base(handle)
+    internal Report(ObjectSafeHandle handle) : base(handle, ObjectType.Report)
     {
     }
 

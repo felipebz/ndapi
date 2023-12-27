@@ -9,7 +9,7 @@ namespace Ndapi;
 /// </summary>
 public class LibraryProgramUnit : NdapiObject<LibraryProgramUnit>
 {
-    internal LibraryProgramUnit(ObjectSafeHandle handle) : base(handle)
+    internal LibraryProgramUnit(ObjectSafeHandle handle) : base(handle, ObjectType.LibraryProgramUnit)
     {
     }
 

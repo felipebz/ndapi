@@ -45,7 +45,7 @@ public class Graphics : NdapiObject<Graphics>
     {
     }
 
-    internal Graphics(ObjectSafeHandle handle) : base(handle)
+    internal Graphics(ObjectSafeHandle handle) : base(handle, ObjectType.Graphics)
     {
     }
 

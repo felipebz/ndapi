@@ -27,7 +27,7 @@ public class Block : NdapiObject<Block>
     {
     }
 
-    internal Block(ObjectSafeHandle handle) : base(handle)
+    internal Block(ObjectSafeHandle handle) : base(handle, ObjectType.Block)
     {
     }
 

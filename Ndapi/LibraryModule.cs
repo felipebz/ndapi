@@ -11,7 +11,7 @@ namespace Ndapi;
 /// </summary>
 public class LibraryModule : NdapiModule
 {
-    internal LibraryModule(ObjectSafeHandle handle) : base(handle)
+    internal LibraryModule(ObjectSafeHandle handle) : base(handle, ObjectType.LibraryModule)
     {
     }
 

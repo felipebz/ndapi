@@ -19,7 +19,7 @@ public class MenuModule : NdapiModule
     {
     }
 
-    internal MenuModule(ObjectSafeHandle handle) : base(handle)
+    internal MenuModule(ObjectSafeHandle handle) : base(handle, ObjectType.MenuModule)
     {
     }
 

@@ -18,7 +18,7 @@ public class CompoundText : NdapiObject<CompoundText>
     {
     }
 
-    internal CompoundText(ObjectSafeHandle handle) : base(handle)
+    internal CompoundText(ObjectSafeHandle handle) : base(handle, ObjectType.CompoundText)
     {
     }
 
