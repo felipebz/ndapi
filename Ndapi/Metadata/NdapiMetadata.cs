@@ -78,6 +78,8 @@ public static class NdapiMetadata
     public static NdapiMetaObject GetMetaObjectFrom([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type) => NdapiMetaObject.GetOrCreate(type);
 
     internal static ObjectType GetObjectTypeFrom<T>() => _objectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
+    
+    internal static ObjectType GetObjectTypeFrom(Type type) => _objectTypeMapping.Single(t => t.Type == type).ObjectType;
 
     [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors | DynamicallyAccessedMemberTypes.PublicProperties)]
     internal static Type GetTypeFrom(ObjectType type) => _objectTypeMapping.Single(t => t.ObjectType == type).Type;

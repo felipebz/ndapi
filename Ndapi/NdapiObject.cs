@@ -446,6 +446,22 @@ public abstract class NdapiObject : IDisposable
         Ensure.Success(status);
     }
 
+    public NdapiObject Find(
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type type,
+        string name)
+    {
+        var objectType = NdapiMetadata.GetObjectTypeFrom(type);
+
+        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _handle, name, objectType, out ObjectSafeHandle handle);
+        if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
+        {
+            return null;
+        }
+        Ensure.Success(status);
+
+        return Create(type, handle);
+    }
+
     /// <summary>
     /// Destroy the current object.
     /// </summary>
@@ -455,28 +471,35 @@ public abstract class NdapiObject : IDisposable
         Ensure.Success(status);
     }
 
-    internal static T Create<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(ObjectSafeHandle handle) where T : NdapiObject
+    internal static NdapiObject Create(
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] Type type,
+        ObjectSafeHandle handle)
     {
-        var objectType = typeof(T);
-        if (objectType == typeof(NdapiObject))
+        var foundType = type;
+        if (foundType == typeof(NdapiObject))
         {
-            var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out var type);
+            var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out var objectType);
             Ensure.Success(status);
 
-            if (type == ObjectType.Undefined)
+            if (objectType == ObjectType.Undefined)
             {
                 return null;
             }
 
-            objectType = NdapiMetadata.GetTypeFrom(type);
+            foundType = NdapiMetadata.GetTypeFrom(objectType);
         }
 
-        var instance = Activator.CreateInstance(objectType,
+        var instance = Activator.CreateInstance(foundType,
             BindingFlags.NonPublic | BindingFlags.Instance,
             null,
             [handle],
             null);
-        return (T)instance;
+        return (NdapiObject)instance;
+    }
+
+    internal static T Create<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(ObjectSafeHandle handle) where T : NdapiObject
+    {
+        return (T)Create(typeof(T), handle);
     }
 
     /// <summary>
