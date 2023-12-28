@@ -12,7 +12,7 @@
   <Target Name="InjectReference_Ndapi" BeforeTargets="ResolveAssemblyReferences">
     <ItemGroup>
       <Reference Include="Ndapi">
-        <HintPath>$(MSBuildThisFileDirectory)$(NdapiFormsVersion)\$(TargetFramework)\Ndapi.dll</HintPath>
+        <HintPath>$(MSBuildThisFileDirectory)$(NdapiFormsVersion)\net8.0\Ndapi.dll</HintPath>
       </Reference>
     </ItemGroup>
   </Target>
