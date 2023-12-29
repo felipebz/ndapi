@@ -202,4 +202,16 @@ public class Alert : NdapiObject<Alert>
         get => GetStringProperty(NdapiConstants.D2FP_TITLE);
         set => SetStringProperty(NdapiConstants.D2FP_TITLE, value);
     }
+
+#if FORMS_6
+    /// <summary>
+    /// Gets or sets the white-on-black property.
+    /// </summary>
+    [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
+    public bool IsWhiteOnBlack
+    {
+        get => GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value);
+    }
+#endif
 }
