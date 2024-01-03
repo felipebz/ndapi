@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Platforms>x64;x86</Platforms>
     <Configurations>Release;Debug_12_2_1_3;Debug_6_0_8;Release_12_2_1_3;Release_6_0_8</Configurations>
     <Description>A .NET wrapper for Oracle Forms 12c Open API</Description>
     <Authors>Felipe Zorzo</Authors>
@@ -41,12 +40,10 @@
 
   <PropertyGroup Condition=" '$(NdapiFormsVersion)' == '6.0.8' ">
     <DefineConstants>FORMS_608;FORMS_6;FORMS_6_OR_GREATER</DefineConstants>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(NdapiFormsVersion)' == '12.2.1.3' ">
     <DefineConstants>FORMS_12213;FORMS_12;FORMS_12_OR_GREATER</DefineConstants>
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
