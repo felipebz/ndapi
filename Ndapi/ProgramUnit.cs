@@ -43,28 +43,28 @@ public class ProgramUnit : NdapiObject<ProgramUnit>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the program unit code.
     /// </summary>
-    [Property(NdapiConstants.D2FP_PGU_TXT)]
+    [Property(NdapiConstant.D2FP_PGU_TXT)]
     public string Text
     {
-        get => GetStringProperty(NdapiConstants.D2FP_PGU_TXT);
-        set => SetStringProperty(NdapiConstants.D2FP_PGU_TXT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_PGU_TXT);
+        set => SetStringProperty(NdapiConstant.D2FP_PGU_TXT, value);
     }
 
     /// <summary>
     /// Gets the program unit type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_PGU_TYP)]
-    public ProgramUnitType Type => GetNumberProperty<ProgramUnitType>(NdapiConstants.D2FP_PGU_TYP);
+    [Property(NdapiConstant.D2FP_PGU_TYP)]
+    public ProgramUnitType Type => GetNumberProperty<ProgramUnitType>(NdapiConstant.D2FP_PGU_TYP);
 
     /// <summary>
     /// Compile the program unit.

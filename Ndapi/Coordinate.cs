@@ -35,51 +35,51 @@ public class Coordinate : NdapiObject<Coordinate>
     /// <summary>
     /// Gets or sets the height of the character cell.
     /// </summary>
-    [Property(NdapiConstants.D2FP_CHAR_CELL_HGT)]
+    [Property(NdapiConstant.D2FP_CHAR_CELL_HGT)]
     public int CharacterCellHeight
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT);
-        set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_HGT, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_CHAR_CELL_HGT);
+        set => SetNumberProperty(NdapiConstant.D2FP_CHAR_CELL_HGT, value);
     }
 
     /// <summary>
     /// Gets or sets the width of the character cell.
     /// </summary>
-    [Property(NdapiConstants.D2FP_CHAR_CELL_WID)]
+    [Property(NdapiConstant.D2FP_CHAR_CELL_WID)]
     public int CharacterCellWidth
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID);
-        set => SetNumberProperty(NdapiConstants.D2FP_CHAR_CELL_WID, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_CHAR_CELL_WID);
+        set => SetNumberProperty(NdapiConstant.D2FP_CHAR_CELL_WID, value);
     }
 
     /// <summary>
     /// Gets or sets the coordinate system.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COORD_SYS)]
+    [Property(NdapiConstant.D2FP_COORD_SYS)]
     public CoordinateSystem CoordinateSystem
     {
-        get => GetNumberProperty<CoordinateSystem>(NdapiConstants.D2FP_COORD_SYS);
-        set => SetNumberProperty(NdapiConstants.D2FP_COORD_SYS, value);
+        get => GetNumberProperty<CoordinateSystem>(NdapiConstant.D2FP_COORD_SYS);
+        set => SetNumberProperty(NdapiConstant.D2FP_COORD_SYS, value);
     }
 
     /// <summary>
     /// Gets or sets whether runtime should use the default font scaling method.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DFLT_FNT_SCALING)]
+    [Property(NdapiConstant.D2FP_DFLT_FNT_SCALING)]
     public bool IsDefaultFontScaling
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING);
-        set => SetBooleanProperty(NdapiConstants.D2FP_DFLT_FNT_SCALING, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_DFLT_FNT_SCALING);
+        set => SetBooleanProperty(NdapiConstant.D2FP_DFLT_FNT_SCALING, value);
     }
 
     /// <summary>
     /// Gets or sets the real unit.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REAL_UNIT)]
+    [Property(NdapiConstant.D2FP_REAL_UNIT)]
     public RealUnit RealUnit
     {
-        get => GetNumberProperty<RealUnit>(NdapiConstants.D2FP_REAL_UNIT);
-        set => SetNumberProperty(NdapiConstants.D2FP_REAL_UNIT, value);
+        get => GetNumberProperty<RealUnit>(NdapiConstant.D2FP_REAL_UNIT);
+        set => SetNumberProperty(NdapiConstant.D2FP_REAL_UNIT, value);
     }
 
     /// <summary>

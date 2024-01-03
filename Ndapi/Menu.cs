@@ -34,38 +34,38 @@ public class Menu : NdapiObject<Menu>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the subtitle.
     /// </summary>
-    [Property(NdapiConstants.D2FP_SUB_TTL)]
+    [Property(NdapiConstant.D2FP_SUB_TTL)]
     public string Subtitle
     {
-        get => GetStringProperty(NdapiConstants.D2FP_SUB_TTL);
-        set => SetStringProperty(NdapiConstants.D2FP_SUB_TTL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_SUB_TTL);
+        set => SetStringProperty(NdapiConstant.D2FP_SUB_TTL, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu is a tear-off menu.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TEAR_OFF_MNU)]
+    [Property(NdapiConstant.D2FP_TEAR_OFF_MNU)]
     public bool IsTearOffMenu
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU);
-        set => SetBooleanProperty(NdapiConstants.D2FP_TEAR_OFF_MNU, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_TEAR_OFF_MNU);
+        set => SetBooleanProperty(NdapiConstant.D2FP_TEAR_OFF_MNU, value);
     }
 
     /// <summary>
     /// Gets the menu items.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MNU_ITM)]
-    public NdapiObjectList<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstants.D2FP_MNU_ITM);
+    [Property(NdapiConstant.D2FP_MNU_ITM)]
+    public NdapiObjectList<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstant.D2FP_MNU_ITM);
 
     /// <summary>
     /// Creates a menu item.

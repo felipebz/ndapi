@@ -35,81 +35,81 @@ public class Event : NdapiObject<Event>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the correlation id.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_CORRID)]
+    [Property(NdapiConstant.D2FP_EVENT_CORRID)]
     public string CorrelationId
     {
-        get => GetStringProperty(NdapiConstants.D2FP_EVENT_CORRID);
-        set => SetStringProperty(NdapiConstants.D2FP_EVENT_CORRID, value);
+        get => GetStringProperty(NdapiConstant.D2FP_EVENT_CORRID);
+        set => SetStringProperty(NdapiConstant.D2FP_EVENT_CORRID, value);
     }
 
     /// <summary>
     /// Gets or sets whether the event is enabled.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_ENABLED)]
+    [Property(NdapiConstant.D2FP_EVENT_ENABLED)]
     public bool IsEnabled
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_EVENT_ENABLED);
-        set => SetBooleanProperty(NdapiConstants.D2FP_EVENT_ENABLED, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_EVENT_ENABLED);
+        set => SetBooleanProperty(NdapiConstant.D2FP_EVENT_ENABLED, value);
     }
 
     /// <summary>
     /// Gets or sets the priority mode.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_PRIORITY_MODE)]
+    [Property(NdapiConstant.D2FP_EVENT_PRIORITY_MODE)]
     public int PriorityMode
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_EVENT_PRIORITY_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_EVENT_PRIORITY_MODE, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_EVENT_PRIORITY_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_EVENT_PRIORITY_MODE, value);
     }
 
     /// <summary>
     /// Gets or sets the event scope.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_SCOPE)]
+    [Property(NdapiConstant.D2FP_EVENT_SCOPE)]
     public EventScope EventScope
     {
-        get => GetNumberProperty<EventScope>(NdapiConstants.D2FP_EVENT_SCOPE);
-        set => SetNumberProperty(NdapiConstants.D2FP_EVENT_SCOPE, value);
+        get => GetNumberProperty<EventScope>(NdapiConstant.D2FP_EVENT_SCOPE);
+        set => SetNumberProperty(NdapiConstant.D2FP_EVENT_SCOPE, value);
     }
 
     /// <summary>
     /// Gets or sets the correlation id.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_SUBS_NAME)]
+    [Property(NdapiConstant.D2FP_EVENT_SUBS_NAME)]
     public string SubscriptionName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_EVENT_SUBS_NAME);
-        set => SetStringProperty(NdapiConstants.D2FP_EVENT_SUBS_NAME, value);
+        get => GetStringProperty(NdapiConstant.D2FP_EVENT_SUBS_NAME);
+        set => SetStringProperty(NdapiConstant.D2FP_EVENT_SUBS_NAME, value);
     }
 
     /// <summary>
     /// Gets or sets the event scope.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_TYPE)]
+    [Property(NdapiConstant.D2FP_EVENT_TYPE)]
     public EventType EventType
     {
-        get => GetNumberProperty<EventType>(NdapiConstants.D2FP_EVENT_TYPE);
-        set => SetNumberProperty(NdapiConstants.D2FP_EVENT_TYPE, value);
+        get => GetNumberProperty<EventType>(NdapiConstant.D2FP_EVENT_TYPE);
+        set => SetNumberProperty(NdapiConstant.D2FP_EVENT_TYPE, value);
     }
 
     /// <summary>
     /// Gets or sets the event scope.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT_VIEW_MODE)]
+    [Property(NdapiConstant.D2FP_EVENT_VIEW_MODE)]
     public EventViewMode EventViewMode
     {
-        get => GetNumberProperty<EventViewMode>(NdapiConstants.D2FP_EVENT_VIEW_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_EVENT_VIEW_MODE, value);
+        get => GetNumberProperty<EventViewMode>(NdapiConstant.D2FP_EVENT_VIEW_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_EVENT_VIEW_MODE, value);
     }
 }
 #endif

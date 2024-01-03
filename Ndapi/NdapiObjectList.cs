@@ -12,7 +12,7 @@ namespace Ndapi;
 public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T> : IEnumerable<T> where T : NdapiObject
 {
     private readonly NdapiObject _ndapiObject;
-    private readonly int _property;
+    private readonly NdapiConstant _property;
 
     public T this[int index]
     {
@@ -31,7 +31,7 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
         }
     }
 
-    internal NdapiObjectList(NdapiObject ndapiObject, int property)
+    internal NdapiObjectList(NdapiObject ndapiObject, NdapiConstant property)
     {
         _ndapiObject = ndapiObject;
         _property = property;
@@ -62,8 +62,9 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
     public T Single(string name)
     {
         var type = NdapiMetadata.GetObjectTypeFrom<T>();
+        var internalObjectType = ConstantConverter.GetValue(type);
 
-        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject._handle, name, type, out var handle);
+        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject._handle, name, internalObjectType, out var handle);
         if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
         {
             return null;

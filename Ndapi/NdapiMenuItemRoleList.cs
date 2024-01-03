@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using Ndapi.Core;
+
 namespace Ndapi;
 
 public class NdapiMenuItemRoleList : IEnumerable<string>
@@ -10,7 +12,7 @@ public class NdapiMenuItemRoleList : IEnumerable<string>
     internal NdapiMenuItemRoleList(MenuItem menuitem)
     {
         _menuItem = menuitem;
-        Count = menuitem.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+        Count = menuitem.GetNumberProperty(NdapiConstant.D2FP_OBJ_COUNT);
     }
 
     public int Count { get; }

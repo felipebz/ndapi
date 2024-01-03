@@ -26,8 +26,8 @@ public class ObjectLibrary : NdapiModule
     /// <summary>
     /// Gets all the tabs.
     /// </summary>
-    [Property(NdapiConstants.D2FP_OBJ_LIB_TAB)]
-    public NdapiObjectList<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstants.D2FP_OBJ_LIB_TAB);
+    [Property(NdapiConstant.D2FP_OBJ_LIB_TAB)]
+    public NdapiObjectList<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstant.D2FP_OBJ_LIB_TAB);
 
     /// <summary>
     /// Gets all the objects contained in this Library.

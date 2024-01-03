@@ -26,10 +26,10 @@ public class ObjectGroupChild : NdapiObject<ObjectGroupChild>
     /// <summary>
     /// Gets or sets the real object.
     /// </summary>
-    [Property(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ)]
+    [Property(NdapiConstant.D2FP_OBJ_GRP_CHILD_REAL_OBJ)]
     public NdapiObject RealObject
     {
-        get => GetObjectProperty<NdapiObject>(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ);
-        set => SetObjectProperty(NdapiConstants.D2FP_OBJ_GRP_CHILD_REAL_OBJ, value);
+        get => GetObjectProperty<NdapiObject>(NdapiConstant.D2FP_OBJ_GRP_CHILD_REAL_OBJ);
+        set => SetObjectProperty(NdapiConstant.D2FP_OBJ_GRP_CHILD_REAL_OBJ, value);
     }
 }

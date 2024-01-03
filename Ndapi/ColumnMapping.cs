@@ -25,30 +25,30 @@ public class ColumnMapping : NdapiObject<ColumnMapping>
     /// <summary>
     /// Gets or sets the display width.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DISP_WID)]
+    [Property(NdapiConstant.D2FP_DISP_WID)]
     public int DisplayWidth
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_DISP_WID);
-        set => SetNumberProperty(NdapiConstants.D2FP_DISP_WID, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_DISP_WID);
+        set => SetNumberProperty(NdapiConstant.D2FP_DISP_WID, value);
     }
 
     /// <summary>
     /// Gets or sets the return item.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RTRN_ITM)]
+    [Property(NdapiConstant.D2FP_RTRN_ITM)]
     public string ReturnItem
     {
-        get => GetStringProperty(NdapiConstants.D2FP_RTRN_ITM);
-        set => SetStringProperty(NdapiConstants.D2FP_RTRN_ITM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_RTRN_ITM);
+        set => SetStringProperty(NdapiConstant.D2FP_RTRN_ITM, value);
     }
 
     /// <summary>
     /// Gets or sets the column title.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TITLE)]
+    [Property(NdapiConstant.D2FP_TITLE)]
     public string Title
     {
-        get => GetStringProperty(NdapiConstants.D2FP_TITLE);
-        set => SetStringProperty(NdapiConstants.D2FP_TITLE, value);
+        get => GetStringProperty(NdapiConstant.D2FP_TITLE);
+        set => SetStringProperty(NdapiConstant.D2FP_TITLE, value);
     }
 }

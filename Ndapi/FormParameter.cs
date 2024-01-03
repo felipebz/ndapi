@@ -25,40 +25,40 @@ public class FormParameter : NdapiObject<FormParameter>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the maximum length.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MAX_LEN)]
+    [Property(NdapiConstant.D2FP_MAX_LEN)]
     public int MaximumLength
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_MAX_LEN);
-        set => SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_MAX_LEN);
+        set => SetNumberProperty(NdapiConstant.D2FP_MAX_LEN, value);
     }
 
     /// <summary>
     /// Gets or sets the parameter data type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_PARAM_DAT_TYP)]
+    [Property(NdapiConstant.D2FP_PARAM_DAT_TYP)]
     public ParameterDataType DataType
     {
-        get => GetNumberProperty<ParameterDataType>(NdapiConstants.D2FP_PARAM_DAT_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_PARAM_DAT_TYP, value);
+        get => GetNumberProperty<ParameterDataType>(NdapiConstant.D2FP_PARAM_DAT_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_PARAM_DAT_TYP, value);
     }
 
     /// <summary>
     /// Gets or sets the initial value.
     /// </summary>
-    [Property(NdapiConstants.D2FP_PARAM_INIT_VAL)]
+    [Property(NdapiConstant.D2FP_PARAM_INIT_VAL)]
     public string InitialValue
     {
-        get => GetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL);
-        set => SetStringProperty(NdapiConstants.D2FP_PARAM_INIT_VAL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_PARAM_INIT_VAL);
+        set => SetStringProperty(NdapiConstant.D2FP_PARAM_INIT_VAL, value);
     }
 }

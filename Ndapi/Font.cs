@@ -36,51 +36,51 @@ public class Font : NdapiObject<Font>
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_NAM)]
+    [Property(NdapiConstant.D2FP_FONT_NAM)]
     public string FontName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_FONT_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_FONT_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_FONT_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets the font size.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_SIZ)]
+    [Property(NdapiConstant.D2FP_FONT_SIZ)]
     public int FontSize
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_FONT_SIZ);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SIZ, value);
     }
 
     /// <summary>
     /// Gets or sets the font spacing.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_SPCING)]
+    [Property(NdapiConstant.D2FP_FONT_SPCING)]
     public FontSpacing FontSpacing
     {
-        get => GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value);
+        get => GetNumberProperty<FontSpacing>(NdapiConstant.D2FP_FONT_SPCING);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SPCING, value);
     }
 
     /// <summary>
     /// Gets or sets the font style.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_STY)]
+    [Property(NdapiConstant.D2FP_FONT_STY)]
     public FontStyle FontStyle
     {
-        get => GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value);
+        get => GetNumberProperty<FontStyle>(NdapiConstant.D2FP_FONT_STY);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_STY, value);
     }
 
     /// <summary>
     /// Gets or sets the font weight.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_WGHT)]
+    [Property(NdapiConstant.D2FP_FONT_WGHT)]
     public FontWeight FontWeight
     {
-        get => GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value);
+        get => GetNumberProperty<FontWeight>(NdapiConstant.D2FP_FONT_WGHT);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_WGHT, value);
     }
 
     /// <summary>

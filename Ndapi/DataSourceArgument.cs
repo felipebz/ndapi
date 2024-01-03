@@ -25,50 +25,50 @@ public class DataSourceArgument : NdapiObject<DataSourceArgument>
     /// <summary>
     /// Gets or sets data source argument mode.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DSA_MODE)]
+    [Property(NdapiConstant.D2FP_DSA_MODE)]
     public DataSourceArgumentMode Mode
     {
-        get => GetNumberProperty<DataSourceArgumentMode>(NdapiConstants.D2FP_DSA_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_DSA_MODE, value);
+        get => GetNumberProperty<DataSourceArgumentMode>(NdapiConstant.D2FP_DSA_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_DSA_MODE, value);
     }
 
     /// <summary>
     /// Gets or sets the data source argument name.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DSA_NAM)]
+    [Property(NdapiConstant.D2FP_DSA_NAM)]
     public override string Name
     {
-        get => GetStringProperty(NdapiConstants.D2FP_DSA_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_DSA_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_DSA_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_DSA_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets the data source argument type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DSA_TYP)]
+    [Property(NdapiConstant.D2FP_DSA_TYP)]
     public DataSourceColumnType Type
     {
-        get => GetNumberProperty<DataSourceColumnType>(NdapiConstants.D2FP_DSA_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_DSA_TYP, value);
+        get => GetNumberProperty<DataSourceColumnType>(NdapiConstant.D2FP_DSA_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_DSA_TYP, value);
     }
 
     /// <summary>
     /// Gets or sets name of the data source argument type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DSA_TYP_NAM)]
+    [Property(NdapiConstant.D2FP_DSA_TYP_NAM)]
     public string TypeName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_DSA_TYP_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_DSA_TYP_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_DSA_TYP_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets the data source argument value.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DSA_VAL)]
+    [Property(NdapiConstant.D2FP_DSA_VAL)]
     public string Value
     {
-        get => GetStringProperty(NdapiConstants.D2FP_DSA_VAL);
-        set => SetStringProperty(NdapiConstants.D2FP_DSA_VAL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_DSA_VAL);
+        set => SetStringProperty(NdapiConstant.D2FP_DSA_VAL, value);
     }
 }

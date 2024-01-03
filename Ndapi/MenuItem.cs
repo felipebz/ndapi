@@ -36,253 +36,253 @@ public class MenuItem : NdapiObject<MenuItem>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the command text.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COM_TXT)]
+    [Property(NdapiConstant.D2FP_COM_TXT)]
     public string CommandText
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COM_TXT);
-        set => SetStringProperty(NdapiConstants.D2FP_COM_TXT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COM_TXT);
+        set => SetStringProperty(NdapiConstant.D2FP_COM_TXT, value);
     }
 
     /// <summary>
     /// Gets or sets the command type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COM_TYP)]
+    [Property(NdapiConstant.D2FP_COM_TYP)]
     public MenuCommandType CommandType
     {
-        get => GetNumberProperty<MenuCommandType>(NdapiConstants.D2FP_COM_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_COM_TYP, value);
+        get => GetNumberProperty<MenuCommandType>(NdapiConstant.D2FP_COM_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_COM_TYP, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu item is displayed when the user is not a member of a security role that has access privileges to the item.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DISP_NO_PRIV)]
+    [Property(NdapiConstant.D2FP_DISP_NO_PRIV)]
     public bool DisplayWithoutPrivilege
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_DISP_NO_PRIV);
-        set => SetBooleanProperty(NdapiConstants.D2FP_DISP_NO_PRIV, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_DISP_NO_PRIV);
+        set => SetBooleanProperty(NdapiConstant.D2FP_DISP_NO_PRIV, value);
     }
 
     /// <summary>
     /// Gets or sets whether menu item is enabled.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ENABLED)]
+    [Property(NdapiConstant.D2FP_ENABLED)]
     public bool IsEnabled
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_ENABLED);
-        set => SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_ENABLED);
+        set => SetBooleanProperty(NdapiConstant.D2FP_ENABLED, value);
     }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_NAM)]
+    [Property(NdapiConstant.D2FP_FONT_NAM)]
     public string FontName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_FONT_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_FONT_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_FONT_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets the font size.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_SIZ)]
+    [Property(NdapiConstant.D2FP_FONT_SIZ)]
     public int FontSize
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_FONT_SIZ);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SIZ, value);
     }
 
     /// <summary>
     /// Gets or sets the font spacing.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_SPCING)]
+    [Property(NdapiConstant.D2FP_FONT_SPCING)]
     public int FontSpacing
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_FONT_SPCING);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_FONT_SPCING);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SPCING, value);
     }
 
     /// <summary>
     /// Gets or sets the font style.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_STY)]
+    [Property(NdapiConstant.D2FP_FONT_STY)]
     public FontStyle FontStyle
     {
-        get => GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value);
+        get => GetNumberProperty<FontStyle>(NdapiConstant.D2FP_FONT_STY);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_STY, value);
     }
 
     /// <summary>
     /// Gets or sets the font weight.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_WGHT)]
+    [Property(NdapiConstant.D2FP_FONT_WGHT)]
     public FontWeight FontWeight
     {
-        get => GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value);
+        get => GetNumberProperty<FontWeight>(NdapiConstant.D2FP_FONT_WGHT);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_WGHT, value);
     }
 
     /// <summary>
     /// Gets or sets the hint.
     /// </summary>
-    [Property(NdapiConstants.D2FP_HINT)]
+    [Property(NdapiConstant.D2FP_HINT)]
     public string Hint
     {
-        get => GetStringProperty(NdapiConstants.D2FP_HINT);
-        set => SetStringProperty(NdapiConstants.D2FP_HINT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_HINT);
+        set => SetStringProperty(NdapiConstant.D2FP_HINT, value);
     }
 
 #if FORMS_6
         /// <summary>
         /// Gets or sets the help text.
         /// </summary>
-        [Property(NdapiConstants.D2FP_HLP_DESCRIPTION)]
+        [Property(NdapiConstant.D2FP_HLP_DESCRIPTION)]
         public string Help
         {
-            get => GetStringProperty(NdapiConstants.D2FP_HLP_DESCRIPTION);
-            set => SetStringProperty(NdapiConstants.D2FP_HLP_DESCRIPTION, value);
+            get => GetStringProperty(NdapiConstant.D2FP_HLP_DESCRIPTION);
+            set => SetStringProperty(NdapiConstant.D2FP_HLP_DESCRIPTION, value);
         }
 #endif
 
     /// <summary>
     /// Gets or sets the icon filename.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ICON_FLNAM)]
+    [Property(NdapiConstant.D2FP_ICON_FLNAM)]
     public string IconFilename
     {
-        get => GetStringProperty(NdapiConstants.D2FP_ICON_FLNAM);
-        set => SetStringProperty(NdapiConstants.D2FP_ICON_FLNAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_ICON_FLNAM);
+        set => SetStringProperty(NdapiConstant.D2FP_ICON_FLNAM, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu item is iconic.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ICON_IN_MNU)]
+    [Property(NdapiConstant.D2FP_ICON_IN_MNU)]
     public bool IsIconic
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_ICON_IN_MNU);
-        set => SetBooleanProperty(NdapiConstants.D2FP_ICON_IN_MNU, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_ICON_IN_MNU);
+        set => SetBooleanProperty(NdapiConstant.D2FP_ICON_IN_MNU, value);
     }
 
     /// <summary>
     /// Gets or sets the keyboard accelerator.
     /// </summary>
-    [Property(NdapiConstants.D2FP_KBRD_ACC)]
+    [Property(NdapiConstant.D2FP_KBRD_ACC)]
     public string KeyboardAccelerator
     {
-        get => GetStringProperty(NdapiConstants.D2FP_KBRD_ACC);
-        set => SetStringProperty(NdapiConstants.D2FP_KBRD_ACC, value);
+        get => GetStringProperty(NdapiConstant.D2FP_KBRD_ACC);
+        set => SetStringProperty(NdapiConstant.D2FP_KBRD_ACC, value);
     }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LABEL)]
+    [Property(NdapiConstant.D2FP_LABEL)]
     public string Label
     {
-        get => GetStringProperty(NdapiConstants.D2FP_LABEL);
-        set => SetStringProperty(NdapiConstants.D2FP_LABEL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_LABEL);
+        set => SetStringProperty(NdapiConstant.D2FP_LABEL, value);
     }
 
     /// <summary>
     /// Gets or sets the magic menu item type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MAGIC_ITM)]
+    [Property(NdapiConstant.D2FP_MAGIC_ITM)]
     public MagicMenuItemType MagicItemType
     {
-        get => GetNumberProperty<MagicMenuItemType>(NdapiConstants.D2FP_MAGIC_ITM);
-        set => SetNumberProperty(NdapiConstants.D2FP_MAGIC_ITM, value);
+        get => GetNumberProperty<MagicMenuItemType>(NdapiConstant.D2FP_MAGIC_ITM);
+        set => SetNumberProperty(NdapiConstant.D2FP_MAGIC_ITM, value);
     }
 
     /// <summary>
     /// Gets or sets the code.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MNU_ITM_CODE)]
+    [Property(NdapiConstant.D2FP_MNU_ITM_CODE)]
     public string Code
     {
-        get => GetStringProperty(NdapiConstants.D2FP_MNU_ITM_CODE);
-        set => SetStringProperty(NdapiConstants.D2FP_MNU_ITM_CODE, value);
+        get => GetStringProperty(NdapiConstant.D2FP_MNU_ITM_CODE);
+        set => SetStringProperty(NdapiConstant.D2FP_MNU_ITM_CODE, value);
     }
 
     /// <summary>
     /// Gets or sets the menu item radio group.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MNU_ITM_RAD_GRP)]
+    [Property(NdapiConstant.D2FP_MNU_ITM_RAD_GRP)]
     public string MenuItemRadioGroup
     {
-        get => GetStringProperty(NdapiConstants.D2FP_MNU_ITM_RAD_GRP);
-        set => SetStringProperty(NdapiConstants.D2FP_MNU_ITM_RAD_GRP, value);
+        get => GetStringProperty(NdapiConstant.D2FP_MNU_ITM_RAD_GRP);
+        set => SetStringProperty(NdapiConstant.D2FP_MNU_ITM_RAD_GRP, value);
     }
 
     /// <summary>
     /// Gets or sets the menu item type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MNU_ITM_TYP)]
+    [Property(NdapiConstant.D2FP_MNU_ITM_TYP)]
     public MenuItemType MenuItemType
     {
-        get => GetNumberProperty<MenuItemType>(NdapiConstants.D2FP_MNU_ITM_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_MNU_ITM_TYP, value);
+        get => GetNumberProperty<MenuItemType>(NdapiConstant.D2FP_MNU_ITM_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_MNU_ITM_TYP, value);
     }
 
     /// <summary>
     /// Gets or sets the visual attribute name.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VAT_NAM)]
+    [Property(NdapiConstant.D2FP_VAT_NAM)]
     public string VisualAttributeName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_VAT_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_VAT_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_VAT_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_VAT_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu item is visible.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VISIBLE)]
+    [Property(NdapiConstant.D2FP_VISIBLE)]
     public bool IsVisible
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_VISIBLE);
-        set => SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_VISIBLE);
+        set => SetBooleanProperty(NdapiConstant.D2FP_VISIBLE, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu item is visible in the horizontal toolbar.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR)]
+    [Property(NdapiConstant.D2FP_VSBL_IN_HORZ_MNU_TLBR)]
     public bool IsVisibleInHorizontalToolbar
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR);
-        set => SetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_HORZ_MNU_TLBR, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_VSBL_IN_HORZ_MNU_TLBR);
+        set => SetBooleanProperty(NdapiConstant.D2FP_VSBL_IN_HORZ_MNU_TLBR, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu item is visible in menu.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VSBL_IN_MENU)]
+    [Property(NdapiConstant.D2FP_VSBL_IN_MENU)]
     public bool IsVisibleInMenu
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_MENU);
-        set => SetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_MENU, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_VSBL_IN_MENU);
+        set => SetBooleanProperty(NdapiConstant.D2FP_VSBL_IN_MENU, value);
     }
 
     /// <summary>
     /// Gets or sets whether the menu item is visible in the vertical toolbar.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR)]
+    [Property(NdapiConstant.D2FP_VSBL_IN_VERT_MNU_TLBR)]
     public bool IsVisibleInVerticalToolbar
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR);
-        set => SetBooleanProperty(NdapiConstants.D2FP_VSBL_IN_VERT_MNU_TLBR, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_VSBL_IN_VERT_MNU_TLBR);
+        set => SetBooleanProperty(NdapiConstant.D2FP_VSBL_IN_VERT_MNU_TLBR, value);
     }
 
     /// <summary>

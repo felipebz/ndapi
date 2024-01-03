@@ -46,24 +46,24 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// <summary>
     /// Gets or sets the comment property.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets the library location.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LIB_LOC)]
-    public string Location => GetStringProperty(NdapiConstants.D2FP_LIB_LOC);
+    [Property(NdapiConstant.D2FP_LIB_LOC)]
+    public string Location => GetStringProperty(NdapiConstant.D2FP_LIB_LOC);
 
     /// <summary>
     /// Gets the library source type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LIB_SRC)]
-    public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstants.D2FP_LIB_SRC);
+    [Property(NdapiConstant.D2FP_LIB_SRC)]
+    public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstant.D2FP_LIB_SRC);
 
     /// <summary>
     /// Detaches the attached library and destroy the object.

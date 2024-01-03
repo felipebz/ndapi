@@ -27,28 +27,28 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     /// <summary>
     /// Gets or sets the column data type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COL_DAT_TYP)]
+    [Property(NdapiConstant.D2FP_COL_DAT_TYP)]
     public ColumnSpecificationDataType DataType
     {
-        get => GetNumberProperty<ColumnSpecificationDataType>(NdapiConstants.D2FP_COL_DAT_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_COL_DAT_TYP, value);
+        get => GetNumberProperty<ColumnSpecificationDataType>(NdapiConstant.D2FP_COL_DAT_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_COL_DAT_TYP, value);
     }
 
     /// <summary>
     /// Gets or sets the maximum length.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MAX_LEN)]
+    [Property(NdapiConstant.D2FP_MAX_LEN)]
     public int MaximumLength
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_MAX_LEN);
-        set => SetNumberProperty(NdapiConstants.D2FP_MAX_LEN, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_MAX_LEN);
+        set => SetNumberProperty(NdapiConstant.D2FP_MAX_LEN, value);
     }
 
     /// <summary>
     /// Gets the number of values.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COL_VALS_COUNT)]
-    public int ValueCount => GetNumberProperty(NdapiConstants.D2FP_COL_VALS_COUNT);
+    [Property(NdapiConstant.D2FP_COL_VALS_COUNT)]
+    public int ValueCount => GetNumberProperty(NdapiConstant.D2FP_COL_VALS_COUNT);
 
     /// <summary>
     /// Gets the menu item roles.

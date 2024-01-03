@@ -34,48 +34,48 @@ public class RecordGroup : NdapiObject<RecordGroup>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the query fetch size.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ)]
+    [Property(NdapiConstant.D2FP_REC_GRP_FETCH_SIZ)]
     public int FetchSize
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ);
-        set => SetNumberProperty(NdapiConstants.D2FP_REC_GRP_FETCH_SIZ, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_REC_GRP_FETCH_SIZ);
+        set => SetNumberProperty(NdapiConstant.D2FP_REC_GRP_FETCH_SIZ, value);
     }
 
     /// <summary>
     /// Gets or sets the SQL query.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REC_GRP_QRY)]
+    [Property(NdapiConstant.D2FP_REC_GRP_QRY)]
     public string Query
     {
-        get => GetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY);
-        set => SetStringProperty(NdapiConstants.D2FP_REC_GRP_QRY, value);
+        get => GetStringProperty(NdapiConstant.D2FP_REC_GRP_QRY);
+        set => SetStringProperty(NdapiConstant.D2FP_REC_GRP_QRY, value);
     }
 
     /// <summary>
     /// Gets or sets the record group type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REC_GRP_TYP)]
+    [Property(NdapiConstant.D2FP_REC_GRP_TYP)]
     public RecordGroupType Type
     {
-        get => GetNumberProperty<RecordGroupType>(NdapiConstants.D2FP_REC_GRP_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_REC_GRP_TYP, value);
+        get => GetNumberProperty<RecordGroupType>(NdapiConstant.D2FP_REC_GRP_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_REC_GRP_TYP, value);
     }
 
     /// <summary>
     /// Gets the columns in the record group.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COL_SPEC)]
-    public NdapiObjectList<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstants.D2FP_COL_SPEC);
+    [Property(NdapiConstant.D2FP_COL_SPEC)]
+    public NdapiObjectList<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstant.D2FP_COL_SPEC);
 
     /// <summary>
     /// Set the record group query without parsing the SQL to create the record group column specifications.

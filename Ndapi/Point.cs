@@ -25,20 +25,20 @@ public class Point : NdapiObject<Point>
     /// <summary>
     /// Gets or sets the X position measured at the upper left corner.
     /// </summary>
-    [Property(NdapiConstants.D2FP_X_POS)]
+    [Property(NdapiConstant.D2FP_X_POS)]
     public int XPosition
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_X_POS);
-        set => SetNumberProperty(NdapiConstants.D2FP_X_POS, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_X_POS);
+        set => SetNumberProperty(NdapiConstant.D2FP_X_POS, value);
     }
 
     /// <summary>
     /// Gets or sets the Y position measured at the upper left corner.
     /// </summary>
-    [Property(NdapiConstants.D2FP_Y_POS)]
+    [Property(NdapiConstant.D2FP_Y_POS)]
     public int YPosition
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_Y_POS);
-        set => SetNumberProperty(NdapiConstants.D2FP_Y_POS, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_Y_POS);
+        set => SetNumberProperty(NdapiConstant.D2FP_Y_POS, value);
     }
 }

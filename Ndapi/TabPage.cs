@@ -25,41 +25,41 @@ public class TabPage : NdapiObject<TabPage>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets whether the tab is enabled.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ENABLED)]
+    [Property(NdapiConstant.D2FP_ENABLED)]
     public bool IsEnabled
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_ENABLED);
-        set => SetBooleanProperty(NdapiConstants.D2FP_ENABLED, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_ENABLED);
+        set => SetBooleanProperty(NdapiConstant.D2FP_ENABLED, value);
     }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LABEL)]
+    [Property(NdapiConstant.D2FP_LABEL)]
     public string Label
     {
-        get => GetStringProperty(NdapiConstants.D2FP_LABEL);
-        set => SetStringProperty(NdapiConstants.D2FP_LABEL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_LABEL);
+        set => SetStringProperty(NdapiConstant.D2FP_LABEL, value);
     }
 
     /// <summary>
     /// Gets or sets whether the tab is visible.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VISIBLE)]
+    [Property(NdapiConstant.D2FP_VISIBLE)]
     public bool IsVisible
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_VISIBLE);
-        set => SetBooleanProperty(NdapiConstants.D2FP_VISIBLE, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_VISIBLE);
+        set => SetBooleanProperty(NdapiConstant.D2FP_VISIBLE, value);
     }
 
 #if FORMS_12_OR_GREATER
@@ -67,19 +67,19 @@ public class TabPage : NdapiObject<TabPage>
     /// Gets or sets the side of the tab-page from where the gradient color begins
     /// or that there should be no gradient color used.
     /// </summary>
-    [Property(NdapiConstants.D2FP_GRADIENT_START)]
+    [Property(NdapiConstant.D2FP_GRADIENT_START)]
     public GradientStartSide GradientStartSide
     {
-        get => GetNumberProperty<GradientStartSide>(NdapiConstants.D2FP_GRADIENT_START);
-        set => SetNumberProperty(NdapiConstants.D2FP_GRADIENT_START, value);
+        get => GetNumberProperty<GradientStartSide>(NdapiConstant.D2FP_GRADIENT_START);
+        set => SetNumberProperty(NdapiConstant.D2FP_GRADIENT_START, value);
     }
 #endif
 
     /// <summary>
     /// Gets all the graphic objects attached to the canvas.
     /// </summary>
-    [Property(NdapiConstants.D2FP_GRAPHIC)]
-    public NdapiObjectList<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstants.D2FP_GRAPHIC);
+    [Property(NdapiConstant.D2FP_GRAPHIC)]
+    public NdapiObjectList<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstant.D2FP_GRAPHIC);
 
     /// <summary>
     /// Creates a child graphics object.

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using Ndapi.Core;
+
 namespace Ndapi;
 
 public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
@@ -12,7 +14,7 @@ public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
     internal NdapiObjectLibraryTabObjectsList(ObjectLibraryTab objectLibraryTab)
     {
         _objectLibraryTab = objectLibraryTab;
-        Count = _objectLibraryTab.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+        Count = _objectLibraryTab.GetNumberProperty(NdapiConstant.D2FP_OBJ_COUNT);
     }
 
     public int Count { get; }

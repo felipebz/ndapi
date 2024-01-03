@@ -46,7 +46,7 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2fctxcf_ConvertFile(ContextSafeHandle pd2fctx,
         [MarshalAs(UnmanagedType.LPStr)] string filename,
-        ObjectType modtyp,
+        int modtyp,
         int direction);
 
     #endregion
@@ -559,7 +559,7 @@ internal static partial class NativeMethods
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2fobqt_QueryType(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob,
-        out ObjectType objtyp);
+        out int objtyp);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -590,7 +590,7 @@ internal static partial class NativeMethods
     public static partial D2fErrorCode d2fobfo_FindObj(ContextSafeHandle pd2fctx,
         ObjectSafeHandle owner,
         [MarshalAs(UnmanagedType.LPStr)] string name,
-        ObjectType objtyp,
+        int objtyp,
         out ObjectSafeHandle ppd2fob);
 
     [LibraryImport(formsLib)]

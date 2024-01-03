@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using Ndapi.Core;
+
 namespace Ndapi;
 
 public class NdapiObjectLibraryObjectList : IEnumerable<NdapiObject>
@@ -12,7 +14,7 @@ public class NdapiObjectLibraryObjectList : IEnumerable<NdapiObject>
     internal NdapiObjectLibraryObjectList(ObjectLibrary objectLibrary)
     {
         _objectLibrary = objectLibrary;
-        Count = _objectLibrary.GetNumberProperty(NdapiConstants.D2FP_OBJ_COUNT);
+        Count = _objectLibrary.GetNumberProperty(NdapiConstant.D2FP_OBJ_COUNT);
     }
 
     public int Count { get; }

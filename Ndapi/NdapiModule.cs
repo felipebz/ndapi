@@ -75,7 +75,8 @@ public abstract class NdapiModule : NdapiObject
     public static void ConvertToText<T>(string filename) where T : NdapiModule
     {
         var type = NdapiMetadata.GetObjectTypeFrom<T>();
-        var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.GetContext(), filename, type, NdapiConstants.BINTOTEXT);
+        var internalObjectType = ConstantConverter.GetValue(type);
+        var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.GetContext(), filename, internalObjectType, ConstantConverter.GetValue(NdapiConstant.BINTOTEXT));
         Ensure.Success(status);
     }
 
@@ -86,7 +87,8 @@ public abstract class NdapiModule : NdapiObject
     public static void ConvertFromText<T>(string filename) where T : NdapiModule
     {
         var type = NdapiMetadata.GetObjectTypeFrom<T>();
-        var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.GetContext(), filename, type, NdapiConstants.TEXTTOBIN);
+        var internalObjectType = ConstantConverter.GetValue(type);
+        var status = NativeMethods.d2fctxcf_ConvertFile(NdapiContext.GetContext(), filename, internalObjectType, ConstantConverter.GetValue(NdapiConstant.TEXTTOBIN));
         Ensure.Success(status);
     }
 

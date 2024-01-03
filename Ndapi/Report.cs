@@ -25,100 +25,100 @@ public class Report : NdapiObject<Report>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the communication mode.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMM_MODE)]
+    [Property(NdapiConstant.D2FP_COMM_MODE)]
     public CommunicationMode CommunicationMode
     {
-        get => GetNumberProperty<CommunicationMode>(NdapiConstants.D2FP_COMM_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_COMM_MODE, value);
+        get => GetNumberProperty<CommunicationMode>(NdapiConstant.D2FP_COMM_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_COMM_MODE, value);
     }
 
     /// <summary>
     /// Gets or sets the name of the data source block.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DAT_SRC_BLK)]
+    [Property(NdapiConstant.D2FP_DAT_SRC_BLK)]
     public string DataSourceBlock
     {
-        get => GetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK);
-        set => SetStringProperty(NdapiConstants.D2FP_DAT_SRC_BLK, value);
+        get => GetStringProperty(NdapiConstant.D2FP_DAT_SRC_BLK);
+        set => SetStringProperty(NdapiConstant.D2FP_DAT_SRC_BLK, value);
     }
 
     /// <summary>
     /// Gets or sets the execution mode.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EXEC_MODE)]
+    [Property(NdapiConstant.D2FP_EXEC_MODE)]
     public ExecutionMode ExecutionMode
     {
-        get => GetNumberProperty<ExecutionMode>(NdapiConstants.D2FP_EXEC_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_EXEC_MODE, value);
+        get => GetNumberProperty<ExecutionMode>(NdapiConstant.D2FP_EXEC_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_EXEC_MODE, value);
     }
 
     /// <summary>
     /// Gets or sets the filename.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FLNAM)]
+    [Property(NdapiConstant.D2FP_FLNAM)]
     public string Filename
     {
-        get => GetStringProperty(NdapiConstants.D2FP_FLNAM);
-        set => SetStringProperty(NdapiConstants.D2FP_FLNAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_FLNAM);
+        set => SetStringProperty(NdapiConstant.D2FP_FLNAM, value);
     }
 
     /// <summary>
     /// Gets or sets the destination format.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RPT_DESTINATION_FMT)]
+    [Property(NdapiConstant.D2FP_RPT_DESTINATION_FMT)]
     public string DestinationFormat
     {
-        get => GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT);
-        set => SetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_FMT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_RPT_DESTINATION_FMT);
+        set => SetStringProperty(NdapiConstant.D2FP_RPT_DESTINATION_FMT, value);
     }
 
     /// <summary>
     /// Gets or sets the destination name.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RPT_DESTINATION_NAM)]
+    [Property(NdapiConstant.D2FP_RPT_DESTINATION_NAM)]
     public string DestinationName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_RPT_DESTINATION_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_RPT_DESTINATION_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_RPT_DESTINATION_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets the destination type.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RPT_DESTINATION_TYP)]
+    [Property(NdapiConstant.D2FP_RPT_DESTINATION_TYP)]
     public ReportDestinationType DestinationType
     {
-        get => GetNumberProperty<ReportDestinationType>(NdapiConstants.D2FP_RPT_DESTINATION_TYP);
-        set => SetNumberProperty(NdapiConstants.D2FP_RPT_DESTINATION_TYP, value);
+        get => GetNumberProperty<ReportDestinationType>(NdapiConstant.D2FP_RPT_DESTINATION_TYP);
+        set => SetNumberProperty(NdapiConstant.D2FP_RPT_DESTINATION_TYP, value);
     }
 
     /// <summary>
     /// Gets or sets the parameters.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RPT_PARAMS)]
+    [Property(NdapiConstant.D2FP_RPT_PARAMS)]
     public string Parameters
     {
-        get => GetStringProperty(NdapiConstants.D2FP_RPT_PARAMS);
-        set => SetStringProperty(NdapiConstants.D2FP_RPT_PARAMS, value);
+        get => GetStringProperty(NdapiConstant.D2FP_RPT_PARAMS);
+        set => SetStringProperty(NdapiConstant.D2FP_RPT_PARAMS, value);
     }
 
     /// <summary>
     /// Gets or sets the server adress.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RPT_SRVR)]
+    [Property(NdapiConstant.D2FP_RPT_SRVR)]
     public string Server
     {
-        get => GetStringProperty(NdapiConstants.D2FP_RPT_SRVR);
-        set => SetStringProperty(NdapiConstants.D2FP_RPT_SRVR, value);
+        get => GetStringProperty(NdapiConstant.D2FP_RPT_SRVR);
+        set => SetStringProperty(NdapiConstant.D2FP_RPT_SRVR, value);
     }
 }

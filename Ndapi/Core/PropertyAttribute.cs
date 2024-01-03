@@ -3,12 +3,7 @@
 namespace Ndapi.Core;
 
 [AttributeUsage(AttributeTargets.Property)]
-internal sealed class PropertyAttribute : Attribute
+internal sealed class PropertyAttribute(NdapiConstant propertyId) : Attribute
 {
-    internal int PropertyId { get; }
-
-    public PropertyAttribute(int propertyId)
-    {
-        PropertyId = propertyId;
-    }
+    internal NdapiConstant PropertyId { get; } = propertyId;
 }

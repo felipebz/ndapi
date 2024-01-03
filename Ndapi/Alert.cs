@@ -34,184 +34,184 @@ public class Alert : NdapiObject<Alert>
     /// <summary>
     /// Gets or sets the message.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ALT_MSG)]
+    [Property(NdapiConstant.D2FP_ALT_MSG)]
     public string Message
     {
-        get => GetStringProperty(NdapiConstants.D2FP_ALT_MSG);
-        set => SetStringProperty(NdapiConstants.D2FP_ALT_MSG, value);
+        get => GetStringProperty(NdapiConstant.D2FP_ALT_MSG);
+        set => SetStringProperty(NdapiConstant.D2FP_ALT_MSG, value);
     }
 
     /// <summary>
     /// Gets or sets the alert style.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ALT_STY)]
+    [Property(NdapiConstant.D2FP_ALT_STY)]
     public AlertStyle AlertStyle
     {
-        get => GetNumberProperty<AlertStyle>(NdapiConstants.D2FP_ALT_STY);
-        set => SetNumberProperty(NdapiConstants.D2FP_ALT_STY, value);
+        get => GetNumberProperty<AlertStyle>(NdapiConstant.D2FP_ALT_STY);
+        set => SetNumberProperty(NdapiConstant.D2FP_ALT_STY, value);
     }
 
 
     /// <summary>
     /// Gets or sets the background color.
     /// </summary>
-    [Property(NdapiConstants.D2FP_BACK_COLOR)]
+    [Property(NdapiConstant.D2FP_BACK_COLOR)]
     public string BackgroundColor
     {
-        get => GetStringProperty(NdapiConstants.D2FP_BACK_COLOR);
-        set => SetStringProperty(NdapiConstants.D2FP_BACK_COLOR, value);
+        get => GetStringProperty(NdapiConstant.D2FP_BACK_COLOR);
+        set => SetStringProperty(NdapiConstant.D2FP_BACK_COLOR, value);
     }
 
     /// <summary>
     /// Gets or sets the first button label.
     /// </summary>
-    [Property(NdapiConstants.D2FP_BTN_1_LBL)]
+    [Property(NdapiConstant.D2FP_BTN_1_LBL)]
     public string Button1Label
     {
-        get => GetStringProperty(NdapiConstants.D2FP_BTN_1_LBL);
-        set => SetStringProperty(NdapiConstants.D2FP_BTN_1_LBL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_BTN_1_LBL);
+        set => SetStringProperty(NdapiConstant.D2FP_BTN_1_LBL, value);
     }
 
     /// <summary>
     /// Gets or sets the second button label.
     /// </summary>
-    [Property(NdapiConstants.D2FP_BTN_2_LBL)]
+    [Property(NdapiConstant.D2FP_BTN_2_LBL)]
     public string Button2Label
     {
-        get => GetStringProperty(NdapiConstants.D2FP_BTN_2_LBL);
-        set => SetStringProperty(NdapiConstants.D2FP_BTN_2_LBL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_BTN_2_LBL);
+        set => SetStringProperty(NdapiConstant.D2FP_BTN_2_LBL, value);
     }
 
     /// <summary>
     /// Gets or sets the third button label.
     /// </summary>
-    [Property(NdapiConstants.D2FP_BTN_3_LBL)]
+    [Property(NdapiConstant.D2FP_BTN_3_LBL)]
     public string Button3Label
     {
-        get => GetStringProperty(NdapiConstants.D2FP_BTN_3_LBL);
-        set => SetStringProperty(NdapiConstants.D2FP_BTN_3_LBL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_BTN_3_LBL);
+        set => SetStringProperty(NdapiConstant.D2FP_BTN_3_LBL, value);
     }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the default alert button.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DFLT_ALT_BTN)]
+    [Property(NdapiConstant.D2FP_DFLT_ALT_BTN)]
     public AlertButton DefaultAlertButton
     {
-        get => GetNumberProperty<AlertButton>(NdapiConstants.D2FP_DFLT_ALT_BTN);
-        set => SetNumberProperty(NdapiConstants.D2FP_DFLT_ALT_BTN, value);
+        get => GetNumberProperty<AlertButton>(NdapiConstant.D2FP_DFLT_ALT_BTN);
+        set => SetNumberProperty(NdapiConstant.D2FP_DFLT_ALT_BTN, value);
     }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FILL_PAT)]
+    [Property(NdapiConstant.D2FP_FILL_PAT)]
     public string FillPattern
     {
-        get => GetStringProperty(NdapiConstants.D2FP_FILL_PAT);
-        set => SetStringProperty(NdapiConstants.D2FP_FILL_PAT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_FILL_PAT);
+        set => SetStringProperty(NdapiConstant.D2FP_FILL_PAT, value);
     }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_NAM)]
+    [Property(NdapiConstant.D2FP_FONT_NAM)]
     public string FontName
     {
-        get => GetStringProperty(NdapiConstants.D2FP_FONT_NAM);
-        set => SetStringProperty(NdapiConstants.D2FP_FONT_NAM, value);
+        get => GetStringProperty(NdapiConstant.D2FP_FONT_NAM);
+        set => SetStringProperty(NdapiConstant.D2FP_FONT_NAM, value);
     }
 
     /// <summary>
     /// Gets or sets the font size.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_SIZ)]
+    [Property(NdapiConstant.D2FP_FONT_SIZ)]
     public int FontSize
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_FONT_SIZ);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_SIZ, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_FONT_SIZ);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SIZ, value);
     }
 
     /// <summary>
     /// Gets or sets the font spacing.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_SPCING)]
+    [Property(NdapiConstant.D2FP_FONT_SPCING)]
     public FontSpacing FontSpacing
     {
-        get => GetNumberProperty<FontSpacing>(NdapiConstants.D2FP_FONT_SPCING);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_SPCING, value);
+        get => GetNumberProperty<FontSpacing>(NdapiConstant.D2FP_FONT_SPCING);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SPCING, value);
     }
 
     /// <summary>
     /// Gets or sets the font style.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_STY)]
+    [Property(NdapiConstant.D2FP_FONT_STY)]
     public FontStyle FontStyle
     {
-        get => GetNumberProperty<FontStyle>(NdapiConstants.D2FP_FONT_STY);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_STY, value);
+        get => GetNumberProperty<FontStyle>(NdapiConstant.D2FP_FONT_STY);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_STY, value);
     }
 
     /// <summary>
     /// Gets or sets the font weight.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FONT_WGHT)]
+    [Property(NdapiConstant.D2FP_FONT_WGHT)]
     public FontWeight FontWeight
     {
-        get => GetNumberProperty<FontWeight>(NdapiConstants.D2FP_FONT_WGHT);
-        set => SetNumberProperty(NdapiConstants.D2FP_FONT_WGHT, value);
+        get => GetNumberProperty<FontWeight>(NdapiConstant.D2FP_FONT_WGHT);
+        set => SetNumberProperty(NdapiConstant.D2FP_FONT_WGHT, value);
     }
 
     /// <summary>
     /// Gets or sets the foreground color.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FORE_COLOR)]
+    [Property(NdapiConstant.D2FP_FORE_COLOR)]
     public string ForegroundColor
     {
-        get => GetStringProperty(NdapiConstants.D2FP_FORE_COLOR);
-        set => SetStringProperty(NdapiConstants.D2FP_FORE_COLOR, value);
+        get => GetStringProperty(NdapiConstant.D2FP_FORE_COLOR);
+        set => SetStringProperty(NdapiConstant.D2FP_FORE_COLOR, value);
     }
 
     /// <summary>
     /// Gets or sets the language direction.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LANG_DIR)]
+    [Property(NdapiConstant.D2FP_LANG_DIR)]
     public LanguageDirection LanguageDirection
     {
-        get => GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR);
-        set => SetNumberProperty(NdapiConstants.D2FP_LANG_DIR, value);
+        get => GetNumberProperty<LanguageDirection>(NdapiConstant.D2FP_LANG_DIR);
+        set => SetNumberProperty(NdapiConstant.D2FP_LANG_DIR, value);
     }
 
     /// <summary>
     /// Gets or sets the title.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TITLE)]
+    [Property(NdapiConstant.D2FP_TITLE)]
     public string Title
     {
-        get => GetStringProperty(NdapiConstants.D2FP_TITLE);
-        set => SetStringProperty(NdapiConstants.D2FP_TITLE, value);
+        get => GetStringProperty(NdapiConstant.D2FP_TITLE);
+        set => SetStringProperty(NdapiConstant.D2FP_TITLE, value);
     }
 
 #if FORMS_6
     /// <summary>
     /// Gets or sets the white-on-black property.
     /// </summary>
-    [Property(NdapiConstants.D2FP_WHITE_ON_BLACK)]
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
     public bool IsWhiteOnBlack
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK);
-        set => SetBooleanProperty(NdapiConstants.D2FP_WHITE_ON_BLACK, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
     }
 #endif
 }

@@ -61,71 +61,71 @@ public class Trigger : NdapiObject<Trigger>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets whether runtime should display the trigger in keyboard help.
     /// </summary>
-    [Property(NdapiConstants.D2FP_DISP_IN_KBRD_HLP)]
+    [Property(NdapiConstant.D2FP_DISP_IN_KBRD_HLP)]
     public bool DisplayInKeyboardHelp
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP);
-        set => SetBooleanProperty(NdapiConstants.D2FP_DISP_IN_KBRD_HLP, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_DISP_IN_KBRD_HLP);
+        set => SetBooleanProperty(NdapiConstant.D2FP_DISP_IN_KBRD_HLP, value);
     }
 
     /// <summary>
     /// Gets or sets the execution style.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EXEC_HIERARCHY)]
+    [Property(NdapiConstant.D2FP_EXEC_HIERARCHY)]
     public ExecutionStyle ExecutionStyle
     {
-        get => GetNumberProperty<ExecutionStyle>(NdapiConstants.D2FP_EXEC_HIERARCHY);
-        set => SetNumberProperty(NdapiConstants.D2FP_EXEC_HIERARCHY, value);
+        get => GetNumberProperty<ExecutionStyle>(NdapiConstant.D2FP_EXEC_HIERARCHY);
+        set => SetNumberProperty(NdapiConstant.D2FP_EXEC_HIERARCHY, value);
     }
 
     /// <summary>
     /// Gets or sets whether runtime should fire the trigger in enter-query mode.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FIRE_IN_QRY)]
+    [Property(NdapiConstant.D2FP_FIRE_IN_QRY)]
     public bool FireInEnterQueryMode
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY);
-        set => SetBooleanProperty(NdapiConstants.D2FP_FIRE_IN_QRY, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_FIRE_IN_QRY);
+        set => SetBooleanProperty(NdapiConstant.D2FP_FIRE_IN_QRY, value);
     }
 
     /// <summary>
     /// Gets or sets the keyboard help description.
     /// </summary>
-    [Property(NdapiConstants.D2FP_KBRD_HLP_TXT)]
+    [Property(NdapiConstant.D2FP_KBRD_HLP_TXT)]
     public string KeyboardHelpDescription
     {
-        get => GetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT);
-        set => SetStringProperty(NdapiConstants.D2FP_KBRD_HLP_TXT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_KBRD_HLP_TXT);
+        set => SetStringProperty(NdapiConstant.D2FP_KBRD_HLP_TXT, value);
     }
 
     /// <summary>
     /// Gets or sets the trigger style.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TRG_STY)]
+    [Property(NdapiConstant.D2FP_TRG_STY)]
     public TriggerStyle Style
     {
-        get => GetNumberProperty<TriggerStyle>(NdapiConstants.D2FP_TRG_STY);
-        set => SetNumberProperty(NdapiConstants.D2FP_TRG_STY, value);
+        get => GetNumberProperty<TriggerStyle>(NdapiConstant.D2FP_TRG_STY);
+        set => SetNumberProperty(NdapiConstant.D2FP_TRG_STY, value);
     }
 
     /// <summary>
     /// Gets or sets the trigger code.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TRG_TXT)]
+    [Property(NdapiConstant.D2FP_TRG_TXT)]
     public string Text
     {
-        get => GetStringProperty(NdapiConstants.D2FP_TRG_TXT);
-        set => SetStringProperty(NdapiConstants.D2FP_TRG_TXT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_TRG_TXT);
+        set => SetStringProperty(NdapiConstant.D2FP_TRG_TXT, value);
     }
 
     /// <summary>

@@ -52,24 +52,24 @@ public class PropertyClass : NdapiObject<PropertyClass>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets all the triggers attached to this property class.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TRIGGER)]
+    [Property(NdapiConstant.D2FP_TRIGGER)]
     public NdapiObjectList<Trigger> Triggers =>
-        GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
+        GetObjectList<Trigger>(NdapiConstant.D2FP_TRIGGER);
 
     /// <summary>
     /// Remove the specified property from the property class.
     /// </summary>
-    /// <param name="propertyId">Property id (see <see cref="NdapiConstants"/>).</param>
+    /// <param name="propertyId">Property id (see <see cref="NdapiConstant"/>).</param>
     public void RemoveProperty(int propertyId)
     {
         var status = NativeMethods.d2fppcrp_RemoveProp(NdapiContext.GetContext(), _handle, propertyId);

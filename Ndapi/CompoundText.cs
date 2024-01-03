@@ -25,8 +25,8 @@ public class CompoundText : NdapiObject<CompoundText>
     /// <summary>
     /// Gets the text segments.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TEXT_SEG)]
-    public NdapiObjectList<TextSegment> TextSegments => GetObjectList<TextSegment>(NdapiConstants.D2FP_TEXT_SEG);
+    [Property(NdapiConstant.D2FP_TEXT_SEG)]
+    public NdapiObjectList<TextSegment> TextSegments => GetObjectList<TextSegment>(NdapiConstant.D2FP_TEXT_SEG);
 
     /// <summary>
     /// Creates a text segment.

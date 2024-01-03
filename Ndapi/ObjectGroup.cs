@@ -34,18 +34,18 @@ public class ObjectGroup : NdapiObject<ObjectGroup>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets the objects contained in the group.
     /// </summary>
-    [Property(NdapiConstants.D2FP_OG_CHILD)]
-    public NdapiObjectList<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstants.D2FP_OG_CHILD);
+    [Property(NdapiConstant.D2FP_OG_CHILD)]
+    public NdapiObjectList<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstant.D2FP_OG_CHILD);
 
     /// <summary>
     /// Creates a object group child.

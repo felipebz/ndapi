@@ -24,357 +24,357 @@ public class FormModule : NdapiModule
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the name of the default window.
     /// </summary>
-    [Property(NdapiConstants.D2FP_CONSOLE_WIN)]
+    [Property(NdapiConstant.D2FP_CONSOLE_WIN)]
     public string ConsoleWindow
     {
-        get => GetStringProperty(NdapiConstants.D2FP_CONSOLE_WIN);
-        set => SetStringProperty(NdapiConstants.D2FP_CONSOLE_WIN, value);
+        get => GetStringProperty(NdapiConstant.D2FP_CONSOLE_WIN);
+        set => SetStringProperty(NdapiConstant.D2FP_CONSOLE_WIN, value);
     }
 
 #if FORMS_6
         /// <summary>
         /// Gets or sets whether runtime should defer enforcement of the Required item attribute until the record is validated.
         /// </summary>
-        [Property(NdapiConstants.D2FP_DEFER_REQ_ENF)]
+        [Property(NdapiConstant.D2FP_DEFER_REQ_ENF)]
         public bool DeferRequiredEnforcement
         {
-            get => GetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF);
-            set => SetBooleanProperty(NdapiConstants.D2FP_DEFER_REQ_ENF, value);
+            get => GetBooleanProperty(NdapiConstant.D2FP_DEFER_REQ_ENF);
+            set => SetBooleanProperty(NdapiConstant.D2FP_DEFER_REQ_ENF, value);
         }
 #endif
 
     /// <summary>
     /// Gets or sets the first navigation block.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ)]
+    [Property(NdapiConstant.D2FP_FRST_NAVIGATION_BLK_OBJ)]
     public Block FirstNavigationBlock
     {
-        get => GetObjectProperty<Block>(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ);
-        set => SetObjectProperty(NdapiConstants.D2FP_FRST_NAVIGATION_BLK_OBJ, value);
+        get => GetObjectProperty<Block>(NdapiConstant.D2FP_FRST_NAVIGATION_BLK_OBJ);
+        set => SetObjectProperty(NdapiConstant.D2FP_FRST_NAVIGATION_BLK_OBJ, value);
     }
 
     /// <summary>
     /// Gets or sets the help book title.
     /// </summary>
-    [Property(NdapiConstants.D2FP_HELP_BOOK_TITLE)]
+    [Property(NdapiConstant.D2FP_HELP_BOOK_TITLE)]
     public string HelpBookTitle
     {
-        get => GetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TITLE);
-        set => SetStringProperty(NdapiConstants.D2FP_HELP_BOOK_TITLE, value);
+        get => GetStringProperty(NdapiConstant.D2FP_HELP_BOOK_TITLE);
+        set => SetStringProperty(NdapiConstant.D2FP_HELP_BOOK_TITLE, value);
     }
 
     /// <summary>
     /// Gets or sets the canvas name of the horizontal toolbar.
     /// </summary>
-    [Property(NdapiConstants.D2FP_HORZ_TLBR_CNV)]
+    [Property(NdapiConstant.D2FP_HORZ_TLBR_CNV)]
     public string HorizontalToolbarCanvas
     {
-        get => GetStringProperty(NdapiConstants.D2FP_HORZ_TLBR_CNV);
-        set => SetStringProperty(NdapiConstants.D2FP_HORZ_TLBR_CNV, value);
+        get => GetStringProperty(NdapiConstant.D2FP_HORZ_TLBR_CNV);
+        set => SetStringProperty(NdapiConstant.D2FP_HORZ_TLBR_CNV, value);
     }
 
     /// <summary>
     /// Gets or sets the name of the menu in the menu module that runtime should use as the main, or top-level, menu for this invocation.
     /// </summary>
-    [Property(NdapiConstants.D2FP_INIT_MNU)]
+    [Property(NdapiConstant.D2FP_INIT_MNU)]
     public string InitialMenu
     {
-        get => GetStringProperty(NdapiConstants.D2FP_INIT_MNU);
-        set => SetStringProperty(NdapiConstants.D2FP_INIT_MNU, value);
+        get => GetStringProperty(NdapiConstant.D2FP_INIT_MNU);
+        set => SetStringProperty(NdapiConstant.D2FP_INIT_MNU, value);
     }
 
     /// <summary>
     /// Gets or sets the intenteraction mode. Interaction mode dictates how a user can interact with a form during a query.
     /// </summary>
-    [Property(NdapiConstants.D2FP_INTERACTION_MODE)]
+    [Property(NdapiConstant.D2FP_INTERACTION_MODE)]
     public InteractionMode InteractionMode
     {
-        get => GetNumberProperty<InteractionMode>(NdapiConstants.D2FP_INTERACTION_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_INTERACTION_MODE, value);
+        get => GetNumberProperty<InteractionMode>(NdapiConstant.D2FP_INTERACTION_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_INTERACTION_MODE, value);
     }
 
     /// <summary>
     /// Gets or sets whether or not transactions in a session will be serializable.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ISOLATION_MODE)]
+    [Property(NdapiConstant.D2FP_ISOLATION_MODE)]
     public IsolationMode IsolationMode
     {
-        get => GetNumberProperty<IsolationMode>(NdapiConstants.D2FP_ISOLATION_MODE);
-        set => SetNumberProperty(NdapiConstants.D2FP_ISOLATION_MODE, value);
+        get => GetNumberProperty<IsolationMode>(NdapiConstant.D2FP_ISOLATION_MODE);
+        set => SetNumberProperty(NdapiConstant.D2FP_ISOLATION_MODE, value);
     }
 
     /// <summary>
     /// Gets or sets the language direction.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LANG_DIR)]
+    [Property(NdapiConstant.D2FP_LANG_DIR)]
     public LanguageDirection LanguageDirection
     {
-        get => GetNumberProperty<LanguageDirection>(NdapiConstants.D2FP_LANG_DIR);
-        set => SetNumberProperty(NdapiConstants.D2FP_LANG_DIR, value);
+        get => GetNumberProperty<LanguageDirection>(NdapiConstant.D2FP_LANG_DIR);
+        set => SetNumberProperty(NdapiConstant.D2FP_LANG_DIR, value);
     }
 
     /// <summary>
     /// Gets or sets the timeout to abort a query.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MAX_QRY_TIME)]
+    [Property(NdapiConstant.D2FP_MAX_QRY_TIME)]
     public int MaximumQueryTime
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_MAX_QRY_TIME);
-        set => SetNumberProperty(NdapiConstants.D2FP_MAX_QRY_TIME, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_MAX_QRY_TIME);
+        set => SetNumberProperty(NdapiConstant.D2FP_MAX_QRY_TIME, value);
     }
 
     /// <summary>
     /// Gets or sets the number of records fetched before the query is aborted.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MAX_RECS_FETCHED)]
+    [Property(NdapiConstant.D2FP_MAX_RECS_FETCHED)]
     public int MaxRecordsFetched
     {
-        get => GetNumberProperty(NdapiConstants.D2FP_MAX_RECS_FETCHED);
-        set => SetNumberProperty(NdapiConstants.D2FP_MAX_RECS_FETCHED, value);
+        get => GetNumberProperty(NdapiConstant.D2FP_MAX_RECS_FETCHED);
+        set => SetNumberProperty(NdapiConstant.D2FP_MAX_RECS_FETCHED, value);
     }
 
     /// <summary>
     /// Gets or sets the name of the menu module associated.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MNU_MOD)]
+    [Property(NdapiConstant.D2FP_MNU_MOD)]
     public string MenuModule
     {
-        get => GetStringProperty(NdapiConstants.D2FP_MNU_MOD);
-        set => SetStringProperty(NdapiConstants.D2FP_MNU_MOD, value);
+        get => GetStringProperty(NdapiConstant.D2FP_MNU_MOD);
+        set => SetStringProperty(NdapiConstant.D2FP_MNU_MOD, value);
     }
 
     /// <summary>
     /// Gets or sets the menu role.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MNU_ROLE)]
+    [Property(NdapiConstant.D2FP_MNU_ROLE)]
     public string MenuRole
     {
-        get => GetStringProperty(NdapiConstants.D2FP_MNU_ROLE);
-        set => SetStringProperty(NdapiConstants.D2FP_MNU_ROLE, value);
+        get => GetStringProperty(NdapiConstant.D2FP_MNU_ROLE);
+        set => SetStringProperty(NdapiConstant.D2FP_MNU_ROLE, value);
     }
 
 #if FORMS_6
         /// <summary>
         /// Gets or sets the menu source.
         /// </summary>
-        [Property(NdapiConstants.D2FP_MNU_SRC)]
+        [Property(NdapiConstant.D2FP_MNU_SRC)]
         public MenuSource MenuSource
         {
-            get => GetNumberProperty<MenuSource>(NdapiConstants.D2FP_MNU_SRC);
-            set => SetNumberProperty(NdapiConstants.D2FP_MNU_SRC, value);
+            get => GetNumberProperty<MenuSource>(NdapiConstant.D2FP_MNU_SRC);
+            set => SetNumberProperty(NdapiConstant.D2FP_MNU_SRC, value);
         }
 
         /// <summary>
         /// Gets or sets the menu style.
         /// </summary>
-        [Property(NdapiConstants.D2FP_MNU_STY)]
+        [Property(NdapiConstant.D2FP_MNU_STY)]
         public MenuStyle MenuStyle
         {
-            get => GetNumberProperty<MenuStyle>(NdapiConstants.D2FP_MNU_STY);
-            set => SetNumberProperty(NdapiConstants.D2FP_MNU_STY, value);
+            get => GetNumberProperty<MenuStyle>(NdapiConstant.D2FP_MNU_STY);
+            set => SetNumberProperty(NdapiConstant.D2FP_MNU_STY, value);
         }
 #endif
 
     /// <summary>
     /// Gets or sets the mouse navigation limit.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MOUSE_NAVIGATION_LMT)]
+    [Property(NdapiConstant.D2FP_MOUSE_NAVIGATION_LMT)]
     public MouseNavigationLimit MouseNavigationLimit
     {
-        get => GetNumberProperty<MouseNavigationLimit>(NdapiConstants.D2FP_MOUSE_NAVIGATION_LMT);
-        set => SetNumberProperty(NdapiConstants.D2FP_MOUSE_NAVIGATION_LMT, value);
+        get => GetNumberProperty<MouseNavigationLimit>(NdapiConstant.D2FP_MOUSE_NAVIGATION_LMT);
+        set => SetNumberProperty(NdapiConstant.D2FP_MOUSE_NAVIGATION_LMT, value);
     }
 
     /// <summary>
     /// Gets or sets the visual attribute used when an item is part of the current record.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REC_VAT_GRP_OBJ)]
+    [Property(NdapiConstant.D2FP_REC_VAT_GRP_OBJ)]
     public VisualAttribute CurrentRecordVisualAttribute
     {
-        get => GetObjectProperty<VisualAttribute>(NdapiConstants.D2FP_REC_VAT_GRP_OBJ);
-        set => SetObjectProperty(NdapiConstants.D2FP_REC_VAT_GRP_OBJ, value);
+        get => GetObjectProperty<VisualAttribute>(NdapiConstant.D2FP_REC_VAT_GRP_OBJ);
+        set => SetObjectProperty(NdapiConstant.D2FP_REC_VAT_GRP_OBJ, value);
     }
 
     /// <summary>
     /// Gets or sets the runtime compatibility.
     /// </summary>
-    [Property(NdapiConstants.D2FP_RUNTIME_COMP)]
+    [Property(NdapiConstant.D2FP_RUNTIME_COMP)]
     public RuntimeCompatibility RuntimeCompatibility
     {
-        get => GetNumberProperty<RuntimeCompatibility>(NdapiConstants.D2FP_RUNTIME_COMP);
-        set => SetNumberProperty(NdapiConstants.D2FP_RUNTIME_COMP, value);
+        get => GetNumberProperty<RuntimeCompatibility>(NdapiConstant.D2FP_RUNTIME_COMP);
+        set => SetNumberProperty(NdapiConstant.D2FP_RUNTIME_COMP, value);
     }
 
     /// <summary>
     /// Gets or sets the form title.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TITLE)]
+    [Property(NdapiConstant.D2FP_TITLE)]
     public string Title
     {
-        get => GetStringProperty(NdapiConstants.D2FP_TITLE);
-        set => SetStringProperty(NdapiConstants.D2FP_TITLE, value);
+        get => GetStringProperty(NdapiConstant.D2FP_TITLE);
+        set => SetStringProperty(NdapiConstant.D2FP_TITLE, value);
     }
 
     /// <summary>
     /// Gets or sets whether runtime should display 3D controls.
     /// </summary>
-    [Property(NdapiConstants.D2FP_USE_3D_CNTRLS)]
+    [Property(NdapiConstant.D2FP_USE_3D_CNTRLS)]
     public bool Use3DControls
     {
-        get => GetBooleanProperty(NdapiConstants.D2FP_USE_3D_CNTRLS);
-        set => SetBooleanProperty(NdapiConstants.D2FP_USE_3D_CNTRLS, value);
+        get => GetBooleanProperty(NdapiConstant.D2FP_USE_3D_CNTRLS);
+        set => SetBooleanProperty(NdapiConstant.D2FP_USE_3D_CNTRLS, value);
     }
 
     /// <summary>
     /// Gets or sets the maximum amount of data that an operator can enter in the form before runtime initiates validation.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VALIDATION_UNIT)]
+    [Property(NdapiConstant.D2FP_VALIDATION_UNIT)]
     public ValidationUnit ValidationUnit
     {
-        get => GetNumberProperty<ValidationUnit>(NdapiConstants.D2FP_VALIDATION_UNIT);
-        set => SetNumberProperty(NdapiConstants.D2FP_VALIDATION_UNIT, value);
+        get => GetNumberProperty<ValidationUnit>(NdapiConstant.D2FP_VALIDATION_UNIT);
+        set => SetNumberProperty(NdapiConstant.D2FP_VALIDATION_UNIT, value);
     }
 
     /// <summary>
     /// Gets or sets the canvas name of the vertical toolbar.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VERT_TLBR_CNV)]
+    [Property(NdapiConstant.D2FP_VERT_TLBR_CNV)]
     public string VerticalToolbarCanvas
     {
-        get => GetStringProperty(NdapiConstants.D2FP_VERT_TLBR_CNV);
-        set => SetStringProperty(NdapiConstants.D2FP_VERT_TLBR_CNV, value);
+        get => GetStringProperty(NdapiConstant.D2FP_VERT_TLBR_CNV);
+        set => SetStringProperty(NdapiConstant.D2FP_VERT_TLBR_CNV, value);
     }
 
     /// <summary>
     /// Gets all the alerts.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ALERT)]
+    [Property(NdapiConstant.D2FP_ALERT)]
     public NdapiObjectList<Alert> Alerts =>
-        GetObjectList<Alert>(NdapiConstants.D2FP_ALERT);
+        GetObjectList<Alert>(NdapiConstant.D2FP_ALERT);
 
     /// <summary>
     /// Gets all the attached libraries.
     /// </summary>
-    [Property(NdapiConstants.D2FP_ATT_LIB)]
+    [Property(NdapiConstant.D2FP_ATT_LIB)]
     public NdapiObjectList<AttachedLibrary> AttachedLibraries =>
-        GetObjectList<AttachedLibrary>(NdapiConstants.D2FP_ATT_LIB);
+        GetObjectList<AttachedLibrary>(NdapiConstant.D2FP_ATT_LIB);
 
     /// <summary>
     /// Gets all the canvases.
     /// </summary>
-    [Property(NdapiConstants.D2FP_CANVAS)]
+    [Property(NdapiConstant.D2FP_CANVAS)]
     public NdapiObjectList<Canvas> Canvases =>
-        GetObjectList<Canvas>(NdapiConstants.D2FP_CANVAS);
+        GetObjectList<Canvas>(NdapiConstant.D2FP_CANVAS);
 
     /// <summary>
     /// Gets all the blocks.
     /// </summary>
-    [Property(NdapiConstants.D2FP_BLOCK)]
+    [Property(NdapiConstant.D2FP_BLOCK)]
     public NdapiObjectList<Block> Blocks =>
-        GetObjectList<Block>(NdapiConstants.D2FP_BLOCK);
+        GetObjectList<Block>(NdapiConstant.D2FP_BLOCK);
 
     /// <summary>
     /// Gets all the editors.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EDITOR)]
+    [Property(NdapiConstant.D2FP_EDITOR)]
     public NdapiObjectList<Editor> Editors =>
-        GetObjectList<Editor>(NdapiConstants.D2FP_EDITOR);
+        GetObjectList<Editor>(NdapiConstant.D2FP_EDITOR);
 
 #if FORMS_12_OR_GREATER
     /// <summary>
     /// Gets all the events.
     /// </summary>
-    [Property(NdapiConstants.D2FP_EVENT)]
+    [Property(NdapiConstant.D2FP_EVENT)]
     public NdapiObjectList<Event> Events =>
-        GetObjectList<Event>(NdapiConstants.D2FP_EVENT);
+        GetObjectList<Event>(NdapiConstant.D2FP_EVENT);
 #endif
 
     /// <summary>
     /// Gets all the list of values.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LOV)]
+    [Property(NdapiConstant.D2FP_LOV)]
     public NdapiObjectList<LOV> LOVs =>
-        GetObjectList<LOV>(NdapiConstants.D2FP_LOV);
+        GetObjectList<LOV>(NdapiConstant.D2FP_LOV);
 
     /// <summary>
     /// Gets all the menus.
     /// </summary>
-    [Property(NdapiConstants.D2FP_MENU)]
+    [Property(NdapiConstant.D2FP_MENU)]
     public NdapiObjectList<Menu> Menus =>
-        GetObjectList<Menu>(NdapiConstants.D2FP_MENU);
+        GetObjectList<Menu>(NdapiConstant.D2FP_MENU);
 
     /// <summary>
     /// Gets all the object groups.
     /// </summary>
-    [Property(NdapiConstants.D2FP_OBJ_GRP)]
+    [Property(NdapiConstant.D2FP_OBJ_GRP)]
     public NdapiObjectList<ObjectGroup> ObjectGroups =>
-        GetObjectList<ObjectGroup>(NdapiConstants.D2FP_OBJ_GRP);
+        GetObjectList<ObjectGroup>(NdapiConstant.D2FP_OBJ_GRP);
 
     /// <summary>
     /// Gets all the form parameters.
     /// </summary>
-    [Property(NdapiConstants.D2FP_FORM_PARAM)]
+    [Property(NdapiConstant.D2FP_FORM_PARAM)]
     public NdapiObjectList<FormParameter> Parameters =>
-        GetObjectList<FormParameter>(NdapiConstants.D2FP_FORM_PARAM);
+        GetObjectList<FormParameter>(NdapiConstant.D2FP_FORM_PARAM);
 
     /// <summary>
     /// Gets all the program units.
     /// </summary>
-    [Property(NdapiConstants.D2FP_PROG_UNIT)]
+    [Property(NdapiConstant.D2FP_PROG_UNIT)]
     public NdapiObjectList<ProgramUnit> ProgramUnits =>
-        GetObjectList<ProgramUnit>(NdapiConstants.D2FP_PROG_UNIT);
+        GetObjectList<ProgramUnit>(NdapiConstant.D2FP_PROG_UNIT);
 
     /// <summary>
     /// Gets all the property classes.
     /// </summary>
-    [Property(NdapiConstants.D2FP_PROP_CLASS)]
+    [Property(NdapiConstant.D2FP_PROP_CLASS)]
     public NdapiObjectList<PropertyClass> PropertyClasses =>
-        GetObjectList<PropertyClass>(NdapiConstants.D2FP_PROP_CLASS);
+        GetObjectList<PropertyClass>(NdapiConstant.D2FP_PROP_CLASS);
 
     /// <summary>
     /// Gets all the record groups.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REC_GRP)]
+    [Property(NdapiConstant.D2FP_REC_GRP)]
     public NdapiObjectList<RecordGroup> RecordGroups =>
-        GetObjectList<RecordGroup>(NdapiConstants.D2FP_REC_GRP);
+        GetObjectList<RecordGroup>(NdapiConstant.D2FP_REC_GRP);
 
     /// <summary>
     /// Gets all the reports.
     /// </summary>
-    [Property(NdapiConstants.D2FP_REPORT)]
+    [Property(NdapiConstant.D2FP_REPORT)]
     public NdapiObjectList<Report> Reports =>
-        GetObjectList<Report>(NdapiConstants.D2FP_REPORT);
+        GetObjectList<Report>(NdapiConstant.D2FP_REPORT);
 
     /// <summary>
     /// Gets all the form-level triggers.
     /// </summary>
-    [Property(NdapiConstants.D2FP_TRIGGER)]
+    [Property(NdapiConstant.D2FP_TRIGGER)]
     public NdapiObjectList<Trigger> Triggers =>
-        GetObjectList<Trigger>(NdapiConstants.D2FP_TRIGGER);
+        GetObjectList<Trigger>(NdapiConstant.D2FP_TRIGGER);
 
     /// <summary>
     /// Gets all the visual attributes.
     /// </summary>
-    [Property(NdapiConstants.D2FP_VIS_ATTR)]
+    [Property(NdapiConstant.D2FP_VIS_ATTR)]
     public NdapiObjectList<VisualAttribute> VisualAttributes =>
-        GetObjectList<VisualAttribute>(NdapiConstants.D2FP_VIS_ATTR);
+        GetObjectList<VisualAttribute>(NdapiConstant.D2FP_VIS_ATTR);
 
     /// <summary>
     /// Gets all the windows.
     /// </summary>
-    [Property(NdapiConstants.D2FP_WINDOW)]
+    [Property(NdapiConstant.D2FP_WINDOW)]
     public NdapiObjectList<Window> Windows =>
-        GetObjectList<Window>(NdapiConstants.D2FP_WINDOW);
+        GetObjectList<Window>(NdapiConstant.D2FP_WINDOW);
 
     /// <summary>
     /// Load the form module into memory.

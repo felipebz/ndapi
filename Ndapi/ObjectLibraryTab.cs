@@ -33,21 +33,21 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
-    [Property(NdapiConstants.D2FP_COMMENT)]
+    [Property(NdapiConstant.D2FP_COMMENT)]
     public string Comment
     {
-        get => GetStringProperty(NdapiConstants.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstants.D2FP_COMMENT, value);
+        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
+        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
     }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
-    [Property(NdapiConstants.D2FP_LABEL)]
+    [Property(NdapiConstant.D2FP_LABEL)]
     public string Label
     {
-        get => GetStringProperty(NdapiConstants.D2FP_LABEL);
-        set => SetStringProperty(NdapiConstants.D2FP_LABEL, value);
+        get => GetStringProperty(NdapiConstant.D2FP_LABEL);
+        set => SetStringProperty(NdapiConstant.D2FP_LABEL, value);
     }
 
     /// <summary>
