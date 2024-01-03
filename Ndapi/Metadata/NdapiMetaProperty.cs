@@ -97,8 +97,12 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     private Dictionary<int, string> LoadAllowedValues()
     {
         return AcceptConstants ?
-            Enum.GetValuesAsUnderlyingType(RawPropertyType).Cast<int>().ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e)) :
-            new Dictionary<int, string>();
+            Enum.GetValuesAsUnderlyingType(RawPropertyType)
+                .Cast<int>()
+                .Where(ConstantConverter.HasConstant)
+                .Select(ConstantConverter.GetValue)
+                .ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e))
+            : new Dictionary<int, string>();
     }
 
     /// <summary>

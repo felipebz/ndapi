@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 using Ndapi.Core;
@@ -233,8 +234,11 @@ public abstract class NdapiObject : IDisposable
     /// <param name="value">Property value</param>
     public void SetNumberProperty<T>(NdapiConstant property, T value) where T : struct, Enum
     {
-        var realValueProperty = value;
-        var realValueId = ConstantConverter.GetValue(realValueProperty);
+        if (!ConstantConverter.HasConstant(value))
+        {
+            throw new ArgumentException($"The value {value} is not a valid value for property {property} in the current Oracle Forms version.");
+        }
+        var realValueId = ConstantConverter.GetValue(value);
 
         SetNumberProperty(property, realValueId);
     }

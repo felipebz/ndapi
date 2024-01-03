@@ -15,4 +15,16 @@ internal static partial class ConstantConverter
         var property = (NdapiConstant)propertyId;
         return (NdapiContext.ProductVersion == 60082201) ? Forms6Constants[property] : Forms12Constants[property];
     }
+
+    public static bool HasConstant(Enum propertyId)
+    {
+        var property = (NdapiConstant)propertyId;
+        return (NdapiContext.ProductVersion == 60082201) ? Forms6Constants.ContainsKey(property) : Forms12Constants.ContainsKey(property);
+    }
+
+    public static bool HasConstant(int propertyId)
+    {
+        var property = (NdapiConstant)propertyId;
+        return (NdapiContext.ProductVersion == 60082201) ? Forms6Constants.ContainsKey(property) : Forms12Constants.ContainsKey(property);
+    }
 }

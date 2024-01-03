@@ -87,8 +87,8 @@ public enum DataSourceColumnType
     Clob = NdapiConstant.D2FC_DSTY_CLOB,
     Bfile = NdapiConstant.D2FC_DSTY_BFILE,
 #if FORMS_6
-        Cfile = NdapiConstant.D2FC_DSTY_CFILE,
-        Unknown = NdapiConstant.D2FC_DSTY_UNKNOWN
+    Cfile = NdapiConstant.D2FC_DSTY_CFILE,
+    Unknown = NdapiConstant.D2FC_DSTY_UNKNOWN
 #endif
 }
 
@@ -432,10 +432,8 @@ public enum ItemDataType
     Money = NdapiConstant.D2FC_DATY_MONEY,
     Rmoney = NdapiConstant.D2FC_DATY_RMONEY,
     Objectref = NdapiConstant.D2FC_DATY_OBJECTREF,
-#if FORMS_6
-        Lob = NdapiConstant.D2FC_DATY_LOB,
-        File = NdapiConstant.D2FC_DATY_FILE
-#endif
+    Lob = NdapiConstant.D2FC_DATY_LOB,
+    File = NdapiConstant.D2FC_DATY_FILE
 }
 
 public enum ImageFormat
@@ -448,9 +446,7 @@ public enum ImageFormat
     Ras = NdapiConstant.D2FC_IMFM_RAS,
     Tiff = NdapiConstant.D2FC_IMFM_TIFF,
     Tpic = NdapiConstant.D2FC_IMFM_TPIC,
-#if FORMS_12_OR_GREATER
     Native = NdapiConstant.D2FC_IMFM_NATIVE
-#endif
 }
 
 public enum DisplayQuality
@@ -464,9 +460,7 @@ public enum ImageSizingStyle
 {
     Crop = NdapiConstant.D2FC_SIST_CROP,
     Adjust = NdapiConstant.D2FC_SIST_ADJUST,
-#if FORMS_12_OR_GREATER
     Fill = NdapiConstant.D2FC_SIST_FILL
-#endif
 }
 
 public enum JoinStyle
@@ -528,11 +522,9 @@ public enum MenuCommandType
     Null = NdapiConstant.D2FC_COTY_NULL,
     Menu = NdapiConstant.D2FC_COTY_MENU,
     Plsql = NdapiConstant.D2FC_COTY_PLSQL,
-#if FORMS_6
-        Plus = NdapiConstant.D2FC_COTY_PLUS,
-        Form = NdapiConstant.D2FC_COTY_FORM,
-        Macro = NdapiConstant.D2FC_COTY_MACRO
-#endif
+    Plus = NdapiConstant.D2FC_COTY_PLUS,
+    Form = NdapiConstant.D2FC_COTY_FORM,
+    Macro = NdapiConstant.D2FC_COTY_MACRO
 }
 
 public enum DeleteRecordBehavior
@@ -565,19 +557,17 @@ public enum MouseNavigationLimit
     Item = NdapiConstant.D2FC_MONA_ITEM
 }
 
-#if FORMS_6
-    public enum MenuStyle
-    {
-        Pulldown = NdapiConstant.D2FC_MNST_PULLDOWN,
-        Fullscreen = NdapiConstant.D2FC_MNST_FULLSCREEN
-    }
+public enum MenuStyle
+{
+    Pulldown = NdapiConstant.D2FC_MNST_PULLDOWN,
+    Fullscreen = NdapiConstant.D2FC_MNST_FULLSCREEN
+}
 
-    public enum MenuSource
-    {
-        File = NdapiConstant.D2FC_MNSR_FILE,
-        Database = NdapiConstant.D2FC_MNSR_DB
-    }
-#endif
+public enum MenuSource
+{
+    File = NdapiConstant.D2FC_MNSR_FILE,
+    Database = NdapiConstant.D2FC_MNSR_DB
+}
 
 public enum MenuItemType
 {
@@ -595,13 +585,11 @@ public enum NavigationStyle
     ChangeBlock = NdapiConstant.D2FC_NAST_CHANGEBLOCK
 }
 
-#if FORMS_6
-    public enum ModuleStorageType
-    {
-        Filesystem = NdapiConstant.D2FC_PAMO_FILESYSTEM,
-        Database = NdapiConstant.D2FC_PAMO_DATABASE
-    }
-#endif
+public enum ModuleStorageType
+{
+    Filesystem = NdapiConstant.D2FC_PAMO_FILESYSTEM,
+    Database = NdapiConstant.D2FC_PAMO_DATABASE
+}
 
 public enum RecordOrientation
 {
@@ -727,13 +715,11 @@ public enum TriggerStyle
     V2 = NdapiConstant.D2FC_TRST_V2
 }
 
-#if FORMS_6
-    public enum TriggerType
-    {
-        Builtin = NdapiConstant.D2FC_TRTY_BUILTIN,
-        Usernamed = NdapiConstant.D2FC_TRTY_USERNAMED
-    }
-#endif
+public enum TriggerType
+{
+    Builtin = NdapiConstant.D2FC_TRTY_BUILTIN,
+    Usernamed = NdapiConstant.D2FC_TRTY_USERNAMED
+}
 
 public enum VerticalOrigin
 {
@@ -796,7 +782,6 @@ public enum PropertyType
     Object = NdapiConstant.D2FP_TYP_OBJECT
 }
 
-#if FORMS_12_OR_GREATER
 public enum CursorStyle
 {
     Unspecified = NdapiConstant.D2FC_CURSOR_STYLE_UNSPECIFIED,
@@ -848,4 +833,3 @@ public enum EventViewMode
     Locked = NdapiConstant.D2FC_EVENT_VIEW_MODE_LOCKED,
     Remove = NdapiConstant.D2FC_EVENT_VIEW_MODE_REMOVE
 }
-#endif
