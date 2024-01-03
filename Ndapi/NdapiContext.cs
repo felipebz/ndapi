@@ -23,7 +23,8 @@ public sealed class NdapiContext : IDisposable
 
     private static readonly List<NdapiModule> _modules = [];
     private static ContextSafeHandle _context;
-    private static string formsLib;
+    private static string _formsLib;
+    private static BuilderVersion _builderVersion;
 
     /// <summary>
     /// If true, the module loading will not fail when a required library module is not in the 
@@ -44,7 +45,7 @@ public sealed class NdapiContext : IDisposable
 
     static NdapiContext()
     {
-        formsLib = NativeMethods.formsLib;
+        _formsLib = NativeMethods.formsLib;
         if (!Environment.Is64BitProcess)
         {
             NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
@@ -54,8 +55,8 @@ public sealed class NdapiContext : IDisposable
                     return IntPtr.Zero;
                 }
 
-                formsLib = NativeMethods.forms6Lib;
-                return NativeLibrary.Load(formsLib, assembly, path);
+                _formsLib = NativeMethods.forms6Lib;
+                return NativeLibrary.Load(_formsLib, assembly, path);
             }));
         }
     }
@@ -82,9 +83,10 @@ public sealed class NdapiContext : IDisposable
         }
         catch (DllNotFoundException)
         {
-            throw new NdapiException($"Could not found the {formsLib} from Oracle Forms installation. " +
+            throw new NdapiException($"Could not found the {_formsLib} from Oracle Forms installation. " +
                                      "Please check if this version of Oracle Forms is installed.");
         }
+
         Ensure.Success(status);
         return _context;
     }
@@ -108,14 +110,20 @@ public sealed class NdapiContext : IDisposable
     /// Gets the version of the Forms API currently running. The format of the version number is a number 
     /// of the form 12334455, that corresponds to version 1.2.33.44.55.
     /// </summary>
-    public static int ProductVersion
+    public static BuilderVersion BuilderVersion
     {
         get
         {
+            if (_builderVersion != null)
+            {
+                return _builderVersion;
+            }
+
             var status = NativeMethods.d2fctxbv_BuilderVersion(GetContext(), out var version);
             Ensure.Success(status);
 
-            return version;
+            _builderVersion = new BuilderVersion(version);
+            return _builderVersion;
         }
     }
 
@@ -167,6 +175,7 @@ public sealed class NdapiContext : IDisposable
 
         _context.Dispose();
         _context = null;
+        _builderVersion = null;
     }
 
     /// <summary>
