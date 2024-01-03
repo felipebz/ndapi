@@ -10,11 +10,8 @@ namespace Ndapi.Core;
 
 internal static partial class NativeMethods
 {
-#if FORMS_6
-    internal const string formsLib = "ifd2f60.dll";
-#else
-    internal const string formsLib = "frmd2f.dll";
-#endif
+    internal const string forms6Lib = "ifd2f60";
+    internal const string formsLib = "frmd2f";
 
     #region Context methods
 
@@ -58,9 +55,6 @@ internal static partial class NativeMethods
     public static partial D2fErrorCode d2falbat_Attach(ContextSafeHandle pd2fctx,
         ObjectSafeHandle parent,
         out ObjectSafeHandle ppd2falb,
-#if FORMS_6
-        [MarshalAs(UnmanagedType.I1)] bool db,
-#endif
         [MarshalAs(UnmanagedType.LPStr)] string name);
 
     [LibraryImport(formsLib)]
@@ -119,21 +113,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2ffmdld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2ffmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string formname);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2ffmdsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2ffmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string formname);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -147,9 +133,6 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2ffmdfv_FileVersion(ContextSafeHandle pd2fctx,
         [MarshalAs(UnmanagedType.LPStr)] string formname,
-#if FORMS_6
-        [MarshalAs(UnmanagedType.I1)] bool db,
-#endif
         out int version);
 
     #endregion
@@ -160,21 +143,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2folbld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2folb,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string olibname);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2folbsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2folb,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string olibname);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -236,9 +211,6 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2folbfv_FileVersion(ContextSafeHandle pd2fctx,
         [MarshalAs(UnmanagedType.LPStr)] string olibname,
-#if FORMS_6
-        [MarshalAs(UnmanagedType.I1)] bool db,
-#endif
         out int version);
 
     #endregion
@@ -249,21 +221,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2fmmdld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2fmmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string formname);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2fmmdsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2fmmd,
-        [MarshalAs(UnmanagedType.LPStr)] string menuname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string menuname);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -277,9 +241,6 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2fmmdfv_FileVersion(ContextSafeHandle pd2fctx,
         [MarshalAs(UnmanagedType.LPStr)] string menuname,
-#if FORMS_6
-        [MarshalAs(UnmanagedType.I1)] bool db,
-#endif
         out int version);
 
     [LibraryImport(formsLib)]
@@ -347,11 +308,7 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial D2fErrorCode d2flibld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2flib,
-        [MarshalAs(UnmanagedType.LPStr)] string libname
-#if FORMS_6
-        , [MarshalAs(UnmanagedType.I1)] bool db
-#endif
-    );
+        [MarshalAs(UnmanagedType.LPStr)] string libname);
 
     #endregion
 

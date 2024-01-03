@@ -23,6 +23,7 @@ public sealed class NdapiContext : IDisposable
 
     private static readonly List<NdapiModule> _modules = [];
     private static ContextSafeHandle _context;
+    private static string formsLib;
 
     /// <summary>
     /// If true, the module loading will not fail when a required library module is not in the 
@@ -40,6 +41,24 @@ public sealed class NdapiContext : IDisposable
     /// Gets whether the context is connected to database or not.
     /// </summary>
     public static bool IsConnected { get; private set; }
+
+    static NdapiContext()
+    {
+        formsLib = NativeMethods.formsLib;
+        if (!Environment.Is64BitProcess)
+        {
+            NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
+            {
+                if (name != NativeMethods.formsLib)
+                {
+                    return IntPtr.Zero;
+                }
+
+                formsLib = NativeMethods.forms6Lib;
+                return NativeLibrary.Load(formsLib, assembly, path);
+            }));
+        }
+    }
 
     internal static ContextSafeHandle GetContext()
     {
@@ -63,7 +82,7 @@ public sealed class NdapiContext : IDisposable
         }
         catch (DllNotFoundException)
         {
-            throw new NdapiException($"Could not found the {NativeMethods.formsLib} from Oracle Forms installation. " +
+            throw new NdapiException($"Could not found the {formsLib} from Oracle Forms installation. " +
                                      "Please check if this version of Oracle Forms is installed.");
         }
         Ensure.Success(status);
