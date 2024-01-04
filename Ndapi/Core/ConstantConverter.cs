@@ -16,7 +16,7 @@ internal static partial class ConstantConverter
         return (NdapiContext.BuilderVersion.MajorVersion == 6) ? Forms6Constants[property] : Forms12Constants[property];
     }
 
-    public static bool HasConstant(Enum propertyId)
+    public static bool IsPropertySupportedByBuilderVersion(Enum propertyId)
     {
         var property = (NdapiConstant)propertyId;
         return (NdapiContext.BuilderVersion.MajorVersion == 6)
@@ -24,7 +24,7 @@ internal static partial class ConstantConverter
             : Forms12Constants.ContainsKey(property);
     }
 
-    public static bool HasConstant(int propertyId)
+    public static bool IsPropertySupportedByBuilderVersion(int propertyId)
     {
         var property = (NdapiConstant)propertyId;
         return (NdapiContext.BuilderVersion.MajorVersion == 6)

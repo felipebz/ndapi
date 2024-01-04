@@ -82,7 +82,8 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         _description = new Lazy<string>(() => GetName(PropertyId));
     }
 
-    internal static NdapiMetaProperty GetOrCreate(NdapiConstant propertyId, string name, bool allowGet, bool allowSet, Type propertyType)
+    internal static NdapiMetaProperty GetOrCreate(NdapiConstant propertyId, string name, bool allowGet, bool allowSet,
+        Type propertyType)
     {
         if (_cache.TryGetValue(propertyId, out var metaProperty))
         {
@@ -96,10 +97,10 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
 
     private Dictionary<int, string> LoadAllowedValues()
     {
-        return AcceptConstants ?
-            Enum.GetValuesAsUnderlyingType(RawPropertyType)
+        return AcceptConstants
+            ? Enum.GetValuesAsUnderlyingType(RawPropertyType)
                 .Cast<int>()
-                .Where(ConstantConverter.HasConstant)
+                .Where(ConstantConverter.IsPropertySupportedByBuilderVersion)
                 .Select(ConstantConverter.GetValue)
                 .ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e))
             : new Dictionary<int, string>();
@@ -117,7 +118,8 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     /// </summary>
     /// <param name="property">Property id (see <see cref="NdapiConstant"/>).</param>
     /// <returns>The property type.</returns>
-    public static PropertyType GetPropertyType(NdapiConstant property) => NativeMethods.d2fprgt_GetType(NdapiContext.GetContext(), ConstantConverter.GetValue(property));
+    public static PropertyType GetPropertyType(NdapiConstant property) =>
+        NativeMethods.d2fprgt_GetType(NdapiContext.GetContext(), ConstantConverter.GetValue(property));
 
     /// <summary>
     /// Gets the property name.
@@ -126,7 +128,8 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     /// <returns>The property name.</returns>
     public static string GetName(NdapiConstant property)
     {
-        var status = NativeMethods.d2fprgn_GetName(NdapiContext.GetContext(), ConstantConverter.GetValue(property), out var name);
+        var status = NativeMethods.d2fprgn_GetName(NdapiContext.GetContext(), ConstantConverter.GetValue(property),
+            out var name);
         Ensure.Success(status);
         return name;
     }
@@ -139,7 +142,8 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     /// <returns>The value name.</returns>
     public static string GetValueName(NdapiConstant property, int value)
     {
-        var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.GetContext(), ConstantConverter.GetValue(property), value, out var name);
+        var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.GetContext(),
+            ConstantConverter.GetValue(property), value, out var name);
         Ensure.Success(status);
         return name;
     }
