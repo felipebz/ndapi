@@ -365,9 +365,9 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>A boolean indicating whether item has the property.</returns>
-    public bool HasProperty(int property)
+    public bool HasProperty(NdapiConstant property)
     {
-        var status = NativeMethods.d2fobhp_HasProp(NdapiContext.GetContext(), _handle, property);
+        var status = NativeMethods.d2fobhp_HasProp(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
         Ensure.BooleanResult(status);
 
         return status == D2fErrorCode.D2FS_YES;
@@ -377,15 +377,15 @@ public abstract class NdapiObject : IDisposable
     /// Inherits a property from the parent.
     /// </summary>
     /// <param name="property"></param>
-    public void InheritProperty(int property)
+    public void InheritProperty(NdapiConstant property)
     {
-        var status = NativeMethods.d2fobip_InheritProp(NdapiContext.GetContext(), _handle, property);
+        var status = NativeMethods.d2fobip_InheritProp(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
         Ensure.Success(status);
     }
 
-    internal D2fErrorCode IsPropertyDefaulted(int property)
+    internal D2fErrorCode IsPropertyDefaulted(NdapiConstant property)
     {
-        return NativeMethods.d2fobid_IspropDefault(NdapiContext.GetContext(), _handle, property);
+        return NativeMethods.d2fobid_IspropDefault(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
     }
 
     /// <summary>
@@ -393,7 +393,7 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>A boolean indicating whether property has its default value. If the object doesn't have the property, returns false.</returns>
-    public bool HasDefaultedProperty(int property)
+    public bool HasDefaultedProperty(NdapiConstant property)
     {
         var status = IsPropertyDefaulted(property);
         if (status == D2fErrorCode.D2FS_DONTHAVE)
@@ -410,7 +410,7 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>A boolean indicating whether property value was overriden. If the object doesn't have the property, returns false.</returns>
-    public bool HasOverriddenProperty(int property)
+    public bool HasOverriddenProperty(NdapiConstant property)
     {
         var status = IsPropertyDefaulted(property);
         if (status == D2fErrorCode.D2FS_DONTHAVE)
@@ -427,9 +427,9 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>A boolean indicating whether property was inherited.</returns>
-    public bool HasInheritedProperty(int property)
+    public bool HasInheritedProperty(NdapiConstant property)
     {
-        var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.GetContext(), _handle, property);
+        var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
         Ensure.BooleanResult(status);
 
         return status == D2fErrorCode.D2FS_YES;
@@ -440,7 +440,7 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>The property state.</returns>
-    public PropertyState GetPropertyState(int property)
+    public PropertyState GetPropertyState(NdapiConstant property)
     {
         PropertyState state;
         if (HasInheritedProperty(property))
