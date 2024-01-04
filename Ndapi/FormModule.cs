@@ -41,17 +41,15 @@ public class FormModule : NdapiModule
         set => SetStringProperty(NdapiConstant.D2FP_CONSOLE_WIN, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets whether runtime should defer enforcement of the Required item attribute until the record is validated.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_DEFER_REQ_ENF)]
-        public bool DeferRequiredEnforcement
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_DEFER_REQ_ENF);
-            set => SetBooleanProperty(NdapiConstant.D2FP_DEFER_REQ_ENF, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets whether runtime should defer enforcement of the Required item attribute until the record is validated.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DEFER_REQ_ENF)]
+    public bool DeferRequiredEnforcement
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_DEFER_REQ_ENF);
+        set => SetBooleanProperty(NdapiConstant.D2FP_DEFER_REQ_ENF, value);
+    }
 
     /// <summary>
     /// Gets or sets the first navigation block.
@@ -163,27 +161,25 @@ public class FormModule : NdapiModule
         set => SetStringProperty(NdapiConstant.D2FP_MNU_ROLE, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the menu source.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_MNU_SRC)]
-        public MenuSource MenuSource
-        {
-            get => GetNumberProperty<MenuSource>(NdapiConstant.D2FP_MNU_SRC);
-            set => SetNumberProperty(NdapiConstant.D2FP_MNU_SRC, value);
-        }
+    /// <summary>
+    /// Gets or sets the menu source.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MNU_SRC)]
+    public MenuSource MenuSource
+    {
+        get => GetNumberProperty<MenuSource>(NdapiConstant.D2FP_MNU_SRC);
+        set => SetNumberProperty(NdapiConstant.D2FP_MNU_SRC, value);
+    }
 
-        /// <summary>
-        /// Gets or sets the menu style.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_MNU_STY)]
-        public MenuStyle MenuStyle
-        {
-            get => GetNumberProperty<MenuStyle>(NdapiConstant.D2FP_MNU_STY);
-            set => SetNumberProperty(NdapiConstant.D2FP_MNU_STY, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the menu style.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MNU_STY)]
+    public MenuStyle MenuStyle
+    {
+        get => GetNumberProperty<MenuStyle>(NdapiConstant.D2FP_MNU_STY);
+        set => SetNumberProperty(NdapiConstant.D2FP_MNU_STY, value);
+    }
 
     /// <summary>
     /// Gets or sets the mouse navigation limit.
@@ -290,14 +286,12 @@ public class FormModule : NdapiModule
     public NdapiObjectList<Editor> Editors =>
         GetObjectList<Editor>(NdapiConstant.D2FP_EDITOR);
 
-#if FORMS_12_OR_GREATER
     /// <summary>
     /// Gets all the events.
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT)]
     public NdapiObjectList<Event> Events =>
         GetObjectList<Event>(NdapiConstant.D2FP_EVENT);
-#endif
 
     /// <summary>
     /// Gets all the list of values.
@@ -383,11 +377,10 @@ public class FormModule : NdapiModule
     /// <returns>Loaded form module reference.</returns>
     public new static FormModule Open(string filename)
     {
-#if FORMS_6
-            var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out var form, filename, false);
-#else
-        var status = NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out var form, filename);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out var form, filename, false)
+            : NativeMethods.d2ffmdld_Load(NdapiContext.GetContext(), out form, filename);
+
         Ensure.Success(status);
 
         return new FormModule(form);
@@ -417,11 +410,10 @@ public class FormModule : NdapiModule
     /// <param name="saveInDatabase">Should save module in database.</param>
     public override void Save(string path, bool saveInDatabase)
     {
-#if FORMS_6
-            var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
-#else
-        var status = NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase)
+            : NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path);
+
         Ensure.Success(status);
     }
 
@@ -451,11 +443,10 @@ public class FormModule : NdapiModule
     /// <returns>The Form Builder version</returns>
     public static int GetFileVersion(string file, bool loadFromDb = false)
     {
-#if FORMS_6
-            var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);
-#else
-        var status = NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, out var version);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version)
+            : NativeMethods.d2ffmdfv_FileVersion(NdapiContext.GetContext(), file, out version);
+
         Ensure.Success(status);
         return version;
     }
@@ -572,12 +563,10 @@ public class FormModule : NdapiModule
     /// <returns>The child object.</returns>
     public Window CreateWindow(string name) => new(this, name);
 
-#if FORMS_12_OR_GREATER
     /// <summary>
     /// Creates an event.
     /// </summary>
     /// <param name="name">Name of the event.</param>
     /// <returns>The child object.</returns>
     public Event CreateEvent(string name) => new(this, name);
-#endif
 }

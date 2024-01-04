@@ -86,10 +86,8 @@ public enum DataSourceColumnType
     Blob = NdapiConstant.D2FC_DSTY_BLOB,
     Clob = NdapiConstant.D2FC_DSTY_CLOB,
     Bfile = NdapiConstant.D2FC_DSTY_BFILE,
-#if FORMS_6
     Cfile = NdapiConstant.D2FC_DSTY_CFILE,
     Unknown = NdapiConstant.D2FC_DSTY_UNKNOWN
-#endif
 }
 
 public enum CommunicationMode

@@ -1,8 +1,8 @@
-﻿#if FORMS_6
+﻿using System.Collections.Generic;
+
 using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
-using System.Collections.Generic;
 
 namespace Ndapi
 {
@@ -158,4 +158,3 @@ namespace Ndapi
         }
     }
 }
-#endif

@@ -62,12 +62,10 @@ public enum ObjectType
     /// </summary>
     Editor = NdapiConstant.D2FFO_EDITOR,
 
-#if FORMS_12_OR_GREATER
     /// <summary>
     /// Event.
     /// </summary>
     Event = NdapiConstant.D2FFO_EVENT,
-#endif
 
     /// <summary>
     /// Font declaration.
@@ -129,12 +127,10 @@ public enum ObjectType
     /// </summary>
     MenuModule = NdapiConstant.D2FFO_MENU_MODULE,
 
-#if FORMS_6
-        /// <summary>
-        /// Menu module parameter.
-        /// </summary>
-        MenuParameter = NdapiConstant.D2FFO_MENU_PARAM,
-#endif
+    /// <summary>
+    /// Menu module parameter.
+    /// </summary>
+    MenuParameter = NdapiConstant.D2FFO_MENU_PARAM,
 
     /// <summary>
     /// Object group.

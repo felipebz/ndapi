@@ -16,11 +16,10 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// <param name="location">Library location.</param>
     public AttachedLibrary(FormModule module, string location)
     {
-#if FORMS_6
-            var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location);
-#else
-        var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location)
+            : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
+
         Ensure.Success(status);
     }
 
@@ -31,11 +30,10 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// <param name="location">Library location.</param>
     public AttachedLibrary(MenuModule module, string location)
     {
-#if FORMS_6
-            var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location);
-#else
-        var status = NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location)
+            : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
+
         Ensure.Success(status);
     }
 

@@ -297,17 +297,15 @@ public class Canvas : NdapiObject<Canvas>
         set => SetNumberProperty(NdapiConstant.D2FP_VPRT_Y_POS_ON_CNV, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
-            set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the white-on-black property.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
+    public bool IsWhiteOnBlack
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
+    }
 
     /// <summary>
     /// Gets or sets the width.
@@ -339,7 +337,6 @@ public class Canvas : NdapiObject<Canvas>
         set => SetStringProperty(NdapiConstant.D2FP_WND_NAM, value);
     }
 
-#if FORMS_12_OR_GREATER
     /// <summary>
     /// Gets or sets the side of the canvas from where the gradient color begins
     /// or that there should be no gradient color used.
@@ -350,7 +347,6 @@ public class Canvas : NdapiObject<Canvas>
         get => GetNumberProperty<GradientStartSide>(NdapiConstant.D2FP_GRADIENT_START);
         set => SetNumberProperty(NdapiConstant.D2FP_GRADIENT_START, value);
     }
-#endif
 
     /// <summary>
     /// Gets all the graphics objects attached to the canvas.

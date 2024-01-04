@@ -54,11 +54,10 @@ public class ObjectLibrary : NdapiModule
     /// <returns>Loaded library reference.</returns>
     public new static ObjectLibrary Open(string filename)
     {
-#if FORMS_6
-            var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out var form, filename, false);
-#else
-        var status = NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out ObjectSafeHandle form, filename);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out var form, filename, false)
+            : NativeMethods.d2folbld_Load(NdapiContext.GetContext(), out form, filename);
+
         Ensure.Success(status);
 
         return new ObjectLibrary(form);
@@ -88,11 +87,10 @@ public class ObjectLibrary : NdapiModule
     /// <param name="saveInDatabase">Should save library in database.</param>
     public override void Save(string path, bool saveInDatabase)
     {
-#if FORMS_6
-            var status = NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
-#else
-        var status = NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase)
+            : NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path);
+
         Ensure.Success(status);
     }
 
@@ -120,11 +118,10 @@ public class ObjectLibrary : NdapiModule
     /// <returns>The Form Builder version</returns>
     public static int GetFileVersion(string file, bool loadFromDb = false)
     {
-#if FORMS_6
-            var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);
-#else
-        var status = NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, out int version);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version)
+            : NativeMethods.d2folbfv_FileVersion(NdapiContext.GetContext(), file, out version);
+
         Ensure.Success(status);
         return version;
     }
@@ -187,7 +184,8 @@ public class ObjectLibrary : NdapiModule
     /// <returns>Description of object.</returns>
     public string GetObjectDescription(NdapiObject obj)
     {
-        var status = NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out var description);
+        var status =
+            NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out var description);
         Ensure.Success(status);
         return description;
     }
@@ -199,7 +197,8 @@ public class ObjectLibrary : NdapiModule
     /// <returns>Name of tab the object is on.</returns>
     public string GetObjectTabName(NdapiObject obj)
     {
-        var status = NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out var tabName);
+        var status =
+            NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out var tabName);
         Ensure.Success(status);
         return tabName;
     }

@@ -143,17 +143,15 @@ public class MenuItem : NdapiObject<MenuItem>
         set => SetStringProperty(NdapiConstant.D2FP_HINT, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the help text.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_HLP_DESCRIPTION)]
-        public string Help
-        {
-            get => GetStringProperty(NdapiConstant.D2FP_HLP_DESCRIPTION);
-            set => SetStringProperty(NdapiConstant.D2FP_HLP_DESCRIPTION, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the help text.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HLP_DESCRIPTION)]
+    public string Help
+    {
+        get => GetStringProperty(NdapiConstant.D2FP_HLP_DESCRIPTION);
+        set => SetStringProperty(NdapiConstant.D2FP_HLP_DESCRIPTION, value);
+    }
 
     /// <summary>
     /// Gets or sets the icon filename.

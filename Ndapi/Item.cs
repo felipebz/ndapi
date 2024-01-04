@@ -1202,17 +1202,15 @@ public class Item : NdapiObject<Item>
         set => SetBooleanProperty(NdapiConstant.D2FP_SHOW_HORZ_SCRLBR, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets whether runtime should display a color palette.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_SHOW_PALETTE)]
-        public bool ShowPalette
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_SHOW_PALETTE);
-            set => SetBooleanProperty(NdapiConstant.D2FP_SHOW_PALETTE, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets whether runtime should display a color palette.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SHOW_PALETTE)]
+    public bool ShowPalette
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_SHOW_PALETTE);
+        set => SetBooleanProperty(NdapiConstant.D2FP_SHOW_PALETTE, value);
+    }
 
     /// <summary>
     /// Gets or sets whether runtime should display a play button.
@@ -1474,17 +1472,15 @@ public class Item : NdapiObject<Item>
         set => SetBooleanProperty(NdapiConstant.D2FP_VISIBLE, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
-            set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the white-on-black property.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
+    public bool IsWhiteOnBlack
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
+    }
 
     /// <summary>
     /// Gets or sets the width.
@@ -1526,7 +1522,6 @@ public class Item : NdapiObject<Item>
         set => SetNumberProperty(NdapiConstant.D2FP_Y_POS, value);
     }
 
-#if FORMS_12_OR_GREATER
     /// <summary>
     /// Gets or sets the mouse cursor style that is displayed while hovering over that object.
     /// </summary>
@@ -1547,7 +1542,6 @@ public class Item : NdapiObject<Item>
         get => GetNumberProperty(NdapiConstant.D2FP_ROW_BANDING_FREQ);
         set => SetNumberProperty(NdapiConstant.D2FP_ROW_BANDING_FREQ, value);
     }
-#endif
 
     /// <summary>
     /// Gets the radio button items.
@@ -1613,7 +1607,9 @@ public class Item : NdapiObject<Item>
     /// <returns>The label and the value of the list element.</returns>
     public KeyValuePair<string, string> GetListElementAt(int index)
     {
-        var status = NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), _handle, index, out var label, out var value);
+        var status =
+            NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), _handle, index, out var label,
+                out var value);
         Ensure.Success(status);
         return new KeyValuePair<string, string>(label, value);
     }

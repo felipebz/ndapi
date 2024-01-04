@@ -19,7 +19,8 @@ public class LibraryModule : NdapiModule
     /// Gets all the attached libraries.
     /// </summary>
     [Property(NdapiConstant.D2FP_ATT_LIB)]
-    public NdapiObjectList<AttachedLibrary> AttachedLibraries => GetObjectList<AttachedLibrary>(NdapiConstant.D2FP_ATT_LIB);
+    public NdapiObjectList<AttachedLibrary> AttachedLibraries =>
+        GetObjectList<AttachedLibrary>(NdapiConstant.D2FP_ATT_LIB);
 
     /// <summary>
     /// Gets the library location.
@@ -31,7 +32,8 @@ public class LibraryModule : NdapiModule
     /// Gets all the program units.
     /// </summary>
     [Property(NdapiConstant.D2FP_LIB_PROG_UNIT)]
-    public NdapiObjectList<LibraryProgramUnit> ProgramUnits => GetObjectList<LibraryProgramUnit>(NdapiConstant.D2FP_LIB_PROG_UNIT);
+    public NdapiObjectList<LibraryProgramUnit> ProgramUnits =>
+        GetObjectList<LibraryProgramUnit>(NdapiConstant.D2FP_LIB_PROG_UNIT);
 
     /// <summary>
     /// Gets the source type.
@@ -46,11 +48,10 @@ public class LibraryModule : NdapiModule
     /// <returns>Loaded library reference.</returns>
     public new static LibraryModule Open(string filename)
     {
-#if FORMS_6
-            var status = NativeMethods.d2flibld_Load(NdapiContext.GetContext(), out var library, filename, false);
-#else
-        var status = NativeMethods.d2flibld_Load(NdapiContext.GetContext(), out var library, filename);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2flibld_Load(NdapiContext.GetContext(), out var library, filename, false)
+            : NativeMethods.d2flibld_Load(NdapiContext.GetContext(), out library, filename);
+
         Ensure.Success(status);
 
         return new LibraryModule(library);

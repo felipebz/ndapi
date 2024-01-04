@@ -95,7 +95,6 @@ public abstract class NdapiObject : IDisposable
         set => SetNumberProperty(NdapiConstant.D2FP_PAR_MODTYP, value);
     }
 
-#if FORMS_6
     /// <summary>
     /// Gets or sets the parent module storage.
     /// </summary>
@@ -105,7 +104,6 @@ public abstract class NdapiObject : IDisposable
         get => GetNumberProperty<ModuleStorageType>(NdapiConstant.D2FP_PAR_MODSTR);
         set => SetNumberProperty(NdapiConstant.D2FP_PAR_MODSTR, value);
     }
-#endif
 
     /// <summary>
     /// Gets or sets the parent filename path.
@@ -313,7 +311,8 @@ public abstract class NdapiObject : IDisposable
     /// <param name="property">Property id.</param>
     /// <returns>List of child objects.</returns>
     public NdapiObjectList<T> GetObjectList<
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(NdapiConstant property)
+        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
+    T>(NdapiConstant property)
         where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);

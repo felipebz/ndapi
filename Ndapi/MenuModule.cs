@@ -107,14 +107,12 @@ public class MenuModule : NdapiModule
     public NdapiObjectList<Menu> Menus =>
         GetObjectList<Menu>(NdapiConstant.D2FP_MENU);
 
-#if FORMS_6
-        /// <summary>
-        /// Gets all the menu parameters.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_MNU_PARAM)]
-        public NdapiObjectList<MenuParameter> Parameters =>
-            GetObjectList<MenuParameter>(NdapiConstant.D2FP_MNU_PARAM);
-#endif
+    /// <summary>
+    /// Gets all the menu parameters.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MNU_PARAM)]
+    public NdapiObjectList<MenuParameter> Parameters =>
+        GetObjectList<MenuParameter>(NdapiConstant.D2FP_MNU_PARAM);
 
     /// <summary>
     /// Gets all the object groups.
@@ -172,11 +170,10 @@ public class MenuModule : NdapiModule
     /// <returns>Loaded menu module reference.</returns>
     public new static MenuModule Open(string filename)
     {
-#if FORMS_6
-            var status = NativeMethods.d2fmmdld_Load(NdapiContext.GetContext(), out var menu, filename, false);
-#else
-        var status = NativeMethods.d2fmmdld_Load(NdapiContext.GetContext(), out var menu, filename);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2fmmdld_Load(NdapiContext.GetContext(), out var menu, filename, false)
+            : NativeMethods.d2fmmdld_Load(NdapiContext.GetContext(), out menu, filename);
+
         Ensure.Success(status);
 
         return new MenuModule(menu);
@@ -206,11 +203,10 @@ public class MenuModule : NdapiModule
     /// <param name="saveInDatabase">Should save module in database.</param>
     public override void Save(string path, bool saveInDatabase)
     {
-#if FORMS_6
-            var status = NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase);
-#else
-        var status = NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase)
+            : NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path);
+
         Ensure.Success(status);
     }
 
@@ -240,11 +236,10 @@ public class MenuModule : NdapiModule
     /// <returns>The Form Builder version</returns>
     public static int GetFileVersion(string file, bool loadFromDb = false)
     {
-#if FORMS_6
-            var status = NativeMethods.d2fmmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version);
-#else
-        var status = NativeMethods.d2fmmdfv_FileVersion(NdapiContext.GetContext(), file, out var version);
-#endif
+        var status = NdapiContext.BuilderVersion.MajorVersion == 6
+            ? NativeMethods.d2fmmdfv_FileVersion(NdapiContext.GetContext(), file, loadFromDb, out var version)
+            : NativeMethods.d2fmmdfv_FileVersion(NdapiContext.GetContext(), file, out version);
+
         Ensure.Success(status);
         return version;
     }
@@ -296,14 +291,12 @@ public class MenuModule : NdapiModule
     /// <returns>The child object.</returns>
     public Menu CreateMenu(string name) => new(this, name);
 
-#if FORMS_6
-        /// <summary>
-        /// Creates a menu parameter.
-        /// </summary>
-        /// <param name="name">Name of the menu parameter.</param>
-        /// <returns>The child object.</returns>
-        public MenuParameter CreateFormParameter(string name) => new MenuParameter(this, name);
-#endif
+    /// <summary>
+    /// Creates a menu parameter.
+    /// </summary>
+    /// <param name="name">Name of the menu parameter.</param>
+    /// <returns>The child object.</returns>
+    public MenuParameter CreateFormParameter(string name) => new MenuParameter(this, name);
 
     /// <summary>
     /// Creates a program unit.

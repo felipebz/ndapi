@@ -26,6 +26,7 @@ public class VisualAttribute : NdapiObject<VisualAttribute>
     public VisualAttribute(MenuModule menu, string name) : base(name, ObjectType.VisualAttribute, menu)
     {
     }
+
     /// <summary>
     /// Creates a visual attribute.
     /// </summary>
@@ -221,15 +222,13 @@ public class VisualAttribute : NdapiObject<VisualAttribute>
         set => SetNumberProperty(NdapiConstant.D2FP_VAT_TYP, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
-            set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the white-on-black property.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
+    public bool IsWhiteOnBlack
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
+    }
 }

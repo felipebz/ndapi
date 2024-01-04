@@ -41,17 +41,15 @@ public class Block : NdapiObject<Block>
         set => SetStringProperty(NdapiConstant.D2FP_BACK_COLOR, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_BLK_DESCRIPTION)]
-        public string Description
-        {
-            get => GetStringProperty(NdapiConstant.D2FP_BLK_DESCRIPTION);
-            set => SetStringProperty(NdapiConstant.D2FP_BLK_DESCRIPTION, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the description.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_BLK_DESCRIPTION)]
+    public string Description
+    {
+        get => GetStringProperty(NdapiConstant.D2FP_BLK_DESCRIPTION);
+        set => SetStringProperty(NdapiConstant.D2FP_BLK_DESCRIPTION, value);
+    }
 
     /// <summary>
     /// Gets or sets the comment.
@@ -278,17 +276,15 @@ public class Block : NdapiObject<Block>
         set => SetStringProperty(NdapiConstant.D2FP_LOCK_PROC_NAM, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets whether the block should be listed in the block menu. 
-        /// </summary>
-        [Property(NdapiConstant.D2FP_LST_IN_BLK_MNU)]
-        public bool IsListedInBlockMenu
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_LST_IN_BLK_MNU);
-            set => SetBooleanProperty(NdapiConstant.D2FP_LST_IN_BLK_MNU, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets whether the block should be listed in the block menu. 
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LST_IN_BLK_MNU)]
+    public bool IsListedInBlockMenu
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_LST_IN_BLK_MNU);
+        set => SetBooleanProperty(NdapiConstant.D2FP_LST_IN_BLK_MNU, value);
+    }
 
     /// <summary>
     /// Gets or sets the timeout to abort a query.
@@ -615,19 +611,16 @@ public class Block : NdapiObject<Block>
         set => SetStringProperty(NdapiConstant.D2FP_WHERE_CLAUSE, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
-            set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the white-on-black property.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
+    public bool IsWhiteOnBlack
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
+    }
 
-#if FORMS_12_OR_GREATER
     /// <summary>
     /// Gets or sets the row banding frequency. When row banding is set, every n-th instance of
     /// the record would appear in a different background color.
@@ -638,7 +631,6 @@ public class Block : NdapiObject<Block>
         get => GetNumberProperty(NdapiConstant.D2FP_ROW_BANDING_FREQ);
         set => SetNumberProperty(NdapiConstant.D2FP_ROW_BANDING_FREQ, value);
     }
-#endif
 
     /// <summary>
     /// Gets the delete data source arguments.

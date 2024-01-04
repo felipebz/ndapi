@@ -182,17 +182,15 @@ public class Editor : NdapiObject<Editor>
         set => SetStringProperty(NdapiConstant.D2FP_VAT_NAM, value);
     }
 
-#if FORMS_6
-        /// <summary>
-        /// Gets or sets the white-on-black property.
-        /// </summary>
-        [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
-        public bool IsWhiteOnBlack
-        {
-            get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
-            set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
-        }
-#endif
+    /// <summary>
+    /// Gets or sets the white-on-black property.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
+    public bool IsWhiteOnBlack
+    {
+        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
+        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
+    }
 
     /// <summary>
     /// Gets or sets the width.

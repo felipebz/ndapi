@@ -1,5 +1,4 @@
-﻿#if FORMS_12_OR_GREATER
-using Ndapi.Core;
+﻿using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
@@ -112,4 +111,3 @@ public class Event : NdapiObject<Event>
         set => SetNumberProperty(NdapiConstant.D2FP_EVENT_VIEW_MODE, value);
     }
 }
-#endif
