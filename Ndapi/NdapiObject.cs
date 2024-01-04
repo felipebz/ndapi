@@ -219,7 +219,8 @@ public abstract class NdapiObject : IDisposable
         where T : struct, Enum
     {
         return Enum.GetValues<T>()
-            .First(x => realValue == ConstantConverter.GetValue(x));
+            .First(x => ConstantConverter.IsPropertySupportedByBuilderVersion(x) &&
+                        ConstantConverter.GetValue(x) == realValue);
     }
 
     /// <summary>
