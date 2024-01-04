@@ -39,7 +39,7 @@ public abstract class NdapiObject : IDisposable
         _type = type;
     }
 
-    internal NdapiObject(ObjectSafeHandle handle, ObjectType type) : this()
+    internal NdapiObject(ObjectSafeHandle handle, ObjectType type)
     {
         _handle = handle;
         _type = type;
