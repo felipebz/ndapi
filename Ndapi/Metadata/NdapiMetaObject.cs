@@ -13,8 +13,6 @@ namespace Ndapi.Metadata;
 /// </summary>
 public sealed class NdapiMetaObject
 {
-    private static readonly Dictionary<Type, NdapiMetaObject> _cache = new();
-
     [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
     private readonly Type _type;
 
@@ -59,7 +57,7 @@ public sealed class NdapiMetaObject
     /// </summary>
     public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.IsList);
 
-    private NdapiMetaObject([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type)
+    internal NdapiMetaObject([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type)
     {
         TypeName = type.Name;
 
@@ -76,18 +74,5 @@ public sealed class NdapiMetaObject
             select NdapiMetaProperty.GetOrCreate(info.PropertyId, property.Name, property.CanRead, property.CanWrite,
                 property.PropertyType);
         return properties.OrderBy(p => p.PropertyId).ToList();
-    }
-
-    internal static NdapiMetaObject GetOrCreate(
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type)
-    {
-        if (_cache.TryGetValue(type, out var metaObject))
-        {
-            return metaObject;
-        }
-
-        metaObject = new NdapiMetaObject(type);
-        _cache.Add(type, metaObject);
-        return metaObject;
     }
 }

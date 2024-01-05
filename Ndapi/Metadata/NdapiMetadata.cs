@@ -71,9 +71,8 @@ public static class NdapiMetadata
     /// </summary>
     /// <param name="type">A Ndapi class.</param>
     /// <returns>The meta object instance.</returns>
-    public static NdapiMetaObject GetMetaObjectFrom(
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type) =>
-        NdapiMetaObject.GetOrCreate(type);
+    public static NdapiMetaObject GetMetaObjectFrom(Type type) =>
+        _objectTypeMapping.Single(t => t.Type == type).MetaObject;
 
     internal static ObjectType GetObjectTypeFrom<T>() => _objectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
 
@@ -85,13 +84,21 @@ public static class NdapiMetadata
                                    DynamicallyAccessedMemberTypes.PublicProperties)]
     internal static Type GetTypeFrom(ObjectType type) => _objectTypeMapping.Single(t => t.ObjectType == type).Type;
 
-    private class ObjectTypeMap(
-        ObjectType objectType,
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
-                                    DynamicallyAccessedMemberTypes.PublicProperties)]
-        Type type)
+    private class ObjectTypeMap
     {
-        public ObjectType ObjectType { get; } = objectType;
+        private readonly Lazy<NdapiMetaObject> _metaObject;
+
+        public ObjectTypeMap(ObjectType objectType,
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
+                                        DynamicallyAccessedMemberTypes.PublicProperties)]
+            Type type)
+        {
+            Type = type;
+            ObjectType = objectType;
+            _metaObject = new Lazy<NdapiMetaObject>(LoadMetaObject);
+        }
+
+        public ObjectType ObjectType { get; }
 
         [field:
             DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
@@ -102,6 +109,13 @@ public static class NdapiMetadata
                 DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
                                            DynamicallyAccessedMemberTypes.PublicProperties)]
             get;
-        } = type;
+        }
+
+        public NdapiMetaObject MetaObject => _metaObject.Value;
+
+        private NdapiMetaObject LoadMetaObject()
+        {
+            return new NdapiMetaObject(Type);
+        }
     }
 }
