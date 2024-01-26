@@ -365,7 +365,7 @@ internal static partial class NativeMethods
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial PropertyType d2fprgt_GetType(ContextSafeHandle pd2fctx, int pnum);
+    public static partial int d2fprgt_GetType(ContextSafeHandle pd2fctx, int pnum);
 
     [LibraryImport(formsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

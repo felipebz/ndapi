@@ -215,7 +215,7 @@ public abstract class NdapiObject : IDisposable
         return Convert<T>(realValue);
     }
 
-    private static T Convert<T>(int realValue)
+    internal static T Convert<T>(int realValue)
         where T : struct, Enum
     {
         return Enum.GetValues<T>()

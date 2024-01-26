@@ -118,8 +118,11 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     /// </summary>
     /// <param name="property">Property id (see <see cref="NdapiConstant"/>).</param>
     /// <returns>The property type.</returns>
-    public static PropertyType GetPropertyType(NdapiConstant property) =>
-        NativeMethods.d2fprgt_GetType(NdapiContext.GetContext(), ConstantConverter.GetValue(property));
+    public static PropertyType GetPropertyType(NdapiConstant property)
+    {
+        var type = NativeMethods.d2fprgt_GetType(NdapiContext.GetContext(), ConstantConverter.GetValue(property));
+        return NdapiObject.Convert<PropertyType>(type);
+    }
 
     /// <summary>
     /// Gets the property name.
