@@ -83,7 +83,7 @@ public class RecordGroup : NdapiObject<RecordGroup>
     /// <param name="query">SQL query.</param>
     public void SetQueryWithoutParse(string query)
     {
-        var status = NativeMethods.d2frcgs_qry_noparse(NdapiContext.GetContext(), _handle, query);
+        var status = NativeMethods.d2frcgs_qry_noparse(NdapiContext.GetContext(), Handle, query);
         Ensure.Success(status);
     }
 

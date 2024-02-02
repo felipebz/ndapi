@@ -65,7 +65,7 @@ public sealed class NdapiMetaObject
         _properties = new Lazy<IEnumerable<NdapiMetaProperty>>(LoadProperties);
     }
 
-    private IEnumerable<NdapiMetaProperty> LoadProperties()
+    private List<NdapiMetaProperty> LoadProperties()
     {
         var properties =
             from property in _type.GetProperties()

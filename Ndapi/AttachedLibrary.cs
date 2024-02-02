@@ -17,8 +17,8 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
     public AttachedLibrary(FormModule module, string location)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
-            ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location)
-            : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
+            ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, false, location)
+            : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, location);
 
         Ensure.Success(status);
     }
@@ -31,8 +31,8 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
     public AttachedLibrary(MenuModule module, string location)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
-            ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, false, location)
-            : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module._handle, out _handle, location);
+            ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, false, location)
+            : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, location);
 
         Ensure.Success(status);
     }
@@ -68,9 +68,9 @@ public class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// </summary>
     public void Detach()
     {
-        var status = NativeMethods.d2falbdt_Detach(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2falbdt_Detach(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
 
-        _handle = null;
+        Handle = null;
     }
 }

@@ -297,8 +297,8 @@ public class FormModule : NdapiModule
     /// Gets all the list of values.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV)]
-    public NdapiObjectList<LOV> LOVs =>
-        GetObjectList<LOV>(NdapiConstant.D2FP_LOV);
+    public NdapiObjectList<Lov> Lovs =>
+        GetObjectList<Lov>(NdapiConstant.D2FP_LOV);
 
     /// <summary>
     /// Gets all the menus.
@@ -411,8 +411,8 @@ public class FormModule : NdapiModule
     public override void Save(string path, bool saveInDatabase)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
-            ? NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase)
-            : NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), _handle, path);
+            ? NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), Handle, path, saveInDatabase)
+            : NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), Handle, path);
 
         Ensure.Success(status);
     }
@@ -422,7 +422,7 @@ public class FormModule : NdapiModule
     /// </summary>
     public override void CompileFile()
     {
-        var status = NativeMethods.d2ffmdcf_CompileFile(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2ffmdcf_CompileFile(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -431,7 +431,7 @@ public class FormModule : NdapiModule
     /// </summary>
     public override void CompileObjects()
     {
-        var status = NativeMethods.d2ffmdco_CompileObj(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2ffmdco_CompileObj(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -491,7 +491,7 @@ public class FormModule : NdapiModule
     /// </summary>
     /// <param name="name">Name of the LOV.</param>
     /// <returns>The child object.</returns>
-    public LOV CreateLOV(string name) => new(this, name);
+    public Lov CreateLov(string name) => new(this, name);
 
     /// <summary>
     /// Creates a menu.

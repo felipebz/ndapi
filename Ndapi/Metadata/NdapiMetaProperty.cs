@@ -12,7 +12,7 @@ namespace Ndapi.Metadata;
 /// </summary>
 public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
 {
-    private static readonly Dictionary<NdapiConstant, NdapiMetaProperty> _cache = new();
+    private static readonly Dictionary<NdapiConstant, NdapiMetaProperty> Cache = new();
     private readonly Lazy<Dictionary<int, string>> _allowedValues;
     private readonly Lazy<PropertyType> _propertyType;
     private readonly Lazy<string> _description;
@@ -85,13 +85,13 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     internal static NdapiMetaProperty GetOrCreate(NdapiConstant propertyId, string name, bool allowGet, bool allowSet,
         Type propertyType)
     {
-        if (_cache.TryGetValue(propertyId, out var metaProperty))
+        if (Cache.TryGetValue(propertyId, out var metaProperty))
         {
             return metaProperty;
         }
 
         metaProperty = new NdapiMetaProperty(propertyId, name, allowGet, allowSet, propertyType);
-        _cache.Add(propertyId, metaProperty);
+        Cache.Add(propertyId, metaProperty);
         return metaProperty;
     }
 

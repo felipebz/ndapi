@@ -204,8 +204,8 @@ public class MenuModule : NdapiModule
     public override void Save(string path, bool saveInDatabase)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
-            ? NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase)
-            : NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), _handle, path);
+            ? NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), Handle, path, saveInDatabase)
+            : NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), Handle, path);
 
         Ensure.Success(status);
     }
@@ -215,7 +215,7 @@ public class MenuModule : NdapiModule
     /// </summary>
     public override void CompileFile()
     {
-        var status = NativeMethods.d2fmmdcf_CompileFile(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fmmdcf_CompileFile(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -224,7 +224,7 @@ public class MenuModule : NdapiModule
     /// </summary>
     public override void CompileObjects()
     {
-        var status = NativeMethods.d2fmmdco_CompileObj(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fmmdco_CompileObj(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -258,7 +258,7 @@ public class MenuModule : NdapiModule
     /// <param name="role">Role name.</param>
     public void AddRoleAt(int index, string role)
     {
-        var status = NativeMethods.d2fmmdar_AddRole(NdapiContext.GetContext(), _handle, index, role);
+        var status = NativeMethods.d2fmmdar_AddRole(NdapiContext.GetContext(), Handle, index, role);
         Ensure.Success(status);
     }
 
@@ -268,7 +268,7 @@ public class MenuModule : NdapiModule
     /// <param name="index">The one-based index at which role should be removed.</param>
     public void DeleteRoleAt(int index)
     {
-        var status = NativeMethods.d2fmmdrr_RemoveRole(NdapiContext.GetContext(), _handle, index);
+        var status = NativeMethods.d2fmmdrr_RemoveRole(NdapiContext.GetContext(), Handle, index);
         Ensure.Success(status);
     }
 
@@ -279,7 +279,7 @@ public class MenuModule : NdapiModule
     /// <returns>The role name.</returns>
     public string GetRoleAt(int index)
     {
-        var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.GetContext(), _handle, index, out var role);
+        var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.GetContext(), Handle, index, out var role);
         Ensure.Success(status);
         return role;
     }
@@ -296,7 +296,7 @@ public class MenuModule : NdapiModule
     /// </summary>
     /// <param name="name">Name of the menu parameter.</param>
     /// <returns>The child object.</returns>
-    public MenuParameter CreateFormParameter(string name) => new MenuParameter(this, name);
+    public MenuParameter CreateFormParameter(string name) => new(this, name);
 
     /// <summary>
     /// Creates a program unit.

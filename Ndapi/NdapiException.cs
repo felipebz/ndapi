@@ -13,7 +13,7 @@ public sealed class NdapiException : Exception
     /// <summary>
     /// Gets the internal Forms API error code.
     /// </summary>
-    public D2fErrorCode ErrorCode { get; }
+    public FormsErrorCode ErrorCode { get; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="NdapiException"/> class.
@@ -39,7 +39,7 @@ public sealed class NdapiException : Exception
     {
     }
 
-    internal NdapiException(string message, D2fErrorCode code) : this(message)
+    internal NdapiException(string message, FormsErrorCode code) : this(message)
     {
         ErrorCode = code;
         Data.Add("ndapi.code", (int)ErrorCode);

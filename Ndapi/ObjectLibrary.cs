@@ -41,7 +41,7 @@ public class ObjectLibrary : NdapiModule
     /// <returns>The object found.</returns>
     public NdapiObject GetObjectByPosition(int position)
     {
-        var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
+        var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), Handle, position, out var obj);
         Ensure.Success(status);
 
         return obj.IsInvalid ? null : Create<NdapiObject>(obj);
@@ -88,8 +88,8 @@ public class ObjectLibrary : NdapiModule
     public override void Save(string path, bool saveInDatabase)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
-            ? NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path, saveInDatabase)
-            : NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), _handle, path);
+            ? NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), Handle, path, saveInDatabase)
+            : NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), Handle, path);
 
         Ensure.Success(status);
     }
@@ -139,7 +139,7 @@ public class ObjectLibrary : NdapiModule
     /// <param name="obj">Object to be removed.</param>
     public void RemoveObject(NdapiObject obj)
     {
-        var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.GetContext(), _handle, obj._handle);
+        var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.GetContext(), Handle, obj.Handle);
         Ensure.Success(status);
     }
 
@@ -150,7 +150,7 @@ public class ObjectLibrary : NdapiModule
     /// <param name="state">Indicate if it's a smart object or not.</param>
     public void SetSmartclass(NdapiObject obj, bool state)
     {
-        var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.GetContext(), _handle, obj._handle, state);
+        var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.GetContext(), Handle, obj.Handle, state);
         Ensure.Success(status);
     }
 
@@ -161,9 +161,9 @@ public class ObjectLibrary : NdapiModule
     /// <returns>The state indicating if it's a smart object or not.</returns>
     public bool IsSmartclass(NdapiObject obj)
     {
-        var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.GetContext(), _handle, obj._handle);
+        var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.GetContext(), Handle, obj.Handle);
         Ensure.BooleanResult(status);
-        return status == D2fErrorCode.D2FS_YES;
+        return status == FormsErrorCode.Yes;
     }
 
     /// <summary>
@@ -173,7 +173,7 @@ public class ObjectLibrary : NdapiModule
     /// <param name="description">Description of object.</param>
     public void SetObjectDescription(NdapiObject obj, string description)
     {
-        var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.GetContext(), _handle, obj._handle, description);
+        var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.GetContext(), Handle, obj.Handle, description);
         Ensure.Success(status);
     }
 
@@ -185,7 +185,7 @@ public class ObjectLibrary : NdapiModule
     public string GetObjectDescription(NdapiObject obj)
     {
         var status =
-            NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), _handle, obj._handle, out var description);
+            NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), Handle, obj.Handle, out var description);
         Ensure.Success(status);
         return description;
     }
@@ -198,7 +198,7 @@ public class ObjectLibrary : NdapiModule
     public string GetObjectTabName(NdapiObject obj)
     {
         var status =
-            NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), _handle, obj._handle, out var tabName);
+            NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), Handle, obj.Handle, out var tabName);
         Ensure.Success(status);
         return tabName;
     }

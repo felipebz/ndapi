@@ -13,18 +13,18 @@ namespace Ndapi;
 /// </summary>
 public sealed class NdapiContext : IDisposable
 {
-    private const int D2FCTXACDATA = 1; // client data
-    private const int D2FCTXAMCALLS = 2; // memory callbacks
+    private const int D2Fctxacdata = 1; // client data
+    private const int D2Fctxamcalls = 2; // memory callbacks
 
     // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
-    private static readonly D2fMalloc allocateMemory = AllocateMemory;
-    private static readonly D2fRealloc reallocateMemory = ReallocateMemory;
-    private static readonly D2fFree freeMemory = FreeMemory;
+    private static readonly Malloc AllocateMemoryDelegate = AllocateMemory;
+    private static readonly Realloc ReallocateMemoryDelegate = ReallocateMemory;
+    private static readonly Free FreeMemoryDelegate = FreeMemory;
 
-    private static readonly List<NdapiModule> _modules = [];
-    private static ContextSafeHandle _context;
-    private static string _formsLib;
-    private static BuilderVersion _builderVersion;
+    private static readonly List<NdapiModule> ModuleList = [];
+    private static ContextSafeHandle s_context;
+    private static string s_formsLib;
+    private static BuilderVersion s_builderVersion;
 
     /// <summary>
     /// If true, the module loading will not fail when a required library module is not in the 
@@ -45,50 +45,50 @@ public sealed class NdapiContext : IDisposable
 
     static NdapiContext()
     {
-        _formsLib = NativeMethods.formsLib;
+        s_formsLib = NativeMethods.FormsLib;
         if (!Environment.Is64BitProcess)
         {
             NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
             {
-                if (name != NativeMethods.formsLib)
+                if (name != NativeMethods.FormsLib)
                 {
                     return IntPtr.Zero;
                 }
 
-                _formsLib = NativeMethods.forms6Lib;
-                return NativeLibrary.Load(_formsLib, assembly, path);
+                s_formsLib = NativeMethods.Forms6Lib;
+                return NativeLibrary.Load(s_formsLib, assembly, path);
             }));
         }
     }
 
     internal static ContextSafeHandle GetContext()
     {
-        if (_context != null)
+        if (s_context != null)
         {
-            return _context;
+            return s_context;
         }
 
-        var contextAttributes = new D2fContextAttributes
+        var contextAttributes = new ContextAttributes
         {
-            mask_d2fctxa = D2FCTXAMCALLS,
-            d2fmalc_d2fctxa = allocateMemory,
-            d2fmrlc_d2fctxa = reallocateMemory,
-            d2fmfre_d2fctxa = freeMemory
+            mask_d2fctxa = D2Fctxamcalls,
+            d2fmalc_d2fctxa = AllocateMemoryDelegate,
+            d2fmrlc_d2fctxa = ReallocateMemoryDelegate,
+            d2fmfre_d2fctxa = FreeMemoryDelegate
         };
 
-        D2fErrorCode status;
+        FormsErrorCode status;
         try
         {
-            status = NativeMethods.d2fctxcr_Create(out _context, ref contextAttributes);
+            status = NativeMethods.d2fctxcr_Create(out s_context, ref contextAttributes);
         }
         catch (DllNotFoundException)
         {
-            throw new NdapiException($"Could not found the {_formsLib} from Oracle Forms installation. " +
+            throw new NdapiException($"Could not found the {s_formsLib} from Oracle Forms installation. " +
                                      "Please check if this version of Oracle Forms is installed.");
         }
 
         Ensure.Success(status);
-        return _context;
+        return s_context;
     }
 
     private static IntPtr AllocateMemory(ref IntPtr context, IntPtr size)
@@ -114,32 +114,32 @@ public sealed class NdapiContext : IDisposable
     {
         get
         {
-            if (_builderVersion != null)
+            if (s_builderVersion != null)
             {
-                return _builderVersion;
+                return s_builderVersion;
             }
 
             var status = NativeMethods.d2fctxbv_BuilderVersion(GetContext(), out var version);
             Ensure.Success(status);
 
-            _builderVersion = new BuilderVersion(version);
-            return _builderVersion;
+            s_builderVersion = new BuilderVersion(version);
+            return s_builderVersion;
         }
     }
 
     /// <summary>
     /// Returns the open modules in the current context.
     /// </summary>
-    public static IEnumerable<NdapiModule> Modules => _modules;
+    public static IEnumerable<NdapiModule> Modules => ModuleList;
 
     internal static void AddModule(NdapiModule module)
     {
-        _modules.Add(module);
+        ModuleList.Add(module);
     }
 
     internal static void RemoveModule(NdapiModule module)
     {
-        _modules.Remove(module);
+        ModuleList.Remove(module);
     }
 
     /// <summary>
@@ -168,14 +168,14 @@ public sealed class NdapiContext : IDisposable
     /// </summary>
     public static void Destroy()
     {
-        if (_context.IsInvalid)
+        if (s_context.IsInvalid)
         {
             return;
         }
 
-        _context.Dispose();
-        _context = null;
-        _builderVersion = null;
+        s_context.Dispose();
+        s_context = null;
+        s_builderVersion = null;
     }
 
     /// <summary>
@@ -184,6 +184,5 @@ public sealed class NdapiContext : IDisposable
     public void Dispose()
     {
         Destroy();
-        GC.SuppressFinalize(this);
     }
 }

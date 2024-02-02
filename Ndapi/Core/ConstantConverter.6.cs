@@ -1010,6 +1010,6 @@ internal static partial class ConstantConverter
         [D2FP_TYP_TEXT] = 3,
         [D2FP_TYP_OBJECT] = 4,
         [BINTOTEXT] = 1,
-        [TEXTTOBIN] = 2,
+        [TEXTTOBIN] = 2
     };
 }

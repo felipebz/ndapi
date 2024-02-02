@@ -293,7 +293,7 @@ public class MenuItem : NdapiObject<MenuItem>
     /// </summary>
     public void Compile()
     {
-        var status = NativeMethods.d2fmnico_CompileObj(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fmnico_CompileObj(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -304,7 +304,7 @@ public class MenuItem : NdapiObject<MenuItem>
     /// <param name="role">Role name.</param>
     public void AddRoleAt(int index, string role)
     {
-        var status = NativeMethods.d2fmniar_AddRole(NdapiContext.GetContext(), _handle, index, role);
+        var status = NativeMethods.d2fmniar_AddRole(NdapiContext.GetContext(), Handle, index, role);
         Ensure.Success(status);
     }
 
@@ -314,7 +314,7 @@ public class MenuItem : NdapiObject<MenuItem>
     /// <param name="index">The one-based index at which role should be removed.</param>
     public void DeleteRoleAt(int index)
     {
-        var status = NativeMethods.d2fmnirr_RemoveRole(NdapiContext.GetContext(), _handle, index);
+        var status = NativeMethods.d2fmnirr_RemoveRole(NdapiContext.GetContext(), Handle, index);
         Ensure.Success(status);
     }
 
@@ -325,7 +325,7 @@ public class MenuItem : NdapiObject<MenuItem>
     /// <returns>The role name.</returns>
     public string GetRoleAt(int index)
     {
-        var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), _handle, index, out var role);
+        var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), Handle, index, out var role);
         Ensure.Success(status);
         return role;
     }

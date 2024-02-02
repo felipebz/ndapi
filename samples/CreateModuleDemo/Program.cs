@@ -32,7 +32,7 @@ class Program
             ViewportYPosition = 0,
             Width = 538,
             Height = 403,
-            Window = mywin,
+            Window = mywin
         };
 
         // Create Emp block and set block-related properties
@@ -41,8 +41,8 @@ class Program
             IsDatabaseBlock = true,
             QueryDataSourceType = QueryDataSourceType.Table,
             QueryDataSourceName = "EMP",
-            DMLDataTargetType = DMLDataTargetType.Table,
-            DMLDataTargetName = "EMP"
+            DmlDataTargetType = DmlDataTargetType.Table,
+            DmlDataTargetName = "EMP"
         };
 
         // Create Dept block and set block-related properties
@@ -51,8 +51,8 @@ class Program
             IsDatabaseBlock = true,
             QueryDataSourceType = QueryDataSourceType.Table,
             QueryDataSourceName = "DEPT",
-            DMLDataTargetType = DMLDataTargetType.Table,
-            DMLDataTargetName = "DEPT"
+            DmlDataTargetType = DmlDataTargetType.Table,
+            DmlDataTargetName = "DEPT"
         };
 
         // Create empno item and item-related properties

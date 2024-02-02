@@ -111,7 +111,7 @@ public enum QueryDataSourceType
     Query = NdapiConstant.D2FC_QRDA_FRM_CLS_QUERY
 }
 
-public enum DMLDataTargetType
+public enum DmlDataTargetType
 {
     None = NdapiConstant.D2FC_DMDA_NONE,
     Table = NdapiConstant.D2FC_DMDA_TABLE,
@@ -154,13 +154,13 @@ public enum ItemType
     Image = NdapiConstant.D2FC_ITTY_IM,
     ListItem = NdapiConstant.D2FC_ITTY_LS,
     ActiveX = NdapiConstant.D2FC_ITTY_ACT,
-    OLE = NdapiConstant.D2FC_ITTY_OLE,
+    Ole = NdapiConstant.D2FC_ITTY_OLE,
     Button = NdapiConstant.D2FC_ITTY_PB,
     RadioGroup = NdapiConstant.D2FC_ITTY_RD,
     Sound = NdapiConstant.D2FC_ITTY_SN,
     TextItem = NdapiConstant.D2FC_ITTY_TI,
     UserArea = NdapiConstant.D2FC_ITTY_UA,
-    VBX = NdapiConstant.D2FC_ITTY_VBX,
+    Vbx = NdapiConstant.D2FC_ITTY_VBX,
     Tree = NdapiConstant.D2FC_ITTY_TRE,
     Bean = NdapiConstant.D2FC_ITTY_BA
 }
@@ -205,8 +205,8 @@ public enum RelationType
 
 public enum RuntimeCompatibility
 {
-    Forms_45 = NdapiConstant.D2FC_RUCO_45,
-    Forms_50 = NdapiConstant.D2FC_RUCO_50
+    Forms45 = NdapiConstant.D2FC_RUCO_45,
+    Forms50 = NdapiConstant.D2FC_RUCO_50
 }
 
 public enum TabAttachmentEdge
@@ -709,7 +709,7 @@ public enum OleTenantAspect
 
 public enum TriggerStyle
 {
-    PLSQL = NdapiConstant.D2FC_TRST_PLSQL,
+    Plsql = NdapiConstant.D2FC_TRST_PLSQL,
     V2 = NdapiConstant.D2FC_TRST_V2
 }
 

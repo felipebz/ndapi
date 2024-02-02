@@ -71,7 +71,7 @@ public class ProgramUnit : NdapiObject<ProgramUnit>
     /// </summary>
     public void Compile()
     {
-        var status = NativeMethods.d2fpguco_CompileObj(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fpguco_CompileObj(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 }

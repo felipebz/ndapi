@@ -99,7 +99,7 @@ public class BlockRelation : NdapiObject<BlockRelation>
     /// </summary>
     public void Generate()
     {
-        var status = NativeMethods.d2frelup_Update(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2frelup_Update(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 }

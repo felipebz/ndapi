@@ -72,7 +72,7 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     /// <param name="formatMask">Format mask to format the data.</param>
     public void AddValueAt(int index, string value, string formatMask = null)
     {
-        var status = NativeMethods.d2frcsir_InsertRow_Int(NdapiContext.GetContext(), _handle, index, value, formatMask);
+        var status = NativeMethods.d2frcsir_InsertRow_Int(NdapiContext.GetContext(), Handle, index, value, formatMask);
         Ensure.Success(status);
     }
 
@@ -82,7 +82,7 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     /// <param name="index">The one-based index at which value should be removed.</param>
     public void DeleteValueAt(int index)
     {
-        var status = NativeMethods.d2frcsdr_DeleteRow(NdapiContext.GetContext(), _handle, index);
+        var status = NativeMethods.d2frcsdr_DeleteRow(NdapiContext.GetContext(), Handle, index);
         Ensure.Success(status);
     }
 
@@ -93,7 +93,7 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     /// <returns>The row value.</returns>
     public string GetValueAt(int index)
     {
-        var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), _handle, index, out var value);
+        var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), Handle, index, out var value);
         Ensure.Success(status);
         return value;
     }

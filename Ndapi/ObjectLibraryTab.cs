@@ -62,7 +62,7 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <returns>The object found.</returns>
     public NdapiObject GetObjectByPosition(int position)
     {
-        var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), _handle, position, out var obj);
+        var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), Handle, position, out var obj);
         Ensure.Success(status);
 
         return obj.IsInvalid ? null : Create<NdapiObject>(obj);
@@ -77,7 +77,7 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <returns>A copy of the original object.</returns>
     public T AddObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(T obj, bool replace = false) where T : NdapiObject
     {
-        var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary._handle, _handle, obj._handle, out var handle, replace);
+        var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary.Handle, Handle, obj.Handle, out var handle, replace);
         Ensure.Success(status);
         return Create<T>(handle);
     }

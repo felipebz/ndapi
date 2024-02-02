@@ -64,8 +64,8 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
         var type = NdapiMetadata.GetObjectTypeFrom<T>();
         var internalObjectType = ConstantConverter.GetValue(type);
 
-        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject._handle, name, internalObjectType, out var handle);
-        if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
+        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _ndapiObject.Handle, name, internalObjectType, out var handle);
+        if (status == FormsErrorCode.ObjectNotFound)
         {
             return null;
         }

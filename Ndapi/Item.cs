@@ -668,9 +668,9 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the list of values.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV_OBJ)]
-    public LOV LOV
+    public Lov Lov
     {
-        get => GetObjectProperty<LOV>(NdapiConstant.D2FP_LOV_OBJ);
+        get => GetObjectProperty<Lov>(NdapiConstant.D2FP_LOV_OBJ);
         set => SetObjectProperty(NdapiConstant.D2FP_LOV_OBJ, value);
     }
 
@@ -678,7 +678,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the name of the list of values.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV_NAM)]
-    public string LOVName
+    public string LovName
     {
         get => GetStringProperty(NdapiConstant.D2FP_LOV_NAM);
         set => SetStringProperty(NdapiConstant.D2FP_LOV_NAM, value);
@@ -688,7 +688,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the X position of the list of values measured at the upper left corner.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV_X_POS)]
-    public int LOVXPosition
+    public int LovXPosition
     {
         get => GetNumberProperty(NdapiConstant.D2FP_LOV_X_POS);
         set => SetNumberProperty(NdapiConstant.D2FP_LOV_X_POS, value);
@@ -698,7 +698,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the X position of the list of values measured at the upper left corner.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV_Y_POS)]
-    public int LOVXYosition
+    public int LovYPosition
     {
         get => GetNumberProperty(NdapiConstant.D2FP_LOV_Y_POS);
         set => SetNumberProperty(NdapiConstant.D2FP_LOV_Y_POS, value);
@@ -774,7 +774,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the OLE activation style.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_ACT_STY)]
-    public OleActivationStyle OLEActivationStyle
+    public OleActivationStyle OleActivationStyle
     {
         get => GetNumberProperty<OleActivationStyle>(NdapiConstant.D2FP_OLE_ACT_STY);
         set => SetNumberProperty(NdapiConstant.D2FP_OLE_ACT_STY, value);
@@ -784,7 +784,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the OLE class name.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_CLASS)]
-    public string OLEClass
+    public string OleClass
     {
         get => GetStringProperty(NdapiConstant.D2FP_OLE_CLASS);
         set => SetStringProperty(NdapiConstant.D2FP_OLE_CLASS, value);
@@ -794,7 +794,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets if OLE in-place activation is used for editing embedded OLE objects.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_INSD_OUT_SUPPORT)]
-    public bool OLEInsideOutSupport
+    public bool OleInsideOutSupport
     {
         get => GetBooleanProperty(NdapiConstant.D2FP_OLE_INSD_OUT_SUPPORT);
         set => SetBooleanProperty(NdapiConstant.D2FP_OLE_INSD_OUT_SUPPORT, value);
@@ -804,7 +804,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets if the OLE server of the embedded object allows inside-out object support during in-place activation.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_IN_PLACE_ACT)]
-    public bool OLEInPlaceActivation
+    public bool OleInPlaceActivation
     {
         get => GetBooleanProperty(NdapiConstant.D2FP_OLE_IN_PLACE_ACT);
         set => SetBooleanProperty(NdapiConstant.D2FP_OLE_IN_PLACE_ACT, value);
@@ -815,7 +815,7 @@ public class Item : NdapiObject<Item>
     /// object and and the right mouse button is pressed.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_POPUP_MNU_ITMS)]
-    public int OLEPopUpMenuItems
+    public int OlePopUpMenuItems
     {
         get => GetNumberProperty(NdapiConstant.D2FP_OLE_POPUP_MNU_ITMS);
         set => SetNumberProperty(NdapiConstant.D2FP_OLE_POPUP_MNU_ITMS, value);
@@ -825,7 +825,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the OLE resize style.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_RESIZ_STY)]
-    public OleResizeStyle OLEResizeStyle
+    public OleResizeStyle OleResizeStyle
     {
         get => GetNumberProperty<OleResizeStyle>(NdapiConstant.D2FP_OLE_RESIZ_STY);
         set => SetNumberProperty(NdapiConstant.D2FP_OLE_RESIZ_STY, value);
@@ -835,7 +835,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets whether runtime should display the OLE tenant type.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_SHOW_TNNT_TYP)]
-    public bool ShowOLETenantType
+    public bool ShowOleTenantType
     {
         get => GetBooleanProperty(NdapiConstant.D2FP_OLE_SHOW_TNNT_TYP);
         set => SetBooleanProperty(NdapiConstant.D2FP_OLE_SHOW_TNNT_TYP, value);
@@ -845,7 +845,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the OLE tenant aspect.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_TNNT_ASPCT)]
-    public OleTenantAspect OLETenantAspect
+    public OleTenantAspect OleTenantAspect
     {
         get => GetNumberProperty<OleTenantAspect>(NdapiConstant.D2FP_OLE_TNNT_ASPCT);
         set => SetNumberProperty(NdapiConstant.D2FP_OLE_TNNT_ASPCT, value);
@@ -855,7 +855,7 @@ public class Item : NdapiObject<Item>
     /// Gets or sets the OLE tentat type.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_TNNT_TYP)]
-    public OleTenantTypes OLETenantType
+    public OleTenantTypes OleTenantType
     {
         get => GetNumberProperty<OleTenantTypes>(NdapiConstant.D2FP_OLE_TNNT_TYP);
         set => SetNumberProperty(NdapiConstant.D2FP_OLE_TNNT_TYP, value);
@@ -1433,7 +1433,7 @@ public class Item : NdapiObject<Item>
     }
 
     /// <summary>
-    /// Gets or sets whether runtime shoud validate the data entered using the values of the associated <see cref="LOV"/>.
+    /// Gets or sets whether runtime shoud validate the data entered using the values of the associated <see cref="Lov"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_VALIDATE_FROM_LST)]
     public bool ValidateFromList
@@ -1574,7 +1574,7 @@ public class Item : NdapiObject<Item>
     /// </summary>
     public void Compile()
     {
-        var status = NativeMethods.d2fitmco_CompileObj(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fitmco_CompileObj(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -1586,7 +1586,7 @@ public class Item : NdapiObject<Item>
     /// <param name="value">Element value.</param>
     public void InsertListElementAt(int index, string label, string value)
     {
-        var status = NativeMethods.d2fitmile_InsertListElem(NdapiContext.GetContext(), _handle, index, label, value);
+        var status = NativeMethods.d2fitmile_InsertListElem(NdapiContext.GetContext(), Handle, index, label, value);
         Ensure.Success(status);
     }
 
@@ -1596,7 +1596,7 @@ public class Item : NdapiObject<Item>
     /// <param name="index">The one-based index at which item should be removed.</param>
     public void DeleteListElementAt(int index)
     {
-        var status = NativeMethods.d2fitmdle_DeleteListElem(NdapiContext.GetContext(), _handle, index);
+        var status = NativeMethods.d2fitmdle_DeleteListElem(NdapiContext.GetContext(), Handle, index);
         Ensure.Success(status);
     }
 
@@ -1608,7 +1608,7 @@ public class Item : NdapiObject<Item>
     public KeyValuePair<string, string> GetListElementAt(int index)
     {
         var status =
-            NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), _handle, index, out var label,
+            NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), Handle, index, out var label,
                 out var value);
         Ensure.Success(status);
         return new KeyValuePair<string, string>(label, value);

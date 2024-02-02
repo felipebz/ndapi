@@ -14,8 +14,8 @@ public class Coordinate : NdapiObject<Coordinate>
     /// </summary>
     public Coordinate() : base(ObjectType.Coordinate)
     {
-        _handle = new ObjectSafeHandle();
-        var status = NativeMethods.d2fcrdcr_Create(NdapiContext.GetContext(), out _handle);
+        Handle = new ObjectSafeHandle();
+        var status = NativeMethods.d2fcrdcr_Create(NdapiContext.GetContext(), out Handle);
         Ensure.Success(status);
     }
 
@@ -88,7 +88,7 @@ public class Coordinate : NdapiObject<Coordinate>
     /// <param name="module">Form module.</param>
     public void Extract(FormModule module)
     {
-        var status = NativeMethods.d2fcrdex_Extract(NdapiContext.GetContext(), _handle, module._handle);
+        var status = NativeMethods.d2fcrdex_Extract(NdapiContext.GetContext(), Handle, module.Handle);
         Ensure.Success(status);
     }
 
@@ -98,7 +98,7 @@ public class Coordinate : NdapiObject<Coordinate>
     /// <param name="module">Form module to be changed.</param>
     public void Apply(FormModule module)
     {
-        var status = NativeMethods.d2fcrdap_Apply(NdapiContext.GetContext(), _handle, module._handle);
+        var status = NativeMethods.d2fcrdap_Apply(NdapiContext.GetContext(), Handle, module.Handle);
         Ensure.Success(status);
     }
 }

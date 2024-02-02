@@ -72,7 +72,7 @@ public class PropertyClass : NdapiObject<PropertyClass>
     /// <param name="propertyId">Property id (see <see cref="NdapiConstant"/>).</param>
     public void RemoveProperty(int propertyId)
     {
-        var status = NativeMethods.d2fppcrp_RemoveProp(NdapiContext.GetContext(), _handle, propertyId);
+        var status = NativeMethods.d2fppcrp_RemoveProp(NdapiContext.GetContext(), Handle, propertyId);
         Ensure.Success(status);
     }
 

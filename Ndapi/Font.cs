@@ -14,8 +14,8 @@ public class Font : NdapiObject<Font>
     /// </summary>
     public Font() : base(ObjectType.Font)
     {
-        _handle = new ObjectSafeHandle();
-        var status = NativeMethods.d2ffntcr_Create(NdapiContext.GetContext(), out _handle);
+        Handle = new ObjectSafeHandle();
+        var status = NativeMethods.d2ffntcr_Create(NdapiContext.GetContext(), out Handle);
         Ensure.Success(status);
     }
 
@@ -90,7 +90,7 @@ public class Font : NdapiObject<Font>
     /// <param name="type">Visual attribute type.</param>
     public void Extract(NdapiObject obj, VisualAttributeType type)
     {
-        var status = NativeMethods.d2ffntex_Extract(NdapiContext.GetContext(), _handle, obj._handle, type);
+        var status = NativeMethods.d2ffntex_Extract(NdapiContext.GetContext(), Handle, obj.Handle, type);
         Ensure.Success(status);
     }
 
@@ -101,7 +101,7 @@ public class Font : NdapiObject<Font>
     /// <param name="type">Visual attribute type.</param>
     public void Apply(NdapiObject module, VisualAttributeType type)
     {
-        var status = NativeMethods.d2ffntap_Apply(NdapiContext.GetContext(), _handle, module._handle, type);
+        var status = NativeMethods.d2ffntap_Apply(NdapiContext.GetContext(), Handle, module.Handle, type);
         Ensure.Success(status);
     }
 }

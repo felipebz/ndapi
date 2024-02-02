@@ -7,14 +7,14 @@ namespace Ndapi;
 /// <summary>
 /// Represents a list of values.
 /// </summary>
-public class LOV : NdapiObject<LOV>
+public class Lov : NdapiObject<Lov>
 {
     /// <summary>
     /// Creates a list of values.
     /// </summary>
     /// <param name="module">List of values owner.</param>
     /// <param name="name">List of values name.</param>
-    public LOV(FormModule module, string name) : base(name, ObjectType.LOV, module)
+    public Lov(FormModule module, string name) : base(name, ObjectType.Lov, module)
     {
     }
 
@@ -23,11 +23,11 @@ public class LOV : NdapiObject<LOV>
     /// </summary>
     /// <param name="group">List of values owner.</param>
     /// <param name="name">List of values name.</param>
-    public LOV(ObjectGroup group, string name) : base(name, ObjectType.LOV, group)
+    public Lov(ObjectGroup group, string name) : base(name, ObjectType.Lov, group)
     {
     }
 
-    internal LOV(ObjectSafeHandle handle) : base(handle, ObjectType.LOV)
+    internal Lov(ObjectSafeHandle handle) : base(handle, ObjectType.Lov)
     {
     }
 
@@ -231,7 +231,7 @@ public class LOV : NdapiObject<LOV>
     /// Gets or sets the LOV text (included only for compatibility).
     /// </summary>
     [Property(NdapiConstant.D2FP_OLD_LOV_TXT)]
-    public string OldLOVText
+    public string OldLovText
     {
         get => GetStringProperty(NdapiConstant.D2FP_OLD_LOV_TXT);
         set => SetStringProperty(NdapiConstant.D2FP_OLD_LOV_TXT, value);

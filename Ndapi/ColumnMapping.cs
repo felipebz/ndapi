@@ -14,7 +14,7 @@ public class ColumnMapping : NdapiObject<ColumnMapping>
     /// </summary>
     /// <param name="lov">List of values.</param>
     /// <param name="name">Column name.</param>
-    public ColumnMapping(LOV lov, string name) : base(name, ObjectType.ColumnMapping, lov)
+    public ColumnMapping(Lov lov, string name) : base(name, ObjectType.ColumnMapping, lov)
     {
     }
 

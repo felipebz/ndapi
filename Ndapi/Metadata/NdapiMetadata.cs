@@ -12,17 +12,13 @@ namespace Ndapi.Metadata;
 /// </summary>
 public static class NdapiMetadata
 {
-    private static readonly IList<ObjectTypeMap> _objectTypeMapping = LoadObjectTypeMapping();
+    private static readonly IList<ObjectTypeMap> ObjectTypeMapping = LoadObjectTypeMapping();
 
     /// <summary>
     /// Gets the Ndapi classes that represents a Forms API object.
     /// </summary>
-    public static IEnumerable<Type> Classes => _objectTypeMapping.Select(x => x.Type);
+    public static IEnumerable<Type> Classes => ObjectTypeMapping.Select(x => x.Type);
 
-    /// <summary>
-    /// Gets a dictionary containing the relation bettwen an <see cref="ObjectType"/> and a Ndapi class.
-    /// </summary>
-    //public static Dictionary<ObjectType, Type> ObjectTypeMapping => _objectTypeMapping.Value;
     private static IList<ObjectTypeMap> LoadObjectTypeMapping() =>
     [
         new ObjectTypeMap(ObjectType.Alert, typeof(Alert)),
@@ -41,7 +37,7 @@ public static class NdapiMetadata
         new ObjectTypeMap(ObjectType.Item, typeof(Item)),
         new ObjectTypeMap(ObjectType.LibraryProgramUnit, typeof(LibraryProgramUnit)),
         new ObjectTypeMap(ObjectType.LibraryModule, typeof(LibraryModule)),
-        new ObjectTypeMap(ObjectType.LOV, typeof(LOV)),
+        new ObjectTypeMap(ObjectType.Lov, typeof(Lov)),
         new ObjectTypeMap(ObjectType.ColumnMapping, typeof(ColumnMapping)),
         new ObjectTypeMap(ObjectType.Menu, typeof(Menu)),
         new ObjectTypeMap(ObjectType.MenuItem, typeof(MenuItem)),
@@ -72,17 +68,17 @@ public static class NdapiMetadata
     /// <param name="type">A Ndapi class.</param>
     /// <returns>The meta object instance.</returns>
     public static NdapiMetaObject GetMetaObjectFrom(Type type) =>
-        _objectTypeMapping.Single(t => t.Type == type).MetaObject;
+        ObjectTypeMapping.Single(t => t.Type == type).MetaObject;
 
-    internal static ObjectType GetObjectTypeFrom<T>() => _objectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
+    internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
 
     internal static ObjectType GetObjectTypeFrom(Type type) =>
-        _objectTypeMapping.Single(t => t.Type == type).ObjectType;
+        ObjectTypeMapping.Single(t => t.Type == type).ObjectType;
 
     [return:
         DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
                                    DynamicallyAccessedMemberTypes.PublicProperties)]
-    internal static Type GetTypeFrom(ObjectType type) => _objectTypeMapping.Single(t => t.ObjectType == type).Type;
+    internal static Type GetTypeFrom(ObjectType type) => ObjectTypeMapping.Single(t => t.ObjectType == type).Type;
 
     private class ObjectTypeMap
     {

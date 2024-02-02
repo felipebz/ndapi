@@ -105,7 +105,7 @@ public enum ObjectType
     /// <summary>
     /// List of values.
     /// </summary>
-    LOV = NdapiConstant.D2FFO_LOV,
+    Lov = NdapiConstant.D2FFO_LOV,
 
     /// <summary>
     /// List-of-values column mapping.

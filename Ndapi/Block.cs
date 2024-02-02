@@ -83,7 +83,7 @@ public class Block : NdapiObject<Block>
 
     /// <summary>
     /// Gets or sets the name of the procedure to be used for deleting data.
-    /// This property is valid only when the <see cref="DMLDataTargetType"/> is set to <see cref="DMLDataTargetType.Procedure"/>.
+    /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_DEL_PROC_NAM)]
     public string DeleteProcedureName
@@ -96,7 +96,7 @@ public class Block : NdapiObject<Block>
     /// Gets or sets the maximum array size for database operations at one time.
     /// </summary>
     [Property(NdapiConstant.D2FP_DML_ARY_SIZ)]
-    public int DMLArraySize
+    public int DmlArraySize
     {
         get => GetNumberProperty(NdapiConstant.D2FP_DML_ARY_SIZ);
         set => SetNumberProperty(NdapiConstant.D2FP_DML_ARY_SIZ, value);
@@ -104,10 +104,10 @@ public class Block : NdapiObject<Block>
 
     /// <summary>
     /// Gets or sets the name of the block's DML data target. 
-    /// This property is valid only when the <see cref="DMLDataTargetType"/> is set to <see cref="DMLDataTargetType.Table"/>.
+    /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Table"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_DML_DAT_NAM)]
-    public string DMLDataTargetName
+    public string DmlDataTargetName
     {
         get => GetStringProperty(NdapiConstant.D2FP_DML_DAT_NAM);
         set => SetStringProperty(NdapiConstant.D2FP_DML_DAT_NAM, value);
@@ -117,9 +117,9 @@ public class Block : NdapiObject<Block>
     /// Gets or sets the DML data target type;
     /// </summary>
     [Property(NdapiConstant.D2FP_DML_DAT_TYP)]
-    public DMLDataTargetType DMLDataTargetType
+    public DmlDataTargetType DmlDataTargetType
     {
-        get => GetNumberProperty<DMLDataTargetType>(NdapiConstant.D2FP_DML_DAT_TYP);
+        get => GetNumberProperty<DmlDataTargetType>(NdapiConstant.D2FP_DML_DAT_TYP);
         set => SetNumberProperty(NdapiConstant.D2FP_DML_DAT_TYP, value);
     }
 
@@ -226,7 +226,7 @@ public class Block : NdapiObject<Block>
 
     /// <summary>
     /// Gets or sets the name of the procedure to be used for inserting data.
-    /// This property is valid only when the <see cref="DMLDataTargetType"/> is set to <see cref="DMLDataTargetType.Procedure"/>.
+    /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_INSRT_PROC_NAM)]
     public string InsertProcedureName
@@ -267,7 +267,7 @@ public class Block : NdapiObject<Block>
 
     /// <summary>
     /// Gets or sets the name of the procedure to be used for locking data.
-    /// This property is valid only when the <see cref="DMLDataTargetType"/> is set to <see cref="DMLDataTargetType.Procedure"/>.
+    /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOCK_PROC_NAM)]
     public string LockProcedureName
@@ -581,7 +581,7 @@ public class Block : NdapiObject<Block>
 
     /// <summary>
     /// Gets or sets the name of the procedure to be used for updating data.
-    /// This property is valid only when the <see cref="DMLDataTargetType"/> is set to <see cref="DMLDataTargetType.Procedure"/>.
+    /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_UPDT_PROC_NAM)]
     public string UpdateProcedureName
@@ -715,7 +715,7 @@ public class Block : NdapiObject<Block>
     /// </summary>
     public void CompileObjects()
     {
-        var status = NativeMethods.d2fblkco_CompileObj(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fblkco_CompileObj(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 

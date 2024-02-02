@@ -6,13 +6,13 @@ namespace Ndapi.Core;
 
 internal static class Ensure
 {
-    public static void Success(D2fErrorCode result)
+    public static void Success(FormsErrorCode result)
     {
-        var success = (result == D2fErrorCode.D2FS_SUCCESS);
+        var success = (result == FormsErrorCode.Success);
         var shouldIgnoreMissingSubclass =
-            (result == D2fErrorCode.D2FS_MISSINGSUBCLMOD && NdapiContext.IgnoreMissingSubclass);
+            (result == FormsErrorCode.MissingSubclassedModule && NdapiContext.IgnoreMissingSubclass);
         var shouldIgnoreMissingLibrary =
-            (result == D2fErrorCode.D2FS_MISSINGLIBMOD && NdapiContext.IgnoreMissingLibrary);
+            (result == FormsErrorCode.MissingLibraryModule && NdapiContext.IgnoreMissingLibrary);
 
         if (success || shouldIgnoreMissingLibrary || shouldIgnoreMissingSubclass)
         {
@@ -22,9 +22,9 @@ internal static class Ensure
         HandleError(result);
     }
 
-    public static void BooleanResult(D2fErrorCode result)
+    public static void BooleanResult(FormsErrorCode result)
     {
-        if (result is D2fErrorCode.D2FS_YES or D2fErrorCode.D2FS_NO)
+        if (result is FormsErrorCode.Yes or FormsErrorCode.No)
         {
             return;
         }
@@ -32,7 +32,7 @@ internal static class Ensure
         HandleError(result);
     }
 
-    private static void HandleError(D2fErrorCode result)
+    private static void HandleError(FormsErrorCode result)
     {
         throw new NdapiException($"The Forms API returned an error. Error code: {result}", result);
     }

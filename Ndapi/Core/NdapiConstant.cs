@@ -1135,5 +1135,5 @@ public enum NdapiConstant
     D2FP_TYP_TEXT,
     D2FP_TYP_OBJECT,
     BINTOTEXT,
-    TEXTTOBIN,
+    TEXTTOBIN
 }

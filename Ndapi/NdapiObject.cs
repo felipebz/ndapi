@@ -17,7 +17,7 @@ namespace Ndapi;
 /// </summary>
 public abstract class NdapiObject : IDisposable
 {
-    internal ObjectSafeHandle _handle;
+    internal ObjectSafeHandle Handle;
     private ObjectType _type;
 
     internal NdapiObject()
@@ -32,8 +32,8 @@ public abstract class NdapiObject : IDisposable
 
     internal NdapiObject(string name, ObjectType type, NdapiObject parent = null)
     {
-        var parentHandle = parent?._handle ?? new ObjectSafeHandle();
-        var status = NativeMethods.d2fobcr_Create(NdapiContext.GetContext(), parentHandle, out _handle, name,
+        var parentHandle = parent?.Handle ?? new ObjectSafeHandle();
+        var status = NativeMethods.d2fobcr_Create(NdapiContext.GetContext(), parentHandle, out Handle, name,
             ConstantConverter.GetValue(type));
         Ensure.Success(status);
         _type = type;
@@ -41,7 +41,7 @@ public abstract class NdapiObject : IDisposable
 
     internal NdapiObject(ObjectSafeHandle handle, ObjectType type)
     {
-        _handle = handle;
+        Handle = handle;
         _type = type;
     }
 
@@ -138,9 +138,9 @@ public abstract class NdapiObject : IDisposable
     {
         get
         {
-            var status = NativeMethods.d2fobis_IsSubclassed(NdapiContext.GetContext(), _handle);
+            var status = NativeMethods.d2fobis_IsSubclassed(NdapiContext.GetContext(), Handle);
             Ensure.BooleanResult(status);
-            return status == D2fErrorCode.D2FS_YES;
+            return status == FormsErrorCode.Yes;
         }
     }
 
@@ -170,7 +170,7 @@ public abstract class NdapiObject : IDisposable
     public string GetStringProperty(NdapiConstant property)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var value);
         Ensure.Success(status);
         return value;
@@ -184,7 +184,7 @@ public abstract class NdapiObject : IDisposable
     public void SetStringProperty(NdapiConstant property, string value)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), value);
         Ensure.Success(status);
     }
@@ -197,7 +197,7 @@ public abstract class NdapiObject : IDisposable
     public int GetNumberProperty(NdapiConstant property)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobgn_GetNumProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var value);
         Ensure.Success(status);
         return value;
@@ -231,7 +231,7 @@ public abstract class NdapiObject : IDisposable
     public void SetNumberProperty(NdapiConstant property, int value)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobsn_SetNumProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobsn_SetNumProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), value);
         Ensure.Success(status);
     }
@@ -258,7 +258,7 @@ public abstract class NdapiObject : IDisposable
     public bool GetBooleanProperty(NdapiConstant property)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobgb_GetBoolProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var value);
         Ensure.Success(status);
         return value;
@@ -272,7 +272,7 @@ public abstract class NdapiObject : IDisposable
     public void SetBooleanProperty(NdapiConstant property, bool value)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobsb_SetBoolProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), value);
         Ensure.Success(status);
     }
@@ -286,7 +286,7 @@ public abstract class NdapiObject : IDisposable
         NdapiConstant property) where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), _handle,
+        var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var handle);
         Ensure.Success(status);
 
@@ -301,8 +301,8 @@ public abstract class NdapiObject : IDisposable
     public void SetObjectProperty<T>(NdapiConstant property, T value) where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
-        var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.GetContext(), _handle,
-            ConstantConverter.GetValue(property), value._handle);
+        var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.GetContext(), Handle,
+            ConstantConverter.GetValue(property), value.Handle);
         Ensure.Success(status);
     }
 
@@ -331,7 +331,7 @@ public abstract class NdapiObject : IDisposable
             return _type;
         }
 
-        var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), _handle, out var type);
+        var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), Handle, out var type);
         Ensure.Success(status);
         _type = Convert<ObjectType>(type);
 
@@ -368,10 +368,10 @@ public abstract class NdapiObject : IDisposable
     /// <returns>A boolean indicating whether item has the property.</returns>
     public bool HasProperty(NdapiConstant property)
     {
-        var status = NativeMethods.d2fobhp_HasProp(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
+        var status = NativeMethods.d2fobhp_HasProp(NdapiContext.GetContext(), Handle, ConstantConverter.GetValue(property));
         Ensure.BooleanResult(status);
 
-        return status == D2fErrorCode.D2FS_YES;
+        return status == FormsErrorCode.Yes;
     }
 
     /// <summary>
@@ -380,13 +380,13 @@ public abstract class NdapiObject : IDisposable
     /// <param name="property"></param>
     public void InheritProperty(NdapiConstant property)
     {
-        var status = NativeMethods.d2fobip_InheritProp(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
+        var status = NativeMethods.d2fobip_InheritProp(NdapiContext.GetContext(), Handle, ConstantConverter.GetValue(property));
         Ensure.Success(status);
     }
 
-    internal D2fErrorCode IsPropertyDefaulted(NdapiConstant property)
+    internal FormsErrorCode IsPropertyDefaulted(NdapiConstant property)
     {
-        return NativeMethods.d2fobid_IspropDefault(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
+        return NativeMethods.d2fobid_IspropDefault(NdapiContext.GetContext(), Handle, ConstantConverter.GetValue(property));
     }
 
     /// <summary>
@@ -397,13 +397,13 @@ public abstract class NdapiObject : IDisposable
     public bool HasDefaultedProperty(NdapiConstant property)
     {
         var status = IsPropertyDefaulted(property);
-        if (status == D2fErrorCode.D2FS_DONTHAVE)
+        if (status == FormsErrorCode.PropertyDoesNotExist)
         {
             return false;
         }
 
         Ensure.BooleanResult(status);
-        return status == D2fErrorCode.D2FS_YES;
+        return status == FormsErrorCode.Yes;
     }
 
     /// <summary>
@@ -414,13 +414,13 @@ public abstract class NdapiObject : IDisposable
     public bool HasOverriddenProperty(NdapiConstant property)
     {
         var status = IsPropertyDefaulted(property);
-        if (status == D2fErrorCode.D2FS_DONTHAVE)
+        if (status == FormsErrorCode.PropertyDoesNotExist)
         {
             return false;
         }
 
         Ensure.BooleanResult(status);
-        return status == D2fErrorCode.D2FS_NO;
+        return status == FormsErrorCode.No;
     }
 
     /// <summary>
@@ -430,10 +430,10 @@ public abstract class NdapiObject : IDisposable
     /// <returns>A boolean indicating whether property was inherited.</returns>
     public bool HasInheritedProperty(NdapiConstant property)
     {
-        var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.GetContext(), _handle, ConstantConverter.GetValue(property));
+        var status = NativeMethods.d2fobii_IspropInherited(NdapiContext.GetContext(), Handle, ConstantConverter.GetValue(property));
         Ensure.BooleanResult(status);
 
-        return status == D2fErrorCode.D2FS_YES;
+        return status == FormsErrorCode.Yes;
     }
 
     /// <summary>
@@ -470,7 +470,7 @@ public abstract class NdapiObject : IDisposable
     /// </remarks>
     public void Reattach()
     {
-        var status = NativeMethods.d2fobra_Reattach(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fobra_Reattach(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -483,7 +483,7 @@ public abstract class NdapiObject : IDisposable
     /// The recommended choice is false in most cases.</param>
     public void Subclass(NdapiObject parent, bool keepPath = false)
     {
-        var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), _handle, parent._handle, keepPath);
+        var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), Handle, parent.Handle, keepPath);
         Ensure.Success(status);
     }
 
@@ -495,9 +495,9 @@ public abstract class NdapiObject : IDisposable
         var objectType = NdapiMetadata.GetObjectTypeFrom(type);
         var internalObjectType = ConstantConverter.GetValue(objectType);
 
-        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), _handle, name, internalObjectType,
+        var status = NativeMethods.d2fobfo_FindObj(NdapiContext.GetContext(), Handle, name, internalObjectType,
             out ObjectSafeHandle handle);
-        if (status == D2fErrorCode.D2FS_OBJNOTFOUND)
+        if (status == FormsErrorCode.ObjectNotFound)
         {
             return null;
         }
@@ -512,7 +512,7 @@ public abstract class NdapiObject : IDisposable
     /// </summary>
     public virtual void Destroy()
     {
-        var status = NativeMethods.d2fobde_Destroy(NdapiContext.GetContext(), _handle);
+        var status = NativeMethods.d2fobde_Destroy(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
     }
 
@@ -560,26 +560,27 @@ public abstract class NdapiObject : IDisposable
 
     #region IDisposable Support
 
-    private bool disposedValue; // To detect redundant calls
+    private bool _disposedValue; // To detect redundant calls
 
-    protected virtual void Dispose(bool disposing)
+    protected void Dispose(bool disposing)
     {
-        if (disposedValue)
+        if (_disposedValue)
         {
             return;
         }
 
         if (disposing)
         {
-            _handle?.Dispose();
+            Handle?.Dispose();
         }
 
-        disposedValue = true;
+        _disposedValue = true;
     }
 
     public void Dispose()
     {
         Dispose(true);
+        GC.SuppressFinalize(this);
     }
 
     #endregion
@@ -592,7 +593,7 @@ public abstract class
     NdapiObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T> : NdapiObject
     where T : NdapiObject
 {
-    internal NdapiObject() { }
+    private protected NdapiObject() { }
     internal NdapiObject(ObjectType type) : base(type) { }
     internal NdapiObject(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent) { }
     internal NdapiObject(ObjectSafeHandle handle, ObjectType type) : base(handle, type) { }
@@ -617,12 +618,12 @@ public abstract class
     /// <returns>The new object.</returns>
     public T Clone(string newName, NdapiObject newOwner = null, bool keepSubclassingInfo = true)
     {
-        var parentHandle = newOwner?._handle ?? Owner._handle;
+        var parentHandle = newOwner?.Handle ?? Owner.Handle;
 
         var status = keepSubclassingInfo
-            ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, _handle, out var newHandle,
+            ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, Handle, out var newHandle,
                 newName)
-            : NativeMethods.d2fobdu_Duplicate(NdapiContext.GetContext(), parentHandle, _handle, out newHandle, newName);
+            : NativeMethods.d2fobdu_Duplicate(NdapiContext.GetContext(), parentHandle, Handle, out newHandle, newName);
         Ensure.Success(status);
 
         return Create<T>(newHandle);
@@ -636,8 +637,8 @@ public abstract class
     /// <param name="nextObject">The next object instance. If null, the object will be moved to the end of the list.</param>
     public void Move(T nextObject)
     {
-        var nextHandle = nextObject?._handle ?? new ObjectSafeHandle();
-        var status = NativeMethods.d2fobmv_Move(NdapiContext.GetContext(), _handle, nextHandle);
+        var nextHandle = nextObject?.Handle ?? new ObjectSafeHandle();
+        var status = NativeMethods.d2fobmv_Move(NdapiContext.GetContext(), Handle, nextHandle);
         Ensure.Success(status);
     }
 }
