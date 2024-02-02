@@ -12,12 +12,12 @@ namespace Ndapi;
 /// </summary>
 public abstract class NdapiModule : NdapiObject
 {
-    internal NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
+    private protected NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
     {
         NdapiContext.AddModule(this);
     }
 
-    internal NdapiModule(ObjectSafeHandle handle, ObjectType type) : base(handle, type)
+    private protected NdapiModule(ObjectSafeHandle handle, ObjectType type) : base(handle, type)
     {
         NdapiContext.AddModule(this);
     }

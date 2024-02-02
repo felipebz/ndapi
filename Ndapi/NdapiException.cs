@@ -7,7 +7,6 @@ namespace Ndapi;
 /// <summary>
 /// The exception that is thrown when an error occurs during application execution.
 /// </summary>
-[Serializable]
 public sealed class NdapiException : Exception
 {
     /// <summary>

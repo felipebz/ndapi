@@ -80,7 +80,7 @@ public static class NdapiMetadata
                                    DynamicallyAccessedMemberTypes.PublicProperties)]
     internal static Type GetTypeFrom(ObjectType type) => ObjectTypeMapping.Single(t => t.ObjectType == type).Type;
 
-    private class ObjectTypeMap
+    private sealed class ObjectTypeMap
     {
         private readonly Lazy<NdapiMetaObject> _metaObject;
 

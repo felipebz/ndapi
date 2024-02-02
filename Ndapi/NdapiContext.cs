@@ -13,8 +13,8 @@ namespace Ndapi;
 /// </summary>
 public sealed class NdapiContext : IDisposable
 {
-    private const int D2Fctxacdata = 1; // client data
-    private const int D2Fctxamcalls = 2; // memory callbacks
+    private const int ClientData = 1; // client data
+    private const int MemoryCallbacks = 2; // memory callbacks
 
     // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
     private static readonly Malloc AllocateMemoryDelegate = AllocateMemory;
@@ -70,7 +70,7 @@ public sealed class NdapiContext : IDisposable
 
         var contextAttributes = new ContextAttributes
         {
-            mask_d2fctxa = D2Fctxamcalls,
+            mask_d2fctxa = MemoryCallbacks,
             d2fmalc_d2fctxa = AllocateMemoryDelegate,
             d2fmrlc_d2fctxa = ReallocateMemoryDelegate,
             d2fmfre_d2fctxa = FreeMemoryDelegate

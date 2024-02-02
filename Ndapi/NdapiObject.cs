@@ -20,17 +20,17 @@ public abstract class NdapiObject : IDisposable
     internal ObjectSafeHandle Handle;
     private ObjectType _type;
 
-    internal NdapiObject()
+    private protected NdapiObject()
     {
         _type = ObjectType.Undefined;
     }
 
-    internal NdapiObject(ObjectType type)
+    private protected NdapiObject(ObjectType type)
     {
         _type = type;
     }
 
-    internal NdapiObject(string name, ObjectType type, NdapiObject parent = null)
+    private protected NdapiObject(string name, ObjectType type, NdapiObject parent = null)
     {
         var parentHandle = parent?.Handle ?? new ObjectSafeHandle();
         var status = NativeMethods.d2fobcr_Create(NdapiContext.GetContext(), parentHandle, out Handle, name,
@@ -39,7 +39,7 @@ public abstract class NdapiObject : IDisposable
         _type = type;
     }
 
-    internal NdapiObject(ObjectSafeHandle handle, ObjectType type)
+    private protected NdapiObject(ObjectSafeHandle handle, ObjectType type)
     {
         Handle = handle;
         _type = type;
@@ -594,9 +594,9 @@ public abstract class
     where T : NdapiObject
 {
     private protected NdapiObject() { }
-    internal NdapiObject(ObjectType type) : base(type) { }
-    internal NdapiObject(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent) { }
-    internal NdapiObject(ObjectSafeHandle handle, ObjectType type) : base(handle, type) { }
+    private protected NdapiObject(ObjectType type) : base(type) { }
+    private protected NdapiObject(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent) { }
+    private protected NdapiObject(ObjectSafeHandle handle, ObjectType type) : base(handle, type) { }
 
     /// <summary>
     /// Get the previous object.
