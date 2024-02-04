@@ -35,15 +35,14 @@ foreach (var programUnit in module.ProgramUnits)
 Supported Oracle Forms versions
 -------------------------------
 
-Currently this projects is tested with Forms 6.0.8.22.1 (32-bit)  and Forms 12.2.1.3.0 (64-bit).
+Currently this projects is tested with Forms 6.0.8.22.1 (32-bit) and Forms 12.2.1.3, 12.2.1.4 and 12.2.1.19 (64-bit).
 
 Installing
 ----------
 
 Official releases can be obtained using the [NuGet package](https://www.nuget.org/packages/Ndapi).
 
-To integrate with Forms 6i, use version [6.0.8.2](https://www.nuget.org/packages/Ndapi/6.0.8.2). To integrate with Forms
-12c, use version [12.2.1.33](https://www.nuget.org/packages/Ndapi/12.2.1.33). Both packages are compatible with .NET
-Framework 4.6.1 and newer, as they target .NET Standard 2.0.
+To integrate with Forms 6i your application **must** target the platform `x86`. To integrate with Forms 12c
+your application **must** target the platform `x64`.
 
 To get the development builds use https://github.com/felipebz/ndapi/pkgs/nuget/Ndapi.
