@@ -9,7 +9,14 @@ public record BuilderVersion(int FullVersion)
             (FullVersion / 100) % 100);
 
     public int MajorVersion => Version.Major;
+    
+    public static bool operator >(BuilderVersion left, BuilderVersion right) => left.Version > right.Version;
+    public static bool operator >=(BuilderVersion left, BuilderVersion right) => left.Version >= right.Version;
+    public static bool operator <(BuilderVersion left, BuilderVersion right) => left.Version < right.Version;
+    public static bool operator <=(BuilderVersion left, BuilderVersion right) =>
+        left.Version <= right.Version;
 
     public static BuilderVersion Forms6 { get; } = new(60000000);
     public static BuilderVersion Forms12213 { get; } = new(122010300);
+    public static BuilderVersion Forms12214 { get; } = new(122010400);
 }

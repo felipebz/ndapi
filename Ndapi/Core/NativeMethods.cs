@@ -433,6 +433,11 @@ internal static partial class NativeMethods
     public static partial FormsErrorCode d2frcsgr_GetRow(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcs, int index,
         [MarshalAs(UnmanagedType.LPStr)] out string dat);
 
+    [LibraryImport(FormsLib)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial FormsErrorCode d2frcsgrn_GetRowName(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcs, int index,
+        [MarshalAs(UnmanagedType.LPStr)] out string dat);
+
     #endregion
 
     #region Object methods

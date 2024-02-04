@@ -97,4 +97,21 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
         Ensure.Success(status);
         return value;
     }
+
+    /// <summary>
+    /// Gets the value in the specified index.
+    /// </summary>
+    /// <param name="index">The one-based index of the value.</param>
+    /// <returns>The row value.</returns>
+    public string GetNameAt(int index)
+    {
+        if (NdapiContext.BuilderVersion < BuilderVersion.Forms12214)
+        {
+            throw new NdapiException($"This method is not supported in the current Oracle Forms version.");
+        }
+        
+        var status = NativeMethods.d2frcsgrn_GetRowName(NdapiContext.GetContext(), Handle, index, out var value);
+        Ensure.Success(status);
+        return value;
+    }
 }
