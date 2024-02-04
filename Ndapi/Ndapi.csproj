@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Description>A .NET wrapper for Oracle Forms 12c Open API</Description>
+    <Description>A .NET wrapper for Oracle Forms 6i and 12c Open API</Description>
     <Authors>Felipe Zorzo</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
