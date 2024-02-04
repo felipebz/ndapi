@@ -9,7 +9,7 @@ public record BuilderVersion(int FullVersion)
             (FullVersion / 100) % 100);
 
     public int MajorVersion => Version.Major;
-    
+
     public static bool operator >(BuilderVersion left, BuilderVersion right) => left.Version > right.Version;
     public static bool operator >=(BuilderVersion left, BuilderVersion right) => left.Version >= right.Version;
     public static bool operator <(BuilderVersion left, BuilderVersion right) => left.Version < right.Version;
