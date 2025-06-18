@@ -8,7 +8,7 @@
     <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>oracle wrapper API oracleforms</PackageTags>
-    <Version>13.1.0-alpha</Version>
+    <Version>13.1.0</Version>
     <NoWarn>NU5128</NoWarn>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsAotCompatible>true</IsAotCompatible>
