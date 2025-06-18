@@ -562,7 +562,7 @@ public abstract class NdapiObject : IDisposable
 
     private bool _disposedValue; // To detect redundant calls
 
-    protected void Dispose(bool disposing)
+    protected virtual void Dispose(bool disposing)
     {
         if (_disposedValue)
         {
