@@ -30,6 +30,7 @@ public static class NdapiMetadata
         new ObjectTypeMap(ObjectType.DataSourceArgument, typeof(DataSourceArgument)),
         new ObjectTypeMap(ObjectType.DataSourceColumn, typeof(DataSourceColumn)),
         new ObjectTypeMap(ObjectType.Editor, typeof(Editor)),
+        new ObjectTypeMap(ObjectType.Event, typeof(Event)),
         new ObjectTypeMap(ObjectType.Font, typeof(Font)),
         new ObjectTypeMap(ObjectType.FormModule, typeof(FormModule)),
         new ObjectTypeMap(ObjectType.FormParameter, typeof(FormParameter)),
