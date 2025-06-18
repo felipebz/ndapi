@@ -54,7 +54,7 @@ jobs:
         run: dotnet pack -c Release --no-build
 
       - name: Build trimmed sample with NativeAOT for Forms 12c
-        run: dotnet publish -c Release -p:"Platform=x64;PublishAot=true" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
+        run: dotnet publish -c Release -f net9.0 -p:"Platform=x64;PublishAot=true" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
 
       - name: Add NuGet source
         run: dotnet nuget add source --username felipebz --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/felipebz/index.json"
