@@ -107,7 +107,7 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     {
         if (NdapiContext.BuilderVersion < BuilderVersion.Forms12214)
         {
-            throw new NdapiException($"This method is not supported in the current Oracle Forms version.");
+            throw new NdapiException("This method is not supported in the current Oracle Forms version.");
         }
 
         var status = NativeMethods.d2frcsgrn_GetRowName(NdapiContext.GetContext(), Handle, index, out var value);
