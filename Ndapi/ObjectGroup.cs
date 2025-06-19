@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a group of objects.
 /// </summary>
-public class ObjectGroup : NdapiObject<ObjectGroup>
+public partial class ObjectGroup : NdapiObject<ObjectGroup>
 {
     /// <summary>
     /// Creates a object group.
@@ -35,17 +35,13 @@ public class ObjectGroup : NdapiObject<ObjectGroup>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets the objects contained in the group.
     /// </summary>
     [Property(NdapiConstant.D2FP_OG_CHILD)]
-    public NdapiObjectList<ObjectGroupChild> Childs => GetObjectList<ObjectGroupChild>(NdapiConstant.D2FP_OG_CHILD);
+    public partial NdapiObjectList<ObjectGroupChild> Childs { get; }
 
     /// <summary>
     /// Creates a object group child.

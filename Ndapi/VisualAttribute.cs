@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a visual attribute.
 /// </summary>
-public class VisualAttribute : NdapiObject<VisualAttribute>
+public partial class VisualAttribute : NdapiObject<VisualAttribute>
 {
     /// <summary>
     /// Creates a visual attribute.
@@ -44,191 +44,115 @@ public class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public string BackgroundColor
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_BACK_COLOR);
-        set => SetStringProperty(NdapiConstant.D2FP_BACK_COLOR, value);
-    }
+    public partial string BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public string FillPattern
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_FILL_PAT);
-        set => SetStringProperty(NdapiConstant.D2FP_FILL_PAT, value);
-    }
+    public partial string FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public string FontName
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_FONT_NAM);
-        set => SetStringProperty(NdapiConstant.D2FP_FONT_NAM, value);
-    }
+    public partial string FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_SIZ)]
-    public int FontSize
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_FONT_SIZ);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SIZ, value);
-    }
+    public partial int FontSize { get; set; }
 
     /// <summary>
     /// Gets or sets the font spacing.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_SPCING)]
-    public FontSpacing FontSpacing
-    {
-        get => GetNumberProperty<FontSpacing>(NdapiConstant.D2FP_FONT_SPCING);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SPCING, value);
-    }
+    public partial FontSpacing FontSpacing { get; set; }
 
     /// <summary>
     /// Gets or sets the font style.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_STY)]
-    public FontStyle FontStyle
-    {
-        get => GetNumberProperty<FontStyle>(NdapiConstant.D2FP_FONT_STY);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_STY, value);
-    }
+    public partial FontStyle FontStyle { get; set; }
 
     /// <summary>
     /// Gets or sets the font weight.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_WGHT)]
-    public FontWeight FontWeight
-    {
-        get => GetNumberProperty<FontWeight>(NdapiConstant.D2FP_FONT_WGHT);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_WGHT, value);
-    }
+    public partial FontWeight FontWeight { get; set; }
 
     /// <summary>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public string ForegroundColor
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_FORE_COLOR);
-        set => SetStringProperty(NdapiConstant.D2FP_FORE_COLOR, value);
-    }
+    public partial string ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_BACK_COLOR)]
-    public string PromptBackgroundColor
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PRMPT_BACK_COLOR);
-        set => SetStringProperty(NdapiConstant.D2FP_PRMPT_BACK_COLOR, value);
-    }
+    public partial string PromptBackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the prompt's fill region.
     /// Patterns are rendered in the two colors specified by <see cref="PromptBackgroundColor"/> and <see cref="PromptForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FILL_PAT)]
-    public string PromptFillPattern
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PRMPT_FILL_PAT);
-        set => SetStringProperty(NdapiConstant.D2FP_PRMPT_FILL_PAT, value);
-    }
+    public partial string PromptFillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt's font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_NAM)]
-    public string PromptFontName
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PRMPT_FONT_NAM);
-        set => SetStringProperty(NdapiConstant.D2FP_PRMPT_FONT_NAM, value);
-    }
+    public partial string PromptFontName { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt's font size.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_SIZ)]
-    public int PromptFontSize
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_PRMPT_FONT_SIZ);
-        set => SetNumberProperty(NdapiConstant.D2FP_PRMPT_FONT_SIZ, value);
-    }
+    public partial int PromptFontSize { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt font spacing.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_SPCING)]
-    public FontSpacing PromptFontSpacing
-    {
-        get => GetNumberProperty<FontSpacing>(NdapiConstant.D2FP_PRMPT_FONT_SPCING);
-        set => SetNumberProperty(NdapiConstant.D2FP_PRMPT_FONT_SPCING, value);
-    }
+    public partial FontSpacing PromptFontSpacing { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt font style.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_STY)]
-    public FontStyle PromptFontStyle
-    {
-        get => GetNumberProperty<FontStyle>(NdapiConstant.D2FP_PRMPT_FONT_STY);
-        set => SetNumberProperty(NdapiConstant.D2FP_PRMPT_FONT_STY, value);
-    }
+    public partial FontStyle PromptFontStyle { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt font weight.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_WGHT)]
-    public FontWeight PromptFontWeight
-    {
-        get => GetNumberProperty<FontWeight>(NdapiConstant.D2FP_PRMPT_FONT_WGHT);
-        set => SetNumberProperty(NdapiConstant.D2FP_PRMPT_FONT_WGHT, value);
-    }
+    public partial FontWeight PromptFontWeight { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FORE_COLOR)]
-    public string PromptForegroundColor
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PRMPT_FORE_COLOR);
-        set => SetStringProperty(NdapiConstant.D2FP_PRMPT_FORE_COLOR, value);
-    }
+    public partial string PromptForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute type.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_TYP)]
-    public VisualAttributeType Type
-    {
-        get => GetNumberProperty<VisualAttributeType>(NdapiConstant.D2FP_VAT_TYP);
-        set => SetNumberProperty(NdapiConstant.D2FP_VAT_TYP, value);
-    }
+    public partial VisualAttributeType Type { get; set; }
 
     /// <summary>
     /// Gets or sets the white-on-black property.
     /// </summary>
     [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
-    public bool IsWhiteOnBlack
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK);
-        set => SetBooleanProperty(NdapiConstant.D2FP_WHITE_ON_BLACK, value);
-    }
+    public partial bool IsWhiteOnBlack { get; set; }
 }

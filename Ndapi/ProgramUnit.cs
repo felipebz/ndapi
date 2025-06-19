@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a program unit object.
 /// </summary>
-public class ProgramUnit : NdapiObject<ProgramUnit>
+public partial class ProgramUnit : NdapiObject<ProgramUnit>
 {
     /// <summary>
     /// Creates a program unit.
@@ -44,27 +44,19 @@ public class ProgramUnit : NdapiObject<ProgramUnit>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the program unit code.
     /// </summary>
     [Property(NdapiConstant.D2FP_PGU_TXT)]
-    public string Text
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PGU_TXT);
-        set => SetStringProperty(NdapiConstant.D2FP_PGU_TXT, value);
-    }
+    public partial string Text { get; set; }
 
     /// <summary>
     /// Gets the program unit type.
     /// </summary>
     [Property(NdapiConstant.D2FP_PGU_TYP)]
-    public ProgramUnitType Type => GetNumberProperty<ProgramUnitType>(NdapiConstant.D2FP_PGU_TYP);
+    public partial ProgramUnitType Type { get; }
 
     /// <summary>
     /// Compile the program unit.

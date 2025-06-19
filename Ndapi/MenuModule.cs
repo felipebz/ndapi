@@ -9,7 +9,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a menu module.
 /// </summary>
-public class MenuModule : NdapiModule
+public partial class MenuModule : NdapiModule
 {
     /// <summary>
     /// Creates a menu module.
@@ -27,127 +27,91 @@ public class MenuModule : NdapiModule
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the main menu.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAIN_MNU)]
-    public string MainMenu
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_MAIN_MNU);
-        set => SetStringProperty(NdapiConstant.D2FP_MAIN_MNU, value);
-    }
+    public partial string MainMenu { get; set; }
 
     /// <summary>
     /// Gets or sets the module directory.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_DRCTRY)]
-    public string Directory
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_MNU_DRCTRY);
-        set => SetStringProperty(NdapiConstant.D2FP_MNU_DRCTRY, value);
-    }
+    public partial string Directory { get; set; }
 
     /// <summary>
     /// Gets or sets the filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_FLNAM)]
-    public string Filename
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_MNU_FLNAM);
-        set => SetStringProperty(NdapiConstant.D2FP_MNU_FLNAM, value);
-    }
+    public partial string Filename { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu module will share it attached libraries with form modules.
     /// </summary>
     [Property(NdapiConstant.D2FP_SHARE_LIB)]
-    public bool ShareLibraryWithForm
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_SHARE_LIB);
-        set => SetBooleanProperty(NdapiConstant.D2FP_SHARE_LIB, value);
-    }
+    public partial bool ShareLibraryWithForm { get; set; }
 
     /// <summary>
     /// Gets or sets the startup code.
     /// </summary>
     [Property(NdapiConstant.D2FP_STRTUP_CODE)]
-    public string StartupCode
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_STRTUP_CODE);
-        set => SetStringProperty(NdapiConstant.D2FP_STRTUP_CODE, value);
-    }
+    public partial string StartupCode { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should enforce the security scheme defined for the menu module.
     /// </summary>
     [Property(NdapiConstant.D2FP_USE_SECURITY)]
-    public bool UseSecurity
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_USE_SECURITY);
-        set => SetBooleanProperty(NdapiConstant.D2FP_USE_SECURITY, value);
-    }
+    public partial bool UseSecurity { get; set; }
 
     /// <summary>
     /// Gets all the attached libraries.
     /// </summary>
     [Property(NdapiConstant.D2FP_ATT_LIB)]
-    public NdapiObjectList<AttachedLibrary> AttachedLibraries =>
-        GetObjectList<AttachedLibrary>(NdapiConstant.D2FP_ATT_LIB);
+    public partial NdapiObjectList<AttachedLibrary> AttachedLibraries { get; }
 
     /// <summary>
     /// Gets all the menus.
     /// </summary>
     [Property(NdapiConstant.D2FP_MENU)]
-    public NdapiObjectList<Menu> Menus =>
-        GetObjectList<Menu>(NdapiConstant.D2FP_MENU);
+    public partial NdapiObjectList<Menu> Menus { get; }
 
     /// <summary>
     /// Gets all the menu parameters.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_PARAM)]
-    public NdapiObjectList<MenuParameter> Parameters =>
-        GetObjectList<MenuParameter>(NdapiConstant.D2FP_MNU_PARAM);
+    public partial NdapiObjectList<MenuParameter> Parameters { get; }
 
     /// <summary>
     /// Gets all the object groups.
     /// </summary>
     [Property(NdapiConstant.D2FP_OBJ_GRP)]
-    public NdapiObjectList<ObjectGroup> ObjectGroups =>
-        GetObjectList<ObjectGroup>(NdapiConstant.D2FP_OBJ_GRP);
+    public partial NdapiObjectList<ObjectGroup> ObjectGroups { get; }
 
     /// <summary>
     /// Gets all the program units.
     /// </summary>
     [Property(NdapiConstant.D2FP_PROG_UNIT)]
-    public NdapiObjectList<ProgramUnit> ProgramUnits =>
-        GetObjectList<ProgramUnit>(NdapiConstant.D2FP_PROG_UNIT);
+    public partial NdapiObjectList<ProgramUnit> ProgramUnits { get; }
 
     /// <summary>
     /// Gets all the property classes.
     /// </summary>
     [Property(NdapiConstant.D2FP_PROP_CLASS)]
-    public NdapiObjectList<PropertyClass> PropertyClasses =>
-        GetObjectList<PropertyClass>(NdapiConstant.D2FP_PROP_CLASS);
+    public partial NdapiObjectList<PropertyClass> PropertyClasses { get; }
 
     /// <summary>
     /// Gets the total number of roles.
     /// </summary>
     [Property(NdapiConstant.D2FP_ROLE_COUNT)]
-    public int RoleCount =>
-        GetNumberProperty(NdapiConstant.D2FP_ROLE_COUNT);
+    public partial int RoleCount { get; }
 
     /// <summary>
     /// Gets all the visual attributes.
     /// </summary>
     [Property(NdapiConstant.D2FP_VIS_ATTR)]
-    public NdapiObjectList<VisualAttribute> VisualAttributes =>
-        GetObjectList<VisualAttribute>(NdapiConstant.D2FP_VIS_ATTR);
+    public partial NdapiObjectList<VisualAttribute> VisualAttributes { get; }
 
     /// <summary>
     /// Gets the menu roles.

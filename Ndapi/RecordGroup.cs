@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a record group.
 /// </summary>
-public class RecordGroup : NdapiObject<RecordGroup>
+public partial class RecordGroup : NdapiObject<RecordGroup>
 {
     /// <summary>
     /// Creates a record group
@@ -35,47 +35,31 @@ public class RecordGroup : NdapiObject<RecordGroup>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the query fetch size.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_FETCH_SIZ)]
-    public int FetchSize
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_REC_GRP_FETCH_SIZ);
-        set => SetNumberProperty(NdapiConstant.D2FP_REC_GRP_FETCH_SIZ, value);
-    }
+    public partial int FetchSize { get; set; }
 
     /// <summary>
     /// Gets or sets the SQL query.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_QRY)]
-    public string Query
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_REC_GRP_QRY);
-        set => SetStringProperty(NdapiConstant.D2FP_REC_GRP_QRY, value);
-    }
+    public partial string Query { get; set; }
 
     /// <summary>
     /// Gets or sets the record group type.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_TYP)]
-    public RecordGroupType Type
-    {
-        get => GetNumberProperty<RecordGroupType>(NdapiConstant.D2FP_REC_GRP_TYP);
-        set => SetNumberProperty(NdapiConstant.D2FP_REC_GRP_TYP, value);
-    }
+    public partial RecordGroupType Type { get; set; }
 
     /// <summary>
     /// Gets the columns in the record group.
     /// </summary>
     [Property(NdapiConstant.D2FP_COL_SPEC)]
-    public NdapiObjectList<RecordGroupColumn> Columns => GetObjectList<RecordGroupColumn>(NdapiConstant.D2FP_COL_SPEC);
+    public partial NdapiObjectList<RecordGroupColumn> Columns { get; }
 
     /// <summary>
     /// Set the record group query without parsing the SQL to create the record group column specifications.

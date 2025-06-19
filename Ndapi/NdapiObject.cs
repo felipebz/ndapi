@@ -15,7 +15,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a generic object.
 /// </summary>
-public abstract class NdapiObject : IDisposable
+public abstract partial class NdapiObject : IDisposable
 {
     internal ObjectSafeHandle Handle;
     private ObjectType _type;
@@ -49,87 +49,55 @@ public abstract class NdapiObject : IDisposable
     /// Gets or sets the name.
     /// </summary>
     [Property(NdapiConstant.D2FP_NAME)]
-    public virtual string Name
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_NAME);
-        set => SetStringProperty(NdapiConstant.D2FP_NAME, value);
-    }
+    public virtual partial string Name { get; set; }
 
     /// <summary>
     /// Gets or sets the parent type.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_TYP)]
-    public int ParentType
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_PAR_TYP);
-        set => SetNumberProperty(NdapiConstant.D2FP_PAR_TYP, value);
-    }
+    public partial int ParentType { get; set; }
 
     /// <summary>
     /// Gets or sets the parent name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_NAM)]
-    public string ParentName
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PAR_NAM);
-        set => SetStringProperty(NdapiConstant.D2FP_PAR_NAM, value);
-    }
+    public partial string ParentName { get; set; }
 
     /// <summary>
     /// Gets or sets the parent module.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_MODULE)]
-    public string ParentModule
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PAR_MODULE);
-        set => SetStringProperty(NdapiConstant.D2FP_PAR_MODULE, value);
-    }
+    public partial string ParentModule { get; set; }
 
     /// <summary>
     /// Gets or sets the parent module type.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_MODTYP)]
-    public int ParentModuleType
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_PAR_MODTYP);
-        set => SetNumberProperty(NdapiConstant.D2FP_PAR_MODTYP, value);
-    }
+    public partial int ParentModuleType { get; set; }
 
     /// <summary>
     /// Gets or sets the parent module storage.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_MODSTR)]
-    public ModuleStorageType ParentModuleStorage
-    {
-        get => GetNumberProperty<ModuleStorageType>(NdapiConstant.D2FP_PAR_MODSTR);
-        set => SetNumberProperty(NdapiConstant.D2FP_PAR_MODSTR, value);
-    }
+    public partial ModuleStorageType ParentModuleStorage { get; set; }
 
     /// <summary>
     /// Gets or sets the parent filename path.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_FLPATH)]
-    public string ParentFileNamePath
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PAR_FLPATH);
-        set => SetStringProperty(NdapiConstant.D2FP_PAR_FLPATH, value);
-    }
+    public partial string ParentFileNamePath { get; set; }
 
     /// <summary>
     /// Gets or sets the parent filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_FLNAM)]
-    public string ParentFileName
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_PAR_FLNAM);
-        set => SetStringProperty(NdapiConstant.D2FP_PAR_FLNAM, value);
-    }
+    public partial string ParentFileName { get; set; }
 
     /// <summary>
     /// Gets or sets the object owner.
     /// </summary>
     [Property(NdapiConstant.D2FP_OWNER)]
-    public NdapiObject Owner => GetObjectProperty<NdapiObject>(NdapiConstant.D2FP_OWNER);
+    public partial NdapiObject Owner { get; }
 
     /// <summary>
     /// Gets whether item is subclassed.

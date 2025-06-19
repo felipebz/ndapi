@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represent a property class.
 /// </summary>
-public class PropertyClass : NdapiObject<PropertyClass>
+public partial class PropertyClass : NdapiObject<PropertyClass>
 {
     /// <summary>
     /// Creates a property class.
@@ -53,18 +53,13 @@ public class PropertyClass : NdapiObject<PropertyClass>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets all the triggers attached to this property class.
     /// </summary>
     [Property(NdapiConstant.D2FP_TRIGGER)]
-    public NdapiObjectList<Trigger> Triggers =>
-        GetObjectList<Trigger>(NdapiConstant.D2FP_TRIGGER);
+    public partial NdapiObjectList<Trigger> Triggers { get; }
 
     /// <summary>
     /// Remove the specified property from the property class.

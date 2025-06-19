@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a menu object.
 /// </summary>
-public class Menu : NdapiObject<Menu>
+public partial class Menu : NdapiObject<Menu>
 {
     /// <summary>
     /// Creates a new menu.
@@ -35,37 +35,25 @@ public class Menu : NdapiObject<Menu>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the subtitle.
     /// </summary>
     [Property(NdapiConstant.D2FP_SUB_TTL)]
-    public string Subtitle
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_SUB_TTL);
-        set => SetStringProperty(NdapiConstant.D2FP_SUB_TTL, value);
-    }
+    public partial string Subtitle { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu is a tear-off menu.
     /// </summary>
     [Property(NdapiConstant.D2FP_TEAR_OFF_MNU)]
-    public bool IsTearOffMenu
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_TEAR_OFF_MNU);
-        set => SetBooleanProperty(NdapiConstant.D2FP_TEAR_OFF_MNU, value);
-    }
+    public partial bool IsTearOffMenu { get; set; }
 
     /// <summary>
     /// Gets the menu items.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_ITM)]
-    public NdapiObjectList<MenuItem> MenuItems => GetObjectList<MenuItem>(NdapiConstant.D2FP_MNU_ITM);
+    public partial NdapiObjectList<MenuItem> MenuItems { get; }
 
     /// <summary>
     /// Creates a menu item.

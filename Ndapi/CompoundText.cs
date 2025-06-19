@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a compound text.
 /// </summary>
-public class CompoundText : NdapiObject<CompoundText>
+public partial class CompoundText : NdapiObject<CompoundText>
 {
     /// <summary>
     /// Creates a compound text.
@@ -26,7 +26,7 @@ public class CompoundText : NdapiObject<CompoundText>
     /// Gets the text segments.
     /// </summary>
     [Property(NdapiConstant.D2FP_TEXT_SEG)]
-    public NdapiObjectList<TextSegment> TextSegments => GetObjectList<TextSegment>(NdapiConstant.D2FP_TEXT_SEG);
+    public partial NdapiObjectList<TextSegment> TextSegments { get; }
 
     /// <summary>
     /// Creates a text segment.

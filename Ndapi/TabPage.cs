@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a tab page.
 /// </summary>
-public class TabPage : NdapiObject<TabPage>
+public partial class TabPage : NdapiObject<TabPage>
 {
     /// <summary>
     /// Creates a tab page.
@@ -26,58 +26,38 @@ public class TabPage : NdapiObject<TabPage>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether the tab is enabled.
     /// </summary>
     [Property(NdapiConstant.D2FP_ENABLED)]
-    public bool IsEnabled
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_ENABLED);
-        set => SetBooleanProperty(NdapiConstant.D2FP_ENABLED, value);
-    }
+    public partial bool IsEnabled { get; set; }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public string Label
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_LABEL);
-        set => SetStringProperty(NdapiConstant.D2FP_LABEL, value);
-    }
+    public partial string Label { get; set; }
 
     /// <summary>
     /// Gets or sets whether the tab is visible.
     /// </summary>
     [Property(NdapiConstant.D2FP_VISIBLE)]
-    public bool IsVisible
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_VISIBLE);
-        set => SetBooleanProperty(NdapiConstant.D2FP_VISIBLE, value);
-    }
+    public partial bool IsVisible { get; set; }
 
     /// <summary>
     /// Gets or sets the side of the tab-page from where the gradient color begins
     /// or that there should be no gradient color used.
     /// </summary>
     [Property(NdapiConstant.D2FP_GRADIENT_START)]
-    public GradientStartSide GradientStartSide
-    {
-        get => GetNumberProperty<GradientStartSide>(NdapiConstant.D2FP_GRADIENT_START);
-        set => SetNumberProperty(NdapiConstant.D2FP_GRADIENT_START, value);
-    }
+    public partial GradientStartSide GradientStartSide { get; set; }
 
     /// <summary>
     /// Gets all the graphic objects attached to the canvas.
     /// </summary>
     [Property(NdapiConstant.D2FP_GRAPHIC)]
-    public NdapiObjectList<Graphics> Graphics => GetObjectList<Graphics>(NdapiConstant.D2FP_GRAPHIC);
+    public partial NdapiObjectList<Graphics> Graphics { get; }
 
     /// <summary>
     /// Creates a child graphics object.

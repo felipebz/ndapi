@@ -9,7 +9,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents an object library.
 /// </summary>
-public class ObjectLibrary : NdapiModule
+public partial class ObjectLibrary : NdapiModule
 {
     /// <summary>
     /// Creates a object library;
@@ -27,7 +27,7 @@ public class ObjectLibrary : NdapiModule
     /// Gets all the tabs.
     /// </summary>
     [Property(NdapiConstant.D2FP_OBJ_LIB_TAB)]
-    public NdapiObjectList<ObjectLibraryTab> Tabs => GetObjectList<ObjectLibraryTab>(NdapiConstant.D2FP_OBJ_LIB_TAB);
+    public partial NdapiObjectList<ObjectLibraryTab> Tabs { get; }
 
     /// <summary>
     /// Gets all the objects contained in this Library.

@@ -9,7 +9,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a program unit library.
 /// </summary>
-public class LibraryModule : NdapiModule
+public partial class LibraryModule : NdapiModule
 {
     internal LibraryModule(ObjectSafeHandle handle) : base(handle, ObjectType.LibraryModule)
     {
@@ -19,27 +19,25 @@ public class LibraryModule : NdapiModule
     /// Gets all the attached libraries.
     /// </summary>
     [Property(NdapiConstant.D2FP_ATT_LIB)]
-    public NdapiObjectList<AttachedLibrary> AttachedLibraries =>
-        GetObjectList<AttachedLibrary>(NdapiConstant.D2FP_ATT_LIB);
+    public partial NdapiObjectList<AttachedLibrary> AttachedLibraries { get; }
 
     /// <summary>
     /// Gets the library location.
     /// </summary>
     [Property(NdapiConstant.D2FP_LIB_LOC)]
-    public string Location => GetStringProperty(NdapiConstant.D2FP_LIB_LOC);
+    public partial string Location { get; }
 
     /// <summary>
     /// Gets all the program units.
     /// </summary>
     [Property(NdapiConstant.D2FP_LIB_PROG_UNIT)]
-    public NdapiObjectList<LibraryProgramUnit> ProgramUnits =>
-        GetObjectList<LibraryProgramUnit>(NdapiConstant.D2FP_LIB_PROG_UNIT);
+    public partial NdapiObjectList<LibraryProgramUnit> ProgramUnits { get; }
 
     /// <summary>
     /// Gets the source type.
     /// </summary>
     [Property(NdapiConstant.D2FP_LIB_SRC)]
-    public SourceType SourceType => GetNumberProperty<SourceType>(NdapiConstant.D2FP_LIB_SRC);
+    public partial SourceType SourceType { get; }
 
     /// <summary>
     /// Load the program unit library into memory.

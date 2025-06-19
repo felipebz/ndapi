@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a relation between blocks.
 /// </summary>
-public class BlockRelation : NdapiObject<BlockRelation>
+public partial class BlockRelation : NdapiObject<BlockRelation>
 {
     /// <summary>
     /// Creates a block relation.
@@ -27,71 +27,43 @@ public class BlockRelation : NdapiObject<BlockRelation>
     /// the detail block. This property will affect master-details triggers only when <see cref="IsDeferred"/> is true.
     /// </summary>
     [Property(NdapiConstant.D2FP_AUTO_QRY)]
-    public bool AutomaticQuery
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_AUTO_QRY);
-        set => SetBooleanProperty(NdapiConstant.D2FP_AUTO_QRY, value);
-    }
+    public partial bool AutomaticQuery { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should defer fetching the associated details records.
     /// </summary>
     [Property(NdapiConstant.D2FP_DEFERRED)]
-    public bool IsDeferred
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_DEFERRED);
-        set => SetBooleanProperty(NdapiConstant.D2FP_DEFERRED, value);
-    }
+    public partial bool IsDeferred { get; set; }
 
     /// <summary>
     /// Gets or sets the relation behavior when deleting records.
     /// </summary>
     [Property(NdapiConstant.D2FP_DEL_REC)]
-    public DeleteRecordBehavior DeleteRecordBehavior
-    {
-        get => GetNumberProperty<DeleteRecordBehavior>(NdapiConstant.D2FP_DEL_REC);
-        set => SetNumberProperty(NdapiConstant.D2FP_DEL_REC, value);
-    }
+    public partial DeleteRecordBehavior DeleteRecordBehavior { get; set; }
 
     /// <summary>
     /// Gets or sets the detail block.
     /// </summary>
     [Property(NdapiConstant.D2FP_DETAIL_BLK)]
-    public string DetailBlock
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_DETAIL_BLK);
-        set => SetStringProperty(NdapiConstant.D2FP_DETAIL_BLK, value);
-    }
+    public partial string DetailBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the join condition between master and detail block.
     /// </summary>
     [Property(NdapiConstant.D2FP_JOIN_COND)]
-    public string JoinCondition
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_JOIN_COND);
-        set => SetStringProperty(NdapiConstant.D2FP_JOIN_COND, value);
-    }
+    public partial string JoinCondition { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should be allowed to query or insert records in a block that is a detail block in a master-detail relation.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRVNT_MSTRLESS_OPS)]
-    public bool PreventMasterlessOperations
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_PRVNT_MSTRLESS_OPS);
-        set => SetBooleanProperty(NdapiConstant.D2FP_PRVNT_MSTRLESS_OPS, value);
-    }
+    public partial bool PreventMasterlessOperations { get; set; }
 
     /// <summary>
     /// Generate the triggers and program units required for the relation.

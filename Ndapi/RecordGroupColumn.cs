@@ -9,7 +9,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a record group column.
 /// </summary>
-public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
+public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
 {
     /// <summary>
     /// Creates a record group column.
@@ -28,27 +28,19 @@ public class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     /// Gets or sets the column data type.
     /// </summary>
     [Property(NdapiConstant.D2FP_COL_DAT_TYP)]
-    public ColumnSpecificationDataType DataType
-    {
-        get => GetNumberProperty<ColumnSpecificationDataType>(NdapiConstant.D2FP_COL_DAT_TYP);
-        set => SetNumberProperty(NdapiConstant.D2FP_COL_DAT_TYP, value);
-    }
+    public partial ColumnSpecificationDataType DataType { get; set; }
 
     /// <summary>
     /// Gets or sets the maximum length.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAX_LEN)]
-    public int MaximumLength
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_MAX_LEN);
-        set => SetNumberProperty(NdapiConstant.D2FP_MAX_LEN, value);
-    }
+    public partial int MaximumLength { get; set; }
 
     /// <summary>
     /// Gets the number of values.
     /// </summary>
     [Property(NdapiConstant.D2FP_COL_VALS_COUNT)]
-    public int ValueCount => GetNumberProperty(NdapiConstant.D2FP_COL_VALS_COUNT);
+    public partial int ValueCount { get; }
 
     /// <summary>
     /// Gets the menu item roles.

@@ -9,7 +9,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a menu module parameter.
 /// </summary>
-public class MenuParameter : NdapiObject<MenuParameter>
+public partial class MenuParameter : NdapiObject<MenuParameter>
 {
     /// <summary>
     /// Creates a new menu parameter.
@@ -28,87 +28,55 @@ public class MenuParameter : NdapiObject<MenuParameter>
     /// Gets the number of associated menus.
     /// </summary>
     [Property(NdapiConstant.D2FP_ASSOC_MENUS_COUNT)]
-    public int AssociatedMenusCount => GetNumberProperty(NdapiConstant.D2FP_ASSOC_MENUS_COUNT);
+    public partial int AssociatedMenusCount { get; }
 
     /// <summary>
     /// Gets or sets the case restriction.
     /// </summary>
     [Property(NdapiConstant.D2FP_CASE_RSTRCTION)]
-    public CaseRestriction CaseRestriction
-    {
-        get => GetNumberProperty<CaseRestriction>(NdapiConstant.D2FP_CASE_RSTRCTION);
-        set => SetNumberProperty(NdapiConstant.D2FP_CASE_RSTRCTION, value);
-    }
+    public partial CaseRestriction CaseRestriction { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should hide characters that the user types into the text item. 
     /// </summary>
     [Property(NdapiConstant.D2FP_CONCEAL_DATA)]
-    public bool ConcealData
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_CONCEAL_DATA);
-        set => SetBooleanProperty(NdapiConstant.D2FP_CONCEAL_DATA, value);
-    }
+    public partial bool ConcealData { get; set; }
 
     /// <summary>
     /// Gets or sets whether the length is fixed.
     /// </summary>
     [Property(NdapiConstant.D2FP_FIXED_LEN)]
-    public bool IsFixedLength
-    {
-        get => GetBooleanProperty(NdapiConstant.D2FP_FIXED_LEN);
-        set => SetBooleanProperty(NdapiConstant.D2FP_FIXED_LEN, value);
-    }
+    public partial bool IsFixedLength { get; set; }
 
     /// <summary>
     /// Gets or sets the parameter hint.
     /// </summary>
     [Property(NdapiConstant.D2FP_HINT)]
-    public string Hint
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_HINT);
-        set => SetStringProperty(NdapiConstant.D2FP_HINT, value);
-    }
+    public partial string Hint { get; set; }
 
     /// <summary>
     /// Gets or sets the label of the associated text item.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public string Label
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_LABEL);
-        set => SetStringProperty(NdapiConstant.D2FP_LABEL, value);
-    }
+    public partial string Label { get; set; }
 
     /// <summary>
     /// Gets or sets the maximum length.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAX_LEN)]
-    public int MaximumLength
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_MAX_LEN);
-        set => SetNumberProperty(NdapiConstant.D2FP_MAX_LEN, value);
-    }
+    public partial int MaximumLength { get; set; }
 
     /// <summary>
     /// Gets or sets the initial value.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_PARAM_INIT_VAL)]
-    public string InitialValue
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_MNU_PARAM_INIT_VAL);
-        set => SetStringProperty(NdapiConstant.D2FP_MNU_PARAM_INIT_VAL, value);
-    }
+    public partial string InitialValue { get; set; }
 
     /// <summary>
     /// Gets the menu item roles.

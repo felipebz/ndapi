@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a font declaration
 /// </summary>
-public class Font : NdapiObject<Font>
+public partial class Font : NdapiObject<Font>
 {
     /// <summary>
     /// Creates a font declaration
@@ -37,51 +37,31 @@ public class Font : NdapiObject<Font>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public string FontName
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_FONT_NAM);
-        set => SetStringProperty(NdapiConstant.D2FP_FONT_NAM, value);
-    }
+    public partial string FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_SIZ)]
-    public int FontSize
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_FONT_SIZ);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SIZ, value);
-    }
+    public partial int FontSize { get; set; }
 
     /// <summary>
     /// Gets or sets the font spacing.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_SPCING)]
-    public FontSpacing FontSpacing
-    {
-        get => GetNumberProperty<FontSpacing>(NdapiConstant.D2FP_FONT_SPCING);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_SPCING, value);
-    }
+    public partial FontSpacing FontSpacing { get; set; }
 
     /// <summary>
     /// Gets or sets the font style.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_STY)]
-    public FontStyle FontStyle
-    {
-        get => GetNumberProperty<FontStyle>(NdapiConstant.D2FP_FONT_STY);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_STY, value);
-    }
+    public partial FontStyle FontStyle { get; set; }
 
     /// <summary>
     /// Gets or sets the font weight.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_WGHT)]
-    public FontWeight FontWeight
-    {
-        get => GetNumberProperty<FontWeight>(NdapiConstant.D2FP_FONT_WGHT);
-        set => SetNumberProperty(NdapiConstant.D2FP_FONT_WGHT, value);
-    }
+    public partial FontWeight FontWeight { get; set; }
 
     /// <summary>
     /// Extract the font declaration from the specified object.

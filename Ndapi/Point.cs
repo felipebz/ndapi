@@ -7,7 +7,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a point object.
 /// </summary>
-public class Point : NdapiObject<Point>
+public partial class Point : NdapiObject<Point>
 {
     /// <summary>
     /// Creates a point.
@@ -26,19 +26,11 @@ public class Point : NdapiObject<Point>
     /// Gets or sets the X position measured at the upper left corner.
     /// </summary>
     [Property(NdapiConstant.D2FP_X_POS)]
-    public int XPosition
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_X_POS);
-        set => SetNumberProperty(NdapiConstant.D2FP_X_POS, value);
-    }
+    public partial int XPosition { get; set; }
 
     /// <summary>
     /// Gets or sets the Y position measured at the upper left corner.
     /// </summary>
     [Property(NdapiConstant.D2FP_Y_POS)]
-    public int YPosition
-    {
-        get => GetNumberProperty(NdapiConstant.D2FP_Y_POS);
-        set => SetNumberProperty(NdapiConstant.D2FP_Y_POS, value);
-    }
+    public partial int YPosition { get; set; }
 }

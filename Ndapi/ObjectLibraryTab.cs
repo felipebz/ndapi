@@ -9,7 +9,7 @@ namespace Ndapi;
 /// <summary>
 /// Represent an object library tab.
 /// </summary>
-public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
+public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
 {
     /// <summary>
     /// Creates an object library tab..
@@ -34,21 +34,13 @@ public class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public string Comment
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_COMMENT);
-        set => SetStringProperty(NdapiConstant.D2FP_COMMENT, value);
-    }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public string Label
-    {
-        get => GetStringProperty(NdapiConstant.D2FP_LABEL);
-        set => SetStringProperty(NdapiConstant.D2FP_LABEL, value);
-    }
+    public partial string Label { get; set; }
 
     /// <summary>
     /// Gets all the objects contained in this tab.
