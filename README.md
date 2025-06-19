@@ -35,7 +35,12 @@ foreach (var programUnit in module.ProgramUnits)
 Supported Oracle Forms versions
 -------------------------------
 
-Currently this projects is tested with Forms 6.0.8.22.1 (32-bit) and Forms 12.2.1.3, 12.2.1.4 and 12.2.1.19 (64-bit).
+Currently this projects is tested with:
+- Forms 6.0.8.22.1 (32-bit)
+- Forms 12.2.1.3 (64-bit)
+- Forms 12.2.1.4 (64-bit)
+- Forms 12.2.1.19 (64-bit)
+- Forms 14.1.2.0 (64-bit)
 
 Installing
 ----------
