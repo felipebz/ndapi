@@ -1,25 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Description>A .NET wrapper for Oracle Forms 6i and 12c Open API</Description>
-    <Authors>Felipe Zorzo</Authors>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>oracle wrapper API oracleforms</PackageTags>
-    <Version>14.0.0-alpha</Version>
-    <NoWarn>NU5128</NoWarn>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <IsAotCompatible>true</IsAotCompatible>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <Description>A .NET wrapper for Oracle Forms 6i and 12c Open API</Description>
+        <Authors>Felipe Zorzo</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>oracle wrapper API oracleforms</PackageTags>
+        <Version>14.0.0-alpha</Version>
+        <NoWarn>NU5128</NoWarn>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\README.md" Pack="true" PackagePath="\"/>
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NdapiSourceGenerator\NdapiSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\NdapiSourceGenerator\NdapiSourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    </ItemGroup>
 
 </Project>

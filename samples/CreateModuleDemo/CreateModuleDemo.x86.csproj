@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Platforms>x86</Platforms>
-    <OutputType>Exe</OutputType>
-    <IsPackable>false</IsPackable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <Platforms>x86</Platforms>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Ndapi\Ndapi.csproj" />
-    <TrimmerRootAssembly Include="Ndapi" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Ndapi\Ndapi.csproj"/>
+        <TrimmerRootAssembly Include="Ndapi"/>
+    </ItemGroup>
 </Project>

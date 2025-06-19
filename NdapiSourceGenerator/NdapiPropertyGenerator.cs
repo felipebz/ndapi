@@ -40,15 +40,18 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
         foreach (var prop in classDecl.Members.OfType<PropertyDeclarationSyntax>())
         {
             if (prop.Modifiers.Any(SyntaxKind.PartialKeyword) &&
-                prop.AttributeLists.SelectMany(a => a.Attributes).Any(attr => attr.Name.ToString().Contains("Property")))
+                prop.AttributeLists.SelectMany(a => a.Attributes)
+                    .Any(attr => attr.Name.ToString().Contains("Property")))
             {
                 return classDecl;
             }
         }
+
         return null;
     }
 
-    private static void GenerateSources(Compilation compilation, IReadOnlyList<ClassDeclarationSyntax> classes, SourceProductionContext context)
+    private static void GenerateSources(Compilation compilation, IReadOnlyList<ClassDeclarationSyntax> classes,
+        SourceProductionContext context)
     {
         foreach (var classDecl in classes)
         {
@@ -76,7 +79,8 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                 if (propSymbol == null)
                     continue;
 
-                var propertyAttr = propSymbol.GetAttributes().FirstOrDefault(a => a.AttributeClass?.Name == "PropertyAttribute");
+                var propertyAttr = propSymbol.GetAttributes()
+                    .FirstOrDefault(a => a.AttributeClass?.Name == "PropertyAttribute");
                 if (propertyAttr == null)
                     continue;
 
