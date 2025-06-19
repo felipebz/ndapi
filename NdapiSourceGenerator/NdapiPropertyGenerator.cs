@@ -86,7 +86,7 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                 var propertyName = propSymbol.Name;
 
                 string getter;
-                string setter;
+                string? setter;
 
                 if (propertyType == "string")
                 {
@@ -108,18 +108,58 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                     getter = $"GetNumberProperty<{propertyType}>({constantName})";
                     setter = $"SetNumberProperty({constantName}, value)";
                 }
+                else if (propSymbol.Type.TypeKind == TypeKind.Class)
+                {
+                    if (propSymbol.Type.Name != "NdapiObjectList")
+                    {
+                        getter = $"GetObjectProperty<{propertyType}>({constantName})";
+                        setter = $"SetObjectProperty({constantName}, value)";
+                    }
+                    else
+                    {
+                        var typeArg = (propSymbol.Type as INamedTypeSymbol)?.TypeArguments.FirstOrDefault()
+                            ?.ToDisplayString();
+                        if (typeArg is null)
+                            continue;
+
+                        getter = $"GetObjectList<{typeArg}>({constantName})";
+                        setter = null; // Don't generate
+                    }
+                }
                 else
                 {
                     continue; // Type not supported
                 }
 
-                sb.AppendLine($$"""
-                                    public partial {{propertyType}} {{propertyName}}
-                                    {
-                                        get => {{getter}};
-                                        set => {{setter}};
-                                    }
-                                """);
+                var modifiers = string.Join(" ",
+                    propSymbol.DeclaredAccessibility.ToString().ToLower(),
+                    propSymbol.IsOverride ? "override" : "",
+                    propSymbol.IsVirtual ? "virtual" : "",
+                    propSymbol.IsSealed ? "sealed" : "",
+                    propSymbol.IsStatic ? "static" : "",
+                    propDecl.Modifiers.Any(SyntaxKind.NewKeyword) ? "new" : "",
+                    "partial"
+                ).Replace("  ", " ").Trim();
+
+                var hasSetter = propDecl.AccessorList?.Accessors.Any(a => a.Kind() == SyntaxKind.SetAccessorDeclaration) ?? false;
+                var isExpressionBodied = propDecl.ExpressionBody != null;
+
+                var generateGetterOnly = isExpressionBodied || !hasSetter;
+
+                sb.AppendLine(generateGetterOnly
+                    ? $$"""
+                            {{modifiers}} {{propertyType}} {{propertyName}}
+                            {
+                                get => {{getter}};
+                            }
+                        """
+                    : $$"""
+                            {{modifiers}} {{propertyType}} {{propertyName}}
+                            {
+                                get => {{getter}};
+                                set => {{setter}};
+                            }
+                        """);
             }
 
             sb.AppendLine("}");
