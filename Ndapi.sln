@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateModuleDemo.x86", "sam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateModuleDemo.x64", "samples\CreateModuleDemo\CreateModuleDemo.x64.csproj", "{F7C6E4D9-86E5-40EF-82C1-E71B68CA1119}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NdapiSourceGenerator", "NdapiSourceGenerator\NdapiSourceGenerator.csproj", "{3FDD725B-A60E-48F3-9F70-EC50D32E0639}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Any CPU = Release|Any CPU
@@ -29,6 +31,10 @@ Global
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9DEBDE14-7C3C-4EBB-A3E9-5C8FBB7E0C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FDD725B-A60E-48F3-9F70-EC50D32E0639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FDD725B-A60E-48F3-9F70-EC50D32E0639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FDD725B-A60E-48F3-9F70-EC50D32E0639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FDD725B-A60E-48F3-9F70-EC50D32E0639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
