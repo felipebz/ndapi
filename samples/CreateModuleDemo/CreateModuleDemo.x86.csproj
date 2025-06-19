@@ -5,6 +5,8 @@
         <Platforms>x86</Platforms>
         <OutputType>Exe</OutputType>
         <IsPackable>false</IsPackable>
+        <IsAotCompatible>true</IsAotCompatible>
+        <PublishAot>true</PublishAot>
     </PropertyGroup>
 
     <ItemGroup>
