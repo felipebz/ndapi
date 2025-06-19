@@ -124,6 +124,12 @@ public partial class Alert : NdapiObject<Alert>
     public partial string ForegroundColor { get; set; }
 
     /// <summary>
+    /// Gets or sets the icon file name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ICON_FLNAM)]
+    public partial string IconFilename { get; set; }
+
+    /// <summary>
     /// Gets or sets the language direction.
     /// </summary>
     [Property(NdapiConstant.D2FP_LANG_DIR)]
