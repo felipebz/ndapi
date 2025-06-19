@@ -32,6 +32,13 @@ public partial class Block : NdapiObject<Block>
     }
 
     /// <summary>
+    /// Gets or sets whether the number of visible rows in a multi-record block should increase or decrease as the
+    /// number of records in the block changes.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_AUTO_SIZE_BLOCK)]
+    public partial bool AutoSize { get; set; }
+
+    /// <summary>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
@@ -193,6 +200,13 @@ public partial class Block : NdapiObject<Block>
     public partial int MaximumQueryTime { get; set; }
 
     /// <summary>
+    /// Gets or sets the maximum number of records the block can display at one time. The default is 0, which means it
+    /// will use the (initial) value of the Number of Records Displayed Property.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MAX_RECS_DISP)]
+    public partial int MaximumRecordsDisplayed { get; set; }
+
+    /// <summary>
     /// Gets or sets the number of records fetched before the query is aborted.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAX_RECS_FETCHED)]
@@ -349,6 +363,21 @@ public partial class Block : NdapiObject<Block>
     /// </summary>
     [Property(NdapiConstant.D2FP_SNGL_REC)]
     public partial bool IsSingleRecord { get; set; }
+
+    /// <summary>
+    /// Gets or sets the distance between tiles in a tiled group. For blocks with a Record Orientation of "Vertical"
+    /// the group is laid out horizontally. Therefore, this property represents the horizonal distance between records
+    /// in the group. For blocks with a Record Orientation of "Horizontal" the group is laid out vertically. Therefore,
+    /// this property represents the vertical distance between records in the group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TILE_DIST)]
+    public partial int TileGroupDistance { get; set; }
+
+    /// <summary>
+    /// Gets or sets the number of records that should be displayed for each tile group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TILE_RECS)]
+    public partial int RecordsPerTileGroup { get; set; }
 
     /// <summary>
     /// Gets or sets whether records can be updated from the block. 
