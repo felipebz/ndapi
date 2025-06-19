@@ -21,10 +21,7 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
 
         var compilationAndClasses = context.CompilationProvider.Combine(classDeclarations.Collect());
 
-        context.RegisterSourceOutput(compilationAndClasses, static (spc, source) =>
-        {
-            GenerateSources(source.Left, source.Right, spc);
-        });
+        context.RegisterSourceOutput(compilationAndClasses, static (spc, source) => GenerateSources(source.Left, source.Right, spc));
     }
 
     private static bool IsCandidateClass(SyntaxNode node)
