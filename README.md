@@ -2,6 +2,7 @@ Ndapi
 =====
 
 [![Build](https://github.com/felipebz/ndapi/actions/workflows/build.yml/badge.svg)](https://github.com/felipebz/ndapi/actions/workflows/build.yml)
+![NuGet Version](https://img.shields.io/nuget/v/ndapi)
 
 Oracle Forms includes an API that enables C/C++ developers to create, load, edit, save, and compile Oracle Forms modules (.fmb, .mmb, .olb and .pll files). It gives access to almost all the Forms Builder functionality.
 
