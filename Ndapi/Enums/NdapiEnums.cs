@@ -831,3 +831,9 @@ public enum EventViewMode
     Locked = NdapiConstant.D2FC_EVENT_VIEW_MODE_LOCKED,
     Remove = NdapiConstant.D2FC_EVENT_VIEW_MODE_REMOVE
 }
+
+public enum SplitterOrientation
+{
+    Horizontal = NdapiConstant.D2FC_SPOR_HORIZONTAL,
+    Vertical = NdapiConstant.D2FC_SPOR_VERTICAL
+}

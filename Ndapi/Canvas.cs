@@ -131,6 +131,33 @@ public partial class Canvas : NdapiObject<Canvas>
     public partial bool RaiseOnEntry { get; set; }
 
     /// <summary>
+    /// Gets or sets the name of the splitter secondary canvas. A splitter allows two stacked canvases to share the
+    /// same space on the screen at runtime. The splitter bar is used to adjust the amount of each canvas to show or
+    /// hide. If this property is set to a non-null value, it means that this canvas (the primary splitter canvas) and
+    /// the canvas specified by the property should be joined by a user-adjustable splitter bar. This splitter bar can
+    /// be moved by the user with a mouse or programmatically.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SPLITTER_CANVAS)]
+    public partial string SplitterSecondaryCanvasName { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the splitter bar separating two canvases can be repositioned by using the mouse to move it.
+    /// The value of this property in the primary splitter canvas is the value that will be used at runtime. Even if
+    /// the splitter bar is disabled, its location can still be modified programmatically
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SPLITTER_ENABLED)]
+    public partial bool SplitterBarEnabled { get; set; }
+
+    /// <summary>
+    /// Gets or sets the orientation of two canvases separated by a splitter bar. When set to horizontal, this canvas
+    /// (the primary splitter canvas) will be to the left of a vertical splitter bar (when run in a left-to-right
+    /// environment) with the secondary splitter canvas to the right of the bar. When set to vertical, this canvas will
+    /// be above a horizontal splitter bar, with the secondary splitter canvas below the bar.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SPLITTER_ORIENTATION)]
+    public partial SplitterOrientation SplitterOrientation { get; set; }
+
+    /// <summary>
     /// Gets or sets the location where tabs are attached to a tab canvas.
     /// </summary>
     [Property(NdapiConstant.D2FP_TAB_ATT_EDGE)]
