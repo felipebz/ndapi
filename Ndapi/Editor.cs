@@ -44,6 +44,13 @@ public partial class Editor : NdapiObject<Editor>
     public partial string BottomTitle { get; set; }
 
     /// <summary>
+    /// Gets or sets  whether this object should display a character counter beneath the text input area. If the counter
+    /// is displayed, it will show the current number of characters followed by the maximum length allowed.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_COUNTER)]
+    public partial bool DisplayCharacterCounter { get; set; }
+
+    /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
