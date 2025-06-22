@@ -22,6 +22,12 @@ public partial class FormModule : NdapiModule
     }
 
     /// <summary>
+    /// Gets or sets the application name of which this module is associated. 
+    /// </summary>
+    [Property(NdapiConstant.D2FP_APPNAME)]
+    public partial string ApplicationName { get; set; }
+
+    /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
