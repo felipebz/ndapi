@@ -837,3 +837,16 @@ public enum SplitterOrientation
     Horizontal = NdapiConstant.D2FC_SPOR_HORIZONTAL,
     Vertical = NdapiConstant.D2FC_SPOR_VERTICAL
 }
+
+public enum DatabaseEventType
+{
+    AdvancedQueueing = NdapiConstant.D2FC_EVENT_DB_SUB_TYPE_AQ,
+    QueryResultChangeNotification = NdapiConstant.D2FC_EVENT_DB_SUB_TYPE_QRCN,
+    ObjectChangeNotification = NdapiConstant.D2FC_EVENT_DB_SUB_TYPE_OCN
+}
+
+public enum SubscriptionMode
+{
+    BestEffort = NdapiConstant.D2FC_EVENT_SUBSCRIPTION_BESTEFFORT,
+    Guaranteed = NdapiConstant.D2FC_EVENT_SUBSCRIPTION_GUARANTEED
+}
