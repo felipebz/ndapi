@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
         <Description>A .NET wrapper for Oracle Forms 6i and 12c Open API</Description>
         <Authors>Felipe Zorzo</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
