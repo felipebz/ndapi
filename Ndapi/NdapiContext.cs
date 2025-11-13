@@ -70,7 +70,7 @@ public sealed class NdapiContext : IDisposable
             }
 
             OracleFormsBootstrap.Init(oracleHome);
-            
+
             NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
             {
                 s_formsLib = Path.Combine(oracleHome, "lib", NativeMethods.FormsLibLinux);
