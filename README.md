@@ -17,14 +17,14 @@ developers.
 
 Here’s a comparison of key points:
 
-|                      | JDAPI (Java)                                | Ndapi (.NET)                                  |
-| -------------------- |---------------------------------------------| --------------------------------------------- |
-| Language             | Java 2 (pre-generics design)                | C# with modern .NET features                  |
-| Type Safety          | Low (manual casting, raw collections)       | High (strongly-typed, generics, LINQ support) |
-| Iteration            | Custom iterator (`JdapiIterator`)           | Native .NET `IEnumerable<T>`                  |
-| Memory Management    | Manual (`.destroy()` calls required)        | Automatic (IDisposable + `using var`)         |
-| Deployment | Requires JVM and Oracle native libraries    | Requires .NET 8.0+ and Oracle native libraries |
-| Package Distribution | Manual jar (not available on Maven central) | Distributed via NuGet                         |
+|                      | JDAPI (Java)                                | Ndapi (.NET)                                   |
+|----------------------|---------------------------------------------|------------------------------------------------|
+| Language             | Java 2 (pre-generics design)                | C# with modern .NET features                   |
+| Type Safety          | Low (manual casting, raw collections)       | High (strongly-typed, generics, LINQ support)  |
+| Iteration            | Custom iterator (`JdapiIterator`)           | Native .NET `IEnumerable<T>`                   |
+| Memory Management    | Manual (`.destroy()` calls required)        | Automatic (IDisposable + `using var`)          |
+| Deployment           | Requires JVM and Oracle native libraries    | Requires .NET 8.0+ and Oracle native libraries |
+| Package Distribution | Manual jar (not available on Maven central) | Distributed via NuGet                          |
 
 ### Benefits of Ndapi:
 
@@ -60,13 +60,13 @@ foreach (var programUnit in module.ProgramUnits)
 
 ## Supported Oracle Forms versions
 
-| Oracle Forms | Architecture |
-|--------------| ------------ |
-| 6.0.8.22.1   | x86          |
-| 12.2.1.3     | x64          |
-| 12.2.1.4     | x64          |
-| 12.2.1.19    | x64          |
-| 14.1.2.0     | x64          |
+| Oracle Forms | Architecture | OS             |
+|--------------|--------------|----------------|
+| 6.0.8.22.1   | x86          | Windows        |
+| 12.2.1.3     | x64          | Windows, Linux |
+| 12.2.1.4     | x64          | Windows, Linux |
+| 12.2.1.19    | x64          | Windows, Linux |
+| 14.1.2.0     | x64          | Windows, Linux |
 
 > Need support for a different version? [Open an issue](https://github.com/felipebz/ndapi/issues/new).
 

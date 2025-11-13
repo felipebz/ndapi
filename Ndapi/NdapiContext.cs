@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 
 using Ndapi.Core;
@@ -59,6 +60,23 @@ public sealed class NdapiContext : IDisposable
                 return NativeLibrary.Load(s_formsLib, assembly, path);
             }));
         }
+        else if (OperatingSystem.IsLinux())
+        {
+            var oracleHome = Environment.GetEnvironmentVariable("ORACLE_HOME");
+            if (string.IsNullOrEmpty(oracleHome))
+            {
+                throw new NdapiException(
+                    "Environment variable ORACLE_HOME is not set. Please set it before loading the library.");
+            }
+
+            OracleFormsBootstrap.Init(oracleHome);
+            
+            NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
+            {
+                s_formsLib = Path.Combine(oracleHome, "lib", NativeMethods.FormsLibLinux);
+                return NativeLibrary.Load(s_formsLib, assembly, path);
+            }));
+        }
     }
 
     internal static ContextSafeHandle GetContext()
@@ -81,8 +99,9 @@ public sealed class NdapiContext : IDisposable
         {
             status = NativeMethods.d2fctxcr_Create(out s_context, ref contextAttributes);
         }
-        catch (DllNotFoundException)
+        catch (DllNotFoundException e)
         {
+            Console.WriteLine(e);
             throw new NdapiException($"Could not found the {s_formsLib} from Oracle Forms installation. " +
                                      "Please check if this version of Oracle Forms is installed.");
         }

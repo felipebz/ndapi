@@ -13,6 +13,7 @@ internal static partial class NativeMethods
 {
     internal const string Forms6Lib = "ifd2f60";
     internal const string FormsLib = "frmd2f";
+    internal const string FormsLibLinux = "libd2f.so";
 
     #region Context methods
 
