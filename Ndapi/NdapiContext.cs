@@ -99,9 +99,8 @@ public sealed class NdapiContext : IDisposable
         {
             status = NativeMethods.d2fctxcr_Create(out s_context, ref contextAttributes);
         }
-        catch (DllNotFoundException e)
+        catch (DllNotFoundException)
         {
-            Console.WriteLine(e);
             throw new NdapiException($"Could not found the {s_formsLib} from Oracle Forms installation. " +
                                      "Please check if this version of Oracle Forms is installed.");
         }
