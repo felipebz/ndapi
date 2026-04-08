@@ -15,6 +15,16 @@
         "patch"
       ],
       "enabled": false
+    },
+    {
+      "matchFileNames": [
+        "**/NdapiSourceGenerator.csproj"
+      ],
+      "matchPackageNames": [
+        "Microsoft.CodeAnalysis.Analyzers",
+        "Microsoft.CodeAnalysis.CSharp"
+      ],
+      "enabled": false
     }
   ]
 }
