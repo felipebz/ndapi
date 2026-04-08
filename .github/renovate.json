@@ -1,9 +1,20 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:recommended",
-        ":automergePatch",
-        "schedule:weekly"
-    ],
-    "mode": "full"
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":automergePatch",
+    "schedule:weekly"
+  ],
+  "mode": "full",
+  "packageRules": [
+    {
+      "matchFileNames": [
+        "global.json"
+      ],
+      "updateTypes": [
+        "patch"
+      ],
+      "enabled": false
+    }
+  ]
 }
