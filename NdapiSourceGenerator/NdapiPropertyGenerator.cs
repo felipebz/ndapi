@@ -145,21 +145,60 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                 var isExpressionBodied = propDecl.ExpressionBody != null;
 
                 var generateGetterOnly = isExpressionBodied || !hasSetter;
+                
+                // WARN: Toxic Properties Mitigation
+                // Some native properties in the Oracle Forms API related to PL/SQL text extraction 
+                // cause massive unmanaged memory leaks in pls805.dll/CA60.DLL when read repeatedly. 
+                // We intercept these specific constants to generate a memoization pattern.
+                // This ensures the native C API is called only once per object lifecycle.
+                var isToxicProperty = constantName.Contains("D2FP_PGU_TXT") || 
+                                      constantName.Contains("D2FP_TRG_TXT") ||
+                                      constantName.Contains("D2FP_MNU_ITM_CODE");
+                
+                if (isToxicProperty && propertyType == "string")
+                {
+                    sb.AppendLine($"    private string _cached{propertyName};");
+                    sb.AppendLine($"    private bool _is{propertyName}Cached;");
+                    sb.AppendLine();
+    
+                    sb.AppendLine($"    {modifiers} {propertyType} {propertyName}");
+                    sb.AppendLine("    {");
+                    sb.AppendLine("        get");
+                    sb.AppendLine("        {");
+                    sb.AppendLine($"            if (_is{propertyName}Cached) return _cached{propertyName};");
+                    sb.AppendLine($"            _cached{propertyName} = {getter};");
+                    sb.AppendLine($"            _is{propertyName}Cached = true;");
+                    sb.AppendLine($"            return _cached{propertyName};");
+                    sb.AppendLine("        }");
 
-                sb.AppendLine(generateGetterOnly
-                    ? $$"""
-                            {{modifiers}} {{propertyType}} {{propertyName}}
-                            {
-                                get => {{getter}};
-                            }
-                        """
-                    : $$"""
-                            {{modifiers}} {{propertyType}} {{propertyName}}
-                            {
-                                get => {{getter}};
-                                set => {{setter}};
-                            }
-                        """);
+                    if (!generateGetterOnly)
+                    {
+                        sb.AppendLine("        set");
+                        sb.AppendLine("        {");
+                        sb.AppendLine($"            {setter};");
+                        sb.AppendLine($"            _cached{propertyName} = value;");
+                        sb.AppendLine($"            _is{propertyName}Cached = true;");
+                        sb.AppendLine("        }");
+                    }
+                    sb.AppendLine("    }");
+                }
+                else
+                {
+                    sb.AppendLine(generateGetterOnly
+                        ? $$"""
+                                {{modifiers}} {{propertyType}} {{propertyName}}
+                                {
+                                    get => {{getter}};
+                                }
+                            """
+                        : $$"""
+                                {{modifiers}} {{propertyType}} {{propertyName}}
+                                {
+                                    get => {{getter}};
+                                    set => {{setter}};
+                                }
+                            """);
+                }
             }
 
             sb.AppendLine("}");
