@@ -456,7 +456,7 @@ internal static partial class NativeMethods
     public static partial FormsErrorCode d2fobgt_GetTextProp(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2fob,
         int pnum,
-        [MarshalAs(UnmanagedType.LPStr)] out string pprp);
+        out IntPtr pprp);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

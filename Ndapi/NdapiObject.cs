@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using Ndapi.Core;
@@ -139,9 +140,16 @@ public abstract partial class NdapiObject : IDisposable
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
         var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), Handle,
-            ConstantConverter.GetValue(property), out var value);
+            ConstantConverter.GetValue(property), out var textPtr);
         Ensure.Success(status);
-        return value;
+        try
+        {
+            return Marshal.PtrToStringAnsi(textPtr);
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(textPtr);
+        }
     }
 
     /// <summary>
