@@ -5,13 +5,13 @@ using System.Runtime.InteropServices.Marshalling;
 namespace Ndapi.Core;
 
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-internal delegate IntPtr Malloc(ref IntPtr context, IntPtr size);
+internal delegate IntPtr Malloc(IntPtr context, IntPtr size);
 
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-internal delegate IntPtr Realloc(ref IntPtr context, IntPtr ptr, IntPtr newsize);
+internal delegate IntPtr Realloc(IntPtr context, IntPtr ptr, IntPtr newsize);
 
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-internal delegate void Free(ref IntPtr context, IntPtr ptr);
+internal delegate void Free(IntPtr context, IntPtr ptr);
 
 [StructLayout(LayoutKind.Sequential)]
 internal struct ContextAttributes

@@ -109,17 +109,17 @@ public sealed class NdapiContext : IDisposable
         return s_context;
     }
 
-    private static IntPtr AllocateMemory(ref IntPtr context, IntPtr size)
+    private static IntPtr AllocateMemory(IntPtr context, IntPtr size)
     {
         return Marshal.AllocHGlobal(size);
     }
 
-    private static IntPtr ReallocateMemory(ref IntPtr context, IntPtr ptr, IntPtr newsize)
+    private static IntPtr ReallocateMemory(IntPtr context, IntPtr ptr, IntPtr newsize)
     {
-        return ptr == IntPtr.Zero ? AllocateMemory(ref context, newsize) : Marshal.ReAllocHGlobal(ptr, newsize);
+        return ptr == IntPtr.Zero ? AllocateMemory(context, newsize) : Marshal.ReAllocHGlobal(ptr, newsize);
     }
 
-    private static void FreeMemory(ref IntPtr context, IntPtr ptr)
+    private static void FreeMemory(IntPtr context, IntPtr ptr)
     {
         Marshal.FreeHGlobal(ptr);
     }
