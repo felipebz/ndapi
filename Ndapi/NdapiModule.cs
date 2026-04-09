@@ -19,7 +19,6 @@ public abstract class NdapiModule : NdapiObject
 
     private protected NdapiModule(ObjectSafeHandle handle, ObjectType type) : base(handle, type)
     {
-        NdapiContext.AddModule(this);
     }
 
     /// <summary>

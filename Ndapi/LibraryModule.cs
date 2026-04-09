@@ -52,7 +52,9 @@ public partial class LibraryModule : NdapiModule
 
         Ensure.Success(status);
 
-        return new LibraryModule(library);
+        var module = new LibraryModule(library);
+        NdapiContext.AddModule(module);
+        return module;
     }
 
     /// <summary>

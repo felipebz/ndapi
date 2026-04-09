@@ -140,7 +140,9 @@ public partial class MenuModule : NdapiModule
 
         Ensure.Success(status);
 
-        return new MenuModule(menu);
+        var module = new MenuModule(menu);
+        NdapiContext.AddModule(module);
+        return module;
     }
 
     /// <summary>

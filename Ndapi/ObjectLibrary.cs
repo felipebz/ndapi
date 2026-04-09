@@ -60,7 +60,9 @@ public partial class ObjectLibrary : NdapiModule
 
         Ensure.Success(status);
 
-        return new ObjectLibrary(form);
+        var module = new ObjectLibrary(form);
+        NdapiContext.AddModule(module);
+        return module;
     }
 
     /// <summary>

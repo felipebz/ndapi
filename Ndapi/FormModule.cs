@@ -280,7 +280,9 @@ public partial class FormModule : NdapiModule
 
         Ensure.Success(status);
 
-        return new FormModule(form);
+        var module = new FormModule(form);
+        NdapiContext.AddModule(module);
+        return module;
     }
 
     /// <summary>
