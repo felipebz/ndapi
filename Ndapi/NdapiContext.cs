@@ -26,7 +26,7 @@ public sealed class NdapiContext : IDisposable
     private static ContextSafeHandle s_context;
     private static string s_formsLib;
     private static BuilderVersion s_builderVersion;
-    
+
     internal static NdapiObjectRegistry ObjectRegistry { get; } = new NdapiObjectRegistry();
 
     /// <summary>
