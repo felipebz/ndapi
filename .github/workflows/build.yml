@@ -3,11 +3,18 @@
 on:
   push:
     branches:
-      - "*"
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - uses: actions/checkout@v6
         with:
@@ -37,27 +44,31 @@ jobs:
           path: .sonar/scanner
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
-          
+
       - name: Install SonarQube scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         run: |
           mkdir -p .sonar/scanner
-          dotnet tool update dotnet-sonarscanner --tool-path .sonar/scanner
+          dotnet tool update dotnet-sonarscanner --tool-path .sonar/scanner --version 11.2.1
 
-      - name: Build
+      - name: Build (Forks)
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+        run: dotnet build -c Release
+
+      - name: Build & SonarQube
+        if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
         run: |
           .sonar/scanner/dotnet-sonarscanner begin /k:ndapi /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
           dotnet build -c Release
           .sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
       - name: Build NuGet package
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: dotnet pack -c Release --no-build
 
       - name: Build trimmed sample with NativeAOT for Forms 12c
         run: dotnet publish -c Release -f net10.0 -p:"Platform=x64" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
 
-      - name: Add NuGet source
-        run: dotnet nuget add source --username felipebz --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/felipebz/index.json"
-
       - name: Publish to GitHub Packages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: dotnet nuget push "Ndapi/**.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source github
