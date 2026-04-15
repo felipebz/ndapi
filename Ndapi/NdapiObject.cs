@@ -489,6 +489,13 @@ public abstract partial class NdapiObject : IDisposable
         Type type,
         ObjectSafeHandle handle)
     {
+        var pointer = handle.DangerousGetHandle();
+
+        if (NdapiContext.ObjectRegistry.TryGetObject(pointer, out var existingInstance))
+        {
+            return existingInstance;
+        }
+        
         var foundType = type;
         if (foundType == typeof(NdapiObject))
         {
@@ -510,7 +517,9 @@ public abstract partial class NdapiObject : IDisposable
             null,
             [handle],
             null);
-        return (NdapiObject)instance;
+        var createdObject = (NdapiObject)instance;
+        NdapiContext.ObjectRegistry.TrackObject(pointer, createdObject);
+        return createdObject;
     }
 
     internal static T
@@ -539,6 +548,11 @@ public abstract partial class NdapiObject : IDisposable
 
         if (disposing)
         {
+            if (Handle != null && !Handle.IsInvalid)
+            {
+                var pointer = Handle.DangerousGetHandle();
+                NdapiContext.ObjectRegistry.UntrackObject(pointer);
+            }
             Handle?.Dispose();
         }
 
