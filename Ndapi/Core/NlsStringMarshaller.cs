@@ -59,7 +59,7 @@ internal static class NlsStringMarshaller
 
         return Encoding.Default;
     }
-    
+
     public static string? ReadNlsStringAndFree(IntPtr ptr)
     {
         if (ptr == IntPtr.Zero)
