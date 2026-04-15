@@ -71,4 +71,4 @@ jobs:
 
       - name: Publish to GitHub Packages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: dotnet nuget push "Ndapi/**.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source github
+        run: dotnet nuget push "Ndapi/**.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/felipebz/index.json"
