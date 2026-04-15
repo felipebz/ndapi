@@ -134,7 +134,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         var status = NativeMethods.d2fprgn_GetName(NdapiContext.GetContext(), ConstantConverter.GetValue(property),
             out var name);
         Ensure.Success(status);
-        return name;
+        return NlsStringMarshaller.ReadNlsStringAndFree(name);
     }
 
     /// <summary>
@@ -148,7 +148,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.GetContext(),
             ConstantConverter.GetValue(property), value, out var name);
         Ensure.Success(status);
-        return name;
+        return NlsStringMarshaller.ReadNlsStringAndFree(name);
     }
 
     /// <summary>
@@ -172,7 +172,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     {
         var status = NativeMethods.d2fprgcn_GetConstName(NdapiContext.GetContext(), constant, out var name);
         Ensure.Success(status);
-        return name;
+        return NlsStringMarshaller.ReadNlsStringAndFree(name);
     }
 
     public override bool Equals(object obj)

@@ -227,6 +227,6 @@ public partial class MenuItem : NdapiObject<MenuItem>
     {
         var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), Handle, index, out var role);
         Ensure.Success(status);
-        return role;
+        return NlsStringMarshaller.ReadNlsStringAndFree(role);
     }
 }

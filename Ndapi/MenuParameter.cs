@@ -122,6 +122,6 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     {
         var status = NativeMethods.d2fmpmgam_GetAssocMenu(NdapiContext.GetContext(), Handle, index, out var menu);
         Ensure.Success(status);
-        return menu;
+        return NlsStringMarshaller.ReadNlsStringAndFree(menu);
     }
 }

@@ -189,7 +189,7 @@ public partial class ObjectLibrary : NdapiModule
         var status =
             NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), Handle, obj.Handle, out var description);
         Ensure.Success(status);
-        return description;
+        return NlsStringMarshaller.ReadNlsStringAndFree(description);
     }
 
     /// <summary>
@@ -202,6 +202,6 @@ public partial class ObjectLibrary : NdapiModule
         var status =
             NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), Handle, obj.Handle, out var tabName);
         Ensure.Success(status);
-        return tabName;
+        return NlsStringMarshaller.ReadNlsStringAndFree(tabName);
     }
 }

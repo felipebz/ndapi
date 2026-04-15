@@ -1,5 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.Marshalling;
 
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
@@ -36,13 +37,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2ffmdsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2ffmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     [LibraryImport(Forms6Lib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2ffmdfv_FileVersion(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string formname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname,
         [MarshalAs(UnmanagedType.I1)] bool db,
         out int version);
 
@@ -55,14 +56,14 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2folb,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string olibname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     [LibraryImport(Forms6Lib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2folb,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string olibname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     #endregion
@@ -72,7 +73,7 @@ internal static partial class NativeMethods
     [LibraryImport(Forms6Lib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbfv_FileVersion(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string olibname,
         [MarshalAs(UnmanagedType.I1)] bool db,
         out int version);
 
@@ -84,20 +85,20 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2fmmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     [LibraryImport(Forms6Lib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2fmmd,
-        [MarshalAs(UnmanagedType.LPStr)] string menuname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string menuname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     [LibraryImport(Forms6Lib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdfv_FileVersion(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string menuname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string menuname,
         [MarshalAs(UnmanagedType.I1)] bool db,
         out int version);
 
@@ -109,7 +110,7 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2flibld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2flib,
-        [MarshalAs(UnmanagedType.LPStr)] string libname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string libname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     #endregion

@@ -1011,7 +1011,7 @@ public partial class Item : NdapiObject<Item>
             NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), Handle, index, out var label,
                 out var value);
         Ensure.Success(status);
-        return new KeyValuePair<string, string>(label, value);
+        return new KeyValuePair<string, string>(NlsStringMarshaller.ReadNlsStringAndFree(label), NlsStringMarshaller.ReadNlsStringAndFree(value));
     }
 
     /// <summary>

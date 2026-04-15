@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Text;
 
 using Ndapi.Core;
@@ -142,14 +141,7 @@ public abstract partial class NdapiObject : IDisposable
         var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var textPtr);
         Ensure.Success(status);
-        try
-        {
-            return Marshal.PtrToStringAnsi(textPtr);
-        }
-        finally
-        {
-            Marshal.FreeHGlobal(textPtr);
-        }
+        return NlsStringMarshaller.ReadNlsStringAndFree(textPtr);
     }
 
     /// <summary>
@@ -590,7 +582,7 @@ public abstract class
     /// </summary>
     /// <param name="newName">Name of the new object.</param>
     /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
-    /// <param name="keepSubclassingInfo">If false, the sublassing info is discarded and the inherited properties are flattened into local values in the new object.</param>
+    /// <param name="keepSubclassingInfo">If false, the subclassing info is discarded and the inherited properties are flattened into local values in the new object.</param>
     /// <returns>The new object.</returns>
     public T Clone(string newName, NdapiObject newOwner = null, bool keepSubclassingInfo = true)
     {

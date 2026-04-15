@@ -30,7 +30,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fctxcn_Connect(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string con_str,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string con_str,
         IntPtr phstdef);
 
     [LibraryImport(FormsLib)]
@@ -44,7 +44,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fctxcf_ConvertFile(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string filename,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string filename,
         int modtyp,
         int direction);
 
@@ -57,7 +57,7 @@ internal static partial class NativeMethods
     public static partial FormsErrorCode d2falbat_Attach(ContextSafeHandle pd2fctx,
         ObjectSafeHandle parent,
         out ObjectSafeHandle ppd2falb,
-        [MarshalAs(UnmanagedType.LPStr)] string name);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string name);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -115,13 +115,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2ffmdld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2ffmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2ffmdsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2ffmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -134,7 +134,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2ffmdfv_FileVersion(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string formname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname,
         out int version);
 
     #endregion
@@ -145,13 +145,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2folb,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string olibname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2folb,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string olibname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -188,17 +188,17 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbsd_SetDesc(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb,
-        ObjectSafeHandle pd2fob, [MarshalAs(UnmanagedType.LPStr)] string desc);
+        ObjectSafeHandle pd2fob, [MarshalUsing(typeof(NlsStringMarshaller))] string desc);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbgd_GetDesc(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb,
-        ObjectSafeHandle pd2fob, [MarshalAs(UnmanagedType.LPStr)] out string desc);
+        ObjectSafeHandle pd2fob, out IntPtr desc);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbot_ObjTabname(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2folb,
-        ObjectSafeHandle pd2fob, [MarshalAs(UnmanagedType.LPStr)] out string tname);
+        ObjectSafeHandle pd2fob, out IntPtr tname);
 
     #endregion
 
@@ -212,7 +212,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2folbfv_FileVersion(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string olibname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string olibname,
         out int version);
 
     #endregion
@@ -223,13 +223,13 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2fmmd,
-        [MarshalAs(UnmanagedType.LPStr)] string formname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string formname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdsv_Save(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2fmmd,
-        [MarshalAs(UnmanagedType.LPStr)] string menuname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string menuname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -242,13 +242,13 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdfv_FileVersion(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string menuname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string menuname,
         out int version);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdar_AddRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd, int index,
-        [MarshalAs(UnmanagedType.LPStr)] string role_name);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string role_name);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -258,7 +258,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmmdgr_GetRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmmd, int index,
-        [MarshalAs(UnmanagedType.LPStr)] out string role_name);
+        out IntPtr role_name);
 
     #endregion
 
@@ -271,7 +271,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmniar_AddRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmni, int index,
-        [MarshalAs(UnmanagedType.LPStr)] string role_name);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string role_name);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -281,7 +281,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmnigr_GetRole(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmni, int index,
-        [MarshalAs(UnmanagedType.LPStr)] out string role_name);
+        out IntPtr role_name);
 
     #endregion
 
@@ -290,7 +290,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmpmaam_AddAssocMenu(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmpm,
-        int index, [MarshalAs(UnmanagedType.LPStr)] string menu_name);
+        int index, [MarshalUsing(typeof(NlsStringMarshaller))] string menu_name);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -300,7 +300,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fmpmgam_GetAssocMenu(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fmpm,
-        int index, [MarshalAs(UnmanagedType.LPStr)] out string menu_name);
+        int index, out IntPtr menu_name);
 
     #endregion
 
@@ -310,7 +310,7 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2flibld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2flib,
-        [MarshalAs(UnmanagedType.LPStr)] string libname);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string libname);
 
     #endregion
 
@@ -327,7 +327,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fgraim_importImage(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fgra,
-        [MarshalAs(UnmanagedType.LPStr)] string filename, ImageFormat format);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string filename, ImageFormat format);
 
     #endregion
 
@@ -340,7 +340,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fitmile_InsertListElem(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fitm,
-        int index, [MarshalAs(UnmanagedType.LPStr)] string label, [MarshalAs(UnmanagedType.LPStr)] string value);
+        int index, [MarshalUsing(typeof(NlsStringMarshaller))] string label, [MarshalUsing(typeof(NlsStringMarshaller))] string value);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -350,8 +350,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fitmgle_GetListElem(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fitm,
-        int index, [MarshalAs(UnmanagedType.LPStr)] out string label,
-        [MarshalAs(UnmanagedType.LPStr)] out string value);
+        int index, out IntPtr label, out IntPtr value);
 
     #endregion
 
@@ -372,22 +371,22 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fprgn_GetName(ContextSafeHandle pd2fctx, int pnum,
-        [MarshalAs(UnmanagedType.LPStr)] out string pname);
+        out IntPtr pname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fprgvn_GetValueName(ContextSafeHandle pd2fctx, int pnum, int val,
-        [MarshalAs(UnmanagedType.LPStr)] out string vname);
+        out IntPtr vname);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fprgcv_GetConstValue(ContextSafeHandle pd2fctx,
-        [MarshalAs(UnmanagedType.LPStr)] string pcname, out int pnum);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string pcname, out int pnum);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fprgcn_GetConstName(ContextSafeHandle pd2fctx, int pnum,
-        [MarshalAs(UnmanagedType.LPStr)] out string pcname);
+        out IntPtr pcname);
 
     #endregion
 
@@ -405,7 +404,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2frcgs_qry_noparse(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcg,
-        [MarshalAs(UnmanagedType.LPStr)] string query);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string query);
 
     #endregion
 
@@ -422,7 +421,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2frcsir_InsertRow_Int(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcs,
-        int index, [MarshalAs(UnmanagedType.LPStr)] string dat, [MarshalAs(UnmanagedType.LPStr)] string fmt_mask);
+        int index, [MarshalUsing(typeof(NlsStringMarshaller))] string dat, [MarshalUsing(typeof(NlsStringMarshaller))] string fmt_mask);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -432,12 +431,12 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2frcsgr_GetRow(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcs, int index,
-        [MarshalAs(UnmanagedType.LPStr)] out string dat);
+        out IntPtr dat);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2frcsgrn_GetRowName(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2frcs, int index,
-        [MarshalAs(UnmanagedType.LPStr)] out string dat);
+        out IntPtr dat);
 
     #endregion
 
@@ -448,7 +447,7 @@ internal static partial class NativeMethods
     public static partial FormsErrorCode d2fobcr_Create(ContextSafeHandle pd2fctx,
         ObjectSafeHandle owner,
         out ObjectSafeHandle ppd2fob,
-        [MarshalAs(UnmanagedType.LPStr)] string name,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string name,
         int objtyp);
 
     [LibraryImport(FormsLib)]
@@ -461,7 +460,7 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fobst_SetTextProp(ContextSafeHandle pd2fctx, ObjectSafeHandle pd2fob, int pnum,
-        [MarshalAs(UnmanagedType.LPStr)] string prp);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string prp);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -539,7 +538,7 @@ internal static partial class NativeMethods
         ObjectSafeHandle new_owner,
         ObjectSafeHandle pd2fob_src,
         out ObjectSafeHandle ppd2fob_dst,
-        [MarshalAs(UnmanagedType.LPStr)] string new_name);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string new_name);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -547,13 +546,13 @@ internal static partial class NativeMethods
         ObjectSafeHandle new_parent,
         ObjectSafeHandle pd2fob_src,
         out ObjectSafeHandle ppd2fob_dst,
-        [MarshalAs(UnmanagedType.LPStr)] string new_name);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string new_name);
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fobfo_FindObj(ContextSafeHandle pd2fctx,
         ObjectSafeHandle owner,
-        [MarshalAs(UnmanagedType.LPStr)] string name,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string name,
         int objtyp,
         out ObjectSafeHandle ppd2fob);
 

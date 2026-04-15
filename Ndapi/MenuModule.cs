@@ -247,7 +247,7 @@ public partial class MenuModule : NdapiModule
     {
         var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.GetContext(), Handle, index, out var role);
         Ensure.Success(status);
-        return role;
+        return NlsStringMarshaller.ReadNlsStringAndFree(role);
     }
 
     /// <summary>

@@ -87,7 +87,7 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     {
         var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), Handle, index, out var value);
         Ensure.Success(status);
-        return value;
+        return NlsStringMarshaller.ReadNlsStringAndFree(value);
     }
 
     /// <summary>
@@ -104,6 +104,6 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
 
         var status = NativeMethods.d2frcsgrn_GetRowName(NdapiContext.GetContext(), Handle, index, out var value);
         Ensure.Success(status);
-        return value;
+        return NlsStringMarshaller.ReadNlsStringAndFree(value);
     }
 }
