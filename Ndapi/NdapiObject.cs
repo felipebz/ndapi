@@ -281,7 +281,7 @@ public abstract partial class NdapiObject : IDisposable
     /// <returns>List of child objects.</returns>
     public NdapiObjectList<T> GetObjectList<
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
-        T>(NdapiConstant property)
+    T>(NdapiConstant property)
         where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
