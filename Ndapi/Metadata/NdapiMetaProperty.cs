@@ -97,13 +97,23 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
 
     private Dictionary<int, string> LoadAllowedValues()
     {
-        return AcceptConstants
-            ? Enum.GetValuesAsUnderlyingType(RawPropertyType)
-                .Cast<int>()
-                .Where(ConstantConverter.IsPropertySupportedByBuilderVersion)
-                .Select(ConstantConverter.GetValue)
-                .ToDictionary(e => e, e => Enum.GetName(RawPropertyType, e))
-            : new Dictionary<int, string>();
+        var values = new Dictionary<int, string>();
+        if (!AcceptConstants)
+        {
+            return values;
+        }
+
+        // the enum members hold NdapiConstant ids: the name must be looked up with the member value,
+        // and the key is the native value of that constant in the running Builder version
+        foreach (var member in Enum.GetValuesAsUnderlyingType(RawPropertyType).Cast<int>())
+        {
+            if (ConstantConverter.IsPropertySupportedByBuilderVersion(member))
+            {
+                values.TryAdd(ConstantConverter.GetValue(member), Enum.GetName(RawPropertyType, member));
+            }
+        }
+
+        return values;
     }
 
     /// <summary>
