@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
+using Ndapi.Core;
 using Ndapi.Enums;
 
 namespace Ndapi.Metadata;
@@ -18,6 +19,14 @@ public static class NdapiMetadata
     /// Gets the Ndapi classes that represents a Forms API object.
     /// </summary>
     public static IEnumerable<Type> Classes => ObjectTypeMapping.Select(x => x.Type);
+
+    /// <summary>
+    /// Gets the ids of every object property defined by the running Forms Builder version, ordered by their native
+    /// value. Unlike <see cref="NdapiMetaObject.AllProperties"/>, the list includes the properties that aren't
+    /// exposed as typed members of the Ndapi classes, so they can be read and written with the generic accessors
+    /// (<see cref="NdapiObject.HasProperty"/>, <see cref="NdapiObject.GetStringProperty"/> and so on).
+    /// </summary>
+    public static IReadOnlyList<NdapiConstant> SupportedProperties => ConstantConverter.GetSupportedProperties();
 
     private static IList<ObjectTypeMap> LoadObjectTypeMapping() =>
     [
