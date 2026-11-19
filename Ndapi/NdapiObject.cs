@@ -487,6 +487,11 @@ public abstract partial class NdapiObject : IDisposable
     {
         var status = NativeMethods.d2fobde_Destroy(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
+
+        // Destroying an object also frees all of its descendants, and the native allocator reuses their addresses
+        // for objects created afterwards. The registry is keyed by address and can't tell which entries belong to
+        // the destroyed subtree, so drop every cached wrapper: a later lookup creates a fresh one with the right type.
+        NdapiContext.ObjectRegistry.Clear();
     }
 
     internal static NdapiObject Create(
