@@ -88,7 +88,9 @@ public static class NdapiMetadata
     [return:
         DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
                                    DynamicallyAccessedMemberTypes.PublicProperties)]
-    internal static Type GetTypeFrom(ObjectType type) => ObjectTypeMapping.Single(t => t.ObjectType == type).Type;
+    internal static Type GetTypeFrom(ObjectType type) =>
+        ObjectTypeMapping.SingleOrDefault(t => t.ObjectType == type)?.Type ??
+        throw new NdapiException($"Ndapi has no class for the object type {type}.");
 
     private sealed class ObjectTypeMap
     {
