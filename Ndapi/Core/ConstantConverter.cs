@@ -43,7 +43,7 @@ internal static partial class ConstantConverter
         {
             6 => Forms6Constants.ContainsKey(property),
             12 => Forms12Constants.ContainsKey(property),
-            14 => Forms12Constants.ContainsKey(property),
+            14 => Forms14Constants.ContainsKey(property),
             _ => throw new NdapiException($"Unsupported Forms Builder version ({NdapiContext.BuilderVersion.FullVersion})")
         };
     }
