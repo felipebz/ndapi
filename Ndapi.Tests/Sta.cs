@@ -4,10 +4,11 @@ using System.Runtime.ExceptionServices;
 namespace Ndapi.Tests;
 
 /// <summary>
-/// Runs test bodies on one long-lived STA thread.
+/// Runs test bodies on one long-lived thread, STA on Windows.
 /// The Forms 6i Open API initialises OLE and refuses to create a context on an MTA thread (the test runner
 /// threads are MTA), and destroying the context and creating a new one in the same process crashes
 /// d2fctxde_Destroy. So every test shares a single thread and a single context that lives until the process ends.
+/// Apartment states don't exist on Linux (Forms 12c/14c), where only the single thread and context matter.
 /// </summary>
 internal static class Sta
 {
@@ -26,7 +27,11 @@ internal static class Sta
             IsBackground = true,
             Name = "Forms API (STA)"
         };
-        thread.SetApartmentState(ApartmentState.STA);
+        if (OperatingSystem.IsWindows())
+        {
+            thread.SetApartmentState(ApartmentState.STA);
+        }
+
         thread.Start();
     }
 

@@ -2,12 +2,19 @@
 
     <!--
     Integration tests: they call the Oracle Forms Open API, so they need a local Forms installation.
-    Forms 6i is 32-bit only, hence x86 (run with: dotnet test Ndapi.Tests -a x86).
+    TestRuntime picks the Forms flavour: win-x86 for Forms 6i (32-bit only, the default on Windows) or
+    linux-x64 / win-x64 for Forms 12c/14c (linux-x64 is the default elsewhere).
+    Override with: dotnet build Ndapi.Tests -p:TestRuntime=win-x86
+    PlatformTarget is inferred from the RuntimeIdentifier.
     -->
     <PropertyGroup>
+        <TestRuntime Condition="'$(TestRuntime)' == '' and $([MSBuild]::IsOSPlatform('Windows'))">win-x86</TestRuntime>
+        <TestRuntime Condition="'$(TestRuntime)' == ''">linux-x64</TestRuntime>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
-        <PlatformTarget>x86</PlatformTarget>
-        <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+        <RuntimeIdentifier>$(TestRuntime)</RuntimeIdentifier>
         <SelfContained>false</SelfContained>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>

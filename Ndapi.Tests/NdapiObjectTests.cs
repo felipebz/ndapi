@@ -26,4 +26,25 @@ public class NdapiObjectTests
             module.Destroy();
         });
     }
+
+    // D2FP_PLACEHOLDER_TEXT only exists from Forms 14 on: the support check must use the running Builder's constants
+    [Fact]
+    public void PropertyIntroducedInForms14CanBeUsedOnForms14()
+    {
+        Sta.Run(() =>
+        {
+            if (NdapiContext.BuilderVersion.MajorVersion < 14)
+            {
+                return;
+            }
+
+            var module = new FormModule("FORMS14_PROP");
+            var item = new Item(new Block(module, "B"), "I") { ItemType = ItemType.TextItem };
+
+            item.SetStringProperty(NdapiConstant.D2FP_PLACEHOLDER_TEXT, "type here");
+
+            Assert.Equal("type here", item.GetStringProperty(NdapiConstant.D2FP_PLACEHOLDER_TEXT));
+            module.Destroy();
+        });
+    }
 }
