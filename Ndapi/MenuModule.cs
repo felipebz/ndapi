@@ -45,7 +45,7 @@ public partial class MenuModule : NdapiModule
     /// Gets or sets the filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_FLNAM)]
-    public partial string Filename { get; set; }
+    public partial string FileName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu module will share it attached libraries with form modules.

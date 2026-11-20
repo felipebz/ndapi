@@ -41,7 +41,7 @@ public partial class ObjectGroup : NdapiObject<ObjectGroup>
     /// Gets the objects contained in the group.
     /// </summary>
     [Property(NdapiConstant.D2FP_OG_CHILD)]
-    public partial NdapiObjectList<ObjectGroupChild> Childs { get; }
+    public partial NdapiObjectList<ObjectGroupChild> Children { get; }
 
     /// <summary>
     /// Gets or sets the object group type. Forms 12c and later.

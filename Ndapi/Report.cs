@@ -50,7 +50,7 @@ public partial class Report : NdapiObject<Report>
     /// Gets or sets the filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_FLNAM)]
-    public partial string Filename { get; set; }
+    public partial string FileName { get; set; }
 
     /// <summary>
     /// Gets or sets the destination format.

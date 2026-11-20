@@ -76,4 +76,21 @@ public class NdapiMetadataTests
             module.Destroy();
         });
     }
+
+    [Fact]
+    public void APropertyHasTheSameMemberNameInEveryClass()
+    {
+        Sta.Run(() =>
+        {
+            // Graphics can't have a member named after its own class
+            var inconsistent = NdapiMetadata.Classes
+                .SelectMany(c => NdapiMetadata.GetMetaObjectFrom(c).AllProperties.Select(p => (Class: c, Property: p)))
+                .Where(x => !(x.Class == typeof(Graphics) && x.Property.Name == "ChildGraphics"))
+                .GroupBy(x => x.Property.PropertyId)
+                .Where(g => g.Select(x => x.Property.Name).Distinct().Count() > 1)
+                .Select(g => $"{g.Key}: {string.Join(", ", g.Select(x => $"{x.Class.Name}.{x.Property.Name}").Distinct())}");
+
+            Assert.Empty(inconsistent);
+        });
+    }
 }

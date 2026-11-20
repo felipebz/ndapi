@@ -55,7 +55,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets whether runtime should skip to the next item when the user fill the field.
     /// </summary>
     [Property(NdapiConstant.D2FP_AUTO_SKP)]
-    public partial bool AutoSkip { get; set; }
+    public partial bool IsAutomaticSkip { get; set; }
 
     /// <summary>
     /// Gets or sets the background color.
@@ -121,7 +121,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comments { get; set; }
+    public partial string Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the communication mode.
@@ -585,7 +585,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the prompt attachment edge.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_ATT_EDGE)]
-    public partial EdgeAtachmentType PromptAttachmentEdge { get; set; }
+    public partial EdgeAttachmentType PromptAttachmentEdge { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt attachment offset.
@@ -742,7 +742,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets whether runtime should display a horizontal toolbar.
     /// </summary>
     [Property(NdapiConstant.D2FP_SHOW_HORZ_SCRLBR)]
-    public partial bool ShowHorizonatalScrollbar { get; set; }
+    public partial bool ShowHorizontalScrollBar { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should display a color palette.

@@ -122,7 +122,7 @@ public enum DmlDataTargetType
     TransationalTrigger = NdapiConstant.D2FC_DMDA_TRANS_TRIG
 }
 
-public enum EdgeAtachmentType
+public enum EdgeAttachmentType
 {
     Start = NdapiConstant.D2FC_PRAT_START,
     End = NdapiConstant.D2FC_PRAT_END,
@@ -800,7 +800,7 @@ public enum CursorStyle
     EastResize = NdapiConstant.D2FC_CURSOR_STYLE_ERESIZE,
     WestResize = NdapiConstant.D2FC_CURSOR_STYLE_WRESIZE,
     NortheastResize = NdapiConstant.D2FC_CURSOR_STYLE_NERESIZE,
-    Northwestresize = NdapiConstant.D2FC_CURSOR_STYLE_NWRESIZE,
+    NorthwestResize = NdapiConstant.D2FC_CURSOR_STYLE_NWRESIZE,
     SoutheastResize = NdapiConstant.D2FC_CURSOR_STYLE_SERESIZE,
     SouthwestResize = NdapiConstant.D2FC_CURSOR_STYLE_SWRESIZE
 }

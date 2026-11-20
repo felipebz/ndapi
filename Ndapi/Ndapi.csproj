@@ -12,10 +12,22 @@
         <!-- updated by release-please; CI builds between releases get a prerelease suffix -->
         <VersionPrefix>13.1.0</VersionPrefix>
         <PackageReleaseNotes>https://github.com/felipebz/ndapi/blob/main/CHANGELOG.md</PackageReleaseNotes>
-        <NoWarn>NU5128</NoWarn>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <!-- CS1591: undocumented public members (mostly enum members), documented over time -->
+        <NoWarn>NU5128;CS1591</NoWarn>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IsAotCompatible>true</IsAotCompatible>
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
+    <!--
+    CI packs prerelease builds (Version != VersionPrefix) and compares their API with the last release, which is
+    VersionPrefix between releases. Intentional breaking changes are listed in CompatibilitySuppressions.xml:
+    regenerate it with dotnet pack -p:Version=0.0.1-ci -p:GenerateCompatibilitySuppressionFile=true
+    -->
+    <PropertyGroup Condition="'$(Version)' != '$(VersionPrefix)'">
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <PackageValidationBaselineVersion>$(VersionPrefix)</PackageValidationBaselineVersion>
     </PropertyGroup>
 
     <ItemGroup>

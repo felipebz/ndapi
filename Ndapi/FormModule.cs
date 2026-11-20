@@ -98,7 +98,7 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the number of records fetched before the query is aborted.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAX_RECS_FETCHED)]
-    public partial int MaxRecordsFetched { get; set; }
+    public partial int MaximumRecordsFetched { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the menu module associated.

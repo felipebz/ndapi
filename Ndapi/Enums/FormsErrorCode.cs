@@ -155,7 +155,7 @@ public enum FormsErrorCode
     /// <summary>
     /// Duplicate String ID This slot in the string table has already been used
     /// </summary>
-    SuplicateStringId = 30,
+    DuplicateStringId = 30,
 
     /// <summary>
     /// A supplied value parameter was out of the legal range

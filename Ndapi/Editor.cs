@@ -109,7 +109,7 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets or sets whether runtime should show a horizontal scrollbar.
     /// </summary>
     [Property(NdapiConstant.D2FP_SHOW_HORZ_SCRLBR)]
-    public partial bool ShowHorizontalScrollbar { get; set; }
+    public partial bool ShowHorizontalScrollBar { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should show a vertical scrollbar.

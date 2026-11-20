@@ -280,13 +280,13 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets whether the canvas shows a horizontal scroll bar.
     /// </summary>
     [Property(NdapiConstant.D2FP_SHOW_HORZ_SCRLBR)]
-    public partial bool ShowHorizontalScrollbar { get; set; }
+    public partial bool ShowHorizontalScrollBar { get; set; }
 
     /// <summary>
     /// Gets or sets whether the canvas shows a vertical scroll bar.
     /// </summary>
     [Property(NdapiConstant.D2FP_SHOW_VERT_SCRLBR)]
-    public partial bool ShowVerticalScrollbar { get; set; }
+    public partial bool ShowVerticalScrollBar { get; set; }
 
     /// <summary>
     /// Gets or sets how the label of the active tab is drawn: 0 = Normal, 1 = Bold.

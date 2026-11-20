@@ -274,7 +274,7 @@ public class NdapiObjectTests
 
             Assert.Equal(42, item.PromptStringId);
             var error = Assert.Throws<NdapiException>(() => item.HintStringId = 42);
-            Assert.Equal(FormsErrorCode.SuplicateStringId, error.ErrorCode);
+            Assert.Equal(FormsErrorCode.DuplicateStringId, error.ErrorCode);
             module.Destroy();
         });
     }

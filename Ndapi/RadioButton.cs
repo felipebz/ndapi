@@ -129,7 +129,7 @@ public partial class RadioButton : NdapiObject<RadioButton>
     /// Gets or sets the prompt attachment edge.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_ATT_EDGE)]
-    public partial EdgeAtachmentType PromptAttachmentEdge { get; set; }
+    public partial EdgeAttachmentType PromptAttachmentEdge { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt attachment offset.

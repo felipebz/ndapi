@@ -32,9 +32,9 @@ jobs:
         run: dotnet format --verify-no-changes
 
       # Builds between releases are versioned after the last release with the patch bumped, e.g. 14.0.1-alpha.123
-      # after 14.0.0, so they sort above the last release and below the next one.
+      # after 14.0.0, so they sort above the last release and below the next one. Packing a prerelease also checks
+      # its API against the last release (package validation, see Ndapi.csproj).
       - name: Set prerelease version
-        if: github.event_name == 'push'
         run: |
           prefix=$(dotnet msbuild Ndapi/Ndapi.csproj -getProperty:VersionPrefix)
           IFS=. read -r major minor patch <<< "$prefix"
@@ -77,8 +77,7 @@ jobs:
       - name: Build trimmed sample with NativeAOT for Forms 12c/14c
         run: dotnet publish -c Release -f net10.0 -p:"Platform=x64" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
 
-      - name: Build NuGet package
-        if: github.event_name == 'push'
+      - name: Build NuGet package and validate API compatibility
         run: dotnet pack Ndapi/Ndapi.csproj -c Release --no-build $VERSION_ARGS -o artifacts
 
       - name: Publish to GitHub Packages
