@@ -29,7 +29,7 @@ public partial class FormParameter : NdapiObject<FormParameter>
     public partial string Comment { get; set; }
 
     /// <summary>
-    /// Gets or sets the maximum length.
+    /// Gets or sets the maximum length. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAX_LEN)]
     public partial int MaximumLength { get; set; }

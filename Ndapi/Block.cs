@@ -114,36 +114,6 @@ public partial class Block : NdapiObject<Block>
     public partial string FillPattern { get; set; }
 
     /// <summary>
-    /// Gets or sets the font name.
-    /// </summary>
-    [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
-
-    /// <summary>
-    /// Gets or sets the font size.
-    /// </summary>
-    [Property(NdapiConstant.D2FP_FONT_SIZ)]
-    public partial int FontSize { get; set; }
-
-    /// <summary>
-    /// Gets or sets the font spacing.
-    /// </summary>
-    [Property(NdapiConstant.D2FP_FONT_SPCING)]
-    public partial FontSpacing FontSpacing { get; set; }
-
-    /// <summary>
-    /// Gets or sets the font style.
-    /// </summary>
-    [Property(NdapiConstant.D2FP_FONT_STY)]
-    public partial FontStyle FontStyle { get; set; }
-
-    /// <summary>
-    /// Gets or sets the font weight.
-    /// </summary>
-    [Property(NdapiConstant.D2FP_FONT_WGHT)]
-    public partial FontWeight FontWeight { get; set; }
-
-    /// <summary>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]

@@ -196,7 +196,7 @@ public partial class RadioButton : NdapiObject<RadioButton>
     /// Gets or sets the prompt font justification.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_JST)]
-    public partial int PromptJustification { get; set; }
+    public partial HorizontalJustification PromptJustification { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt reading order.

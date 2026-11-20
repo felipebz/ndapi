@@ -652,7 +652,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the prompt font justification.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_JST)]
-    public partial Justification PromptJustification { get; set; }
+    public partial HorizontalJustification PromptJustification { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt reading order.
@@ -689,6 +689,12 @@ public partial class Item : NdapiObject<Item>
     /// </summary>
     [Property(NdapiConstant.D2FP_QRY_LEN)]
     public partial int QueryLength { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the query the item is based on.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_QUERY_NAME)]
+    public partial string QueryName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the item is query only.

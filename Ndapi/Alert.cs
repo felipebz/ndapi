@@ -124,7 +124,7 @@ public partial class Alert : NdapiObject<Alert>
     public partial string ForegroundColor { get; set; }
 
     /// <summary>
-    /// Gets or sets the icon file name.
+    /// Gets or sets the icon file name. Forms 14 and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
     public partial string IconFilename { get; set; }

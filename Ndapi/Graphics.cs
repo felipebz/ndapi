@@ -375,7 +375,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the horizontal position relative to origin.
     /// </summary>
     [Property(NdapiConstant.D2FP_HORZ_ORGN)]
-    public partial int HorizontalPositionRelativeToOrigin { get; set; }
+    public partial HorizontalOrigin HorizontalPositionRelativeToOrigin { get; set; }
 
     /// <summary>
     /// Gets or sets the internal end angle.
@@ -543,7 +543,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the vertical position relative to origin.
     /// </summary>
     [Property(NdapiConstant.D2FP_VERT_ORGN)]
-    public partial int VerticalPositionRelativeToOrigin { get; set; }
+    public partial VerticalOrigin VerticalPositionRelativeToOrigin { get; set; }
 
     /// <summary>
     /// Gets or sets the width.

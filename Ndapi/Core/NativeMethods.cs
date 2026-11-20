@@ -452,6 +452,20 @@ internal static partial class NativeMethods
 
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial FormsErrorCode d2fdsacr_Create(ContextSafeHandle pd2fctx,
+        ObjectSafeHandle parent,
+        out ObjectSafeHandle ppd2fdsa,
+        ushort owning_prop);
+
+    [LibraryImport(FormsLib)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial FormsErrorCode d2fdsccr_Create(ContextSafeHandle pd2fctx,
+        ObjectSafeHandle parent,
+        out ObjectSafeHandle ppd2fdsc,
+        ushort owning_prop);
+
+    [LibraryImport(FormsLib)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fobgt_GetTextProp(ContextSafeHandle pd2fctx,
         ObjectSafeHandle pd2fob,
         int pnum,

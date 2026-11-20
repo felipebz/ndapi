@@ -71,4 +71,64 @@ public class NdapiObjectTests
             menu.Destroy();
         });
     }
+
+    [Fact]
+    public void DataSourceObjectsAreCreatedInTheListOfTheirOperation()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("DATA_SOURCE");
+            var block = new Block(module, "B") { QueryDataSourceType = QueryDataSourceType.Procedure };
+            (DataSourceOperation Operation, Func<IEnumerable<DataSourceArgument>> Arguments,
+                Func<IEnumerable<DataSourceColumn>> Columns)[] lists =
+            [
+                (DataSourceOperation.Query, () => block.QueryDataSourceArguments, () => block.QueryDataSourceColumns),
+                (DataSourceOperation.Insert, () => block.InsertDataSourceArguments, () => block.InsertDataSourceColumns),
+                (DataSourceOperation.Update, () => block.UpdateDataSourceArguments, () => block.UpdateDataSourceColumns),
+                (DataSourceOperation.Delete, () => block.DeleteDataSourceArguments, () => block.DeleteDataSourceColumns)
+            ];
+
+            foreach (var (operation, arguments, columns) in lists)
+            {
+                _ = new DataSourceArgument(block, operation, $"ARG_{operation}");
+                _ = new DataSourceColumn(block, operation, $"COL_{operation}");
+
+                Assert.Equal($"ARG_{operation}", Assert.Single(arguments()).Name);
+                Assert.Equal($"COL_{operation}", Assert.Single(columns()).Name);
+            }
+
+            _ = new DataSourceArgument(block, DataSourceOperation.Lock, "ARG_LOCK");
+            _ = new DataSourceColumn(block, DataSourceOperation.Lock, "COL_LOCK");
+            module.Destroy();
+        });
+    }
+
+    [Fact]
+    public void QueryNameUsesTheConstantOfTheRunningBuilder()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("QUERY_NAME");
+            var item = new Item(new Block(module, "B"), "I");
+
+            item.QueryName = "Q1";
+
+            Assert.Equal("Q1", item.QueryName);
+            module.Destroy();
+        });
+    }
+
+    [Fact]
+    public void DeferRequiredEnforcementAcceptsTheThreeSettings()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("DEFER_REQ");
+
+            Assert.Equal(1, module.DeferRequiredEnforcement);
+            module.DeferRequiredEnforcement = 2;
+            Assert.Equal(2, module.DeferRequiredEnforcement);
+            module.Destroy();
+        });
+    }
 }

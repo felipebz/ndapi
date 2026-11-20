@@ -77,6 +77,12 @@ public partial class Report : NdapiObject<Report>
     public partial string Parameters { get; set; }
 
     /// <summary>
+    /// Gets or sets the name of the query the report is based on.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_QUERY_NAME)]
+    public partial string QueryName { get; set; }
+
+    /// <summary>
     /// Gets or sets the server adress.
     /// </summary>
     [Property(NdapiConstant.D2FP_RPT_SRVR)]

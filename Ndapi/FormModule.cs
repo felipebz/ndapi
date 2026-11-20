@@ -40,10 +40,11 @@ public partial class FormModule : NdapiModule
     public partial string ConsoleWindow { get; set; }
 
     /// <summary>
-    /// Gets or sets whether runtime should defer enforcement of the Required item attribute until the record is validated.
+    /// Gets or sets when runtime enforces the Required item attribute: 0 = Yes (defer until the record is validated),
+    /// 1 = No (enforce when leaving the item), 2 = 4.5 (defer, Forms 4.5 behavior).
     /// </summary>
-    [Property(NdapiConstant.D2FP_DEFER_REQ_ENF)]
-    public partial bool DeferRequiredEnforcement { get; set; }
+    [Property(NdapiConstant.D2FP_NEWDEFER_REQ_ENF)]
+    public partial int DeferRequiredEnforcement { get; set; }
 
     /// <summary>
     /// Gets or sets the first navigation block.

@@ -4,12 +4,10 @@ namespace Ndapi.Tests;
 
 internal sealed class FormsObjects
 {
-    // Font and Coordinate are not native objects, a library module can only be loaded from a .pll file, and
-    // d2fobcr_Create fails for data source arguments and columns under a block
+    // Font and Coordinate are not native objects; a library module can only be loaded from a .pll file
     public static readonly IReadOnlySet<Type> NotCreatable = new HashSet<Type>
     {
-        typeof(Font), typeof(Coordinate), typeof(LibraryModule), typeof(LibraryProgramUnit), typeof(AttachedLibrary),
-        typeof(DataSourceArgument), typeof(DataSourceColumn)
+        typeof(Font), typeof(Coordinate), typeof(LibraryModule), typeof(LibraryProgramUnit), typeof(AttachedLibrary)
     };
 
     private readonly List<NdapiModule> _modules = [];
@@ -33,6 +31,10 @@ internal sealed class FormsObjects
         Add(new Trigger(item, "WHEN-VALIDATE-ITEM"));
         var radioGroup = new Item(block, "RG") { ItemType = ItemType.RadioGroup };
         Add(new RadioButton(radioGroup, "RB"));
+
+        var procedureBlock = new Block(form, "PROC_BLK") { QueryDataSourceType = QueryDataSourceType.Procedure };
+        Add(new DataSourceArgument(procedureBlock, DataSourceOperation.Query, "ARG"));
+        Add(new DataSourceColumn(procedureBlock, DataSourceOperation.Query, "COL"));
 
         Add(new Graphics(canvas, "GRA"));
         var text = new Graphics(canvas, "GRA_TXT") { GraphicsObjectType = GraphicsObjectType.Text };

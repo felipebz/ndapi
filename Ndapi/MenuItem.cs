@@ -79,7 +79,7 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the font spacing.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_SPCING)]
-    public partial int FontSpacing { get; set; }
+    public partial FontSpacing FontSpacing { get; set; }
 
     /// <summary>
     /// Gets or sets the font style.

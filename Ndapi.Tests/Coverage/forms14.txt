@@ -1,9 +1,4 @@
 # Baseline for PropertyCoverageTests. Remove lines as members are added or fixed.
-inapplicable Block D2FP_FONT_NAM
-inapplicable Block D2FP_FONT_SIZ
-inapplicable Block D2FP_FONT_SPCING
-inapplicable Block D2FP_FONT_STY
-inapplicable Block D2FP_FONT_WGHT
 inapplicable ColumnMapping D2FP_OWNER
 inapplicable ColumnMapping D2FP_PAR_FLNAM
 inapplicable ColumnMapping D2FP_PAR_FLPATH
@@ -18,6 +13,20 @@ inapplicable CompoundText D2FP_PAR_MODTYP
 inapplicable CompoundText D2FP_PAR_MODULE
 inapplicable CompoundText D2FP_PAR_NAM
 inapplicable CompoundText D2FP_PAR_TYP
+inapplicable DataSourceArgument D2FP_OWNER
+inapplicable DataSourceArgument D2FP_PAR_FLNAM
+inapplicable DataSourceArgument D2FP_PAR_FLPATH
+inapplicable DataSourceArgument D2FP_PAR_MODTYP
+inapplicable DataSourceArgument D2FP_PAR_MODULE
+inapplicable DataSourceArgument D2FP_PAR_NAM
+inapplicable DataSourceArgument D2FP_PAR_TYP
+inapplicable DataSourceColumn D2FP_OWNER
+inapplicable DataSourceColumn D2FP_PAR_FLNAM
+inapplicable DataSourceColumn D2FP_PAR_FLPATH
+inapplicable DataSourceColumn D2FP_PAR_MODTYP
+inapplicable DataSourceColumn D2FP_PAR_MODULE
+inapplicable DataSourceColumn D2FP_PAR_NAM
+inapplicable DataSourceColumn D2FP_PAR_TYP
 inapplicable Editor D2FP_SHOW_HORZ_SCRLBR
 inapplicable FormModule D2FP_OWNER
 inapplicable FormParameter D2FP_MAX_LEN
@@ -154,6 +163,20 @@ uncovered ColumnMapping D2FP_PREVIOUS
 uncovered ColumnMapping D2FP_TITLE_STRID
 uncovered CompoundText D2FP_NEXT
 uncovered CompoundText D2FP_PREVIOUS
+uncovered DataSourceArgument D2FP_CLIENT_INFO
+uncovered DataSourceArgument D2FP_DIRTY_INFO
+uncovered DataSourceArgument D2FP_NEXT
+uncovered DataSourceArgument D2FP_PERSIST_CLIENT_INFO
+uncovered DataSourceArgument D2FP_PERSIST_CLT_INF_LEN
+uncovered DataSourceArgument D2FP_PREVIOUS
+uncovered DataSourceColumn D2FP_CLIENT_INFO
+uncovered DataSourceColumn D2FP_DIRTY_INFO
+uncovered DataSourceColumn D2FP_DSC_NOCHILDREN
+uncovered DataSourceColumn D2FP_DSC_PARENT_NAME
+uncovered DataSourceColumn D2FP_NEXT
+uncovered DataSourceColumn D2FP_PERSIST_CLIENT_INFO
+uncovered DataSourceColumn D2FP_PERSIST_CLT_INF_LEN
+uncovered DataSourceColumn D2FP_PREVIOUS
 uncovered Editor D2FP_BTM_TTL_STRID
 uncovered Editor D2FP_CLIENT_INFO
 uncovered Editor D2FP_DIRTY_INFO
@@ -185,7 +208,6 @@ uncovered FormModule D2FP_CLIENT_INFO
 uncovered FormModule D2FP_CRSR_MODE
 uncovered FormModule D2FP_DIRTY_INFO
 uncovered FormModule D2FP_FRST_NAVIGATION_BLK_NAM
-uncovered FormModule D2FP_NEWDEFER_REQ_ENF
 uncovered FormModule D2FP_NEXT
 uncovered FormModule D2FP_PERSIST_CLIENT_INFO
 uncovered FormModule D2FP_PERSIST_CLT_INF_LEN
@@ -264,7 +286,6 @@ uncovered Item D2FP_PREVIOUS
 uncovered Item D2FP_PREV_NAVIGATION_ITM_NAM
 uncovered Item D2FP_PRMPT_STRID
 uncovered Item D2FP_PROGBAR_ORIENTATION
-uncovered Item D2FP_QUERY_NAME
 uncovered Item D2FP_REC_GRP_NAM
 uncovered Item D2FP_REC_GRP_OBJ
 uncovered Item D2FP_ROLLOVER_BORDER
@@ -444,7 +465,6 @@ uncovered Report D2FP_NEXT
 uncovered Report D2FP_PERSIST_CLIENT_INFO
 uncovered Report D2FP_PERSIST_CLT_INF_LEN
 uncovered Report D2FP_PREVIOUS
-uncovered Report D2FP_QUERY_NAME
 uncovered Report D2FP_RPT_ABS_PATH
 uncovered Report D2FP_RPT_BIP_PARAMS
 uncovered Report D2FP_RPT_DEL_TYPE

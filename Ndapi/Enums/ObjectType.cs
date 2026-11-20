@@ -218,6 +218,11 @@ public enum ObjectType
     VisualAttribute = NdapiConstant.D2FFO_VIS_ATTR,
 
     /// <summary>
+    /// Visual state: the Builder's layout editor settings for a canvas. Forms 12c and later.
+    /// </summary>
+    VisualState = NdapiConstant.D2FFO_VIS_STATE,
+
+    /// <summary>
     /// Window.
     /// </summary>
     Window = NdapiConstant.D2FFO_WINDOW,

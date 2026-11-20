@@ -1002,7 +1002,8 @@ internal static partial class ConstantConverter
         [D2FP_SUCC_LABEL] = 548,
         [D2FP_TRIG_STEP_TXT] = 549,
         [D2FP_TRIG_STEP] = 550,
-        [D2FP_QRY_NAME] = 551,
+        // named D2FP_QRY_NAME in the 6i headers; same property as D2FP_QUERY_NAME in 12c+
+        [D2FP_QUERY_NAME] = 551,
         [D2FP_MAX] = 551,
         [D2FP_TYP_UNKNOWN] = 0,
         [D2FP_TYP_BOOLEAN] = 1,
