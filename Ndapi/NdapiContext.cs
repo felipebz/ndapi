@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -131,7 +132,7 @@ public sealed class NdapiContext : IDisposable
         }
 
         Ensure.Success(status);
-        return s_context!;
+        return s_context;
     }
 
     private static IntPtr AllocateMemory(IntPtr context, IntPtr size)
@@ -187,18 +188,8 @@ public sealed class NdapiContext : IDisposable
 
     // The registry is cleared whenever an object is destroyed, so the module list stays the source of truth for the
     // wrappers of opened and created modules.
-    internal static NdapiModule? FindModule(IntPtr pointer)
-    {
-        foreach (var module in ModuleList)
-        {
-            if (module.Handle.DangerousGetHandle() == pointer)
-            {
-                return module;
-            }
-        }
-
-        return null;
-    }
+    internal static NdapiModule? FindModule(IntPtr pointer) =>
+        ModuleList.FirstOrDefault(module => module.Handle.Address == pointer);
 
     /// <summary>
     /// Establish a database connection given a connect string.

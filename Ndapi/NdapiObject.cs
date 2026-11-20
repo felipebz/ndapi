@@ -571,7 +571,7 @@ public abstract partial class NdapiObject : IDisposable
         Type type,
         ObjectSafeHandle handle)
     {
-        var pointer = handle.DangerousGetHandle();
+        var pointer = handle.Address;
 
         if (NdapiContext.ObjectRegistry.TryGetObject(pointer, out var existingInstance))
         {
@@ -583,8 +583,8 @@ public abstract partial class NdapiObject : IDisposable
             return module;
         }
 
-        var foundType = type;
-        if (foundType == typeof(NdapiObject))
+        NdapiObject createdObject;
+        if (type == typeof(NdapiObject))
         {
             var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out var internalObjectType);
             Ensure.Success(status);
@@ -596,15 +596,13 @@ public abstract partial class NdapiObject : IDisposable
                 throw new NdapiException($"Oracle Forms returned an object of undefined type ({internalObjectType}).");
             }
 
-            foundType = NdapiMetadata.GetTypeFrom(objectType);
+            createdObject = NdapiMetadata.CreateWrapper(objectType, handle);
+        }
+        else
+        {
+            createdObject = NdapiMetadata.CreateWrapper(type, handle);
         }
 
-        var instance = Activator.CreateInstance(foundType,
-            BindingFlags.NonPublic | BindingFlags.Instance,
-            null,
-            [handle],
-            null);
-        var createdObject = (NdapiObject)instance!;
         NdapiContext.ObjectRegistry.TrackObject(pointer, createdObject);
         return createdObject;
     }
@@ -637,7 +635,7 @@ public abstract partial class NdapiObject : IDisposable
         {
             if (Handle != null && !Handle.IsInvalid)
             {
-                var pointer = Handle.DangerousGetHandle();
+                var pointer = Handle.Address;
                 NdapiContext.ObjectRegistry.UntrackObject(pointer);
             }
 
