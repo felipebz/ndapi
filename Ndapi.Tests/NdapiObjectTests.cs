@@ -261,4 +261,39 @@ public class NdapiObjectTests
             }
         });
     }
+
+    [Fact]
+    public void StringIdsMustBeUniqueWithinTheModule()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("STRING_IDS");
+            var item = new Item(new Block(module, "B"), "I") { Prompt = "P", Hint = "H" };
+
+            item.PromptStringId = 42;
+
+            Assert.Equal(42, item.PromptStringId);
+            var error = Assert.Throws<NdapiException>(() => item.HintStringId = 42);
+            Assert.Equal(FormsErrorCode.SuplicateStringId, error.ErrorCode);
+            module.Destroy();
+        });
+    }
+
+    [Fact]
+    public void ObjectsKnowTheirModuleAndSubclassSource()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("SUBCLASS_SRC");
+            var propertyClass = new PropertyClass(module, "PC");
+            var alert = new Alert(module, "A");
+
+            alert.Subclass(propertyClass);
+
+            Assert.Equal("SUBCLASS_SRC", Assert.IsType<FormModule>(alert.Module).Name);
+            Assert.Equal("PC", alert.Source.Name);
+            Assert.True(alert.IsDirty);
+            module.Destroy();
+        });
+    }
 }

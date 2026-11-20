@@ -49,6 +49,18 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     public partial int ObjectCount { get; }
 
     /// <summary>
+    /// Gets or sets the translation string id of the label.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LABEL_STRID)]
+    public partial int LabelStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
     /// Gets all the objects contained in this tab.
     /// </summary>
     public NdapiObjectLibraryTabObjectsList Objects => new(this);

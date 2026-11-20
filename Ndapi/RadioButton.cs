@@ -275,4 +275,76 @@ public partial class RadioButton : NdapiObject<RadioButton>
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
     public partial string CharacterModeLogicalAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the access key.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ACCESS_KEY_STRID)]
+    public partial int AccessKeyStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the label.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LABEL_STRID)]
+    public partial int LabelStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the prompt.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PRMPT_STRID)]
+    public partial int PromptStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
+    /// Gets the module that contains the object.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MODULE)]
+    public partial NdapiObject Module { get; }
+
+    /// <summary>
+    /// Gets the object this object is subclassed from.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SOURCE)]
+    public partial NdapiObject Source { get; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as part of an object group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_OBJGRP)]
+    public partial bool IsSubclassObjectGroup { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as a sub-object of a subclassed parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_SUBOBJ)]
+    public partial bool IsSubclassSubObject { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the first-level source object of the parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PAR_SL1OBJ_NAM)]
+    public partial string ParentSourceLevel1ObjectName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the type of the first-level source object of the parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PAR_SL1OBJ_TYP)]
+    public partial int ParentSourceLevel1ObjectType { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the second-level source object of the parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PAR_SL2OBJ_NAM)]
+    public partial string ParentSourceLevel2ObjectName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the type of the second-level source object of the parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PAR_SL2OBJ_TYP)]
+    public partial int ParentSourceLevel2ObjectType { get; set; }
 }

@@ -49,6 +49,12 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     public partial DataLengthSemantics DataLengthSemantics { get; set; }
 
     /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
     /// Gets the menu item roles.
     /// </summary>
     public IEnumerable<string> Values

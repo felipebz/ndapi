@@ -540,6 +540,42 @@ public partial class Block : NdapiObject<Block>
     public partial string CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
+    /// Gets or sets the translation string id of the description.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_BLK_DSCRP_STRID)]
+    public partial int DescriptionStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
+    /// Gets the module that contains the object.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MODULE)]
+    public partial NdapiObject Module { get; }
+
+    /// <summary>
+    /// Gets the object this object is subclassed from.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SOURCE)]
+    public partial NdapiObject Source { get; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as part of an object group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_OBJGRP)]
+    public partial bool IsSubclassObjectGroup { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as a sub-object of a subclassed parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_SUBOBJ)]
+    public partial bool IsSubclassSubObject { get; set; }
+
+    /// <summary>
     /// Compiles all of the PL/SQL code associated with the specified block. This includes all of 
     /// the trigger objects attached to the block, and all of the trigger objects attached to all items in the block.
     /// </summary>

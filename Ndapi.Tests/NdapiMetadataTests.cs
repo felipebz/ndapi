@@ -68,12 +68,11 @@ public class NdapiMetadataTests
                 .Select(p => p.PropertyId)
                 .ToHashSet();
 
-            // D2FP_DIRTY_INFO has no typed member but HasProperty reports it on every module
-            Assert.DoesNotContain(NdapiConstant.D2FP_DIRTY_INFO, typed);
-            Assert.Contains(NdapiConstant.D2FP_DIRTY_INFO, NdapiMetadata.SupportedProperties);
+            Assert.DoesNotContain(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, typed);
+            Assert.Contains(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, NdapiMetadata.SupportedProperties);
 
             var module = new FormModule("META_TEST");
-            Assert.True(module.HasProperty(NdapiConstant.D2FP_DIRTY_INFO));
+            Assert.True(module.HasProperty(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN));
             module.Destroy();
         });
     }

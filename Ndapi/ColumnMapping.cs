@@ -39,4 +39,16 @@ public partial class ColumnMapping : NdapiObject<ColumnMapping>
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
     public partial string Title { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the title.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TITLE_STRID)]
+    public partial int TitleStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
 }

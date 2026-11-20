@@ -293,6 +293,36 @@ public partial class FormModule : NdapiModule
     public partial bool SavepointMode { get; }
 
     /// <summary>
+    /// Gets or sets the translation string id of the title.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TITLE_STRID)]
+    public partial int TitleStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
+    /// Gets the object this object is subclassed from.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SOURCE)]
+    public partial NdapiObject Source { get; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as part of an object group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_OBJGRP)]
+    public partial bool IsSubclassObjectGroup { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as a sub-object of a subclassed parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_SUBOBJ)]
+    public partial bool IsSubclassSubObject { get; set; }
+
+    /// <summary>
     /// Load the form module into memory.
     /// </summary>
     /// <param name="filename">Form module location (.fmb file)</param>

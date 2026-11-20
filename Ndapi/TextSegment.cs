@@ -69,4 +69,16 @@ public partial class TextSegment : NdapiObject<TextSegment>
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TOPIC)]
     public partial string HelpBookTopic { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the text.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TEXT_STRID)]
+    public partial int TextStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
 }

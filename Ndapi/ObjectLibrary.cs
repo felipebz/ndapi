@@ -48,6 +48,12 @@ public partial class ObjectLibrary : NdapiModule
     public partial int ObjectCount { get; }
 
     /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
     /// Gets all the objects contained in this Library.
     /// </summary>
     public NdapiObjectLibraryObjectList Objects => new(this);

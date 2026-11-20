@@ -73,4 +73,10 @@ public partial class DataSourceArgument : NdapiObject<DataSourceArgument>
     /// </summary>
     [Property(NdapiConstant.D2FP_DSA_VAL)]
     public partial string Value { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
 }

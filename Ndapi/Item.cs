@@ -1216,6 +1216,96 @@ public partial class Item : NdapiObject<Item>
     public partial string CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
+    /// Gets or sets the translation string id of the access key.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ACCESS_KEY_STRID)]
+    public partial int AccessKeyStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the highest allowed value.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HIGHEST_VAL_STRID)]
+    public partial int HighestAllowedValueStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the hint.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HINT_STRID)]
+    public partial int HintStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the initial value.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_INIT_VAL_STRID)]
+    public partial int InitialValueStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the label.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LABEL_STRID)]
+    public partial int LabelStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the lowest allowed value.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LOWEST_VAL_STRID)]
+    public partial int LowestAllowedValueStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the prompt.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PRMPT_STRID)]
+    public partial int PromptStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the translation string id of the tooltip.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TOOLTIP_STRID)]
+    public partial int TooltipStringId { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object was modified since it was loaded or saved.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DIRTY_INFO)]
+    public partial bool IsDirty { get; set; }
+
+    /// <summary>
+    /// Gets the module that contains the object.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_MODULE)]
+    public partial NdapiObject Module { get; }
+
+    /// <summary>
+    /// Gets the object this object is subclassed from.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SOURCE)]
+    public partial NdapiObject Source { get; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as part of an object group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_OBJGRP)]
+    public partial bool IsSubclassObjectGroup { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is subclassed as a sub-object of a subclassed parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUBCL_SUBOBJ)]
+    public partial bool IsSubclassSubObject { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the first-level source object of the parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PAR_SL1OBJ_NAM)]
+    public partial string ParentSourceLevel1ObjectName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the type of the first-level source object of the parent.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PAR_SL1OBJ_TYP)]
+    public partial int ParentSourceLevel1ObjectType { get; set; }
+
+    /// <summary>
     /// Gets the list elements. Valid only when <see cref="ItemType"/> is <see cref="ItemType.ListItem"/>.
     /// </summary>
     public IEnumerable<KeyValuePair<string, string>> ListElements
