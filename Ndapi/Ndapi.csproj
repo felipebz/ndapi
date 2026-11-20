@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
         <Description>Read, create, modify and compile Oracle Forms modules (.fmb, .mmb, .olb, .pll) from .NET through the Oracle Forms Open API. Supports Forms 6i, 12c and 14c.</Description>
         <Authors>Felipe Zorzo</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
