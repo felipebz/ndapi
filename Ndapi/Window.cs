@@ -241,4 +241,16 @@ public partial class Window : NdapiObject<Window>
     /// </summary>
     [Property(NdapiConstant.D2FP_Y_POS)]
     public partial int YPosition { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the window is centered when it is first shown. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CENTERED)]
+    public partial bool CenterOnStartup { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the window shows its title bar. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SHOW_TITLEBAR)]
+    public partial bool ShowTitleBar { get; set; }
 }

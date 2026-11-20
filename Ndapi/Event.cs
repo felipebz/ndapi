@@ -132,4 +132,17 @@ public partial class Event : NdapiObject<Event>
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_VIEW_MODE)]
     public partial EventViewMode EventViewMode { get; set; }
+
+    /// <summary>
+    /// Gets or sets the Java class that implements a custom event. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_EVENT_IMPLCLASS)]
+    public partial string ImplementationClass { get; set; }
+
+    /// <summary>
+    /// Gets or sets which operations raise an object change notification: 0 = All Operations, 1 = Insert, 2 = Update,
+    /// 3 = Delete, 4 = Drop, 5 = Alter, 6 = All DML operations, 7 = All DDL operations. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_EVENT_OBJCHMODE)]
+    public partial int ObjectChangeMode { get; set; }
 }

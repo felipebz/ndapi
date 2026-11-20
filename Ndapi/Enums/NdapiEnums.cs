@@ -87,7 +87,10 @@ public enum DataSourceColumnType
     Clob = NdapiConstant.D2FC_DSTY_CLOB,
     Bfile = NdapiConstant.D2FC_DSTY_BFILE,
     Cfile = NdapiConstant.D2FC_DSTY_CFILE,
-    Unknown = NdapiConstant.D2FC_DSTY_UNKNOWN
+    Unknown = NdapiConstant.D2FC_DSTY_UNKNOWN,
+    NVarchar2 = NdapiConstant.D2FC_DSTY_NVARCHAR2,
+    NChar = NdapiConstant.D2FC_DSTY_NCHAR,
+    NClob = NdapiConstant.D2FC_DSTY_NCLOB
 }
 
 public enum CommunicationMode
@@ -431,7 +434,8 @@ public enum ItemDataType
     Rmoney = NdapiConstant.D2FC_DATY_RMONEY,
     Objectref = NdapiConstant.D2FC_DATY_OBJECTREF,
     Lob = NdapiConstant.D2FC_DATY_LOB,
-    File = NdapiConstant.D2FC_DATY_FILE
+    File = NdapiConstant.D2FC_DATY_FILE,
+    NChar = NdapiConstant.D2FC_DATY_NCHAR
 }
 
 public enum ImageFormat
@@ -506,7 +510,9 @@ public enum ListStyle
 {
     Poplist = NdapiConstant.D2FC_LSST_POPLIST,
     Tlist = NdapiConstant.D2FC_LSST_TLIST,
-    Combo = NdapiConstant.D2FC_LSST_COMBO
+    Combo = NdapiConstant.D2FC_LSST_COMBO,
+    SpinList = NdapiConstant.D2FC_LSST_SPINLIST,
+    Slider = NdapiConstant.D2FC_LSST_SLIDER
 }
 
 public enum ListType
@@ -816,7 +822,8 @@ public enum EventType
     SystemDbIdle = NdapiConstant.D2FC_EVENT_TYPE_SYSTEMDBIDLE,
     SystemLogout = NdapiConstant.D2FC_EVENT_TYPE_SYSTEMLOGOUT,
     SystemEmPing = NdapiConstant.D2FC_EVENT_TYPE_SYSTEMEMPING,
-    SystemMediaDone = NdapiConstant.D2FC_EVENT_TYPE_SYSTEMMEDIADONE
+    SystemMediaDone = NdapiConstant.D2FC_EVENT_TYPE_SYSTEMMEDIADONE,
+    SystemMdiResize = NdapiConstant.D2FC_EVENT_TYPE_SYSTEMMDIRESIZE
 }
 
 public enum EventScope
@@ -849,4 +856,67 @@ public enum SubscriptionMode
 {
     BestEffort = NdapiConstant.D2FC_EVENT_SUBSCRIPTION_BESTEFFORT,
     Guaranteed = NdapiConstant.D2FC_EVENT_SUBSCRIPTION_GUARANTEED
+}
+
+public enum UiStyle
+{
+    Standard = NdapiConstant.D2FC_UIST_STANDARD,
+    ToggleButton = NdapiConstant.D2FC_UIST_TOGGLE,
+    Switch = NdapiConstant.D2FC_UIST_SWITCH,
+    LargeSwitch = NdapiConstant.D2FC_UIST_SWITCH_LARGE
+}
+
+public enum DisplayItemUiStyle
+{
+    Standard = NdapiConstant.D2FC_DUST_STANDARD,
+    ProgressBar = NdapiConstant.D2FC_DUST_PROGRESS,
+    Gauge = NdapiConstant.D2FC_DUST_GAUGE,
+    HalfGauge = NdapiConstant.D2FC_DUST_HALFGAUGE
+}
+
+public enum ProgressBarOrientation
+{
+    Horizontal = NdapiConstant.D2FC_PBOR_HORIZONTAL,
+    Vertical = NdapiConstant.D2FC_PBOR_VERTICAL
+}
+
+public enum ForegroundColorMode
+{
+    Text = NdapiConstant.D2FC_FCM_TEXT,
+    Graphic = NdapiConstant.D2FC_FCM_GRAPHIC
+}
+
+public enum IconLabelPosition
+{
+    None = NdapiConstant.D2FC_LAIC_NONE,
+    Top = NdapiConstant.D2FC_LAIC_TOP,
+    Bottom = NdapiConstant.D2FC_LAIC_BOTTOM,
+    Left = NdapiConstant.D2FC_LAIC_LEFT,
+    Right = NdapiConstant.D2FC_LAIC_RIGHT,
+    Start = NdapiConstant.D2FC_LAIC_START,
+    End = NdapiConstant.D2FC_LAIC_END
+}
+
+public enum RoundSide
+{
+    None = NdapiConstant.D2FC_ROUND_SIDE_NONE,
+    Left = NdapiConstant.D2FC_ROUND_SIDE_LEFT,
+    Right = NdapiConstant.D2FC_ROUND_SIDE_RIGHT,
+    Both = NdapiConstant.D2FC_ROUND_SIDE_BOTH,
+    Start = NdapiConstant.D2FC_ROUND_SIDE_START,
+    End = NdapiConstant.D2FC_ROUND_SIDE_END
+}
+
+public enum ItemRecordOrientation
+{
+    Default = NdapiConstant.D2FC_IOR_DEFAULT,
+    Vertical = NdapiConstant.D2FC_IOR_VERTICAL,
+    Horizontal = NdapiConstant.D2FC_IOR_HORIZONTAL
+}
+
+public enum DataLengthSemantics
+{
+    Null = NdapiConstant.D2FC_CHLE_NULL,
+    Byte = NdapiConstant.D2FC_CHLE_BYTE,
+    Char = NdapiConstant.D2FC_CHLE_CHAR
 }

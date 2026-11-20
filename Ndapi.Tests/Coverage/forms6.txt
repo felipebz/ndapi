@@ -63,6 +63,7 @@ inapplicable Point D2FP_PAR_MODTYP
 inapplicable Point D2FP_PAR_MODULE
 inapplicable Point D2FP_PAR_NAM
 inapplicable Point D2FP_PAR_TYP
+inapplicable RadioButton D2FP_ICON_FLNAM
 inapplicable RadioButton D2FP_PRMPT_BACK_COLOR
 inapplicable RadioButton D2FP_PRMPT_FILL_PAT
 inapplicable RecordGroupColumn D2FP_OWNER

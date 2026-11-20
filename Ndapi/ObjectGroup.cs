@@ -44,6 +44,12 @@ public partial class ObjectGroup : NdapiObject<ObjectGroup>
     public partial NdapiObjectList<ObjectGroupChild> Childs { get; }
 
     /// <summary>
+    /// Gets or sets the object group type. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_OBJ_GRP_TYP)]
+    public partial int ObjectGroupType { get; set; }
+
+    /// <summary>
     /// Creates a object group child.
     /// </summary>
     /// <param name="name">Name of the object group child.</param>

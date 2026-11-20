@@ -30,6 +30,12 @@ public partial class ObjectLibrary : NdapiModule
     public partial NdapiObjectList<ObjectLibraryTab> Tabs { get; }
 
     /// <summary>
+    /// Gets or sets the application name of which this module is associated. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_APPNAME)]
+    public partial string ApplicationName { get; set; }
+
+    /// <summary>
     /// Gets all the objects contained in this Library.
     /// </summary>
     public NdapiObjectLibraryObjectList Objects => new(this);

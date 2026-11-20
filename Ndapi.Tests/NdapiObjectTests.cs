@@ -28,20 +28,69 @@ public class NdapiObjectTests
     }
 
     [Fact]
-    public void PropertyIntroducedInForms14CanBeUsedOnForms14()
+    public void PropertiesIntroducedInForms14RoundTripEveryValue()
     {
         Sta.Run(() =>
         {
-            Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 14, "D2FP_PLACEHOLDER_TEXT requires Forms 14");
+            Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 14, "requires Forms 14");
 
             var module = new FormModule("FORMS14_PROP");
-            var item = new Item(new Block(module, "B"), "I") { ItemType = ItemType.TextItem };
+            var block = new Block(module, "B");
+            var item = new Item(block, "I") { ItemType = ItemType.TextItem, Placeholder = "type here" };
+            Assert.Equal("type here", item.Placeholder);
 
-            item.SetStringProperty(NdapiConstant.D2FP_PLACEHOLDER_TEXT, "type here");
+            RoundTrip<UiStyle>(v => item.UiStyle = v, () => item.UiStyle);
+            RoundTrip<DisplayItemUiStyle>(v => item.DisplayItemUiStyle = v, () => item.DisplayItemUiStyle);
+            RoundTrip<ProgressBarOrientation>(v => item.ProgressBarOrientation = v, () => item.ProgressBarOrientation);
+            RoundTrip<ForegroundColorMode>(v => item.ForegroundColorMode = v, () => item.ForegroundColorMode);
+            RoundTrip<IconLabelPosition>(v => item.LabelOnIconicButton = v, () => item.LabelOnIconicButton);
+            RoundTrip<RoundSide>(v => item.RoundedCornerEnd = v, () => item.RoundedCornerEnd);
+            RoundTrip<ItemRecordOrientation>(v => item.RecordOrientation = v, () => item.RecordOrientation);
+            RoundTrip<DataLengthSemantics>(v => item.DataLengthSemantics = v, () => item.DataLengthSemantics);
+            RoundTrip<GradientStartSide>(v => item.GradientStartSide = v, () => item.GradientStartSide);
 
-            Assert.Equal("type here", item.GetStringProperty(NdapiConstant.D2FP_PLACEHOLDER_TEXT));
+            item.DataType = ItemDataType.NChar;
+            Assert.Equal(ItemDataType.NChar, item.DataType);
+
+            var list = new Item(block, "L") { ItemType = ItemType.ListItem, ListStyle = ListStyle.Slider };
+            Assert.Equal(ListStyle.Slider, list.ListStyle);
+            list.ListStyle = ListStyle.SpinList;
+            Assert.Equal(ListStyle.SpinList, list.ListStyle);
+
+            var evt = new Event(module, "EVT") { EventType = EventType.SystemMdiResize };
+            Assert.Equal(EventType.SystemMdiResize, evt.EventType);
             module.Destroy();
         });
+    }
+
+    [Fact]
+    public void DataSourceTypesIntroducedInForms12RoundTrip()
+    {
+        Sta.Run(() =>
+        {
+            Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
+
+            var module = new FormModule("NATIONAL_TYPES");
+            var block = new Block(module, "B") { QueryDataSourceType = QueryDataSourceType.Procedure };
+            var column = new DataSourceColumn(block, DataSourceOperation.Query, "C");
+
+            foreach (var type in new[] { DataSourceColumnType.NVarchar2, DataSourceColumnType.NChar, DataSourceColumnType.NClob })
+            {
+                column.Type = type;
+                Assert.Equal(type, column.Type);
+            }
+
+            module.Destroy();
+        });
+    }
+
+    private static void RoundTrip<T>(Action<T> set, Func<T> get) where T : struct, Enum
+    {
+        foreach (var value in Enum.GetValues<T>())
+        {
+            set(value);
+            Assert.Equal(value, get());
+        }
     }
 
     [Fact]

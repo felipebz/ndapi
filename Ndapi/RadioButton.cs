@@ -263,4 +263,10 @@ public partial class RadioButton : NdapiObject<RadioButton>
     /// </summary>
     [Property(NdapiConstant.D2FP_Y_POS)]
     public partial int YPosition { get; set; }
+
+    /// <summary>
+    /// Gets or sets the icon file name. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ICON_FLNAM)]
+    public partial string IconFilename { get; set; }
 }

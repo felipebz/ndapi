@@ -962,6 +962,152 @@ public partial class Item : NdapiObject<Item>
     public partial NdapiObjectList<Trigger> Triggers { get; }
 
     /// <summary>
+    /// Gets or sets whether value changes of a progress bar or (half) gauge display item are animated. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ANIMATED)]
+    public partial bool IsAnimated { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a list item completes the value as the user types. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_AUTO_COMPLETE)]
+    public partial bool AutomaticCompletion { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the border uses the color from the runtime Font/Icon Mapping (Registry.dat). Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_BORDER_COLOR)]
+    public partial bool ShowBorderColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether only the border sides set in the runtime Font/Icon Mapping (Registry.dat) are drawn.
+    /// Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_BORDER_SIDES)]
+    public partial bool SpecifiedBorderSides { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a text item shows a character counter. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_COUNTER)]
+    public partial bool DisplayCharacterCounter { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the length of a character item is measured in bytes or characters. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DATA_LEN_SEMANTICS)]
+    public partial DataLengthSemantics DataLengthSemantics { get; set; }
+
+    /// <summary>
+    /// Gets or sets how a display item is drawn. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DISPLAY_UI_STYLE)]
+    public partial DisplayItemUiStyle DisplayItemUiStyle { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a progress bar or (half) gauge display item shows its value as a percentage.
+    /// Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DISP_PERCENTAGE)]
+    public partial bool DisplayAsPercentage { get; set; }
+
+    /// <summary>
+    /// Gets or sets which parts of a progress bar or gauge use the foreground color. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FOREGROUND_COLOR_MODE)]
+    public partial ForegroundColorMode ForegroundColorMode { get; set; }
+
+    /// <summary>
+    /// Gets or sets the side where the gradient color of a button starts. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_GRADIENT_START)]
+    public partial GradientStartSide GradientStartSide { get; set; }
+
+    /// <summary>
+    /// Gets or sets the record orientation of the item, overriding the block's. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ITEM_REC_ORNT)]
+    public partial ItemRecordOrientation RecordOrientation { get; set; }
+
+    /// <summary>
+    /// Gets or sets where the label of an iconic button is drawn relative to the icon. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LABEL_WITH_ICON)]
+    public partial IconLabelPosition LabelOnIconicButton { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a text item with an LOV shows the LOV button. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LOV_BUTTON)]
+    public partial bool ShowLovButton { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the placeholder stays visible after the user starts typing. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PERSISTENT_PLACEHOLDER)]
+    public partial bool PersistentPlaceholder { get; set; }
+
+    /// <summary>
+    /// Gets or sets the placeholder text shown in an empty text item. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PLACEHOLDER_TEXT)]
+    public partial string Placeholder { get; set; }
+
+    /// <summary>
+    /// Gets or sets the orientation of a progress bar display item. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PROGBAR_ORIENTATION)]
+    public partial ProgressBarOrientation ProgressBarOrientation { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the border changes color when the mouse is over the item. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ROLLOVER_BORDER)]
+    public partial bool RolloverBorderColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a button swaps its foreground and background colors on mouse over. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ROLLOVER_SWAP)]
+    public partial bool RolloverColorSwap { get; set; }
+
+    /// <summary>
+    /// Gets or sets which ends of a button have rounded corners. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ROUND_SIDE)]
+    public partial RoundSide RoundedCornerEnd { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a concealed text item shows a button that reveals its data. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SECURE_TOGGLE)]
+    public partial bool ConcealDataButton { get; set; }
+
+    /// <summary>
+    /// Gets or sets the step of a spin list or slider list item. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_UI_INCREMENT)]
+    public partial int UiIncrement { get; set; }
+
+    /// <summary>
+    /// Gets or sets the maximum value of a spin list or slider list item. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_UI_MAXVAL)]
+    public partial int MaximumUiValue { get; set; }
+
+    /// <summary>
+    /// Gets or sets the minimum value of a spin list or slider list item. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_UI_MINVAL)]
+    public partial int MinimumUiValue { get; set; }
+
+    /// <summary>
+    /// Gets or sets how a check box or radio group is drawn. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_UI_STYLE)]
+    public partial UiStyle UiStyle { get; set; }
+
+    /// <summary>
     /// Gets the list elements. Valid only when <see cref="ItemType"/> is <see cref="ItemType.ListItem"/>.
     /// </summary>
     public IEnumerable<KeyValuePair<string, string>> ListElements

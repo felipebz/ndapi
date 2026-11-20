@@ -114,6 +114,12 @@ public partial class MenuModule : NdapiModule
     public partial NdapiObjectList<VisualAttribute> VisualAttributes { get; }
 
     /// <summary>
+    /// Gets or sets the application name of which this module is associated. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_APPNAME)]
+    public partial string ApplicationName { get; set; }
+
+    /// <summary>
     /// Gets the menu roles.
     /// </summary>
     public IEnumerable<string> Roles

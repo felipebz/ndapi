@@ -265,6 +265,12 @@ public partial class Canvas : NdapiObject<Canvas>
     public partial NdapiObjectList<TabPage> TabPages { get; }
 
     /// <summary>
+    /// Gets or sets whether the Builder's layout editor shows the viewport. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DISP_VIEWPORT)]
+    public partial bool DisplayViewport { get; set; }
+
+    /// <summary>
     /// Creates a child graphics.
     /// </summary>
     /// <param name="name">Name of the child graphics.</param>

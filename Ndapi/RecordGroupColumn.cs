@@ -43,6 +43,12 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     public partial int ValueCount { get; }
 
     /// <summary>
+    /// Gets or sets whether the length of a character column is measured in bytes or characters. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DATA_LEN_SEMANTICS)]
+    public partial DataLengthSemantics DataLengthSemantics { get; set; }
+
+    /// <summary>
     /// Gets the menu item roles.
     /// </summary>
     public IEnumerable<string> Values

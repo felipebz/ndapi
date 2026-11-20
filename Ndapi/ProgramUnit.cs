@@ -59,6 +59,19 @@ public partial class ProgramUnit : NdapiObject<ProgramUnit>
     public partial ProgramUnitType Type { get; }
 
     /// <summary>
+    /// Gets or sets whether the program unit runs with the privileges of the current user (AUTHID CURRENT_USER).
+    /// Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PU_AUTH)]
+    public partial bool IsAuthIdCurrentUser { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the program unit is restricted. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PU_REST)]
+    public partial bool IsRestricted { get; set; }
+
+    /// <summary>
     /// Compile the program unit.
     /// </summary>
     public void Compile()
