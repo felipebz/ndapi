@@ -4,6 +4,7 @@ Ndapi
 [![Build](https://github.com/felipebz/ndapi/actions/workflows/build.yml/badge.svg)](https://github.com/felipebz/ndapi/actions/workflows/build.yml)
 [![NuGet Version](https://img.shields.io/nuget/v/Ndapi)](https://www.nuget.org/packages/Ndapi)
 [![License](https://img.shields.io/github/license/felipebz/ndapi)](LICENSE)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/felipebz/ndapi/badge)](https://scorecard.dev/viewer/?uri=github.com/felipebz/ndapi)
 
 Ndapi lets .NET applications read, create, modify and compile Oracle Forms modules (`.fmb`, `.mmb`, `.olb`, `.pll`).
 It wraps the Oracle Forms Open API in a strongly-typed C# object model: blocks, items, triggers and program units are
