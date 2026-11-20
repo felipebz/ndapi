@@ -33,10 +33,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            if (NdapiContext.BuilderVersion.MajorVersion < 14)
-            {
-                return;
-            }
+            Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 14, "D2FP_PLACEHOLDER_TEXT requires Forms 14");
 
             var module = new FormModule("FORMS14_PROP");
             var item = new Item(new Block(module, "B"), "I") { ItemType = ItemType.TextItem };
