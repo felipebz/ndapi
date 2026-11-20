@@ -29,6 +29,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Include="Coverage\*.txt" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\Ndapi\Ndapi.csproj"/>
     </ItemGroup>
 

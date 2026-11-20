@@ -27,7 +27,6 @@ public class NdapiObjectTests
         });
     }
 
-    // D2FP_PLACEHOLDER_TEXT only exists from Forms 14 on: the support check must use the running Builder's constants
     [Fact]
     public void PropertyIntroducedInForms14CanBeUsedOnForms14()
     {
@@ -42,6 +41,34 @@ public class NdapiObjectTests
 
             Assert.Equal("type here", item.GetStringProperty(NdapiConstant.D2FP_PLACEHOLDER_TEXT));
             module.Destroy();
+        });
+    }
+
+    [Fact]
+    public void CreatingAnObjectTypeTheBuilderLacksFailsClearly()
+    {
+        Sta.Run(() =>
+        {
+            var is6 = NdapiContext.BuilderVersion.MajorVersion == 6;
+            var form = new FormModule("NO_TYPE_FMB");
+            var menu = new MenuModule("NO_TYPE_MMB");
+
+            var error = Assert.Throws<NdapiException>(() =>
+            {
+                if (is6)
+                {
+                    _ = new Event(form, "EVT");
+                }
+                else
+                {
+                    _ = new MenuParameter(menu, "MPM");
+                }
+            });
+
+            Assert.Contains(is6 ? "D2FFO_EVENT" : "D2FFO_MENU_PARAM", error.Message);
+            Assert.Contains("not supported", error.Message);
+            form.Destroy();
+            menu.Destroy();
         });
     }
 }
