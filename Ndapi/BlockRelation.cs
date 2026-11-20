@@ -66,6 +66,18 @@ public partial class BlockRelation : NdapiObject<BlockRelation>
     public partial bool PreventMasterlessOperations { get; set; }
 
     /// <summary>
+    /// Gets or sets the item that holds the REF to the master block.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DETAIL_ITEMREF)]
+    public partial string DetailItemReference { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the relation is based on a join condition or on a REF item.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_REL_TYPE)]
+    public partial RelationType RelationType { get; set; }
+
+    /// <summary>
     /// Generate the triggers and program units required for the relation.
     /// If you do not call this function, the relation object is not complete and the behavior is undefined.
     /// </summary>

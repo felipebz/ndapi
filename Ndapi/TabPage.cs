@@ -60,6 +60,60 @@ public partial class TabPage : NdapiObject<TabPage>
     public partial NdapiObjectList<Graphics> Graphics { get; }
 
     /// <summary>
+    /// Gets or sets the background color.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_BACK_COLOR)]
+    public partial string BackgroundColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the fill pattern.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FILL_PAT)]
+    public partial string FillPattern { get; set; }
+
+    /// <summary>
+    /// Gets or sets the foreground color.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FORE_COLOR)]
+    public partial string ForegroundColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the icon file name. Forms 14 and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ICON_FLNAM)]
+    public partial string IconFilename { get; set; }
+
+    /// <summary>
+    /// Gets or sets the language direction.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LANG_DIR)]
+    public partial LanguageDirection LanguageDirection { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_NAM)]
+    public partial string VisualAttributeName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the tab page is displayed white on black. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
+    public partial bool IsWhiteOnBlack { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
+
+    /// <summary>
     /// Creates a child graphics object.
     /// </summary>
     /// <param name="name">Name of the graphics object.</param>

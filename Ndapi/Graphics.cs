@@ -588,6 +588,36 @@ public partial class Graphics : NdapiObject<Graphics>
     public partial NdapiObjectList<Graphics> ChildGraphics { get; }
 
     /// <summary>
+    /// Gets or sets whether the bounding box is scalable.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_BOUNDING_BX_SCALABLE)]
+    public partial bool IsBoundingBoxScalable { get; set; }
+
+    /// <summary>
+    /// Gets or sets the comment.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_COMMENT)]
+    public partial string Comment { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_VAT_OBJ)]
+    public partial VisualAttribute FrameTitleVisualAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets the graphics font color code.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_GRA_FONT_COLOR_CODE)]
+    public partial int GraphicsFontColorCode { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
     /// Imports an image from disk into a graphics image object.
     /// </summary>
     /// <param name="filename">Image path.</param>

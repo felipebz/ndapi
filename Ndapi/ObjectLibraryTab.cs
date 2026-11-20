@@ -43,6 +43,12 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     public partial string Label { get; set; }
 
     /// <summary>
+    /// Gets the number of objects.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_OBJ_COUNT)]
+    public partial int ObjectCount { get; }
+
+    /// <summary>
     /// Gets all the objects contained in this tab.
     /// </summary>
     public NdapiObjectLibraryTabObjectsList Objects => new(this);

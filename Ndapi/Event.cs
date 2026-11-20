@@ -145,4 +145,16 @@ public partial class Event : NdapiObject<Event>
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_OBJCHMODE)]
     public partial int ObjectChangeMode { get; set; }
+
+    /// <summary>
+    /// Gets or sets the help book title. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HELP_BOOK_TITLE)]
+    public partial string HelpBookTitle { get; set; }
+
+    /// <summary>
+    /// Gets the triggers. Forms 12c and later.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRIGGER)]
+    public partial NdapiObjectList<Trigger> Triggers { get; }
 }

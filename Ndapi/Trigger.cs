@@ -101,6 +101,18 @@ public partial class Trigger : NdapiObject<Trigger>
     public partial string Text { get; set; }
 
     /// <summary>
+    /// Gets or sets whether the object is hidden.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HIDE)]
+    public partial bool IsHidden { get; set; }
+
+    /// <summary>
+    /// Gets or sets the internal trigger type.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRG_INTERNAL_TYP)]
+    public partial int InternalType { get; set; }
+
+    /// <summary>
     /// Compiles the trigger.
     /// </summary>
     public void Compile()

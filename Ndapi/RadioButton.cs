@@ -269,4 +269,10 @@ public partial class RadioButton : NdapiObject<RadioButton>
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
     public partial string IconFilename { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
 }

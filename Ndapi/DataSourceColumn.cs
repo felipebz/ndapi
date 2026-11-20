@@ -85,4 +85,16 @@ public partial class DataSourceColumn : NdapiObject<DataSourceColumn>
     /// </summary>
     [Property(NdapiConstant.D2FP_DSC_TYPE_NAME)]
     public partial string TypeName { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the column has no child columns.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DSC_NOCHILDREN)]
+    public partial bool HasNoChildren { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the parent column.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DSC_PARENT_NAME)]
+    public partial string ParentColumnName { get; set; }
 }

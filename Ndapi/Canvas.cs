@@ -271,6 +271,48 @@ public partial class Canvas : NdapiObject<Canvas>
     public partial bool DisplayViewport { get; set; }
 
     /// <summary>
+    /// Gets or sets the popup menu.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_POPUP_MNU_OBJ)]
+    public partial Menu PopupMenu { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the canvas shows a horizontal scroll bar.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SHOW_HORZ_SCRLBR)]
+    public partial bool ShowHorizontalScrollbar { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the canvas shows a vertical scroll bar.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SHOW_VERT_SCRLBR)]
+    public partial bool ShowVerticalScrollbar { get; set; }
+
+    /// <summary>
+    /// Gets or sets how the label of the active tab is drawn: 0 = Normal, 1 = Bold.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TAB_ACT_STY)]
+    public partial int ActiveStyle { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the tab width varies with its label: 0 = Fixed, 1 = Variable.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TAB_WID_STY)]
+    public partial int WidthStyle { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
+
+    /// <summary>
     /// Creates a child graphics.
     /// </summary>
     /// <param name="name">Name of the child graphics.</param>

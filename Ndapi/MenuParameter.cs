@@ -79,6 +79,12 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     public partial string InitialValue { get; set; }
 
     /// <summary>
+    /// Gets or sets whether the parameter is required.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_REQUIRED)]
+    public partial bool IsRequired { get; set; }
+
+    /// <summary>
     /// Gets the menu item roles.
     /// </summary>
     public IEnumerable<string> AssociatedMenus

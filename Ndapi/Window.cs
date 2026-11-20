@@ -253,4 +253,16 @@ public partial class Window : NdapiObject<Window>
     /// </summary>
     [Property(NdapiConstant.D2FP_SHOW_TITLEBAR)]
     public partial bool ShowTitleBar { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
 }

@@ -269,6 +269,30 @@ public partial class FormModule : NdapiModule
     public partial NdapiObjectList<Window> Windows { get; }
 
     /// <summary>
+    /// Gets the cursor mode.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CRSR_MODE)]
+    public partial CursorMode CursorMode { get; }
+
+    /// <summary>
+    /// Gets or sets the first navigation block name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRST_NAVIGATION_BLK_NAM)]
+    public partial string FirstNavigationBlockName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the current record visual attribute group name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_REC_VAT_GRP_NAM)]
+    public partial string CurrentRecordVisualAttributeName { get; set; }
+
+    /// <summary>
+    /// Gets whether savepoints are used.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SVPNT_MODE)]
+    public partial bool SavepointMode { get; }
+
+    /// <summary>
     /// Load the form module into memory.
     /// </summary>
     /// <param name="filename">Form module location (.fmb file)</param>

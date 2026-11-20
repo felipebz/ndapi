@@ -192,7 +192,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the next navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_NXT_NAVIGATION_BLK_NAM)]
-    public partial string NextNavigationBlock { get; set; }
+    public partial string NextNavigationBlockName { get; set; }
 
     /// <summary>
     /// Gets or sets a hint string that runtime passes on to the RDBMS when constructing queries.
@@ -204,7 +204,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the previous navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_PREV_NAVIGATION_BLK_NAM)]
-    public partial string PreviousNavigationBlock { get; set; }
+    public partial string PreviousNavigationBlockName { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should allow the end user to execute a query in the block.
@@ -284,7 +284,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the canvas on which the block's scrollbar should be displayed.
     /// </summary>
     [Property(NdapiConstant.D2FP_SCRLBR_CNV_NAM)]
-    public partial string ScrollBarCanvas { get; set; }
+    public partial string ScrollBarCanvasName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the block scrollbar should be displayed horizontally or vertically.
@@ -296,7 +296,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the tab page on which the block's scrollbar should be displayed.
     /// </summary>
     [Property(NdapiConstant.D2FP_SCRLBR_TBP_NAM)]
-    public partial string ScrollBarTabPage { get; set; }
+    public partial string ScrollBarTabPageName { get; set; }
 
     /// <summary>
     /// Gets or sets the width of a block scrollbar.
@@ -460,6 +460,84 @@ public partial class Block : NdapiObject<Block>
     /// </summary>
     [Property(NdapiConstant.D2FP_UPD_DAT_SRC_COL)]
     public partial NdapiObjectList<DataSourceColumn> UpdateDataSourceColumns { get; }
+
+    /// <summary>
+    /// Gets or sets the alias used in the SELECT statement for the table.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ALIAS)]
+    public partial string Alias { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether DML statements use the RETURNING clause.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_DML_RET_VAL)]
+    public partial bool DmlReturningValue { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the block includes the REF item of an object table.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_INCLUDE_REFITEM)]
+    public partial bool IncludeRefItem { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether summaries are precomputed.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PRECOMP_SUMM)]
+    public partial bool PrecomputeSummaries { get; set; }
+
+    /// <summary>
+    /// Gets or sets the next navigation block.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_NXT_NAVIGATION_BLK_OBJ)]
+    public partial Block NextNavigationBlock { get; set; }
+
+    /// <summary>
+    /// Gets or sets the previous navigation block.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PREV_NAVIGATION_BLK_OBJ)]
+    public partial Block PreviousNavigationBlock { get; set; }
+
+    /// <summary>
+    /// Gets or sets the canvas of the scroll bar.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SCRLBR_CNV_OBJ)]
+    public partial Canvas ScrollBarCanvas { get; set; }
+
+    /// <summary>
+    /// Gets or sets the tab page of the scroll bar.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SCRLBR_TBP_OBJ)]
+    public partial TabPage ScrollBarTabPage { get; set; }
+
+    /// <summary>
+    /// Gets the lock data source arguments.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LOCK_DAT_SRC_ARG)]
+    public partial NdapiObjectList<DataSourceArgument> LockDataSourceArguments { get; }
+
+    /// <summary>
+    /// Gets the lock data source columns.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_LOCK_DAT_SRC_COL)]
+    public partial NdapiObjectList<DataSourceColumn> LockDataSourceColumns { get; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is hidden.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HIDE)]
+    public partial bool IsHidden { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Compiles all of the PL/SQL code associated with the specified block. This includes all of 

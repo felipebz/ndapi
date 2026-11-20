@@ -1108,6 +1108,114 @@ public partial class Item : NdapiObject<Item>
     public partial UiStyle UiStyle { get; set; }
 
     /// <summary>
+    /// Gets or sets the canvas name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CNV_NAM)]
+    public partial string CanvasName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the editor name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_EDT_NAM)]
+    public partial string EditorName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the tab page name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TBP_NAM)]
+    public partial string TabPageName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the next navigation item name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_NXT_NAVIGATION_ITM_NAM)]
+    public partial string NextNavigationItemName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the previous navigation item name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_PREV_NAVIGATION_ITM_NAM)]
+    public partial string PreviousNavigationItemName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the item to synchronize with.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SYNC_ITM_NAM)]
+    public partial string SynchronizeWithItemName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the record group name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_REC_GRP_NAM)]
+    public partial string RecordGroupName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the record group.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_REC_GRP_OBJ)]
+    public partial RecordGroup RecordGroup { get; set; }
+
+    /// <summary>
+    /// Gets or sets the keyboard state.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_KBRD_STATE)]
+    public partial KeyboardState KeyboardState { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether an OLE item shows its popup menu.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_OLE_SHOW_POPUP_MNU)]
+    public partial bool ShowOlePopupMenu { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a tree item allows empty branches.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRE_ALLW_EMP_BRANCH)]
+    public partial bool AllowEmptyBranches { get; set; }
+
+    /// <summary>
+    /// Gets or sets the query that populates a tree item.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRE_DATA_QRY)]
+    public partial string TreeDataQuery { get; set; }
+
+    /// <summary>
+    /// Gets or sets the record group that populates a tree item.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRE_REC_GRP)]
+    public partial string TreeRecordGroupName { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a tree item allows multiple selection.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRE_MULTI_SELECT)]
+    public partial bool MultiSelection { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a tree item shows lines.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRE_SHOW_LINES)]
+    public partial bool ShowLines { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether a tree item shows expand/collapse symbols.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_TRE_SHOW_SYMBOL)]
+    public partial bool ShowSymbols { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is hidden.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HIDE)]
+    public partial bool IsHidden { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
+
+    /// <summary>
     /// Gets the list elements. Valid only when <see cref="ItemType"/> is <see cref="ItemType.ListItem"/>.
     /// </summary>
     public IEnumerable<KeyValuePair<string, string>> ListElements

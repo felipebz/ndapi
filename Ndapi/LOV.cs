@@ -206,6 +206,30 @@ public partial class Lov : NdapiObject<Lov>
     public partial NdapiObjectList<ColumnMapping> ColumnMappings { get; }
 
     /// <summary>
+    /// Gets or sets the record group name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_REC_GRP_NAM)]
+    public partial string RecordGroupName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
+    /// Gets or sets whether the object is hidden.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HIDE)]
+    public partial bool IsHidden { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
+
+    /// <summary>
     /// Creates a column mapping.
     /// </summary>
     /// <param name="name">Name of the column mapping.</param>

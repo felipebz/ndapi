@@ -62,6 +62,12 @@ public partial class RecordGroup : NdapiObject<RecordGroup>
     public partial NdapiObjectList<RecordGroupColumn> Columns { get; }
 
     /// <summary>
+    /// Gets or sets whether the object is hidden.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_HIDE)]
+    public partial bool IsHidden { get; set; }
+
+    /// <summary>
     /// Set the record group query without parsing the SQL to create the record group column specifications.
     /// </summary>
     /// <param name="query">SQL query.</param>

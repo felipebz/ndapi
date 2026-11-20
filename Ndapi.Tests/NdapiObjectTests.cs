@@ -224,4 +224,41 @@ public class NdapiObjectTests
             }
         });
     }
+
+    [Fact]
+    public void ObjectReferencesSurviveSaveAndReopen()
+    {
+        Sta.Run(() =>
+        {
+            var path = Path.Combine(Path.GetTempPath(), $"refs_{Guid.NewGuid():N}.fmb");
+            var module = new FormModule("REFS_SAVE");
+            var canvas = new Canvas(module, "CNV");
+            var group = new RecordGroup(module, "RG");
+            var first = new Block(module, "B1");
+            var second = new Block(module, "B2");
+            first.NextNavigationBlock = second;
+            first.ScrollBarCanvas = canvas;
+            _ = new Item(first, "TREE") { ItemType = ItemType.Tree, RecordGroup = group, ShowLines = false };
+            module.Save(path);
+            module.Destroy();
+
+            var reopened = FormModule.Open(path);
+            try
+            {
+                var block = reopened.Blocks.Single(b => b.Name == "B1");
+                Assert.Equal("B2", block.NextNavigationBlock.Name);
+                Assert.Equal("B2", block.NextNavigationBlockName);
+                Assert.Equal("CNV", block.ScrollBarCanvas.Name);
+                var tree = Assert.Single(block.Items);
+                Assert.Equal("RG", tree.RecordGroup.Name);
+                Assert.Equal("RG", tree.RecordGroupName);
+                Assert.False(tree.ShowLines);
+            }
+            finally
+            {
+                reopened.Destroy();
+                File.Delete(path);
+            }
+        });
+    }
 }

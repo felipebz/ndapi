@@ -184,6 +184,30 @@ public partial class MenuItem : NdapiObject<MenuItem>
     public partial bool IsVisibleInVerticalToolbar { get; set; }
 
     /// <summary>
+    /// Gets the number of roles.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_ROLE_COUNT)]
+    public partial int RoleCount { get; }
+
+    /// <summary>
+    /// Gets or sets the submenu name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUB_MNU_NAM)]
+    public partial string SubMenuName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the submenu.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_SUB_MNU_OBJ)]
+    public partial Menu SubMenu { get; set; }
+
+    /// <summary>
+    /// Gets or sets the visual attribute.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_VAT_OBJ)]
+    public partial VisualAttribute VisualAttribute { get; set; }
+
+    /// <summary>
     /// Gets the menu item roles.
     /// </summary>
     public IEnumerable<string> Roles => new NdapiMenuItemRoleList(this);

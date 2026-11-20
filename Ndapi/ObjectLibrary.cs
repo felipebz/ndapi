@@ -36,6 +36,18 @@ public partial class ObjectLibrary : NdapiModule
     public partial string ApplicationName { get; set; }
 
     /// <summary>
+    /// Gets or sets the comment.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_COMMENT)]
+    public partial string Comment { get; set; }
+
+    /// <summary>
+    /// Gets the number of objects.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_OBJ_COUNT)]
+    public partial int ObjectCount { get; }
+
+    /// <summary>
     /// Gets all the objects contained in this Library.
     /// </summary>
     public NdapiObjectLibraryObjectList Objects => new(this);

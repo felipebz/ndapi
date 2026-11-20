@@ -155,4 +155,58 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// </summary>
     [Property(NdapiConstant.D2FP_WHITE_ON_BLACK)]
     public partial bool IsWhiteOnBlack { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title background color.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_BACK_COLOR)]
+    public partial string FrameTitleBackgroundColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title fill pattern.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FILL_PAT)]
+    public partial string FrameTitleFillPattern { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title font name.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_NAM)]
+    public partial string FrameTitleFontName { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title font size.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_SIZ)]
+    public partial int FrameTitleFontSize { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title font spacing.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_SPCING)]
+    public partial FontSpacing FrameTitleFontSpacing { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title font style.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_STY)]
+    public partial FontStyle FrameTitleFontStyle { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title font weight.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_WGHT)]
+    public partial FontWeight FrameTitleFontWeight { get; set; }
+
+    /// <summary>
+    /// Gets or sets the frame title foreground color.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_FRAME_TTL_FORE_COLOR)]
+    public partial string FrameTitleForegroundColor { get; set; }
+
+    /// <summary>
+    /// Gets or sets the logical attribute used in character mode. Forms 6i only.
+    /// </summary>
+    [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
+    public partial string CharacterModeLogicalAttribute { get; set; }
 }
