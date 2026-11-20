@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 
 using Ndapi.Core;
 using Ndapi.Core.Handles;
@@ -12,6 +13,8 @@ namespace Ndapi;
 /// </summary>
 public abstract class NdapiModule : NdapiObject
 {
+    private bool _destroyed;
+
     private protected NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
     {
         NdapiContext.AddModule(this);
@@ -92,11 +95,31 @@ public abstract class NdapiModule : NdapiObject
     }
 
     /// <summary>
-    /// Close the module.
+    /// Close the module, unloading it from Forms. Calling it again does nothing.
     /// </summary>
     public override void Destroy()
     {
-        NdapiContext.RemoveModule(this);
+        if (_destroyed)
+        {
+            return;
+        }
+
         base.Destroy();
+        NdapiContext.RemoveModule(this);
+        _destroyed = true;
+    }
+
+    /// <summary>
+    /// Destroys the module if this instance opened or created it, so <c>using</c> unloads the module from Forms.
+    /// Wrappers obtained from other objects (e.g. <c>item.Module</c>) only release themselves.
+    /// </summary>
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && NdapiContext.Modules.Contains(this))
+        {
+            Destroy();
+        }
+
+        base.Dispose(disposing);
     }
 }

@@ -296,4 +296,50 @@ public class NdapiObjectTests
             module.Destroy();
         });
     }
+
+    [Fact]
+    public void DisposingAModuleUnloadsItSoItCanBeReopened()
+    {
+        Sta.Run(() =>
+        {
+            var path = Path.Combine(Path.GetTempPath(), $"dispose_{Guid.NewGuid():N}.fmb");
+            using (var module = new FormModule("DISPOSE_REOPEN"))
+            {
+                module.Save(path);
+            }
+
+            try
+            {
+                using (var first = FormModule.Open(path))
+                {
+                    Assert.Equal("DISPOSE_REOPEN", first.Name);
+                }
+
+                using var second = FormModule.Open(path);
+                Assert.DoesNotContain(NdapiContext.Modules, m => m.Name == "DISPOSE_REOPEN" && m != second);
+            }
+            finally
+            {
+                File.Delete(path);
+            }
+        });
+    }
+
+    [Fact]
+    public void DisposingAWrapperObtainedFromAnotherObjectKeepsTheModule()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("DISPOSE_WRAPPER");
+            var alert = new Alert(module, "A");
+
+            alert.Module.Dispose();
+
+            Assert.Equal("A", alert.Name);
+            Assert.Contains(module, NdapiContext.Modules);
+            module.Destroy();
+            module.Destroy();
+            Assert.DoesNotContain(module, NdapiContext.Modules);
+        });
+    }
 }
