@@ -180,4 +180,48 @@ public class NdapiObjectTests
             module.Destroy();
         });
     }
+
+    [Fact]
+    public void BiPublisherReportSettingsSurviveSaveAndReopen()
+    {
+        Sta.Run(() =>
+        {
+            Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
+
+            var path = Path.Combine(Path.GetTempPath(), $"bip_{Guid.NewGuid():N}.fmb");
+            var module = new FormModule("BIP_SAVE");
+            _ = new Report(module, "RPT")
+            {
+                ReportObjectType = 1,
+                ReportPath = "/Sample/Emp.xdo",
+                DeliveryType = 4,
+                FtpServer = "ftp1",
+                SecureFtp = true,
+                NumberOfCopies = 3,
+                PrintSide = 2,
+                WebDavAuthenticationType = 2
+            };
+            module.Save(path);
+            module.Destroy();
+
+            var reopened = FormModule.Open(path);
+            try
+            {
+                var report = Assert.Single(reopened.Reports);
+                Assert.Equal(1, report.ReportObjectType);
+                Assert.Equal("/Sample/Emp.xdo", report.ReportPath);
+                Assert.Equal(4, report.DeliveryType);
+                Assert.Equal("ftp1", report.FtpServer);
+                Assert.True(report.SecureFtp);
+                Assert.Equal(3, report.NumberOfCopies);
+                Assert.Equal(2, report.PrintSide);
+                Assert.Equal(2, report.WebDavAuthenticationType);
+            }
+            finally
+            {
+                reopened.Destroy();
+                File.Delete(path);
+            }
+        });
+    }
 }
