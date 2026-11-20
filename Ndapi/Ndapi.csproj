@@ -2,14 +2,16 @@
 
     <PropertyGroup>
         <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
-        <Description>A .NET wrapper for Oracle Forms 6i and 12c Open API</Description>
+        <Description>Read, create, modify and compile Oracle Forms modules (.fmb, .mmb, .olb, .pll) from .NET through the Oracle Forms Open API. Supports Forms 6i, 12c and 14c.</Description>
         <Authors>Felipe Zorzo</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
         <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>oracle wrapper API oracleforms</PackageTags>
-        <Version>14.0.0-alpha</Version>
+        <!-- updated by release-please; CI builds between releases get a prerelease suffix -->
+        <VersionPrefix>13.1.0</VersionPrefix>
+        <PackageReleaseNotes>https://github.com/felipebz/ndapi/blob/main/CHANGELOG.md</PackageReleaseNotes>
         <NoWarn>NU5128</NoWarn>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IsAotCompatible>true</IsAotCompatible>

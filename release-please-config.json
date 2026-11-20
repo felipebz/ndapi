@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "1739d61bc9aa68b6fb91ad6b701aa555e26c3c66",
+  "include-v-in-tag": false,
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "package-name": "Ndapi",
+      "release-as": "14.0.0",
+      "extra-files": [
+        {
+          "type": "xml",
+          "path": "Ndapi/Ndapi.csproj",
+          "xpath": "//Project/PropertyGroup/VersionPrefix"
+        }
+      ]
+    }
+  }
+}

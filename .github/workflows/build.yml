@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,10 +28,19 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
-      - name: Set version
+      - name: Check formatting
+        run: dotnet format --verify-no-changes
+
+      # Builds between releases are versioned after the last release with the patch bumped, e.g. 14.0.1-alpha.123
+      # after 14.0.0, so they sort above the last release and below the next one.
+      - name: Set prerelease version
+        if: github.event_name == 'push'
         run: |
-          echo "Buid version is ${{github.run_number}}"
-          sed -i "s/\(<Version>\([0-9]\+\.\)\{2\}\)\([0-9]\+\)/\1${{github.run_number}}/" Ndapi/Ndapi.csproj
+          prefix=$(dotnet msbuild Ndapi/Ndapi.csproj -getProperty:VersionPrefix)
+          IFS=. read -r major minor patch <<< "$prefix"
+          version="$major.$minor.$((patch + 1))-alpha.${{ github.run_number }}"
+          echo "Build version is $version"
+          echo "VERSION_ARGS=-p:Version=$version" >> "$GITHUB_ENV"
 
       - name: Cache SonarQube packages
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
@@ -59,16 +71,18 @@ jobs:
         if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
         run: |
           .sonar/scanner/dotnet-sonarscanner begin /k:ndapi /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          dotnet build -c Release
+          dotnet build -c Release $VERSION_ARGS
           .sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
-      - name: Build NuGet package
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: dotnet pack -c Release --no-build
-
-      - name: Build trimmed sample with NativeAOT for Forms 12c
+      - name: Build trimmed sample with NativeAOT for Forms 12c/14c
         run: dotnet publish -c Release -f net10.0 -p:"Platform=x64" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
 
+      - name: Build NuGet package
+        if: github.event_name == 'push'
+        run: dotnet pack Ndapi/Ndapi.csproj -c Release --no-build $VERSION_ARGS -o artifacts
+
       - name: Publish to GitHub Packages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: dotnet nuget push "Ndapi/**.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/felipebz/index.json"
+        if: github.event_name == 'push'
+        run: >-
+          dotnet nuget push "artifacts/*.nupkg" --no-symbols --skip-duplicate
+          --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/felipebz/index.json"
