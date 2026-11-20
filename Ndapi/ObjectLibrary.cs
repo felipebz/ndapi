@@ -33,13 +33,13 @@ public partial class ObjectLibrary : NdapiModule
     /// Gets or sets the application name of which this module is associated. Forms 14 and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_APPNAME)]
-    public partial string ApplicationName { get; set; }
+    public partial string? ApplicationName { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets the number of objects.
@@ -63,7 +63,7 @@ public partial class ObjectLibrary : NdapiModule
     /// </summary>
     /// <param name="position">Position.</param>
     /// <returns>The object found.</returns>
-    public NdapiObject GetObjectByPosition(int position)
+    public NdapiObject? GetObjectByPosition(int position)
     {
         var status = NativeMethods.d2folbf2_Findobjbypos(NdapiContext.GetContext(), Handle, position, out var obj);
         Ensure.Success(status);
@@ -111,7 +111,7 @@ public partial class ObjectLibrary : NdapiModule
     /// </summary>
     /// <param name="path">Location to save.</param>
     /// <param name="saveInDatabase">Should save library in database.</param>
-    public override void Save(string path, bool saveInDatabase)
+    public override void Save(string? path, bool saveInDatabase)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
             ? NativeMethods.d2folbsv_Save(NdapiContext.GetContext(), Handle, path, saveInDatabase)
@@ -208,7 +208,7 @@ public partial class ObjectLibrary : NdapiModule
     /// </summary>
     /// <param name="obj">Object in library.</param>
     /// <returns>Description of object.</returns>
-    public string GetObjectDescription(NdapiObject obj)
+    public string? GetObjectDescription(NdapiObject obj)
     {
         var status =
             NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), Handle, obj.Handle, out var description);
@@ -221,7 +221,7 @@ public partial class ObjectLibrary : NdapiModule
     /// </summary>
     /// <param name="obj">Object in library.</param>
     /// <returns>Name of tab the object is on.</returns>
-    public string GetObjectTabName(NdapiObject obj)
+    public string? GetObjectTabName(NdapiObject obj)
     {
         var status =
             NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), Handle, obj.Handle, out var tabName);

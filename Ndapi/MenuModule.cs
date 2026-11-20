@@ -27,25 +27,25 @@ public partial class MenuModule : NdapiModule
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the main menu.
     /// </summary>
     [Property(NdapiConstant.D2FP_MAIN_MNU)]
-    public partial string MainMenu { get; set; }
+    public partial string? MainMenu { get; set; }
 
     /// <summary>
     /// Gets or sets the module directory.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_DRCTRY)]
-    public partial string Directory { get; set; }
+    public partial string? Directory { get; set; }
 
     /// <summary>
     /// Gets or sets the filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_FLNAM)]
-    public partial string FileName { get; set; }
+    public partial string? FileName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu module will share it attached libraries with form modules.
@@ -57,7 +57,7 @@ public partial class MenuModule : NdapiModule
     /// Gets or sets the startup code.
     /// </summary>
     [Property(NdapiConstant.D2FP_STRTUP_CODE)]
-    public partial string StartupCode { get; set; }
+    public partial string? StartupCode { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should enforce the security scheme defined for the menu module.
@@ -117,7 +117,7 @@ public partial class MenuModule : NdapiModule
     /// Gets or sets the application name of which this module is associated. Forms 14 and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_APPNAME)]
-    public partial string ApplicationName { get; set; }
+    public partial string? ApplicationName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object was modified since it was loaded or saved.
@@ -129,7 +129,7 @@ public partial class MenuModule : NdapiModule
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -182,7 +182,7 @@ public partial class MenuModule : NdapiModule
     /// <param name="filename">Menu module location (.mmb file)</param>
     /// <param name="libraryErrors">The library load errors (FRM-10102 …), or null when every library was loaded.</param>
     /// <returns>Loaded menu module reference.</returns>
-    public static MenuModule Open(string filename, out string libraryErrors)
+    public static MenuModule Open(string filename, out string? libraryErrors)
     {
         Ensure.MinimumMajorVersion(12, "Loading with library details");
         var status = NativeMethods.d2fmmdld_Load_pllDetails(NdapiContext.GetContext(), out var menu, filename, true,
@@ -220,7 +220,7 @@ public partial class MenuModule : NdapiModule
     /// </summary>
     /// <param name="path">Location to save.</param>
     /// <param name="saveInDatabase">Should save module in database.</param>
-    public override void Save(string path, bool saveInDatabase)
+    public override void Save(string? path, bool saveInDatabase)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
             ? NativeMethods.d2fmmdsv_Save(NdapiContext.GetContext(), Handle, path, saveInDatabase)
@@ -300,7 +300,7 @@ public partial class MenuModule : NdapiModule
     {
         var status = NativeMethods.d2fmmdgr_GetRole(NdapiContext.GetContext(), Handle, index, out var role);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(role);
+        return NlsStringMarshaller.ReadNlsStringAndFree(role) ?? string.Empty;
     }
 
     /// <summary>

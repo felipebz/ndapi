@@ -25,19 +25,19 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the application name of which this module is associated. 
     /// </summary>
     [Property(NdapiConstant.D2FP_APPNAME)]
-    public partial string ApplicationName { get; set; }
+    public partial string? ApplicationName { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the default window.
     /// </summary>
     [Property(NdapiConstant.D2FP_CONSOLE_WIN)]
-    public partial string ConsoleWindow { get; set; }
+    public partial string? ConsoleWindow { get; set; }
 
     /// <summary>
     /// Gets or sets when runtime enforces the Required item attribute: 0 = Yes (defer until the record is validated),
@@ -50,25 +50,25 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the first navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRST_NAVIGATION_BLK_OBJ)]
-    public partial Block FirstNavigationBlock { get; set; }
+    public partial Block? FirstNavigationBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the help book title.
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TITLE)]
-    public partial string HelpBookTitle { get; set; }
+    public partial string? HelpBookTitle { get; set; }
 
     /// <summary>
     /// Gets or sets the canvas name of the horizontal toolbar.
     /// </summary>
     [Property(NdapiConstant.D2FP_HORZ_TLBR_CNV)]
-    public partial string HorizontalToolbarCanvas { get; set; }
+    public partial string? HorizontalToolbarCanvas { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the menu in the menu module that runtime should use as the main, or top-level, menu for this invocation.
     /// </summary>
     [Property(NdapiConstant.D2FP_INIT_MNU)]
-    public partial string InitialMenu { get; set; }
+    public partial string? InitialMenu { get; set; }
 
     /// <summary>
     /// Gets or sets the intenteraction mode. Interaction mode dictates how a user can interact with a form during a query.
@@ -104,13 +104,13 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the name of the menu module associated.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_MOD)]
-    public partial string MenuModule { get; set; }
+    public partial string? MenuModule { get; set; }
 
     /// <summary>
     /// Gets or sets the menu role.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_ROLE)]
-    public partial string MenuRole { get; set; }
+    public partial string? MenuRole { get; set; }
 
     /// <summary>
     /// Gets or sets the menu source.
@@ -134,7 +134,7 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the visual attribute used when an item is part of the current record.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_VAT_GRP_OBJ)]
-    public partial VisualAttribute CurrentRecordVisualAttribute { get; set; }
+    public partial VisualAttribute? CurrentRecordVisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the runtime compatibility.
@@ -146,7 +146,7 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the form title.
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
-    public partial string Title { get; set; }
+    public partial string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should display 3D controls.
@@ -164,7 +164,7 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the canvas name of the vertical toolbar.
     /// </summary>
     [Property(NdapiConstant.D2FP_VERT_TLBR_CNV)]
-    public partial string VerticalToolbarCanvas { get; set; }
+    public partial string? VerticalToolbarCanvas { get; set; }
 
     /// <summary>
     /// Gets all the alerts.
@@ -278,13 +278,13 @@ public partial class FormModule : NdapiModule
     /// Gets or sets the first navigation block name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRST_NAVIGATION_BLK_NAM)]
-    public partial string FirstNavigationBlockName { get; set; }
+    public partial string? FirstNavigationBlockName { get; set; }
 
     /// <summary>
     /// Gets or sets the current record visual attribute group name.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_VAT_GRP_NAM)]
-    public partial string CurrentRecordVisualAttributeName { get; set; }
+    public partial string? CurrentRecordVisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets whether savepoints are used.
@@ -308,7 +308,7 @@ public partial class FormModule : NdapiModule
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -347,7 +347,7 @@ public partial class FormModule : NdapiModule
     /// <param name="filename">Form module location (.fmb file)</param>
     /// <param name="libraryErrors">The library load errors (FRM-10102 …), or null when every library was loaded.</param>
     /// <returns>Loaded form module reference.</returns>
-    public static FormModule Open(string filename, out string libraryErrors)
+    public static FormModule Open(string filename, out string? libraryErrors)
     {
         Ensure.MinimumMajorVersion(12, "Loading with library details");
         var status = NativeMethods.d2ffmdld_Load_pllDetails(NdapiContext.GetContext(), out var form, filename, true,
@@ -385,7 +385,7 @@ public partial class FormModule : NdapiModule
     /// </summary>
     /// <param name="path">Location to save.</param>
     /// <param name="saveInDatabase">Should save module in database.</param>
-    public override void Save(string path, bool saveInDatabase)
+    public override void Save(string? path, bool saveInDatabase)
     {
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
             ? NativeMethods.d2ffmdsv_Save(NdapiContext.GetContext(), Handle, path, saveInDatabase)

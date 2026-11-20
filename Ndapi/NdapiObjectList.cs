@@ -59,7 +59,7 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
     /// </summary>
     /// <param name="name">Name of the object.</param>
     /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
-    public T Single(string name)
+    public T? Single(string name)
     {
         var type = NdapiMetadata.GetObjectTypeFrom<T>();
         var internalObjectType = ConstantConverter.GetValue(type);
@@ -77,7 +77,7 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
     public sealed class Enumerator : IEnumerator<T>
     {
         private readonly NdapiObjectList<T> _objectList;
-        private T _current;
+        private T? _current;
 
         internal Enumerator(NdapiObjectList<T> ndapiObjectList)
         {
@@ -104,7 +104,7 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
                     MoveNext();
                 }
 
-                return _current;
+                return _current!;
             }
         }
 

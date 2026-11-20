@@ -37,7 +37,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the access key.
     /// </summary>
     [Property(NdapiConstant.D2FP_ACCESS_KEY)]
-    public partial string AccessKey { get; set; }
+    public partial string? AccessKey { get; set; }
 
     /// <summary>
     /// Gets or sets the audio channels.
@@ -61,7 +61,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the appearance of the object border.
@@ -91,7 +91,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the checked value.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHKED_VAL)]
-    public partial string Checked { get; set; }
+    public partial string? Checked { get; set; }
 
     /// <summary>
     /// Gets or sets the checkbox other values.
@@ -109,19 +109,19 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the canvas.
     /// </summary>
     [Property(NdapiConstant.D2FP_CNV_OBJ)]
-    public partial Canvas Canvas { get; set; }
+    public partial Canvas? Canvas { get; set; }
 
     /// <summary>
     /// Gets or sets the database column name.
     /// </summary>
     [Property(NdapiConstant.D2FP_COL_NAM)]
-    public partial string ColumnName { get; set; }
+    public partial string? ColumnName { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the communication mode.
@@ -145,25 +145,25 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the name of the item to copy value from.
     /// </summary>
     [Property(NdapiConstant.D2FP_COPY_VAL_FROM_ITM)]
-    public partial string CopyValueFromItem { get; set; }
+    public partial string? CopyValueFromItem { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the data source block.
     /// </summary>
     [Property(NdapiConstant.D2FP_DAT_SRC_BLK)]
-    public partial string DataSourceBlock { get; set; }
+    public partial string? DataSourceBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the data source X axis.
     /// </summary>
     [Property(NdapiConstant.D2FP_DAT_SRC_X_AXS)]
-    public partial string DataSourceXAxis { get; set; }
+    public partial string? DataSourceXAxis { get; set; }
 
     /// <summary>
     /// Gets or sets the data source Y axis.
     /// </summary>
     [Property(NdapiConstant.D2FP_DAT_SRC_Y_AXS)]
-    public partial string DataSourceYAxis { get; set; }
+    public partial string? DataSourceYAxis { get; set; }
 
     /// <summary>
     /// Gets or sets the data type.
@@ -199,7 +199,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the editor.
     /// </summary>
     [Property(NdapiConstant.D2FP_EDT_OBJ)]
-    public partial Editor Editor { get; set; }
+    public partial Editor? Editor { get; set; }
 
     /// <summary>
     /// Gets or sets the X position of the editor measured at the upper left corner.
@@ -230,7 +230,7 @@ public partial class Item : NdapiObject<Item>
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the fixed length.
@@ -242,19 +242,19 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_FLNAM)]
-    public partial string FileName { get; set; }
+    public partial string? FileName { get; set; }
 
     /// <summary>
     /// Gets or sets the format masl.
     /// </summary>
     [Property(NdapiConstant.D2FP_FMT_MSK)]
-    public partial string FormatMask { get; set; }
+    public partial string? FormatMask { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -284,13 +284,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the formula.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORMULA)]
-    public partial string Formula { get; set; }
+    public partial string? Formula { get; set; }
 
     /// <summary>
     /// Gets or sets the height.
@@ -302,19 +302,19 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the help book topic.
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TOPIC)]
-    public partial string HelpBookTopic { get; set; }
+    public partial string? HelpBookTopic { get; set; }
 
     /// <summary>
     /// Gets or sets the highest allowed value.
     /// </summary>
     [Property(NdapiConstant.D2FP_HIGHEST_ALLOWED_VAL)]
-    public partial string HighestAllowedValue { get; set; }
+    public partial string? HighestAllowedValue { get; set; }
 
     /// <summary>
     /// Gets or sets the hint.
     /// </summary>
     [Property(NdapiConstant.D2FP_HINT)]
-    public partial string Hint { get; set; }
+    public partial string? Hint { get; set; }
 
     /// <summary>
     /// Gets or sets whether button is iconic.
@@ -326,7 +326,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the icon file name.
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
-    public partial string IconFilename { get; set; }
+    public partial string? IconFilename { get; set; }
 
     /// <summary>
     /// Gets or sets the image depth.
@@ -344,7 +344,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the implementation class.
     /// </summary>
     [Property(NdapiConstant.D2FP_IMPL_CLASS)]
-    public partial string ImplementationClass { get; set; }
+    public partial string? ImplementationClass { get; set; }
 
     /// <summary>
     /// Gets or sets the initial keyboard direction.
@@ -356,7 +356,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the initial value.
     /// </summary>
     [Property(NdapiConstant.D2FP_INIT_VAL)]
-    public partial string InitialValue { get; set; }
+    public partial string? InitialValue { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime allows inserting of data.
@@ -398,7 +398,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the label.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public partial string Label { get; set; }
+    public partial string? Label { get; set; }
 
     /// <summary>
     /// Gets or sets the language direction.
@@ -416,13 +416,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the list of values.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV_OBJ)]
-    public partial Lov Lov { get; set; }
+    public partial Lov? Lov { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the list of values.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOV_NAM)]
-    public partial string LovName { get; set; }
+    public partial string? LovName { get; set; }
 
     /// <summary>
     /// Gets or sets the X position of the list of values measured at the upper left corner.
@@ -440,7 +440,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the lowest allowed value.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOWEST_ALLOWED_VAL)]
-    public partial string LowestAllowedValue { get; set; }
+    public partial string? LowestAllowedValue { get; set; }
 
     /// <summary>
     /// Gets the list element count.
@@ -476,7 +476,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the next navigation item.
     /// </summary>
     [Property(NdapiConstant.D2FP_NXT_NAVIGATION_ITM_OBJ)]
-    public partial Item NextNavigationItem { get; set; }
+    public partial Item? NextNavigationItem { get; set; }
 
     /// <summary>
     /// Gets or sets the OLE activation style.
@@ -488,7 +488,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the OLE class name.
     /// </summary>
     [Property(NdapiConstant.D2FP_OLE_CLASS)]
-    public partial string OleClass { get; set; }
+    public partial string? OleClass { get; set; }
 
     /// <summary>
     /// Gets or sets if OLE in-place activation is used for editing embedded OLE objects.
@@ -537,37 +537,37 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the mapping of other values.
     /// </summary>
     [Property(NdapiConstant.D2FP_OTHER_VALS)]
-    public partial string MappingOfOtherValues { get; set; }
+    public partial string? MappingOfOtherValues { get; set; }
 
     /// <summary>
     /// Gets or sets the popup menu name.
     /// </summary>
     [Property(NdapiConstant.D2FP_POPUP_MNU_NAM)]
-    public partial string PopupMenuName { get; set; }
+    public partial string? PopupMenuName { get; set; }
 
     /// <summary>
     /// Gets or sets the popup menu.
     /// </summary>
     [Property(NdapiConstant.D2FP_POPUP_MNU_OBJ)]
-    public partial Menu PopupMenu { get; set; }
+    public partial Menu? PopupMenu { get; set; }
 
     /// <summary>
     /// Gets or sets the popup visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_POPUP_VA_OBJ)]
-    public partial VisualAttribute PopUpVisualAttribute { get; set; }
+    public partial VisualAttribute? PopUpVisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the previous navigation item.
     /// </summary>
     [Property(NdapiConstant.D2FP_PREV_NAVIGATION_ITM_OBJ)]
-    public partial Item PreviousNavigationItem { get; set; }
+    public partial Item? PreviousNavigationItem { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT)]
-    public partial string Prompt { get; set; }
+    public partial string? Prompt { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt alignment.
@@ -597,7 +597,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the prompt background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_BACK_COLOR)]
-    public partial string PromptBackgroundColor { get; set; }
+    public partial string? PromptBackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt display style.
@@ -610,13 +610,13 @@ public partial class Item : NdapiObject<Item>
     /// Patterns are rendered in the two colors specified by <see cref="PromptBackgroundColor"/> and <see cref="PromptForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FILL_PAT)]
-    public partial string PromptFillPattern { get; set; }
+    public partial string? PromptFillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_NAM)]
-    public partial string PromptFontName { get; set; }
+    public partial string? PromptFontName { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt font size.
@@ -646,7 +646,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the prompt font foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FORE_COLOR)]
-    public partial string PromptForegroundColor { get; set; }
+    public partial string? PromptForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt font justification.
@@ -664,13 +664,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the prompt visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_VAT_NAM)]
-    public partial string PromptVisualAttributeName { get; set; }
+    public partial string? PromptVisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_VAT_OBJ)]
-    public partial VisualAttribute PromptVisualAttribute { get; set; }
+    public partial VisualAttribute? PromptVisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether the item is part of the primary key.
@@ -694,7 +694,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the name of the query the item is based on.
     /// </summary>
     [Property(NdapiConstant.D2FP_QUERY_NAME)]
-    public partial string QueryName { get; set; }
+    public partial string? QueryName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the item is query only.
@@ -712,13 +712,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the name of the visual attribute used when an item is part of the current record.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_VAT_GRP_NAM)]
-    public partial string CurrentRecordVisualAttributeName { get; set; }
+    public partial string? CurrentRecordVisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute used when an item is part of the current record.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_VAT_GRP_OBJ)]
-    public partial VisualAttribute CurrentRecordVisualAttribute { get; set; }
+    public partial VisualAttribute? CurrentRecordVisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether item is to be displayed as a rendered object when it does not have focus. 
@@ -814,7 +814,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the name of the block to summarize.
     /// </summary>
     [Property(NdapiConstant.D2FP_SUMM_BLK_NAM)]
-    public partial string SummarizedBlock { get; set; }
+    public partial string? SummarizedBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the summary function.
@@ -826,37 +826,37 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the name of the item to summarize.
     /// </summary>
     [Property(NdapiConstant.D2FP_SUMM_ITM_NAM)]
-    public partial string SummarizedItem { get; set; }
+    public partial string? SummarizedItem { get; set; }
 
     /// <summary>
     /// Gets or sets the item to synchronize with;
     /// </summary>
     [Property(NdapiConstant.D2FP_SYNC_ITM_OBJ)]
-    public partial Item SynchronizeWithItem { get; set; }
+    public partial Item? SynchronizeWithItem { get; set; }
 
     /// <summary>
     /// Gets or sets the tab page.
     /// </summary>
     [Property(NdapiConstant.D2FP_TBP_OBJ)]
-    public partial TabPage TabPage { get; set; }
+    public partial TabPage? TabPage { get; set; }
 
     /// <summary>
     /// Gets or sets the tooltip.
     /// </summary>
     [Property(NdapiConstant.D2FP_TOOLTIP)]
-    public partial string Tooltip { get; set; }
+    public partial string? Tooltip { get; set; }
 
     /// <summary>
     /// Gets or sets the tooltip visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_TOOLTIP_VAT_GRP)]
-    public partial string TooltipVisualAttributeName { get; set; }
+    public partial string? TooltipVisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the value when unchecked.
     /// </summary>
     [Property(NdapiConstant.D2FP_UNCHKED_VAL)]
-    public partial string ValueWhenUnchecked { get; set; }
+    public partial string? ValueWhenUnchecked { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime allows the item to be updated.
@@ -892,13 +892,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether item is visible.
@@ -1051,7 +1051,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the placeholder text shown in an empty text item. Forms 14 and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_PLACEHOLDER_TEXT)]
-    public partial string Placeholder { get; set; }
+    public partial string? Placeholder { get; set; }
 
     /// <summary>
     /// Gets or sets the orientation of a progress bar display item. Forms 14 and later.
@@ -1111,49 +1111,49 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the canvas name.
     /// </summary>
     [Property(NdapiConstant.D2FP_CNV_NAM)]
-    public partial string CanvasName { get; set; }
+    public partial string? CanvasName { get; set; }
 
     /// <summary>
     /// Gets or sets the editor name.
     /// </summary>
     [Property(NdapiConstant.D2FP_EDT_NAM)]
-    public partial string EditorName { get; set; }
+    public partial string? EditorName { get; set; }
 
     /// <summary>
     /// Gets or sets the tab page name.
     /// </summary>
     [Property(NdapiConstant.D2FP_TBP_NAM)]
-    public partial string TabPageName { get; set; }
+    public partial string? TabPageName { get; set; }
 
     /// <summary>
     /// Gets or sets the next navigation item name.
     /// </summary>
     [Property(NdapiConstant.D2FP_NXT_NAVIGATION_ITM_NAM)]
-    public partial string NextNavigationItemName { get; set; }
+    public partial string? NextNavigationItemName { get; set; }
 
     /// <summary>
     /// Gets or sets the previous navigation item name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PREV_NAVIGATION_ITM_NAM)]
-    public partial string PreviousNavigationItemName { get; set; }
+    public partial string? PreviousNavigationItemName { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the item to synchronize with.
     /// </summary>
     [Property(NdapiConstant.D2FP_SYNC_ITM_NAM)]
-    public partial string SynchronizeWithItemName { get; set; }
+    public partial string? SynchronizeWithItemName { get; set; }
 
     /// <summary>
     /// Gets or sets the record group name.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_NAM)]
-    public partial string RecordGroupName { get; set; }
+    public partial string? RecordGroupName { get; set; }
 
     /// <summary>
     /// Gets or sets the record group.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_OBJ)]
-    public partial RecordGroup RecordGroup { get; set; }
+    public partial RecordGroup? RecordGroup { get; set; }
 
     /// <summary>
     /// Gets or sets the keyboard state.
@@ -1177,13 +1177,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the query that populates a tree item.
     /// </summary>
     [Property(NdapiConstant.D2FP_TRE_DATA_QRY)]
-    public partial string TreeDataQuery { get; set; }
+    public partial string? TreeDataQuery { get; set; }
 
     /// <summary>
     /// Gets or sets the record group that populates a tree item.
     /// </summary>
     [Property(NdapiConstant.D2FP_TRE_REC_GRP)]
-    public partial string TreeRecordGroupName { get; set; }
+    public partial string? TreeRecordGroupName { get; set; }
 
     /// <summary>
     /// Gets or sets whether a tree item allows multiple selection.
@@ -1213,7 +1213,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the access key.
@@ -1273,13 +1273,13 @@ public partial class Item : NdapiObject<Item>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -1297,7 +1297,7 @@ public partial class Item : NdapiObject<Item>
     /// Gets or sets the name of the first-level source object of the parent.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_SL1OBJ_NAM)]
-    public partial string ParentSourceLevel1ObjectName { get; set; }
+    public partial string? ParentSourceLevel1ObjectName { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the first-level source object of the parent.
@@ -1361,7 +1361,7 @@ public partial class Item : NdapiObject<Item>
             NativeMethods.d2fitmgle_GetListElem(NdapiContext.GetContext(), Handle, index, out var label,
                 out var value);
         Ensure.Success(status);
-        return new KeyValuePair<string, string>(NlsStringMarshaller.ReadNlsStringAndFree(label), NlsStringMarshaller.ReadNlsStringAndFree(value));
+        return new KeyValuePair<string, string>(NlsStringMarshaller.ReadNlsStringAndFree(label) ?? "", NlsStringMarshaller.ReadNlsStringAndFree(value) ?? "");
     }
 
     /// <summary>

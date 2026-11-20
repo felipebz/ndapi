@@ -246,11 +246,11 @@ public class NdapiObjectTests
             try
             {
                 var block = reopened.Blocks.Single(b => b.Name == "B1");
-                Assert.Equal("B2", block.NextNavigationBlock.Name);
+                Assert.Equal("B2", block.NextNavigationBlock?.Name);
                 Assert.Equal("B2", block.NextNavigationBlockName);
-                Assert.Equal("CNV", block.ScrollBarCanvas.Name);
+                Assert.Equal("CNV", block.ScrollBarCanvas?.Name);
                 var tree = Assert.Single(block.Items);
-                Assert.Equal("RG", tree.RecordGroup.Name);
+                Assert.Equal("RG", tree.RecordGroup?.Name);
                 Assert.Equal("RG", tree.RecordGroupName);
                 Assert.False(tree.ShowLines);
             }
@@ -291,7 +291,7 @@ public class NdapiObjectTests
             alert.Subclass(propertyClass);
 
             Assert.Equal("SUBCLASS_SRC", Assert.IsType<FormModule>(alert.Module).Name);
-            Assert.Equal("PC", alert.Source.Name);
+            Assert.Equal("PC", alert.Source?.Name);
             Assert.True(alert.IsDirty);
             module.Destroy();
         });
@@ -333,7 +333,7 @@ public class NdapiObjectTests
             var module = new FormModule("DISPOSE_WRAPPER");
             var alert = new Alert(module, "A");
 
-            alert.Module.Dispose();
+            alert.Module?.Dispose();
 
             Assert.Equal("A", alert.Name);
             Assert.Contains(module, NdapiContext.Modules);

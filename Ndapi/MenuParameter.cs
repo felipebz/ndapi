@@ -40,7 +40,7 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should hide characters that the user types into the text item. 
@@ -58,13 +58,13 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     /// Gets or sets the parameter hint.
     /// </summary>
     [Property(NdapiConstant.D2FP_HINT)]
-    public partial string Hint { get; set; }
+    public partial string? Hint { get; set; }
 
     /// <summary>
     /// Gets or sets the label of the associated text item.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public partial string Label { get; set; }
+    public partial string? Label { get; set; }
 
     /// <summary>
     /// Gets or sets the maximum length.
@@ -76,7 +76,7 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     /// Gets or sets the initial value.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_PARAM_INIT_VAL)]
-    public partial string InitialValue { get; set; }
+    public partial string? InitialValue { get; set; }
 
     /// <summary>
     /// Gets or sets whether the parameter is required.
@@ -112,13 +112,13 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -176,6 +176,6 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     {
         var status = NativeMethods.d2fmpmgam_GetAssocMenu(NdapiContext.GetContext(), Handle, index, out var menu);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(menu);
+        return NlsStringMarshaller.ReadNlsStringAndFree(menu) ?? string.Empty;
     }
 }

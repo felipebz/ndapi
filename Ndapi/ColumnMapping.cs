@@ -32,13 +32,13 @@ public partial class ColumnMapping : NdapiObject<ColumnMapping>
     /// Gets or sets the return item.
     /// </summary>
     [Property(NdapiConstant.D2FP_RTRN_ITM)]
-    public partial string ReturnItem { get; set; }
+    public partial string? ReturnItem { get; set; }
 
     /// <summary>
     /// Gets or sets the column title.
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
-    public partial string Title { get; set; }
+    public partial string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the title.

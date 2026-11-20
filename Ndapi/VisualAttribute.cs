@@ -44,26 +44,26 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -93,26 +93,26 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_BACK_COLOR)]
-    public partial string PromptBackgroundColor { get; set; }
+    public partial string? PromptBackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the prompt's fill region.
     /// Patterns are rendered in the two colors specified by <see cref="PromptBackgroundColor"/> and <see cref="PromptForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FILL_PAT)]
-    public partial string PromptFillPattern { get; set; }
+    public partial string? PromptFillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt's font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FONT_NAM)]
-    public partial string PromptFontName { get; set; }
+    public partial string? PromptFontName { get; set; }
 
     /// <summary>
     /// Gets or sets the prompt's font size.
@@ -142,7 +142,7 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets or sets the prompt foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMPT_FORE_COLOR)]
-    public partial string PromptForegroundColor { get; set; }
+    public partial string? PromptForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute type.
@@ -160,19 +160,19 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets or sets the frame title background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_BACK_COLOR)]
-    public partial string FrameTitleBackgroundColor { get; set; }
+    public partial string? FrameTitleBackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the frame title fill pattern.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_FILL_PAT)]
-    public partial string FrameTitleFillPattern { get; set; }
+    public partial string? FrameTitleFillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the frame title font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_NAM)]
-    public partial string FrameTitleFontName { get; set; }
+    public partial string? FrameTitleFontName { get; set; }
 
     /// <summary>
     /// Gets or sets the frame title font size.
@@ -202,13 +202,13 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets or sets the frame title foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_FORE_COLOR)]
-    public partial string FrameTitleForegroundColor { get; set; }
+    public partial string? FrameTitleForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object was modified since it was loaded or saved.
@@ -220,13 +220,13 @@ public partial class VisualAttribute : NdapiObject<VisualAttribute>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

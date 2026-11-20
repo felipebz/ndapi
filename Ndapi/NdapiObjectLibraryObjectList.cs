@@ -9,7 +9,7 @@ public class NdapiObjectLibraryObjectList : IEnumerable<NdapiObject>
 {
     private readonly ObjectLibrary _objectLibrary;
 
-    public NdapiObject this[int index] => _objectLibrary.GetObjectByPosition(index);
+    public NdapiObject? this[int index] => _objectLibrary.GetObjectByPosition(index);
 
     internal NdapiObjectLibraryObjectList(ObjectLibrary objectLibrary)
     {
@@ -43,14 +43,14 @@ public class NdapiObjectLibraryObjectList : IEnumerable<NdapiObject>
                 return false;
             }
 
-            Current = _ndapiLibraryObjectList._objectLibrary.GetObjectByPosition(_position);
+            Current = _ndapiLibraryObjectList._objectLibrary.GetObjectByPosition(_position)!;
             _position++;
             return true;
         }
 
         public void Reset() => _position = 1;
 
-        public NdapiObject Current { get; private set; }
+        public NdapiObject Current { get; private set; } = null!;
 
         object IEnumerator.Current => Current;
 

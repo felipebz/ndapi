@@ -35,13 +35,13 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the bottom title.
     /// </summary>
     [Property(NdapiConstant.D2FP_BTM_TTL)]
-    public partial string BottomTitle { get; set; }
+    public partial string? BottomTitle { get; set; }
 
     /// <summary>
     /// Gets or sets  whether this object should display a character counter beneath the text input area. If the counter
@@ -54,20 +54,20 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -97,7 +97,7 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the height.
@@ -121,13 +121,13 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets or sets the title.
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
-    public partial string Title { get; set; }
+    public partial string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the white-on-black property.
@@ -163,13 +163,13 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the title.
@@ -193,13 +193,13 @@ public partial class Editor : NdapiObject<Editor>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

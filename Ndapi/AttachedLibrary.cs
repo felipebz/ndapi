@@ -45,13 +45,13 @@ public partial class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// Gets or sets the comment property.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets the library location.
     /// </summary>
     [Property(NdapiConstant.D2FP_LIB_LOC)]
-    public partial string Location { get; }
+    public partial string? Location { get; }
 
     /// <summary>
     /// Gets the library source type.
@@ -67,6 +67,6 @@ public partial class AttachedLibrary : NdapiObject<AttachedLibrary>
         var status = NativeMethods.d2falbdt_Detach(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
 
-        Handle = null;
+        Handle = new ObjectSafeHandle();
     }
 }

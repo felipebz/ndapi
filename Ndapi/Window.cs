@@ -35,7 +35,7 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the appearance of the object border.
@@ -53,20 +53,20 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -96,7 +96,7 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the height.
@@ -108,7 +108,7 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the help book title.
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TOPIC)]
-    public partial string HelpBookTopic { get; set; }
+    public partial string? HelpBookTopic { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should hide the window when the user navigates to an item in another window.
@@ -120,13 +120,13 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the canvas name of the horizontal toolbar.
     /// </summary>
     [Property(NdapiConstant.D2FP_HTB_CNV_NAME)]
-    public partial string HorizontalToolbarCanvas { get; set; }
+    public partial string? HorizontalToolbarCanvas { get; set; }
 
     /// <summary>
     /// Gets or sets the icon filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
-    public partial string IconFilename { get; set; }
+    public partial string? IconFilename { get; set; }
 
     /// <summary>
     /// Gets or sets whether the window should display the current form menu.
@@ -156,7 +156,7 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the text string that will appear below an iconified window. 
     /// </summary>
     [Property(NdapiConstant.D2FP_MINIMIZE_TTL)]
-    public partial string MinimizeTitle { get; set; }
+    public partial string? MinimizeTitle { get; set; }
 
     /// <summary>
     /// Gets or sets whether window is modal or not.
@@ -174,7 +174,7 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the name of the primary canvas.
     /// </summary>
     [Property(NdapiConstant.D2FP_PRMRY_CNV)]
-    public partial string PrimaryCanvas { get; set; }
+    public partial string? PrimaryCanvas { get; set; }
 
     /// <summary>
     /// Gets or sets whether window can be resized.
@@ -198,19 +198,19 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the title.
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
-    public partial string Title { get; set; }
+    public partial string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the canvas name of the vertical toolbar.
     /// </summary>
     [Property(NdapiConstant.D2FP_VTB_CNV_NAME)]
-    public partial string VerticalToolbarCanvas { get; set; }
+    public partial string? VerticalToolbarCanvas { get; set; }
 
     /// <summary>
     /// Gets or sets the white-on-black property.
@@ -258,13 +258,13 @@ public partial class Window : NdapiObject<Window>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the title.
@@ -288,13 +288,13 @@ public partial class Window : NdapiObject<Window>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

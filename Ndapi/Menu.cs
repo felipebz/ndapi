@@ -35,13 +35,13 @@ public partial class Menu : NdapiObject<Menu>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the subtitle.
     /// </summary>
     [Property(NdapiConstant.D2FP_SUB_TTL)]
-    public partial string Subtitle { get; set; }
+    public partial string? Subtitle { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu is a tear-off menu.
@@ -65,13 +65,13 @@ public partial class Menu : NdapiObject<Menu>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

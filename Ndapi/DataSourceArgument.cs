@@ -54,7 +54,7 @@ public partial class DataSourceArgument : NdapiObject<DataSourceArgument>
     /// Gets or sets the data source argument name.
     /// </summary>
     [Property(NdapiConstant.D2FP_DSA_NAM)]
-    public override partial string Name { get; set; }
+    public override partial string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the data source argument type.
@@ -66,13 +66,13 @@ public partial class DataSourceArgument : NdapiObject<DataSourceArgument>
     /// Gets or sets name of the data source argument type.
     /// </summary>
     [Property(NdapiConstant.D2FP_DSA_TYP_NAM)]
-    public partial string TypeName { get; set; }
+    public partial string? TypeName { get; set; }
 
     /// <summary>
     /// Gets or sets the data source argument value.
     /// </summary>
     [Property(NdapiConstant.D2FP_DSA_VAL)]
-    public partial string Value { get; set; }
+    public partial string? Value { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object was modified since it was loaded or saved.

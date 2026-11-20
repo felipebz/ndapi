@@ -46,7 +46,7 @@ public class NdapiMenuItemRoleList : IEnumerable<string>
 
         public void Reset() => _position = 1;
 
-        public string Current { get; private set; }
+        public string Current { get; private set; } = null!;
 
         object IEnumerator.Current => Current;
 

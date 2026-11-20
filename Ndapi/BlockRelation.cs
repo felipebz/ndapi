@@ -33,7 +33,7 @@ public partial class BlockRelation : NdapiObject<BlockRelation>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should defer fetching the associated details records.
@@ -51,13 +51,13 @@ public partial class BlockRelation : NdapiObject<BlockRelation>
     /// Gets or sets the detail block.
     /// </summary>
     [Property(NdapiConstant.D2FP_DETAIL_BLK)]
-    public partial string DetailBlock { get; set; }
+    public partial string? DetailBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the join condition between master and detail block.
     /// </summary>
     [Property(NdapiConstant.D2FP_JOIN_COND)]
-    public partial string JoinCondition { get; set; }
+    public partial string? JoinCondition { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should be allowed to query or insert records in a block that is a detail block in a master-detail relation.
@@ -69,7 +69,7 @@ public partial class BlockRelation : NdapiObject<BlockRelation>
     /// Gets or sets the item that holds the REF to the master block.
     /// </summary>
     [Property(NdapiConstant.D2FP_DETAIL_ITEMREF)]
-    public partial string DetailItemReference { get; set; }
+    public partial string? DetailItemReference { get; set; }
 
     /// <summary>
     /// Gets or sets whether the relation is based on a join condition or on a REF item.
@@ -87,13 +87,13 @@ public partial class BlockRelation : NdapiObject<BlockRelation>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

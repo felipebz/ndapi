@@ -15,7 +15,7 @@ public abstract class NdapiModule : NdapiObject
 {
     private bool _destroyed;
 
-    private protected NdapiModule(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
+    private protected NdapiModule(string name, ObjectType type, NdapiObject? parent = null) : base(name, type, parent)
     {
         NdapiContext.AddModule(this);
     }
@@ -58,7 +58,7 @@ public abstract class NdapiModule : NdapiObject
     /// </summary>
     /// <param name="path">Location to save.</param>
     /// <param name="saveInDatabase">Should save module in database.</param>
-    public abstract void Save(string path, bool saveInDatabase);
+    public abstract void Save(string? path, bool saveInDatabase);
 
     /// <summary>
     /// Compile the module.

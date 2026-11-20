@@ -35,19 +35,19 @@ public partial class Event : NdapiObject<Event>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the block name that will be monitored by a Query Result Change Notification (QRCN) event object.
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_BLKNAME)]
-    public partial string EventBlockName { get; set; }
+    public partial string? EventBlockName { get; set; }
 
     /// <summary>
     /// Gets or sets the correlation id.
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_CORRID)]
-    public partial string CorrelationId { get; set; }
+    public partial string? CorrelationId { get; set; }
 
     /// <summary>
     /// Gets or sets the Database Event Type for the event object.
@@ -59,7 +59,7 @@ public partial class Event : NdapiObject<Event>
     /// Gets or sets the database object (e.g. table or view) to be monitored by an OCN event object.
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_DBOBJNAME)]
-    public partial string DatabaseObjectName { get; set; }
+    public partial string? DatabaseObjectName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the event is enabled.
@@ -113,7 +113,7 @@ public partial class Event : NdapiObject<Event>
     /// Gets or sets the correlation id.
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_SUBS_NAME)]
-    public partial string SubscriptionName { get; set; }
+    public partial string? SubscriptionName { get; set; }
 
     /// <summary>
     /// Gets or sets the  event subscription mode for a Query Result Change Notification (QRCN) event object.
@@ -137,7 +137,7 @@ public partial class Event : NdapiObject<Event>
     /// Gets or sets the Java class that implements a custom event. Forms 12c and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_EVENT_IMPLCLASS)]
-    public partial string ImplementationClass { get; set; }
+    public partial string? ImplementationClass { get; set; }
 
     /// <summary>
     /// Gets or sets which operations raise an object change notification: 0 = All Operations, 1 = Insert, 2 = Update,
@@ -150,7 +150,7 @@ public partial class Event : NdapiObject<Event>
     /// Gets or sets the help book title. Forms 12c and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TITLE)]
-    public partial string HelpBookTitle { get; set; }
+    public partial string? HelpBookTitle { get; set; }
 
     /// <summary>
     /// Gets the triggers. Forms 12c and later.
@@ -168,13 +168,13 @@ public partial class Event : NdapiObject<Event>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

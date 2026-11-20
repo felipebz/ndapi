@@ -109,7 +109,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         {
             if (ConstantConverter.IsPropertySupportedByBuilderVersion(member))
             {
-                values.TryAdd(ConstantConverter.GetValue(member), Enum.GetName(RawPropertyType, member));
+                values.TryAdd(ConstantConverter.GetValue(member), Enum.GetName(RawPropertyType, member)!);
             }
         }
 
@@ -151,7 +151,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         var status = NativeMethods.d2fprgn_GetName(NdapiContext.GetContext(), ConstantConverter.GetValue(property),
             out var name);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(name);
+        return NlsStringMarshaller.ReadNlsStringAndFree(name) ?? string.Empty;
     }
 
     /// <summary>
@@ -165,7 +165,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         var status = NativeMethods.d2fprgvn_GetValueName(NdapiContext.GetContext(),
             ConstantConverter.GetValue(property), value, out var name);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(name);
+        return NlsStringMarshaller.ReadNlsStringAndFree(name) ?? string.Empty;
     }
 
     /// <summary>
@@ -205,15 +205,15 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     {
         var status = NativeMethods.d2fprgcn_GetConstName(NdapiContext.GetContext(), constant, out var name);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(name);
+        return NlsStringMarshaller.ReadNlsStringAndFree(name) ?? string.Empty;
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         return Equals(obj as NdapiMetaProperty);
     }
 
-    public bool Equals(NdapiMetaProperty other)
+    public bool Equals(NdapiMetaProperty? other)
     {
         return PropertyId == other?.PropertyId;
     }

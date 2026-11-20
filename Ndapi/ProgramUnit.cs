@@ -44,13 +44,13 @@ public partial class ProgramUnit : NdapiObject<ProgramUnit>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the program unit code.
     /// </summary>
     [Property(NdapiConstant.D2FP_PGU_TXT)]
-    public partial string Text { get; set; }
+    public partial string? Text { get; set; }
 
     /// <summary>
     /// Gets the program unit type.
@@ -81,13 +81,13 @@ public partial class ProgramUnit : NdapiObject<ProgramUnit>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

@@ -18,7 +18,8 @@ namespace Ndapi;
 /// </summary>
 public abstract partial class NdapiObject : IDisposable
 {
-    internal ObjectSafeHandle Handle;
+    // null only for Font and Coordinate, which wrap no native object
+    internal ObjectSafeHandle Handle = null!;
     private ObjectType _type;
 
     private protected NdapiObject()
@@ -31,7 +32,7 @@ public abstract partial class NdapiObject : IDisposable
         _type = type;
     }
 
-    private protected NdapiObject(string name, ObjectType type, NdapiObject parent = null)
+    private protected NdapiObject(string name, ObjectType type, NdapiObject? parent = null)
     {
         var parentHandle = parent?.Handle ?? new ObjectSafeHandle();
         var status = NativeMethods.d2fobcr_Create(NdapiContext.GetContext(), parentHandle, out Handle, name,
@@ -50,7 +51,7 @@ public abstract partial class NdapiObject : IDisposable
     /// Gets or sets the name.
     /// </summary>
     [Property(NdapiConstant.D2FP_NAME)]
-    public virtual partial string Name { get; set; }
+    public virtual partial string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the parent type.
@@ -62,13 +63,13 @@ public abstract partial class NdapiObject : IDisposable
     /// Gets or sets the parent name.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_NAM)]
-    public partial string ParentName { get; set; }
+    public partial string? ParentName { get; set; }
 
     /// <summary>
     /// Gets or sets the parent module.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_MODULE)]
-    public partial string ParentModule { get; set; }
+    public partial string? ParentModule { get; set; }
 
     /// <summary>
     /// Gets or sets the parent module type.
@@ -86,19 +87,19 @@ public abstract partial class NdapiObject : IDisposable
     /// Gets or sets the parent filename path.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_FLPATH)]
-    public partial string ParentFileNamePath { get; set; }
+    public partial string? ParentFileNamePath { get; set; }
 
     /// <summary>
     /// Gets or sets the parent filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_FLNAM)]
-    public partial string ParentFileName { get; set; }
+    public partial string? ParentFileName { get; set; }
 
     /// <summary>
     /// Gets or sets the object owner.
     /// </summary>
     [Property(NdapiConstant.D2FP_OWNER)]
-    public partial NdapiObject Owner { get; }
+    public partial NdapiObject? Owner { get; }
 
     /// <summary>
     /// Gets whether item is subclassed.
@@ -123,11 +124,11 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     public IEnumerable<NdapiMetaProperty> MetaProperties => MetaObject.AllProperties;
 
-    internal T GetPrevious<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>()
+    internal T? GetPrevious<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>()
         where T : NdapiObject =>
         GetObjectProperty<T>(NdapiConstant.D2FP_PREVIOUS);
 
-    internal T GetNext<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>()
+    internal T? GetNext<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>()
         where T : NdapiObject =>
         GetObjectProperty<T>(NdapiConstant.D2FP_NEXT);
 
@@ -136,7 +137,7 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>The property value.</returns>
-    public string GetStringProperty(NdapiConstant property)
+    public string? GetStringProperty(NdapiConstant property)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
         var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), Handle,
@@ -150,7 +151,7 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <param name="value">Property value</param>
-    public void SetStringProperty(NdapiConstant property, string value)
+    public void SetStringProperty(NdapiConstant property, string? value)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
         var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.GetContext(), Handle,
@@ -251,7 +252,7 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>The property value.</returns>
-    public T GetObjectProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(
+    public T? GetObjectProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(
         NdapiConstant property) where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
@@ -267,11 +268,11 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <param name="value">Property value</param>
-    public void SetObjectProperty<T>(NdapiConstant property, T value) where T : NdapiObject
+    public void SetObjectProperty<T>(NdapiConstant property, T? value) where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
         var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.GetContext(), Handle,
-            ConstantConverter.GetValue(property), value.Handle);
+            ConstantConverter.GetValue(property), value?.Handle ?? new ObjectSafeHandle());
         Ensure.Success(status);
     }
 
@@ -496,7 +497,7 @@ public abstract partial class NdapiObject : IDisposable
     /// <summary>
     /// Gets or sets arbitrary bytes saved with the object in the module file, or null when there are none.
     /// </summary>
-    public byte[] PersistentClientInfo
+    public byte[]? PersistentClientInfo
     {
         get
         {
@@ -531,7 +532,7 @@ public abstract partial class NdapiObject : IDisposable
         }
     }
 
-    public NdapiObject Find(
+    public NdapiObject? Find(
         [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
         Type type,
         string name)
@@ -587,7 +588,7 @@ public abstract partial class NdapiObject : IDisposable
 
             if (objectType == ObjectType.Undefined)
             {
-                return null;
+                throw new NdapiException($"Oracle Forms returned an object of undefined type ({internalObjectType}).");
             }
 
             foundType = NdapiMetadata.GetTypeFrom(objectType);
@@ -598,7 +599,7 @@ public abstract partial class NdapiObject : IDisposable
             null,
             [handle],
             null);
-        var createdObject = (NdapiObject)instance;
+        var createdObject = (NdapiObject)instance!;
         NdapiContext.ObjectRegistry.TrackObject(pointer, createdObject);
         return createdObject;
     }
@@ -614,7 +615,7 @@ public abstract partial class NdapiObject : IDisposable
     /// Gets the object name.
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => Name;
+    public override string ToString() => Name ?? "";
 
     #region IDisposable Support
 
@@ -660,7 +661,7 @@ public abstract class
     private protected NdapiObject() { }
     private protected NdapiObject(ObjectType type) : base(type) { }
 
-    private protected NdapiObject(string name, ObjectType type, NdapiObject parent = null) : base(name, type, parent)
+    private protected NdapiObject(string name, ObjectType type, NdapiObject? parent = null) : base(name, type, parent)
     {
     }
 
@@ -669,12 +670,12 @@ public abstract class
     /// <summary>
     /// Get the previous object.
     /// </summary>
-    public T Previous => GetPrevious<T>();
+    public T? Previous => GetPrevious<T>();
 
     /// <summary>
     /// Get the next object.
     /// </summary>
-    public T Next => GetNext<T>();
+    public T? Next => GetNext<T>();
 
     /// <summary>
     /// Creates a new object with the given name and owner.
@@ -684,9 +685,9 @@ public abstract class
     /// <param name="newOwner">New owner of the object. If null, the object will be owned by the same parent of the current object.</param>
     /// <param name="keepSubclassingInfo">If false, the subclassing info is discarded and the inherited properties are flattened into local values in the new object.</param>
     /// <returns>The new object.</returns>
-    public T Clone(string newName, NdapiObject newOwner = null, bool keepSubclassingInfo = true)
+    public T Clone(string newName, NdapiObject? newOwner = null, bool keepSubclassingInfo = true)
     {
-        var parentHandle = newOwner?.Handle ?? Owner.Handle;
+        var parentHandle = newOwner?.Handle ?? Owner?.Handle ?? new ObjectSafeHandle();
 
         var status = keepSubclassingInfo
             ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, Handle, out var newHandle,

@@ -25,7 +25,7 @@ public partial class LibraryModule : NdapiModule
     /// Gets the library location.
     /// </summary>
     [Property(NdapiConstant.D2FP_LIB_LOC)]
-    public partial string Location { get; }
+    public partial string? Location { get; }
 
     /// <summary>
     /// Gets all the program units.
@@ -64,7 +64,7 @@ public partial class LibraryModule : NdapiModule
     /// <param name="filename">Library location (.pll file)</param>
     /// <param name="libraryErrors">The library load errors (FRM-10102 …), or null when every library was loaded.</param>
     /// <returns>Loaded library reference.</returns>
-    public static LibraryModule Open(string filename, out string libraryErrors)
+    public static LibraryModule Open(string filename, out string? libraryErrors)
     {
         Ensure.MinimumMajorVersion(12, "Loading with library details");
         var status = NativeMethods.d2flibld_Load_pllDetails(NdapiContext.GetContext(), out var library, filename, true,
@@ -117,7 +117,7 @@ public partial class LibraryModule : NdapiModule
     /// <summary>
     /// Program unit libraries does not support saving.
     /// </summary>
-    public override void Save(string path, bool saveInDatabase)
+    public override void Save(string? path, bool saveInDatabase)
     {
         throw new NotSupportedException("Library module does not support saving");
     }

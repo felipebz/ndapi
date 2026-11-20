@@ -37,13 +37,13 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the command text.
     /// </summary>
     [Property(NdapiConstant.D2FP_COM_TXT)]
-    public partial string CommandText { get; set; }
+    public partial string? CommandText { get; set; }
 
     /// <summary>
     /// Gets or sets the command type.
@@ -67,7 +67,7 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -97,19 +97,19 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the hint.
     /// </summary>
     [Property(NdapiConstant.D2FP_HINT)]
-    public partial string Hint { get; set; }
+    public partial string? Hint { get; set; }
 
     /// <summary>
     /// Gets or sets the help text.
     /// </summary>
     [Property(NdapiConstant.D2FP_HLP_DESCRIPTION)]
-    public partial string Help { get; set; }
+    public partial string? Help { get; set; }
 
     /// <summary>
     /// Gets or sets the icon filename.
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
-    public partial string IconFilename { get; set; }
+    public partial string? IconFilename { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu item is iconic.
@@ -121,13 +121,13 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the keyboard accelerator.
     /// </summary>
     [Property(NdapiConstant.D2FP_KBRD_ACC)]
-    public partial string KeyboardAccelerator { get; set; }
+    public partial string? KeyboardAccelerator { get; set; }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public partial string Label { get; set; }
+    public partial string? Label { get; set; }
 
     /// <summary>
     /// Gets or sets the magic menu item type.
@@ -139,13 +139,13 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the code.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_ITM_CODE)]
-    public partial string Code { get; set; }
+    public partial string? Code { get; set; }
 
     /// <summary>
     /// Gets or sets the menu item radio group.
     /// </summary>
     [Property(NdapiConstant.D2FP_MNU_ITM_RAD_GRP)]
-    public partial string MenuItemRadioGroup { get; set; }
+    public partial string? MenuItemRadioGroup { get; set; }
 
     /// <summary>
     /// Gets or sets the menu item type.
@@ -157,7 +157,7 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the menu item is visible.
@@ -193,19 +193,19 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the submenu name.
     /// </summary>
     [Property(NdapiConstant.D2FP_SUB_MNU_NAM)]
-    public partial string SubMenuName { get; set; }
+    public partial string? SubMenuName { get; set; }
 
     /// <summary>
     /// Gets or sets the submenu.
     /// </summary>
     [Property(NdapiConstant.D2FP_SUB_MNU_OBJ)]
-    public partial Menu SubMenu { get; set; }
+    public partial Menu? SubMenu { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the hint.
@@ -241,13 +241,13 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -265,7 +265,7 @@ public partial class MenuItem : NdapiObject<MenuItem>
     /// Gets or sets the name of the first-level source object of the parent.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_SL1OBJ_NAM)]
-    public partial string ParentSourceLevel1ObjectName { get; set; }
+    public partial string? ParentSourceLevel1ObjectName { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the first-level source object of the parent.
@@ -317,6 +317,6 @@ public partial class MenuItem : NdapiObject<MenuItem>
     {
         var status = NativeMethods.d2fmnigr_GetRole(NdapiContext.GetContext(), Handle, index, out var role);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(role);
+        return NlsStringMarshaller.ReadNlsStringAndFree(role) ?? string.Empty;
     }
 }

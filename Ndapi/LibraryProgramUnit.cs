@@ -17,7 +17,7 @@ public partial class LibraryProgramUnit : NdapiObject<LibraryProgramUnit>
     /// Gets the program unit code.
     /// </summary>
     [Property(NdapiConstant.D2FP_PGU_TXT)]
-    public partial string Text { get; }
+    public partial string? Text { get; }
 
     /// <summary>
     /// Gets the program unit type.

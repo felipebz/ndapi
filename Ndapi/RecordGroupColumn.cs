@@ -74,7 +74,7 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     /// <param name="index">The one-based index at which value should be inserted.</param>
     /// <param name="value">Value to insert.</param>
     /// <param name="formatMask">Format mask to format the data.</param>
-    public void AddValueAt(int index, string value, string formatMask = null)
+    public void AddValueAt(int index, string value, string? formatMask = null)
     {
         var status = NativeMethods.d2frcsir_InsertRow_Int(NdapiContext.GetContext(), Handle, index, value, formatMask);
         Ensure.Success(status);
@@ -99,7 +99,7 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     {
         var status = NativeMethods.d2frcsgr_GetRow(NdapiContext.GetContext(), Handle, index, out var value);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(value);
+        return NlsStringMarshaller.ReadNlsStringAndFree(value) ?? string.Empty;
     }
 
     /// <summary>
@@ -116,6 +116,6 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
 
         var status = NativeMethods.d2frcsgrn_GetRowName(NdapiContext.GetContext(), Handle, index, out var value);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(value);
+        return NlsStringMarshaller.ReadNlsStringAndFree(value) ?? string.Empty;
     }
 }

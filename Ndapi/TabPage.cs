@@ -26,7 +26,7 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether the tab is enabled.
@@ -38,7 +38,7 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets or sets the label.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public partial string Label { get; set; }
+    public partial string? Label { get; set; }
 
     /// <summary>
     /// Gets or sets whether the tab is visible.
@@ -63,25 +63,25 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the fill pattern.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the icon file name. Forms 14 and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
-    public partial string IconFilename { get; set; }
+    public partial string? IconFilename { get; set; }
 
     /// <summary>
     /// Gets or sets the language direction.
@@ -93,13 +93,13 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether the tab page is displayed white on black. Forms 6i only.
@@ -111,7 +111,7 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the label.
@@ -129,13 +129,13 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -153,7 +153,7 @@ public partial class TabPage : NdapiObject<TabPage>
     /// Gets or sets the name of the first-level source object of the parent.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_SL1OBJ_NAM)]
-    public partial string ParentSourceLevel1ObjectName { get; set; }
+    public partial string? ParentSourceLevel1ObjectName { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the first-level source object of the parent.

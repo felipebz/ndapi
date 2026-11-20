@@ -27,7 +27,7 @@ public partial class ObjectGroupChild : NdapiObject<ObjectGroupChild>
     /// Gets or sets the real object.
     /// </summary>
     [Property(NdapiConstant.D2FP_OBJ_GRP_CHILD_REAL_OBJ)]
-    public partial NdapiObject RealObject { get; set; }
+    public partial NdapiObject? RealObject { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object was modified since it was loaded or saved.
@@ -39,7 +39,7 @@ public partial class ObjectGroupChild : NdapiObject<ObjectGroupChild>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as a sub-object of a subclassed parent.

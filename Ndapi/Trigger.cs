@@ -62,7 +62,7 @@ public partial class Trigger : NdapiObject<Trigger>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should display the trigger in keyboard help.
@@ -86,7 +86,7 @@ public partial class Trigger : NdapiObject<Trigger>
     /// Gets or sets the keyboard help description.
     /// </summary>
     [Property(NdapiConstant.D2FP_KBRD_HLP_TXT)]
-    public partial string KeyboardHelpDescription { get; set; }
+    public partial string? KeyboardHelpDescription { get; set; }
 
     /// <summary>
     /// Gets or sets the trigger style.
@@ -98,7 +98,7 @@ public partial class Trigger : NdapiObject<Trigger>
     /// Gets or sets the trigger code.
     /// </summary>
     [Property(NdapiConstant.D2FP_TRG_TXT)]
-    public partial string Text { get; set; }
+    public partial string? Text { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object is hidden.
@@ -128,13 +128,13 @@ public partial class Trigger : NdapiObject<Trigger>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
@@ -152,7 +152,7 @@ public partial class Trigger : NdapiObject<Trigger>
     /// Gets or sets the name of the first-level source object of the parent.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_SL1OBJ_NAM)]
-    public partial string ParentSourceLevel1ObjectName { get; set; }
+    public partial string? ParentSourceLevel1ObjectName { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the first-level source object of the parent.
@@ -164,7 +164,7 @@ public partial class Trigger : NdapiObject<Trigger>
     /// Gets or sets the name of the second-level source object of the parent.
     /// </summary>
     [Property(NdapiConstant.D2FP_PAR_SL2OBJ_NAM)]
-    public partial string ParentSourceLevel2ObjectName { get; set; }
+    public partial string? ParentSourceLevel2ObjectName { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the second-level source object of the parent.

@@ -28,19 +28,19 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <summary>
     /// Get the object library that owns the current tab.
     /// </summary>
-    public ObjectLibrary ObjectLibrary { get; }
+    public ObjectLibrary? ObjectLibrary { get; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the label.
     /// </summary>
     [Property(NdapiConstant.D2FP_LABEL)]
-    public partial string Label { get; set; }
+    public partial string? Label { get; set; }
 
     /// <summary>
     /// Gets the number of objects.
@@ -70,7 +70,7 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// </summary>
     /// <param name="position">Position.</param>
     /// <returns>The object found.</returns>
-    public NdapiObject GetObjectByPosition(int position)
+    public NdapiObject? GetObjectByPosition(int position)
     {
         var status = NativeMethods.d2foltf2_Findobjbypos(NdapiContext.GetContext(), Handle, position, out var obj);
         Ensure.Success(status);
@@ -87,7 +87,7 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <returns>A copy of the original object.</returns>
     public T AddObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(T obj, bool replace = false) where T : NdapiObject
     {
-        var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), ObjectLibrary.Handle, Handle, obj.Handle, out var handle, replace);
+        var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), (ObjectLibrary ?? throw new NdapiException("The owning object library is unknown for this tab.")).Handle, Handle, obj.Handle, out var handle, replace);
         Ensure.Success(status);
         return Create<T>(handle);
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Ndapi.Core;
 
@@ -7,7 +8,7 @@ internal class NdapiObjectRegistry
 {
     private readonly Dictionary<IntPtr, NdapiObject> _trackedObjects = new();
 
-    public bool TryGetObject(IntPtr pointer, out NdapiObject obj)
+    public bool TryGetObject(IntPtr pointer, [NotNullWhen(true)] out NdapiObject? obj)
         => _trackedObjects.TryGetValue(pointer, out obj);
 
     public void TrackObject(IntPtr pointer, NdapiObject obj)

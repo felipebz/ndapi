@@ -42,19 +42,19 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the description.
     /// </summary>
     [Property(NdapiConstant.D2FP_BLK_DESCRIPTION)]
-    public partial string Description { get; set; }
+    public partial string? Description { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets whether the block is a database block.
@@ -73,7 +73,7 @@ public partial class Block : NdapiObject<Block>
     /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_DEL_PROC_NAM)]
-    public partial string DeleteProcedureName { get; set; }
+    public partial string? DeleteProcedureName { get; set; }
 
     /// <summary>
     /// Gets or sets the maximum array size for database operations at one time.
@@ -86,7 +86,7 @@ public partial class Block : NdapiObject<Block>
     /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Table"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_DML_DAT_NAM)]
-    public partial string DmlDataTargetName { get; set; }
+    public partial string? DmlDataTargetName { get; set; }
 
     /// <summary>
     /// Gets or sets the DML data target type;
@@ -111,13 +111,13 @@ public partial class Block : NdapiObject<Block>
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets whether records can be inserted from the block. 
@@ -130,7 +130,7 @@ public partial class Block : NdapiObject<Block>
     /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_INSRT_PROC_NAM)]
-    public partial string InsertProcedureName { get; set; }
+    public partial string? InsertProcedureName { get; set; }
 
     /// <summary>
     /// Gets or sets the key mode. This affects who the runtime uniquely identifies rows in the database.
@@ -155,7 +155,7 @@ public partial class Block : NdapiObject<Block>
     /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_LOCK_PROC_NAM)]
-    public partial string LockProcedureName { get; set; }
+    public partial string? LockProcedureName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the block should be listed in the block menu. 
@@ -192,19 +192,19 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the next navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_NXT_NAVIGATION_BLK_NAM)]
-    public partial string NextNavigationBlockName { get; set; }
+    public partial string? NextNavigationBlockName { get; set; }
 
     /// <summary>
     /// Gets or sets a hint string that runtime passes on to the RDBMS when constructing queries.
     /// </summary>
     [Property(NdapiConstant.D2FP_OPT_HINT)]
-    public partial string OptimizerHint { get; set; }
+    public partial string? OptimizerHint { get; set; }
 
     /// <summary>
     /// Gets or sets the previous navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_PREV_NAVIGATION_BLK_NAM)]
-    public partial string PreviousNavigationBlockName { get; set; }
+    public partial string? PreviousNavigationBlockName { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should allow the end user to execute a query in the block.
@@ -222,7 +222,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the name of the block's query data source.
     /// </summary>
     [Property(NdapiConstant.D2FP_QRY_DAT_SRC_NAM)]
-    public partial string QueryDataSourceName { get; set; }
+    public partial string? QueryDataSourceName { get; set; }
 
     /// <summary>
     /// Gets or sets the query data source type.
@@ -248,7 +248,7 @@ public partial class Block : NdapiObject<Block>
     /// user or the application executes a query in the block.
     /// </summary>
     [Property(NdapiConstant.D2FP_ORDR_BY_CLAUSE)]
-    public partial string OrderByClause { get; set; }
+    public partial string? OrderByClause { get; set; }
 
     /// <summary>
     /// Gets or sets the number of records that runtime expects an On-Fetch trigger to fetch.
@@ -266,13 +266,13 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the name of the visual attribute used when an item is part of the current record.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_VAT_GRP_NAM)]
-    public partial string CurrentRecordVisualAttributeName { get; set; }
+    public partial string? CurrentRecordVisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute used when an item is part of the current record.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_VAT_GRP_OBJ)]
-    public partial VisualAttribute CurrentRecordVisualAttribute { get; set; }
+    public partial VisualAttribute? CurrentRecordVisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the reverse direction property.
@@ -284,7 +284,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the canvas on which the block's scrollbar should be displayed.
     /// </summary>
     [Property(NdapiConstant.D2FP_SCRLBR_CNV_NAM)]
-    public partial string ScrollBarCanvasName { get; set; }
+    public partial string? ScrollBarCanvasName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the block scrollbar should be displayed horizontally or vertically.
@@ -296,7 +296,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the tab page on which the block's scrollbar should be displayed.
     /// </summary>
     [Property(NdapiConstant.D2FP_SCRLBR_TBP_NAM)]
-    public partial string ScrollBarTabPageName { get; set; }
+    public partial string? ScrollBarTabPageName { get; set; }
 
     /// <summary>
     /// Gets or sets the width of a block scrollbar.
@@ -367,20 +367,20 @@ public partial class Block : NdapiObject<Block>
     /// This property is valid only when the <see cref="DmlDataTargetType"/> is set to <see cref="Enums.DmlDataTargetType.Procedure"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_UPDT_PROC_NAM)]
-    public partial string UpdateProcedureName { get; set; }
+    public partial string? UpdateProcedureName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the WHERE clause to be appended to the SELECT statement that runtime constructs whenever the
     /// user or the application executes a query in the block.
     /// </summary>
     [Property(NdapiConstant.D2FP_WHERE_CLAUSE)]
-    public partial string WhereClause { get; set; }
+    public partial string? WhereClause { get; set; }
 
     /// <summary>
     /// Gets or sets the white-on-black property.
@@ -465,7 +465,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the alias used in the SELECT statement for the table.
     /// </summary>
     [Property(NdapiConstant.D2FP_ALIAS)]
-    public partial string Alias { get; set; }
+    public partial string? Alias { get; set; }
 
     /// <summary>
     /// Gets or sets whether DML statements use the RETURNING clause.
@@ -489,25 +489,25 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the next navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_NXT_NAVIGATION_BLK_OBJ)]
-    public partial Block NextNavigationBlock { get; set; }
+    public partial Block? NextNavigationBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the previous navigation block.
     /// </summary>
     [Property(NdapiConstant.D2FP_PREV_NAVIGATION_BLK_OBJ)]
-    public partial Block PreviousNavigationBlock { get; set; }
+    public partial Block? PreviousNavigationBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the canvas of the scroll bar.
     /// </summary>
     [Property(NdapiConstant.D2FP_SCRLBR_CNV_OBJ)]
-    public partial Canvas ScrollBarCanvas { get; set; }
+    public partial Canvas? ScrollBarCanvas { get; set; }
 
     /// <summary>
     /// Gets or sets the tab page of the scroll bar.
     /// </summary>
     [Property(NdapiConstant.D2FP_SCRLBR_TBP_OBJ)]
-    public partial TabPage ScrollBarTabPage { get; set; }
+    public partial TabPage? ScrollBarTabPage { get; set; }
 
     /// <summary>
     /// Gets the lock data source arguments.
@@ -525,7 +525,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object is hidden.
@@ -537,7 +537,7 @@ public partial class Block : NdapiObject<Block>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the description.
@@ -555,13 +555,13 @@ public partial class Block : NdapiObject<Block>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

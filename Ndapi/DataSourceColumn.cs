@@ -60,7 +60,7 @@ public partial class DataSourceColumn : NdapiObject<DataSourceColumn>
     /// Gets or sets the data source column name.
     /// </summary>
     [Property(NdapiConstant.D2FP_DSC_NAM)]
-    public override partial string Name { get; set; }
+    public override partial string? Name { get; set; }
 
     /// <summary>
     /// Gets or sets the data source column precision.
@@ -84,7 +84,7 @@ public partial class DataSourceColumn : NdapiObject<DataSourceColumn>
     /// Gets or sets the name of the data source column type.
     /// </summary>
     [Property(NdapiConstant.D2FP_DSC_TYPE_NAME)]
-    public partial string TypeName { get; set; }
+    public partial string? TypeName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the column has no child columns.
@@ -96,7 +96,7 @@ public partial class DataSourceColumn : NdapiObject<DataSourceColumn>
     /// Gets or sets the name of the parent column.
     /// </summary>
     [Property(NdapiConstant.D2FP_DSC_PARENT_NAME)]
-    public partial string ParentColumnName { get; set; }
+    public partial string? ParentColumnName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object was modified since it was loaded or saved.

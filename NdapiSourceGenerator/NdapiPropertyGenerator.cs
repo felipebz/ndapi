@@ -61,6 +61,7 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
             var sb = new StringBuilder();
 
             sb.AppendLine($$"""
+                            #nullable enable
                             namespace {{namespaceName}};
                             using Ndapi.Core;
                             public partial class {{className}}
@@ -82,13 +83,15 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                     continue;
 
                 var constantName = GetPropertyConstantName(propertyAttr);
+                // declared type, with its nullable annotation (string?, Canvas?), and the bare type to dispatch on
                 var propertyType = propSymbol.Type.ToDisplayString();
+                var bareType = propSymbol.Type.WithNullableAnnotation(NullableAnnotation.NotAnnotated).ToDisplayString();
                 var propertyName = propSymbol.Name;
 
                 string getter;
                 string? setter;
 
-                if (propertyType == "string")
+                if (bareType == "string")
                 {
                     getter = $"GetStringProperty({constantName})";
                     setter = $"SetStringProperty({constantName}, value)";
@@ -112,7 +115,7 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                 {
                     if (propSymbol.Type.Name != "NdapiObjectList")
                     {
-                        getter = $"GetObjectProperty<{propertyType}>({constantName})";
+                        getter = $"GetObjectProperty<{bareType}>({constantName})";
                         setter = $"SetObjectProperty({constantName}, value)";
                     }
                     else
@@ -155,9 +158,9 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                                       constantName.Contains("D2FP_TRG_TXT") ||
                                       constantName.Contains("D2FP_MNU_ITM_CODE");
 
-                if (isToxicProperty && propertyType == "string")
+                if (isToxicProperty && bareType == "string")
                 {
-                    sb.AppendLine($"    private string _cached{propertyName};");
+                    sb.AppendLine($"    private {propertyType} _cached{propertyName};");
                     sb.AppendLine($"    private bool _is{propertyName}Cached;");
                     sb.AppendLine();
 

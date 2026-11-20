@@ -35,7 +35,7 @@ public partial class Alert : NdapiObject<Alert>
     /// Gets or sets the message.
     /// </summary>
     [Property(NdapiConstant.D2FP_ALT_MSG)]
-    public partial string Message { get; set; }
+    public partial string? Message { get; set; }
 
     /// <summary>
     /// Gets or sets the alert style.
@@ -48,31 +48,31 @@ public partial class Alert : NdapiObject<Alert>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the first button label.
     /// </summary>
     [Property(NdapiConstant.D2FP_BTN_1_LBL)]
-    public partial string Button1Label { get; set; }
+    public partial string? Button1Label { get; set; }
 
     /// <summary>
     /// Gets or sets the second button label.
     /// </summary>
     [Property(NdapiConstant.D2FP_BTN_2_LBL)]
-    public partial string Button2Label { get; set; }
+    public partial string? Button2Label { get; set; }
 
     /// <summary>
     /// Gets or sets the third button label.
     /// </summary>
     [Property(NdapiConstant.D2FP_BTN_3_LBL)]
-    public partial string Button3Label { get; set; }
+    public partial string? Button3Label { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the default alert button.
@@ -85,13 +85,13 @@ public partial class Alert : NdapiObject<Alert>
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -121,13 +121,13 @@ public partial class Alert : NdapiObject<Alert>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the icon file name. Forms 14 and later.
     /// </summary>
     [Property(NdapiConstant.D2FP_ICON_FLNAM)]
-    public partial string IconFilename { get; set; }
+    public partial string? IconFilename { get; set; }
 
     /// <summary>
     /// Gets or sets the language direction.
@@ -139,7 +139,7 @@ public partial class Alert : NdapiObject<Alert>
     /// Gets or sets the title.
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
-    public partial string Title { get; set; }
+    public partial string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the white-on-black property.
@@ -151,19 +151,19 @@ public partial class Alert : NdapiObject<Alert>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the message.
@@ -205,13 +205,13 @@ public partial class Alert : NdapiObject<Alert>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

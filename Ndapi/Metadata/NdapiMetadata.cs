@@ -91,7 +91,7 @@ public static class NdapiMetadata
         var status = NativeMethods.d2fobgcn_GetConstName(NdapiContext.GetContext(),
             (ushort)ConstantConverter.GetValue(type), out var name);
         Ensure.Success(status);
-        return Marshal.PtrToStringAnsi(name); // static string owned by Forms
+        return Marshal.PtrToStringAnsi(name) ?? string.Empty; // static string owned by Forms
     }
 
     /// <summary>

@@ -23,10 +23,10 @@ public sealed class NdapiContext : IDisposable
     private static readonly Free FreeMemoryDelegate = FreeMemory;
 
     private static readonly List<NdapiModule> ModuleList = [];
-    private static ContextSafeHandle s_context;
+    private static ContextSafeHandle? s_context;
     private static string s_formsLib = NativeMethods.FormsLib;
     private static bool s_nativeLibraryResolved;
-    private static BuilderVersion s_builderVersion;
+    private static BuilderVersion? s_builderVersion;
 
     internal static NdapiObjectRegistry ObjectRegistry { get; } = new NdapiObjectRegistry();
 
@@ -121,7 +121,8 @@ public sealed class NdapiContext : IDisposable
         FormsErrorCode status;
         try
         {
-            status = NativeMethods.d2fctxcr_Create(out s_context, ref contextAttributes);
+            status = NativeMethods.d2fctxcr_Create(out var context, ref contextAttributes);
+            s_context = context;
         }
         catch (DllNotFoundException)
         {
@@ -130,7 +131,7 @@ public sealed class NdapiContext : IDisposable
         }
 
         Ensure.Success(status);
-        return s_context;
+        return s_context!;
     }
 
     private static IntPtr AllocateMemory(IntPtr context, IntPtr size)
@@ -210,7 +211,7 @@ public sealed class NdapiContext : IDisposable
     /// </summary>
     public static void Destroy()
     {
-        if (s_context.IsInvalid)
+        if (s_context is null || s_context.IsInvalid)
         {
             return;
         }

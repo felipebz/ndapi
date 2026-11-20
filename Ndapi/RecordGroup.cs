@@ -35,7 +35,7 @@ public partial class RecordGroup : NdapiObject<RecordGroup>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the query fetch size.
@@ -47,7 +47,7 @@ public partial class RecordGroup : NdapiObject<RecordGroup>
     /// Gets or sets the SQL query.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_QRY)]
-    public partial string Query { get; set; }
+    public partial string? Query { get; set; }
 
     /// <summary>
     /// Gets or sets the record group type.
@@ -77,13 +77,13 @@ public partial class RecordGroup : NdapiObject<RecordGroup>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

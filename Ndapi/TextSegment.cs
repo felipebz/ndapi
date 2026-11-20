@@ -26,7 +26,7 @@ public partial class TextSegment : NdapiObject<TextSegment>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -56,19 +56,19 @@ public partial class TextSegment : NdapiObject<TextSegment>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the text segment content.
     /// </summary>
     [Property(NdapiConstant.D2FP_TEXT)]
-    public partial string Text { get; set; }
+    public partial string? Text { get; set; }
 
     /// <summary>
     /// Gets or sets the help book topic.
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TOPIC)]
-    public partial string HelpBookTopic { get; set; }
+    public partial string? HelpBookTopic { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the text.

@@ -84,7 +84,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the appearance of the object border.
@@ -175,26 +175,26 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the edge background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_EDGE_BACK_COLOR)]
-    public partial string EdgeBackgroundColor { get; set; }
+    public partial string? EdgeBackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the edge foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_EDGE_FORE_COLOR)]
-    public partial string EdgeForegroundColor { get; set; }
+    public partial string? EdgeForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the edge foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_EDGE_PAT)]
-    public partial string EdgePattern { get; set; }
+    public partial string? EdgePattern { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should use a fixed size for bounding box.
@@ -212,7 +212,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the frame alignment.
@@ -224,7 +224,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the frame title.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL)]
-    public partial string FrameTitle { get; set; }
+    public partial string? FrameTitle { get; set; }
 
     /// <summary>
     /// Gets or sets the frame title alignment.
@@ -236,20 +236,20 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the frame title background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_BACK_COLOR)]
-    public partial string FrameTitleBackgroundColor { get; set; }
+    public partial string? FrameTitleBackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the frame's title fill region.
     /// Patterns are rendered in the two colors specified by <see cref="FrameTitleBackgroundColor"/> and <see cref="FrameTitleForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_FILL_PAT)]
-    public partial string FrameTitleFillPattern { get; set; }
+    public partial string? FrameTitleFillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the frame's font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_FONT_NAM)]
-    public partial string FrameTitleFontName { get; set; }
+    public partial string? FrameTitleFontName { get; set; }
 
     /// <summary>
     /// Gets or sets the frame's font size.
@@ -279,7 +279,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the frame title foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_FORE_COLOR)]
-    public partial string FrameTitleForegroundColor { get; set; }
+    public partial string? FrameTitleForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the frame title offset.
@@ -297,7 +297,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the frame title visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_VAT_NAM)]
-    public partial string FrameTitleVisualAttributeName { get; set; }
+    public partial string? FrameTitleVisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the graphics object type.
@@ -309,13 +309,13 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the graphics font color.
     /// </summary>
     [Property(NdapiConstant.D2FP_GRA_FONT_COLOR)]
-    public partial string GraphicsFontColor { get; set; }
+    public partial string? GraphicsFontColor { get; set; }
 
     /// <summary>
     /// Gets or sets the graphic's font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_GRA_FONT_NAM)]
-    public partial string GraphicsFontName { get; set; }
+    public partial string? GraphicsFontName { get; set; }
 
     /// <summary>
     /// Gets or sets the graphic's font size.
@@ -345,7 +345,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the graphics text.
     /// </summary>
     [Property(NdapiConstant.D2FP_GRA_TEXT)]
-    public partial string GraphicsText { get; set; }
+    public partial string? GraphicsText { get; set; }
 
     /// <summary>
     /// Gets or sets the height.
@@ -417,7 +417,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the layout data block.
     /// </summary>
     [Property(NdapiConstant.D2FP_LAYOUT_DATA_BLK_NAM)]
-    public partial string LayoutDataBlock { get; set; }
+    public partial string? LayoutDataBlock { get; set; }
 
     /// <summary>
     /// Gets or sets the layout style.
@@ -513,7 +513,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the runtime uses the empty space surrounding an object when the <see cref="LayoutStyle"/> is set to <see cref="LayoutStyle.Form"/>.
@@ -597,13 +597,13 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the frame title visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_FRAME_TTL_VAT_OBJ)]
-    public partial VisualAttribute FrameTitleVisualAttribute { get; set; }
+    public partial VisualAttribute? FrameTitleVisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the graphics font color code.
@@ -615,7 +615,7 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the frame title.
@@ -639,13 +639,13 @@ public partial class Graphics : NdapiObject<Graphics>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

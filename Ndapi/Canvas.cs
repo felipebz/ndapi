@@ -35,7 +35,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the appearance of the object border.
@@ -53,20 +53,20 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -96,7 +96,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the height.
@@ -108,7 +108,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the associated help book topic.
     /// </summary>
     [Property(NdapiConstant.D2FP_HELP_BOOK_TOPIC)]
-    public partial string HelpBookTopic { get; set; }
+    public partial string? HelpBookTopic { get; set; }
 
     /// <summary>
     /// Gets or sets the language direction.
@@ -120,7 +120,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the name of the popup object.
     /// </summary>
     [Property(NdapiConstant.D2FP_POPUP_MNU_NAM)]
-    public partial string PopupMenuName { get; set; }
+    public partial string? PopupMenuName { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime should display the canvas when the end user or the application
@@ -138,7 +138,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// be moved by the user with a mouse or programmatically.
     /// </summary>
     [Property(NdapiConstant.D2FP_SPLITTER_CANVAS)]
-    public partial string SplitterSecondaryCanvasName { get; set; }
+    public partial string? SplitterSecondaryCanvasName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the splitter bar separating two canvases can be repositioned by using the mouse to move it.
@@ -173,7 +173,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets whether the canvas is initially shown or hidden in the window to which it is assigned.
@@ -236,13 +236,13 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the window in which the canvas will be displayed at runtime.
     /// </summary>
     [Property(NdapiConstant.D2FP_WND_OBJ)]
-    public partial Window Window { get; set; }
+    public partial Window? Window { get; set; }
 
     /// <summary>
     /// Gets or sets the window name in which the canvas will be displayed at runtime.
     /// </summary>
     [Property(NdapiConstant.D2FP_WND_NAM)]
-    public partial string WindowName { get; set; }
+    public partial string? WindowName { get; set; }
 
     /// <summary>
     /// Gets or sets the side of the canvas from where the gradient color begins
@@ -274,7 +274,7 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the popup menu.
     /// </summary>
     [Property(NdapiConstant.D2FP_POPUP_MNU_OBJ)]
-    public partial Menu PopupMenu { get; set; }
+    public partial Menu? PopupMenu { get; set; }
 
     /// <summary>
     /// Gets or sets whether the canvas shows a horizontal scroll bar.
@@ -304,13 +304,13 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object was modified since it was loaded or saved.
@@ -322,13 +322,13 @@ public partial class Canvas : NdapiObject<Canvas>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.

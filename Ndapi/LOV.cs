@@ -76,20 +76,20 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets or sets the background color.
     /// </summary>
     [Property(NdapiConstant.D2FP_BACK_COLOR)]
-    public partial string BackgroundColor { get; set; }
+    public partial string? BackgroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the comment.
     /// </summary>
     [Property(NdapiConstant.D2FP_COMMENT)]
-    public partial string Comment { get; set; }
+    public partial string? Comment { get; set; }
 
     /// <summary>
     /// Gets or sets the pattern to be used for the fill region.
     /// Patterns are rendered in the two colors specified by <see cref="BackgroundColor"/> and <see cref="ForegroundColor"/>.
     /// </summary>
     [Property(NdapiConstant.D2FP_FILL_PAT)]
-    public partial string FillPattern { get; set; }
+    public partial string? FillPattern { get; set; }
 
     /// <summary>
     /// Gets or sets whether runtime allows the user to enter a query criteria before displaying the query results.
@@ -101,7 +101,7 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets or sets the font name.
     /// </summary>
     [Property(NdapiConstant.D2FP_FONT_NAM)]
-    public partial string FontName { get; set; }
+    public partial string? FontName { get; set; }
 
     /// <summary>
     /// Gets or sets the font size.
@@ -131,7 +131,7 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets or sets the foreground color.
     /// </summary>
     [Property(NdapiConstant.D2FP_FORE_COLOR)]
-    public partial string ForegroundColor { get; set; }
+    public partial string? ForegroundColor { get; set; }
 
     /// <summary>
     /// Gets or sets the height.
@@ -155,25 +155,25 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets or sets the LOV text (included only for compatibility).
     /// </summary>
     [Property(NdapiConstant.D2FP_OLD_LOV_TXT)]
-    public partial string OldLovText { get; set; }
+    public partial string? OldLovText { get; set; }
 
     /// <summary>
     /// Gets or sets the record group associated with the LOV.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_OBJ)]
-    public partial RecordGroup RecordGroup { get; set; }
+    public partial RecordGroup? RecordGroup { get; set; }
 
     /// <summary>
     /// Gets or sets the LOV title.
     /// </summary>
     [Property(NdapiConstant.D2FP_TITLE)]
-    public partial string Title { get; set; }
+    public partial string? Title { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute name.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_NAM)]
-    public partial string VisualAttributeName { get; set; }
+    public partial string? VisualAttributeName { get; set; }
 
     /// <summary>
     /// Gets or sets the white-on-black property.
@@ -209,13 +209,13 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets or sets the record group name.
     /// </summary>
     [Property(NdapiConstant.D2FP_REC_GRP_NAM)]
-    public partial string RecordGroupName { get; set; }
+    public partial string? RecordGroupName { get; set; }
 
     /// <summary>
     /// Gets or sets the visual attribute.
     /// </summary>
     [Property(NdapiConstant.D2FP_VAT_OBJ)]
-    public partial VisualAttribute VisualAttribute { get; set; }
+    public partial VisualAttribute? VisualAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets whether the object is hidden.
@@ -227,7 +227,7 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets or sets the logical attribute used in character mode. Forms 6i only.
     /// </summary>
     [Property(NdapiConstant.D2FP_CHAR_MODE_LOGICAL_ATTR)]
-    public partial string CharacterModeLogicalAttribute { get; set; }
+    public partial string? CharacterModeLogicalAttribute { get; set; }
 
     /// <summary>
     /// Gets or sets the translation string id of the title.
@@ -245,13 +245,13 @@ public partial class Lov : NdapiObject<Lov>
     /// Gets the module that contains the object.
     /// </summary>
     [Property(NdapiConstant.D2FP_MODULE)]
-    public partial NdapiObject Module { get; }
+    public partial NdapiObject? Module { get; }
 
     /// <summary>
     /// Gets the object this object is subclassed from.
     /// </summary>
     [Property(NdapiConstant.D2FP_SOURCE)]
-    public partial NdapiObject Source { get; }
+    public partial NdapiObject? Source { get; }
 
     /// <summary>
     /// Gets or sets whether the object is subclassed as part of an object group.
