@@ -58,11 +58,36 @@ public partial class LibraryModule : NdapiModule
     }
 
     /// <summary>
-    /// Program unit libraries does not support compilation.
+    /// Load the program unit library into memory, reporting attached libraries that could not be loaded instead of
+    /// failing. Forms 12c and later.
+    /// </summary>
+    /// <param name="filename">Library location (.pll file)</param>
+    /// <param name="libraryErrors">The library load errors (FRM-10102 …), or null when every library was loaded.</param>
+    /// <returns>Loaded library reference.</returns>
+    public static LibraryModule Open(string filename, out string libraryErrors)
+    {
+        Ensure.MinimumMajorVersion(12, "Loading with library details");
+        var status = NativeMethods.d2flibld_Load_pllDetails(NdapiContext.GetContext(), out var library, filename, true,
+            out var details);
+        libraryErrors = NlsStringMarshaller.ReadNlsStringAndFree(details);
+        if (status != FormsErrorCode.MissingLibraryModule)
+        {
+            Ensure.Success(status);
+        }
+
+        var module = new LibraryModule(library);
+        NdapiContext.AddModule(module);
+        return module;
+    }
+
+    /// <summary>
+    /// Compile the library, creating a .plx file. Forms 12c and later.
     /// </summary>
     public override void CompileFile()
     {
-        throw new NotSupportedException("Library module does not support compilation");
+        Ensure.MinimumMajorVersion(12, nameof(CompileFile));
+        var status = NativeMethods.d2flibcf_CompileFile(NdapiContext.GetContext(), Handle);
+        Ensure.Success(status);
     }
 
     /// <summary>

@@ -53,4 +53,13 @@ internal static class Ensure
             throw new NdapiException($"The property {property} is not supported in the current Oracle Forms version.");
         }
     }
+
+    public static void MinimumMajorVersion(int majorVersion, string operation)
+    {
+        if (NdapiContext.BuilderVersion.MajorVersion < majorVersion)
+        {
+            throw new NdapiException(
+                $"{operation} requires Oracle Forms {majorVersion} or later (running {NdapiContext.BuilderVersion.FullVersion}).");
+        }
+    }
 }

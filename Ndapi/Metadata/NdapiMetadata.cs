@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 using Ndapi.Core;
 using Ndapi.Enums;
@@ -79,6 +80,31 @@ public static class NdapiMetadata
     /// <returns>The meta object instance.</returns>
     public static NdapiMetaObject GetMetaObjectFrom(Type type) =>
         ObjectTypeMapping.Single(t => t.Type == type).MetaObject;
+
+    /// <summary>
+    /// Gets the descriptive name of an object type, e.g. "Canvas".
+    /// </summary>
+    /// <param name="type">Object type.</param>
+    /// <returns>The object type name.</returns>
+    public static string GetObjectTypeName(ObjectType type)
+    {
+        var status = NativeMethods.d2fobgcn_GetConstName(NdapiContext.GetContext(),
+            (ushort)ConstantConverter.GetValue(type), out var name);
+        Ensure.Success(status);
+        return Marshal.PtrToStringAnsi(name); // static string owned by Forms
+    }
+
+    /// <summary>
+    /// Gets the object type of an object type name, e.g. "CANVAS".
+    /// </summary>
+    /// <param name="name">Object type name.</param>
+    /// <returns>The object type.</returns>
+    public static ObjectType GetObjectType(string name)
+    {
+        var status = NativeMethods.d2fobgcv_GetConstValue(NdapiContext.GetContext(), name, out var value);
+        Ensure.Success(status);
+        return NdapiObject.Convert<ObjectType>(value);
+    }
 
     internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
 

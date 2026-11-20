@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using Ndapi.Core;
@@ -458,6 +459,76 @@ public abstract partial class NdapiObject : IDisposable
     {
         var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), Handle, parent.Handle, keepPath);
         Ensure.Success(status);
+    }
+
+    /// <summary>
+    /// Removes the subclassing of the object, if it is subclassed. Forms 12c and later.
+    /// </summary>
+    public void UnSubclass()
+    {
+        Ensure.MinimumMajorVersion(12, nameof(UnSubclass));
+        var status = NativeMethods.d2fobus_UnSubClass(NdapiContext.GetContext(), Handle);
+        Ensure.Success(status);
+    }
+
+    /// <summary>
+    /// Gets or sets an arbitrary pointer kept with the object while it is loaded. It is not saved with the module.
+    /// </summary>
+    public IntPtr ClientInfo
+    {
+        get
+        {
+            Ensure.IsPropertySupportedByBuilderVersion(NdapiConstant.D2FP_CLIENT_INFO);
+            var status = NativeMethods.d2fobgp_GetBlobProp(NdapiContext.GetContext(), Handle,
+                ConstantConverter.GetValue(NdapiConstant.D2FP_CLIENT_INFO), out var value);
+            Ensure.Success(status);
+            return value;
+        }
+        set
+        {
+            Ensure.IsPropertySupportedByBuilderVersion(NdapiConstant.D2FP_CLIENT_INFO);
+            var status = NativeMethods.d2fobsp_SetBlobProp(NdapiContext.GetContext(), Handle,
+                ConstantConverter.GetValue(NdapiConstant.D2FP_CLIENT_INFO), value);
+            Ensure.Success(status);
+        }
+    }
+
+    /// <summary>
+    /// Gets or sets arbitrary bytes saved with the object in the module file, or null when there are none.
+    /// </summary>
+    public byte[] PersistentClientInfo
+    {
+        get
+        {
+            var length = GetNumberProperty(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN);
+            var status = NativeMethods.d2fobgp_GetBlobProp(NdapiContext.GetContext(), Handle,
+                ConstantConverter.GetValue(NdapiConstant.D2FP_PERSIST_CLIENT_INFO), out var pointer);
+            Ensure.Success(status);
+            if (pointer == IntPtr.Zero || length == 0)
+            {
+                return null;
+            }
+
+            var value = new byte[length];
+            Marshal.Copy(pointer, value, 0, length);
+            return value;
+        }
+        set
+        {
+            // Forms keeps the pointer instead of copying the bytes, so the buffer is allocated with the same
+            // allocator the context uses (NdapiContext memory callbacks) and handed over to Forms.
+            var pointer = IntPtr.Zero;
+            if (value is { Length: > 0 })
+            {
+                pointer = Marshal.AllocHGlobal(value.Length);
+                Marshal.Copy(value, 0, pointer, value.Length);
+            }
+
+            SetNumberProperty(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, value?.Length ?? 0);
+            var status = NativeMethods.d2fobsp_SetBlobProp(NdapiContext.GetContext(), Handle,
+                ConstantConverter.GetValue(NdapiConstant.D2FP_PERSIST_CLIENT_INFO), pointer);
+            Ensure.Success(status);
+        }
     }
 
     public NdapiObject Find(

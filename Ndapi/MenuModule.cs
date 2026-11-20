@@ -176,6 +176,29 @@ public partial class MenuModule : NdapiModule
     }
 
     /// <summary>
+    /// Load the menu module into memory, reporting attached libraries that could not be loaded instead of failing.
+    /// Forms 12c and later.
+    /// </summary>
+    /// <param name="filename">Menu module location (.mmb file)</param>
+    /// <param name="libraryErrors">The library load errors (FRM-10102 …), or null when every library was loaded.</param>
+    /// <returns>Loaded menu module reference.</returns>
+    public static MenuModule Open(string filename, out string libraryErrors)
+    {
+        Ensure.MinimumMajorVersion(12, "Loading with library details");
+        var status = NativeMethods.d2fmmdld_Load_pllDetails(NdapiContext.GetContext(), out var menu, filename, true,
+            out var details);
+        libraryErrors = NlsStringMarshaller.ReadNlsStringAndFree(details);
+        if (status != FormsErrorCode.MissingLibraryModule)
+        {
+            Ensure.Success(status);
+        }
+
+        var module = new MenuModule(menu);
+        NdapiContext.AddModule(module);
+        return module;
+    }
+
+    /// <summary>
     /// Save the menu module to disk.
     /// </summary>
     public override void Save()

@@ -124,6 +124,13 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     public string GetValueName(int value) => GetValueName(PropertyId, value);
 
     /// <summary>
+    /// Gets the value of a value name, the inverse of <see cref="GetValueName(int)"/>. Forms 12c and later.
+    /// </summary>
+    /// <param name="valueName">Value name, in the language of the running Builder.</param>
+    /// <returns>The value.</returns>
+    public int GetValue(string valueName) => GetValue(PropertyId, valueName);
+
+    /// <summary>
     /// Gets the property type.
     /// </summary>
     /// <param name="property">Property id (see <see cref="NdapiConstant"/>).</param>
@@ -159,6 +166,22 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
             ConstantConverter.GetValue(property), value, out var name);
         Ensure.Success(status);
         return NlsStringMarshaller.ReadNlsStringAndFree(name);
+    }
+
+    /// <summary>
+    /// Gets the value of a value name, the inverse of <see cref="GetValueName(NdapiConstant, int)"/>.
+    /// Forms 12c and later.
+    /// </summary>
+    /// <param name="property">Property id.</param>
+    /// <param name="valueName">Value name, in the language of the running Builder.</param>
+    /// <returns>The value.</returns>
+    public static int GetValue(NdapiConstant property, string valueName)
+    {
+        Ensure.MinimumMajorVersion(12, nameof(GetValue));
+        var status = NativeMethods.d2fprgvv_GetValueValue(NdapiContext.GetContext(),
+            ConstantConverter.GetValue(property), valueName, out var value);
+        Ensure.Success(status);
+        return value;
     }
 
     /// <summary>

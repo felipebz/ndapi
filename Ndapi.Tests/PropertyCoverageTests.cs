@@ -38,8 +38,12 @@ public class PropertyCoverageTests
     public void TypedMembersApplyToTheirObject() => CheckAgainstBaseline("inapplicable", "COV_INAPPLICABLE",
         (obj, typed) => typed.Where(p => !obj.HasProperty(p)));
 
-    // NdapiObject<T>.Next and Previous are hand-written
-    private static readonly HashSet<NdapiConstant> HandWritten = [NdapiConstant.D2FP_NEXT, NdapiConstant.D2FP_PREVIOUS];
+    // hand-written members: Next/Previous, ClientInfo/PersistentClientInfo (blobs) and Item.ListElements
+    private static readonly HashSet<NdapiConstant> HandWritten =
+    [
+        NdapiConstant.D2FP_NEXT, NdapiConstant.D2FP_PREVIOUS, NdapiConstant.D2FP_CLIENT_INFO,
+        NdapiConstant.D2FP_PERSIST_CLIENT_INFO, NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, NdapiConstant.D2FP_LIST_ELEM
+    ];
 
     [Fact]
     public void EveryPropertyOfAnObjectHasATypedMember() => CheckAgainstBaseline("uncovered", "COV_UNCOVERED",

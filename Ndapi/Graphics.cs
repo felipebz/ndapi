@@ -666,7 +666,19 @@ public partial class Graphics : NdapiObject<Graphics>
     /// <param name="format">Image format.</param>
     public void ImportImage(string filename, ImageFormat format)
     {
-        var status = NativeMethods.d2fgraim_importImage(NdapiContext.GetContext(), Handle, filename, format);
+        var status = NativeMethods.d2fgraim_importImage(NdapiContext.GetContext(), Handle, filename,
+            ConstantConverter.GetValue(format));
+        Ensure.Success(status);
+    }
+
+    /// <summary>
+    /// Exports the image of a graphics image object to disk. Forms 12c and later.
+    /// </summary>
+    /// <param name="filename">Image path.</param>
+    public void ExportImage(string filename)
+    {
+        Ensure.MinimumMajorVersion(12, nameof(ExportImage));
+        var status = NativeMethods.d2fgraex_exportImage(NdapiContext.GetContext(), Handle, filename);
         Ensure.Success(status);
     }
 
