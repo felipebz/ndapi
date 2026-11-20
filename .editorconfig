@@ -12,6 +12,14 @@ indent_size = 2
 [*.yml]
 indent_size = 2
 
+# NdapiConstant mirrors the D2FC_/D2FP_/D2FFO_ names of d2fdef.h
+[Ndapi/Core/NdapiConstant.cs]
+dotnet_diagnostic.CA1707.severity = none
+
+# Enum members named after Forms data types (Char, Long, Integer, Object...)
+[Ndapi/Enums/NdapiEnums.cs]
+dotnet_diagnostic.CA1720.severity = none
+
 # C# files
 [*.cs]
 

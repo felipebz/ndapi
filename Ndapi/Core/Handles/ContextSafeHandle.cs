@@ -2,7 +2,7 @@
 
 namespace Ndapi.Core.Handles;
 
-internal class ContextSafeHandle : SafeHandleBase
+internal sealed class ContextSafeHandle : SafeHandleBase
 {
     protected override bool ReleaseHandleImpl()
     {

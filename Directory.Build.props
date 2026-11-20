@@ -1,5 +1,8 @@
 ﻿<Project>
     <PropertyGroup>
         <LangVersion>latest</LangVersion>
+        <!-- pinned to the SDK major so new rules arrive with an SDK update, not silently -->
+        <AnalysisLevel>10.0-recommended</AnalysisLevel>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 </Project>

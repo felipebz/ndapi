@@ -21,7 +21,7 @@ public class NdapiMetadataTests
             Assert.DoesNotContain(NdapiConstant.D2FP_MAX, properties);
             Assert.DoesNotContain(NdapiConstant.D2FP_NONE, properties);
             Assert.DoesNotContain(NdapiConstant.D2FP_UNDEFINED, properties);
-            Assert.DoesNotContain(properties, p => !p.ToString().StartsWith("D2FP_"));
+            Assert.DoesNotContain(properties, p => !p.ToString().StartsWith("D2FP_", StringComparison.Ordinal));
             Assert.Equal(properties.Count, properties.Distinct().Count());
         });
     }

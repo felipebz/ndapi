@@ -1,6 +1,6 @@
 ﻿namespace Ndapi.Core.Handles;
 
-internal class ObjectSafeHandle : SafeHandleBase
+internal sealed class ObjectSafeHandle : SafeHandleBase
 {
     protected override bool ReleaseHandleImpl()
     {

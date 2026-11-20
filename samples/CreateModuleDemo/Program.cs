@@ -5,7 +5,7 @@ using Ndapi.Enums;
 
 namespace CreateModuleDemo;
 
-class Program
+static class Program
 {
     [STAThread]
     static void Main(string[] args)

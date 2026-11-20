@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Ndapi.Core;
 
-internal class NdapiObjectRegistry
+internal sealed class NdapiObjectRegistry
 {
     private readonly Dictionary<IntPtr, NdapiObject> _trackedObjects = new();
 

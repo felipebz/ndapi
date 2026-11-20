@@ -135,7 +135,7 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                 }
 
                 var modifiers = string.Join(" ",
-                    propSymbol.DeclaredAccessibility.ToString().ToLower(),
+                    propSymbol.DeclaredAccessibility.ToString().ToLowerInvariant(),
                     propSymbol.IsOverride ? "override" : "",
                     propSymbol.IsVirtual ? "virtual" : "",
                     propSymbol.IsSealed ? "sealed" : "",
