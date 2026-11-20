@@ -111,7 +111,7 @@ public abstract class NdapiModule : NdapiObject
 
     /// <summary>
     /// Destroys the module if this instance opened or created it, so <c>using</c> unloads the module from Forms.
-    /// Wrappers obtained from other objects (e.g. <c>item.Module</c>) only release themselves.
+    /// <c>item.Module</c> returns that same instance. Other module wrappers only release themselves.
     /// </summary>
     protected override void Dispose(bool disposing)
     {

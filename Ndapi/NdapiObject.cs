@@ -578,6 +578,11 @@ public abstract partial class NdapiObject : IDisposable
             return existingInstance;
         }
 
+        if (NdapiContext.FindModule(pointer) is { } module)
+        {
+            return module;
+        }
+
         var foundType = type;
         if (foundType == typeof(NdapiObject))
         {

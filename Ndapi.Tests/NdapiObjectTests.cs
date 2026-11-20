@@ -290,7 +290,7 @@ public class NdapiObjectTests
 
             alert.Subclass(propertyClass);
 
-            Assert.Equal("SUBCLASS_SRC", Assert.IsType<FormModule>(alert.Module).Name);
+            Assert.Same(module, alert.Module);
             Assert.Equal("PC", alert.Source?.Name);
             Assert.True(alert.IsDirty);
             module.Destroy();
@@ -326,20 +326,32 @@ public class NdapiObjectTests
     }
 
     [Fact]
-    public void DisposingAWrapperObtainedFromAnotherObjectKeepsTheModule()
+    public void ObjectsReturnTheModuleInstanceThatOpenedOrCreatedIt()
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("DISPOSE_WRAPPER");
-            var alert = new Alert(module, "A");
+            var path = Path.Combine(Path.GetTempPath(), $"identity_{Guid.NewGuid():N}.fmb");
+            var created = new FormModule("MODULE_IDENTITY");
+            var block = new Block(created, "B");
+            new Block(created, "TMP").Destroy();
 
-            alert.Module?.Dispose();
+            Assert.Same(created, block.Module);
+            created.Save(path);
+            created.Destroy();
+            created.Destroy();
 
-            Assert.Equal("A", alert.Name);
-            Assert.Contains(module, NdapiContext.Modules);
-            module.Destroy();
-            module.Destroy();
-            Assert.DoesNotContain(module, NdapiContext.Modules);
+            try
+            {
+                using var opened = FormModule.Open(path);
+                var reopenedBlock = Assert.Single(opened.Blocks);
+
+                Assert.Same(opened, reopenedBlock.Module);
+                Assert.Same(opened, new Item(reopenedBlock, "I").Module);
+            }
+            finally
+            {
+                File.Delete(path);
+            }
         });
     }
 }

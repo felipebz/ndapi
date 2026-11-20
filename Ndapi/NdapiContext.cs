@@ -185,6 +185,21 @@ public sealed class NdapiContext : IDisposable
         ModuleList.Remove(module);
     }
 
+    // The registry is cleared whenever an object is destroyed, so the module list stays the source of truth for the
+    // wrappers of opened and created modules.
+    internal static NdapiModule? FindModule(IntPtr pointer)
+    {
+        foreach (var module in ModuleList)
+        {
+            if (module.Handle.DangerousGetHandle() == pointer)
+            {
+                return module;
+            }
+        }
+
+        return null;
+    }
+
     /// <summary>
     /// Establish a database connection given a connect string.
     /// </summary>
