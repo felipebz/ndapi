@@ -23,11 +23,13 @@
     </PropertyGroup>
 
     <!--
-    CI packs prerelease builds (Version != VersionPrefix) and compares their API with the last release, which is
-    VersionPrefix between releases. Intentional breaking changes are listed in CompatibilitySuppressions.xml:
+    CI packs prerelease builds (-p:Version=X.Y.Z-alpha.N) and compares their API with the last release, which is
+    VersionPrefix between releases. Version is only set here when it comes from the command line (the SDK derives it
+    from VersionPrefix later), so restore, format, build and the release pack never download a baseline.
+    Intentional breaking changes are listed in CompatibilitySuppressions.xml:
     regenerate it with dotnet pack -p:Version=0.0.1-ci -p:GenerateCompatibilitySuppressionFile=true
     -->
-    <PropertyGroup Condition="'$(Version)' != '$(VersionPrefix)'">
+    <PropertyGroup Condition="'$(Version)' != '' and '$(Version)' != '$(VersionPrefix)'">
         <EnablePackageValidation>true</EnablePackageValidation>
         <PackageValidationBaselineVersion>$(VersionPrefix)</PackageValidationBaselineVersion>
     </PropertyGroup>
