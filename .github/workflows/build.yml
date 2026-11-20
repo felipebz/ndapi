@@ -34,14 +34,20 @@ jobs:
 
       # Builds between releases are versioned after the last release with the patch bumped, e.g. 14.0.1-alpha.123
       # after 14.0.0, so they sort above the last release and below the next one. Packing a prerelease also checks
-      # its API against the last release (package validation, see Ndapi.csproj).
+      # its API against the last release (package validation, see Ndapi.csproj), except right after a release PR is
+      # merged, while that version isn't on nuget.org yet.
       - name: Set prerelease version
         run: |
           prefix=$(dotnet msbuild Ndapi/Ndapi.csproj -getProperty:VersionPrefix)
           IFS=. read -r major minor patch <<< "$prefix"
           version="$major.$minor.$((patch + 1))-alpha.${{ github.run_number }}"
           echo "Build version is $version"
-          echo "VERSION_ARGS=-p:Version=$version" >> "$GITHUB_ENV"
+          args="-p:Version=$version"
+          if ! curl -fsSL https://api.nuget.org/v3-flatcontainer/ndapi/index.json | jq -e --arg v "$prefix" '.versions | index($v)' > /dev/null; then
+            echo "::warning::Ndapi $prefix is not on nuget.org yet; skipping API compatibility validation"
+            args="$args -p:EnablePackageValidation=false"
+          fi
+          echo "VERSION_ARGS=$args" >> "$GITHUB_ENV"
 
       - name: Cache SonarQube packages
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6

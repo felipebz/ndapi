@@ -4,12 +4,19 @@ on:
   push:
     branches:
       - main
+  # Republishes an existing release whose publish job failed, e.g. after fixing the workflow.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to publish (e.g. 14.0.0)
+        required: true
 
 permissions:
   contents: read
 
 jobs:
   release-please:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -17,6 +24,7 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
     steps:
       - id: release
         uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
@@ -26,16 +34,20 @@ jobs:
 
   publish:
     needs: release-please
-    if: needs.release-please.outputs.release_created == 'true'
+    if: >-
+      always() && (needs.release-please.outputs.release_created == 'true' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     permissions:
       contents: write # upload the packages to the GitHub release
       id-token: write # NuGet trusted publishing and attestation signing
       attestations: write # build provenance
+    env:
+      TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || needs.release-please.outputs.tag_name }}
+      VERSION: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || needs.release-please.outputs.version }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ needs.release-please.outputs.tag_name }}
+          ref: ${{ env.TAG }}
           persist-credentials: false
 
       - name: Setup .NET
@@ -45,17 +57,18 @@ jobs:
 
       - name: Check version
         run: |
-          version=$(dotnet msbuild Ndapi/Ndapi.csproj -getProperty:VersionPrefix)
-          if [ "$version" != "${{ needs.release-please.outputs.tag_name }}" ]; then
-            echo "::error::VersionPrefix $version does not match tag ${{ needs.release-please.outputs.tag_name }}"
+          prefix=$(dotnet msbuild Ndapi/Ndapi.csproj -getProperty:VersionPrefix)
+          if [ "$prefix" != "$VERSION" ]; then
+            echo "::error::VersionPrefix $prefix does not match release $VERSION (tag $TAG)"
             exit 1
           fi
 
+      # The release is the baseline for later builds: there's nothing to validate it against yet
       - name: Build
-        run: dotnet build -c Release
+        run: dotnet build -c Release -p:EnablePackageValidation=false
 
       - name: Build NuGet package
-        run: dotnet pack Ndapi/Ndapi.csproj -c Release --no-build -o artifacts
+        run: dotnet pack Ndapi/Ndapi.csproj -c Release --no-build -p:EnablePackageValidation=false -o artifacts
 
       - name: Attest build provenance
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
@@ -76,4 +89,4 @@ jobs:
       - name: Attach the package to the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ needs.release-please.outputs.tag_name }}" artifacts/*.nupkg --clobber
+        run: gh release upload "$TAG" artifacts/*.nupkg --clobber
