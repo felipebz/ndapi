@@ -358,4 +358,22 @@ public class NdapiObjectTests
             }
         });
     }
+
+    [Fact]
+    public void MoveWithoutNextObjectMovesToTheEnd()
+    {
+        Sta.Run(() =>
+        {
+            using var module = new FormModule("MOVE_ORDER");
+            var first = new Block(module, "B1");
+            _ = new Block(module, "B2");
+            var third = new Block(module, "B3");
+
+            first.Move(null);
+            Assert.Equal(["B2", "B3", "B1"], module.Blocks.Select(b => b.Name));
+
+            first.Move(third);
+            Assert.Equal(["B2", "B1", "B3"], module.Blocks.Select(b => b.Name));
+        });
+    }
 }

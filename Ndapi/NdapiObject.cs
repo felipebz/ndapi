@@ -707,7 +707,7 @@ public abstract class
     /// this method to move objects between parents.
     /// </summary>
     /// <param name="nextObject">The next object instance. If null, the object will be moved to the end of the list.</param>
-    public void Move(T nextObject)
+    public void Move(T? nextObject)
     {
         var nextHandle = nextObject?.Handle ?? new ObjectSafeHandle();
         var status = NativeMethods.d2fobmv_Move(NdapiContext.GetContext(), Handle, nextHandle);
