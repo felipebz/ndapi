@@ -82,7 +82,7 @@ public sealed class NdapiContext : IDisposable
 
             NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
             {
-                s_formsLib = Path.Combine(oracleHome, "lib", NativeMethods.FormsLibLinux);
+                s_formsLib = Path.Join(oracleHome, "lib", NativeMethods.FormsLibLinux);
                 return NativeLibrary.Load(s_formsLib, assembly, path);
             }));
         }

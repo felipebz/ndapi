@@ -105,12 +105,10 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
 
         // the enum members hold NdapiConstant ids: the name must be looked up with the member value,
         // and the key is the native value of that constant in the running Builder version
-        foreach (var member in Enum.GetValuesAsUnderlyingType(RawPropertyType).Cast<int>())
+        foreach (var member in Enum.GetValuesAsUnderlyingType(RawPropertyType).Cast<int>()
+                     .Where(ConstantConverter.IsPropertySupportedByBuilderVersion))
         {
-            if (ConstantConverter.IsPropertySupportedByBuilderVersion(member))
-            {
-                values.TryAdd(ConstantConverter.GetValue(member), Enum.GetName(RawPropertyType, member)!);
-            }
+            values.TryAdd(ConstantConverter.GetValue(member), Enum.GetName(RawPropertyType, member)!);
         }
 
         return values;

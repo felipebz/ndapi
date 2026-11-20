@@ -55,7 +55,7 @@ public class PropertyCoverageTests
     {
         Sta.Run(() =>
         {
-            var baselinePath = Path.Combine(AppContext.BaseDirectory, "Coverage",
+            var baselinePath = Path.Join(AppContext.BaseDirectory, "Coverage",
                 $"forms{NdapiContext.BuilderVersion.MajorVersion}.txt");
             Assert.SkipUnless(File.Exists(baselinePath), $"no coverage baseline for this version ({baselinePath})");
 

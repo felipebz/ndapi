@@ -20,7 +20,7 @@ public partial class DataSourceColumn : NdapiObject<DataSourceColumn>
     public DataSourceColumn(Block block, DataSourceOperation operation, string name)
         : base(Create(block, operation), ObjectType.DataSourceColumn)
     {
-        Name = name;
+        SetStringProperty(NdapiConstant.D2FP_DSC_NAM, name);
     }
 
     private static ObjectSafeHandle Create(Block block, DataSourceOperation operation)

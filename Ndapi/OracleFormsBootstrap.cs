@@ -23,8 +23,8 @@ internal static partial class OracleFormsBootstrap
     [SupportedOSPlatform("linux")]
     public static void Init(string oracleHome)
     {
-        var libDir = Path.Combine(oracleHome, "lib");
-        var frmjapiPath = Path.Combine(libDir, "libfrmjapi.so");
+        var libDir = Path.Join(oracleHome, "lib");
+        var frmjapiPath = Path.Join(libDir, "libfrmjapi.so");
 
         if (!File.Exists(frmjapiPath))
         {

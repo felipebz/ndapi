@@ -13,7 +13,7 @@ public class NativeFunctionTests
     {
         Sta.Run(() =>
         {
-            var path = Path.Combine(Path.GetTempPath(), $"pci_{Guid.NewGuid():N}.fmb");
+            var path = Path.Join(Path.GetTempPath(), $"pci_{Guid.NewGuid():N}.fmb");
             var module = new FormModule("PCI_SAVE");
             var alert = new Alert(module, "A");
             Assert.Null(alert.PersistentClientInfo);
@@ -47,7 +47,7 @@ public class NativeFunctionTests
         Sta.Run(() =>
         {
             var directory = Directory.CreateTempSubdirectory("ndapi_img");
-            var source = Path.Combine(directory.FullName, "in.bmp");
+            var source = Path.Join(directory.FullName, "in.bmp");
             File.WriteAllBytes(source, Bitmap2X2());
             var module = new FormModule("IMAGE_IO");
             var image = new Graphics(new Canvas(module, "C"), "IMG") { GraphicsObjectType = GraphicsObjectType.Image };
@@ -56,7 +56,7 @@ public class NativeFunctionTests
                 image.ImportImage(source, ImageFormat.Bmp);
 
                 Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "ExportImage requires Forms 12c");
-                var target = Path.Combine(directory.FullName, "out.bmp");
+                var target = Path.Join(directory.FullName, "out.bmp");
                 image.ExportImage(target);
                 Assert.True(new FileInfo(target).Length > 0);
             }
@@ -119,12 +119,12 @@ public class NativeFunctionTests
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
             var oracleHome = Environment.GetEnvironmentVariable("ORACLE_HOME") ?? "";
-            var shipped = Path.Combine(oracleHome, "forms", "rp2rro.pll");
+            var shipped = Path.Join(oracleHome, "forms", "rp2rro.pll");
             Assert.SkipUnless(File.Exists(shipped), $"{shipped} not found");
 
             var directory = Directory.CreateTempSubdirectory("ndapi_pll");
-            var library = Path.Combine(directory.FullName, "RP2RRO.pll");
-            var form = Path.Combine(directory.FullName, "with_lib.fmb");
+            var library = Path.Join(directory.FullName, "RP2RRO.pll");
+            var form = Path.Join(directory.FullName, "with_lib.fmb");
             File.Copy(shipped, library);
             var module = new FormModule("WITH_LIB");
             _ = new AttachedLibrary(module, library);
@@ -150,11 +150,11 @@ public class NativeFunctionTests
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
             var oracleHome = Environment.GetEnvironmentVariable("ORACLE_HOME") ?? "";
-            var shipped = Path.Combine(oracleHome, "forms", "EnableDisableItem.pll");
+            var shipped = Path.Join(oracleHome, "forms", "EnableDisableItem.pll");
             Assert.SkipUnless(File.Exists(shipped), $"{shipped} not found");
 
             var directory = Directory.CreateTempSubdirectory("ndapi_plx");
-            var path = Path.Combine(directory.FullName, "ENABLEDISABLEITEM.pll");
+            var path = Path.Join(directory.FullName, "ENABLEDISABLEITEM.pll");
             File.Copy(shipped, path);
             var library = LibraryModule.Open(path);
             try

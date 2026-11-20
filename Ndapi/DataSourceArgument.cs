@@ -20,7 +20,7 @@ public partial class DataSourceArgument : NdapiObject<DataSourceArgument>
     public DataSourceArgument(Block block, DataSourceOperation operation, string name)
         : base(Create(block, operation), ObjectType.DataSourceArgument)
     {
-        Name = name;
+        SetStringProperty(NdapiConstant.D2FP_DSA_NAM, name);
     }
 
     private static ObjectSafeHandle Create(Block block, DataSourceOperation operation)

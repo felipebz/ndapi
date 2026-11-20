@@ -68,11 +68,9 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
                             {
                             """);
 
-            foreach (var propDecl in classDecl.Members.OfType<PropertyDeclarationSyntax>())
+            foreach (var propDecl in classDecl.Members.OfType<PropertyDeclarationSyntax>()
+                         .Where(p => p.Modifiers.Any(SyntaxKind.PartialKeyword)))
             {
-                if (!propDecl.Modifiers.Any(SyntaxKind.PartialKeyword))
-                    continue;
-
                 var propSymbol = semanticModel.GetDeclaredSymbol(propDecl);
                 if (propSymbol == null)
                     continue;

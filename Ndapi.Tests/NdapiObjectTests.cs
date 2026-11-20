@@ -94,29 +94,33 @@ public class NdapiObjectTests
     }
 
     [Fact]
-    public void CreatingAnObjectTypeTheBuilderLacksFailsClearly()
+    public void CreatingAnEventOnForms6FailsClearly()
     {
         Sta.Run(() =>
         {
-            var is6 = NdapiContext.BuilderVersion.MajorVersion == 6;
-            var form = new FormModule("NO_TYPE_FMB");
-            var menu = new MenuModule("NO_TYPE_MMB");
+            Assert.SkipUnless(NdapiContext.BuilderVersion.MajorVersion == 6, "events exist from Forms 12c on");
+            var form = new FormModule("NO_EVENT_FMB");
 
-            var error = Assert.Throws<NdapiException>(() =>
-            {
-                if (is6)
-                {
-                    _ = new Event(form, "EVT");
-                }
-                else
-                {
-                    _ = new MenuParameter(menu, "MPM");
-                }
-            });
+            var error = Assert.Throws<NdapiException>(() => new Event(form, "EVT"));
 
-            Assert.Contains(is6 ? "D2FFO_EVENT" : "D2FFO_MENU_PARAM", error.Message);
+            Assert.Contains("D2FFO_EVENT", error.Message);
             Assert.Contains("not supported", error.Message);
             form.Destroy();
+        });
+    }
+
+    [Fact]
+    public void CreatingAMenuParameterAfterForms6FailsClearly()
+    {
+        Sta.Run(() =>
+        {
+            Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion == 6, "menu parameters exist on Forms 6i");
+            var menu = new MenuModule("NO_PARAM_MMB");
+
+            var error = Assert.Throws<NdapiException>(() => new MenuParameter(menu, "MPM"));
+
+            Assert.Contains("D2FFO_MENU_PARAM", error.Message);
+            Assert.Contains("not supported", error.Message);
             menu.Destroy();
         });
     }
@@ -188,7 +192,7 @@ public class NdapiObjectTests
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
 
-            var path = Path.Combine(Path.GetTempPath(), $"bip_{Guid.NewGuid():N}.fmb");
+            var path = Path.Join(Path.GetTempPath(), $"bip_{Guid.NewGuid():N}.fmb");
             var module = new FormModule("BIP_SAVE");
             _ = new Report(module, "RPT")
             {
@@ -230,7 +234,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var path = Path.Combine(Path.GetTempPath(), $"refs_{Guid.NewGuid():N}.fmb");
+            var path = Path.Join(Path.GetTempPath(), $"refs_{Guid.NewGuid():N}.fmb");
             var module = new FormModule("REFS_SAVE");
             var canvas = new Canvas(module, "CNV");
             var group = new RecordGroup(module, "RG");
@@ -302,7 +306,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var path = Path.Combine(Path.GetTempPath(), $"dispose_{Guid.NewGuid():N}.fmb");
+            var path = Path.Join(Path.GetTempPath(), $"dispose_{Guid.NewGuid():N}.fmb");
             using (var module = new FormModule("DISPOSE_REOPEN"))
             {
                 module.Save(path);
@@ -330,7 +334,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var path = Path.Combine(Path.GetTempPath(), $"identity_{Guid.NewGuid():N}.fmb");
+            var path = Path.Join(Path.GetTempPath(), $"identity_{Guid.NewGuid():N}.fmb");
             var created = new FormModule("MODULE_IDENTITY");
             var block = new Block(created, "B");
             new Block(created, "TMP").Destroy();

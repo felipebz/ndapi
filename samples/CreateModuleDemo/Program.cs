@@ -56,7 +56,7 @@ static class Program
         };
 
         // Create empno item and item-related properties
-        var empno = new Item(emp, "EMPNO")
+        _ = new Item(emp, "EMPNO")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -80,7 +80,7 @@ static class Program
         };
 
         // Create Ename item and item-related properties
-        var ename = new Item(emp, "ENAME")
+        _ = new Item(emp, "ENAME")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -103,7 +103,7 @@ static class Program
         };
 
         // Create JOB item and item-related properties
-        var job = new Item(emp, "JOB")
+        _ = new Item(emp, "JOB")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -126,7 +126,7 @@ static class Program
         };
 
         // Create SALARY item and item-related properties
-        var sal = new Item(emp, "SAL")
+        _ = new Item(emp, "SAL")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -149,7 +149,7 @@ static class Program
         };
 
         // Create DEPTNO item and item-related properties
-        var deptnoEmp = new Item(emp, "DEPTNO")
+        _ = new Item(emp, "DEPTNO")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -172,7 +172,7 @@ static class Program
         };
 
         // Create DEPTNO item and item-related properties
-        var deptnoDept = new Item(dept, "DEPTNO")
+        _ = new Item(dept, "DEPTNO")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -195,7 +195,7 @@ static class Program
         };
 
         // Create DNAME item and item-related properties
-        var dname = new Item(dept, "DNAME")
+        _ = new Item(dept, "DNAME")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
@@ -218,7 +218,7 @@ static class Program
         };
 
         // Create LOC item and item-related properties
-        var loc = new Item(dept, "LOC")
+        _ = new Item(dept, "LOC")
         {
             ItemType = ItemType.TextItem,
             IsEnabled = true,
