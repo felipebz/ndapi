@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 using Ndapi.Core;
 using Ndapi.Core.Handles;
@@ -14,7 +15,6 @@ namespace Ndapi;
 /// </summary>
 public sealed class NdapiContext : IDisposable
 {
-    private const int ClientData = 1; // client data
     private const int MemoryCallbacks = 2; // memory callbacks
 
     // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
@@ -24,7 +24,8 @@ public sealed class NdapiContext : IDisposable
 
     private static readonly List<NdapiModule> ModuleList = [];
     private static ContextSafeHandle s_context;
-    private static string s_formsLib;
+    private static string s_formsLib = NativeMethods.FormsLib;
+    private static bool s_nativeLibraryResolved;
     private static BuilderVersion s_builderVersion;
 
     internal static NdapiObjectRegistry ObjectRegistry { get; } = new NdapiObjectRegistry();
@@ -46,9 +47,15 @@ public sealed class NdapiContext : IDisposable
     /// </summary>
     public static bool IsConnected { get; private set; }
 
-    static NdapiContext()
+    // Resolved on first use rather than in a static constructor: a failure (e.g. ORACLE_HOME not set) then surfaces as
+    // an NdapiException on every call until fixed, instead of a TypeInitializationException that poisons the type.
+    private static void ResolveNativeLibrary()
     {
-        s_formsLib = NativeMethods.FormsLib;
+        if (s_nativeLibraryResolved)
+        {
+            return;
+        }
+
         if (!Environment.Is64BitProcess)
         {
             NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
@@ -79,6 +86,8 @@ public sealed class NdapiContext : IDisposable
                 return NativeLibrary.Load(s_formsLib, assembly, path);
             }));
         }
+
+        s_nativeLibraryResolved = true;
     }
 
     internal static ContextSafeHandle GetContext()
@@ -86,6 +95,19 @@ public sealed class NdapiContext : IDisposable
         if (s_context != null)
         {
             return s_context;
+        }
+
+        ResolveNativeLibrary();
+
+        // Forms 6i (the only 32-bit Builder) initializes OLE when the context is created; on an MTA thread that
+        // fails with RPC_E_CHANGED_MODE and the API only reports a bare Fail.
+        if (!Environment.Is64BitProcess && OperatingSystem.IsWindows() &&
+            Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
+        {
+            throw new NdapiException(
+                "Oracle Forms 6i requires a single-threaded apartment (STA) thread. Mark Main with [STAThread] " +
+                "(top-level statements run on an MTA thread) or call Ndapi from a thread started with " +
+                "SetApartmentState(ApartmentState.STA).");
         }
 
         var contextAttributes = new ContextAttributes

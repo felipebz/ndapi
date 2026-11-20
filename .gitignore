@@ -159,3 +159,18 @@ API
 /Ndapi.sln.ide
 *.nupkg
 .vs
+
+# Forms modules produced by local experiments and compiles
+*.fmb
+*.fmx
+*.mmb
+*.mmx
+*.olb
+*.pll
+*.plx
+*.fmt
+*.mmt
+*.pld
+
+# CI package output
+artifacts/
