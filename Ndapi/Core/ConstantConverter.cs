@@ -18,13 +18,18 @@ internal static partial class ConstantConverter
 
     private static int GetValue(NdapiConstant property)
     {
-        return NdapiContext.BuilderVersion.MajorVersion switch
+        var constants = NdapiContext.BuilderVersion.MajorVersion switch
         {
-            6 => Forms6Constants[property],
-            12 => Forms12Constants[property],
-            14 => Forms14Constants[property],
+            6 => Forms6Constants,
+            12 => Forms12Constants,
+            14 => Forms14Constants,
             _ => throw new NdapiException($"Unsupported Forms Builder version ({NdapiContext.BuilderVersion.FullVersion})")
         };
+
+        return constants.TryGetValue(property, out var value)
+            ? value
+            : throw new NdapiException(
+                $"{property} is not supported by Oracle Forms {NdapiContext.BuilderVersion.FullVersion}.");
     }
 
     public static bool IsPropertySupportedByBuilderVersion(Enum propertyId)
