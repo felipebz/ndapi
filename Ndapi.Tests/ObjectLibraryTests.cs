@@ -24,4 +24,23 @@ public class ObjectLibraryTests
             form.Destroy();
         });
     }
+
+    [Fact]
+    public void ObjectsCanBeAddedToATabReadFromTheLibrary()
+    {
+        Sta.Run(() =>
+        {
+            var form = new FormModule("OLB_TAB_FMB");
+            var alert = new Alert(form, "ALT");
+            var library = new ObjectLibrary("OLB_TAB");
+            library.CreateObjectLibraryTab("TAB");
+            var tab = Assert.Single(library.Tabs);
+
+            Assert.Same(library, tab.ObjectLibrary);
+            tab.AddObject(alert);
+            Assert.Equal(1, tab.Objects.Count);
+            library.Destroy();
+            form.Destroy();
+        });
+    }
 }

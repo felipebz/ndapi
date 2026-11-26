@@ -18,7 +18,6 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <param name="name">Tab name.</param>
     public ObjectLibraryTab(ObjectLibrary library, string name) : base(name, ObjectType.ObjectLibraryTab, library)
     {
-        ObjectLibrary = library;
     }
 
     internal ObjectLibraryTab(ObjectSafeHandle handle) : base(handle, ObjectType.ObjectLibraryTab)
@@ -28,7 +27,7 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <summary>
     /// Get the object library that owns the current tab.
     /// </summary>
-    public ObjectLibrary? ObjectLibrary { get; }
+    public ObjectLibrary? ObjectLibrary => Owner as ObjectLibrary;
 
     /// <summary>
     /// Gets or sets the comment.
