@@ -12,7 +12,6 @@ namespace Ndapi.Metadata;
 /// </summary>
 public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
 {
-    private static readonly Dictionary<NdapiConstant, NdapiMetaProperty> Cache = new();
     private readonly Lazy<Dictionary<int, string>> _allowedValues;
     private readonly Lazy<PropertyType> _propertyType;
     private readonly Lazy<string> _description;
@@ -67,7 +66,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     /// </summary>
     public bool AcceptConstants { get; }
 
-    private NdapiMetaProperty(NdapiConstant propertyId, string name, bool allowGet, bool allowSet, Type propertyType)
+    internal NdapiMetaProperty(NdapiConstant propertyId, string name, bool allowGet, bool allowSet, Type propertyType)
     {
         PropertyId = propertyId;
         Name = name;
@@ -80,19 +79,6 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
         _propertyType = new Lazy<PropertyType>(() => GetPropertyType(propertyId));
         _description = new Lazy<string>(() => GetName(PropertyId));
-    }
-
-    internal static NdapiMetaProperty GetOrCreate(NdapiConstant propertyId, string name, bool allowGet, bool allowSet,
-        Type propertyType)
-    {
-        if (Cache.TryGetValue(propertyId, out var metaProperty))
-        {
-            return metaProperty;
-        }
-
-        metaProperty = new NdapiMetaProperty(propertyId, name, allowGet, allowSet, propertyType);
-        Cache.Add(propertyId, metaProperty);
-        return metaProperty;
     }
 
     private Dictionary<int, string> LoadAllowedValues()

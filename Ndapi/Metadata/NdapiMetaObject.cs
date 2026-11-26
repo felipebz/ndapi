@@ -71,7 +71,7 @@ public sealed class NdapiMetaObject
             from property in _type.GetProperties()
             from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
             where ConstantConverter.IsPropertySupportedByBuilderVersion(info.PropertyId)
-            select NdapiMetaProperty.GetOrCreate(info.PropertyId, property.Name, property.CanRead, property.CanWrite,
+            select new NdapiMetaProperty(info.PropertyId, property.Name, property.CanRead, property.CanWrite,
                 property.PropertyType);
         return properties.OrderBy(p => p.PropertyId).ToList();
     }

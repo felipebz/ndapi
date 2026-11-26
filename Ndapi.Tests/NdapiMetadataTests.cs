@@ -93,4 +93,20 @@ public class NdapiMetadataTests
             Assert.Empty(inconsistent);
         });
     }
+
+    // the same Forms property is declared differently by different classes
+    [Fact]
+    public void MetaPropertiesDescribeTheDeclaringClass()
+    {
+        Sta.Run(() =>
+        {
+            NdapiMetaProperty Find(Type type, NdapiConstant property) =>
+                NdapiMetadata.GetMetaObjectFrom(type).AllProperties.Single(p => p.PropertyId == property);
+
+            Assert.True(Find(typeof(ProgramUnit), NdapiConstant.D2FP_PGU_TXT).AllowSet);
+            Assert.False(Find(typeof(LibraryProgramUnit), NdapiConstant.D2FP_PGU_TXT).AllowSet);
+            Assert.Equal("Graphics", Find(typeof(Canvas), NdapiConstant.D2FP_GRAPHIC).Name);
+            Assert.Equal("ChildGraphics", Find(typeof(Graphics), NdapiConstant.D2FP_GRAPHIC).Name);
+        });
+    }
 }
