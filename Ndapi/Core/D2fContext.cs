@@ -1,62 +1,62 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.Marshalling;
 
 namespace Ndapi.Core;
 
-[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-internal delegate IntPtr Malloc(IntPtr context, IntPtr size);
-
-[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-internal delegate IntPtr Realloc(IntPtr context, IntPtr ptr, IntPtr newsize);
-
-[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-internal delegate void Free(IntPtr context, IntPtr ptr);
-
+/// <summary>
+/// Context attributes (d2fctxa). Forms allocates the memory it hands over (strings, blobs) through these callbacks, so
+/// Ndapi frees that memory with the same allocator.
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
-internal struct ContextAttributes
+internal unsafe struct ContextAttributes
 {
+    private const int MemoryCallbacks = 2; // the memory callbacks are set
+
     public int mask_d2fctxa;
-    public IntPtr cdata_d2fctxa;
-    public Malloc d2fmalc_d2fctxa;
-    public Free d2fmfre_d2fctxa;
-    public Realloc d2fmrlc_d2fctxa;
-}
+    public void* cdata_d2fctxa;
+    public delegate* unmanaged[Cdecl]<void*, nuint, void*> d2fmalc_d2fctxa;
+    public delegate* unmanaged[Cdecl]<void*, void*, void> d2fmfre_d2fctxa;
+    public delegate* unmanaged[Cdecl]<void*, void*, nuint, void*> d2fmrlc_d2fctxa;
 
-[CustomMarshaller(typeof(ContextAttributes), MarshalMode.ManagedToUnmanagedRef, typeof(ContextAttributesMarshaler))]
-internal static class ContextAttributesMarshaler
-{
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct ContextAttributesUnmanaged
+    public static ContextAttributes WithMemoryCallbacks() => new()
     {
-        public int mask_d2fctxa;
-        public IntPtr cdata_d2fctxa;
-        public IntPtr d2fmalc_d2fctxa;
-        public IntPtr d2fmfre_d2fctxa;
-        public IntPtr d2fmrlc_d2fctxa;
-    }
+        mask_d2fctxa = MemoryCallbacks,
+        d2fmalc_d2fctxa = &Allocate,
+        d2fmfre_d2fctxa = &Free,
+        d2fmrlc_d2fctxa = &Reallocate
+    };
 
-    internal static ContextAttributes ConvertToManaged(ContextAttributesUnmanaged unmanaged)
+    // an exception can't unwind into Forms: a failed allocation returns null, as malloc does
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static void* Allocate(void* context, nuint size)
     {
-        return new ContextAttributes
+        try
         {
-            mask_d2fctxa = unmanaged.mask_d2fctxa,
-            cdata_d2fctxa = unmanaged.cdata_d2fctxa,
-            d2fmalc_d2fctxa = Marshal.GetDelegateForFunctionPointer<Malloc>(unmanaged.d2fmalc_d2fctxa),
-            d2fmfre_d2fctxa = Marshal.GetDelegateForFunctionPointer<Free>(unmanaged.d2fmfre_d2fctxa),
-            d2fmrlc_d2fctxa = Marshal.GetDelegateForFunctionPointer<Realloc>(unmanaged.d2fmrlc_d2fctxa)
-        };
+            return (void*)Marshal.AllocHGlobal((nint)size);
+        }
+        catch (OutOfMemoryException)
+        {
+            return null;
+        }
     }
 
-    public static ContextAttributesUnmanaged ConvertToUnmanaged(ContextAttributes managed)
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static void* Reallocate(void* context, void* pointer, nuint size)
     {
-        return new ContextAttributesUnmanaged
+        try
         {
-            mask_d2fctxa = managed.mask_d2fctxa,
-            cdata_d2fctxa = managed.cdata_d2fctxa,
-            d2fmalc_d2fctxa = Marshal.GetFunctionPointerForDelegate(managed.d2fmalc_d2fctxa),
-            d2fmfre_d2fctxa = Marshal.GetFunctionPointerForDelegate(managed.d2fmfre_d2fctxa),
-            d2fmrlc_d2fctxa = Marshal.GetFunctionPointerForDelegate(managed.d2fmrlc_d2fctxa)
-        };
+            return pointer == null
+                ? (void*)Marshal.AllocHGlobal((nint)size)
+                : (void*)Marshal.ReAllocHGlobal((IntPtr)pointer, (nint)size);
+        }
+        catch (OutOfMemoryException)
+        {
+            return null;
+        }
     }
+
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
+    private static void Free(void* context, void* pointer) => Marshal.FreeHGlobal((IntPtr)pointer);
 }

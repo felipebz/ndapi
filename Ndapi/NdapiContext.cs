@@ -16,13 +16,6 @@ namespace Ndapi;
 /// </summary>
 public sealed class NdapiContext : IDisposable
 {
-    private const int MemoryCallbacks = 2; // memory callbacks
-
-    // keep these delegates here to avoid a "CallbackOnCollectedDelegate was detected"
-    private static readonly Malloc AllocateMemoryDelegate = AllocateMemory;
-    private static readonly Realloc ReallocateMemoryDelegate = ReallocateMemory;
-    private static readonly Free FreeMemoryDelegate = FreeMemory;
-
     private static readonly List<NdapiModule> ModuleList = [];
     private static ContextSafeHandle? s_context;
     private static string s_formsLib = NativeMethods.FormsLib;
@@ -111,13 +104,7 @@ public sealed class NdapiContext : IDisposable
                 "SetApartmentState(ApartmentState.STA).");
         }
 
-        var contextAttributes = new ContextAttributes
-        {
-            mask_d2fctxa = MemoryCallbacks,
-            d2fmalc_d2fctxa = AllocateMemoryDelegate,
-            d2fmrlc_d2fctxa = ReallocateMemoryDelegate,
-            d2fmfre_d2fctxa = FreeMemoryDelegate
-        };
+        var contextAttributes = ContextAttributes.WithMemoryCallbacks();
 
         FormsErrorCode status;
         ContextSafeHandle context;
@@ -145,21 +132,6 @@ public sealed class NdapiContext : IDisposable
 
         s_context = context;
         return context;
-    }
-
-    private static IntPtr AllocateMemory(IntPtr context, IntPtr size)
-    {
-        return Marshal.AllocHGlobal(size);
-    }
-
-    private static IntPtr ReallocateMemory(IntPtr context, IntPtr ptr, IntPtr newsize)
-    {
-        return ptr == IntPtr.Zero ? AllocateMemory(context, newsize) : Marshal.ReAllocHGlobal(ptr, newsize);
-    }
-
-    private static void FreeMemory(IntPtr context, IntPtr ptr)
-    {
-        Marshal.FreeHGlobal(ptr);
     }
 
     /// <summary>

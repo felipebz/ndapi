@@ -24,7 +24,6 @@ internal static partial class NativeMethods
     [LibraryImport(FormsLib)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2fctxcr_Create(out ContextSafeHandle ppd2fctx,
-        [MarshalUsing(typeof(ContextAttributesMarshaler))]
         ref ContextAttributes d2fctx_attr);
 
     [LibraryImport(FormsLib)]
