@@ -3,7 +3,7 @@ Ndapi
 
 [![Build](https://github.com/felipebz/ndapi/actions/workflows/build.yml/badge.svg)](https://github.com/felipebz/ndapi/actions/workflows/build.yml)
 [![NuGet Version](https://img.shields.io/nuget/v/Ndapi)](https://www.nuget.org/packages/Ndapi)
-[![License](https://img.shields.io/github/license/felipebz/ndapi)](LICENSE)
+[![License](https://img.shields.io/github/license/felipebz/ndapi)](https://github.com/felipebz/ndapi/blob/main/LICENSE)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/felipebz/ndapi/badge)](https://scorecard.dev/viewer/?uri=github.com/felipebz/ndapi)
 
 Ndapi lets .NET applications read, create, modify and compile Oracle Forms modules (`.fmb`, `.mmb`, `.olb`, `.pll`).
@@ -30,10 +30,12 @@ foreach (var block in module.Blocks)
 dotnet add package Ndapi
 ```
 
-Nightly builds are published to GitHub Packages:
+Every build of `main` is published to GitHub Packages as a prerelease. GitHub Packages needs authentication even for
+public packages: use a personal access token with the `read:packages` scope.
 
 ```bash
-dotnet nuget add source "https://github.com/felipebz/ndapi/pkgs/nuget" --name "ndapi-dev"
+dotnet nuget add source "https://nuget.pkg.github.com/felipebz/index.json" --name "ndapi-dev" \
+    --username <github-user> --password <token> --store-password-in-clear-text
 dotnet add package Ndapi --prerelease -s "ndapi-dev"
 ```
 
@@ -99,7 +101,8 @@ _ = new Item(block, "ENAME")
 module.Save("employees.fmb");
 ```
 
-The [CreateModuleDemo](samples/CreateModuleDemo/Program.cs) sample builds a complete master-detail form.
+The [CreateModuleDemo](https://github.com/felipebz/ndapi/blob/main/samples/CreateModuleDemo/Program.cs) sample builds
+a complete master-detail form.
 
 ### Compile
 
@@ -146,4 +149,4 @@ version that lacks it throws an `NdapiException` that names the property.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/felipebz/ndapi/blob/main/LICENSE)
