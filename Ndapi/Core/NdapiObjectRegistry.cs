@@ -19,4 +19,14 @@ internal sealed class NdapiObjectRegistry
 
     public void Clear()
         => _trackedObjects.Clear();
+
+    public void InvalidateAll()
+    {
+        foreach (var obj in _trackedObjects.Values)
+        {
+            obj.Handle.SetHandleAsInvalid();
+        }
+
+        _trackedObjects.Clear();
+    }
 }

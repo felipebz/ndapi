@@ -559,11 +559,20 @@ public abstract partial class NdapiObject : IDisposable
     {
         var status = NativeMethods.d2fobde_Destroy(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
+        Invalidate();
+    }
 
+    /// <summary>
+    /// Called once the native object is gone: later use of this wrapper throws <see cref="ObjectDisposedException"/>
+    /// instead of handing a freed pointer to Forms.
+    /// </summary>
+    private protected void Invalidate()
+    {
         // Destroying an object also frees all of its descendants, and the native allocator reuses their addresses
         // for objects created afterwards. The registry is keyed by address and can't tell which entries belong to
         // the destroyed subtree, so drop every cached wrapper: a later lookup creates a fresh one with the right type.
         NdapiContext.ObjectRegistry.Clear();
+        Handle.SetHandleAsInvalid();
     }
 
     internal static NdapiObject Create(
@@ -618,7 +627,7 @@ public abstract partial class NdapiObject : IDisposable
     /// Gets the object name.
     /// </summary>
     /// <returns></returns>
-    public override string ToString() => Name ?? "";
+    public override string ToString() => Handle.IsClosed ? "" : Name ?? "";
 
     #region IDisposable Support
 
@@ -633,7 +642,7 @@ public abstract partial class NdapiObject : IDisposable
 
         if (disposing)
         {
-            if (Handle != null && !Handle.IsInvalid)
+            if (Handle != null && !Handle.IsClosed && !Handle.IsInvalid)
             {
                 var pointer = Handle.Address;
                 NdapiContext.ObjectRegistry.UntrackObject(pointer);

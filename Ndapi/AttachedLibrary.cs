@@ -67,6 +67,6 @@ public partial class AttachedLibrary : NdapiObject<AttachedLibrary>
         var status = NativeMethods.d2falbdt_Detach(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
 
-        Handle = new ObjectSafeHandle();
+        Invalidate();
     }
 }

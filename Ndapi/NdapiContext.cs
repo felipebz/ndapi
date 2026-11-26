@@ -237,7 +237,15 @@ public sealed class NdapiContext : IDisposable
         s_context.Dispose();
         s_context = null;
         s_builderVersion = null;
-        ObjectRegistry.Clear();
+
+        // every native object went with the context: wrappers still referenced must throw instead of passing
+        // pointers of the old context to a new one
+        foreach (var module in ModuleList)
+        {
+            module.OnContextDestroyed();
+        }
+
+        ObjectRegistry.InvalidateAll();
         ModuleList.Clear();
         IsConnected = false;
     }

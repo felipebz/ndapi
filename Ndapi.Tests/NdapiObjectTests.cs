@@ -376,4 +376,21 @@ public class NdapiObjectTests
             Assert.Equal(["B2", "B1", "B3"], module.Blocks.Select(b => b.Name));
         });
     }
+
+    [Fact]
+    public void ADestroyedObjectCanNoLongerReachForms()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("DESTROYED");
+            var alert = new Alert(module, "ALT");
+            alert.Destroy();
+
+            Assert.Throws<ObjectDisposedException>(() => alert.Title);
+            Assert.Throws<ObjectDisposedException>(alert.Destroy);
+            Assert.Equal("", alert.ToString());
+            module.Destroy();
+            module.Destroy();
+        });
+    }
 }

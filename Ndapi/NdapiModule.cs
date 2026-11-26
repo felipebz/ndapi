@@ -109,6 +109,13 @@ public closed class NdapiModule : NdapiObject
         _destroyed = true;
     }
 
+    // the module went with the Forms context
+    internal void OnContextDestroyed()
+    {
+        _destroyed = true;
+        Handle.SetHandleAsInvalid();
+    }
+
     /// <summary>
     /// Destroys the module if this instance opened or created it, so <c>using</c> unloads the module from Forms.
     /// <c>item.Module</c> returns that same instance. Other module wrappers only release themselves.
