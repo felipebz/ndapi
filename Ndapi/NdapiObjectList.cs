@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 using Ndapi.Core;
 using Ndapi.Enums;
@@ -9,7 +8,7 @@ using Ndapi.Metadata;
 
 namespace Ndapi;
 
-public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T> : IEnumerable<T> where T : NdapiObject
+public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
 {
     private readonly NdapiObject _ndapiObject;
     private readonly NdapiConstant _property;

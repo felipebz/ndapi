@@ -118,9 +118,7 @@ public static class NdapiMetadata
 
     internal static ObjectType GetObjectTypeFrom(Type type) => GetMap(type).ObjectType;
 
-    [return:
-        DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
-                                   DynamicallyAccessedMemberTypes.PublicProperties)]
+    [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
     internal static Type GetTypeFrom(ObjectType type) => GetMap(type).Type;
 
     internal static NdapiObject CreateWrapper(Type type, ObjectSafeHandle handle) => GetMap(type).Factory(handle);
@@ -142,8 +140,7 @@ public static class NdapiMetadata
         private readonly Lazy<NdapiMetaObject> _metaObject;
 
         public ObjectTypeMap(ObjectType objectType,
-            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
-                                        DynamicallyAccessedMemberTypes.PublicProperties)]
+            [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
             Type type,
             Func<ObjectSafeHandle, NdapiObject> factory)
         {
@@ -157,14 +154,10 @@ public static class NdapiMetadata
 
         public ObjectType ObjectType { get; }
 
-        [field:
-            DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
-                                       DynamicallyAccessedMemberTypes.PublicProperties)]
+        [field: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
         public Type Type
         {
-            [return:
-                DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
-                                           DynamicallyAccessedMemberTypes.PublicProperties)]
+            [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
             get;
         }
 

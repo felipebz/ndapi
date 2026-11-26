@@ -124,11 +124,11 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     public IEnumerable<NdapiMetaProperty> MetaProperties => MetaObject.AllProperties;
 
-    internal T? GetPrevious<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>()
+    internal T? GetPrevious<T>()
         where T : NdapiObject =>
         GetObjectProperty<T>(NdapiConstant.D2FP_PREVIOUS);
 
-    internal T? GetNext<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>()
+    internal T? GetNext<T>()
         where T : NdapiObject =>
         GetObjectProperty<T>(NdapiConstant.D2FP_NEXT);
 
@@ -280,7 +280,7 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>The property value.</returns>
-    public T? GetObjectProperty<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(
+    public T? GetObjectProperty<T>(
         NdapiConstant property) where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
@@ -309,9 +309,7 @@ public abstract partial class NdapiObject : IDisposable
     /// </summary>
     /// <param name="property">Property id.</param>
     /// <returns>List of child objects.</returns>
-    public NdapiObjectList<T> GetObjectList<
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
-    T>(NdapiConstant property)
+    public NdapiObjectList<T> GetObjectList<T>(NdapiConstant property)
         where T : NdapiObject
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
@@ -575,7 +573,6 @@ public abstract partial class NdapiObject : IDisposable
     }
 
     public NdapiObject? Find(
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
         Type type,
         string name)
     {
@@ -618,7 +615,6 @@ public abstract partial class NdapiObject : IDisposable
     }
 
     internal static NdapiObject Create(
-        [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)]
         Type type,
         ObjectSafeHandle handle)
     {
@@ -659,7 +655,7 @@ public abstract partial class NdapiObject : IDisposable
     }
 
     internal static T
-        Create<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(
+        Create<T>(
             ObjectSafeHandle handle) where T : NdapiObject
     {
         return (T)Create(typeof(T), handle);
@@ -709,7 +705,7 @@ public abstract partial class NdapiObject : IDisposable
 /// Represents a generic object.
 /// </summary>
 public abstract class
-    NdapiObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T> : NdapiObject
+    NdapiObject<T> : NdapiObject
     where T : NdapiObject
 {
     private protected NdapiObject() { }
