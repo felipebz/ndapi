@@ -120,10 +120,10 @@ public sealed class NdapiContext : IDisposable
         };
 
         FormsErrorCode status;
+        ContextSafeHandle context;
         try
         {
-            status = NativeMethods.d2fctxcr_Create(out var context, ref contextAttributes);
-            s_context = context;
+            status = NativeMethods.d2fctxcr_Create(out context, ref contextAttributes);
         }
         catch (DllNotFoundException)
         {
@@ -131,8 +131,20 @@ public sealed class NdapiContext : IDisposable
                                      "Please check if this version of Oracle Forms is installed.");
         }
 
-        Ensure.Success(status);
-        return s_context;
+        // published only once created, so a failure is reported again on the next call instead of leaving an
+        // unusable context behind
+        try
+        {
+            Ensure.Success(status);
+        }
+        catch
+        {
+            context.Dispose();
+            throw;
+        }
+
+        s_context = context;
+        return context;
     }
 
     private static IntPtr AllocateMemory(IntPtr context, IntPtr size)
@@ -217,7 +229,7 @@ public sealed class NdapiContext : IDisposable
     /// </summary>
     public static void Destroy()
     {
-        if (s_context is null || s_context.IsInvalid)
+        if (s_context is null)
         {
             return;
         }
