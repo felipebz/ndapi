@@ -28,41 +28,10 @@ internal static unsafe partial class NlsStringMarshaller
         private byte* _native;
         private bool _allocated;
 
-        public void FromManaged(string? managed, Span<byte> buffer)
-        {
-            if (managed is null)
-            {
-                _native = null;
-                return;
-            }
-
-            try
-            {
-                // the exact count is a second pass over the string, only needed when the worst case doesn't fit
-                if (Enc.GetMaxByteCount(managed.Length) + 1 > buffer.Length)
-                {
-                    var byteCount = Enc.GetByteCount(managed) + 1;
-                    if (byteCount > buffer.Length)
-                    {
-                        buffer = new Span<byte>((byte*)Marshal.AllocHGlobal(byteCount), byteCount);
-                        _allocated = true;
-                    }
-                }
-
-                var bytesWritten = Enc.GetBytes(managed, buffer);
-                buffer[bytesWritten] = 0;
-            }
-            catch (EncoderFallbackException e)
-            {
-                // never store a replacement character ('?') in place of text the module charset can't represent
-                throw new NdapiException(
-                    $"The character '{e.CharUnknown}' (U+{(int)e.CharUnknown:X4}) at position {e.Index} has no " +
-                    $"representation in the module charset ({Enc.WebName}, from NLS_LANG).", e);
-            }
-
-            // the stub's buffer is stackalloc'ed and the fallback is native memory: neither moves
-            _native = (byte*)Unsafe.AsPointer(ref MemoryMarshal.GetReference(buffer));
-        }
+        public void FromManaged(string? managed, Span<byte> buffer) =>
+            _native = managed is null
+                ? null
+                : Encode(managed, buffer, Enc, "the module charset from NLS_LANG", out _allocated);
 
         public readonly byte* ToUnmanaged() => _native;
 
@@ -71,6 +40,42 @@ internal static unsafe partial class NlsStringMarshaller
             if (_allocated)
                 Marshal.FreeHGlobal((IntPtr)_native);
         }
+    }
+
+    /// <summary>
+    /// Encodes <paramref name="managed"/> as a null-terminated string into <paramref name="buffer"/>, or into native
+    /// memory when it doesn't fit (<paramref name="allocated"/>, freed by the caller).
+    /// </summary>
+    internal static byte* Encode(string managed, Span<byte> buffer, Encoding encoding, string target,
+        out bool allocated)
+    {
+        allocated = false;
+        try
+        {
+            // the exact count is a second pass over the string, only needed when the worst case doesn't fit
+            if (encoding.GetMaxByteCount(managed.Length) + 1 > buffer.Length)
+            {
+                var byteCount = encoding.GetByteCount(managed) + 1;
+                if (byteCount > buffer.Length)
+                {
+                    buffer = new Span<byte>((byte*)Marshal.AllocHGlobal(byteCount), byteCount);
+                    allocated = true;
+                }
+            }
+
+            var bytesWritten = encoding.GetBytes(managed, buffer);
+            buffer[bytesWritten] = 0;
+        }
+        catch (EncoderFallbackException e)
+        {
+            // never pass a replacement character ('?') in place of text the target can't represent
+            throw new NdapiException(
+                $"The character '{e.CharUnknown}' (U+{(int)e.CharUnknown:X4}) at position {e.Index} has no " +
+                $"representation in {target} ({encoding.WebName}).", e);
+        }
+
+        // the stub's buffer is stackalloc'ed and the fallback is native memory: neither moves
+        return (byte*)Unsafe.AsPointer(ref MemoryMarshal.GetReference(buffer));
     }
 
     private static Encoding InitializeEncoding()

@@ -51,6 +51,7 @@ public class NativeFunctionTests
             using var module = new FormModule("ACAO");
             module.Save(path);
             module.Destroy();
+            Assert.True(File.Exists(path));
 
             var reopened = FormModule.Open(path);
             try
