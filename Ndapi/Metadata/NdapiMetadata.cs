@@ -104,7 +104,7 @@ public static class NdapiMetadata
     {
         var status = NativeMethods.d2fobgcv_GetConstValue(NdapiContext.GetContext(), name, out var value);
         Ensure.Success(status);
-        return NdapiObject.Convert<ObjectType>(value);
+        return ConstantConverter.ToEnum<ObjectType>(value);
     }
 
     internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;

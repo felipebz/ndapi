@@ -122,7 +122,7 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
     public static PropertyType GetPropertyType(NdapiConstant property)
     {
         var type = NativeMethods.d2fprgt_GetType(NdapiContext.GetContext(), ConstantConverter.GetValue(property));
-        return NdapiObject.Convert<PropertyType>(type);
+        return ConstantConverter.ToEnum<PropertyType>(type);
     }
 
     /// <summary>

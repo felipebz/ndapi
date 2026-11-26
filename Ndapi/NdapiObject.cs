@@ -218,15 +218,7 @@ public abstract partial class NdapiObject : IDisposable
         where T : struct, Enum
     {
         var realValue = GetNumberProperty(property);
-        return Convert<T>(realValue);
-    }
-
-    internal static T Convert<T>(int realValue)
-        where T : struct, Enum
-    {
-        return Enum.GetValues<T>()
-            .First(x => ConstantConverter.IsPropertySupportedByBuilderVersion(x) &&
-                        ConstantConverter.GetValue(x) == realValue);
+        return ConstantConverter.ToEnum<T>(realValue);
     }
 
     /// <summary>
@@ -339,7 +331,7 @@ public abstract partial class NdapiObject : IDisposable
 
         var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), Handle, out var type);
         Ensure.Success(status);
-        _type = Convert<ObjectType>(type);
+        _type = ConstantConverter.ToEnum<ObjectType>(type);
 
         return _type;
     }
@@ -647,7 +639,7 @@ public abstract partial class NdapiObject : IDisposable
             var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), handle, out var internalObjectType);
             Ensure.Success(status);
 
-            var objectType = Convert<ObjectType>(internalObjectType);
+            var objectType = ConstantConverter.ToEnum<ObjectType>(internalObjectType);
 
             if (objectType == ObjectType.Undefined)
             {

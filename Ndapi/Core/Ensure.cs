@@ -37,7 +37,7 @@ internal static class Ensure
         throw new NdapiException($"The Forms API returned an error. Error code: {result}", result);
     }
 
-    public static void IsValueSupportedByBuilderVersion(NdapiConstant property, Enum value)
+    public static void IsValueSupportedByBuilderVersion<T>(NdapiConstant property, T value) where T : struct, Enum
     {
         if (!ConstantConverter.IsPropertySupportedByBuilderVersion(value))
         {
