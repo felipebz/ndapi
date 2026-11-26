@@ -19,7 +19,7 @@ public class NdapiObjectLibraryTabObjectsList : IEnumerable<NdapiObject>
 
     public int Count { get; }
 
-    public bool Any() => Count > 1;
+    public bool Any() => Count > 0;
 
     public IEnumerator<NdapiObject> GetEnumerator() => new Enumerator(this);
 
