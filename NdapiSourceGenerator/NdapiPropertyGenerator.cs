@@ -93,27 +93,20 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
         var hasSetter = propDecl.AccessorList?.Accessors.Any(a => a.Kind() == SyntaxKind.SetAccessorDeclaration) ?? false;
         var setter = propDecl.ExpressionBody == null && hasSetter ? accessors.Setter : null;
 
-        if (IsToxicProperty(constantName) && propSymbol.Type.SpecialType == SpecialType.System_String)
-        {
-            AppendCachedProperty(sb, modifiers, propertyType, propSymbol.Name, accessors.Getter, setter);
-        }
-        else
-        {
-            sb.AppendLine(setter == null
-                ? $$"""
-                        {{modifiers}} {{propertyType}} {{propSymbol.Name}}
-                        {
-                            get => {{accessors.Getter}};
-                        }
-                    """
-                : $$"""
-                        {{modifiers}} {{propertyType}} {{propSymbol.Name}}
-                        {
-                            get => {{accessors.Getter}};
-                            set => {{setter}};
-                        }
-                    """);
-        }
+        sb.AppendLine(setter == null
+            ? $$"""
+                    {{modifiers}} {{propertyType}} {{propSymbol.Name}}
+                    {
+                        get => {{accessors.Getter}};
+                    }
+                """
+            : $$"""
+                    {{modifiers}} {{propertyType}} {{propSymbol.Name}}
+                    {
+                        get => {{accessors.Getter}};
+                        set => {{setter}};
+                    }
+                """);
     }
 
     private static (string Getter, string? Setter)? GetAccessors(ITypeSymbol type, string constantName)
@@ -150,48 +143,6 @@ public class NdapiPropertyGenerator : IIncrementalGenerator
             propDecl.Modifiers.Any(SyntaxKind.NewKeyword) ? "new" : "",
             "partial"
         ).Replace("  ", " ").Trim();
-    }
-
-    // WARN: Toxic Properties Mitigation
-    // Some native properties in the Oracle Forms API related to PL/SQL text extraction
-    // cause massive unmanaged memory leaks in pls805.dll/CA60.DLL when read repeatedly.
-    // We intercept these specific constants to generate a memoization pattern.
-    // This ensures the native C API is called only once per object lifecycle.
-    private static bool IsToxicProperty(string constantName)
-    {
-        return constantName.Contains("D2FP_PGU_TXT") ||
-               constantName.Contains("D2FP_TRG_TXT") ||
-               constantName.Contains("D2FP_MNU_ITM_CODE");
-    }
-
-    private static void AppendCachedProperty(StringBuilder sb, string modifiers, string propertyType,
-        string propertyName, string getter, string? setter)
-    {
-        sb.AppendLine($"    private {propertyType} _cached{propertyName};");
-        sb.AppendLine($"    private bool _is{propertyName}Cached;");
-        sb.AppendLine();
-
-        sb.AppendLine($"    {modifiers} {propertyType} {propertyName}");
-        sb.AppendLine("    {");
-        sb.AppendLine("        get");
-        sb.AppendLine("        {");
-        sb.AppendLine($"            if (_is{propertyName}Cached) return _cached{propertyName};");
-        sb.AppendLine($"            _cached{propertyName} = {getter};");
-        sb.AppendLine($"            _is{propertyName}Cached = true;");
-        sb.AppendLine($"            return _cached{propertyName};");
-        sb.AppendLine("        }");
-
-        if (setter != null)
-        {
-            sb.AppendLine("        set");
-            sb.AppendLine("        {");
-            sb.AppendLine($"            {setter};");
-            sb.AppendLine($"            _cached{propertyName} = value;");
-            sb.AppendLine($"            _is{propertyName}Cached = true;");
-            sb.AppendLine("        }");
-        }
-
-        sb.AppendLine("    }");
     }
 
     private static string GetPropertyConstantName(AttributeData attributeData)

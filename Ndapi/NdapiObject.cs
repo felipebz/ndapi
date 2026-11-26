@@ -140,10 +140,22 @@ public abstract partial class NdapiObject : IDisposable
     public string? GetStringProperty(NdapiConstant property)
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
+        var isPlsqlText = IsPlsqlText(property);
+        if (isPlsqlText && _isPlsqlTextCached)
+        {
+            return _plsqlText;
+        }
+
         var status = NativeMethods.d2fobgt_GetTextProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var textPtr);
         Ensure.Success(status);
-        return NlsStringMarshaller.ReadNlsStringAndFree(textPtr);
+        var value = NlsStringMarshaller.ReadNlsStringAndFree(textPtr);
+        if (isPlsqlText)
+        {
+            CachePlsqlText(value);
+        }
+
+        return value;
     }
 
     /// <summary>
@@ -157,6 +169,30 @@ public abstract partial class NdapiObject : IDisposable
         var status = NativeMethods.d2fobst_SetTextProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), value);
         Ensure.Success(status);
+        if (IsPlsqlText(property))
+        {
+            CachePlsqlText(value);
+        }
+    }
+
+    // Reading the PL/SQL text of program units, triggers and menu items leaks native memory (pls805.dll/CA60.DLL) on
+    // every call, so each wrapper reads it once. Operations that can change the text drop the cached copy.
+    private string? _plsqlText;
+    private bool _isPlsqlTextCached;
+
+    private static bool IsPlsqlText(NdapiConstant property) =>
+        property is NdapiConstant.D2FP_PGU_TXT or NdapiConstant.D2FP_TRG_TXT or NdapiConstant.D2FP_MNU_ITM_CODE;
+
+    private void CachePlsqlText(string? value)
+    {
+        _plsqlText = value;
+        _isPlsqlTextCached = true;
+    }
+
+    private void ForgetPlsqlText()
+    {
+        _plsqlText = null;
+        _isPlsqlTextCached = false;
     }
 
     /// <summary>
@@ -354,6 +390,7 @@ public abstract partial class NdapiObject : IDisposable
         var status =
             NativeMethods.d2fobip_InheritProp(NdapiContext.GetContext(), Handle, ConstantConverter.GetValue(property));
         Ensure.Success(status);
+        ForgetPlsqlText();
     }
 
     internal FormsErrorCode IsPropertyDefaulted(NdapiConstant property)
@@ -447,6 +484,7 @@ public abstract partial class NdapiObject : IDisposable
     {
         var status = NativeMethods.d2fobra_Reattach(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
+        ForgetPlsqlText();
     }
 
     /// <summary>
@@ -460,6 +498,7 @@ public abstract partial class NdapiObject : IDisposable
     {
         var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), Handle, parent.Handle, keepPath);
         Ensure.Success(status);
+        ForgetPlsqlText();
     }
 
     /// <summary>
@@ -470,6 +509,7 @@ public abstract partial class NdapiObject : IDisposable
         Ensure.MinimumMajorVersion(12, nameof(UnSubclass));
         var status = NativeMethods.d2fobus_UnSubClass(NdapiContext.GetContext(), Handle);
         Ensure.Success(status);
+        ForgetPlsqlText();
     }
 
     /// <summary>

@@ -393,4 +393,23 @@ public class NdapiObjectTests
             module.Destroy();
         });
     }
+
+    // the PL/SQL text is cached (reading it leaks native memory): the typed property and the generic accessors
+    // must see the same value
+    [Fact]
+    public void PlsqlTextIsTheSameThroughTypedAndGenericAccess()
+    {
+        Sta.Run(() =>
+        {
+            var module = new FormModule("PLSQL_TEXT");
+            var trigger = new Trigger(module, "WHEN-NEW-FORM-INSTANCE") { Text = "null;" };
+
+            trigger.SetStringProperty(NdapiConstant.D2FP_TRG_TXT, "message('x');");
+            Assert.Equal("message('x');", trigger.Text);
+
+            trigger.Text = "begin null; end;";
+            Assert.Equal("begin null; end;", trigger.GetStringProperty(NdapiConstant.D2FP_TRG_TXT));
+            module.Destroy();
+        });
+    }
 }
