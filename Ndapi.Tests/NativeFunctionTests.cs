@@ -42,6 +42,30 @@ public class NativeFunctionTests
     }
 
     [Fact]
+    public void ModuleInAPathWithAccentsCanBeSavedAndOpened()
+    {
+        Sta.Run(() =>
+        {
+            var directory = Directory.CreateTempSubdirectory("ndapi_ação_");
+            var path = Path.Join(directory.FullName, "AÇÃO.fmb");
+            var module = new FormModule("ACAO");
+            module.Save(path);
+            module.Destroy();
+
+            var reopened = FormModule.Open(path);
+            try
+            {
+                Assert.Equal("ACAO", reopened.Name);
+            }
+            finally
+            {
+                reopened.Destroy();
+                directory.Delete(true);
+            }
+        });
+    }
+
+    [Fact]
     public void ImportedImageCanBeExported()
     {
         Sta.Run(() =>

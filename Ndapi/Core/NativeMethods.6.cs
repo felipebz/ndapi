@@ -20,7 +20,7 @@ internal static partial class NativeMethods
         ObjectSafeHandle parent,
         out ObjectSafeHandle ppd2falb,
         [MarshalAs(UnmanagedType.I1)] bool db,
-        [MarshalAs(UnmanagedType.LPStr)] string? name);
+        [MarshalUsing(typeof(NlsStringMarshaller))] string? name);
 
     #endregion
 
@@ -30,7 +30,7 @@ internal static partial class NativeMethods
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial FormsErrorCode d2ffmdld_Load(ContextSafeHandle pd2fctx,
         out ObjectSafeHandle ppd2ffmd,
-        [MarshalAs(UnmanagedType.LPStr)] string? formname,
+        [MarshalUsing(typeof(NlsStringMarshaller))] string? formname,
         [MarshalAs(UnmanagedType.I1)] bool db);
 
     [LibraryImport(Forms6Lib)]
