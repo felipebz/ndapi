@@ -102,17 +102,74 @@ public class NdapiPropertyGeneratorTests
         Assert.False(type.GetProperty("Label")!.CanWrite);
     }
 
-    private static object CompileSample(out Type type)
+    [Theory]
+    [InlineData("public string? Text { get; set; }", "NDAPI001")]
+    [InlineData("public partial double Ratio { get; set; }", "NDAPI002")]
+    [InlineData("public partial NdapiObjectList<Sample> Items { get; set; }", "NDAPI003")]
+    [InlineData("public partial string? Text { get; init; }", "NDAPI004")]
+    public void MisdeclaredPropertiesAreReported(string declaration, string diagnosticId)
     {
-        var parseOptions = new CSharpParseOptions(LanguageVersion.Latest);
-        var compilation = CSharpCompilation.Create("Sample",
-            [CSharpSyntaxTree.ParseText(Api, parseOptions)],
+        var source = $$"""
+            namespace Ndapi
+            {
+                using Ndapi.Core;
+
+                public partial class Broken : NdapiObject
+                {
+                    [Property(NdapiConstant.D2FP_TEXT)] {{declaration}}
+                }
+            }
+            """;
+
+        RunGenerator(CreateCompilation(Api, source), out _, out var diagnostics);
+
+        var diagnostic = Assert.Single(diagnostics);
+        Assert.Equal(diagnosticId, diagnostic.Id);
+        Assert.Equal(DiagnosticSeverity.Error, diagnostic.Severity);
+    }
+
+    [Fact]
+    public void AnUnrelatedEditReusesTheGeneratedSources()
+    {
+        var compilation = CreateCompilation(Api);
+        GeneratorDriver driver = CSharpGeneratorDriver.Create([new NdapiPropertyGenerator().AsSourceGenerator()],
+            parseOptions: ParseOptions,
+            driverOptions: new GeneratorDriverOptions(IncrementalGeneratorOutputKind.None,
+                trackIncrementalGeneratorSteps: true));
+
+        var cancellationToken = TestContext.Current.CancellationToken;
+        driver = driver.RunGenerators(compilation, cancellationToken);
+        driver = driver.RunGenerators(compilation.AddSyntaxTrees(
+            CSharpSyntaxTree.ParseText("class Unrelated { }", ParseOptions, cancellationToken: cancellationToken)),
+            cancellationToken);
+
+        var outputs = driver.GetRunResult().Results.Single().TrackedOutputSteps
+            .SelectMany(step => step.Value)
+            .SelectMany(step => step.Outputs)
+            .ToList();
+        Assert.NotEmpty(outputs);
+        Assert.All(outputs, output =>
+            Assert.True(output.Reason is IncrementalStepRunReason.Cached or IncrementalStepRunReason.Unchanged,
+                $"{output.Reason}"));
+    }
+
+    private static readonly CSharpParseOptions ParseOptions = new(LanguageVersion.Latest);
+
+    private static CSharpCompilation CreateCompilation(params string[] sources) =>
+        CSharpCompilation.Create("Sample",
+            sources.Select(source => CSharpSyntaxTree.ParseText(source, ParseOptions)),
             FrameworkReferences(),
             new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary,
                 nullableContextOptions: NullableContextOptions.Enable));
 
-        CSharpGeneratorDriver.Create([new NdapiPropertyGenerator().AsSourceGenerator()], parseOptions: parseOptions)
-            .RunGeneratorsAndUpdateCompilation(compilation, out var output, out var generatorDiagnostics);
+    private static void RunGenerator(Compilation compilation, out Compilation output,
+        out System.Collections.Immutable.ImmutableArray<Diagnostic> diagnostics) =>
+        CSharpGeneratorDriver.Create([new NdapiPropertyGenerator().AsSourceGenerator()], parseOptions: ParseOptions)
+            .RunGeneratorsAndUpdateCompilation(compilation, out output, out diagnostics);
+
+    private static object CompileSample(out Type type)
+    {
+        RunGenerator(CreateCompilation(Api), out var output, out var generatorDiagnostics);
 
         Assert.Empty(generatorDiagnostics);
         using var stream = new MemoryStream();
