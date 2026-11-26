@@ -18,7 +18,7 @@ namespace Ndapi;
 /// </summary>
 public abstract partial class NdapiObject : IDisposable
 {
-    // null only for Font and Coordinate, which wrap no native object
+    // assigned by the derived constructor when it creates the native object itself (Font, Coordinate, AttachedLibrary)
     internal ObjectSafeHandle Handle = null!;
     private ObjectType _type;
 
@@ -34,7 +34,7 @@ public abstract partial class NdapiObject : IDisposable
 
     private protected NdapiObject(string name, ObjectType type, NdapiObject? parent = null)
     {
-        var parentHandle = parent?.Handle ?? new ObjectSafeHandle();
+        var parentHandle = parent?.Handle ?? ObjectSafeHandle.Null;
         var status = NativeMethods.d2fobcr_Create(NdapiContext.GetContext(), parentHandle, out Handle, name,
             ConstantConverter.GetValue(type));
         Ensure.Success(status);
@@ -300,7 +300,7 @@ public abstract partial class NdapiObject : IDisposable
     {
         Ensure.IsPropertySupportedByBuilderVersion(property);
         var status = NativeMethods.d2fobso_SetObjProp(NdapiContext.GetContext(), Handle,
-            ConstantConverter.GetValue(property), value?.Handle ?? new ObjectSafeHandle());
+            ConstantConverter.GetValue(property), value?.Handle ?? ObjectSafeHandle.Null);
         Ensure.Success(status);
     }
 
@@ -740,7 +740,7 @@ public abstract class
     /// <returns>The new object.</returns>
     public T Clone(string newName, NdapiObject? newOwner = null, bool keepSubclassingInfo = true)
     {
-        var parentHandle = newOwner?.Handle ?? Owner?.Handle ?? new ObjectSafeHandle();
+        var parentHandle = newOwner?.Handle ?? Owner?.Handle ?? ObjectSafeHandle.Null;
 
         var status = keepSubclassingInfo
             ? NativeMethods.d2fobre_Replicate(NdapiContext.GetContext(), parentHandle, Handle, out var newHandle,
@@ -759,7 +759,7 @@ public abstract class
     /// <param name="nextObject">The next object instance. If null, the object will be moved to the end of the list.</param>
     public void Move(T? nextObject)
     {
-        var nextHandle = nextObject?.Handle ?? new ObjectSafeHandle();
+        var nextHandle = nextObject?.Handle ?? ObjectSafeHandle.Null;
         var status = NativeMethods.d2fobmv_Move(NdapiContext.GetContext(), Handle, nextHandle);
         Ensure.Success(status);
     }

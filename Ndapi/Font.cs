@@ -14,7 +14,6 @@ public partial class Font : NdapiObject<Font>
     /// </summary>
     public Font() : base(ObjectType.Font)
     {
-        Handle = new ObjectSafeHandle();
         var status = NativeMethods.d2ffntcr_Create(NdapiContext.GetContext(), out Handle);
         Ensure.Success(status);
     }

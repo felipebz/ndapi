@@ -14,7 +14,6 @@ public partial class Coordinate : NdapiObject<Coordinate>
     /// </summary>
     public Coordinate() : base(ObjectType.Coordinate)
     {
-        Handle = new ObjectSafeHandle();
         var status = NativeMethods.d2fcrdcr_Create(NdapiContext.GetContext(), out Handle);
         Ensure.Success(status);
     }

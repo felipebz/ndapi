@@ -1,18 +1,24 @@
 ﻿using System;
 
+using Microsoft.Win32.SafeHandles;
+
 namespace Ndapi.Core.Handles;
 
-internal sealed class ObjectSafeHandle : SafeHandleBase
+/// <summary>
+/// A Forms object, owned by its module: the handle never frees it, so it isn't finalizable either.
+/// </summary>
+internal sealed class ObjectSafeHandle() : SafeHandleZeroOrMinusOneIsInvalid(ownsHandle: false)
 {
     /// <summary>
-    /// The native object address, used as identity (object registry, module lookup). Releasing an object handle is
-    /// a no-op (the module owns its objects), so reading the address carries none of the risks DangerousGetHandle
-    /// guards against.
+    /// Passed for a null object argument (no parent, no value). Only ever passed to Forms, never disposed.
+    /// </summary>
+    internal static ObjectSafeHandle Null { get; } = new();
+
+    /// <summary>
+    /// The native object address, used as identity (object registry, module lookup). The handle owns nothing, so
+    /// reading the address carries none of the risks DangerousGetHandle guards against.
     /// </summary>
     internal IntPtr Address => handle;
 
-    protected override bool ReleaseHandleImpl()
-    {
-        return true;
-    }
+    protected override bool ReleaseHandle() => true;
 }
