@@ -412,4 +412,21 @@ public class NdapiObjectTests
             module.Destroy();
         });
     }
+
+    [Fact]
+    public void ModulesCanBeClosedWhileIteratingTheOpenModules()
+    {
+        Sta.Run(() =>
+        {
+            _ = new FormModule("SNAPSHOT_A");
+            _ = new FormModule("SNAPSHOT_B");
+
+            foreach (var module in NdapiContext.Modules.Where(m => m.Name!.StartsWith("SNAPSHOT_", StringComparison.Ordinal)))
+            {
+                module.Dispose();
+            }
+
+            Assert.DoesNotContain(NdapiContext.Modules, m => m.Name!.StartsWith("SNAPSHOT_", StringComparison.Ordinal));
+        });
+    }
 }

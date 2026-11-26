@@ -156,9 +156,12 @@ public sealed class NdapiContext : IDisposable
     }
 
     /// <summary>
-    /// Returns the open modules in the current context.
+    /// Returns the open modules in the current context. The sequence is a snapshot, so modules can be closed while
+    /// iterating it.
     /// </summary>
-    public static IEnumerable<NdapiModule> Modules => ModuleList;
+    public static IEnumerable<NdapiModule> Modules => ModuleList.ToArray();
+
+    internal static bool IsOpenedModule(NdapiModule module) => ModuleList.Contains(module);
 
     internal static void AddModule(NdapiModule module)
     {
@@ -172,8 +175,18 @@ public sealed class NdapiContext : IDisposable
 
     // The registry is cleared whenever an object is destroyed, so the module list stays the source of truth for the
     // wrappers of opened and created modules.
-    internal static NdapiModule? FindModule(IntPtr pointer) =>
-        ModuleList.FirstOrDefault(module => module.Handle.Address == pointer);
+    internal static NdapiModule? FindModule(IntPtr pointer)
+    {
+        foreach (var module in ModuleList)
+        {
+            if (module.Handle.Address == pointer)
+            {
+                return module;
+            }
+        }
+
+        return null;
+    }
 
     /// <summary>
     /// Establish a database connection given a connect string.

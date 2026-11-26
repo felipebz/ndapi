@@ -122,7 +122,7 @@ public closed class NdapiModule : NdapiObject
     /// </summary>
     protected override void Dispose(bool disposing)
     {
-        if (disposing && NdapiContext.Modules.Contains(this))
+        if (disposing && NdapiContext.IsOpenedModule(this))
         {
             Destroy();
         }
