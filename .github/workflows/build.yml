@@ -11,12 +11,16 @@ on:
 permissions:
   contents: read
 
+# a newer push to a pull request supersedes its running build; builds of main always finish
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -56,19 +60,9 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Cache SonarQube scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
-        with:
-          path: .sonar/scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-
-      - name: Install SonarQube scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        run: |
-          mkdir -p .sonar/scanner
-          dotnet tool update dotnet-sonarscanner --tool-path .sonar/scanner --version 11.3.0
+      # the scanner version is in dotnet-tools.json
+      - name: Restore tools
+        run: dotnet tool restore
 
       - name: Build (Forks)
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
@@ -76,10 +70,13 @@ jobs:
 
       - name: Build & SonarQube
         if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          .sonar/scanner/dotnet-sonarscanner begin /k:ndapi /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
+          dotnet sonarscanner begin /k:ndapi /d:sonar.token="$SONAR_TOKEN" /d:sonar.host.url="$SONAR_HOST_URL"
           dotnet build -c Release $VERSION_ARGS
-          .sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
 
       # Ndapi.Tests needs an Oracle Forms installation, so CI only runs the unit tests
       - name: Run unit tests
@@ -92,8 +89,32 @@ jobs:
       - name: Build trimmed sample with NativeAOT for Forms 12c/14c
         run: dotnet publish -c Release -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.csproj
 
-      - name: Publish to GitHub Packages
+      - name: Upload the package
         if: github.event_name == 'push'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: package
+          path: artifacts/*.nupkg
+          if-no-files-found: error
+
+  # the only job that can write packages, and it never runs for pull requests
+  publish:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: package
+          path: artifacts
+
+      # the runner image's SDK is enough to push a package
+      - name: Publish to GitHub Packages
+        env:
+          NUGET_API_KEY: ${{ secrets.GITHUB_TOKEN }}
         run: >-
           dotnet nuget push "artifacts/*.nupkg" --no-symbols --skip-duplicate
-          --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/felipebz/index.json"
+          --api-key "$NUGET_API_KEY" --source "https://nuget.pkg.github.com/felipebz/index.json"
