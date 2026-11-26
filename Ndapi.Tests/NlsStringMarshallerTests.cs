@@ -7,6 +7,29 @@ namespace Ndapi.Tests;
 // Needs NLS_LANG with a single-byte charset (e.g. BRAZILIAN PORTUGUESE_BRAZIL.WE8ISO8859P1).
 public class NlsStringMarshallerTests
 {
+    [Theory]
+    [InlineData("WE8MSWIN1252", 1252)]
+    [InlineData("ee8mswin1250", 1250)]
+    [InlineData("KO16MSWIN949", 949)]
+    [InlineData("WE8PC850", 850)]
+    [InlineData("WE8ISO8859P1", 28591)]
+    [InlineData("WE8ISO8859P15", 28605)]
+    [InlineData("AL32UTF8", 65001)]
+    [InlineData("US7ASCII", 20127)]
+    [InlineData("JA16SJIS", 932)]
+    public void OracleCharsetsMapToTheirCodePage(string charset, int codePage)
+    {
+        Assert.Equal(codePage, NlsStringMarshaller.GetEncoding(charset)?.CodePage);
+    }
+
+    [Theory]
+    [InlineData("WE8DEC")]
+    [InlineData("WE8MSWIN9999")]
+    public void CharsetsWithoutDotNetEquivalentHaveNoEncoding(string charset)
+    {
+        Assert.Null(NlsStringMarshaller.GetEncoding(charset));
+    }
+
     [Fact]
     public void TextInTheModuleCharsetRoundTrips()
     {

@@ -1,18 +1,21 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Ndapi.Core;
 
 #nullable enable
 [CustomMarshaller(typeof(string), MarshalMode.ManagedToUnmanagedIn, typeof(ManagedToUnmanagedIn))]
-internal static unsafe class NlsStringMarshaller
+internal static unsafe partial class NlsStringMarshaller
 {
-    private static readonly Encoding Enc = InitializeEncoding();
+    private static Encoding? s_encoding;
+
+    // resolved on first use, so an unsupported NLS_LANG is reported by every call instead of poisoning the type
+    private static Encoding Enc => s_encoding ??= InitializeEncoding();
 
     /// <summary>
     /// Encodes into the stack buffer the generated stub provides, and only allocates native memory for strings that
@@ -72,28 +75,70 @@ internal static unsafe class NlsStringMarshaller
 
     private static Encoding InitializeEncoding()
     {
-        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        // NLS_LANG is language_territory.charset
+        var nlsLang = Environment.GetEnvironmentVariable("NLS_LANG");
+        var separator = nlsLang?.LastIndexOf('.') ?? -1;
+        var charset = separator >= 0 ? nlsLang![(separator + 1)..].Trim() : "";
 
-        string? nlsLang = Environment.GetEnvironmentVariable("NLS_LANG");
-        string? oracleCs = nlsLang?
-            .Split('.', StringSplitOptions.RemoveEmptyEntries)
-            .LastOrDefault()
-            ?.ToUpperInvariant();
+        var encoding = (Encoding)(charset.Length == 0
+            ? GetDefaultEncoding()
+            : GetEncoding(charset) ?? throw new NdapiException(
+                $"The character set {charset} from NLS_LANG has no .NET equivalent known to Ndapi.")).Clone();
+        encoding.EncoderFallback = EncoderFallback.ExceptionFallback;
+        encoding.DecoderFallback = DecoderFallback.ReplacementFallback;
+        return encoding;
+    }
 
-        var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    // Without NLS_LANG in the environment, Oracle reads it from the registry on Windows, where the installer sets it
+    // to the ANSI code page; elsewhere its default charset is US7ASCII.
+    private static Encoding GetDefaultEncoding() =>
+        (OperatingSystem.IsWindows() ? CodePagesEncodingProvider.Instance.GetEncoding(0) : null) ?? Encoding.ASCII;
+
+    /// <summary>
+    /// Maps an Oracle character set name to its .NET encoding, or null when there's none.
+    /// </summary>
+    internal static Encoding? GetEncoding(string oracleCharset)
+    {
+        var charset = oracleCharset.ToUpperInvariant();
+        int? codePage = charset switch
         {
-            ["AL32UTF8"] = "utf-8",
-            ["UTF8"] = "utf-8",
-            ["WE8ISO8859P1"] = "iso-8859-1",
-            ["WE8MSWIN1252"] = "windows-1252"
+            "AL32UTF8" or "UTF8" => 65001,
+            "US7ASCII" => 20127,
+            "JA16SJIS" => 932,
+            "ZHS16GBK" => 936,
+            _ => null
         };
 
-        if (oracleCs != null && map.TryGetValue(oracleCs, out string? dotNetName))
-            return Encoding.GetEncoding(dotNetName, EncoderFallback.ExceptionFallback, DecoderFallback.ReplacementFallback);
+        string? name = null;
+        if (codePage is null && OracleCharsetPattern().Match(charset) is { Success: true } match)
+        {
+            if (match.Groups["iso"].Success)
+            {
+                name = $"iso-8859-{match.Groups["iso"].Value}";
+            }
+            else
+            {
+                codePage = int.Parse(match.Groups["cp"].ValueSpan, CultureInfo.InvariantCulture);
+            }
+        }
 
-        return Encoding.GetEncoding(Encoding.Default.CodePage, EncoderFallback.ExceptionFallback,
-            DecoderFallback.ReplacementFallback);
+        try
+        {
+            return codePage is { } cp
+                ? CodePagesEncodingProvider.Instance.GetEncoding(cp) ?? Encoding.GetEncoding(cp)
+                : name is null
+                    ? null
+                    : CodePagesEncodingProvider.Instance.GetEncoding(name) ?? Encoding.GetEncoding(name);
+        }
+        catch (Exception e) when (e is ArgumentException or NotSupportedException)
+        {
+            return null;
+        }
     }
+
+    // WE8MSWIN1252, EE8MSWIN1250, KO16MSWIN949 (Windows code pages), WE8PC850 (DOS), WE8ISO8859P15, EE8ISO8859P2
+    [GeneratedRegex(@"^[A-Z]+\d+(?:MSWIN(?<cp>\d+)|PC(?<cp>\d+)|ISO8859P(?<iso>\d+))$", RegexOptions.CultureInvariant)]
+    private static partial Regex OracleCharsetPattern();
 
     public static string? ReadNlsStringAndFree(IntPtr ptr)
     {
