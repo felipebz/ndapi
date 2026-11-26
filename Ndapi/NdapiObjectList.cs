@@ -18,16 +18,17 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
     {
         get
         {
-            using var enumerator = GetEnumerator();
-            for (var i = 0; i <= index; i++)
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+            var position = 0;
+            foreach (var item in this)
             {
-                if (!enumerator.MoveNext())
+                if (position++ == index)
                 {
-                    throw new ArgumentOutOfRangeException(nameof(index));
+                    return item;
                 }
             }
 
-            return enumerator.Current;
+            throw new ArgumentOutOfRangeException(nameof(index));
         }
     }
 
@@ -43,14 +44,13 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
 
     public void RemoveAll()
     {
-        using var enumerator = GetEnumerator();
-        var value = enumerator.Current;
-        while (value != null)
+        // the next object is read before destroying the current one, which frees it
+        var current = _ndapiObject.GetObjectProperty<T>(_property);
+        while (current is not null)
         {
-            enumerator.MoveNext();
-            var nextValue = enumerator.Current;
-            value.Destroy();
-            value = nextValue;
+            var next = current.GetNext<T>();
+            current.Destroy();
+            current = next;
         }
     }
 
@@ -78,6 +78,7 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
     {
         private readonly NdapiObjectList<T> _objectList;
         private T? _current;
+        private bool _started;
 
         internal Enumerator(NdapiObjectList<T> ndapiObjectList)
         {
@@ -86,27 +87,27 @@ public class NdapiObjectList<[DynamicallyAccessedMembers(DynamicallyAccessedMemb
 
         public bool MoveNext()
         {
-            _current = _current == null ?
-                _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property) :
-                _current.GetNext<T>();
-
-            return _current != null;
-        }
-
-        public void Reset() => _current = null;
-
-        public T Current
-        {
-            get
+            if (!_started)
             {
-                if (_current == null)
-                {
-                    MoveNext();
-                }
-
-                return _current!;
+                _started = true;
+                _current = _objectList._ndapiObject.GetObjectProperty<T>(_objectList._property);
             }
+            else if (_current is not null)
+            {
+                _current = _current.GetNext<T>();
+            }
+
+            return _current is not null;
         }
+
+        public void Reset()
+        {
+            _current = null;
+            _started = false;
+        }
+
+        public T Current =>
+            _current ?? throw new InvalidOperationException("The enumeration has not started or has already finished.");
 
         object IEnumerator.Current => Current;
 
