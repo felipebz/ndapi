@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Ndapi.Core;
 using Ndapi.Core.Handles;
@@ -86,6 +87,7 @@ public partial class ObjectLibraryTab : NdapiObject<ObjectLibraryTab>
     /// <returns>A copy of the original object.</returns>
     public T AddObject<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors)] T>(T obj, bool replace = false) where T : NdapiObject
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status = NativeMethods.d2folbao_AddObj(NdapiContext.GetContext(), (ObjectLibrary ?? throw new NdapiException("The owning object library is unknown for this tab.")).Handle, Handle, obj.Handle, out var handle, replace);
         Ensure.Success(status);
         return Create<T>(handle);

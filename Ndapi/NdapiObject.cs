@@ -488,6 +488,7 @@ public abstract partial class NdapiObject : IDisposable
     /// The recommended choice is false in most cases.</param>
     public void Subclass(NdapiObject parent, bool keepPath = false)
     {
+        ArgumentNullException.ThrowIfNull(parent);
         var status = NativeMethods.d2fobsc_SubClass(NdapiContext.GetContext(), Handle, parent.Handle, keepPath);
         Ensure.Success(status);
         ForgetPlsqlText();

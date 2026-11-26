@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 
 using Ndapi.Core;
@@ -31,6 +32,7 @@ public closed class NdapiModule : NdapiObject
     /// <returns>Loaded module reference.</returns>
     public static NdapiModule Open(string filename)
     {
+        ArgumentNullException.ThrowIfNull(filename);
         var extension = Path.GetExtension(filename).ToUpperInvariant();
         return extension switch
         {

@@ -25,6 +25,7 @@ public partial class DataSourceColumn : NdapiObject<DataSourceColumn>
 
     private static ObjectSafeHandle Create(Block block, DataSourceOperation operation)
     {
+        ArgumentNullException.ThrowIfNull(block);
         var list = operation switch
         {
             DataSourceOperation.Query => NdapiConstant.D2FP_QRY_DAT_SRC_COL,

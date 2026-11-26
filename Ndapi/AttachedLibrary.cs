@@ -1,4 +1,6 @@
-﻿using Ndapi.Core;
+﻿using System;
+
+using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
@@ -16,6 +18,7 @@ public partial class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// <param name="location">Library location.</param>
     public AttachedLibrary(FormModule module, string location)
     {
+        ArgumentNullException.ThrowIfNull(module);
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
             ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, false, location)
             : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, location);
@@ -30,6 +33,7 @@ public partial class AttachedLibrary : NdapiObject<AttachedLibrary>
     /// <param name="location">Library location.</param>
     public AttachedLibrary(MenuModule module, string location)
     {
+        ArgumentNullException.ThrowIfNull(module);
         var status = NdapiContext.BuilderVersion.MajorVersion == 6
             ? NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, false, location)
             : NativeMethods.d2falbat_Attach(NdapiContext.GetContext(), module.Handle, out Handle, location);

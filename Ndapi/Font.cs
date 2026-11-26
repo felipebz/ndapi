@@ -1,4 +1,6 @@
-﻿using Ndapi.Core;
+﻿using System;
+
+using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
 
@@ -69,6 +71,7 @@ public partial class Font : NdapiObject<Font>
     /// <param name="type">Visual attribute type.</param>
     public void Extract(NdapiObject obj, VisualAttributeType type)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status = NativeMethods.d2ffntex_Extract(NdapiContext.GetContext(), Handle, obj.Handle, type);
         Ensure.Success(status);
     }
@@ -80,6 +83,7 @@ public partial class Font : NdapiObject<Font>
     /// <param name="type">Visual attribute type.</param>
     public void Apply(NdapiObject module, VisualAttributeType type)
     {
+        ArgumentNullException.ThrowIfNull(module);
         var status = NativeMethods.d2ffntap_Apply(NdapiContext.GetContext(), Handle, module.Handle, type);
         Ensure.Success(status);
     }

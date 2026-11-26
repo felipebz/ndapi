@@ -1,3 +1,5 @@
+using System;
+
 using Ndapi.Core;
 using Ndapi.Core.Handles;
 using Ndapi.Enums;
@@ -67,6 +69,7 @@ public partial class Coordinate : NdapiObject<Coordinate>
     /// <param name="module">Form module.</param>
     public void Extract(FormModule module)
     {
+        ArgumentNullException.ThrowIfNull(module);
         var status = NativeMethods.d2fcrdex_Extract(NdapiContext.GetContext(), Handle, module.Handle);
         Ensure.Success(status);
     }
@@ -77,6 +80,7 @@ public partial class Coordinate : NdapiObject<Coordinate>
     /// <param name="module">Form module to be changed.</param>
     public void Apply(FormModule module)
     {
+        ArgumentNullException.ThrowIfNull(module);
         var status = NativeMethods.d2fcrdap_Apply(NdapiContext.GetContext(), Handle, module.Handle);
         Ensure.Success(status);
     }

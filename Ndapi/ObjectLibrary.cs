@@ -165,6 +165,7 @@ public partial class ObjectLibrary : NdapiModule
     /// <param name="obj">Object to be removed.</param>
     public void RemoveObject(NdapiObject obj)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status = NativeMethods.d2folbro_RemoveObj(NdapiContext.GetContext(), Handle, obj.Handle);
         Ensure.Success(status);
     }
@@ -176,6 +177,7 @@ public partial class ObjectLibrary : NdapiModule
     /// <param name="state">Indicate if it's a smart object or not.</param>
     public void SetSmartclass(NdapiObject obj, bool state)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status = NativeMethods.d2folbss_SetSmartclass(NdapiContext.GetContext(), Handle, obj.Handle, state);
         Ensure.Success(status);
     }
@@ -187,6 +189,7 @@ public partial class ObjectLibrary : NdapiModule
     /// <returns>The state indicating if it's a smart object or not.</returns>
     public bool IsSmartclass(NdapiObject obj)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status = NativeMethods.d2folbis_IsSmartclassed(NdapiContext.GetContext(), Handle, obj.Handle);
         Ensure.BooleanResult(status);
         return status == FormsErrorCode.Yes;
@@ -199,6 +202,7 @@ public partial class ObjectLibrary : NdapiModule
     /// <param name="description">Description of object.</param>
     public void SetObjectDescription(NdapiObject obj, string description)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status = NativeMethods.d2folbsd_SetDesc(NdapiContext.GetContext(), Handle, obj.Handle, description);
         Ensure.Success(status);
     }
@@ -210,6 +214,7 @@ public partial class ObjectLibrary : NdapiModule
     /// <returns>Description of object.</returns>
     public string? GetObjectDescription(NdapiObject obj)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status =
             NativeMethods.d2folbgd_GetDesc(NdapiContext.GetContext(), Handle, obj.Handle, out var description);
         Ensure.Success(status);
@@ -223,6 +228,7 @@ public partial class ObjectLibrary : NdapiModule
     /// <returns>Name of tab the object is on.</returns>
     public string? GetObjectTabName(NdapiObject obj)
     {
+        ArgumentNullException.ThrowIfNull(obj);
         var status =
             NativeMethods.d2folbot_ObjTabname(NdapiContext.GetContext(), Handle, obj.Handle, out var tabName);
         Ensure.Success(status);
