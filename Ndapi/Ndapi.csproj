@@ -39,7 +39,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <InternalsVisibleTo Include="Ndapi.Tests"/>
+        <InternalsVisibleTo Include="Ndapi.UnitTests"/>
     </ItemGroup>
 
     <ItemGroup>

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!--
+    Unit tests: unlike Ndapi.Tests they never call the Oracle Forms Open API, so they run anywhere, including CI.
+    net11.0 because CI only installs the current runtime.
+    -->
+    <PropertyGroup>
+        <TargetFramework>net11.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <IsPackable>false</IsPackable>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="xunit.v3" Version="4.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ndapi\Ndapi.csproj"/>
+        <!-- referenced as a library to drive the generator in tests (Ndapi uses it as an analyzer) -->
+        <ProjectReference Include="..\NdapiSourceGenerator\NdapiSourceGenerator.csproj"/>
+    </ItemGroup>
+
+</Project>
