@@ -15,7 +15,11 @@ namespace Ndapi.Metadata;
 /// </summary>
 public static class NdapiMetadata
 {
-    private static readonly IList<ObjectTypeMap> ObjectTypeMapping = LoadObjectTypeMapping();
+    private static readonly ObjectTypeMap[] ObjectTypeMapping = LoadObjectTypeMapping();
+    private static readonly Dictionary<Type, ObjectTypeMap> MapsByClass = ObjectTypeMapping.ToDictionary(m => m.Type);
+
+    private static readonly Dictionary<ObjectType, ObjectTypeMap> MapsByObjectType =
+        ObjectTypeMapping.ToDictionary(m => m.ObjectType);
 
     /// <summary>
     /// Gets the Ndapi classes that represents a Forms API object.
@@ -30,7 +34,7 @@ public static class NdapiMetadata
     /// </summary>
     public static IReadOnlyList<NdapiConstant> SupportedProperties => ConstantConverter.GetSupportedProperties();
 
-    private static IList<ObjectTypeMap> LoadObjectTypeMapping() =>
+    private static ObjectTypeMap[] LoadObjectTypeMapping() =>
     [
         new(ObjectType.Alert, typeof(Alert), h => new Alert(h)),
         new(ObjectType.AttachedLibrary, typeof(AttachedLibrary), h => new AttachedLibrary(h)),
@@ -80,7 +84,9 @@ public static class NdapiMetadata
     /// <param name="type">A Ndapi class.</param>
     /// <returns>The meta object instance.</returns>
     public static NdapiMetaObject GetMetaObjectFrom(Type type) =>
-        ObjectTypeMapping.Single(t => t.Type == type).MetaObject;
+        (MapsByClass.TryGetValue(type, out var map)
+            ? map
+            : throw new ArgumentException($"{type.Name} is not a Ndapi class.", nameof(type))).MetaObject;
 
     /// <summary>
     /// Gets the descriptive name of an object type, e.g. "Canvas".
@@ -107,25 +113,28 @@ public static class NdapiMetadata
         return ConstantConverter.ToEnum<ObjectType>(value);
     }
 
-    internal static ObjectType GetObjectTypeFrom<T>() => ObjectTypeMapping.Single(t => t.Type == typeof(T)).ObjectType;
+    internal static ObjectType GetObjectTypeFrom<T>() => GetMap(typeof(T)).ObjectType;
 
-    internal static ObjectType GetObjectTypeFrom(Type type) =>
-        ObjectTypeMapping.Single(t => t.Type == type).ObjectType;
+    internal static ObjectType GetObjectTypeFrom(Type type) => GetMap(type).ObjectType;
 
     [return:
         DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.NonPublicConstructors |
                                    DynamicallyAccessedMemberTypes.PublicProperties)]
-    internal static Type GetTypeFrom(ObjectType type) =>
-        ObjectTypeMapping.SingleOrDefault(t => t.ObjectType == type)?.Type ??
-        throw new NdapiException($"Ndapi has no class for the object type {type}.");
+    internal static Type GetTypeFrom(ObjectType type) => GetMap(type).Type;
 
-    internal static NdapiObject CreateWrapper(Type type, ObjectSafeHandle handle) =>
-        (ObjectTypeMapping.SingleOrDefault(t => t.Type == type) ??
-         throw new NdapiException($"{type.Name} has no object type mapping.")).Factory(handle);
+    internal static NdapiObject CreateWrapper(Type type, ObjectSafeHandle handle) => GetMap(type).Factory(handle);
 
-    internal static NdapiObject CreateWrapper(ObjectType type, ObjectSafeHandle handle) =>
-        (ObjectTypeMapping.SingleOrDefault(t => t.ObjectType == type) ??
-         throw new NdapiException($"Ndapi has no class for the object type {type}.")).Factory(handle);
+    internal static NdapiObject CreateWrapper(ObjectType type, ObjectSafeHandle handle) => GetMap(type).Factory(handle);
+
+    private static ObjectTypeMap GetMap(Type type) =>
+        MapsByClass.TryGetValue(type, out var map)
+            ? map
+            : throw new NdapiException($"{type.Name} has no object type mapping.");
+
+    private static ObjectTypeMap GetMap(ObjectType type) =>
+        MapsByObjectType.TryGetValue(type, out var map)
+            ? map
+            : throw new NdapiException($"Ndapi has no class for the object type {type}.");
 
     private sealed class ObjectTypeMap
     {
