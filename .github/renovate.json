@@ -17,9 +17,7 @@
       "enabled": false
     },
     {
-      "matchFileNames": [
-        "**/NdapiSourceGenerator.csproj"
-      ],
+      "description": "The Roslyn version is the oldest compiler that can load the generator, so it's raised by hand",
       "matchPackageNames": [
         "Microsoft.CodeAnalysis.Analyzers",
         "Microsoft.CodeAnalysis.CSharp"
