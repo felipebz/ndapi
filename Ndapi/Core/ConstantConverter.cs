@@ -77,12 +77,9 @@ internal static partial class ConstantConverter
         private static Dictionary<int, T> Load()
         {
             var values = new Dictionary<int, T>();
-            foreach (var member in Enum.GetValues<T>())
+            foreach (var member in Enum.GetValues<T>().Where(IsPropertySupportedByBuilderVersion))
             {
-                if (IsPropertySupportedByBuilderVersion(member))
-                {
-                    values.TryAdd(GetValue(member), member);
-                }
+                values.TryAdd(GetValue(member), member);
             }
 
             return values;
