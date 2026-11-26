@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NdapiSourceGenerator", "Nda
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ndapi.Tests", "Ndapi.Tests\Ndapi.Tests.csproj", "{3517D88E-9AB3-4639-8BEB-FCE10ECE58F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ndapi.UnitTests", "Ndapi.UnitTests\Ndapi.UnitTests.csproj", "{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|Any CPU = Release|Any CPU
@@ -85,6 +87,18 @@ Global
 		{3517D88E-9AB3-4639-8BEB-FCE10ECE58F4}.Debug|x64.Build.0 = Debug|Any CPU
 		{3517D88E-9AB3-4639-8BEB-FCE10ECE58F4}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{3517D88E-9AB3-4639-8BEB-FCE10ECE58F4}.Debug|x86.Build.0 = Debug|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Release|x64.ActiveCfg = Release|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Release|x64.Build.0 = Release|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Release|x86.ActiveCfg = Release|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Release|x86.Build.0 = Release|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Debug|x64.Build.0 = Debug|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C27564F5-B9E0-4AE7-8B7A-8A9E8E721B0C}.Debug|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

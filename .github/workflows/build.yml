@@ -81,6 +81,10 @@ jobs:
           dotnet build -c Release $VERSION_ARGS
           .sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
+      # Ndapi.Tests needs an Oracle Forms installation, so CI only runs the unit tests
+      - name: Run unit tests
+        run: dotnet test --project Ndapi.UnitTests/Ndapi.UnitTests.csproj -c Release --no-build
+
       - name: Build trimmed sample with NativeAOT for Forms 12c/14c
         run: dotnet publish -c Release -f net10.0 -p:"Platform=x64" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
 
