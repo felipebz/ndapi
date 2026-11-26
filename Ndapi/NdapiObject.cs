@@ -565,10 +565,19 @@ public abstract partial class NdapiObject : IDisposable
                 Marshal.Copy(value, 0, pointer, value.Length);
             }
 
-            SetNumberProperty(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, value?.Length ?? 0);
-            var status = NativeMethods.d2fobsp_SetBlobProp(NdapiContext.GetContext(), Handle,
-                ConstantConverter.GetValue(NdapiConstant.D2FP_PERSIST_CLIENT_INFO), pointer);
-            Ensure.Success(status);
+            try
+            {
+                SetNumberProperty(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, value?.Length ?? 0);
+                var status = NativeMethods.d2fobsp_SetBlobProp(NdapiContext.GetContext(), Handle,
+                    ConstantConverter.GetValue(NdapiConstant.D2FP_PERSIST_CLIENT_INFO), pointer);
+                Ensure.Success(status);
+            }
+            catch
+            {
+                // Forms only takes the buffer over when it accepts it
+                Marshal.FreeHGlobal(pointer);
+                throw;
+            }
         }
     }
 
