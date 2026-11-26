@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 using Ndapi.Enums;
 
@@ -32,6 +33,7 @@ internal static class Ensure
         HandleError(result);
     }
 
+    [DoesNotReturn]
     private static void HandleError(FormsErrorCode result)
     {
         throw new NdapiException($"The Forms API returned an error. Error code: {result}", result);
