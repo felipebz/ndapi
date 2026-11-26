@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Ndapi.Core;
 using Ndapi.Core.Handles;
@@ -316,7 +317,15 @@ public partial class MenuModule : NdapiModule
     /// </summary>
     /// <param name="name">Name of the menu parameter.</param>
     /// <returns>The child object.</returns>
-    public MenuParameter CreateFormParameter(string name) => new(this, name);
+    public MenuParameter CreateMenuParameter(string name) => new(this, name);
+
+    /// <summary>
+    /// Creates a menu parameter.
+    /// </summary>
+    /// <param name="name">Name of the menu parameter.</param>
+    /// <returns>The child object.</returns>
+    [Obsolete("Use CreateMenuParameter. CreateFormParameter will be removed from MenuModule in Ndapi 15.")]
+    public MenuParameter CreateFormParameter(string name) => CreateMenuParameter(name);
 
     /// <summary>
     /// Creates a program unit.

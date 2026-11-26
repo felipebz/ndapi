@@ -22,7 +22,7 @@ public class NdapiObjectRegistryTests
                 }
 
                 // enumerate, so every window gets a cached wrapper (a new module also has its default window)
-                Assert.All(module.Windows, w => Assert.Equal(ObjectType.Window, w.GetObjectType()));
+                Assert.All(module.Windows, w => Assert.Equal(ObjectType.Window, w.ObjectType));
                 module.Destroy();
 
                 using var other = new FormModule($"REG_OTHER_{i}");
@@ -32,8 +32,8 @@ public class NdapiObjectRegistryTests
                     _ = new Alert(other, $"A{j}");
                 }
 
-                Assert.All(other.Canvases, c => Assert.Equal(ObjectType.Canvas, c.GetObjectType()));
-                Assert.All(other.Alerts, a => Assert.Equal(ObjectType.Alert, a.GetObjectType()));
+                Assert.All(other.Canvases, c => Assert.Equal(ObjectType.Canvas, c.ObjectType));
+                Assert.All(other.Alerts, a => Assert.Equal(ObjectType.Alert, a.ObjectType));
                 other.Destroy();
             }
         });
@@ -54,8 +54,8 @@ public class NdapiObjectRegistryTests
 
                 _ = new Alert(module, $"A{i}");
                 _ = new RecordGroup(module, $"RG{i}");
-                Assert.All(module.Alerts, a => Assert.Equal(ObjectType.Alert, a.GetObjectType()));
-                Assert.All(module.RecordGroups, r => Assert.Equal(ObjectType.RecordGroup, r.GetObjectType()));
+                Assert.All(module.Alerts, a => Assert.Equal(ObjectType.Alert, a.ObjectType));
+                Assert.All(module.RecordGroups, r => Assert.Equal(ObjectType.RecordGroup, r.ObjectType));
             }
         });
     }

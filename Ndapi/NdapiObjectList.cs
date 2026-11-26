@@ -58,7 +58,7 @@ public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
     /// </summary>
     /// <param name="name">Name of the object.</param>
     /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
-    public T? Single(string name)
+    public T? Find(string name)
     {
         var type = NdapiMetadata.GetObjectTypeFrom<T>();
         var internalObjectType = ConstantConverter.GetValue(type);
@@ -72,6 +72,14 @@ public class NdapiObjectList<T> : IEnumerable<T> where T : NdapiObject
 
         return NdapiObject.Create<T>(handle);
     }
+
+    /// <summary>
+    /// Finds an object by name.
+    /// </summary>
+    /// <param name="name">Name of the object.</param>
+    /// <returns>The object that was found. Returns null if the object doesn't exist.</returns>
+    [Obsolete("Use Find. Unlike Enumerable.Single, this returns null when nothing matches; it will be removed in Ndapi 15.")]
+    public T? Single(string name) => Find(name);
 
     public sealed class Enumerator : IEnumerator<T>
     {

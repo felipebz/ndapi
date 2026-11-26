@@ -319,20 +319,29 @@ public abstract partial class NdapiObject : IDisposable
     /// <summary>
     /// Gets the real object type.
     /// </summary>
-    /// <returns>The object type.</returns>
-    public ObjectType GetObjectType()
+    public ObjectType ObjectType
     {
-        if (_type != ObjectType.Undefined)
+        get
         {
+            if (_type != ObjectType.Undefined)
+            {
+                return _type;
+            }
+
+            var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), Handle, out var type);
+            Ensure.Success(status);
+            _type = ConstantConverter.ToEnum<ObjectType>(type);
+
             return _type;
         }
-
-        var status = NativeMethods.d2fobqt_QueryType(NdapiContext.GetContext(), Handle, out var type);
-        Ensure.Success(status);
-        _type = ConstantConverter.ToEnum<ObjectType>(type);
-
-        return _type;
     }
+
+    /// <summary>
+    /// Gets the real object type.
+    /// </summary>
+    /// <returns>The object type.</returns>
+    [Obsolete("Use the ObjectType property. GetObjectType will be removed in Ndapi 15.")]
+    public ObjectType GetObjectType() => ObjectType;
 
     /// <summary>
     /// Get the qualified name of object. The name includes the object name itself and the name of its ancestors.
@@ -344,7 +353,7 @@ public abstract partial class NdapiObject : IDisposable
         var builder = new StringBuilder();
 
         var owner = Owner;
-        while ((owner != null) && (includeModule || (owner.GetObjectType() != ObjectType.FormModule)))
+        while ((owner != null) && (includeModule || (owner.ObjectType != ObjectType.FormModule)))
         {
             builder.Insert(0, ".");
             builder.Insert(0, owner.Name);
@@ -572,6 +581,12 @@ public abstract partial class NdapiObject : IDisposable
         }
     }
 
+    /// <summary>
+    /// Finds a child object by type and name.
+    /// </summary>
+    /// <param name="type">A Ndapi class, e.g. <c>typeof(Block)</c>.</param>
+    /// <param name="name">Name of the object.</param>
+    /// <returns>The object, or null if there's no such object.</returns>
     public NdapiObject? Find(
         Type type,
         string name)
@@ -590,6 +605,13 @@ public abstract partial class NdapiObject : IDisposable
 
         return Create(type, handle);
     }
+
+    /// <summary>
+    /// Finds a child object by type and name.
+    /// </summary>
+    /// <param name="name">Name of the object.</param>
+    /// <returns>The object, or null if there's no such object.</returns>
+    public T? Find<T>(string name) where T : NdapiObject => (T?)Find(typeof(T), name);
 
     /// <summary>
     /// Destroy the current object.
