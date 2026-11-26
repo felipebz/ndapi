@@ -1,7 +1,7 @@
 using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using System.Text;
@@ -9,44 +9,65 @@ using System.Text;
 namespace Ndapi.Core;
 
 #nullable enable
-[CustomMarshaller(typeof(string), MarshalMode.ManagedToUnmanagedIn, typeof(NlsStringMarshaller))]
-internal static class NlsStringMarshaller
+[CustomMarshaller(typeof(string), MarshalMode.ManagedToUnmanagedIn, typeof(ManagedToUnmanagedIn))]
+internal static unsafe class NlsStringMarshaller
 {
     private static readonly Encoding Enc = InitializeEncoding();
 
-    public static IntPtr ConvertToUnmanaged(string? managed)
+    /// <summary>
+    /// Encodes into the stack buffer the generated stub provides, and only allocates native memory for strings that
+    /// don't fit (e.g. PL/SQL text). Forms copies string arguments, so the buffer only has to outlive the call.
+    /// </summary>
+    public ref struct ManagedToUnmanagedIn
     {
-        if (managed is null)
-            return IntPtr.Zero;
+        public static int BufferSize => 0x100;
 
-        int byteCount;
-        try
+        private byte* _native;
+        private bool _allocated;
+
+        public void FromManaged(string? managed, Span<byte> buffer)
         {
-            byteCount = Enc.GetByteCount(managed);
+            if (managed is null)
+            {
+                _native = null;
+                return;
+            }
+
+            try
+            {
+                // the exact count is a second pass over the string, only needed when the worst case doesn't fit
+                if (Enc.GetMaxByteCount(managed.Length) + 1 > buffer.Length)
+                {
+                    var byteCount = Enc.GetByteCount(managed) + 1;
+                    if (byteCount > buffer.Length)
+                    {
+                        buffer = new Span<byte>((byte*)Marshal.AllocHGlobal(byteCount), byteCount);
+                        _allocated = true;
+                    }
+                }
+
+                var bytesWritten = Enc.GetBytes(managed, buffer);
+                buffer[bytesWritten] = 0;
+            }
+            catch (EncoderFallbackException e)
+            {
+                // never store a replacement character ('?') in place of text the module charset can't represent
+                throw new NdapiException(
+                    $"The character '{e.CharUnknown}' (U+{(int)e.CharUnknown:X4}) at position {e.Index} has no " +
+                    $"representation in the module charset ({Enc.WebName}, from NLS_LANG).", e);
+            }
+
+            // the stub's buffer is stackalloc'ed and the fallback is native memory: neither moves
+            _native = (byte*)Unsafe.AsPointer(ref MemoryMarshal.GetReference(buffer));
         }
-        catch (EncoderFallbackException e)
+
+        public readonly byte* ToUnmanaged() => _native;
+
+        public readonly void Free()
         {
-            // never store a replacement character ('?') in place of text the module charset can't represent
-            throw new NdapiException(
-                $"The character '{e.CharUnknown}' (U+{(int)e.CharUnknown:X4}) at position {e.Index} has no " +
-                $"representation in the module charset ({Enc.WebName}, from NLS_LANG).", e);
+            if (_allocated)
+                Marshal.FreeHGlobal((IntPtr)_native);
         }
-
-        byte[] rented = ArrayPool<byte>.Shared.Rent(byteCount + 1);
-        int bytesWritten = Enc.GetBytes(managed, 0, managed.Length, rented, 0);
-        rented[bytesWritten] = 0;
-
-        IntPtr native = Marshal.AllocHGlobal(bytesWritten + 1);
-        Marshal.Copy(rented, 0, native, bytesWritten + 1);
-
-        ArrayPool<byte>.Shared.Return(rented);
-        return native;
-    }
-
-    public static void Free(IntPtr unmanaged)
-    {
-        if (unmanaged != IntPtr.Zero)
-            Marshal.FreeHGlobal(unmanaged);
     }
 
     private static Encoding InitializeEncoding()
@@ -81,25 +102,7 @@ internal static class NlsStringMarshaller
 
         try
         {
-            int length = 0;
-            while (Marshal.ReadByte(ptr, length) != 0)
-            {
-                length++;
-            }
-
-            if (length == 0)
-                return string.Empty;
-
-            byte[] buffer = ArrayPool<byte>.Shared.Rent(length);
-            try
-            {
-                Marshal.Copy(ptr, buffer, 0, length);
-                return Enc.GetString(buffer, 0, length);
-            }
-            finally
-            {
-                ArrayPool<byte>.Shared.Return(buffer);
-            }
+            return Enc.GetString(MemoryMarshal.CreateReadOnlySpanFromNullTerminated((byte*)ptr));
         }
         finally
         {

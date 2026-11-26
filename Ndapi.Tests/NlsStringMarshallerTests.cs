@@ -20,6 +20,24 @@ public class NlsStringMarshallerTests
         });
     }
 
+    // the marshaller encodes into a 256-byte stack buffer and falls back to native memory past it
+    [Theory]
+    [InlineData(254)]
+    [InlineData(255)]
+    [InlineData(256)]
+    [InlineData(4000)]
+    public void TextAroundTheStackBufferSizeRoundTrips(int length)
+    {
+        Sta.Run(() =>
+        {
+            var text = string.Concat(Enumerable.Repeat("ação ", length / 5 + 1))[..length];
+            var module = new FormModule("NLS_LONG");
+            module.Comment = text;
+            Assert.Equal(text, module.Comment);
+            module.Destroy();
+        });
+    }
+
     [Fact]
     public void CharacterOutsideTheModuleCharsetIsRejectedInsteadOfReplaced()
     {
