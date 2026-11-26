@@ -150,7 +150,8 @@ public partial class MenuModule : NdapiModule
     {
         get
         {
-            for (var i = 1; i <= RoleCount; i++) // objects index is one-based
+            var count = RoleCount;
+            for (var i = 1; i <= count; i++) // objects index is one-based
             {
                 yield return GetRoleAt(i);
             }

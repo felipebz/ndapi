@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 using Ndapi.Core;
 using Ndapi.Core.Handles;
@@ -149,7 +150,7 @@ public static class NdapiMetadata
             Type = type;
             ObjectType = objectType;
             Factory = factory;
-            _metaObject = new Lazy<NdapiMetaObject>(LoadMetaObject);
+            _metaObject = new Lazy<NdapiMetaObject>(LoadMetaObject, LazyThreadSafetyMode.PublicationOnly);
         }
 
         public Func<ObjectSafeHandle, NdapiObject> Factory { get; }

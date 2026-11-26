@@ -95,7 +95,13 @@ internal static partial class ConstantConverter
     /// </summary>
     public static IReadOnlyList<NdapiConstant> GetSupportedProperties()
     {
-        var constants = NdapiContext.BuilderVersion.MajorVersion switch
+        var majorVersion = NdapiContext.BuilderVersion.MajorVersion;
+        if (s_supportedProperties is not null && s_supportedPropertiesVersion == majorVersion)
+        {
+            return s_supportedProperties;
+        }
+
+        var constants = majorVersion switch
         {
             6 => Forms6Constants,
             12 => Forms12Constants,
@@ -103,12 +109,18 @@ internal static partial class ConstantConverter
             _ => throw new NdapiException($"Unsupported Forms Builder version ({NdapiContext.BuilderVersion.FullVersion})")
         };
 
-        return constants
+        s_supportedProperties = constants
             .Where(c => IsObjectProperty(c.Key))
             .OrderBy(c => c.Value)
             .Select(c => c.Key)
-            .ToList();
+            .ToList()
+            .AsReadOnly();
+        s_supportedPropertiesVersion = majorVersion;
+        return s_supportedProperties;
     }
+
+    private static IReadOnlyList<NdapiConstant>? s_supportedProperties;
+    private static int s_supportedPropertiesVersion;
 
     private static bool IsObjectProperty(NdapiConstant constant)
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Threading;
 
 using Ndapi.Core;
 using Ndapi.Enums;
@@ -62,7 +63,7 @@ public sealed class NdapiMetaObject
         TypeName = type.Name;
 
         _type = type;
-        _properties = new Lazy<IEnumerable<NdapiMetaProperty>>(LoadProperties);
+        _properties = new Lazy<IEnumerable<NdapiMetaProperty>>(LoadProperties, LazyThreadSafetyMode.PublicationOnly);
     }
 
     private List<NdapiMetaProperty> LoadProperties()

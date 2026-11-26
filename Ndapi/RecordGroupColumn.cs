@@ -61,7 +61,8 @@ public partial class RecordGroupColumn : NdapiObject<RecordGroupColumn>
     {
         get
         {
-            for (var i = 1; i <= ValueCount; i++) // objects index is one-based
+            var count = ValueCount;
+            for (var i = 1; i <= count; i++) // objects index is one-based
             {
                 yield return GetValueAt(i);
             }

@@ -1312,7 +1312,8 @@ public partial class Item : NdapiObject<Item>
     {
         get
         {
-            for (var i = 1; i <= ListElementCount; i++) // objects index is one-based
+            var count = ListElementCount;
+            for (var i = 1; i <= count; i++) // objects index is one-based
             {
                 yield return GetListElementAt(i);
             }

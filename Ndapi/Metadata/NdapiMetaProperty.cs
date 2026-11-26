@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 using Ndapi.Core;
 using Ndapi.Enums;
@@ -76,9 +77,10 @@ public sealed class NdapiMetaProperty : IEquatable<NdapiMetaProperty>
         AcceptConstants = propertyType.IsEnum;
         IsList = RawPropertyType.IsGenericType;
 
-        _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues);
-        _propertyType = new Lazy<PropertyType>(() => GetPropertyType(propertyId));
-        _description = new Lazy<string>(() => GetName(PropertyId));
+        // PublicationOnly: a failed load (e.g. no Forms context yet) is retried instead of cached for good
+        _allowedValues = new Lazy<Dictionary<int, string>>(LoadAllowedValues, LazyThreadSafetyMode.PublicationOnly);
+        _propertyType = new Lazy<PropertyType>(() => GetPropertyType(propertyId), LazyThreadSafetyMode.PublicationOnly);
+        _description = new Lazy<string>(() => GetName(PropertyId), LazyThreadSafetyMode.PublicationOnly);
     }
 
     private Dictionary<int, string> LoadAllowedValues()

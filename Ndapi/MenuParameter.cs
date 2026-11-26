@@ -139,7 +139,8 @@ public partial class MenuParameter : NdapiObject<MenuParameter>
     {
         get
         {
-            for (var i = 1; i <= AssociatedMenusCount; i++) // objects index is one-based
+            var count = AssociatedMenusCount;
+            for (var i = 1; i <= count; i++) // objects index is one-based
             {
                 yield return GetAssociatedMenuAt(i);
             }
