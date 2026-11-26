@@ -74,8 +74,14 @@ public sealed class NdapiContext : IDisposable
 
             OracleFormsBootstrap.Init(oracleHome);
 
+            // only frmd2f is redirected: other imports (libdl for OracleFormsBootstrap) keep the default probing
             NativeLibrary.SetDllImportResolver(typeof(NdapiContext).Assembly, ((name, assembly, path) =>
             {
+                if (name != NativeMethods.FormsLib)
+                {
+                    return IntPtr.Zero;
+                }
+
                 s_formsLib = Path.Join(oracleHome, "lib", NativeMethods.FormsLibLinux);
                 return NativeLibrary.Load(s_formsLib, assembly, path);
             }));
