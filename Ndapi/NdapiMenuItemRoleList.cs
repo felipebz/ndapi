@@ -12,7 +12,7 @@ public class NdapiMenuItemRoleList : IEnumerable<string>
     internal NdapiMenuItemRoleList(MenuItem menuitem)
     {
         _menuItem = menuitem;
-        Count = menuitem.GetNumberProperty(NdapiConstant.D2FP_OBJ_COUNT);
+        Count = menuitem.RoleCount;
     }
 
     public int Count { get; }
