@@ -14,7 +14,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("NO_CLASS");
+            using var module = new FormModule("NO_CLASS");
             var group = new RecordGroup(module, "RG") { Type = RecordGroupType.Static };
             var column = group.CreateRecordGroupColumn("C");
             column.DataType = ColumnSpecificationDataType.Char;
@@ -23,7 +23,6 @@ public class NdapiObjectTests
 
             var error = Assert.Throws<NdapiException>(() => column.GetObjectProperty<NdapiObject>(NdapiConstant.D2FP_COLUMN_VALUE));
             Assert.Contains("no class for the object type", error.Message);
-            module.Destroy();
         });
     }
 
@@ -34,7 +33,7 @@ public class NdapiObjectTests
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 14, "requires Forms 14");
 
-            var module = new FormModule("FORMS14_PROP");
+            using var module = new FormModule("FORMS14_PROP");
             var block = new Block(module, "B");
             var item = new Item(block, "I") { ItemType = ItemType.TextItem, Placeholder = "type here" };
             Assert.Equal("type here", item.Placeholder);
@@ -59,7 +58,6 @@ public class NdapiObjectTests
 
             var evt = new Event(module, "EVT") { EventType = EventType.SystemMdiResize };
             Assert.Equal(EventType.SystemMdiResize, evt.EventType);
-            module.Destroy();
         });
     }
 
@@ -70,7 +68,7 @@ public class NdapiObjectTests
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
 
-            var module = new FormModule("NATIONAL_TYPES");
+            using var module = new FormModule("NATIONAL_TYPES");
             var block = new Block(module, "B") { QueryDataSourceType = QueryDataSourceType.Procedure };
             var column = new DataSourceColumn(block, DataSourceOperation.Query, "C");
 
@@ -79,8 +77,6 @@ public class NdapiObjectTests
                 column.Type = type;
                 Assert.Equal(type, column.Type);
             }
-
-            module.Destroy();
         });
     }
 
@@ -99,13 +95,12 @@ public class NdapiObjectTests
         Sta.Run(() =>
         {
             Assert.SkipUnless(NdapiContext.BuilderVersion.MajorVersion == 6, "events exist from Forms 12c on");
-            var form = new FormModule("NO_EVENT_FMB");
+            using var form = new FormModule("NO_EVENT_FMB");
 
             var error = Assert.Throws<NdapiException>(() => new Event(form, "EVT"));
 
             Assert.Contains("D2FFO_EVENT", error.Message);
             Assert.Contains("not supported", error.Message);
-            form.Destroy();
         });
     }
 
@@ -115,13 +110,12 @@ public class NdapiObjectTests
         Sta.Run(() =>
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion == 6, "menu parameters exist on Forms 6i");
-            var menu = new MenuModule("NO_PARAM_MMB");
+            using var menu = new MenuModule("NO_PARAM_MMB");
 
             var error = Assert.Throws<NdapiException>(() => new MenuParameter(menu, "MPM"));
 
             Assert.Contains("D2FFO_MENU_PARAM", error.Message);
             Assert.Contains("not supported", error.Message);
-            menu.Destroy();
         });
     }
 
@@ -130,7 +124,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("DATA_SOURCE");
+            using var module = new FormModule("DATA_SOURCE");
             var block = new Block(module, "B") { QueryDataSourceType = QueryDataSourceType.Procedure };
             (DataSourceOperation Operation, Func<IEnumerable<DataSourceArgument>> Arguments,
                 Func<IEnumerable<DataSourceColumn>> Columns)[] lists =
@@ -152,7 +146,6 @@ public class NdapiObjectTests
 
             _ = new DataSourceArgument(block, DataSourceOperation.Lock, "ARG_LOCK");
             _ = new DataSourceColumn(block, DataSourceOperation.Lock, "COL_LOCK");
-            module.Destroy();
         });
     }
 
@@ -161,13 +154,12 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("QUERY_NAME");
+            using var module = new FormModule("QUERY_NAME");
             var item = new Item(new Block(module, "B"), "I");
 
             item.QueryName = "Q1";
 
             Assert.Equal("Q1", item.QueryName);
-            module.Destroy();
         });
     }
 
@@ -176,12 +168,11 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("DEFER_REQ");
+            using var module = new FormModule("DEFER_REQ");
 
             Assert.Equal(1, module.DeferRequiredEnforcement);
             module.DeferRequiredEnforcement = 2;
             Assert.Equal(2, module.DeferRequiredEnforcement);
-            module.Destroy();
         });
     }
 
@@ -193,7 +184,7 @@ public class NdapiObjectTests
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
 
             var path = Path.Join(Path.GetTempPath(), $"bip_{Guid.NewGuid():N}.fmb");
-            var module = new FormModule("BIP_SAVE");
+            using var module = new FormModule("BIP_SAVE");
             _ = new Report(module, "RPT")
             {
                 ReportObjectType = 1,
@@ -235,7 +226,7 @@ public class NdapiObjectTests
         Sta.Run(() =>
         {
             var path = Path.Join(Path.GetTempPath(), $"refs_{Guid.NewGuid():N}.fmb");
-            var module = new FormModule("REFS_SAVE");
+            using var module = new FormModule("REFS_SAVE");
             var canvas = new Canvas(module, "CNV");
             var group = new RecordGroup(module, "RG");
             var first = new Block(module, "B1");
@@ -271,7 +262,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("STRING_IDS");
+            using var module = new FormModule("STRING_IDS");
             var item = new Item(new Block(module, "B"), "I") { Prompt = "P", Hint = "H" };
 
             item.PromptStringId = 42;
@@ -279,7 +270,6 @@ public class NdapiObjectTests
             Assert.Equal(42, item.PromptStringId);
             var error = Assert.Throws<NdapiException>(() => item.HintStringId = 42);
             Assert.Equal(FormsErrorCode.DuplicateStringId, error.ErrorCode);
-            module.Destroy();
         });
     }
 
@@ -288,7 +278,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("SUBCLASS_SRC");
+            using var module = new FormModule("SUBCLASS_SRC");
             var propertyClass = new PropertyClass(module, "PC");
             var alert = new Alert(module, "A");
 
@@ -297,7 +287,6 @@ public class NdapiObjectTests
             Assert.Same(module, alert.Module);
             Assert.Equal("PC", alert.Source?.Name);
             Assert.True(alert.IsDirty);
-            module.Destroy();
         });
     }
 
@@ -401,7 +390,7 @@ public class NdapiObjectTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("PLSQL_TEXT");
+            using var module = new FormModule("PLSQL_TEXT");
             var trigger = new Trigger(module, "WHEN-NEW-FORM-INSTANCE") { Text = "null;" };
 
             trigger.SetStringProperty(NdapiConstant.D2FP_TRG_TXT, "message('x');");
@@ -409,7 +398,6 @@ public class NdapiObjectTests
 
             trigger.Text = "begin null; end;";
             Assert.Equal("begin null; end;", trigger.GetStringProperty(NdapiConstant.D2FP_TRG_TXT));
-            module.Destroy();
         });
     }
 

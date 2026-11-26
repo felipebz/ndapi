@@ -9,7 +9,7 @@ public class MenuItemTests
     {
         Sta.Run(() =>
         {
-            var module = new MenuModule("ROLES_MMB");
+            using var module = new MenuModule("ROLES_MMB");
             module.AddRoleAt(1, "ADMIN");
             module.AddRoleAt(2, "CLERK");
             var item = new MenuItem(new Menu(module, "MNU"), "MNI");
@@ -17,7 +17,6 @@ public class MenuItemTests
             item.AddRoleAt(2, "CLERK");
 
             Assert.Equal(["ADMIN", "CLERK"], item.Roles);
-            module.Destroy();
         });
     }
 }

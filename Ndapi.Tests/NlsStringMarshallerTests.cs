@@ -12,11 +12,10 @@ public class NlsStringMarshallerTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("NLS_OK");
+            using var module = new FormModule("NLS_OK");
             var item = new Item(new Block(module, "B"), "I");
             item.SetStringProperty(NdapiConstant.D2FP_PRMPT, "Ação código");
             Assert.Equal("Ação código", item.GetStringProperty(NdapiConstant.D2FP_PRMPT));
-            module.Destroy();
         });
     }
 
@@ -31,10 +30,9 @@ public class NlsStringMarshallerTests
         Sta.Run(() =>
         {
             var text = string.Concat(Enumerable.Repeat("ação ", length / 5 + 1))[..length];
-            var module = new FormModule("NLS_LONG");
+            using var module = new FormModule("NLS_LONG");
             module.Comment = text;
             Assert.Equal(text, module.Comment);
-            module.Destroy();
         });
     }
 
@@ -47,14 +45,13 @@ public class NlsStringMarshallerTests
             Assert.True(nlsLang.EndsWith("WE8ISO8859P1", StringComparison.OrdinalIgnoreCase),
                 "this test expects NLS_LANG=...WE8ISO8859P1");
 
-            var module = new FormModule("NLS_BAD");
+            using var module = new FormModule("NLS_BAD");
             var item = new Item(new Block(module, "B"), "I");
             item.SetStringProperty(NdapiConstant.D2FP_PRMPT, "antes");
 
             var error = Assert.Throws<NdapiException>(() => item.SetStringProperty(NdapiConstant.D2FP_PRMPT, "ok ✓"));
             Assert.Contains("U+2713", error.Message);
             Assert.Equal("antes", item.GetStringProperty(NdapiConstant.D2FP_PRMPT)); // nothing written
-            module.Destroy();
         });
     }
 }

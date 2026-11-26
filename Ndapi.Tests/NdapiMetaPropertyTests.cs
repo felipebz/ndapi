@@ -16,12 +16,11 @@ public class NdapiMetaPropertyTests
             var dataType = NdapiMetadata.GetMetaObjectFrom(typeof(Item)).AllProperties
                 .Single(p => p.PropertyId == NdapiConstant.D2FP_DAT_TYP);
 
-            var module = new FormModule("ALLOWED_VALUES");
+            using var module = new FormModule("ALLOWED_VALUES");
             var item = new Item(new Block(module, "B"), "I") { DataType = ItemDataType.Number };
             var native = item.GetNumberProperty(NdapiConstant.D2FP_DAT_TYP);
 
             Assert.Equal(nameof(ItemDataType.Number), dataType.AllowedValues[native]);
-            module.Destroy();
         });
     }
 

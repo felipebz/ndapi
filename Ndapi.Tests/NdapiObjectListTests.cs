@@ -11,7 +11,7 @@ public class NdapiObjectListTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("REMOVE_ALL");
+            using var module = new FormModule("REMOVE_ALL");
             for (var i = 0; i < count; i++)
             {
                 _ = new Block(module, $"B{i}");
@@ -20,7 +20,6 @@ public class NdapiObjectListTests
             module.Blocks.RemoveAll();
 
             Assert.Empty(module.Blocks);
-            module.Destroy();
         });
     }
 
@@ -29,7 +28,7 @@ public class NdapiObjectListTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("ENUM_END");
+            using var module = new FormModule("ENUM_END");
             _ = new Block(module, "A");
             _ = new Block(module, "B");
 
@@ -40,7 +39,6 @@ public class NdapiObjectListTests
             Assert.Equal("B", enumerator.Current.Name);
             Assert.False(enumerator.MoveNext());
             Assert.False(enumerator.MoveNext());
-            module.Destroy();
         });
     }
 
@@ -49,14 +47,13 @@ public class NdapiObjectListTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("INDEXER");
+            using var module = new FormModule("INDEXER");
             _ = new Block(module, "A");
             _ = new Block(module, "B");
 
             Assert.Equal("B", module.Blocks[1].Name);
             Assert.Throws<ArgumentOutOfRangeException>(() => module.Blocks[-1]);
             Assert.Throws<ArgumentOutOfRangeException>(() => module.Blocks[2]);
-            module.Destroy();
         });
     }
 }

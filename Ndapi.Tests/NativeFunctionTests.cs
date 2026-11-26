@@ -14,7 +14,7 @@ public class NativeFunctionTests
         Sta.Run(() =>
         {
             var path = Path.Join(Path.GetTempPath(), $"pci_{Guid.NewGuid():N}.fmb");
-            var module = new FormModule("PCI_SAVE");
+            using var module = new FormModule("PCI_SAVE");
             var alert = new Alert(module, "A");
             Assert.Null(alert.PersistentClientInfo);
 
@@ -48,7 +48,7 @@ public class NativeFunctionTests
         {
             var directory = Directory.CreateTempSubdirectory("ndapi_ação_");
             var path = Path.Join(directory.FullName, "AÇÃO.fmb");
-            var module = new FormModule("ACAO");
+            using var module = new FormModule("ACAO");
             module.Save(path);
             module.Destroy();
 
@@ -99,7 +99,7 @@ public class NativeFunctionTests
         {
             Assert.SkipWhen(NdapiContext.BuilderVersion.MajorVersion < 12, "requires Forms 12c");
 
-            var module = new FormModule("UNSUBCLASS");
+            using var module = new FormModule("UNSUBCLASS");
             var alert = new Alert(module, "A");
             alert.Subclass(new PropertyClass(module, "PC"));
             Assert.NotNull(alert.Source);
@@ -107,7 +107,6 @@ public class NativeFunctionTests
             alert.UnSubclass();
 
             Assert.Null(alert.Source);
-            module.Destroy();
         });
     }
 
@@ -150,17 +149,17 @@ public class NativeFunctionTests
             var library = Path.Join(directory.FullName, "RP2RRO.pll");
             var form = Path.Join(directory.FullName, "with_lib.fmb");
             File.Copy(shipped, library);
-            var module = new FormModule("WITH_LIB");
+            using var module = new FormModule("WITH_LIB");
             _ = new AttachedLibrary(module, library);
             module.Save(form);
             module.Destroy();
 
-            var loaded = FormModule.Open(form, out var withLibrary);
+            using var loaded = FormModule.Open(form, out var withLibrary);
             loaded.Destroy();
             Assert.Null(withLibrary);
 
             File.Delete(library);
-            var reopened = FormModule.Open(form, out var withoutLibrary);
+            using var reopened = FormModule.Open(form, out var withoutLibrary);
             reopened.Destroy();
             directory.Delete(true);
             Assert.Contains("FRM-10102", withoutLibrary);

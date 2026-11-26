@@ -15,7 +15,7 @@ public class NdapiObjectRegistryTests
         {
             for (var i = 0; i < 50; i++)
             {
-                var module = new FormModule($"REG_{i}");
+                using var module = new FormModule($"REG_{i}");
                 for (var j = 0; j < 20; j++)
                 {
                     _ = new Window(module, $"W{j}");
@@ -25,7 +25,7 @@ public class NdapiObjectRegistryTests
                 Assert.All(module.Windows, w => Assert.Equal(ObjectType.Window, w.GetObjectType()));
                 module.Destroy();
 
-                var other = new FormModule($"REG_OTHER_{i}");
+                using var other = new FormModule($"REG_OTHER_{i}");
                 for (var j = 0; j < 20; j++)
                 {
                     _ = new Canvas(other, $"C{j}");
@@ -44,7 +44,7 @@ public class NdapiObjectRegistryTests
     {
         Sta.Run(() =>
         {
-            var module = new FormModule("REG_CHILD");
+            using var module = new FormModule("REG_CHILD");
             for (var i = 0; i < 50; i++)
             {
                 var block = new Block(module, $"B{i}");
@@ -57,8 +57,6 @@ public class NdapiObjectRegistryTests
                 Assert.All(module.Alerts, a => Assert.Equal(ObjectType.Alert, a.GetObjectType()));
                 Assert.All(module.RecordGroups, r => Assert.Equal(ObjectType.RecordGroup, r.GetObjectType()));
             }
-
-            module.Destroy();
         });
     }
 }

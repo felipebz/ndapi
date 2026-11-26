@@ -71,9 +71,8 @@ public class NdapiMetadataTests
             Assert.DoesNotContain(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, typed);
             Assert.Contains(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN, NdapiMetadata.SupportedProperties);
 
-            var module = new FormModule("META_TEST");
+            using var module = new FormModule("META_TEST");
             Assert.True(module.HasProperty(NdapiConstant.D2FP_PERSIST_CLT_INF_LEN));
-            module.Destroy();
         });
     }
 
