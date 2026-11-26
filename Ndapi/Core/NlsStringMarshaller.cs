@@ -12,10 +12,8 @@ namespace Ndapi.Core;
 [CustomMarshaller(typeof(string), MarshalMode.ManagedToUnmanagedIn, typeof(ManagedToUnmanagedIn))]
 internal static unsafe partial class NlsStringMarshaller
 {
-    private static Encoding? s_encoding;
-
     // resolved on first use, so an unsupported NLS_LANG is reported by every call instead of poisoning the type
-    private static Encoding Enc => s_encoding ??= InitializeEncoding();
+    private static Encoding Enc => field ??= InitializeEncoding();
 
     /// <summary>
     /// Encodes into the stack buffer the generated stub provides, and only allocates native memory for strings that
@@ -129,11 +127,14 @@ internal static unsafe partial class NlsStringMarshaller
 
         try
         {
-            return codePage is { } cp
-                ? CodePagesEncodingProvider.Instance.GetEncoding(cp) ?? Encoding.GetEncoding(cp)
-                : name is null
-                    ? null
-                    : CodePagesEncodingProvider.Instance.GetEncoding(name) ?? Encoding.GetEncoding(name);
+            if (codePage is { } cp)
+            {
+                return CodePagesEncodingProvider.Instance.GetEncoding(cp) ?? Encoding.GetEncoding(cp);
+            }
+
+            return name is null
+                ? null
+                : CodePagesEncodingProvider.Instance.GetEncoding(name) ?? Encoding.GetEncoding(name);
         }
         catch (Exception e) when (e is ArgumentException or NotSupportedException)
         {

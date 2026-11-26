@@ -62,7 +62,7 @@ public class NlsStringMarshallerTests
         scoped var marshaller = new NlsStringMarshaller.ManagedToUnmanagedIn();
         marshaller.FromManaged(null, stackalloc byte[NlsStringMarshaller.ManagedToUnmanagedIn.BufferSize]);
 
-        Assert.True(marshaller.ToUnmanaged() == null);
+        Assert.Equal(0, (nint)marshaller.ToUnmanaged());
         marshaller.Free();
     }
 

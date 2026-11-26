@@ -155,9 +155,7 @@ public class NdapiObjectTests
         Sta.Run(() =>
         {
             using var module = new FormModule("QUERY_NAME");
-            var item = new Item(new Block(module, "B"), "I");
-
-            item.QueryName = "Q1";
+            var item = new Item(new Block(module, "B"), "I") { QueryName = "Q1" };
 
             Assert.Equal("Q1", item.QueryName);
         });
@@ -263,9 +261,7 @@ public class NdapiObjectTests
         Sta.Run(() =>
         {
             using var module = new FormModule("STRING_IDS");
-            var item = new Item(new Block(module, "B"), "I") { Prompt = "P", Hint = "H" };
-
-            item.PromptStringId = 42;
+            var item = new Item(new Block(module, "B"), "I") { Prompt = "P", Hint = "H", PromptStringId = 42 };
 
             Assert.Equal(42, item.PromptStringId);
             var error = Assert.Throws<NdapiException>(() => item.HintStringId = 42);

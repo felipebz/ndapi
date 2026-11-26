@@ -13,9 +13,7 @@ namespace Ndapi.Core;
 [CustomMarshaller(typeof(string), MarshalMode.ManagedToUnmanagedIn, typeof(ManagedToUnmanagedIn))]
 internal static unsafe class PathMarshaller
 {
-    private static Encoding? s_encoding;
-
-    private static Encoding Enc => s_encoding ??= InitializeEncoding();
+    private static Encoding Enc => field ??= InitializeEncoding();
 
     public ref struct ManagedToUnmanagedIn
     {

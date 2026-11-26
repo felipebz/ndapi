@@ -12,7 +12,7 @@ namespace Ndapi.Tests;
 /// </summary>
 internal static class Sta
 {
-    private static readonly BlockingCollection<Action> Queue = new();
+    private static readonly BlockingCollection<Action> Queue = [];
 
     static Sta()
     {

@@ -6,7 +6,7 @@ namespace Ndapi.Core;
 
 internal sealed class NdapiObjectRegistry
 {
-    private readonly Dictionary<IntPtr, NdapiObject> _trackedObjects = new();
+    private readonly Dictionary<IntPtr, NdapiObject> _trackedObjects = [];
 
     public bool TryGetObject(IntPtr pointer, [NotNullWhen(true)] out NdapiObject? obj)
         => _trackedObjects.TryGetValue(pointer, out obj);
