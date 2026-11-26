@@ -112,10 +112,10 @@ public sealed class NdapiContext : IDisposable
         {
             status = NativeMethods.d2fctxcr_Create(out context, ref contextAttributes);
         }
-        catch (DllNotFoundException)
+        catch (DllNotFoundException e)
         {
-            throw new NdapiException($"Could not found the {s_formsLib} from Oracle Forms installation. " +
-                                     "Please check if this version of Oracle Forms is installed.");
+            throw new NdapiException($"Could not find {s_formsLib} from the Oracle Forms installation. " +
+                                     "Please check if this version of Oracle Forms is installed.", e);
         }
 
         // published only once created, so a failure is reported again on the next call instead of leaving an

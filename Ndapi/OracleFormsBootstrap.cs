@@ -28,7 +28,7 @@ internal static partial class OracleFormsBootstrap
 
         if (!File.Exists(frmjapiPath))
         {
-            throw new NdapiException($"Could not found the {frmjapiPath} from Oracle Forms installation. " +
+            throw new NdapiException($"Could not find {frmjapiPath} from the Oracle Forms installation. " +
                                      "Please check if this version of Oracle Forms is installed.");
         }
 
@@ -39,7 +39,7 @@ internal static partial class OracleFormsBootstrap
         }
 
         var errPtr = dlerror();
-        var err = errPtr == IntPtr.Zero ? "unknown" : Marshal.PtrToStringAnsi(errPtr);
-        throw new InvalidOperationException($"dlopen failure({frmjapiPath}): {err}");
+        var err = errPtr == IntPtr.Zero ? "unknown error" : Marshal.PtrToStringUTF8(errPtr);
+        throw new NdapiException($"Could not load {frmjapiPath}: {err}");
     }
 }
