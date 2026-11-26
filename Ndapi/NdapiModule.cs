@@ -11,7 +11,7 @@ namespace Ndapi;
 /// <summary>
 /// Represents a generic module.
 /// </summary>
-public abstract class NdapiModule : NdapiObject
+public closed class NdapiModule : NdapiObject
 {
     private bool _destroyed;
 
