@@ -1,11 +1,6 @@
 <Solution>
   <Folder Name="/samples/">
-    <Project Path="samples/CreateModuleDemo/CreateModuleDemo.x64.csproj">
-      <Platform Solution="*|Any CPU" Project="x64" />
-    </Project>
-    <Project Path="samples/CreateModuleDemo/CreateModuleDemo.x86.csproj">
-      <Platform Solution="*|Any CPU" Project="x86" />
-    </Project>
+    <Project Path="samples/CreateModuleDemo/CreateModuleDemo.csproj" />
   </Folder>
   <Project Path="Ndapi.Tests/Ndapi.Tests.csproj" />
   <Project Path="Ndapi.UnitTests/Ndapi.UnitTests.csproj" />

@@ -8,7 +8,7 @@ namespace CreateModuleDemo;
 static class Program
 {
     [STAThread]
-    static void Main(string[] args)
+    static void Main()
     {
         /*
         This example creates a master-detail form based on the dept and emp database tables owned by the user scott.
@@ -18,7 +18,7 @@ static class Program
         */
 
         // Create the form
-        var module = new FormModule("empdept");
+        using var module = new FormModule("empdept");
 
         // Create a window
         var mywin = new Window(module, "MYWIN");

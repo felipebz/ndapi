@@ -85,11 +85,12 @@ jobs:
       - name: Run unit tests
         run: dotnet test --project Ndapi.UnitTests/Ndapi.UnitTests.csproj -c Release --no-build
 
-      - name: Build trimmed sample with NativeAOT for Forms 12c/14c
-        run: dotnet publish -c Release -f net10.0 -p:"Platform=x64" -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.x64.csproj
-
       - name: Build NuGet package and validate API compatibility
         run: dotnet pack Ndapi/Ndapi.csproj -c Release --no-build $VERSION_ARGS -o artifacts
+
+      # after packing: publishing rebuilds Ndapi without the prerelease version
+      - name: Build trimmed sample with NativeAOT for Forms 12c/14c
+        run: dotnet publish -c Release -r linux-x64 samples/CreateModuleDemo/CreateModuleDemo.csproj
 
       - name: Publish to GitHub Packages
         if: github.event_name == 'push'
