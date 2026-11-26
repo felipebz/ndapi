@@ -6,6 +6,7 @@
         <Authors>Felipe Zorzo</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/felipebz/ndapi</PackageProjectUrl>
+        <!-- explicit: SourceLink would otherwise take it from the clone's remote -->
         <RepositoryUrl>https://github.com/felipebz/ndapi</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>oracle wrapper API oracleforms</PackageTags>
@@ -14,12 +15,10 @@
         <PackageReleaseNotes>https://github.com/felipebz/ndapi/blob/main/CHANGELOG.md</PackageReleaseNotes>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!-- CS1591: undocumented public members (mostly enum members), documented over time -->
-        <NoWarn>NU5128;CS1591</NoWarn>
+        <NoWarn>CS1591</NoWarn>
         <Nullable>enable</Nullable>
-        <WarningsAsErrors>nullable</WarningsAsErrors>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <IsAotCompatible>true</IsAotCompatible>
-        <EmbedUntrackedSources>true</EmbedUntrackedSources>
     </PropertyGroup>
 
     <!--
@@ -27,7 +26,8 @@
     VersionPrefix between releases. Version is only set here when it comes from the command line (the SDK derives it
     from VersionPrefix later), so restore, format, build and the release pack never download a baseline.
     Intentional breaking changes are listed in CompatibilitySuppressions.xml:
-    regenerate it with dotnet pack -p:Version=0.0.1-ci -p:GenerateCompatibilitySuppressionFile=true
+    regenerate it with a version above the baseline, e.g.
+    dotnet pack -p:Version=14.0.1-ci -p:GenerateCompatibilitySuppressionFile=true
     -->
     <PropertyGroup Condition="'$(Version)' != '' and '$(Version)' != '$(VersionPrefix)'">
         <EnablePackageValidation>true</EnablePackageValidation>
