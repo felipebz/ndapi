@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using Ndapi.Core;
@@ -19,6 +20,7 @@ public class NdapiObjectLibraryObjectList : IEnumerable<NdapiObject>
 
     public int Count { get; }
 
+    [Obsolete("Use Count > 0. Any() will be removed in Ndapi 15, leaving Enumerable.Any().")]
     public bool Any() => Count > 0;
 
     public IEnumerator<NdapiObject> GetEnumerator() => new Enumerator(this);

@@ -17,9 +17,11 @@ public class ObjectLibraryTests
             tab.AddObject(alert);
 
             Assert.Equal(1, library.Objects.Count);
-            Assert.True(library.Objects.Any());
             Assert.Equal(1, tab.Objects.Count);
+#pragma warning disable CS0618 // the instance Any() stays until Ndapi 15
+            Assert.True(library.Objects.Any());
             Assert.True(tab.Objects.Any());
+#pragma warning restore CS0618
         });
     }
 
