@@ -12,10 +12,18 @@ using Ndapi.Enums;
 namespace Ndapi;
 
 /// <summary>
-/// Represents a Forms API context.
+/// Represents a Forms API context. The context is process-wide: use the static members.
 /// </summary>
 public sealed class NdapiContext : IDisposable
 {
+    /// <summary>
+    /// Creates an instance whose <see cref="Dispose"/> destroys the process-wide context.
+    /// </summary>
+    [Obsolete("The Forms API context is process-wide; use the static members. NdapiContext becomes a static class in Ndapi 15.")]
+    public NdapiContext()
+    {
+    }
+
     private static readonly List<NdapiModule> ModuleList = [];
     private static ContextSafeHandle? s_context;
     private static string s_formsLib = NativeMethods.FormsLib;
@@ -244,6 +252,7 @@ public sealed class NdapiContext : IDisposable
     /// <summary>
     /// Destroy the Forms API context and dispose the object.
     /// </summary>
+    [Obsolete("Call NdapiContext.Destroy(). NdapiContext becomes a static class in Ndapi 15.")]
     public void Dispose()
     {
         Destroy();
