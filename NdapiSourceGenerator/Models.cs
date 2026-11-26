@@ -9,12 +9,15 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace NdapiSourceGenerator;
 
-internal sealed record ClassInfo(string? Namespace, string Name, string HintName);
+internal sealed record ClassInfo(string? Namespace, string Name, string FullName, string HintName);
 
+/// <param name="BareType">The type without its nullable annotation, for <c>typeof</c>.</param>
 internal sealed record PropertyModel(
     string Modifiers,
     string Type,
+    string BareType,
     string Name,
+    string Constant,
     string GetterModifiers,
     string Getter,
     string? SetterModifiers,

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 
@@ -14,7 +13,6 @@ namespace Ndapi.Metadata;
 /// </summary>
 public sealed class NdapiMetaObject
 {
-    [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)]
     private readonly Type _type;
 
     private readonly Lazy<IEnumerable<NdapiMetaProperty>> _properties;
@@ -58,7 +56,7 @@ public sealed class NdapiMetaObject
     /// </summary>
     public IEnumerable<NdapiMetaProperty> ChildObjectProperties => AllProperties.Where(p => p.IsList);
 
-    internal NdapiMetaObject([DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicProperties)] Type type)
+    internal NdapiMetaObject(Type type)
     {
         TypeName = type.Name;
 
@@ -66,14 +64,29 @@ public sealed class NdapiMetaObject
         _properties = new Lazy<IEnumerable<NdapiMetaProperty>>(LoadProperties, LazyThreadSafetyMode.PublicationOnly);
     }
 
+    // Walks from the class to its bases, so an overriding declaration hides the one it overrides, as reflection did.
     private List<NdapiMetaProperty> LoadProperties()
     {
-        var properties =
-            from property in _type.GetProperties()
-            from info in property.GetCustomAttributes(typeof(PropertyAttribute), false).Cast<PropertyAttribute>()
-            where ConstantConverter.IsPropertySupportedByBuilderVersion(info.PropertyId)
-            select new NdapiMetaProperty(info.PropertyId, property.Name, property.CanRead, property.CanWrite,
-                property.PropertyType);
+        var names = new HashSet<string>(StringComparer.Ordinal);
+        var properties = new List<NdapiMetaProperty>();
+        for (var type = _type; type is not null; type = type.BaseType)
+        {
+            if (!PropertyDeclarations.Declared.TryGetValue(type, out var declarations))
+            {
+                continue;
+            }
+
+            foreach (var declaration in declarations)
+            {
+                if (names.Add(declaration.Name) &&
+                    ConstantConverter.IsPropertySupportedByBuilderVersion(declaration.PropertyId))
+                {
+                    properties.Add(new NdapiMetaProperty(declaration.PropertyId, declaration.Name, allowGet: true,
+                        declaration.CanWrite, declaration.PropertyType));
+                }
+            }
+        }
+
         return properties.OrderBy(p => p.PropertyId).ToList();
     }
 }

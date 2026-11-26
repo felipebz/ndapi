@@ -26,6 +26,11 @@ public class NdapiPropertyGeneratorTests
             }
         }
 
+        namespace Ndapi.Metadata
+        {
+            public readonly record struct PropertyDeclaration(Ndapi.Core.NdapiConstant PropertyId, string Name, bool CanWrite, System.Type PropertyType);
+        }
+
         namespace Ndapi
         {
             using System;
@@ -100,6 +105,26 @@ public class NdapiPropertyGeneratorTests
 
         Assert.False(type.GetProperty("Children")!.CanWrite);
         Assert.False(type.GetProperty("Label")!.CanWrite);
+    }
+
+    [Fact]
+    public void TheDeclarationsTableListsEachPropertyWithItsConstantAndType()
+    {
+        CompileSample(out var type);
+
+        var declared = (System.Collections.IDictionary)type.Assembly.GetType("Ndapi.Metadata.PropertyDeclarations")!
+            .GetProperty("Declared")!.GetValue(null)!;
+
+        Assert.Equal(
+        [
+            "PropertyDeclaration { PropertyId = D2FP_TEXT, Name = Text, CanWrite = True, PropertyType = System.String }",
+            "PropertyDeclaration { PropertyId = D2FP_SIZE, Name = Size, CanWrite = True, PropertyType = System.Int32 }",
+            "PropertyDeclaration { PropertyId = D2FP_ENABLED, Name = Enabled, CanWrite = True, PropertyType = System.Boolean }",
+            "PropertyDeclaration { PropertyId = D2FP_STYLE, Name = Style, CanWrite = True, PropertyType = Ndapi.Style }",
+            "PropertyDeclaration { PropertyId = D2FP_OWNER, Name = Owner, CanWrite = True, PropertyType = Ndapi.Sample }",
+            "PropertyDeclaration { PropertyId = D2FP_CHILDREN, Name = Children, CanWrite = False, PropertyType = Ndapi.NdapiObjectList`1[Ndapi.Sample] }",
+            "PropertyDeclaration { PropertyId = D2FP_LABEL, Name = Label, CanWrite = False, PropertyType = System.String }"
+        ], ((System.Collections.IEnumerable)declared[type]!).Cast<object>().Select(d => d.ToString()!));
     }
 
     [Theory]
