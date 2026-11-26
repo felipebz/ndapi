@@ -2,7 +2,9 @@
     <PropertyGroup>
         <LangVersion>latest</LangVersion>
         <!-- pinned to the SDK major so new rules arrive with an SDK update, not silently -->
-        <AnalysisLevel>10.0-recommended</AnalysisLevel>
+        <AnalysisLevel>11.0-recommended</AnalysisLevel>
+        <!-- the IDE rules .editorconfig raises to warning fail the build too, not only dotnet format in CI -->
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 </Project>
