@@ -50,8 +50,8 @@ application. Ndapi targets .NET 8 or later and supports trimming and NativeAOT.
 | 12c (12.2.1.3, 12.2.1.4, 12.2.1.19) | `x64`          | Windows, Linux |
 | 14c (14.1.2.0)                  | `x64`              | Windows, Linux |
 
-* **Forms 6i:** run Ndapi on an STA thread, e.g. mark `Main` with `[STAThread]`. Top-level statements run on an MTA
-  thread, and the first call then fails with `Error code: Fail`.
+* **Windows:** run Ndapi on an STA thread, e.g. mark `Main` with `[STAThread]`. Top-level statements run on an MTA
+  thread, and the first call then throws an `NdapiException` asking for STA.
 * **Linux:** set `ORACLE_HOME` to the Forms installation. Forms itself needs Motif (`libXm.so.4`) and `libXp.so.6`.
 
 Need another version? [Open an issue](https://github.com/felipebz/ndapi/issues/new).

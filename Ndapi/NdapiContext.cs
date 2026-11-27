@@ -107,14 +107,13 @@ public sealed class NdapiContext : IDisposable
 
         ResolveNativeLibrary();
 
-        // Forms 6i (the only 32-bit Builder) initializes OLE when the context is created; on an MTA thread that
-        // fails with RPC_E_CHANGED_MODE and the API only reports a bare Fail.
-        if (!Environment.Is64BitProcess && OperatingSystem.IsWindows() &&
-            Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
+        // On Windows the Builders initialize OLE when the context is created (6i and 14c confirmed); on an MTA thread
+        // that fails with RPC_E_CHANGED_MODE and the API only reports a bare Fail.
+        if (OperatingSystem.IsWindows() && Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
         {
             throw new NdapiException(
-                "Oracle Forms 6i requires a single-threaded apartment (STA) thread. Mark Main with [STAThread] " +
-                "(top-level statements run on an MTA thread) or call Ndapi from a thread started with " +
+                "Oracle Forms on Windows requires a single-threaded apartment (STA) thread. Mark Main with " +
+                "[STAThread] (top-level statements run on an MTA thread) or call Ndapi from a thread started with " +
                 "SetApartmentState(ApartmentState.STA).");
         }
 
