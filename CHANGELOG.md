@@ -1,5 +1,46 @@
 # Changelog
 
+## [14.1.0](https://github.com/felipebz/ndapi/compare/14.0.0...14.1.0) (2026-11-27)
+
+
+### Features
+
+* **ndapi:** add Find, ObjectType and CreateMenuParameter, and deprecate the members they replace in Ndapi 15 ([298e83d](https://github.com/felipebz/ndapi/commit/298e83dfd0f723cecbc492340250134ea0e2b214))
+* **ndapi:** deprecate creating and disposing NdapiContext instances ahead of Ndapi 15 ([970e3b4](https://github.com/felipebz/ndapi/commit/970e3b4a59a6a630954cbd0b6b1caa1a4ff8865d))
+* **ndapi:** deprecate the instance Any() of the object library lists ahead of Ndapi 15 ([cb22148](https://github.com/felipebz/ndapi/commit/cb2214822db59985bd5f0ec8d65714fa7a13a52d))
+* **ndapi:** make NdapiModule a closed hierarchy ([a2c19cc](https://github.com/felipebz/ndapi/commit/a2c19cc55db43db16722b98cf623a0dbb7aef8d2))
+
+
+### Bug Fixes
+
+* **ndapi:** cache the leaking PL/SQL text properties in the string accessors so every access path sees the same value ([079931c](https://github.com/felipebz/ndapi/commit/079931cb2ba883fd1671e1e254c86f1a66d2c7a0))
+* **ndapi:** describe meta properties per declaring class instead of the first class loaded ([d02caad](https://github.com/felipebz/ndapi/commit/d02caad28d79fa537ad4a1f68e37cef5c3272a0d))
+* **ndapi:** drop constructor trimming annotations that only forced callers to repeat them ([0b9e003](https://github.com/felipebz/ndapi/commit/0b9e00379ac80b09a29abaa4190145be26d8004b))
+* **ndapi:** encode Forms 6i library and form load paths with the NLS charset like every other string ([90f060f](https://github.com/felipebz/ndapi/commit/90f060f8d47063d276902de83ef211f4e6c393a8))
+* **ndapi:** free the persistent client info buffer when Forms rejects it ([b205ecb](https://github.com/felipebz/ndapi/commit/b205ecb60bbedab40525473ca89d23020c16cdf6))
+* **ndapi:** keep a failed context creation from being reused by later calls ([f13dbe5](https://github.com/felipebz/ndapi/commit/f13dbe50323357b33e1aeb55e913caab2c5cac0b))
+* **ndapi:** list the roles of a menu item instead of an empty sequence ([2e0f98f](https://github.com/felipebz/ndapi/commit/2e0f98f68a2d24c8e423381a1a9fb510f826ba05))
+* **ndapi:** map Oracle charsets by name pattern and default to the OS code page instead of UTF-8 ([68a743a](https://github.com/felipebz/ndapi/commit/68a743a75f9b9a781452c643e7acae1c6d3a19e6))
+* **ndapi:** pass file paths in the file system encoding instead ([6161490](https://github.com/felipebz/ndapi/commit/6161490f199dd2b789a79fdef68f21b2d98cf754))
+* **ndapi:** redirect only the Forms library on Linux and leave other native imports to default probing ([b189c57](https://github.com/felipebz/ndapi/commit/b189c578fbcf92ecad57a8062446d4ba717492fb))
+* **ndapi:** report Any() for object libraries and tabs holding a single object ([d8522ac](https://github.com/felipebz/ndapi/commit/d8522ac5f7d08493d816864a551fb6d4a24e17d0))
+* **ndapi:** report native library load failures as NdapiException and keep their cause ([b8eaa74](https://github.com/felipebz/ndapi/commit/b8eaa74fd0a63f50c805a6dd9da7495a13aba2c5))
+* **ndapi:** require an STA thread on every Windows Builder, not only Forms 6i ([03e0df6](https://github.com/felipebz/ndapi/commit/03e0df69d9e0c95a0f9b96c57caf23dcfd6496fc))
+* **ndapi:** resolve the owning library of tabs read from an object library ([8c1df98](https://github.com/felipebz/ndapi/commit/8c1df98e982ac368a84e1362d46585f1e1393d84))
+* **ndapi:** return a snapshot of the open modules so they can be closed while iterating ([c8d6f8f](https://github.com/felipebz/ndapi/commit/c8d6f8fe1307f3df7534ffea7ff9f0f57705c975))
+* **ndapi:** stop RemoveAll from destroying the last object twice and honor the enumerator contract ([aa1b2c3](https://github.com/felipebz/ndapi/commit/aa1b2c36f706a777aa485bfc4aae3dc964d4978b))
+* **ndapi:** throw ArgumentNullException for null object arguments instead of NullReferenceException ([33a49b0](https://github.com/felipebz/ndapi/commit/33a49b0272ce184d6e082500af39164c32b61023))
+* **ndapi:** throw ObjectDisposedException on wrappers whose native object was destroyed ([7501059](https://github.com/felipebz/ndapi/commit/7501059608e7ee25e15bfd993e0c4bb65e13f6a1))
+
+
+### Performance Improvements
+
+* **ndapi:** cache the supported properties, read native counts once per enumeration and retry failed lazy loads ([98d3c73](https://github.com/felipebz/ndapi/commit/98d3c7303607eb6e4c5addbf7dd6bd9bcc79da6a))
+* **ndapi:** convert enum properties without boxing and through a cached reverse lookup ([9836fe3](https://github.com/felipebz/ndapi/commit/9836fe3bf9e48e881539c31e28f71533c4cdce70))
+* **ndapi:** look up object type mappings by dictionary instead of scanning the list ([8022a52](https://github.com/felipebz/ndapi/commit/8022a526a086dcfcc920e8ecebdc72ebc94b20b0))
+* **ndapi:** marshal NLS strings through spans ([3775acb](https://github.com/felipebz/ndapi/commit/3775acb8cdfc0b24c2162c15de327ca208a65543))
+* **ndapi:** stop finalizing object handles, which own nothing, and share one handle for null arguments ([265ddb5](https://github.com/felipebz/ndapi/commit/265ddb55153de69d79cd6b3312bd961e5e5ce554))
+
 ## [14.0.0](https://github.com/felipebz/ndapi/compare/Ndapi-13.1.0...Ndapi-14.0.0) (2026-11-20)
 
 
