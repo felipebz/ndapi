@@ -96,7 +96,7 @@ public abstract partial class NdapiObject : IDisposable
     public partial string? ParentFileName { get; set; }
 
     /// <summary>
-    /// Gets or sets the object owner.
+    /// Gets the object owner, or null for a module, which has none.
     /// </summary>
     [Property(NdapiConstant.D2FP_OWNER)]
     public partial NdapiObject? Owner { get; }
@@ -283,6 +283,13 @@ public abstract partial class NdapiObject : IDisposable
     public T? GetObjectProperty<T>(
         NdapiConstant property) where T : NdapiObject
     {
+        // Forms answers the owner of a module with a handle of an undefined object type (255), which Create
+        // rejects: a module has no owner.
+        if (property == NdapiConstant.D2FP_OWNER && this is NdapiModule)
+        {
+            return null;
+        }
+
         Ensure.IsPropertySupportedByBuilderVersion(property);
         var status = NativeMethods.d2fobgo_GetObjProp(NdapiContext.GetContext(), Handle,
             ConstantConverter.GetValue(property), out var handle);
@@ -357,9 +364,7 @@ public abstract partial class NdapiObject : IDisposable
         {
             builder.Insert(0, ".");
             builder.Insert(0, owner.Name);
-            owner = (owner is NdapiModule)
-                ? null
-                : owner.Owner; // if owner is a module, the Owner property returns a Point object (?)
+            owner = owner.Owner;
         }
 
         builder.Append(Name);

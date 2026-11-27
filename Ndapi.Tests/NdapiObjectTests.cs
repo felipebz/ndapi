@@ -26,6 +26,25 @@ public class NdapiObjectTests
         });
     }
 
+    // Forms answers the owner of a module with an object of undefined type, which made Owner and GetQualifiedName
+    // throw for the module itself
+    [Fact]
+    public void ModuleHasNoOwner()
+    {
+        Sta.Run(() =>
+        {
+            using var module = new FormModule("NO_OWNER");
+            var alert = new Alert(module, "A");
+
+            Assert.Null(module.Owner);
+            Assert.Same(module, alert.Owner);
+            Assert.Equal("NO_OWNER", module.GetQualifiedName(false));
+            Assert.Equal("NO_OWNER", module.GetQualifiedName(true));
+            Assert.Equal("NO_OWNER.A", alert.GetQualifiedName(true));
+            Assert.Equal("A", alert.GetQualifiedName(false));
+        });
+    }
+
     [Fact]
     public void PropertiesIntroducedInForms14RoundTripEveryValue()
     {
