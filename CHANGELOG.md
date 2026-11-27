@@ -1,5 +1,12 @@
 # Changelog
 
+## [14.1.1](https://github.com/felipebz/ndapi/compare/14.1.0...14.1.1) (2026-11-27)
+
+
+### Bug Fixes
+
+* handle modules with no owner ([b485c92](https://github.com/felipebz/ndapi/commit/b485c92c6fd67a53a1cf1de6f77c87e7ca8c06be))
+
 ## [14.1.0](https://github.com/felipebz/ndapi/compare/14.0.0...14.1.0) (2026-11-27)
 
 

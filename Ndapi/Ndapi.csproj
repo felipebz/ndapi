@@ -11,7 +11,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>oracle wrapper API oracleforms</PackageTags>
         <!-- updated by release-please; CI builds between releases get a prerelease suffix -->
-        <VersionPrefix>14.1.0</VersionPrefix>
+        <VersionPrefix>14.1.1</VersionPrefix>
         <PackageReleaseNotes>https://github.com/felipebz/ndapi/blob/main/CHANGELOG.md</PackageReleaseNotes>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <!-- CS1591: undocumented public members (mostly enum members), documented over time -->
